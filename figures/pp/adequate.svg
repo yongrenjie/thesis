@@ -1,0 +1,1410 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   inkscape:export-ydpi="500"
+   inkscape:export-xdpi="500"
+   inkscape:export-filename="/Users/yongrenjie/Desktop/a.png"
+   sodipodi:docname="adequate.svg"
+   inkscape:version="1.1.2 (b8e25be8, 2022-02-05)"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 158.11258 63.990986"
+   height="63.990986mm"
+   width="158.11258mm"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs2">
+    <marker
+       style="overflow:visible"
+       id="Arrow1Sstart"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.2) translate(6,0)"
+         style="fill-rule:evenodd;fill:context-stroke;stroke:context-stroke;stroke-width:1.0pt"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path12224" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Sstart"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow2Sstart"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.3) translate(-2.3,0)"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         style="stroke:context-stroke;fill-rule:evenodd;fill:context-stroke;stroke-width:0.62500000;stroke-linejoin:round"
+         id="path12242" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Mstart"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Mstart"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.4) translate(10,0)"
+         style="fill-rule:evenodd;fill:context-stroke;stroke:context-stroke;stroke-width:1.0pt"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path12218" />
+    </marker>
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#pattern8676"
+       id="pattern8702"
+       patternTransform="rotate(25.497987,2.3903187e-5,-1.6811764e-5)" />
+    <rect
+       x="180"
+       y="110"
+       width="490"
+       height="60"
+       id="rect44379" />
+    <marker
+       style="overflow:visible"
+       id="Arrow1Send"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Send"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.2,0,0,-0.2,-1.2,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path4199" />
+    </marker>
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2417" />
+    <rect
+       x="66.145836"
+       y="30.427082"
+       width="11.90625"
+       height="7.9375"
+       id="rect2405" />
+    <rect
+       id="rect2417-5"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+    <rect
+       id="rect3112"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2417-5-4" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect1299" />
+    <rect
+       id="rect2417-2"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+    <rect
+       id="rect1704"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2417-2-5" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect1911" />
+    <rect
+       id="rect2417-7"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+    <rect
+       id="rect628"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2417-7-0" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect1265" />
+    <rect
+       id="rect2417-7-0-8"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+    <rect
+       id="rect1352"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2417-7-2" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect1645" />
+    <rect
+       id="rect2417-7-0-3"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+    <rect
+       id="rect1648"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2417-7-4" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect1937" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2417-7-6" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2315" />
+    <rect
+       id="rect2417-7-0-0"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+    <rect
+       id="rect2318"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+    <rect
+       id="rect2417-7-4-4"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+    <rect
+       id="rect2321"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2417-5-7" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect1918" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2417-5-7-9" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect1827" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2417-5-7-9-5" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2715" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2417-5-7-9-5-0" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect3097" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2417-5-7-8" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2046" />
+    <rect
+       id="rect2417-5-0"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+    <rect
+       id="rect2691"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2417-5-7-9-7" />
+    <marker
+       style="overflow:visible"
+       id="Arrow1Send-9"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Send"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.2,0,0,-0.2,-1.2,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path4199-7" />
+    </marker>
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2417-5-7-2" />
+    <rect
+       id="rect2417-5-49"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="5.4543059"
+       height="5.4543265"
+       patternTransform="translate(335.1508,105.1508)"
+       id="pattern8676">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.64252;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 0.22716553,5.227162 C 5.2271403,0.2271645 5.2271403,0.2271645 5.2271403,0.2271645 v 0 0"
+         id="path8594" />
+    </pattern>
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="5.2271772"
+       height="5.2271543"
+       patternTransform="translate(337.37795,106.15079)"
+       id="pattern8786">
+      <rect
+         style="fill:url(#pattern8702);stroke:none;stroke-width:0.999999"
+         width="5.2271771"
+         height="5.2271543"
+         x="0"
+         y="0"
+         id="rect8679"
+         ry="0.22715399" />
+    </pattern>
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="5.4543059"
+       height="5.4543265"
+       patternTransform="translate(335.1508,105.1508)"
+       id="pattern8676-2">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.64252;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 0.22716553,5.227162 C 5.2271403,0.2271645 5.2271403,0.2271645 5.2271403,0.2271645 v 0 0"
+         id="path8594-0" />
+    </pattern>
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="5.1403803"
+       height="2.350918"
+       patternTransform="translate(345.30777,108.2025)"
+       id="pattern9702">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.377953;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 0.07018384,2.1754577 5.0701964,0.17546026"
+         id="path8946" />
+    </pattern>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.6176174"
+     inkscape:cx="360.71571"
+     inkscape:cy="58.72835"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="true"
+     inkscape:window-width="1482"
+     inkscape:window-height="782"
+     inkscape:window-x="21"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:snap-object-midpoints="false"
+     inkscape:snap-text-baseline="true"
+     inkscape:pagecheckerboard="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid1346"
+       originx="-39.587498"
+       originy="-21.066666" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-39.5875,-21.066666)">
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect1350-6-5-3-1-0"
+       width="1.3229166"
+       height="5.2916665"
+       x="130.96875"
+       y="48.947918"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <path
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       id="path3919-7-8-6"
+       title="cos(x)*exp(-x/15)"
+       d="m 179.97758,41.010403 c 0.0857,0.0705 0.17123,0.54038 0.25677,1.26223 0.0856,0.72168 0.17123,1.68758 0.25691,2.64362 0.0855,0.95605 0.17122,1.89335 0.25676,2.58929 0.0855,0.69595 0.17122,1.14418 0.25676,1.26017 0.0857,0.11599 0.17122,-0.10074 0.25692,-0.56772 0.0855,-0.46698 0.17109,-1.17961 0.25675,-1.94435 0.0855,-0.76474 0.17122,-1.57461 0.25677,-2.23131 0.0855,-0.65669 0.17121,-1.15434 0.25677,-1.38839 0.0856,-0.2342 0.17122,-0.2029 0.25689,0.0618 0.0855,0.26472 0.17108,0.76014 0.25676,1.34629 0.0855,0.58615 0.17123,1.25746 0.25678,1.8452 0.0856,0.5879 0.17121,1.08681 0.25674,1.38553 0.0857,0.29871 0.17124,0.39484 0.25691,0.28378 0.0855,-0.11091 0.17123,-0.42758 0.25678,-0.85515 0.0855,-0.42758 0.17122,-0.96193 0.25675,-1.4653 0.0857,-0.5032 0.17122,-0.97082 0.25677,-1.29385 0.0856,-0.32318 0.17122,-0.49907 0.2569,-0.49907 0.0855,-1.6e-4 0.17121,0.17541 0.25676,0.46825 0.0855,0.29284 0.17125,0.70007 0.25676,1.11382 0.0856,0.4136 0.17122,0.82973 0.25691,1.14847 0.0855,0.31858 0.17109,0.53705 0.25675,0.61221 0.0855,0.075 0.17124,0.006 0.25677,-0.17653 0.0856,-0.18289 0.17122,-0.4781 0.25678,-0.80447 0.0856,-0.32636 0.17122,-0.68084 0.25691,-0.97606 0.0855,-0.29507 0.17106,-0.52816 0.25674,-0.64907 0.0855,-0.12092 0.17123,-0.12871 0.25678,-0.0319 0.0856,0.0968 0.17122,0.29712 0.25676,0.5434 0.0856,0.24628 0.17123,0.53626 0.25691,0.79652 0.0855,0.26011 0.17123,0.48796 0.25676,0.63207 0.0855,0.14412 0.17123,0.20307 0.25678,0.17065 0.0856,-0.0322 0.17122,-0.15555 0.2569,-0.33192 0.0855,-0.17637 0.17107,-0.4039 0.25675,-0.62365 0.0855,-0.21975 0.17123,-0.42948 0.25678,-0.57979 0.0855,-0.15047 0.17122,-0.24025 0.25675,-0.25343"
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <path
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       style="fill:none;stroke:#000000;stroke-width:0.264582px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 47.624996,44.979172 H 191.82292"
+       id="path10-22-2"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="43.534466"
+       y="46.302082"
+       id="text14-2-7"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         sodipodi:role="line"
+         id="tspan12-5-03"
+         x="43.534466"
+         y="46.302082"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';stroke-width:0.264583"><tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.29306px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';baseline-shift:super;stroke-width:0.264583"
+   id="tspan16-1-9">1</tspan>H</tspan></text>
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="43.370197"
+       y="63.390835"
+       id="text24-6-9"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         sodipodi:role="line"
+         id="tspan22-4-9"
+         x="43.370197"
+         y="63.390835"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';stroke-width:0.264583">G<tspan
+   style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.29306px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';baseline-shift:sub;stroke-width:0.264583"
+   id="tspan28-4-1">z</tspan></tspan></text>
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       id="text20-1-3-7"
+       y="55.491745"
+       x="42.533535"
+       style="font-style:normal;font-weight:normal;font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       xml:space="preserve"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';stroke-width:0.264583"
+         y="55.491745"
+         x="42.533535"
+         id="tspan18-9-4-2"
+         sodipodi:role="line"><tspan
+   style="font-size:65%;baseline-shift:super"
+   id="tspan2018">13</tspan>C</tspan></text>
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       style="fill:#000000;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect1348-2-65"
+       width="1.3229166"
+       height="5.2916665"
+       x="76.729164"
+       y="39.6875"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect1350-6-5"
+       width="1.3229166"
+       height="5.2916665"
+       x="83.343742"
+       y="39.6875"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       y="39.687496"
+       x="89.958344"
+       height="5.2916665"
+       width="1.3229166"
+       id="rect1348-7-1-8"
+       style="fill:#000000;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <path
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       id="path10-2-0-1"
+       d="M 47.625003,54.239582 H 191.82292"
+       style="fill:none;stroke:#000000;stroke-width:0.264582px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       y="48.947937"
+       x="83.34375"
+       height="5.2916665"
+       width="1.3229166"
+       id="rect1350-7-4-4"
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       style="fill:#000000;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect1348-7-2-6-7"
+       width="1.3229166"
+       height="5.2916665"
+       x="89.958344"
+       y="48.947933"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       y="39.6875"
+       x="113.77084"
+       height="5.2916665"
+       width="1.3229166"
+       id="rect1350-7-1-6-1-3"
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       y="39.6875"
+       x="140.22917"
+       height="5.2916665"
+       width="1.3229166"
+       id="rect1350-7-1-6-1-3-0"
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       y="48.947937"
+       x="121.70834"
+       height="5.2916665"
+       width="1.3229166"
+       id="rect1350-7-1-0-2-8"
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       style="fill:#000000;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect1348-2-6-3-4"
+       width="1.3229166"
+       height="5.2916665"
+       x="145.52081"
+       y="48.947937"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect1350-7-2-7-8"
+       width="1.3229166"
+       height="5.2916665"
+       x="152.13536"
+       y="48.947937"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       y="48.947937"
+       x="158.74992"
+       height="5.2916665"
+       width="1.3229166"
+       id="rect1348-7-2-5-6-0"
+       style="fill:#000000;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       y="48.947937"
+       x="165.36456"
+       height="5.2916665"
+       width="1.3229166"
+       id="rect1350-7-2-2-9-4"
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       y="39.6875"
+       x="152.13541"
+       height="5.2916665"
+       width="1.3229166"
+       id="rect1350-7-2-0-9-6"
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       style="fill:#000000;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect1348-7-2-5-4-6-0"
+       width="1.3229166"
+       height="5.2916665"
+       x="158.74992"
+       y="39.6875"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect1350-7-2-2-1-2-3"
+       width="1.3229166"
+       height="5.2916665"
+       x="165.36456"
+       y="39.6875"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       y="39.6875"
+       x="171.97903"
+       height="5.2916665"
+       width="1.3229166"
+       id="rect1348-7-2-5-5-8-7-2"
+       style="fill:#000000;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect1350-7-2-8-9-1-6"
+       width="1.3229166"
+       height="5.2916665"
+       x="175.94794"
+       y="39.6875"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       style="fill:#000000;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect1348-2-6-4-7-9-9"
+       width="1.3229166"
+       height="5.2916665"
+       x="145.52083"
+       y="39.6875"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <path
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       style="fill:none;stroke:#000000;stroke-width:0.264582px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 47.624996,62.177082 H 191.8229"
+       id="path10-2-8-0-41"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <ellipse
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       sodipodi:arc-type="slice"
+       sodipodi:end="0"
+       sodipodi:start="3.1415927"
+       sodipodi:ry="5.2916665"
+       sodipodi:rx="1.1175005"
+       sodipodi:cy="62.177082"
+       sodipodi:cx="124.35417"
+       sodipodi:type="arc"
+       id="path1583-6-8-78"
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"
+       d="m 123.23667,62.177082 a 1.1175005,5.2916665 0 0 1 1.1175,-5.291666 1.1175005,5.2916665 0 0 1 1.1175,5.291666 h -1.1175 z" />
+    <ellipse
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       sodipodi:arc-type="slice"
+       sodipodi:end="0"
+       sodipodi:start="3.1415927"
+       sodipodi:ry="4.8268137"
+       sodipodi:rx="1.1175005"
+       sodipodi:cy="62.177078"
+       sodipodi:cx="133.61458"
+       sodipodi:type="arc"
+       id="path1583-6-8-78-0"
+       style="fill:none;stroke:#000000;stroke-width:0.277467;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"
+       d="m 132.49708,62.177078 a 1.1175005,4.8268137 0 0 1 1.1175,-4.826813 1.1175005,4.8268137 0 0 1 1.1175,4.826813 h -1.1175 z" />
+    <ellipse
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0"
+       id="path1583-6-5-2-5"
+       sodipodi:type="arc"
+       sodipodi:cx="178.59375"
+       sodipodi:cy="62.177082"
+       sodipodi:rx="0.74900049"
+       sodipodi:ry="2.5273936"
+       sodipodi:start="3.1415927"
+       sodipodi:end="0"
+       sodipodi:arc-type="slice"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"
+       d="m 177.84475,62.177082 a 0.74900049,2.5273936 0 0 1 0.749,-2.527394 0.74900049,2.5273936 0 0 1 0.749,2.527394 h -0.749 z" />
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.82223px;line-height:1.25;font-family:'Fira Sans';fill:#023eff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="123.69934"
+       y="51.989479"
+       id="text2052-45-0-2-9"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         sodipodi:role="line"
+         id="tspan2050-8-4-1-54"
+         x="123.69934"
+         y="51.989479"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#023eff;fill-opacity:1;stroke-width:0.264583">ε</tspan><tspan
+         sodipodi:role="line"
+         x="123.69934"
+         y="55.517265"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#023eff;fill-opacity:1;stroke-width:0.264583"
+         id="tspan2054-9-3-0-9" /></text>
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       id="text2052-45-2-2-3-17"
+       y="51.989479"
+       x="119.6497"
+       style="font-style:normal;font-weight:normal;font-size:2.82223px;line-height:1.25;font-family:'Fira Sans';fill:#023eff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       xml:space="preserve"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#023eff;fill-opacity:1;stroke-width:0.264583"
+         y="51.989479"
+         x="119.6497"
+         id="tspan2050-8-8-6-6-5"
+         sodipodi:role="line">ε</tspan><tspan
+         id="tspan2054-9-6-8-6-5"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#023eff;fill-opacity:1;stroke-width:0.264583"
+         y="55.517265"
+         x="119.6497"
+         sodipodi:role="line" /></text>
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       xml:space="preserve"
+       style="font-size:2.82223px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#023eff;fill-opacity:1;stroke-width:0.264583"
+       x="113.57971"
+       y="51.989479"
+       id="text2142-5-4"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         sodipodi:role="line"
+         id="tspan2140-0-1"
+         x="113.57971"
+         y="51.989479"
+         style="fill:#023eff;fill-opacity:1;stroke-width:0.264583"><tspan
+           style="font-style:italic;fill:#023eff;fill-opacity:1;stroke-width:0.264583"
+           id="tspan2144-2-8">t</tspan><tspan
+           style="font-size:1.83445px;baseline-shift:sub;fill:#023eff;fill-opacity:1;stroke-width:0.264583"
+           id="tspan2146-3-8">1</tspan></tspan></text>
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       id="text2182-0-3"
+       y="42.935318"
+       x="79.875229"
+       style="font-style:normal;font-weight:normal;font-size:2.82223px;line-height:1.25;font-family:'Fira Sans';fill:#023eff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       xml:space="preserve"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#023eff;fill-opacity:1;stroke-width:0.264583"
+         y="42.935318"
+         x="79.875229"
+         id="tspan2178-4-5"
+         sodipodi:role="line">Δ</tspan><tspan
+         id="tspan2180-5-22"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#023eff;fill-opacity:1;stroke-width:0.264583"
+         y="46.463104"
+         x="79.875229"
+         sodipodi:role="line" /></text>
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.82223px;line-height:1.25;font-family:'Fira Sans';fill:#023eff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="86.489815"
+       y="42.935318"
+       id="text2188-2-6"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         sodipodi:role="line"
+         id="tspan2184-8-6"
+         x="86.489815"
+         y="42.935318"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#023eff;fill-opacity:1;stroke-width:0.264583">Δ</tspan><tspan
+         sodipodi:role="line"
+         x="86.489815"
+         y="46.463104"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#023eff;fill-opacity:1;stroke-width:0.264583"
+         id="tspan2186-0-78" /></text>
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       style="fill:#000000;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect1348-2-65-6"
+       width="1.3229166"
+       height="5.2916665"
+       x="50.270836"
+       y="39.6875"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect1350-6-5-3"
+       width="1.3229166"
+       height="5.2916665"
+       x="56.885418"
+       y="39.6875"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       y="48.947937"
+       x="56.885418"
+       height="5.2916665"
+       width="1.3229166"
+       id="rect1350-7-4-4-8"
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       id="text2182-0-3-8"
+       y="42.935318"
+       x="53.416904"
+       style="font-style:normal;font-weight:normal;font-size:2.82223px;line-height:1.25;font-family:'Fira Sans';fill:#023eff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       xml:space="preserve"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#023eff;fill-opacity:1;stroke-width:0.264583"
+         y="42.935318"
+         x="53.416904"
+         id="tspan2178-4-5-5"
+         sodipodi:role="line">Δ</tspan><tspan
+         id="tspan2180-5-22-1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#023eff;fill-opacity:1;stroke-width:0.264583"
+         y="46.463104"
+         x="53.416904"
+         sodipodi:role="line" /></text>
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.82223px;line-height:1.25;font-family:'Fira Sans';fill:#023eff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="60.03149"
+       y="42.935318"
+       id="text2188-2-6-6"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         sodipodi:role="line"
+         id="tspan2184-8-6-2"
+         x="60.03149"
+         y="42.935318"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#023eff;fill-opacity:1;stroke-width:0.264583">Δ</tspan><tspan
+         sodipodi:role="line"
+         x="60.03149"
+         y="46.463104"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#023eff;fill-opacity:1;stroke-width:0.264583"
+         id="tspan2186-0-78-5" /></text>
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.82223px;line-height:1.25;font-family:'Fira Sans';fill:#023eff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="161.89601"
+       y="42.935318"
+       id="text2182-7-6-4"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         sodipodi:role="line"
+         id="tspan2178-5-01-1"
+         x="161.89601"
+         y="42.935318"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#023eff;fill-opacity:1;stroke-width:0.264583">Δ</tspan><tspan
+         sodipodi:role="line"
+         x="161.89601"
+         y="46.463104"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#023eff;fill-opacity:1;stroke-width:0.264583"
+         id="tspan2180-9-95-7" /></text>
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       id="text2188-4-7-1"
+       y="42.935318"
+       x="168.51056"
+       style="font-style:normal;font-weight:normal;font-size:2.82223px;line-height:1.25;font-family:'Fira Sans';fill:#023eff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       xml:space="preserve"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#023eff;fill-opacity:1;stroke-width:0.264583"
+         y="42.935318"
+         x="168.51056"
+         id="tspan2184-7-7-8"
+         sodipodi:role="line">Δ</tspan><tspan
+         id="tspan2186-6-52-7"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#023eff;fill-opacity:1;stroke-width:0.264583"
+         y="46.463104"
+         x="168.51056"
+         sodipodi:role="line" /></text>
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       id="text2182-7-3-7-8"
+       y="42.935318"
+       x="148.37039"
+       style="font-style:normal;font-weight:normal;font-size:2.82223px;line-height:1.25;font-family:'Fira Sans';fill:#023eff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       xml:space="preserve"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         id="tspan2180-9-9-4-7"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#023eff;fill-opacity:1;stroke-width:0.264583"
+         y="42.935318"
+         x="148.37039"
+         sodipodi:role="line">Δ′</tspan></text>
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.82223px;line-height:1.25;font-family:'Fira Sans';fill:#023eff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="154.98495"
+       y="42.935318"
+       id="text2182-7-3-9-8-4"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         sodipodi:role="line"
+         id="tspan2178-5-8-4-9-4"
+         x="154.98495"
+         y="42.935318"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#023eff;fill-opacity:1;stroke-width:0.264583">Δ′</tspan><tspan
+         sodipodi:role="line"
+         x="154.98495"
+         y="46.51786"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#023eff;fill-opacity:1;stroke-width:0.264583"
+         id="tspan2180-9-9-2-2-9" /></text>
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       xml:space="preserve"
+       style="font-size:2.46944px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';stroke-width:0.264583"
+       x="89.996239"
+       y="38.364578"
+       id="text2294-4-1"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         sodipodi:role="line"
+         id="tspan2292-3-5"
+         x="89.996239"
+         y="38.364578"
+         style="font-style:italic;font-size:2.46944px;stroke-width:0.264583">y</tspan></text>
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       xml:space="preserve"
+       style="font-size:2.46944px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';stroke-width:0.264583"
+       x="76.76709"
+       y="38.364586"
+       id="text2294-4-1-7"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         sodipodi:role="line"
+         id="tspan2292-3-5-3"
+         x="76.76709"
+         y="38.364586"
+         style="font-style:italic;font-size:2.46944px;stroke-width:0.264583">y</tspan></text>
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       id="text2294-2-9-3-3-5"
+       y="38.364609"
+       x="158.78784"
+       style="font-size:2.46944px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';stroke-width:0.264583"
+       xml:space="preserve"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         style="font-style:italic;font-size:2.46944px;stroke-width:0.264583"
+         y="38.364609"
+         x="158.78784"
+         id="tspan2292-1-1-7-9-5"
+         sodipodi:role="line">y</tspan></text>
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       id="text2294-2-9-3-3-5-5"
+       y="47.63464"
+       x="89.54184"
+       style="font-size:2.46944px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';stroke-width:0.264583"
+       xml:space="preserve"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';stroke-width:0.264583"
+         y="47.63464"
+         x="89.54184"
+         id="tspan2292-1-1-7-9-5-5"
+         sodipodi:role="line"><tspan
+           style="font-style:italic"
+           id="tspan25903">ϕ</tspan><tspan
+           style="font-size:65%;baseline-shift:sub"
+           id="tspan4501">1</tspan></tspan></text>
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       id="text2294-2-9-3-3-5-5-0-1"
+       y="47.634644"
+       x="145.00641"
+       style="font-size:2.46944px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';stroke-width:0.264583"
+       xml:space="preserve"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';stroke-width:0.264583"
+         y="47.634644"
+         x="145.00641"
+         id="tspan2292-1-1-7-9-5-5-0-8"
+         sodipodi:role="line"><tspan
+           style="font-style:italic"
+           id="tspan25903-0-6">ϕ</tspan><tspan
+           style="font-size:65%;baseline-shift:sub"
+           id="tspan4501-9-6">2</tspan></tspan></text>
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       id="text2294-2-9-3-3-5-5-0-1-7"
+       y="38.364586"
+       x="182.38327"
+       style="font-size:2.46944px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';stroke-width:0.264583"
+       xml:space="preserve"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';stroke-width:0.264583"
+         y="38.364586"
+         x="182.38327"
+         id="tspan2292-1-1-7-9-5-5-0-8-3"
+         sodipodi:role="line"><tspan
+           style="font-style:italic"
+           id="tspan25903-0-6-1">ϕ</tspan><tspan
+           style="font-size:65%;baseline-shift:sub"
+           id="tspan4501-9-6-7">rec</tspan></tspan></text>
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       xml:space="preserve"
+       style="font-size:2.46944px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';stroke-width:0.264583"
+       x="158.08282"
+       y="47.634644"
+       id="text2294-2-9-1-7-7-8"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         sodipodi:role="line"
+         id="tspan2292-1-1-0-5-1-2"
+         x="158.08282"
+         y="47.634644"
+         style="font-style:italic;font-size:2.46944px;stroke-width:0.264583"><tspan
+   id="tspan2374-0-1-9"
+   style="font-style:normal;stroke-width:0.264583">±</tspan>y</tspan></text>
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       style="fill:#eeeeee;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect2425-8-8"
+       width="9.260417"
+       height="2.6458333"
+       x="179.94641"
+       y="51.593742"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       xml:space="preserve"
+       id="text2415-4-2"
+       style="font-size:2.11667px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';white-space:pre;shape-inside:url(#rect2417-5-7-2);stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
+       x="1.7386955"
+       y="0"
+       transform="translate(54.918731,-7.7258482)"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         x="127.67037"
+         y="61.445072"
+         id="tspan14012"><tspan
+           style="text-align:center;text-anchor:middle"
+           id="tspan14010">dec.</tspan></tspan></text>
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       inkscape:export-ydpi="500"
+       inkscape:export-xdpi="500"
+       id="text2052-45-0-2-6-6"
+       y="42.901459"
+       x="178.1707"
+       style="font-style:normal;font-weight:normal;font-size:2.82223px;line-height:1.25;font-family:'Fira Sans';fill:#023eff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       xml:space="preserve"><tspan
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#023eff;fill-opacity:1;stroke-width:0.264583"
+         y="42.901459"
+         x="178.1707"
+         id="tspan2050-8-4-1-5-1"
+         sodipodi:role="line">ε</tspan><tspan
+         id="tspan2054-9-3-0-7-2"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#023eff;fill-opacity:1;stroke-width:0.264583"
+         y="46.429245"
+         x="178.1707"
+         sodipodi:role="line" /></text>
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       inkscape:export-ydpi="500"
+       inkscape:export-xdpi="500"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.82223px;line-height:1.25;font-family:'Fira Sans';fill:#023eff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="173.91797"
+       y="42.901459"
+       id="text2052-45-2-2-3-0-0"><tspan
+         sodipodi:role="line"
+         id="tspan2050-8-8-6-6-3-4"
+         x="173.91797"
+         y="42.901459"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#023eff;fill-opacity:1;stroke-width:0.264583">ε</tspan><tspan
+         sodipodi:role="line"
+         x="173.91797"
+         y="46.429245"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#023eff;fill-opacity:1;stroke-width:0.264583"
+         id="tspan2054-9-6-8-6-3-4" /></text>
+    <path
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       inkscape:export-ydpi="500"
+       inkscape:export-xdpi="500"
+       style="fill:none;stroke:#000000;stroke-width:0.15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.3, 0.3;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 119.06252,38.364578 v 26.458333 0"
+       id="path1421-2-7" />
+    <path
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       inkscape:export-ydpi="500"
+       inkscape:export-xdpi="500"
+       style="fill:none;stroke:#000000;stroke-width:0.15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.3, 0.3;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 136.26042,38.364583 v 26.458333 0"
+       id="path1421-2-7-1" />
+    <path
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       inkscape:export-ydpi="500"
+       inkscape:export-xdpi="500"
+       style="fill:none;stroke:#000000;stroke-width:0.15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.3, 0.3;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 109.14063,38.364584 v 13.229166 0"
+       id="path1421-2-7-5" />
+    <path
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       inkscape:export-ydpi="500"
+       inkscape:export-xdpi="500"
+       style="fill:none;stroke:#000000;stroke-width:0.15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.3, 0.3;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 126.33855,38.364583 v 10.31875 0"
+       id="path1421-2-7-5-2-8" />
+    <ellipse
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       inkscape:export-ydpi="500"
+       inkscape:export-xdpi="500"
+       transform="scale(-1)"
+       style="fill:#b4b4b4;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0"
+       id="path1583-6-5-6-2"
+       sodipodi:type="arc"
+       sodipodi:cx="-178.59375"
+       sodipodi:cy="-62.177074"
+       sodipodi:rx="0.74900049"
+       sodipodi:ry="2.5273936"
+       sodipodi:start="3.1415927"
+       sodipodi:end="0"
+       sodipodi:arc-type="slice"
+       d="m -179.34275,-62.177074 a 0.74900049,2.5273936 0 0 1 0.749,-2.527394 0.74900049,2.5273936 0 0 1 0.749,2.527394 h -0.749 z" />
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       style="fill:#000000;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect1348-2-65-3"
+       width="1.3229166"
+       height="5.2916665"
+       x="63.500004"
+       y="39.6875"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect1350-6-5-3-1"
+       width="1.3229166"
+       height="5.2916665"
+       x="99.218758"
+       y="48.947914"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       style="fill:#d3d3d3;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none;fill-opacity:1"
+       id="rect1350-6-5-3-1-3"
+       width="1.3229166"
+       height="5.2916665"
+       x="125.67709"
+       y="48.947914"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       id="text2182-0-3-8-2"
+       y="52.195732"
+       x="94.586784"
+       style="font-style:normal;font-weight:normal;font-size:2.82223px;line-height:1.25;font-family:'Fira Sans';fill:#023eff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       xml:space="preserve"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#023eff;fill-opacity:1;stroke-width:0.264583"
+         y="52.195732"
+         x="94.586784"
+         id="tspan2178-4-5-5-6"
+         sodipodi:role="line">τ</tspan><tspan
+         id="tspan2180-5-22-1-0"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#023eff;fill-opacity:1;stroke-width:0.264583"
+         y="55.723518"
+         x="94.586784"
+         sodipodi:role="line" /></text>
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.82223px;line-height:1.25;font-family:'Fira Sans';fill:#023eff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="103.8472"
+       y="52.195732"
+       id="text2188-2-6-6-6"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         sodipodi:role="line"
+         id="tspan2184-8-6-2-0"
+         x="103.8472"
+         y="52.195732"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#023eff;fill-opacity:1;stroke-width:0.264583">τ</tspan><tspan
+         sodipodi:role="line"
+         x="103.8472"
+         y="55.723518"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#023eff;fill-opacity:1;stroke-width:0.264583"
+         id="tspan2186-0-78-5-4" /></text>
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       style="fill:#000000;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect1348-2-65-3-5"
+       width="1.3229166"
+       height="5.2916665"
+       x="108.47917"
+       y="48.947918"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect1350-6-5-6"
+       width="1.3229166"
+       height="5.2916665"
+       x="70.114578"
+       y="39.6875"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       y="48.947937"
+       x="70.114586"
+       height="5.2916665"
+       width="1.3229166"
+       id="rect1350-7-4-4-5"
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       id="text2182-0-3-9"
+       y="42.935318"
+       x="66.646065"
+       style="font-style:normal;font-weight:normal;font-size:2.82223px;line-height:1.25;font-family:'Fira Sans';fill:#023eff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       xml:space="preserve"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#023eff;fill-opacity:1;stroke-width:0.264583"
+         y="42.935318"
+         x="66.646065"
+         id="tspan2178-4-5-2"
+         sodipodi:role="line">Δ</tspan><tspan
+         id="tspan2180-5-22-0"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#023eff;fill-opacity:1;stroke-width:0.264583"
+         y="46.463104"
+         x="66.646065"
+         sodipodi:role="line" /></text>
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.82223px;line-height:1.25;font-family:'Fira Sans';fill:#023eff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="73.260651"
+       y="42.935318"
+       id="text2188-2-6-8"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         sodipodi:role="line"
+         id="tspan2184-8-6-9"
+         x="73.260651"
+         y="42.935318"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#023eff;fill-opacity:1;stroke-width:0.264583">Δ</tspan><tspan
+         sodipodi:role="line"
+         x="73.260651"
+         y="46.463104"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#023eff;fill-opacity:1;stroke-width:0.264583"
+         id="tspan2186-0-78-53" /></text>
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458333)"
+       id="text44377"
+       style="font-size:10.6667px;line-height:1.25;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';white-space:pre;shape-inside:url(#rect44379)" />
+    <rect
+       style="fill:none;stroke:none;stroke-width:0.264583"
+       width="1.383024"
+       height="1.3830179"
+       x="131.49791"
+       y="49.152393"
+       id="rect8789" />
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       xml:space="preserve"
+       style="font-size:2.82223px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#023eff;fill-opacity:1;stroke-width:0.264583"
+       x="140.04335"
+       y="51.989479"
+       id="text2142-5-4-8"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         sodipodi:role="line"
+         id="tspan2140-0-1-1"
+         x="140.04335"
+         y="51.989479"
+         style="fill:#023eff;fill-opacity:1;stroke-width:0.264583"><tspan
+           style="font-style:italic;fill:#023eff;fill-opacity:1;stroke-width:0.264583"
+           id="tspan2144-2-8-9">t</tspan><tspan
+           style="font-size:1.83445px;baseline-shift:sub;fill:#023eff;fill-opacity:1;stroke-width:0.264583"
+           id="tspan2146-3-8-4">1</tspan></tspan></text>
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:2.82223px;line-height:1.25;font-family:'Fira Sans';fill:#023eff;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="134.47481"
+       y="35.71875"
+       id="text2188-2-6-6-6-9"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         sodipodi:role="line"
+         id="tspan2184-8-6-2-0-6"
+         x="134.47481"
+         y="35.71875"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#023eff;fill-opacity:1;stroke-width:0.264583">2τ</tspan><tspan
+         sodipodi:role="line"
+         x="134.47481"
+         y="39.246536"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#023eff;fill-opacity:1;stroke-width:0.264583"
+         id="tspan2186-0-78-5-4-3" /></text>
+    <path
+       style="fill:none;stroke:#023eff;stroke-width:0.265;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow1Sstart);marker-end:url(#Arrow1Send)"
+       d="m 127,37.041666 h 17.72709"
+       id="path10195" />
+  </g>
+</svg>

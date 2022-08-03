@@ -1,0 +1,39 @@
+\documentclass[draft,a4paper,12pt,twoside,openany]{book}
+
+\input{preamble/fonts}
+\input{preamble/packages}
+\input{preamble/macros}
+
+% Shortcuts I set up in vim:
+% <leader>e -- toggle between equation(*) and align(*)
+% <leader>h -- return to the top-level view
+% <leader>t -- toggle ToC on/off
+
+\begin{document}
+
+\frontmatter
+\renewcommand{\thefigure}{0.\arabic{figure}}
+\renewcommand{\thetable}{0.\arabic{table}}
+\input{frontmatter/titlepage}
+{\hypersetup{hidelinks} \tableofcontents{}}
+\include{frontmatter/abstract}
+\include{frontmatter/preface}
+\include{frontmatter/acknowledgements}
+
+\mainmatter
+\renewcommand{\thefigure}{\thechapter.\arabic{figure}}
+\renewcommand{\thetable}{\thechapter.\arabic{table}}
+\include{theory/main}
+\include{pureshift/main}
+\include{poise/main}
+\include{noah/main}
+
+\setlofname{List of figures}
+\setlotname{List of tables}
+\listoffigures
+\listoftables
+
+\appendix
+\include{appendix/other/main}
+
+\end{document}

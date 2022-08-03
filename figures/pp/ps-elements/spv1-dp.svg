@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   inkscape:export-ydpi="600.11298"
+   inkscape:export-xdpi="600.11298"
+   inkscape:export-filename="/Users/yongrenjie/Desktop/a.png"
+   sodipodi:docname="spv1-dp.svg"
+   inkscape:version="1.1.1 (c3084ef, 2021-09-22)"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 137.78333 55.762501"
+   height="55.762501mm"
+   width="137.78333mm"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs2">
+    <rect
+       x="180"
+       y="110"
+       width="490"
+       height="60"
+       id="rect44379" />
+    <marker
+       style="overflow:visible"
+       id="Arrow1Send"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Send"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.2,0,0,-0.2,-1.2,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path4199" />
+    </marker>
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2417" />
+    <rect
+       x="66.145836"
+       y="30.427082"
+       width="11.90625"
+       height="7.9375"
+       id="rect2405" />
+    <rect
+       id="rect2417-5"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+    <rect
+       id="rect3112"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2417-5-4" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect1299" />
+    <rect
+       id="rect2417-2"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+    <rect
+       id="rect1704"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2417-2-5" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect1911" />
+    <rect
+       id="rect2417-7"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+    <rect
+       id="rect628"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2417-7-0" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect1265" />
+    <rect
+       id="rect2417-7-0-8"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+    <rect
+       id="rect1352"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2417-7-2" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect1645" />
+    <rect
+       id="rect2417-7-0-3"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+    <rect
+       id="rect1648"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2417-7-4" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect1937" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2417-7-6" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2315" />
+    <rect
+       id="rect2417-7-0-0"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+    <rect
+       id="rect2318"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+    <rect
+       id="rect2417-7-4-4"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+    <rect
+       id="rect2321"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2417-5-7" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect1918" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2417-5-7-9" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect1827" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2417-5-7-9-5" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2715" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2417-5-7-9-5-0" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect3097" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2417-5-7-8" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2046" />
+    <rect
+       id="rect2417-5-0"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+    <rect
+       id="rect2691"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2417-5-7-9-7" />
+    <marker
+       style="overflow:visible"
+       id="Arrow1Send-9"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Send"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.2,0,0,-0.2,-1.2,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path4199-7" />
+    </marker>
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2417-5-7-2" />
+    <rect
+       id="rect2417-5-49"
+       height="2.6458333"
+       width="7.9375"
+       y="59.53125"
+       x="125.67708" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="3.6458293"
+     inkscape:cx="58.83435"
+     inkscape:cy="66.925787"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="true"
+     inkscape:window-width="1482"
+     inkscape:window-height="754"
+     inkscape:window-x="-182"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:snap-object-midpoints="false"
+     inkscape:snap-text-baseline="true"
+     inkscape:pagecheckerboard="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid1346"
+       originx="-39.587503"
+       originy="-26.358333" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-39.5875,-26.358332)">
+    <path
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       style="fill:none;stroke:#000000;stroke-width:0.264582px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 59.531244,51.593754 h 9.26042"
+       id="path10-22-2"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="55.440712"
+       y="52.916664"
+       id="text14-2-7"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         sodipodi:role="line"
+         id="tspan12-5-03"
+         x="55.440712"
+         y="52.916664"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';stroke-width:0.264583"><tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.29306px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';baseline-shift:super;stroke-width:0.264583"
+   id="tspan16-1-9">1</tspan>H</tspan></text>
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       id="text20-1-3-7"
+       y="62.106327"
+       x="54.439781"
+       style="font-style:normal;font-weight:normal;font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       xml:space="preserve"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';stroke-width:0.264583"
+         y="62.106327"
+         x="54.439781"
+         id="tspan18-9-4-2"
+         sodipodi:role="line"><tspan
+   style="font-size:65%;baseline-shift:super"
+   id="tspan2126">13</tspan>C</tspan></text>
+    <path
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       id="path10-2-0-1"
+       d="m 59.531244,60.854164 h 9.26042"
+       style="fill:none;stroke:#000000;stroke-width:0.264582px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       style="fill:#000000;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect1348-2-6-3-4"
+       width="1.3229166"
+       height="5.2916665"
+       x="63.499996"
+       y="55.562496"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       style="fill:#000000;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect1348-2-6-4-7-9-9"
+       width="1.3229166"
+       height="5.2916665"
+       x="64.480301"
+       y="46.302059"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       style="fill:#000000;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect1348-2-6-4-7-9-9-1"
+       width="1.3229166"
+       height="5.2916665"
+       x="62.519695"
+       y="46.302059"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       xml:space="preserve"
+       style="font-size:2.46944px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';stroke-width:0.264583"
+       x="64.518227"
+       y="44.979168"
+       id="text2294-4-1-30"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         sodipodi:role="line"
+         id="tspan2292-3-5-9"
+         x="64.518227"
+         y="44.979168"
+         style="font-style:italic;font-size:2.46944px;stroke-width:0.264583">y</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458333)"
+       id="text44377"
+       style="font-size:10.6667px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';white-space:pre;shape-inside:url(#rect44379)" />
+    <text
+       id="text2294-2-9-1"
+       y="44.979168"
+       x="119.81577"
+       style="font-size:2.46944px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';stroke-width:0.264583"
+       xml:space="preserve"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spv1.png"><tspan
+         style="font-style:italic;font-size:2.46944px;stroke-width:0.264583"
+         y="0"
+         x="0"
+         id="tspan2292-1-1-0"
+         sodipodi:role="line"><tspan
+           style="font-style:normal"
+           id="tspan2374" /></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.82222px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#ff2655;fill-opacity:1;stroke-width:0.264583"
+       x="43.164009"
+       y="36.34042"
+       id="text2606"
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spv1.png"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         sodipodi:role="line"
+         id="tspan2604"
+         x="43.164009"
+         y="36.34042"
+         style="font-weight:bold;font-size:2.82222px;fill:#ff2655;fill-opacity:1;stroke-width:0.264583">~cos <tspan
+   style="font-size:65%;baseline-shift:super"
+   id="tspan8639">13</tspan>C–<tspan
+   style="font-size:65%;baseline-shift:super"
+   id="tspan8637">1</tspan>H</tspan></text>
+    <text
+       id="text2606-5-7-1-6-1"
+       y="36.340397"
+       x="59.708904"
+       style="font-size:2.82223px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#ff2655;fill-opacity:1;stroke-width:0.264583"
+       xml:space="preserve"
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spv1.png"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         style="font-style:italic;font-weight:normal;font-size:2.82223px;fill:#ff2655;fill-opacity:1;stroke-width:0.264583"
+         y="36.340397"
+         x="59.708904"
+         id="tspan2604-1-0-2-7-6"
+         sodipodi:role="line">zy</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.82223px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#ff2655;fill-opacity:1;stroke-width:0.264583"
+       x="66.965889"
+       y="36.340397"
+       id="text2606-5-7-1-6-1-1"
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spv1.png"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         sodipodi:role="line"
+         id="tspan2604-1-0-2-7-6-9"
+         x="66.965889"
+         y="36.340397"
+         style="font-style:italic;font-weight:normal;font-size:2.82223px;fill:#ff2655;fill-opacity:1;stroke-width:0.264583">yz</tspan></text>
+    <text
+       id="text2606-0"
+       y="39.336872"
+       x="43.715176"
+       style="font-size:2.82223px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#a54cec;fill-opacity:1;stroke-width:0.264583"
+       xml:space="preserve"
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spv1.png"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         style="font-weight:bold;font-size:2.82223px;fill:#a54cec;fill-opacity:1;stroke-width:0.264583"
+         y="39.336872"
+         x="43.715176"
+         id="tspan2604-7"
+         sodipodi:role="line">~sin <tspan
+   style="font-size:65%;baseline-shift:super"
+   id="tspan9951">13</tspan>C–<tspan
+   style="font-size:65%;baseline-shift:super"
+   id="tspan9949">1</tspan>H</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.82223px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#a54cec;fill-opacity:1;stroke-width:0.264583"
+       x="58.357059"
+       y="39.336849"
+       id="text2606-5-7-1-6-1-3"
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spv1.png"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         sodipodi:role="line"
+         id="tspan2604-1-0-2-7-6-1"
+         x="58.357059"
+         y="39.336849"
+         style="font-style:italic;font-weight:normal;font-size:2.82223px;fill:#a54cec;fill-opacity:1;stroke-width:0.264583"><tspan
+   style="font-style:normal"
+   id="tspan2906">−</tspan>zx</tspan></text>
+    <text
+       id="text2606-5-7-1-6-1-1-9"
+       y="39.336849"
+       x="65.578308"
+       style="font-size:2.82223px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#a54cec;fill-opacity:1;stroke-width:0.264583"
+       xml:space="preserve"
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spv1.png"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         style="font-style:italic;font-weight:normal;font-size:2.82223px;fill:#a54cec;fill-opacity:1;stroke-width:0.264583"
+         y="39.336849"
+         x="65.578308"
+         id="tspan2604-1-0-2-7-6-9-0"
+         sodipodi:role="line"><tspan
+   style="font-style:normal"
+   id="tspan2908">−</tspan>yx</tspan></text>
+    <text
+       id="text2606-00"
+       y="42.333332"
+       x="49.616779"
+       style="font-size:2.82223px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#52bb41;fill-opacity:1;stroke-width:0.264583"
+       xml:space="preserve"
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spv1.png"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         style="font-weight:bold;font-size:2.82223px;fill:#52bb41;fill-opacity:1;stroke-width:0.264583"
+         y="42.333332"
+         x="49.616779"
+         id="tspan2604-5"
+         sodipodi:role="line"><tspan
+   style="font-size:65%;baseline-shift:super"
+   id="tspan6120">12</tspan>C–<tspan
+   style="font-size:65%;baseline-shift:super"
+   id="tspan6122">1</tspan>H</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.82223px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#52bb41;fill-opacity:1;stroke-width:0.264583"
+       x="60.92709"
+       y="42.333309"
+       id="text2606-5-7-1-6-1-9"
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spv1.png"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         sodipodi:role="line"
+         id="tspan2604-1-0-2-7-6-7"
+         x="60.92709"
+         y="42.333309"
+         style="font-style:italic;font-weight:normal;font-size:2.82223px;fill:#52bb41;fill-opacity:1;stroke-width:0.264583">y</tspan></text>
+    <text
+       id="text2606-5-7-1-6-1-1-6"
+       y="42.333309"
+       x="66.972847"
+       style="font-size:2.82223px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';fill:#52bb41;fill-opacity:1;stroke-width:0.264583"
+       xml:space="preserve"
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spv1.png"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         style="font-style:italic;font-weight:normal;font-size:2.82223px;fill:#52bb41;fill-opacity:1;stroke-width:0.264583"
+         y="42.333309"
+         x="66.972847"
+         id="tspan2604-1-0-2-7-6-9-1"
+         sodipodi:role="line">x</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,95 @@
+\section{Density operators}
+\label{sec:theory__density_operators}
+
+NMR experiments are not executed on one single spin at a time: instead, the samples used typically contain $\sim 10^{20}$ spins.
+Furthermore, each of these spins may have its own wavefunction: it is generally impossible to force every spin to possess the same state.
+Since we are only interested in the \textit{ensemble} behaviour such as expectation values, rather than the dynamics of each individual spin, we can use the \textit{density operator} formalism instead of dealing with a composite wavefunction of many spins.
+The density operator, $\rho$, is defined (in the Schr\"odinger picture) as
+\begin{equation}
+    \label{eq:density_operator}
+    \rho = \sum_j p_j \ket{\psi_j}\bra{\psi_j}
+\end{equation}
+where $p_j$ is the probability that a spin is in the state $\ket{\psi_j}$ (and the $\ket{\psi_j}$'s are assumed to form a complete set of states).\footnote{This probability is a \textit{classical} probability: that is, it is purely statistical in nature and should not be confused with the probability amplitudes associated with quantum superposition (i.e.\ $|c_j|^2$ in a single-spin wavefunction $\sum_j c_j \ket{j}$).}
+The use of $\rho$ actually represents a loss of information, in that while \cref{eq:density_operator} gives us a straightforward recipe for constructing $\rho$ from a given distribution of states $\{p_j, \ket{\psi_j}\}$, the reverse is not possible: given a known $\rho$, it is generally not possible to determine a unique distribution of states.
+This is not a problem, however, because $\rho$ contains all the necessary information for calculation of expectation values, in that for any operator $A$,
+\begin{equation}
+    \label{eq:density_expectation}
+    \langle A \rangle = \sum_j \braket{\psi_j | A\rho | \psi_j}.
+\end{equation}
+If $A$ and $\rho$ are expressed as matrices (through any choice of basis), then this is more easily expressed as the trace of the matrix product:
+\begin{equation}
+    \label{eq:density_trace}
+    \langle A \rangle = \Tr(A\rho).
+\end{equation}
+Other properties of the density operator are not discussed here, but can be found in virtually any textbook covering their use.\autocite{Blum2012,CohenTannoudji2020,Sakurai2021}
+
+The time evolution of a Schr\"odinger-picture density operator is governed by the Liouville--von Neumann equation, which can be derived from \cref{eq:tdse}:
+\begin{align}
+    \label{eq:lvn}
+    \frac{\mathrm{d}\rho}{\mathrm{d}t} &= \sum_j p_j \left(\frac{\mathrm{d}\ket{\psi_j}}{\mathrm{d}t}\bra{\psi_j} + \ket{\psi_j}\frac{\mathrm{d}\bra{\psi_j}}{\mathrm{d}t} \right) \notag \\
+                                       &= \sum_j p_j \left(-\mi H\ket{\psi_j}\bra{\psi_j} + \ket{\psi_j}\mi\bra{\psi_j}H \right) \notag \\
+                                       &= -\mi H \left(\sum_j p_j\ket{\psi_j}\bra{\psi_j}\right) + \mi \left(\sum_j p_j \ket{\psi_j}\bra{\psi_j}\right) H \notag \\
+                                       &= -\mi [H, \rho].
+\end{align}
+Note here that the weights $p_j$ are time-independent, as the time evolution is contained entirely in the kets and bras.\footnote{Strictly speaking, this only applies to a \textit{closed} quantum system, which implies that effects such as relaxation are ignored (or at least, treated in only an empirical manner). The discussion of open quantum systems is beyond the scope of this work, but can be found elsewhere.\autocite{Breuer2002,Lidar2019arXiv}}
+For a time-independent $H$, this can be integrated to yield the solution:
+\begin{equation}
+    \label{eq:lvn_integrated}
+    \rho(t_2) = \exp(-\mi H\tau)\rho(t_1)\exp(\mi H\tau),
+\end{equation}
+where $\tau = t_2 - t_1$.
+
+In the interaction picture, the density operator is instead defined using interaction-picture states $\{\ket{\psi_i}_I\}$:
+\begin{align}
+    \label{eq:density_matrix_interaction}
+    \rho_I = \sum_j p_j \ket{\psi_j}_I \bra{\psi_j}_I
+           &= \sum_j p_j \exp(\mi H_0 t)\ket{\psi_j} \bra{\psi_j} \exp(-\mi H_0 t) \notag \\
+           &= \exp(\mi H_0 t) \left(\sum_j p_j \ket{\psi_j} \bra{\psi_j}\right) \exp(-\mi H_0 t) \notag \\
+           &= \exp(\mi H_0 t) \rho \exp(-\mi H_0 t)
+\end{align}
+(note the similarity to \cref{eq:interaction_h1i}).
+Using a very similar proof as in \cref{eq:lvn}, it can be shown that $\rho_I$ obeys a modified Liouville--von Neumann equation:
+\begin{align}
+    \label{eq:lvn_interaction}
+    \frac{\mathrm{d}\rho_I}{\mathrm{d}t} &= -\mi[H_{1,I}, \rho_I]
+\end{align}
+and analogously, for a time-independent $H_{1,I}$ we have that
+\begin{align}
+    \label{eq:lvn_interaction_integrated}
+    \rho_I\,(t_2) = \exp(-\mi H_{1,I}\,\tau)\rho_I\,(t_1)\exp(\mi H_{1,I}\,\tau) = U\rho_I\,(t_1) \, U^\dagger,
+\end{align}
+where $U = \exp(-\mi H_{1,I}\,\tau)$.
+Multiple propagators may be chained in a similar fashion to \cref{eq:time_evolution_piecewise}.
+This result means that from a practical point of view, the effects of $H_0$ can be completely ignored when analysing or simulating NMR experiments using density operators.
+
+Finally, a mention of the \textit{equilibrium} or \textit{thermal} density operator is in order.
+For a canonical ensemble, this is given by:
+\begin{equation}
+    \label{eq:thermal_density_operator}
+    \rho_0 = \frac{\exp(-\beta\hbar H)}{\Tr[\exp(-\beta\hbar H)]}
+\end{equation}
+where $\beta = 1/(k_\mathrm{B}T)$ and the Hamiltonian $H$ is in units of angular momentum, as has been consistently used here.
+At equilibrium, no pulses or gradients are being applied, so the appropriate Hamiltonian is the free (Schr\"odinger-picture) Hamiltonian $H_\text{free}$ (\cref{eq:h_free}).%
+\footnote{It would be completely insensible to use the interaction-picture $H_{\text{free},I}$, as its entire existence is merely a mathematical formalism. If that were not the case, it would imply that we can change the equilibrium state $\rho_0$ by simply \textit{choosing} a different $H_0$ to factor out.}
+Consider the case of a single spin: we have that $H_\text{J} = 0$, and hence $H_\text{free} = H_\text{cs} = \omega_0 I_z$. Thus,
+\begin{equation}
+    \label{eq:nmr_equilibrium_rho}
+    \rho_0 = \frac{\exp(cI_z)}{\Tr[\exp(cI_z)]} \approx \frac{E + cI_z}{\Tr(E + cI_z)} = E + cI_z,
+\end{equation}
+where $c = -\beta\hbar\omega_0 = -\hbar\omega_0/k_\mathrm{B}T$ and $E$ is the identity matrix; the approximation $\exp(cI_z) \approx E + cI_z$ is justified here as $c$ is typically very small ($\sim 10^{-5}$).
+
+Throughout this thesis I consider only linear transformations of the form in \cref{eq:lvn_interaction_integrated}, which use unitary propagators of the form $U = \exp(-\mi Ht)$:
+\begin{equation}
+    \label{eq:unitary_rho0}
+    U\rho_0\,U^\dagger = U(E + cI_z)U^\dagger = UE\,U^\dagger + c(UI_zU^\dagger) = E + c(UI_zU^\dagger)
+\end{equation}
+When describing NMR experiments, it is typical to simply ignore both the $E$ term as well as the proportionality factor $c$, and focus only on the transformation of the $I_z$ term.
+Thus, one may define a `simplified' equilibrium density operator:\footnote{This is similar to the `deviation' density operator\autocite{Chuang1998PRSLA,Jones2011PNMRS} which measures how far a density operator deviates from the identity; but I have gone one step further in dropping the factor of $c$. Note that the alternative term `reduced density operator' has a different meaning (it refers to the density operator of a subsystem, obtained by taking a partial trace over all other degrees of freedom).}
+\begin{equation}
+    \label{eq:rho0_simplified}
+    \rho_0' = I_z.
+\end{equation}
+The $E$ term is in fact truly inconsequential, as it cannot ever be transformed into detectable magnetisation.
+However, the constant $c$ is still relevant: it is manifested in the magnitude of the NMR signal which is ultimately detected.
+It should be mentioned that $\rho_0'$ is not a true density operator: for example, $\Tr(\rho_0') = 0$ and not $1$ as is required for a density operator.
+Nonetheless, all the physically interesting dynamics of the system such as expectation values are fully contained within $\rho_0'$ (at least up to the proportionality constant $c$).

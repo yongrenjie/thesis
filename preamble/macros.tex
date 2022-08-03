@@ -1,0 +1,65 @@
+\newcommand{\autociteset}[1]{\autocite{\usebibentry{#1}{entryset}}}
+
+\newcommand{\thesistitle}{Optimising NMR Spectroscopy through Method and Software Development (?)}
+
+\DeclareMathOperator{\Tr}{Tr}
+
+\newcommand{\todo}[1]{{\color{OrangeRed}#1}}
+
+% Shortcuts
+\newcommand{\mi}{\mathrm{i}}
+\newcommand{\taup}{\tau_\mathrm{p}}
+\newcommand{\half}{½}
+\newcommand{\adj}[1]{#1^\dagger}
+
+% Nuclei
+\newcommand{\proton}{\ch{{}^{1}H}}
+\newcommand{\carbon}{\ch{{}^{13}C}}
+\newcommand{\carbont}{\ch{{}^{12}C}}
+\newcommand{\nitrogen}{\ch{{}^{15}N}}
+\newcommand{\fluorine}{\ch{{}^{19}F}}
+\newcommand{\phosphorus}{\ch{{}^{31}P}}
+
+% Couplings
+\newcommand{\oneJ}[1]{{}^{1}\!J_{\ch{#1}}}
+\newcommand{\nJ}[1]{{}^{n}\!J_{\ch{#1}}}
+
+% Solvents
+\newcommand{\dmso}{DMSO-$d_6$}
+\newcommand{\benzene}{\ch{C6D6}}
+\newcommand{\chloroform}{\ch{CDCl3}}
+
+% NOAH
+\ExplSyntaxOn
+\msg_new:nnnn{noah}{module-not-found}{Module~code~`#1'~not~recognised.~If~it~was~not~a~typo,~you~may~need~to~define~this~in~\c_backslash_str noahmodule.}{Hello.}
+\NewDocumentCommand{\noahmodule}{m}{
+    \str_case:nnTF{#1}{
+        {A}{A}
+        {Bn}{B${}\sb{\ch{N}}$}
+        {B}{B}
+        {Cc}{C$\sp{\text{c}}$}
+        {Cqf}{C$\sp{\text{qf}}$}
+        {C}{C}
+        {M}{M}
+        {J}{J}
+        {Jqf}{J$\sp{\text{qf}}$}
+        {N}{N}
+        {P}{P}
+        {Pt}{P$\sp{\text{T}}$}
+        {Sn}{S$\sb{\ch{N}}$}
+        {Spa}{S$\sp+\sb1$}
+        {Spb}{S$\sp+\sb2$}
+        {Spn}{S$\sp{+}\sb{\ch{N}}$}
+        {Sp}{S$\sp+$}
+        {St}{S$\sp{\text{T}}$}
+        {S}{S}
+        {T}{T}
+        {X}{X}
+        }{}{\textbf{?}
+        \msg_error:nnn{noah}{module-not-found}{#1}}
+}
+\NewDocumentCommand{\noah}{s m}{
+    \IfBooleanTF{#1}{}{NOAH-\clist_count:n{#2}~}
+    {\clist_map_inline:nn{#2}{\noahmodule{##1}}}
+}
+\ExplSyntaxOff
