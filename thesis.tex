@@ -1,8 +1,10 @@
-\documentclass[draft,a4paper,12pt,twoside,openany]{book}
+\documentclass[final,a4paper,12pt,twoside,openany]{book}
 
 \input{preamble/fonts}
 \input{preamble/packages}
 \input{preamble/macros}
+
+% \includeonly{pureshift/main}
 
 % Shortcuts I set up in vim:
 % <leader>e -- toggle between equation(*) and align(*)
@@ -23,9 +25,17 @@
 \mainmatter
 \renewcommand{\thefigure}{\thechapter.\arabic{figure}}
 \renewcommand{\thetable}{\thechapter.\arabic{table}}
+
+\newrefsection
 \include{theory/main}
+
+\newrefsection
 \include{pureshift/main}
+
+\newrefsection
 \include{poise/main}
+
+\newrefsection
 \include{noah/main}
 
 \setlofname{List of figures}
@@ -34,6 +44,8 @@
 \listoftables
 
 \appendix
+
+\newrefsection
 \include{appendix/other/main}
 
 \end{document}

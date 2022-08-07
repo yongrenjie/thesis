@@ -15,8 +15,8 @@ Having tackled a simple single-spin case, we now move to the analysis of coupled
 In particular, we look at the INEPT experiment\autocite{Morris1979JACS,Morris1980JACS}, in which magnetisation is transferred from a a nuclide with a high magnetogyric ratio to one with a low magnetogyric ratio through a scalar coupling: for example, from \proton{} to \carbon{} using the one-bond coupling constant, $\oneJ{CH}$ (\cref{fig:inept}).
 Following tradition, the two nuclei are respectively labelled $I$ and $S$.%
 \footnote{This may seem insensible since $I$ is the \textit{sensitive} and $S$ the \textit{insensitive} nucleus, and indeed, in the original literature\autocite{Morris1979JACS} the meanings of $I$ and $S$ were swapped. However, this usage has not been consistent\autocite{Pines1972JCP}, and in modern usage the identification of $I$ as the sensitive nucleus seems to have prevailed.}
-For a weakly coupled (Schr\"odinger-picture)\footnote{This is the last time a Schr\"odinger-picture Hamiltonian is used in this thesis.} free Hamiltonian for a weakly coupled system (cf.\ \cref{eq:weak_coupling,eq:h_j_secular}) is $H_\text{free} = \omega_{0,I} I_z + \omega_{0,S} S_z + 2\pi J_{IS} I_z S_z$.
-At the very beginning of the sequence, we formally have the equilibrium density operator
+The Schr\"odinger-picture free Hamiltonian for a weakly coupled system (cf.\ \cref{eq:weak_coupling,eq:h_j_secular}) is $H_\text{free} = \omega_{0,I} I_z + \omega_{0,S} S_z + 2\pi J_{IS} I_z S_z$.
+At the very beginning of the sequence (point \circled{1}), we formally have the equilibrium density operator
 \begin{equation}
     \label{eq:density_eqm_heteronuclear_full}
     \rho_0 = \frac{\exp(-\beta\hbar H_\text{free})}{\Tr[\exp(-\beta\hbar H_\text{free})]}
@@ -42,33 +42,32 @@ For example, in the $\Delta$ delay which follows, we have that
 \begin{equation}
     \label{eq:rho_after_delay_x}
     \begin{aligned}
-        \rho_I &\to -\gamma_I\exp(-\mi H_\text{free} \Delta) I_y \exp(\mi H_\text{free} \Delta) \\
+        \rho_I &\to -\gamma_I\exp(-\mi H_{\text{free},I} \Delta) I_y \exp(\mi H_{\text{free},I} \Delta) \\
                &= -\gamma_I\exp(-\mi H_\text{J} \Delta)\exp(-\mi H_\text{offset}\Delta) I_y \exp(\mi H_\text{offset} \Delta)\exp(\mi H_\text{J}\Delta) \\
                &= \ldots
     \end{aligned}
 \end{equation}
-Note that $H_\text{free}$ here is the interaction-picture free Hamiltonian (\cref{eq:h_free_interaction}); and in going from the first to the second line, we can only `split up' $H_\text{free}$ into its constituent components $H_\text{offset}$ and $H_\text{J}$ because they commute.
 When performing simulations of NMR experiments, such as those in later chapters, this is precisely what happens, with the slight difference that the Liouville--von Neumann equation (\cref{eq:lvn_interaction_integrated}) is evaluated numerically rather than symbolically.
+Note that in going from the first to the second line, we can only `split up' $H_{\text{free},I}$ into its constituent components $H_\text{offset}$ and $H_\text{J}$ because they commute.
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[draft=false,scale=0.8]{prodops_rules.png}
+    \includegraphics[scale=0.8]{prodops_rules.png}
     \caption[Simplified rules for product operator evolutions]{
         Simplified rules for the evolution of product operators under different common Hamiltonians (offset, weak/secular J-coupling, and pulses).
         These Hamiltonians often have the form $\omega M$ where $M$ is some `base operator', and are applied for a time $\tau$.
-        The boxed operators in the centre of each group refer to $M$; the initial state is then rotated about this by an angle of $\omega\tau$ to obtain the final state.
-        For example, an $90^\circ_x$ pulse has the `base' operator $I_x$ and the angle $\omega\tau = \pi/2$; thus, the initial state $I_z$ would be rotated to $-I_y$.
+        The boxed operators in the centre of each group refer to $M$; the initial state is then `rotated' about this by an angle of $\omega\tau$ to obtain the final state, or more formally, it is transformed into itself times $\cos(\omega\tau)$, plus the next term in the cycle times $\sin(\omega\tau)$.
+        For example, an $90^\circ_x$ pulse has the `base' operator $I_x$ and the angle $\omega\tau = \pi/2$; thus, the initial state $I_z$ would be rotated to $I_z\cos(\pi/2) - I_y\sin(\pi/2) = -I_y$.
     }
     \label{fig:prodops_rules}
 \end{figure}
 
 When analysing pulse sequences by hand, however, it is far more convenient to use a set of heuristics which summarise the effects of various pulse sequence elements.
 For example, \cref{fig:prodops_rules} summarises the evolution of a density operator under a single term of the Hamiltonian: as above, since $[H_\text{offset}, H_\text{J}] = 0$, we only need to consider one term at a time.
-More high-level rules may be devised as well: for example, during the $\Delta\text{--}180^\circ_{x}(I),180^\circ_{x}(S)\text{--}\Delta$ spin echo which comes next, the $J_{IS}$ interaction in $H_\text{free}$ is allowed to evolve for a period of $2\Delta$, but the offset term is \textit{refocused} and can be ignored.
+More high-level rules may be devised as well: for example, during the $\Delta\text{--}180^\circ_{x}(I),180^\circ_{x}(S)\text{--}\Delta$ spin echo which comes next, the $J_{IS}$ interaction in $H_{\text{free},I}$ is allowed to evolve for a period of $2\Delta$, but the offset term is \textit{refocused} and can be ignored.
 (The sign inversion caused by the \ang{180} pulses must also be included.)
-As per \cref{fig:prodops_rules}, this transforms the $-I_y$ term
-to $-2I_xS_z$ at point (b).
-The $90^\circ_y(I),90^\circ_x(S)$ pair of pulses immediately afterwards rotates this to $-2I_zS_y$.
+As per \cref{fig:prodops_rules}, this transforms the $-I_y$ term to $-2I_xS_z$ at point \circled{2}: the Hamiltonian is $\pi J_{IS} 2I_zS_z$ for a total time of $2\Delta = 1/(2J_{IS})$, so the `angle' rotated through is $\pi J_{IS}/(2J_{IS}) = \pi/2$.
+Immediately after this, the $90^\circ_y(I),90^\circ_x(S)$ pair of pulses rotates this magnetisation to $-2I_zS_y$ (point \circled{3}).
 These transformations are often denoted with simpler notation:
 \begin{equation}
     \label{eq:inept_prodop}
@@ -80,7 +79,7 @@ These transformations are often denoted with simpler notation:
 During the detection period, the term $-2\gamma_II_zS_y$ evolves as
 \begin{align}
     \label{eq:inept_fid_prodop}
-    -2\gamma_I I_zS_y \xrightarrow{H_\text{free}} -2\gamma_I I_zS_y\cos(\Omega_St)\cos(\pi Jt) + \gamma_I S_x\cos(\Omega_St)\sin(\pi Jt) \notag{} \\
+    -2\gamma_I I_zS_y \xrightarrow{H_{\text{free},I}} -2\gamma_I I_zS_y\cos(\Omega_St)\cos(\pi Jt) + \gamma_I S_x\cos(\Omega_St)\sin(\pi Jt) \notag{} \\
     \qquad {} - 2\gamma_I I_zS_x\sin(\Omega_St)\cos(\pi Jt) + \gamma_I S_y\sin(\Omega_S t)\sin(\pi Jt),
 \end{align}
 from which we extract the complex signal
@@ -91,7 +90,7 @@ from which we extract the complex signal
 After Fourier transformation, the resulting spectrum has two peaks with opposite phase and have the frequencies $\Omega_S \pm \pi J_{IS}$; because of the factor of $1/(2\mi)$, the real part of the spectrum will contain dispersion-mode signals (\cref{fig:doublet_lorentzians_dis_anti}).
 If desired, zeroth-order phase correction can be performed here, yielding instead a pair of absorption-mode signals still with opposite phases (\cref{fig:doublet_lorentzians_abs_anti}).
 In either case, this is termed an \textit{antiphase} doublet; the product operators which give rise to it ($2I_zS_x$ and $2I_zS_y$) are said to be antiphase with respect to spin $I$.
-Importantly, the amplitude of the signal scales as $\gamma_I$ rather than $\gamma_S$, as it would if we had started from equilibrium spin-$S$ magnetisation: this signal enhancement by $|\gamma_I / \gamma_S|$ is the entire reason for the INEPT experiment.
+Importantly, the amplitude of the signal scales as $\gamma_I$ rather than $\gamma_S$; since $\gamma_I > \gamma_S$, this represents a sensitivity enhancement compared to the direct excitation of $S$-magnetisation.
 
 \begin{figure}[ht]
     \centering
@@ -102,6 +101,7 @@ Importantly, the amplitude of the signal scales as $\gamma_I$ rather than $\gamm
     {\phantomsubcaption\label{fig:doublet_lorentzians_abs_in}}
     \caption[Absorption- and dispersion-mode in-phase and antiphase doublets]{
         Peak shapes of a doublet.
+        In all cases, the separation between the two peaks is $2\pi J_{IS}$.
         \textbf{(\subref{fig:doublet_lorentzians_dis_anti})} Antiphase, dispersion-mode.
         \textbf{(\subref{fig:doublet_lorentzians_abs_anti})} Antiphase, absorption-mode.
         \textbf{(\subref{fig:doublet_lorentzians_dis_in})} In-phase, dispersion-mode.
@@ -141,7 +141,8 @@ The two FIDs we record are thus as follows:
 \end{align}
 Simply taking the difference of these two FIDs yields a signal where the desired $s_I$ has been accumulated and $s_S$ has been cancelled out.
 In practice, instead of subtracting the two signals, it is typical to shift the receiver phase $\phi_\text{rec}$ by \ang{180} in the second experiment: this introduces a phase shift of $\exp(-\mi\pi) = -1$ to the signal, and the two signals can now be \textit{added} together instead of subtracted to cancel out $s_S$.
-We can express this as $\phi_x = \phi_\text{rec} = (0, \pi)$, or more commonly, $\phi_1 = \phi_\text{rec} = (x, -x)$ because the phases $(0, \pi)$ correspond to the $+x$- and $-x$-axes respectively.
+Since both $\phi_1$ and $\phi_\text{rec}$ are $0$ on the first experiment and $\pi$ on the second experiment, we can express this as $\phi_x = \phi_\text{rec} = (0, \pi)$.
+This is more commonly denoted as $\phi_1 = \phi_\text{rec} = (x, -x)$, because the phases $(0, \pi)$ correspond to the $+x$- and $-x$-axes respectively.
 
 The `simplified' analysis of pulse sequences shown in \cref{eq:inept_prodop,eq:inept_prodop_s} is often called \textit{`product operator'} analysis\autocite{Sorensen1984PNMRS}, because the underlying two-spin operators are products of single-spin Cartesian operators.
 Although this is often touted as being `simpler' than full density operator calculations, it is really just a shorthand which masks the quantum mechanical theory developed in this chapter:
@@ -153,4 +154,4 @@ Although this is often touted as being `simpler' than full density operator calc
 \end{equation}
 Since the operators $\{E, I_x, I_y, I_z\}$ form a complete basis for a single-spin system, their products (i.e.\ product operators) likewise form a complete basis for multiple-spin systems, and so \textit{any} density matrix for a multiple-spin system may be expressed as a linear combination of product operators.
 Strictly speaking, the use of product operators therefore does not actually sacrifice any power in and of itself.
-However, the heuristics such as those in \cref{fig:prodops_rules} \textit{are} limiting, in that the evolution under some Hamiltonians---for example, strong coupling $\symbf{I}\cdot\symbf{S}$, or pulses for off-resonant spins where $H$ is a sum of $I_x$ and $I_z$---cannot be neatly captured in such a pictorial form.
+However, the heuristics such as those in \cref{fig:prodops_rules} \textit{are} limiting, in that the evolution under some Hamiltonians---for example, strong coupling $\symbf{I}\cdot\symbf{S}$, or pulses for off-resonance spins where $H$ is a sum of $I_x$ and $I_z$---cannot be neatly captured in such a pictorial form.

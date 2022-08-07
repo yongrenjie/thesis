@@ -114,6 +114,7 @@ and during detection this evolves as:
     \label{eq:fid_coherences}
     \rho(t) = \cos(\Omega t)I_x + \sin(\Omega t)I_y = \frac{1}{2}\left[\exp(-\mi \Omega t)I_+ + \exp(\mi \Omega t)I_- \right].
 \end{equation}
+(Notice that the $+1$-coherence $I_+$ actually evolves at the negative frequency $-\Omega$.)
 To obtain the same signal as previously done in \cref{eq:fid}, we `detect' the $I_-$ term:
 \begin{equation}
     \label{eq:detection_coherences}
@@ -122,7 +123,8 @@ To obtain the same signal as previously done in \cref{eq:fid}, we `detect' the $
 which leads to the common assertion that \textit{only quantum coherences of order $-1$ are detectable}.
 It is true that coherences with orders $p = 0, \pm 2, \pm 3, \ldots$ can never be detected in an FID.
 However, it is worth pointing out that the `uniqueness' of $-1$-coherence is merely a result of how the $x$- and $y$-magnetisation are combined to form the complex signal (\cref{eq:quadrature}).
-If we had instead chosen to define $s(t) = M_x(t) - \mi M_y(t)$, this would give us $s(t) \propto \exp(-\mi\Omega t)$---corresponding to detection of $+1$-coherence---although this alternative does come with the drawback that frequencies must be reversed after Fourier transformation.
+We do not \textit{physically} detect $I_-$: we detect $I_x$ and $I_y$, and combine them to form a complex signal which is mathematically equal to detecting $I_-$.
+If we had instead chosen to combine them in a different way, such as $s(t) = M_x(t) - \mi M_y(t)$, this would give us $s(t) \propto \exp(-\mi\Omega t)$---corresponding to `detection' of $+1$-coherence---although this alternative does come with the drawback that frequencies must be reversed after Fourier transformation.
 In any case, we will stick to the established convention of detecting $-1$-coherence here.
 
 To end this section, it should be pointed out that the complex signal is not obtained as an infinitely-long, continuous function of time, as the treatment above implies.

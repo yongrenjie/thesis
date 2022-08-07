@@ -2,18 +2,45 @@
 
 \section*{Pulse sequence notation}
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[draft=false,scale=1.2]{pp/sehsqc/crk_preface.png}
+    \caption[Example pulse sequence to illustrate notation]{An example of a pulse sequence (the sensitivity-enhanced HSQC, see \cref{subsec:noah__sehsqc}), used here to illustrate the notation used in this thesis.}
+    \label{fig:preface_sehsqc}
+\end{figure}
+
+NMR pulse sequences in this thesis are depicted in a reasonably conventional manner: \cref{fig:preface_sehsqc} shows an example of this.
+The notation used is described here to avoid any ambiguity.
 Filled black rectangular bars indicate \ang{90} pulses; empty bars indicate \ang{180} pulses.
 Pulses with other flip angles are depicted using filled grey bars, typically with the Greek letter $\beta$ above it representing the flip angle.
-Delays are variously represented by the letters $\Delta$ and $\tau$, and phases by $\phi$; exact values of these are given in the respective captions.
-Decaying sinusoids mark detection periods, sometimes with simultaneous heteronuclear decoupling on other channels (grey boxes labelled `dec.').
-$z$-Gradient amplitudes are given as percentages of the maximum gradient amplitude, which is probehead-dependent (see \cref{tbl:spectrometers}).
-This maximum amplitude is unlikely to substantially affect the performance of any of the pulse sequences; consequently, I quote gradient amplitudes only as percentages.
-In practice, pulse programmes may be implemented with tiny differences in delays to accommodate finite pulse widths and other technicalities.
+Delays are variously represented by the letters $\Delta$ and $\tau$; exact values of these will be given in the respective captions.
+Pulses without explicit phases are assumed to be applied along the rotating-frame $+x$-axis; phases of the form $\phi_i$ are typically cycled during the experiment and will be specified in the captions.
+Grey boxes labelled `dec.' represent decoupling periods.
+
+$z$-Gradient amplitudes are given as percentages of the maximum gradient amplitude, which is probe-dependent (see \cref{tbl:spectrometers}).
+This maximum amplitude is unlikely to substantially affect the performance of any of the pulse sequences; consequently, in the text I quote gradient amplitudes only as percentages.
+Gradients which are inverted for echo--antiecho selection are depicted as a pair of positive and negative gradients (e.g.\ $g_2$ above).
+Note that whether the gradient is above or below the $G_z$ line has no direct bearing on the sign of its amplitude (this may, in general, depend on the magnetogyric ratios of the nuclei being detected).
+$\varepsilon$ is always used to denote the time required for a pulsed field gradient, plus the subsequent recovery delay.
+
+In practice, the implementation of a pulse sequence may differ in tiny ways: for example delays may be modified to accommodate finite pulse widths and other technicalities.
+Furthermore, shaped pulses may be used in place of hard pulses in order to optimise the pulse sequence, e.g.\ by allowing more efficient refocusing or excitation.
+
+\section*{Software}
+
+All NMR data was processed using TopSpin 3 or 4.
+Quantum mechanical NMR simulations were done in Matlab R2021a or R2021b.
+This thesis is written using the \LaTeX{} typesetting system: specifically, I used the \LuaLaTeX{} engine.
+
+Pulse sequences are drawn using the vector graphics programme \href{https://inkscape.org/}{Inkscape}.
+Plots are generated using \href{https://www.python.org/}{Python 3}, using a number of packages (namely: \href{https://github.com/numpy/numpy}{\texttt{numpy}}, \href{https://github.com/scipy/scipy}{\texttt{scipy}}, \href{https://github.com/matplotlib/matplotlib}{\texttt{matplotlib}}, \href{https://github.com/mwaskom/seaborn}{\texttt{seaborn}}, and \href{https://github.com/yongrenjie/penguins}{\texttt{penguins}}, the last of which was written by me, and described further in \cref{sec:other__penguins}).
+
+The underlying \LaTeX{} code for this thesis, as well as all figures, can be accessed at TODO (likely GitHub).
 
 \section*{Samples used}
 
 The caption of every figure showing experimental data includes a `code' at the end, which indicates the spectrometer and sample used for the data.
-These possibilities are enumerated in \cref{tbl:spectrometers,tbl:samples,fig:samples}.
+The available spectrometers and samples are enumerated in \cref{tbl:spectrometers,tbl:samples,fig:samples}.
 Therefore, for example, the code \texttt{7Z} would represent data acquired on the \SI{700}{\MHz} spectrometer on the zolmitriptan sample.
 
 \begin{table}
@@ -74,19 +101,3 @@ Therefore, for example, the code \texttt{7Z} would represent data acquired on th
     \caption[Chemical structures of samples used in this thesis]{Chemical structures of samples used in this thesis. See \cref{tbl:samples} for more information.}
     \label{fig:samples}
 \end{figure}
-
-\section*{Software}
-
-All NMR data was processed using TopSpin 3 or 4.
-Quantum mechanical NMR simulations were done in Matlab R2021a or R2021b.
-This thesis is written using the \LaTeX{} typesetting system: specifically, I used the \LuaLaTeX{} engine.
-% The main text font is \href{https://github.com/adobe-fonts/source-serif}{Source Serif 4}, and the mathematics font is \href{https://github.com/alerque/libertinus}{Libertinus Math}.
-% The sans-serif font used in figures is Fira Sans, and the monospace font is Fira Code, both part of Mozilla's \href{https://github.com/mozilla/Fira}{Fira family}.
-% The $x$-heights don't all match perfectly, but I'm happy enough with it.
-% All the fonts are open-source, and can be downloaded from the links provided.
-
-Pulse sequences are drawn using the vector graphics programme \href{https://inkscape.org/}{Inkscape}.
-Plots are generated using \href{https://www.python.org/}{Python 3}, using a number of packages (namely: \href{https://github.com/numpy/numpy}{\texttt{numpy}}, \href{https://github.com/scipy/scipy}{\texttt{scipy}}, \href{https://github.com/matplotlib/matplotlib}{\texttt{matplotlib}}, \href{https://github.com/mwaskom/seaborn}{\texttt{seaborn}}, and \href{https://github.com/yongrenjie/penguins}{\texttt{penguins}}, the last of which was written by me, and described further in \cref{sec:appendix/penguins}).
-Even if the underlying data was generated in Matlab, I have invariably opted to export it (e.g., to a CSV file) and plot it using Python.
-
-The underlying \LaTeX{} code for this thesis, as well as all figures, can be accessed at TODO (likely GitHub).

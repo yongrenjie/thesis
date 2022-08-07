@@ -1,7 +1,7 @@
 \section{Quantum mechanics}
 \label{sec:theory__quantum_mechanics}
 
-The most fundamental equation in (non-relativistic) quantum mechanics, which governs the time evolution of a state $\ket{\Psi(t)}$, is the time-dependent Schr\"{o}dinger equation:
+The most fundamental equation in (non-relativistic) quantum mechanics, which governs the time evolution of a quantum state $\ket{\Psi(t)}$, is the time-dependent Schr\"{o}dinger equation:
 \begin{equation}
     \label{eq:tdse}
     \frac{\partial\ket{\Psi(t)}}{\partial t} = -\frac{\mi}{\hbar}H\ket{\Psi(t)} 
@@ -11,26 +11,28 @@ For a Hamiltonian $H$ which does not change during a period of time $t_1 \leq t 
     \label{eq:time_evolution}
     \ket{\Psi(t_2)} = \exp\left[-\frac{\mi H (t_2 - t_1)}{\hbar}\right]\ket{\Psi(t_1)}
 \end{equation}
-The term $\exp[-\mi H(t_2 - t_1)/\hbar]$ is called the \textit{propagator} of the system and denoted $U(t_2, t_1)$; this is often further simplified to $U(\tau)$ where $\tau = t_2 - t_1$ is the duration of the evolution.
+In NMR, it is conventional to use units of angular frequencies instead of energies, for example by replacing $H/\hbar \to H$; this will henceforth be assumed.
+The term $\exp[-\mi H(t_2 - t_1)]$ is called the \textit{propagator} of the system and denoted $U(t_2, t_1)$; this is often further simplified to $U(\tau)$ where $\tau = t_2 - t_1$ is the duration of the evolution.
 For a Hamiltonian which varies with time but is piecewise constant, in that it can be broken up into several finite periods within which $H$ is time-independent, the time evolution of the state is simply given by successive application of propagators:
 \begin{equation}
     \label{eq:time_evolution_piecewise}
     \ket{\Psi(t_n)} = U(t_n,t_{n-1})\cdots U(t_2,t_1)U(t_1,t_0) \ket{\Psi(t_0)}
 \end{equation}
-assuming that $t_n > t_{n-1} > \cdots > t_0$.
-The case where $H$ continuously varies with time is more complicated, but is not generally of interest in NMR and is thus not considered here.
+where $t_n > t_{n-1} > \cdots > t_0$.
+The case where $H$ continuously varies with time is more complicated, but we will not need to consider it in this thesis.
 
-In NMR, it is conventional to use units of angular frequencies instead of energies, for example by replacing $H/\hbar \to H$; this will henceforth be assumed.
-We now look at the specific forms of the Hamiltonians under consideration, i.e., the various nuclear spin interactions.
-The present work is restricted to systems with spin quantum number $I = 1/2$: these are two-level systems, where the eigenstates of $I_z$ (denoted as $\ket{\alpha}$ and $\ket{\beta}$ for $m_I = +1/2$ and $-1/2$ respectively) are used as a standard basis.
-In this basis, the angular momentum operators take the following matrix representations:
+In NMR spectroscopy, we manipulate the \textit{spin angular momentum} of atomic nuclei in order to obtain information about chemical structure and dynamics.
+The present work is restricted to systems with spin quantum number $I = 1/2$.
+These are two-level systems, where the eigenstates of $I_z$ (denoted as $\ket{\alpha}$ and $\ket{\beta}$ for $m_I = +1/2$ and $-1/2$ respectively) are used as a standard basis, called the \textit{Zeeman basis}.
+The $z$-axis is conventionally chosen as the quantisation axis in textbook treatments of angular momentum (primarily for mathematical convenience), but in the context of NMR, it bears even more significance as we define the $z$-axis to be the axis along which the static magnetic field is aligned.
+Since the matrix elements of an operator $O$ are given by $O_{mn} = \braket{m|O|n}$, we can work out the matrix representations of the angular momentum operators in the Zeeman basis:
 \begin{equation}
     \label{eq:pauli}
     I_x = \frac{1}{2}\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}; \quad 
     I_y = \frac{1}{2}\begin{pmatrix} 0 & -\mi \\ \mi & 0 \end{pmatrix}; \quad 
     I_z = \frac{1}{2}\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
 \end{equation}
-At this point, it is also useful to define the following linear combinations:
+We also define the following linear combinations:
 \begin{equation}
     % see https://stackoverflow.com/a/2600374/7115316 for equation label alignment
     \label{eq:other_single_spin_ops}
@@ -42,10 +44,11 @@ At this point, it is also useful to define the following linear combinations:
     \end{aligned}
 \end{equation}
 where $E$ is the $2 \times 2$ identity matrix.
-The \textit{coherence order} of an operator, denoted $p$, is defined by the states it connects, i.e.\ the nonzero elements in its matrix form: an operator $O = \ket{m_2}\bra{m_1}$ would represent $(m_2 - m_1)$-order coherence, since $\braket{m_2|O|m_1} \neq 0$.
-Thus, in the above equations, $I_+$ represents a coherence order of $+1$; $I_-$ a coherence order of $-1$; $I_x$ and $I_y$ are both a mixture of $\pm 1$-coherence; and the remainder have coherence order $0$.
+The \textit{coherence order} of an operator, denoted $p$, is defined by the Zeeman basis states it connects, i.e.\ the nonzero elements in its matrix form when expressed in this basis: an operator $O = \ket{m_2}\bra{m_1}$ would represent $(m_2 - m_1)$-order coherence, since $\braket{m_2|O|m_1} \neq 0$.
+Thus, in the above equations, $I_+ = \ket{\alpha}\bra{\beta}$ represents a coherence order of $+1$; $I_-$ a coherence order of $-1$; $I_x$ and $I_y$ are both a mixture of $\pm 1$-coherence; and the remainder have coherence order $0$.
 
-States (and operators) for composite systems are defined as tensor products of single-spin states (and operators);\autocite{Sakurai2021} in matrix form, these can be expressed using the Kronecker product.\autocite{Hore2015}
+States (and operators) for composite systems are formally defined as tensor products of single-spin states (and operators)\autocite{Sakurai2021}.
+In matrix form, these can be expressed using the Kronecker product.\autocite{Hore2015}
 Thus, for example, the operator $2I_xS_z$ could be represented as follows:\footnote{This representation is not unique; it is perfectly possible to reverse the order of the Kronecker product, and as long as this is consistently done, any physically measurable quantities calculated using this alternative will be the same.}
 \begin{equation}
     \label{eq:composite_operator}
@@ -54,8 +57,7 @@ Thus, for example, the operator $2I_xS_z$ could be represented as follows:\footn
     \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} \right]
     = \frac{1}{2} \begin{pmatrix} 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & -1 \\ 1 & 0 & 0 & 0 \\ 0 & -1 & 0 & 0 \end{pmatrix}
 \end{equation}
-The Hamiltonians $H$ for multiple-spin systems are formed from such operators.
-It is useful to `decompose' $H$ into different interactions.\autocite{Levitt2008}
+The Hamiltonians $H$ for nuclear spin interactions, which will be encountered frequently in this chapter, are formed from such operators.\autocite{Levitt2008}
 In solution-state NMR, these interactions include:
 \begin{align}
     H_\text{cs} &= \sum_i \omega_{0,i} I_{iz} & &\text{(chemical shift)} \label{eq:h_cs} \\
@@ -91,9 +93,8 @@ the scalar coupling Hamiltonian may be simplified (the \textit{secular approxima
 This condition is always satisfied whenever spins $i$ and $j$ are different nuclides.
 
 Throughout the course of an NMR experiment, RF pulses and gradients are turned on and off, and thus $H_\text{pulse}$ and $H_\text{grad}$ are time-dependent---although they will always satisfy the `piecewise constant' criterion which allows us to use \cref{eq:time_evolution_piecewise}.
-The `free precession' (or simply `free') Hamiltonian, $H_\text{free}$, refers to the active Hamiltonian whenever no pulses or gradients are being applied: 
+The `free precession' (or simply `free') Hamiltonian, $H_\text{free}$, refers to the Hamiltonian operative whenever no pulses or gradients are being applied: 
 \begin{equation}
     \label{eq:h_free}
     H_\text{free} = H_\text{cs} + H_\text{J}.
 \end{equation}
-This is always time-independent as these correspond to physical parameters which cannot be changed.

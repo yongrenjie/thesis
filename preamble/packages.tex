@@ -7,7 +7,7 @@
     bottom=1.2in,
 ]{geometry}
 
-\usepackage{amsmath}
+\usepackage{mathtools}
 \usepackage{parskip}
 \usepackage{graphicx}
 \graphicspath{{./figures}}
@@ -73,7 +73,9 @@
   subentry,%
   doi,%
   articletitle,%
-  refsection=chapter,%
+  % refsection=chapter,%
+  % ^ Commented out in favour of using \newrefsection in the toplevel file itself
+  % see https://tex.stackexchange.com/questions/135671/refsection-and-includeonly-warning#comment883562_152019
 ]{biblatex}
 \DeclareCiteCommand{\citenum}{}{\printfield{labelnumber}}{}{}
 
@@ -87,6 +89,10 @@
     citecolor={blue!70!black},
     urlcolor={blue!80!black}
 }
+
+
+\usepackage[notref,notcite]{showkeys}
+\renewcommand*\showkeyslabelformat[1]{\tiny\ttfamily#1}
 
 \usepackage{usebib}
 \newbibfield{entryset}

@@ -12,6 +12,17 @@
 \newcommand{\half}{½}
 \newcommand{\adj}[1]{#1^\dagger}
 
+\newfontface{\libertinusfont}{Libertinus Math}
+\ExplSyntaxOn
+\NewDocumentCommand{\circled}{m}{
+    \raisebox{-0.4ex}{\Large\libertinusfont
+        \str_case:nn{#1}{
+            {1}{①}{2}{②}{3}{③}{4}{④}{5}{⑤}{6}{⑥}{7}{⑦}{8}{⑧}{9}{⑨}{0}{⓪}
+        }
+    }
+}
+\ExplSyntaxOff
+
 % Nuclei
 \newcommand{\proton}{\ch{{}^{1}H}}
 \newcommand{\carbon}{\ch{{}^{13}C}}
@@ -31,7 +42,7 @@
 
 % NOAH
 \ExplSyntaxOn
-\msg_new:nnnn{noah}{module-not-found}{Module~code~`#1'~not~recognised.~If~it~was~not~a~typo,~you~may~need~to~define~this~in~\c_backslash_str noahmodule.}{Hello.}
+\msg_new:nnn{noah}{module-not-found}{Module~code~`#1'~not~recognised.~If~it~was~not~a~typo,~you~may~need~to~define~this~in~\c_backslash_str noahmodule.}
 \NewDocumentCommand{\noahmodule}{m}{
     \str_case:nnTF{#1}{
         {A}{A}

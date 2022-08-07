@@ -1,9 +1,15 @@
 \section{Introduction}
-\label{sec:pureshift/introduction}
+\label{sec:pureshift__introduction}
 
-\textit{Pure shift NMR} refers to the technique of acquiring NMR spectra free of multiplet structure, such that every chemical environment gives rise to a singlet.\autocite{Zangger2015PNMRS}
-To accomplish this, the effect of both heteronuclear and homonuclear couplings must be removed.
-If only heteronuclear couplings exist, as is typically the case with dilute nuclei such as \carbon{}, then this is trivially accomplished by decoupling during the acquisition period.
-However, removing \textit{homonuclear} couplings is a substantially more difficult task, as decoupling cannot be applied on the same radiofrequency channel as the signal is being detected on.
-Therefore, in practice, the term `pure shift' is only used in the context of solution-state homonuclear decoupling.
-Although pure shift techniques can be applied to any NMR-active nucleus, \proton{} is by far the most important, due to the abundance of \proton{}--\proton{} couplings in typical molecules.
+\begin{itemize}
+    \item Theory of pure shift NMR -- $\{I_\alpha, I_\beta, I_+, I_-\}$ basis as explained in refs\autocite{Keeler2010,Thrippleton2005JMR,Griesinger1986JCP}.
+        Include link to (absorption-mode) 2DJ spectroscopy.\autocite{Aue1976JCP} See Pell \& Keeler\autocite{Pell2007JMR}
+    \item Overview of (non-PSYCHE) experimental methods: BIRD, Zangger--Sterk\autocite{Zangger1997JMR}, time-reversal
+    \item Real-time vs interferogram approaches. Briefly mention SAPPHIRE\autocite{Moutzouri2017CC}---we can talk about it in more detail in the NOAH section.
+    \item PSYCHE\autocite{Foroozandeh2014ACIE,Foroozandeh2018CEJ} in more detail.
+        Spatiotemporal averaging.\autocite{Dumez2018PNMRS}
+        Flip angle control.
+        TSE version\autocite{Foroozandeh2015CC}.
+        Mention ZQS\autocite{Thrippleton2003ACIE} and GEMSTONE\autocite{Kiraly2021ACIE}.
+    \item Applications of pure shift NMR: improved resolution, the TOCSY paper\autocite{Foroozandeh2014JACS}, PSYCHE-iDOSY\autocite{Foroozandeh2016ACIE}, psNOE for distances\autocite{Kaltschnee2016JMR}, mixture analysis, ... (what else have they come up with recently?? Probably steal some references from other people's theses...)
+\end{itemize}
