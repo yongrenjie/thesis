@@ -1,5 +1,31 @@
 \chapter{NOAH}
 
+This final---but long---chapter describes my work on \textit{NOAH} (NMR by Ordered Acquisition using \proton{} detection) \textit{supersequences}, pulse sequences which record multiple 2D datasets in the time required for one.\autocite{Kupce2017ACIE}
+This is an attractive NMR technique for several reasons: the time savings (which also translate into sensitivity per unit time increases) are clearly a key factor, but the flexibility of combining almost any set of 2D experiments (`modules') also makes NOAH supersequences applicable to a variety of contexts.
+Furthermore, the data obtained after processing is virtually identical to well-known standard 2D experiments, meaning that the results are intuitive even to non-experts in NMR.
+
+I begin by introducing the concepts underlying NOAH supersequences, as well as a general discussion of the time savings (and sensitivity per unit time) benefits thus realised.
+I then describe the GENESIS (GENEration of Supersequences In Silico) website, which allows users to trivially generate NOAH supersequences containing arbitrary modules.
+After this, my work on various aspects of NOAH supersequences is described, with a special focus on newly developed and/or improved modules.
+Finally, the design of `parallel' supersequences which use interleaved and/or time-shared modules is discussed.
+
+This work was done in close collaboration with {\=E}riks Kup{\v{c}}e (Bruker UK).
+However, all results and analysis shown in this thesis are mine, unless explicitly stated.
+The work in this chapter forms the subject of several publications:
+
+\begin{itemize}
+    \item \fullcite{Yong2021JMR}
+    \item \fullcite{Kupce2021JACSA}
+    \item \fullcite{Yong2022AC}
+    \item ABBS paper to be submitted
+\end{itemize}
+
+The material in the introductory sections also closely follow two reviews which I have contributed to:
+\begin{itemize}
+    \item \fullcite{Kupce2021NRMP}
+    \item RSC book chapter
+\end{itemize}
+
 \input{noah/introduction.tex}
 \input{noah/snr.tex}
 \input{noah/genesis.tex}

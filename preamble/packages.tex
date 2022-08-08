@@ -7,7 +7,6 @@
     bottom=1.2in,
 ]{geometry}
 
-\usepackage{mathtools}
 \usepackage{parskip}
 \usepackage{graphicx}
 \graphicspath{{./figures}}
@@ -80,6 +79,17 @@
 \DeclareCiteCommand{\citenum}{}{\printfield{labelnumber}}{}{}
 
 \addbibresource{thesis.bib}
+
+% patch fullcite to not use et al willy-nilly
+% https://tex.stackexchange.com/a/126245/91770
+\makeatletter
+\DeclareCiteCommand{\fullcite}
+{\defcounter{maxnames}{\blx@maxbibnames}%
+\usebibmacro{prenote}}
+{\usedriver{\DeclareNameAlias{sortname}{default}}{\thefield{entrytype}}}
+{\multicitedelim}
+{\usebibmacro{postnote}}
+\makeatother
 
 \usepackage{xurl}   % must be after biblatex
 \usepackage[final]{hyperref}
