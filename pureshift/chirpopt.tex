@@ -1,0 +1,72 @@
+\subsection{Waveform parameterisation and optimisation}
+\label{subsec:pureshift__chirpopt}
+
+Given that a working optimisation setup, including cost functions, had been developed, it was a logical step to then test it out on a more challenging problem: namely, how the waveform used in the PSYCHE PSE could be modified.
+This goes beyond simply modifying the number of saltires, as was done in \cref{sec:pureshift__nsaltire}.
+There is no real reason why the pulse \textit{must} be an integer number of saltires: in principle it can have \textit{any} shape, although being symmetric about the centre of the pulse would likely still be beneficial in terms of preserving the mechanism of spatiotemporal averaging.
+
+A naive attempt at optimising the pulse would simply involve modifying every pulse point in the double-saltire waveform used in the PSYCHE element.
+As described in \cref{sec:theory__rotating_frame}, each pulse point consists of a pair of $x$- and $y$-amplitudes $(c_x, c_y)$; therefore, for a pulse with $n$ points, we would have a parameter vector $\symbf{x} \in \mathbb{R}^{2n}$.
+Unfortunately, for PSYCHE, $n$ is on the order of $10000$, and an optimisation with $20000$ points is totally unfeasible.%
+\footnote{Although problems of this size have been tackled using optimal control theory\autocite{Khaneja2005JMR,deFouquieres2011JMR,Glaser2015EPJD,Goodwin2016JCP}, it is not really feasible to use it in cases where the pulse is applied \textit{together} with a gradient, as is the case in PSYCHE. On top of that, the coupling networks and spin systems of interest are rather more complicated than in typical applications of optimal control.}
+
+As a result of this, we must consider other ways of parameterising the waveform.
+Several approaches to this issue have surfaced in the literature, such as the use of Fourier series\autocite{Geen1991JMR,Kupce1995JMRSB}, Gaussian cascades\autocite{Emsley1990CPL}, or spline interpolation between a subset of pulse points\autocite{Ewing1990CP}.
+In this instance, we can use the knowledge that the PSYCHE PSE is composed of saltire pulses to our advantage.
+Each saltire pulse is a linear combination of two chirps, defined by:
+\begin{align}
+    \phi(t) &= \phi_0 + \pi\taup(\Delta F)\left(\frac{t}{\taup} - \frac{1}{2}\right)^2 \label{eq:chirp_pulse_phase} \\
+    c_x(t) &= f_\text{smooth}(t) A \cos[\phi(t)] \label{eq:chirp_pulse_cx} \\
+    c_y(t) &= f_\text{smooth}(t) A \sin[\phi(t)] \label{eq:chirp_pulse_cy}
+\end{align}
+for $t \in [0, \taup]$. Here, $\taup$ is the duration of the chirp, $A$ is the amplitude of the chirp (which is time-independent), $\phi_0$ the phase of the chirp, and $\Delta F$ the bandwidth.
+\Cref{eq:chirp_pulse_cx,eq:chirp_pulse_cy} are identical to \cref{eq:pulse_cartesian}, except for the addition of a \textit{smoothing function} $f_\text{sm}(t)$, which prevents large jumps in RF amplitude at the beginning and end of the pulse.
+$f_\text{sm}$ depends on a smoothing parameter $s_\text{sm}$, which is typically $0.1$--$0.2$:
+\begin{equation}
+    \label{eq:sming_function}
+    f_\text{sm}(t) = \begin{cases}
+        \displaystyle \sin\left(\frac{\pi t'}{2 s_\text{sm}}\right) & 0 \leq t' < s_\text{sm}; \\
+        \displaystyle 1 & s_\text{sm} \leq t' < 1 - s_\text{sm}; \\
+        \displaystyle \sin\left[\frac{\pi (1 - t')}{2 s_\text{sm}}\right] & s_\text{sm} \leq t' \leq 1, \\
+    \end{cases}
+\end{equation}
+where $t' = t/\taup$.
+
+\todo{(could do with a figure here)}
+
+Given these expressions, and ignoring the smoothing function (which is only really described here for completeness) we see that there are four parameters of the chirp which can be modified: $A$, $\taup$, $\phi_0$, and $\Delta F$.
+The two chirps which form one saltire pulse simultaneously sweep in opposite directions, which mean that $\Delta F$ for one chirp is the negative of the other; however, their parameters are otherwise equal.
+
+We may, however, also envision a case where the pulse is constructed from two chirps which are applied at a different point in time, and also cover different bandwidths.
+This adds two more parameters to each chirp, namely $t_0$ (the starting time of the pulse) and $f_0$ (the centre of the pulse bandwidth).
+Each chirp therefore sweeps from the frequency $f_0 - (\Delta F)/2$ at a time $t_0$, to the frequency $f_0 + (\Delta F)/2$ at a time $t_0 + \taup$.
+In total, this gives us six parameters per chirp which may be optimised: for a sum of two chirps, there are therefore 12 parameters in total.
+Since a sum of two chirps is not necessarily symmetric (with respect to reflection in time), I opted to reflect the waveform about its end, thus doubling the length of the pulse.
+
+The initial point chosen was that corresponding to a \textit{single} saltire after reflection:
+\begin{itemize}
+    \item Chirp 1: $\taup = \SI{15}{\ms}$; $\Delta F = \SI{-5}{\kHz}$; $\phi_0 = 0$; $A = \SI{36}{\Hz}$; $t_0 = 0$; $f_0 = \SI{5}{\kHz}$;
+    \item Chirp 2: $\taup = \SI{15}{\ms}$; $\Delta F = \SI{5}{\kHz}$; $\phi_0 = 0$; $A = \SI{36}{\Hz}$; $t_0 = 0$; $f_0 = \SI{-5}{\kHz}$;
+\end{itemize}
+Collectively, these two pulses sum up to become the \textit{first half} of a single saltire with bandwidth $\SI{10}{\kHz}$.
+After reflection, the total duration of the saltire is $\SI{30}{\ms}$, and the amplitude is $\SI{72}{\Hz}$, which corresponds to a flip angle of approximately \ang{32}.
+
+Using this setup, several optimisations of the 12 parameters above were conducted.
+It was quickly noticed that, although $f_\text{diff}$ was a better cost function than $f_\text{phase}$, this led to spurious optima being located.
+\todo{(FIGURE)}
+The reason for this is almost certainly because the PSE distorts the relative intensity of signals: in particular, singlets have lower relative intensities than in the parent pulse--acquire spectrum.
+Of course, singlets are completely unimportant when devising a pure shift experiment.
+Furthermore, since singlets are typically more intense than the rest of the spectrum, they also contribute disproportionately to the cost function.
+
+A simple and effective way to avoid this is to evaluate the cost function only on a specific part of the spectrum.
+In this case, I chose to use the $\ch{H}^{\alpha}$ region between 4.72 and \SI{5.94}{ppm}
+
+\todo{(figure -- spurious optima are gone, we have a \texttt{chirpopt\_spurious.py} file)}
+
+\todo{(even with this, often converged to saltire... on the occasion something better than a saltire was found, typically the result is very close to that of a saltire --- show TSE-PSYCHE spectrum obtained, 190831 AV600 cyclosporin)}
+
+While not quite as intractable as 20000 parameters, optimising a 12-parameter function clearly still proves to be a challenge.
+Although the cost functions described here do work, they are generally quite `flat', in that they do not discriminate very sharply between `good' and `bad' spectra.
+Combined with the fact that the cost function is noisy, this makes experimental optimisation of the waveform an uphill task.
+With that said, much of the knowledge (and code) in this section was later used in the development of POISE.
+In particular, PSYCHE optimisations also ended up being part of POISE (\cref{subsec:poise__psyche}).

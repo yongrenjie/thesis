@@ -12,8 +12,10 @@
 *.out
 *.ptc
 *.toc
-*.swp
 *.synctex.gz
 *.synctex(busy)
 *.xdv
 *.xml
+
+*.swp
+*.spl

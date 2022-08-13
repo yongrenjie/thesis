@@ -16,7 +16,7 @@ The relevant product operators broadly follow this pattern:
     \label{eq:2d_pemd}
     \rho'_0 \,\,\xrightarrow[]{\textit{preparation}} \,\, P \,\, \xrightarrow[]{\textit{evolution}} \,\, P\cos(\Omega_P t_1) + P'\sin(\Omega_P t_1) \,\, \xrightarrow[]{\textit{mixing}} \,\, Q\cos(\Omega_P t_1) + \cdots
 \end{equation}
-Here, $P$ is some operator which, during the $t_1$ period, evolves into $P'$ at a frequency of $\Omega_P$ (as per \cref{fig:prodops_rules}).
+Here, $P$ is some operator which, during the $t_1$ period, evolves into $P'$ at a frequency of $\Omega_P$ (as per \cref{fig:prodop_rules}).
 This leads to two terms which are \textit{amplitude-modulated} in $t_1$.
 The mixing process simply transforms the operator $P$ to $Q$; for now, we will assume that the sine-modulated term $P'$ is turned into unobservable magnetisation.
 
@@ -51,7 +51,8 @@ There are multiple different ways of solving these dual issues, which are extens
 Among these are the States method\autocite{States1982JMR}, the TPPI method\autocite{Marion1983BBRC}, and the echo--antiecho method.
 I will briefly cover the States and echo--antiecho methods; the TPPI method can be shown to be essentially mathematically equivalent to the States method\autocite{Keeler1985JMR}.%
 \footnote{There is a slight difference in that the TPPI method pushes \textit{axial peaks}---artefacts arising at $\omega_1 = 0$---to the edge of the spectrum, whereas with the States method, these artefacts appear in the middle of the spectrum, potentially obscuring useful peaks. The reader is referred to the references cited in the main text for a discussion of this.
-In practice, both the States and echo--antiecho methods can be easily adapted to incorporate this shifting of axial peaks (in the former case it is creatively known as the \textit{States--TPPI method}), so I do not consider it any further here.}
+In practice, both the States and echo--antiecho methods can be easily adapted to incorporate this shifting of axial peaks by phase shifting the $t_1$ modulation as well as the receiver by $180^\circ$ every time $t_1$ is incremented (in the former case it is creatively known as the \textit{States--TPPI method}).
+Thus, I do not consider the TPPI method any further here.}
 
 In the States method, the cosine-modulated signal described above (and denoted $s_\text{cos}(t_1, t_2)$ here) forms only one part of the signal.
 It is also necessary to acquire a \textit{sine-modulated signal} of the form $s_\text{sin}(t_1, t_2) = \sin(\Omega_P t_1)\exp(\Omega_Q t_2)$.

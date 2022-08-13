@@ -1,9 +1,9 @@
 \subsection{INEPT and product operators}
 \label{subsec:theory__inept}
 
-\begin{figure}[ht]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[scale=1.2]{pp/inept.png}
+    \includegraphics[]{pp/inept.png}
     \caption[INEPT pulse sequence]{
         INEPT pulse sequence.
         The delay $\Delta$ is set to $1/(4 \cdot \oneJ{CH})$.
@@ -50,23 +50,23 @@ For example, in the $\Delta$ delay which follows, we have that
 When performing simulations of NMR experiments, such as those in later chapters, this is precisely what happens, with the slight difference that the Liouville--von Neumann equation (\cref{eq:lvn_interaction_integrated}) is evaluated numerically rather than symbolically.
 Note that in going from the first to the second line, we can only `split up' $H_{\text{free},I}$ into its constituent components $H_\text{offset}$ and $H_\text{J}$ because they commute.
 
-\begin{figure}[ht]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[scale=0.8]{prodops_rules.png}
+    \includegraphics[]{theory/prodop_rules.png}
     \caption[Simplified rules for product operator evolutions]{
         Simplified rules for the evolution of product operators under different common Hamiltonians (offset, weak/secular J-coupling, and pulses).
         These Hamiltonians often have the form $\omega M$ where $M$ is some `base operator', and are applied for a time $\tau$.
         The boxed operators in the centre of each group refer to $M$; the initial state is then `rotated' about this by an angle of $\omega\tau$ to obtain the final state, or more formally, it is transformed into itself times $\cos(\omega\tau)$, plus the next term in the cycle times $\sin(\omega\tau)$.
         For example, an $90^\circ_x$ pulse has the `base' operator $I_x$ and the angle $\omega\tau = \pi/2$; thus, the initial state $I_z$ would be rotated to $I_z\cos(\pi/2) - I_y\sin(\pi/2) = -I_y$.
     }
-    \label{fig:prodops_rules}
+    \label{fig:prodop_rules}
 \end{figure}
 
 When analysing pulse sequences by hand, however, it is far more convenient to use a set of heuristics which summarise the effects of various pulse sequence elements.
-For example, \cref{fig:prodops_rules} summarises the evolution of a density operator under a single term of the Hamiltonian: as above, since $[H_\text{offset}, H_\text{J}] = 0$, we only need to consider one term at a time.
+For example, \cref{fig:prodop_rules} summarises the evolution of a density operator under a single term of the Hamiltonian: as above, since $[H_\text{offset}, H_\text{J}] = 0$, we only need to consider one term at a time.
 More high-level rules may be devised as well: for example, during the $\Delta\text{--}180^\circ_{x}(I),180^\circ_{x}(S)\text{--}\Delta$ spin echo which comes next, the $J_{IS}$ interaction in $H_{\text{free},I}$ is allowed to evolve for a period of $2\Delta$, but the offset term is \textit{refocused} and can be ignored.
 (The sign inversion caused by the \ang{180} pulses must also be included.)
-As per \cref{fig:prodops_rules}, this transforms the $-I_y$ term to $-2I_xS_z$ at point \circled{2}: the Hamiltonian is $\pi J_{IS} 2I_zS_z$ for a total time of $2\Delta = 1/(2J_{IS})$, so the `angle' rotated through is $\pi J_{IS}/(2J_{IS}) = \pi/2$.
+As per \cref{fig:prodop_rules}, this transforms the $-I_y$ term to $-2I_xS_z$ at point \circled{2}: the Hamiltonian is $\pi J_{IS} 2I_zS_z$ for a total time of $2\Delta = 1/(2J_{IS})$, so the `angle' rotated through is $\pi J_{IS}/(2J_{IS}) = \pi/2$.
 Immediately after this, the $90^\circ_y(I),90^\circ_x(S)$ pair of pulses rotates this magnetisation to $-2I_zS_y$ (point \circled{3}).
 These transformations are often denoted with simpler notation:
 \begin{equation}
@@ -92,9 +92,9 @@ If desired, zeroth-order phase correction can be performed here, yielding instea
 In either case, this is termed an \textit{antiphase} doublet; the product operators which give rise to it ($2I_zS_x$ and $2I_zS_y$) are said to be antiphase with respect to spin $I$.
 Importantly, the amplitude of the signal scales as $\gamma_I$ rather than $\gamma_S$; since $\gamma_I > \gamma_S$, this represents a sensitivity enhancement compared to the direct excitation of $S$-magnetisation.
 
-\begin{figure}[ht]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[scale=0.7]{doublet_lorentzians.png}
+    \includegraphics[]{theory/doublet_lorentzians.png}
     {\phantomsubcaption\label{fig:doublet_lorentzians_dis_anti}}
     {\phantomsubcaption\label{fig:doublet_lorentzians_abs_anti}}
     {\phantomsubcaption\label{fig:doublet_lorentzians_dis_in}}
@@ -154,4 +154,4 @@ Although this is often touted as being `simpler' than full density operator calc
 \end{equation}
 Since the operators $\{E, I_x, I_y, I_z\}$ form a complete basis for a single-spin system, their products (i.e.\ product operators) likewise form a complete basis for multiple-spin systems, and so \textit{any} density matrix for a multiple-spin system may be expressed as a linear combination of product operators.
 Strictly speaking, the use of product operators therefore does not actually sacrifice any power in and of itself.
-However, the heuristics such as those in \cref{fig:prodops_rules} \textit{are} limiting, in that the evolution under some Hamiltonians---for example, strong coupling $\symbf{I}\cdot\symbf{S}$, or pulses for off-resonance spins where $H$ is a sum of $I_x$ and $I_z$---cannot be neatly captured in such a pictorial form.
+However, the heuristics such as those in \cref{fig:prodop_rules} \textit{are} limiting, in that the evolution under some Hamiltonians---for example, strong coupling $\symbf{I}\cdot\symbf{S}$, or pulses for off-resonance spins where $H$ is a sum of $I_x$ and $I_z$---cannot be neatly captured in such a pictorial form.

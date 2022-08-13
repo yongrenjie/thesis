@@ -1,6 +1,6 @@
 # Use LuaLaTeX.
 $pdf_mode = 4;
-# $lualatex = 'lualatex -shell-escape %O %S';
+$lualatex = 'lualatex -shell-escape %O %S';
 
 
 # stuff for glossaries-extra

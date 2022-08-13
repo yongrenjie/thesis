@@ -4,9 +4,9 @@
 To illustrate the ideas developed in the previous section, we now turn our attention to two typical implementations of the 2D HSQC experiment, where both phase cycling as well as gradients are used to select for particular product operators.
 \Cref{fig:hsqc_ph} shows an HSQC experiment where quadrature detection in the indirect dimension is performed using the States method.
 
-\begin{figure}[ht]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[scale=1.2]{pp/hsqc/hsqc_ph.png}
+    \includegraphics[]{pp/hsqc/ph.png}
     \caption[Phase-sensitive HSQC pulse sequence with States method]{
         A typical HSQC pulse sequence utilising the States method for quadrature detection in $\omega_1$.
         The delay $\Delta$ is set to $1/(4 \cdot \oneJ{CH})$.
@@ -25,12 +25,12 @@ The \textit{preparation period} is just the same INEPT element as analysed in \c
     \label{eq:hsqc_ph_rho_1}
     \rho = -2I_zS_y.
 \end{equation}
-During $t_1$ this evolves to give:
+During $t_1$, the J-coupling is refocused, but the offset evolves to give:
 \begin{equation}
     \label{eq:hsqc_ph_after_t1}
     \rho = 2I_zS_y\cos(\Omega_S t_1) - 2I_zS_x \sin(\Omega_S t_1),
 \end{equation}
-at point \circled{2}, bearing in mind that the $180^\circ_x(I)$ pulse inverts the $I_z$ term.
+at point \circled{2}, bearing in mind that the $180^\circ_x(I)$ pulse inverts the $I_z$ component of both terms.
 Immediately after this, the reverse INEPT element (the `mixing' segment) transfers the amplitude-modulated $2I_zS_y$ coherence $I_x$ for detection.
 However, the $2I_zS_x$ term is turned into a mixture of unobservable zero- and double-quantum coherence, such that immediately before detection (point \circled{3}) we have:
 \begin{equation}

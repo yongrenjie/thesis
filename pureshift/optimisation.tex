@@ -1,6 +1,15 @@
-\section{Direct optimisation of PSYCHE}
+\section{Direct optimisation of PSYCHE waveform}
 \label{sec:pureshift__optimisation}
 
-This was stuff briefly pursued during my 2nd CDT rotation.
-It didn't work very well---it's just insensible to try to optimise every point in a shaped pulse, and especially not experimentally.
-But it did ultimately get expanded into POISE\ldots
+The changes to the PSYCHE waveform discussed in the previous section---changing the number of saltire pulses to either 1 or 4---are fairly minor, in that they do not fundamentally alter the form of the PSE.
+Furthermore, there is an obvious issue in that the quality of the spectrum is not measured in a particularly rigorous manner.
+Ideally, we would like to have a mathematical way of measuring how well the pure shift sequence has worked.
+Such a metric would also enable a more automated optimisation process, where a programme is allowed to find the best PSE without any interference from human subjectivity.
+
+In this section, I discuss more radical changes which depart from the tried-and-tested saltire pulse.
+I also show how two different \textit{cost functions}---functions which determine how `bad' a spectrum is---can be used to evaluate PSEs.
+Although the work in this section did not quite yield any groundbreaking results, it provided substantial insights into the nature of pure shift optimisations, which were later used in the context of POISE (\cref{chpt:poise}).
+
+\input{pureshift/optim_techniques.tex}
+\input{pureshift/faopt.tex}
+\input{pureshift/chirpopt.tex}

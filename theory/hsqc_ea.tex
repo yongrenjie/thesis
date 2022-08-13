@@ -1,9 +1,9 @@
 \subsection{The echo--antiecho HSQC: gradients and coherence selection}
 \label{subsec:theory__hsqc_ea}
 
-\begin{figure}[ht]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[scale=1.2]{pp/hsqc/hsqc_etgp.png}
+    \includegraphics[]{pp/hsqc/etgp.png}
     \caption[Echo--antiecho HSQC pulse sequence]{
         A typical echo--antiecho HSQC pulse sequence.
         The delay $\Delta$ is set to $1/(4 \cdot \oneJ{CH})$.
@@ -175,7 +175,33 @@ just before applying the $g_2$ gradient.
 The $I_x$ term can then be decomposed into $(I_+ + I_-)/2$, and we already know the end of the story: the $I_-$ term is rephased by $g_2$ and then detected to yield $s_\text{echo}(t_1, t_2)$ (\cref{eq:hsqc_ea_echo_signal}).
 Being flexible in switching between the two bases can greatly simplify the mathematics involved, as terms which do not survive can be immediately dropped, and the simpler phase modulation $\exp(\mi\omega t)$ can be used instead of unwieldy $\cos(\omega t)$ and $\sin(\omega t)$ terms.
 
-To end this chapter, we generalise the refocusing requirement introduced in \cref{eq:gradient_refocusing_condition}.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[]{theory/hsqc_comparison.png}
+    {\phantomsubcaption\label{fig:hsqc_comparison_st_ns1}}
+    {\phantomsubcaption\label{fig:hsqc_comparison_ea_ns1}}
+    {\phantomsubcaption\label{fig:hsqc_comparison_st_ns2}}
+    {\phantomsubcaption\label{fig:hsqc_comparison_projections}}
+    \caption[Experimental comparison of States--TPPI and echo--antiecho HSQC]{
+        A comparison of HSQC data acquired using various quadrature detection schemes.
+        \textbf{(\subref{fig:hsqc_comparison_st_ns1})} States--TPPI HSQC with one scan (i.e.\ no phase cycling) applied.
+        \textbf{(\subref{fig:hsqc_comparison_ea_ns1})} Echo--antiecho HSQC with one scan.
+        \textbf{(\subref{fig:hsqc_comparison_st_ns2})} States--TPPI HSQC with two scans, using the phase cycling shown in \cref{fig:hsqc_ph}. The artefacts are essentially completely removed.
+        \textbf{(\subref{fig:hsqc_comparison_projections})} Projections of the States--TPPI and echo--antiecho spectra in (\subref{fig:hsqc_comparison_st_ns1}) and (\subref{fig:hsqc_comparison_ea_ns1}) onto the $F_2$ axis (to avoid picking up the artefacts, only the region between 60 and \SI{110}{ppm} in $F_1$ was projected).
+        The two projections are slightly horizontally offset for visual clarity.
+        The signal intensity is the same, but the noise level in the echo--antiecho spectrum is larger (by a factor of $\sqrt{2}$, as described in the text).
+        \datacode{6A-220809}
+    }
+    \label{fig:hsqc_comparison}
+\end{figure}
+
+The points developed in this chapter are neatly summarised in \cref{fig:hsqc_comparison}.
+The States--TPPI experiment (\cref{fig:hsqc_comparison_st_ns1}) is the same as the States experiment in \cref{fig:hsqc_ph}, except that on every $t_1$ increment $\phi_1$ and $\phi_\text{rec}$ are inverted, causing the artefacts to be shifted to the edge of the spectrum.
+Comparing the projections of this and the echo--antiecho experiment (\cref{fig:hsqc_comparison_projections}), it can be seen that the States--TPPI version has a larger SNR by a factor of $\sqrt{2}$; however, it clearly requires at least a two-step phase cycle to obtain presentable data, as was done in \cref{fig:hsqc_comparison_st_ns2}.
+Clearly, the sensitivity of the echo--antiecho spectrum in \cref{fig:hsqc_comparison_ea_ns1} is good enough, rendering the extra SNR from the States--TPPI method unnecessary: it is therefore more practical to use the echo--antiecho version, as the spectrum quality is much better.
+For homonuclear experiments which do not have such stringent artefact suppression requirements, States(--TPPI) quadrature detection is still commonly used.
+
+To end this chapter, we generalise the CTP refocusing requirement introduced in \cref{eq:gradient_refocusing_condition}.
 The treatment here is similar to that of Mitschang et al.\autocite{Mitschang1995JCP}
 In general, during a pulse sequence we may have $n$ gradients in total, with amplitudes $g^{(1)}, g^{(2)}, \ldots, g^{(n)}$.
 We assume that their durations $\tau^{(i)}$ are all the same, such that they can be factored out of the equation.
