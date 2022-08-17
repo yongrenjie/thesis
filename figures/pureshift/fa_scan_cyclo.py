@@ -4,7 +4,7 @@ import numpy as np
 
 apt.thesis()
 
-p = apt.nmrd() / 'jy-190907-FAscan'
+p = apt.nmrd() / 'jy-190809-FAscan-min'
 
 # Reference dataset
 ref_ds = pg.read(p, 1)
@@ -18,7 +18,7 @@ def f_diff(ds):
                           - (ref_ds.real / np.linalg.norm(ref_ds.real)))
 
 # Process data
-flip_angles = list(range(4, 52, 2))
+flip_angles = list(range(10, 55, 5))
 
 phase_means = []
 phase_stdevs = []

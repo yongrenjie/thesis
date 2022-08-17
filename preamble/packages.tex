@@ -7,35 +7,47 @@
     bottom=1.2in,
 ]{geometry}
 
-\usepackage{parskip}
+\usepackage[parfill]{parskip}
 \usepackage{graphicx}
 \graphicspath{{./figures}}
 \usepackage{makecell}
 \usepackage{floatrow}
+\usepackage{multirow}
 \usepackage{braket}
 \usepackage{subcaption}
 \usepackage[svgnames]{xcolor}
 \usepackage{chemformula}    % must be after xcolor if xcolor has options
 \setchemformula{math-scripts=true}  % requires updated chemformula
 \usepackage[perpage,symbol*]{footmisc}
-\usepackage{tcolorbox}
 \usepackage{epigraph}
 \usepackage[nottoc]{tocbibind}
 \usepackage{metalogo}
 \usepackage{booktabs}
 \usepackage{xparse}
 
+% code listings setup
+\usepackage[within=chapter]{newfloat}
+\DeclareFloatingEnvironment[
+    listname={List of listings},
+    name={Listing},
+]{mylisting}
 \usepackage{minted}
-\setminted[]{%
-    xleftmargin=5mm,%
-    xrightmargin=5mm,%
-    fontsize=\small,%
+\usepackage{tcolorbox}
+\tcbuselibrary{minted}
+\newtcblisting{tcbminted}[1]{%
+    colframe=black,%
+    colback=white,%
+    width=0.95\textwidth,%
+    center,%
+    listing only,%
+    minted options={fontsize=\small},%
+    minted language={#1},%
 }
-
 
 
 % siunitx & unit definitions
 \usepackage[exponent-product=\cdot]{siunitx}
+\sisetup{input-digits = 0123456789\mitpi}
 \DeclareSIUnit{\ppm}{ppm}
 \DeclareSIUnit{\gauss}{G}
 \DeclareSIUnit{\molar}{M}
@@ -118,4 +130,8 @@
 \bibinput{thesis}
 \usepackage{cleveref}
 \crefname{section}{\S}{\S\S}
+\Crefname{section}{\S}{\S\S}
 \crefname{subsection}{\S}{\S\S}
+\Crefname{subsection}{\S}{\S\S}
+\crefname{mylisting}{listing}{listings}
+\Crefname{mylisting}{Listing}{Listings}

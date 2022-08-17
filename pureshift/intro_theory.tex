@@ -12,7 +12,7 @@ This means that $H_{\text{free},I} = \Omega_1 I_{1z} + \Omega_2 I_{2z} + 2\pi JI
         0 & 0 & 0 & \omega_{\beta\beta} \\
     \end{pmatrix},
 \end{equation}
-where $\omega_{\lambda\mu} = \braket{\lambda\mu|H_{\text{free},I}|\lambda\mu}$ represents the precession frequency of the state $\ket{\lambda\mu}$.
+where $\omega_{\lambda\mu} = \braket{\lambda\mu|H_{\text{free},I}|\lambda\mu}$ ($\lambda, \mu \in \{\alpha, \beta\}$) represents the precession frequency of the state $\ket{\lambda\mu}$.
 Given that $I_z\ket{\alpha} = (1/2)\ket{\alpha}$ and $I_z\ket{\beta} = -(1/2)\ket{\beta}$, these are relatively easy to work out:
 \begin{equation}
     \label{eq:state_precessions}
@@ -58,8 +58,9 @@ so $U(\tau) I_{1+} I_{2\alpha} \adj{U}(\tau)$ is simply
         0 & 0 & 0 & 0 \\
     \end{pmatrix} = \exp[-\mi(\Omega_1 + \pi J)\tau] I_{1+}I_{2\alpha}.
 \end{equation}
-Essentially, all of these operators evolve into themselves under $H_{\text{free},I}$, while acquiring a phase factor which depends on the difference between two of the frequencies.
-The rules for the single-quantum operators on spin 1 are explicitly given here:
+Essentially, under $H_{\text{free},I}$, all of these operators merely acquire a phase factor which depends on the difference between two of the frequencies.
+The rules for the single-quantum operators on spin 1 are explicitly given here:%
+\footnote{Note that \S{} 10.4.2 of Keeler's text\autocite{Keeler2010} has a sign error in these equations---the sign of the $\pi J$ evolution is flipped---though it proves to be inconsequential as the sign of $J$ cannot be observed.}
 \begin{align}
     I_{1+}I_{2\alpha} &\longrightarrow \exp[-\mi(\Omega_1 + \pi J)\tau] I_{1+}I_{2\alpha} \label{eq:shift_basis_evolution_pa} \\
     I_{1+}I_{2\beta} &\longrightarrow \exp[-\mi(\Omega_1 - \pi J)\tau] I_{1+}I_{2\beta} \label{eq:shift_basis_evolution_pb} \\
@@ -69,7 +70,7 @@ The rules for the single-quantum operators on spin 1 are explicitly given here:
 The rules for the corresponding operators on spin 2 can be easily obtained by permutation of labels.
 Notice that the evolution frequencies of the $-1$-quantum operators each correspond to one peak of the multiplet: for example, $\Omega_1 + \pi J$ and $\Omega_1 - \pi J$ (\cref{eq:shift_basis_evolution_ma,eq:shift_basis_evolution_mb}) correspond to the two peaks of the spin-1 doublet.
 
-Consider now a simple spin echo sequence, $90^\circ_{x}$--$\tau$--$180^\circ_{x}$--$\tau$--detection.
+Consider now a simple spin echo sequence: $90^\circ_{x}$--$\tau$--$180^\circ_{x}$--$\tau$--detection.
 The initial excitation pulse acts on both spins 1 and 2, and thus generates a mixture of all eight possible single-quantum operators (the four above plus four more on spin 2).
 For simplicity, we only consider the $I_{1+}I_{2\alpha}$ term.
 This evolves in the first $\tau$ delay to give $\exp[-\mi(\Omega_1 + \pi J)\tau] I_{1+}I_{2\alpha}$.
@@ -108,7 +109,7 @@ These limitations mean that it is impossible to accomplish the above transitions
     I_{1+}I_{2\alpha} \longrightarrow c I_{1-}I_{2\alpha} + \sum_i c'_i M_i
 \end{equation}
 and likewise for the other operators.
-Here, the desired transition probability $c$ directly correlates with the sensitivity of the PSE, and the $M_i's$ are some other undesired operators which (if detectable) must either be suppressed or generate artefacts in the spectrum.
+Here, the desired transition probability $c$ directly correlates with the sensitivity of the PSE, and the $M_i's$ are some other undesired operators which (if detectable) lead to artefacts if not suppressed.
 
 In the above discussion, note that the role of the PSE is to invert the $I_+$ and $I_-$ terms, and to retain the $I_\alpha$ and $I_\beta$ terms.
 The prevailing terminology is to refer to the spins with $I_+$ and $I_-$ terms as \textit{active spins}, and the $I_\alpha$ and $I_\beta$ spins as \textit{passive spins}.

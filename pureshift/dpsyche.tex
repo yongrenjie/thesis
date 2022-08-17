@@ -1,4 +1,34 @@
 \section{`Discrete PSYCHE'}
 \label{sec:pureshift__dpsyche}
 
-More recent work mostly involving simulations.
+The last pure shift method in this chapter is completely original, and represents perhaps the most fruitful attempt so far at optimising pure shift experiments.
+It relies on what is essentially a `temporal discretisation' of the PSYCHE waveform and gradient combination: instead of applying a shaped pulse and a gradient simultaneously, hard pulses and gradients are interleaved in the PSE (\cref{fig:dpsyche_pulseq}).
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[draft=false]{pp/pureshift/dpsyche.png}
+    \caption[dPSYCHE pulse sequence]{
+        dPSYCHE pulse sequence.
+        Gradient amplitudes are $(g_1, g_2) = (35\%, 41\%)$; the gradients in the PSE $g_2$ are applied with a duration of \SI{500}{\us}.
+        The hard pulses in the PSE are applied with an RF amplitude of \SI{18}{\kHz}.
+        The delay $\tau$ is set to $1/(4 \cdot T_\text{chunk})$, and allows for J-coupling to be refocused in the middle of the chunk.
+    }
+    \label{fig:dpsyche_pulseq}
+\end{figure}
+
+For this reason I have dubbed this experiment the `discrete PSYCHE', or dPSYCHE for short.
+There are two major reasons why this is more amenable towards optimisation than many of the previous experiments:
+\begin{enumerate}
+    \item Pulses and gradients are no longer applied simultaneously, which makes simulation of the experiment \textit{extremely} fast compared to the original PSYCHE.
+        This opens up the possibility of entirely theoretical optimisations, as the noise can be completely eliminated from the cost function.
+        
+    \item There are much fewer `pulse points' than in the original PSYCHE: effectively, the phase and flip angle of every hard pulse has to be optimised, leading to $2m$ parameters.
+        Even for $m \sim 10$, this is quite tractable if the optimisation is noiseless.
+\end{enumerate}
+
+One downside of this is that it is difficult, or perhaps even impossible, to explain how the PSE works.%
+\footnote{Of course, we could simulate it and say that it works because the maths says it does; but that isn't very illuminating. The optimisations done in this thesis are somewhat like a scaled-down version of machine learning, in that they produce better results at the cost of interpretability.}
+For a symmetric PSE where $\beta_1 = \beta_m$ (and so on) it is probably possible to reuse an explanation based on PSYCHE-style CTP selection, but this is clearly inapplicable if the flip angles and phases are scrambled.
+
+\input{pureshift/dpsyche_simulation.tex}
+\input{pureshift/dpsyche_optimisation.tex}

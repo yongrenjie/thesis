@@ -18,7 +18,7 @@ To make matters worse, $H_\text{pulse}$ does not commute with $H_\text{grad}$, s
 \end{equation}
 must be calculated for each pulse point ($1 \leq i \leq n$) in each slice of the sample.
 As a result, the simulation of PSYCHE spectra in the Spinach package\Autocite{Hogben2011JMR} typically requires minutes to hours.%
-\footnote{With highly optimised handwritten code, exploiting the symmetry of the PSYCHE element, the fastest simulation I could do took 16 seconds on a 20-core computer. It is possible that GPU acceleration could result in substantial speedups, but I have not looked into this sufficiently. Anyway, acquisition of the pure shift spin echo experiment takes only around 5 seconds.}
+\footnote{With highly optimised handwritten code, exploiting the symmetry of the PSYCHE element, the fastest simulation I could do took 16 seconds on a 20-core computer, for a simple 2-spin system. This number increases very rapidly for larger spin systems. It is possible that GPU acceleration could result in substantial speedups, but I have not looked into this sufficiently. Anyway, acquisition of the pure shift spin echo experiment takes only around 5 seconds.}
 
 This in fact makes it faster to experimentally acquire a pure shift spectrum and calculate a cost function based on that.
 Running an actual pure shift experiment, though, is suboptimal: firstly, the pseudo-2D interferogram method is slow, and secondly, there is no easy way to devise a cost function for the resulting spectrum.
@@ -50,14 +50,20 @@ Two cost functions were designed and used in this section:
 \end{align}
 where the PSSE and pulse--acquire 1D spectra are treated as complex-valued vectors $\symbf{S}$ and $\symbf{T}$ respectively (for \textit{`spectrum'} and \textit{`target'}). $\symbf{S}_\text{re}$ and $\symbf{S}_\text{im}$ are the real and imaginary parts of the spectrum $\symbf{S}$, and $S_{\text{re},i}$ is the $i$-th point of the real part of the spectrum.
 The operator $\Var_i$ represents the variance over all points in the spectrum $i$, and $\lVert \symbf{x} \rVert$ denotes the 2-norm of the vector $\symbf{x}$, i.e.\ $\sqrt{\sum_i x_i^2}$.
-The implementation of this in Python is quite possibly easier to take in:\footnote{The use of \texttt{np.arctan} (the arctangent), and \textit{not} \texttt{np.arctan2} (the argument of a complex number), is intentional. The behaviour shown in \cref{fig:fa_scan_synthetic} isn't reproduced with \texttt{arctan2}. Of course, this means the name `phase' is a misnomer; it's not really the phase of anything meaningful.}
-\begin{minted}{python}
+The implementation of this in Python (\cref{lst:pureshift_costfunctions}) is quite possibly easier to take in.\footnote{The use of \texttt{np.arctan} (the arctangent), and \textit{not} \texttt{np.arctan2} (the argument of a complex number), is intentional. The behaviour shown in \cref{fig:fa_scan_synthetic} isn't reproduced with \texttt{arctan2}. Of course, this means the name `phase' is a misnomer; it's not really the phase of anything meaningful.}
+
+\begin{mylisting}[htb]
+\begin{tcbminted}{python}
 import numpy as np
 # assume S and T are complex numpy arrays which have been read in
 Sr = np.real(S); Si = np.imag(S); Tr = np.real(T)
 f_phase = np.var(np.arctan(Sr / np.abs(Si)))
-f_diff = np.linalg.norm((Sr / np.linalg.norm(Sr)) - (Tr / np.linalg.norm(Tr)))
-\end{minted}
+f_diff = np.linalg.norm((Sr / np.linalg.norm(Sr))
+                        - (Tr / np.linalg.norm(Tr)))
+\end{tcbminted}
+    \caption[Pure shift cost functions]{Pure shift cost functions.}
+    \label{lst:pureshift_costfunctions}
+\end{mylisting}
 
 \begin{figure}[htb]
     \centering
@@ -74,18 +80,17 @@ f_diff = np.linalg.norm((Sr / np.linalg.norm(Sr)) - (Tr / np.linalg.norm(Tr)))
 \end{figure}
 
 These two cost functions were chosen as they exhibited desirable characteristics on synthetic data (\cref{fig:fa_scan_synthetic}).
-Here, the `target' spectrum was chosen to simply be an in-phase absorption-mode doublet with an SNR of 500.
+In these simulations, the `target' spectrum was chosen to simply be an in-phase absorption-mode doublet with an SNR of 500.
 Synthetic data with increasing amounts of phase distortion (i.e.\ spectra ranging from in-phase absorption, to antiphase dispersion) were generated, and extra Gaussian noise added to create different SNRs.
 It can be seen that, for data which is well-phased (left edges of the plots), both $f_\text{phase}$ (\cref{fig:fa_scan_synthetic_fphase}) and $f_\text{diff}$ (\cref{fig:fa_scan_synthetic_fdiff}) penalise lower SNRs.
-Furthermore, both of the cost functions penalise phase distortions in multiplets, since they increase going left to right.
+Furthermore, both of the cost functions penalise phase distortions in multiplets, since they increase going from left to right.
 This penalty is stricter for high-SNR spectra, which is also desirable, since it is only in high-SNR spectra that the phase distortions become noticeable.
 
 The cost function $f_\text{diff}$ is easier to comprehend: it simply scales both the target and PSSE spectra down by their respective intensities, and compares each point to determine whether the peak shapes obtained are similar.
 Although this seems like it should be agnostic towards signal intensity, this is only true for noiseless spectra.
 If a (genuine) PSSE spectrum has low SNR, $\lVert \symbf{S}_\text{re} \rVert$ will be small, and the noise will be scaled down less than for the target spectrum; this difference in the noise then contributes towards the cost function.
 On the other hand, a proper rationalisation of why the cost function $f_\text{phase}$ works is unfortunately not within my capabilities!
-It was mostly developed by trial-and-error, and I do not have a good explanation of why it has the properties describe above.
-
+It was mostly developed by trial-and-error (based on the notion that phase distortions would have something to do with $\symbf{S}_\text{re}$ and $\symbf{S}_\text{im}$), and I do not have a good explanation of why it works.
 
 \begin{figure}[htbp]
     \centering

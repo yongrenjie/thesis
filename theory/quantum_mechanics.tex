@@ -32,6 +32,12 @@ Since the matrix elements of an operator $O$ are given by $O_{mn} = \braket{m|O|
     I_y = \frac{1}{2}\begin{pmatrix} 0 & -\mi \\ \mi & 0 \end{pmatrix}; \quad 
     I_z = \frac{1}{2}\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
 \end{equation}
+Their commutators are given by:
+\begin{equation}
+    \label{eq:angmom_commutators}
+    [I_i, I_j] = \sum_{k} \mi \varepsilon_{ijk}J_k,
+\end{equation}
+where $\varepsilon_{ijk}$ is the Levi-Civita symbol.
 We also define the following linear combinations:
 \begin{equation}
     % see https://stackoverflow.com/a/2600374/7115316 for equation label alignment
@@ -48,8 +54,9 @@ The \textit{coherence order} of an operator, denoted $p$, is defined by the Zeem
 Thus, in the above equations, $I_+ = \ket{\alpha}\bra{\beta}$ represents a coherence order of $+1$; $I_-$ a coherence order of $-1$; $I_x$ and $I_y$ are both a mixture of $\pm 1$-coherence; and the remainder have coherence order $0$.
 
 States (and operators) for composite systems are formally defined as tensor products of single-spin states (and operators)\autocite{Sakurai2021}.
-In matrix form, these can be expressed using the Kronecker product.\autocite{Hore2015}
-Thus, for example, the operator $2I_xS_z$ could be represented as follows:\footnote{This representation is not unique; it is perfectly possible to reverse the order of the Kronecker product, and as long as this is consistently done, any physically measurable quantities calculated using this alternative will be the same.}
+Operators on the same spin commute as per \cref{eq:angmom_commutators}, and operators on different spins fully commute.
+The Kronecker product allows these operators to be expressed in matrix form.\autocite{Hore2015}
+For example, the operator $2I_xS_z$ can be represented as follows:\footnote{This representation is not unique; it is perfectly possible to reverse the order of the Kronecker product, and as long as this is consistently done, any physically measurable quantities calculated using this alternative will be the same.}
 \begin{equation}
     \label{eq:composite_operator}
     2I_xS_z = 2 \cdot \frac{1}{2} \cdot \frac{1}{2} \left[ 

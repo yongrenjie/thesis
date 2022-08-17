@@ -21,7 +21,14 @@ The role of the $z$-filter\autocite{Thrippleton2003ACIE} is to remove zero-quant
 In an elegant paper by Pell et al.,\autocite{Pell2007MRC} it was shown that by isolating the diagonal peaks of a 2D anti $z$-COSY experiment and taking the \ang{45} projection of these, a pure shift spectrum could be obtained.
 Here, we will go one step further and consider the \textit{direct} use of this element as a JRE: this will reveal problems which are circumvented by the PSYCHE experiment.
 
-An analysis on a two-spin system (see Pell et al. for the equivalent analysis on a three-spin system) shows that this element converts the term $I_{1+}I_{2\alpha}$ to
+We first need to introduce how the basis operators $\{I_+, I_-, I_\alpha, I_\beta\}$ evolve under a hard pulse (applied along the $x$-axis) with flip angle $\beta$:
+\begin{align}
+    I_{\pm} &\xrightarrow{\beta I_x} c^2 I_{\pm} + s^2I_{\mp} \pm \frac{\mi S}{2}(I_\alpha - I_\beta) \label{eq:ipm_beta_evolution} \\
+    I_{\alpha} &\xrightarrow{\beta I_x} c^2 I_{\alpha} + s^2I_{\beta} + \frac{\mi S}{2}(I_+ - I_-) \label{eq:ialpha_beta_evolution} \\
+    I_{\beta} &\xrightarrow{\beta I_x} c^2 I_{\beta} + s^2I_{\alpha} - \frac{\mi S}{2}(I_+ - I_-) \label{eq:ibeta_beta_evolution}
+\end{align}
+where $S = \sin\beta$, $s = \sin(\beta/2)$, and $c = \cos(\beta/2)$.
+Using these formulae, an analysis on a two-spin system (see Pell et al. for the equivalent analysis on a three-spin system) shows that this element converts the term $I_{1+}I_{2\alpha}$ to
 \begin{equation}
     \label{eq:anti_z_cosy_transitions}
     I_{1+}I_{2\alpha} \longrightarrow
@@ -31,8 +38,7 @@ An analysis on a two-spin system (see Pell et al. for the equivalent analysis on
     + \frac{1}{4}S^2c^4I_{1\beta}I_{2+}}_{\text{terms 3 and 4}}}
     + \cdots,
 \end{equation}
-where $S = \sin\beta$, $s = \sin(\beta/2)$, and $c = \cos(\beta/2)$.
-Other terms with different coherence orders have been neglected (on the basis that they can be easily suppressed with bracketing CTP gradients), and terms with higher orders in $s$ have been discarded since $s = \sin(\beta/2) \ll 1$ for small $\beta$.
+where other terms with different coherence orders have been neglected (on the basis that they can be easily suppressed with bracketing CTP gradients), and terms with higher orders in $s$ have been discarded since $s = \sin(\beta/2) \ll 1$ for small $\beta$.
 
 The first term $I_{1+}I_{2\beta}$, corresponding to the flipping of passive spins only, is the only term we want to see from a JRE.
 The second term, $I_{1+}I_{2\alpha}$, corresponds to the case where neither active nor passive spins have been flipped.

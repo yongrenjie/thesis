@@ -1,0 +1,196 @@
+\subsection{Speeding up dPSYCHE simulations}
+\label{subsec:pureshift__dpsyche_simulations}
+
+To begin, I first explain how the exact simulation of dPSYCHE experiments can be greatly accelerated through efficient propagator calculations.
+Although Spinach\autocite{Hogben2011JMR} is the leading simulation package for NMR, and covers an extremely impressive range of experiments, this generality also prevents it from providing optimal performance for any single experiment.
+As it turns out, handwritten, specialised Matlab code can outperform Spinach by orders of magnitude.
+
+The NMR simulations developed here simply use the density operator formalism in Hilbert space, as outlined in \cref{sec:theory__density_operators}.
+The Zeeman basis is used, and non-unitary transformations such as relaxation are neglected.
+Propagation under the Liouville--von Neumann equation (\cref{eq:lvn_interaction_integrated}) requires matrix exponentials $\exp(-\mi H t)$.
+For an $N \times N$ matrix, the matrix exponential requires $O(N^3)$ time to calculate (and for a system containing $p$ spins, we have $N = 2^p$); it is often this which is the bottleneck in NMR simulations.
+Minimising the number of matrix exponentials, and/or their computational cost, is the key to achieving speedups, as will be shown in the following text.%
+\footnote{Note that in my simulations, I simply used the builtin \texttt{expm} Matlab function, which implements the matrix exponential using a combination of the scaling-and-squaring method and Pad\'e approximation\autocite{Higham2005SIAMJMAA}.
+This is in contrast to Spinach, which uses a scaled-and-squared Taylor series (according to the \texttt{propagator.m} file, the other methods supposedly did not `live up to their marketing').
+An in-depth discussion of matrix exponential methods is outside the scope of this thesis, but can be found in a classic paper by Moler and Van Loan\autocite{Moler2003SIAMR}.}
+
+Generally, the accurate simulation of gradient-enhanced experiments requires the sample to be divided up into $n$ discrete slices, each simulated with a different $H_\text{grad}$.\footnote{In simple cases this can be avoided by simply removing all terms with the wrong coherence orders as we know they will be dephased (\cref{eq:generalised_rephasing_2}), but this is too naive an approach for pure shift techniques.}
+Thus, a very naive implementation of the dPSYCHE experiment would require $mn$ matrix exponentials, one per pulse per slice.
+The overall structure of the code would resemble \cref{lst:dpsyche_slow}.
+(Strictly speaking, the above code is wrong because the final gradient should have strength \texttt{-2G} and not \texttt{G}, but that is a minor detail.)
+
+\begin{mylisting}[htb]
+    \centering
+\begin{tcbminted}{matlab}
+% loop over slices
+for slce=1:n
+    H_grad = I_z * G * z(slce);
+
+    % loop over pulse points
+    for pulse_point=1:m
+        H_pulse = (c_x(pulse_point) * I_x) + (c_y(pulse_point) * I_y);
+
+        % calculate propagators; m*n total matrix exponentials
+        U_pulse = expm(-1j * (H_free + H_pulse) * t_pulse);
+        U_grad = expm(-1j * (H_free + H_grad) * t_grad);
+
+        rho = U_grad * U_pulse * rho * U_pulse' * U_grad';
+    end
+end
+\end{tcbminted}
+\caption[Naive dPSYCHE code]{Rough structure of a naive dPSYCHE implementation. Note that I use the variable name \texttt{slce} as \texttt{slice} is an existing builtin Matlab function.}
+\label{lst:dpsyche_slow}
+\end{mylisting}
+
+It is not difficult to come up with a more sensible approach which cuts this down by a factor of $m$: since the pulses are not applied together with the gradients, the pulse propagators $U_\text{pulse}$ can be pre-calculated outside of the loop.
+Furthermore, all of the gradients within the PSE are the same, so $U_\text{grad}$ can be moved out of the inner loop (\cref{lst:dpsyche_fast1}).
+
+\begin{mylisting}[htb]
+    \centering
+\begin{tcbminted}{matlab}
+% precalculate pulse propagators; m total matrix exponentials
+for pulse_point=1:m
+    H_pulse = (c_x(pulse_point) * I_x) + (c_y(pulse_point) * I_y);
+    U_pulse(m) = expm(-1j * (H_free + H_pulse) * t_pulse);
+end
+
+% loop over slices
+for slce=1:n
+    % calculate gradient propagators; n total matrix exponentials
+    H_grad = I_z * G * z(slce);
+    U_grad = expm(-1j * (H_free + H_grad) * t_grad);
+    
+    % loop over pulse points
+    for point=1:m
+        rho = U_pulse(m) * rho * U_pulse(m)';
+        rho = U_grad * rho * U_grad';
+    end
+end
+\end{tcbminted}
+\caption[Slightly faster dPSYCHE code]{Rough structure of a slightly faster implementation of dPSYCHE.}
+\label{lst:dpsyche_fast1}
+\end{mylisting}
+
+Spinach, which is designed to be general, has no idea that these optimisations are possible, so is naturally rather slower.
+However, even this is relatively inefficient.
+Notice that the two components of the gradient propagator, $H_\text{free}$ and $H_\text{grad}$, actually commute with one another (even in the strong coupling case).
+(Showing that $[H_\text{cs}, H_\text{grad}] = 0$ is trivial; the algebra to show that $[H_\text{J}, H_\text{grad}] = 0$ is slightly more tedious, but does not require any special techniques.)
+Thus, we can write:
+\begin{equation}
+    \label{eq:split_propagator}
+    \exp[-\mi(H_\text{free} + H_\text{grad}) t] = \exp(-\mi H_\text{free} t) \exp(-\mi H_\text{grad} t)
+\end{equation}
+(in general, for matrices $A$ and $B$, $\exp(A + B) = \exp(A)\exp(B)$ if and only if $[A, B] = 0$).
+This on its own does not reduce the number of matrix exponentials required, but notice now that $H_\text{grad}$ is a sum of $I_{iz}$ terms and is therefore \textit{diagonal} in the Zeeman basis.
+The exponential of a diagonal matrix is trivial to calculate, as we simply need to exponentiate the diagonal \textit{elements:}
+\begin{equation}
+    \label{eq:expm_diagonal}
+    \exp
+    \begin{pmatrix}
+        \lambda_1 & 0 & \ldots & 0 \\
+        0 & \lambda_2 & \ldots & 0 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \ldots & \lambda_n \\
+    \end{pmatrix}
+    = 
+    \begin{pmatrix}
+        \exp(\lambda_1) & 0 & \ldots & 0 \\
+        0 & \exp(\lambda_2) & \ldots & 0 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \ldots & \exp(\lambda_n) \\
+    \end{pmatrix}.
+\end{equation}
+This can be done in $O(n)$ time by using \texttt{diag(exp(diag(M)))} instead of \texttt{expm(M)} (the \texttt{diag} Matlab function converts a diagonal matrix to a vector of its diagonal entries, and vice versa).
+So, our code now uses only $m + 1$ total matrix exponentials (\cref{lst:dpsyche_fast2}).
+At this point, our matrix exponentials have almost been eliminated and the largest remaining bottleneck is almost certainly the matrix \textit{multiplications} required for the propagation.
+We can cut this down by a factor of two simply by calculating the overall propagator
+\begin{equation}
+    \label{eq:overall_propagator}
+    U_\text{total} = U_n\cdots U_2U_1
+\end{equation}
+and then performing the propagation only at the very end:
+\begin{equation}
+    \label{eq:overall_propagation}
+    \rho = U_\text{total} \rho_0 \adj{U_\text{total}}
+\end{equation}
+instead of performing every individual step $\rho \to U_1\rho_0\adj{U_1}$.
+The final optimised code therefore resembles that in \cref{lst:dpsyche_fast2}.
+
+\begin{mylisting}[htb]
+    \centering
+\begin{tcbminted}{matlab}
+% precalculate propagator due to free evolution during gradient
+% only 1 matrix exponential
+U_free = expm(-1i * H_free * t_grad);
+
+% precalculate pulse propagators; m total matrix exponentials
+for pulse_point=1:m
+    H_pulse = (c_x(pulse_point) * I_x) + (c_y(pulse_point) * I_y)
+    U_pulse(m) = expm(-1j * (H_free + H_pulse) * t_pulse)
+end
+
+% loop over slices
+for slce=1:n
+    % initialise propagator for this slice
+    U_slce = eye(2 ^ p);
+
+    % calculate gradient propagators; no matrix exponentials required
+    H_grad = I_z * G * z(slce);
+    U_grad = U_free * diag(exp(diag(-1j * H_grad * t_grad)));
+
+    % loop over pulse points
+    for point=1:m
+        U_slce = U_pulse(m) * U_slce;
+        U_slce = U_grad * U_slce;
+    end
+
+    % perform propagation only at the end
+    rho = U_slce * rho * U_slce';
+end
+\end{tcbminted}
+\caption[Fast dPSYCHE code]{Rough structure of a fast dPSYCHE implementation.}
+\label{lst:dpsyche_fast2}
+\end{mylisting}
+
+The performance of this handwritten code as compared to Spinach is summarised in \cref{tbl:dpsyche_simulations}.
+In all cases, the spectra produced by the two methods were entirely equivalent.
+It should be noted that the handwritten code does \textit{not} even utilise CPU parallelisation, whereas Spinach does.
+I investigated the possibility of parallelising the loop over slices (replacing the outer \texttt{for} in \cref{lst:dpsyche_fast2} with \texttt{parfor}): however, this in fact made the code \textit{slower}, presumably due to overhead.
+This is a good thing: it means that \texttt{parfor} can be used in an external loop, e.g.\ for the parallel simulation of the dPSYCHE experiment on different spin systems.
+
+\begin{table}[htb]
+    % matlab_nmr_jy/research/compare_dpsyche.m
+    \begin{tabular}{cccc}
+        \toprule
+        \textbf{Number of spins} & \textbf{Number of couplings} & \multicolumn{2}{c}{\textbf{Execution time (s)}} \\
+        \cmidrule{3-4}
+                                 & & Spinach & Handwritten \\
+                                 \midrule
+        \multirow{1}{*}{1}       & 0 & 3.33 & 0.35 \\
+        \midrule
+        \multirow{2}{*}{2}       & 0 & 4.59 & 0.32 \\
+                                 & 1 & 6.22 & 0.32 \\
+                                 \midrule
+        \multirow{4}{*}{3}       & 0 & 9.90  & 0.43 \\
+                                 & 1 & 12.95 & 0.45 \\
+                                 & 2 & 31.86 & 0.47 \\
+                                 & 3 & 35.01 & 0.48 \\
+                                 \midrule
+        \multirow{7}{*}{4}       & 0 & 30.59  & 1.02 \\
+                                 & 1 & 38.63  & 0.99 \\
+                                 & 2 & 44.61  & 1.04 \\
+                                 & 3 & 365.04 & 1.52 \\
+                                 & 4 & 446.03 & 1.57 \\
+                                 & 5 & 521.72 & 1.57 \\
+                                 & 6 & 588.31 & 1.69 \\
+        \bottomrule
+    \end{tabular}
+    \caption[Comparison of wall-clock times for dPSYCHE simulations]{
+        Comparison of wall-clock times for dPSYCHE simulations.
+        The dPSYCHE sequence used contained 15 pulses, each applied with a flip angle of \ang{15} and a phase of \ang{0}.
+        Spin systems were generated pseudo-randomly.
+        All timings were measured on a 2019 MacBook Pro with a \SI{2.6}{\GHz} 6-core Intel i7 CPU; no attempts were made to shut other running programmes.
+    }
+    \label{tbl:dpsyche_simulations}
+\end{table}
+
