@@ -1,9 +1,40 @@
 \section{Introduction}
 \label{sec:poise__introduction}
 
-The paper\autocite{Yong2021AC}
+In the previous chapter, I covered various approaches to improving pure shift NMR through the use of optimisation.
+Although the optimisation code written there was highly specialised and only designed to work on pure shift applications, it was envisioned that this optimisation approach could be applied to essentially \textit{any} NMR experiment where parameter optimisation was required.
+In principle, this description is appropriate for \textit{every} experiment: even the simplest pulse--acquire experiment can be optimised through the use of Ernst angle excitation.
+More complex examples, such as 2D experiments, typically have parameters which should be chosen to optimally match coupling constants (INEPT delay) or relaxation rates (NOE mixing time).
 
-The POISE chapter is likely to very closely follow the publication.
-This is the most self-contained section of my work---the only difference I want to do is to point out limitations, or cases where things didn't work as well.
+In practice, the need for accurate parameters is often `solved' through the use of compromise values, which typically fall in the middle of an expected range for typical molecules.
+For example, these values may be stored as part of a parameter set designed to be reused.
+Alternatively, parameter values may be optimised `by hand'.
+However, compared to this, the use of experimental optimisation has several benefits.
+It is:
+\begin{enumerate}
+    \item \textit{sample-specific}, and as long as the default values are within the optimisation bounds, the optimisation will yield performance which is no worse than the defaults;
+    \item more \textit{robust} towards unusual molecular structures, which have physical or chemical properties which fall outside of an expected range;
+    \item \textit{instrument-specific}, so can compensate for spectrometer imperfections.
+    \item \textit{automated}, so does not require an expert to adjust parameter values manually, or even any user intervention for that matter;
+    \item \textit{objective}, in that the quality of a spectrum can (in principle) be mathematically measured through a cost function; and
+    \item \textit{rapid}, in that it uses an algorithm which is designed to achieve rapid decreases in the objective function: many `manual' optimisations involve either trial-and-error or an exhaustive grid search (i.e.\ increasing a parameter value one step at a time), neither of which are efficient.
+\end{enumerate}
 
-Introduction should probably cover a bit more optimisation theory, e.g.\ Nelder--Mead. It doesn't have to be too formal but I should probably explain the differences between the algorithms.
+Prior to 
+
+\todo{A more desirable approach would be to utilize an optimization algorithm (3) which iteratively monitors the quality of a series of spectra acquired with different parameter values, eventually converging to optimal values for the sample under study. Although there exist isolated examples of such iterative optimizations in laser, (4) electron spin resonance, (5) and nuclear quadrupole resonance (6) spectroscopies, such a procedure has only been used in NMR by Emsley and co-workers in the design of dipolar decoupling pulses. (7−9) We emphasize that the proposed method is distinct from other model-based “optimizations”, for example, for sparse sampling in multidimensional NMR (10,11) or relaxation measurements, (12) where data from multiple acquisitions are aggregated until a certain threshold, such as a sufficient confidence in peak locations or extracted parameters, is reached.}
+
+Having put forth all these points in support of optimisation, it should be noted that there is always an inherent tradeoff against the time required for the optimisation itself.
+For example, it makes little sense to spend several minutes optimising the sensitivity of a pulse--acquire experiment: the time could simply be used to improve the SNR by collecting more scans.
+
+On top of this, the optimisation framework as implemented in POISE is designed to be as general as possible.
+Thus, it \textit{always} follows the framework in FIG: in particular, it simply seeks to find the optimum $\symbf{x}^*$, defined by
+\begin{equation}
+    \label{eq:poise_argmin}
+    \underset{\symbf{x}}{\argmin}\, f(\symbf{x}).
+\end{equation}
+Furthermore, in each function evaluation, the only information retained is the parameters $\symbf{x}$ and the value of the cost function $f(\symbf{x})$.
+The spectral data itself is not stored nor accumulated: thus, it is not possible to perform (for example) an `optimisation' which collects scans until a certain SNR is reached, or one which collects $t_1$ increments of a 2D spectrum and performs non-uniform sampling (NUS) processing until the signal to artefact ratio is sufficiently high.
+These constraints precludes other types of model-based `optimisations', which typically accumulate data points to progressively fit a model until a given confidence level is reached.
+Such procedures have been performed before in the contexts of (for example) relaxation measurements\autocite{Song2018JMR,Tang2019SR}, undersampling in multidimensional NMR\autocite{Eghbalnia2005JACS,Hansen2016ACIE,BrukerSmartDriveNMR}
+

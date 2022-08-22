@@ -2,19 +2,20 @@
 \label{chpt:pureshift}
 
 \textit{Pure shift} NMR refers to the technique of acquiring NMR spectra free of multiplet structure, such that every chemical environment gives rise to a singlet.\autocite{Zangger2015PNMRS,Castanar2017MRC}
-In the context of this thesis, we use the term `pure shift' exclusively to refer to broadband homodecoupled \proton{} spectra.
-Here, `broadband' means that the couplings are removed from the entire spectrum, as opposed to just a subset of it (which can be accomplished through band-selective refocusing).
-`Homodecoupled' refers to the fact that the primary target here is the removal of homonuclear couplings, which cannot be done simply through decoupling during acquisition.
-Finally, although pure shift techniques can be applied to any nuclide, \proton{} spectra are of greatest interest because of the narrow chemical shift range of \proton{} which often leads to peak overlap.
-(Another prominent case is \carbon{} pure shift NMR in isotopically enriched molecules, but this is not within the scope of this thesis.)
+In the context of this thesis, I use the term `pure shift' exclusively to refer to broadband homodecoupled \proton{} spectra.
+Here, `broadband' means that the couplings are removed from the \textit{entire spectrum}, as opposed to just a specific region (which thus excludes band-selective refocusing techniques).
+`Homodecoupled' refers to the removal of \textit{homonuclear} couplings: unlike heteronuclear decoupling, this cannot be done during the acquisition period as the application of RF pulses will destroy the desired signal itself.
+Finally, although pure shift techniques can be applied to any nuclide, \proton{} spectra are of greatest interest because of two factors: firstly, the narrow chemical shift range of \proton{} which often leads to peak overlap; and secondly, the abundance of \proton{}--\proton{} couplings in typical organic molecules.
 
-In this chapter, I first cover the theory underpinning, and a brief history of, pure shift experiments.
-I then describe a variety of approaches aimed at increasing the quality of pure shift experiments: this is measured both in terms of \textit{sensitivity} as well as \textit{purity}, i.e.\ the lack of spectral artefacts arising from imperfect decoupling.
-In all cases, we compare these against the state-of-the-art PSYCHE pure shift method.
-Finally, I end with a section discussing the combination of pure shift diffusion spectroscopy---formally a pseudo-3D experiment---with the use of ultrafast (single-scan) NMR techniques to collapse the diffusion dimension.
-This project was carried out in collaboration with Jean-Nicolas Dumez (University of Nantes).
+In the first two sections, I first cover the theory underpinning, and a brief history of, pure shift experiments.
+I then describe my work towards increasing the quality of pure shift experiments: this is measured both in terms of \textit{sensitivity} as well as \textit{purity}, i.e.\ the lack of spectral artefacts arising from imperfect decoupling.
+Each of the approaches described here is compared against the PSYCHE pure shift method, which is the current state of the art.
+Finally, I end with a section discussing the combination of pure shift diffusion spectroscopy---formally a pseudo-3D experiment---with the use of ultrafast NMR techniques to collapse the diffusion dimension.
+This last project was carried out in collaboration with Jean-Nicolas Dumez (University of Nantes).
 
 The work in this chapter has not been submitted for publication.
+
+\clearpage
 
 \input{pureshift/intro_theory}
 \input{pureshift/intro_practice}

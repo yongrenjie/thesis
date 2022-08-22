@@ -1,15 +1,11 @@
 \documentclass[draft,a4paper,12pt,twoside,openany]{book}
 
+\includeonly{poise/main}
+
 \input{preamble/fonts}
 \input{preamble/packages}
 \input{preamble/macros}
-
-\includeonly{pureshift/main}
-
-% Shortcuts I set up in vim:
-% <leader>e -- toggle between equation(*) and align(*)
-% <leader>h -- return to the top-level view
-% <leader>t -- toggle ToC on/off
+\input{preamble/acronyms}
 
 \begin{document}
 
@@ -19,8 +15,9 @@
 \input{frontmatter/titlepage}
 {\hypersetup{hidelinks} \tableofcontents{}}
 \include{frontmatter/abstract}
-\include{frontmatter/preface}
 \include{frontmatter/acknowledgements}
+\include{frontmatter/preface}
+\include{frontmatter/lists}
 
 \mainmatter
 \renewcommand{\thefigure}{\thechapter.\arabic{figure}}
@@ -37,11 +34,6 @@
 
 \newrefsection
 \include{noah/main}
-
-\setlofname{List of figures}
-\setlotname{List of tables}
-\listoffigures
-\listoftables
 
 \appendix
 

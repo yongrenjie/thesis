@@ -48,10 +48,10 @@ Firstly, our spectra are not \textit{pure phase} or \textit{phase-sensitive}, in
 Secondly, we have lost \textit{quadrature detection} in the indirect dimension, in that we cannot distinguish positive from negative offsets.
 
 There are multiple different ways of solving these dual issues, which are extensively covered in NMR textbooks.\autocite{Ernst1987,Keeler2010,Levitt2008,Claridge2016,Cavanagh2007}
-Among these are the States method\autocite{States1982JMR}, the TPPI method\autocite{Marion1983BBRC}, and the echo--antiecho method.
-I will briefly cover the States and echo--antiecho methods; the TPPI method can be shown to be essentially mathematically equivalent to the States method\autocite{Keeler1985JMR}.%
+Among these are the States method\autocite{States1982JMR}, the \ac{tppi} method\autocite{Marion1983BBRC}, and the \ac{ea} method.
+I will briefly cover the States and EA methods; the TPPI method can be shown to be essentially mathematically equivalent to the States method\autocite{Keeler1985JMR}.%
 \footnote{There is a slight difference in that the TPPI method pushes \textit{axial peaks}---artefacts arising at $\omega_1 = 0$---to the edge of the spectrum, whereas with the States method, these artefacts appear in the middle of the spectrum, potentially obscuring useful peaks. The reader is referred to the references cited in the main text for a discussion of this.
-In practice, both the States and echo--antiecho methods can be easily adapted to incorporate this shifting of axial peaks by phase shifting the $t_1$ modulation as well as the receiver by $180^\circ$ every time $t_1$ is incremented (in the former case it is creatively known as the \textit{States--TPPI method}).
+In practice, both the States and EA methods can be easily adapted to incorporate this shifting of axial peaks by phase shifting the $t_1$ modulation as well as the receiver by $180^\circ$ every time $t_1$ is incremented (in the former case it is creatively known as the \textit{States--TPPI method}).
 Thus, I do not consider the TPPI method any further here.}
 
 In the States method, the cosine-modulated signal described above (and denoted $s_\text{cos}(t_1, t_2)$ here) forms only one part of the signal.
@@ -93,7 +93,7 @@ Alternatively (in fact, more commonly), we can modify the preparation period suc
 That way, after the $t_1$ evolution period we have a density operator of the form $-P'\cos(\omega_P t_1) + P\sin(\omega_P t_1)$; if we keep the mixing period the same then we will obtain the desired sine-modulated data.
 In contrast to before, this can be done by phase shifting one or more pulses before the $t_1$ period by \ang{-90}.
 
-On the other hand, the echo--antiecho method seeks instead to measure two signals which are \textit{phase-modulated} in $t_1$ (instead of \textit{amplitude-modulated} as in the States method):
+On the other hand, the EA method seeks instead to measure two signals which are \textit{phase-modulated} in $t_1$ (instead of \textit{amplitude-modulated} as in the States method):
 \begin{align}
     s_\text{echo}(t_1, t_2) &= \frac{1}{2}\exp(-\mi\Omega_P t_1)\exp(\mi\Omega_Q t_2) \label{eq:echo_antiecho_1a} \\
     s_\text{antiecho}(t_1, t_2) &= \frac{1}{2}\exp(\mi\Omega_P t_1)\exp(\mi\Omega_Q t_2) \label{eq:echo_antiecho_1b}
@@ -108,7 +108,7 @@ Although this factor of $1/2$ can be cancelled out when combining the echo and a
     s_\text{cos,EA} = s_\text{echo} + s_\text{antiecho} = \cos(\Omega_P t_1)\exp(\mi\Omega_Q t_2) = s_\text{cos}
 \end{equation}
 (and likewise for the sine component), the process of adding up two separate datasets leads to a $\sqrt{2}$ increase in the noise level when compared to measuring $s_\text{cos}$ directly.
-Therefore, echo--antiecho spectra have a $\sqrt{2}$ decrease in signal-to-noise ratio (SNR) compared to their States counterparts.
+Therefore, EA spectra have a $\sqrt{2}$ decrease in signal-to-noise ratio (SNR) compared to their States counterparts.
 This point is explored more fully in an article by Keeler and coworkers.\autocite{Kontaxis1994JMRSA}
 Despite this loss in SNR, the use of gradients typically leads to spectra with far better artefact suppression, completely obviating the need for long phase cycles.
-Consequently, a significant proportion of modern 2D experiments use echo--antiecho selection.
+Consequently, a significant proportion of modern 2D experiments---especially heteronuclear experiments---use EA selection.

@@ -1,8 +1,10 @@
 \section{Time-reversal method}
 \label{sec:pureshift__timerev}
 
-In \cref{subsec:pureshift__elements}, the time-reversal element was briefly introduced; I now provide a more theoretical description of it.
-As stated in that section, this merely consists of a hard pulse with a flip angle $\beta$, and using \cref{eq:ipm_beta_evolution,eq:ialpha_beta_evolution,eq:ibeta_beta_evolution} we first analyse its potential use as a JRE.
+This section focuses on the time-reversal element briefly introduced in \cref{subsec:pureshift__elements}: the aim is to determine whether a pure shift method based on this can have better performance than PSYCHE.
+Before that, I will first provide a more detailed theoretical analysis of it.
+The time-reversal element consists of just a single hard pulse with a flip angle $\beta$, and we first analyse its potential use as a JRE (instead of a PSE), using \cref{eq:ipm_beta_evolution,eq:ialpha_beta_evolution,eq:ibeta_beta_evolution}.
+
 Recall that an ideal JRE should invert passive spins only, not active spins: thus, we seek a transformation of the form $I_{1+}I_{2\alpha} \to I_{1+}I_{2\beta}$.
 However, the hard pulse does this:
 \begin{equation}
@@ -41,7 +43,7 @@ The resulting time-reversal experiment was thus simply the same as the parent TS
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[draft=false]{pp/pureshift/timereversal.png}
+    \includegraphics[]{pp/pureshift/timereversal.png}
     \caption[Time-reversal pure shift pulse sequence]{
         Time-reversal pure shift pulse sequence.
         The flip angle $\beta$ is varied as described in \cref{eq:timereversal_pse_angles}.
@@ -54,12 +56,11 @@ The resulting time-reversal experiment was thus simply the same as the parent TS
 
 In such a sequence, the JRE is in fact not only the $\beta$ pulse itself but also the second chirp (which effectively acts as a \ang{180} pulse).
 So, the $\beta$ pulse here fulfils the role of a PSE, not a JRE: this means that different flip angles and weights must be chosen.
-As before, for a system containing $N$ mutually coupled spins, $N$ different experiments must be acquired:
+As before, for a system containing $N$ mutually coupled spins, $N$ different experiments must be acquired using the following flip angles $\beta_j$ and summed with the corresponding weights $W_j$ ($j = 1, 2, \ldots, N$):
 \begin{align}
     \beta_j &= \frac{j\pi}{N} \label{eq:timereversal_pse_angles} \\
-    W_j &= \frac{N}{8}\cdot \frac{(-1)^j}{\sin^2(\beta_j/2)} \label{eq:timereversal_pse_weights}
+    W_j &= \frac{N}{8}\cdot \frac{(-1)^j}{\sin^2(\beta_j/2)} \label{eq:timereversal_pse_weights}.
 \end{align}
-where $j = 1, 2, \ldots, N$.
 For the sake of completeness, the values of $\beta$ and $W$ for a JRE are given here as well:
 \begin{align}
     \beta_k &= \frac{k\pi}{N} \label{eq:timereversal_jre_angles} \\
@@ -67,15 +68,16 @@ For the sake of completeness, the values of $\beta$ and $W$ for a JRE are given 
 \end{align}
 for $k = 0, 1, \ldots, N-1$.
 The derivation of these expressions is discussed more thoroughly in a paper by Griesinger et al.\autocite{Griesinger1986JCP}
-Note that the weights for the PSE correspond to that used for the ECOSY experiment, and the weights for the JRE correspond to that used for the complementary ECOSY experiment.
+In the context of this specific paper, note that the weights for the PSE correspond to that used for the ECOSY experiment, and the weights for the JRE correspond to that used for the complementary ECOSY experiment.
 
-In practice, $N = 5$ is likely to cover most realistic spin systems: this means that we have $\beta = \{\ang{36}, \ang{72}, \ang{108}, \ang{144}, \ang{180}\}$ and $W = \{−6.545,1.809,−0.955,0.691,−0.625\}$.
-\Cref{fig:timereversal_insets} shows insets of the five subspectra acquired with the above values of $\beta$ and scaled by their respective weights.
-All of the spectra have been phased using the automatic phase corrections determined for the weighted sum (i.e.\ the pure shift spectrum).
+In practice, $N = 5$ is likely to cover most realistic spin systems.
+Explicitly evaluating \cref{eq:timereversal_pse_angles,eq:timereversal_pse_weights} yields $\beta = \{\ang{36}, \ang{72}, \ang{108}, \ang{144}, \ang{180}\}$ and $W = \{−6.545,1.809,−0.955,0.691,−0.625\}$.
+\Cref{fig:timereversal_insets} shows insets of the five subspectra acquired with the above values of $\beta$ and scaled by their respective weights $W$.
+The weighted sum (i.e.\ the pure shift spectrum) was phased, and the resulting phase correction values were propagated back to the individual subspectra.
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[draft=false]{pureshift/timereversal_insets.png}
+    \includegraphics[]{pureshift/timereversal_insets.png}
     \caption[Insets of time-reversal spectra]{
         Insets of weighted time-reversal subspectra (with $j = 1$ through 5), as well as their sum (the pure shift spectrum).
         \datacode{7A-201020}
@@ -83,21 +85,23 @@ All of the spectra have been phased using the automatic phase corrections determ
     \label{fig:timereversal_insets}
 \end{figure}
 
-Although the experiment seems to work, in that the sum \textit{is} indeed a pure shift spectrum, the fact that it is obtained through summation of $N$ different experiments brings some immediate drawbacks.
+Although the experiment seems to work, in that the weighted sum \textit{is} indeed a pure shift spectrum, the fact that it is obtained through summation of $N$ different experiments brings some immediate drawbacks.
 Firstly, the minimum duration of the experiment is lengthened by a factor of $N$: this is essentially the same as an $N$-step phase cycle.
 However, and perhaps more importantly in the context of \textit{pure shift} NMR, the artefacts surrounding the main peaks are not perfectly cancelled through the process of summation.
-As a result, random distortions are observed around the desired peaks in the pure shift spectrum: this is noticeable in the \SI{4.04}{ppm} peak in \cref{fig:timereversal_insets}, and is even worse for intense signals.
+As a result, random distortions are observed around the desired peaks in the pure shift spectrum: this is noticeable in the \SI{4.04}{ppm} peak in \cref{fig:timereversal_insets}, and is even worse for more intense signals.
 
 In terms of sensitivity, the time-reversal spectrum is not particularly exceptional, either.
 Each of the five subspectra above were acquired with 2 scans; when compared against a typical TSE-PSYCHE experiment acquired with only 4 scans (i.e.\ 40\% of the experiment duration), the TSE-PSYCHE experiment had comparable or perhaps even slightly better SNR (\cref{fig:timereversal_sensitivity}).
 The likely reason for this is because in the time-reversal experiment, signal is actually being \textit{cancelled out} through the process of summation, as is quite clearly shown in \cref{fig:timereversal_insets}.
 In principle, the sensitivity of the time-reversal experiment could be optimised by acquiring the more heavily weighted spectra with more scans.
 However, I consider this unlikely to make a substantial difference to the conclusions drawn here.
-The idea of optimising the weights to better suppress artefacts was also briefly considered: however, given that \cref{eq:timereversal_pse_weights} already yields \textit{theoretically} complete suppression, it was deemed unlikely that anything substantially better could be obtained.
+The idea of re-optimising the weights to better suppress artefacts was also briefly considered.
+However, given that \cref{eq:timereversal_pse_weights} already yields \textit{theoretically} complete suppression, it was deemed unlikely that anything substantially better could be obtained, considering that the artefacts arise from the summation process itself and are likely to appear regardless of what weights are chosen.
+Performing such an optimisation would also require a pure shift spectrum to have been acquired beforehand (for comparison), thus defeating the purpose of optimising the weights anyway.
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[draft=false]{pureshift/timereversal_sensitivity.png}
+    \includegraphics[]{pureshift/timereversal_sensitivity.png}
     {\phantomsubcaption\label{fig:timereversal_sensitivity_tr}}
     {\phantomsubcaption\label{fig:timereversal_sensitivity_tsepsyche}}
     \caption[Comparison of time-reversal and TSE-PSYCHE sensitivity]{
@@ -111,5 +115,5 @@ The idea of optimising the weights to better suppress artefacts was also briefly
 \end{figure}
 
 Interestingly, \cref{fig:timereversal_insets} suggests that the $j = 1$ spectrum \textit{on its own} already provides as good a result as the summed pure shift spectrum.
-This is not surprising, as the use of a hard pulse as the PSE yields a conceptually very similar result to PSYCHE, in that the signal to artefact ratio depends on $\tan^2(\beta/2)$ (of course, the COSY-type artefacts must still be suppressed through the TSE scheme).
-This suggests that the `TSE' time-reversal experiment in \cref{fig:timereversal_pulseq} is a viable pure shift sequence without requiring the summation of multiple subspectra---albeit one which does not have any significant advantage over PSYCHE.
+This is not surprising, as the use of a hard pulse as the PSE yields a conceptually very similar result to PSYCHE in that the signal to artefact ratio depends on $\tan^2(\beta/2)$ (of course, the COSY-type artefacts must still be suppressed through the TSE scheme).
+This suggests that even without summation of multiple subspectra, the TSE time-reversal pulse sequence in \cref{fig:timereversal_pulseq} is a viable pure shift experiment---albeit one which does not have any significant advantage over PSYCHE.

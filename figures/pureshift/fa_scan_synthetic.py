@@ -58,9 +58,9 @@ for i, snr in enumerate(snrs):
 fig, axs = pg.subplots2d(1, 2, figsize=(6.5, 3.5), sharey=True)
 for ax, objvals, text in zip(axs, [f_phase_objvals, f_diff_objvals],
                              [r'$f_\mathrm{phase}$', r'$f_\mathrm{diff}$']):
-    for i, _, color in apt.enzip(snrs, pg.color_palette('bright')):
+    for i, _, color in apt.enzip(snrs, apt.PAL):
         ax.plot(phase_distortions, objvals[i, :], color=color)
-    ax.set(xlabel='fraction of phase distortion',
+    ax.set(xlabel='fraction of J-modulation',
            ylabel='objective function value')
     ax.text(s=text, x=0.03, y=0.87, transform=ax.transAxes)
     ax.label_outer()

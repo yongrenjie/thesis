@@ -18,8 +18,9 @@
 
 The anti $z$-COSY experiment utilises a $\beta$--$z$-filter--$\beta$ mixing period (\cref{fig:psyche_detail_antizcosy}), where $\beta$ is a small angle, typically \ang{10} to \ang{20}.
 The role of the $z$-filter\autocite{Thrippleton2003ACIE} is to remove zero-quantum terms such as $I_{1-}I_{2+}$ between the two $\beta$ pulses, retaining only population terms such as $I_{1\alpha}I_{2\alpha}$.
-In an elegant paper by Pell et al.,\autocite{Pell2007MRC} it was shown that by isolating the diagonal peaks of a 2D anti $z$-COSY experiment and taking the \ang{45} projection of these, a pure shift spectrum could be obtained.
-Here, we will go one step further and consider the \textit{direct} use of this element as a JRE: this will reveal problems which are circumvented by the PSYCHE experiment.
+The CTPs which this mixing period selects for ultimately give rise to peaks which lie perpendicular to the main diagonal of the spectrum.
+In an elegant paper, Pell et al.\autocite{Pell2007MRC} showed that by isolating the diagonal peaks of a 2D anti $z$-COSY experiment and taking the \ang{45} projection of these, a pure shift spectrum could be obtained.
+Here, we will go one step further and consider the \textit{direct} use of this element as a JRE: this will reveal some problems which are neatly taken care of by the PSYCHE experiment.
 
 We first need to introduce how the basis operators $\{I_+, I_-, I_\alpha, I_\beta\}$ evolve under a hard pulse (applied along the $x$-axis) with flip angle $\beta$:
 \begin{align}
@@ -28,7 +29,7 @@ We first need to introduce how the basis operators $\{I_+, I_-, I_\alpha, I_\bet
     I_{\beta} &\xrightarrow{\beta I_x} c^2 I_{\beta} + s^2I_{\alpha} - \frac{\mi S}{2}(I_+ - I_-) \label{eq:ibeta_beta_evolution}
 \end{align}
 where $S = \sin\beta$, $s = \sin(\beta/2)$, and $c = \cos(\beta/2)$.
-Using these formulae, an analysis on a two-spin system (see Pell et al. for the equivalent analysis on a three-spin system) shows that this element converts the term $I_{1+}I_{2\alpha}$ to
+Using these formulae, we can show that for a two-spin system (see Pell et al.\autocite{Pell2007MRC} for the equivalent analysis on a three-spin system), the $\beta$--$z$-filter--$\beta$ element converts the term $I_{1+}I_{2\alpha}$ to
 \begin{equation}
     \label{eq:anti_z_cosy_transitions}
     I_{1+}I_{2\alpha} \longrightarrow
@@ -48,22 +49,23 @@ Note that the ratio of recoupling artefacts to desired signal is proportional to
 The PSYCHE element is similar to the $\beta$--$z$-filter--$\beta$ element in this regard: it does not suppress the recoupling artefacts, but instead relies on the user choosing a suitable value for $\beta$ such that the artefact-to-signal ratio is tolerably small.
 If the sensitivity proves to be insufficient, the flip angle $\beta$ may be increased instead: this leads to a larger artefact-to-signal ratio, but if the sample is not concentrated anyway, it may well be that the artefacts do not rise above the noise level.%
 
-The third and fourth terms, $I_{1\lambda}I_{2+}$ ($\lambda \in \{\alpha,\beta\}$), represent `COSY-type' coherence transfer to a coupled spin: these led to crosspeak multiplets in the original anti $z$-COSY, which could be removed by hand before taking the projection.
+The third and fourth terms, $I_{1\lambda}I_{2+}$ ($\lambda \in \{\alpha,\beta\}$), represent `COSY-type' coherence transfer to a coupled spin.
+In the original anti $z$-COSY, these led to crosspeak multiplets at $(\Omega_1, \Omega_2)$, which could be removed by hand before taking the projection.
 However, in a pure shift sequence, the peaks arising from these terms cannot simply be removed in the same way.
 It is precisely this issue which precludes the $\beta$--$z$-filter--$\beta$ element from being directly used as a JRE, and motivates the development of the PSYCHE PSE, which \textit{does} suppress these coherence transfers.
 
 To understand how this occurs, we invoke the instantaneous spin-flip assumption.
-Each coherence $I_{i+}$ is converted (or `flipped') to a population term $I_{1\lambda}$ at a specific point $\alpha\taup$ after the start of the first chirp, and can be reconverted to a coherence on the same spin $I_{i-}$ at a time $\alpha\taup$ before the end of the second chirp (the green CTP in \cref{fig:psyche_detail_cosy_suppress}).%
+Each coherence $I_{i+}$ is converted (or `flipped') to a population term $I_{1\lambda}$ at a specific point $\alpha\taup$ after the start of the first chirp, and can be reconverted to a coherence on the same spin $I_{i-}$ at a time $\alpha\taup$ before the end of the second chirp (the blue CTP in \cref{fig:psyche_detail_cosy_suppress}).%
 \footnote{Note the change in the sign of the coherence, which differs from the analysis of the anti $z$-COSY experiment. This arises because we are only considering the PSYCHE PSE on its own, \textit{not} the JRE.}
-Here, $\taup$ is the duration of the chirp and $0 < \alpha < 1$.
+Here, $\taup$ is the duration of the chirp, and $0 < \alpha < 1$.
 In this case, the coherence is perfectly rephased by the weak gradient applied during the chirp pulses, since the \textit{time} it experiences these gradients for is the same on both sides of the chirps.
-Now, if the $I_{i+}$ term is converted to a coherence on a different spin $I_{j-}$, it experiences the gradient for a total duration of $\alpha\taup$ after the start of the first chirp, and also $\alpha'\taup$ before the end of the second chirp (the red CTP in \cref{fig:psyche_detail_cosy_suppress}).
-In general, $\alpha \neq \alpha'$ as spins $i$ and $j$ have different offsets; therefore, this CTP is dephased by the gradients, resulting in complete suppression of the COSY-type artefacts in the spectrum.
+Now, if the $I_{i+}$ term is instead converted to a coherence on a different spin $I_{j-}$, it experiences the gradient for a total duration of $\alpha\taup$ after the start of the first chirp, and also $\alpha'\taup$ before the end of the second chirp (the orange CTP in \cref{fig:psyche_detail_cosy_suppress}).
+In general, $\alpha \neq \alpha'$ as spins $i$ and $j$ have different offsets; therefore, this CTP is dephased by the gradients, resulting in suppression of the COSY-type artefacts in the spectrum.
 
 It remains to also consider how the PSYCHE element selects for the population terms between the two spin flips.
-Any terms with nonzero coherence order are simply dephased by the weak gradient.
-However, zero-quantum terms (in homonuclear systems) are not dephased by gradients, and to eliminate them in a single-scan manner, they must be spatially averaged: this is what the $z$-filter in the anti $z$-COSY does, for example.
-It turns out that the PSYCHE element also does a similar spatial averaging.
+Any terms with nonzero coherence order are of course simply dephased by the weak gradient.
+However, zero-quantum terms (in homonuclear systems) are not dephased by gradients, and to eliminate them in a single-scan manner, they must be spatially averaged, for example by a $z$-filter.
+It turns out that the PSYCHE element also results in a similar spatial averaging.
 Following on from the previous paragraph, the time \textit{between} the spin flips (for the desired pathways, i.e.\ not COSY-type coherence transfer) is given by $2(1 - \alpha)\taup$.
 At the same time, the weak gradient induces a range of offsets across the sample, much like in the Zangger--Sterk experiment.
 Thus, the offset, and thus the value of $\alpha$, for a given spin depends on which slice it is in; for example, \cref{fig:psyche_detail_zqc_suppress} uses values of $\alpha_1$ and $\alpha_2$ for two different slices (blue and orange).

@@ -10,37 +10,38 @@ In this section, the implementation of the NM algorithm in the Python \texttt{sc
 
 The cost function measuring the performance of a pure shift experiment can be measured in one of two ways: either \textit{theoretically}, in that the pure shift experiment is simulated using the density operator formalism, or \textit{experimentally}, in that the experiment is run on a spectrometer.
 Unfortunately, the simulation of PSYCHE-type PSEs, where a shaped pulse is applied together with a gradient, requires a large amount of time.
-The pulse itself already has $n \sim 10000$ points, but on top of that, the application of gradients also requires splitting up the sample into multiple slices (often 100 to 1000) such that the evolution of $\rho$ can be simulated in each slice and the results summed up.
+The pulse itself already has $m \sim 10000$ points, but on top of that, the application of gradients also requires splitting up the sample into multiple slices ($n \sim 100$ to $1000$) such that the evolution of $\rho$ can be simulated in each slice and the results summed up.
 To make matters worse, $H_\text{pulse}$ does not commute with $H_\text{grad}$, so a propagator
 \begin{equation}
     \label{eq:pulse_gradient_propagator}
     U(i, z) = \exp\left[-\mi(H_\text{grad}(z) + H_\text{free} + c_x^{(i)}I_x + c_x^{(i)} I_y)(\delta t)\right]
 \end{equation}
-must be calculated for each pulse point ($1 \leq i \leq n$) in each slice of the sample.
-As a result, the simulation of PSYCHE spectra in the Spinach package\Autocite{Hogben2011JMR} typically requires minutes to hours.%
-\footnote{With highly optimised handwritten code, exploiting the symmetry of the PSYCHE element, the fastest simulation I could do took 16 seconds on a 20-core computer, for a simple 2-spin system. This number increases very rapidly for larger spin systems. It is possible that GPU acceleration could result in substantial speedups, but I have not looked into this sufficiently. Anyway, acquisition of the pure shift spin echo experiment takes only around 5 seconds.}
+must be calculated for each pulse point, in each slice of the sample, for a total of $mn$ matrix exponentials.
+As a result, the simulation of PSYCHE spectra in the Spinach package\autocite{Hogben2011JMR} typically requires minutes to hours.%
+\footnote{With highly optimised handwritten code, exploiting the symmetry of the PSYCHE element, the fastest simulation I could do took 16 seconds on a 20-core computer, for a simple 2-spin system. This number increases exponentially for larger spin systems. It is possible that GPU acceleration could result in substantial speedups, but I have not looked into this sufficiently. Anyway, acquisition of the JRSE experiment (to be described) takes only around 5 seconds.}
 
 This in fact makes it faster to experimentally acquire a pure shift spectrum and calculate a cost function based on that.
-Running an actual pure shift experiment, though, is suboptimal: firstly, the pseudo-2D interferogram method is slow, and secondly, there is no easy way to devise a cost function for the resulting spectrum.
-Instead, we can use a simple 1D `pure shift spin echo' (PSSE) sequence, which has the form \ang{90}--$\tau$--PSE--$\tau$--detect (\cref{fig:psse_psse}).
-An ideal PSE would lead to complete refocusing of both chemical shifts and J-couplings, and the signal detected after this would simply be the same as in a pulse--acquire experiment (\cref{fig:psse_zg}).
-Of course, there is a sensitivity penalty which reflects that of the PSE.
-On top of that, if the J-refocusing is not perfect, then the multiplets in the spin echo sequence acquire a degree of phase distortion: the delay $\tau$ has to be long enough to allow for this, but its exact value is otherwise largely insignificant.
-These distortions are just about visible in \cref{fig:psse_psse}.
+Running an actual pure shift experiment, though, is suboptimal: firstly, the pseudo-2D interferogram method is slow, and secondly, there is no easy way to devise a cost function for the resulting spectrum without prior knowledge of where peaks and artefacts lie.
+Instead, we can use a simple 1D `J-refocused spin echo' (JRSE) sequence, which has the form \ang{90}--$\tau$--PSE--$\tau$--detect (\cref{fig:jrse_jrse}).
+An ideal PSE would lead to complete refocusing of both chemical shifts and J-couplings, and the signal detected after this would simply be the same as in a pulse--acquire experiment (\cref{fig:jrse_zg}).
+
+Of course, there is a sensitivity penalty which reflects that of the PSE (there are also relaxation losses during the $\tau$ delays, but these are constant).
+On top of that, if the J-refocusing is not perfect, then the multiplets in the spin echo sequence acquire a degree of phase distortion: the delay $\tau$ has to be long enough to allow for this to evolve, but its exact value is otherwise largely insignificant.
+These distortions are just about visible in \cref{fig:jrse_jrse}.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[]{pureshift/psse.png}
-    {\phantomsubcaption\label{fig:psse_zg}}
-    {\phantomsubcaption\label{fig:psse_psse}}
-    \caption[Pure shift spin echo experiment]{
-        \textbf{(\subref{fig:psse_zg})} Pulse--acquire experiment and the resulting spectrum.
-        \textbf{(\subref{fig:psse_psse})} Pure shift spin echo experiment and the resulting spectrum.
+    \includegraphics[]{pureshift/jrse.png}
+    {\phantomsubcaption\label{fig:jrse_zg}}
+    {\phantomsubcaption\label{fig:jrse_jrse}}
+    \caption[J-refocused spin echo experiment]{
+        \textbf{(\subref{fig:jrse_zg})} Pulse--acquire experiment and the resulting spectrum.
+        \textbf{(\subref{fig:jrse_jrse})} J-refocused spin echo experiment and the resulting spectrum.
         The PSE used was the PSYCHE double saltire, with a flip angle of \ang{25}; the delay $\tau$ was \SI{11}{\ms}.
         The OH peak at \SI{4.1}{ppm} is lost, most likely due to chemical exchange.
         \datacode{6A-200816}
     }
-    \label{fig:ps_optim}
+    \label{fig:jrse}
 \end{figure}
 
 Two cost functions were designed and used in this section:
@@ -48,9 +49,10 @@ Two cost functions were designed and used in this section:
     f_\text{phase} &= \Var_i\left[\arctan\left(\frac{S_{\text{re},i}}{|S_{\text{im},i}|}\right)\right] \label{eq:ps_cf_phase} \\
     f_\text{diff} &= \Biggl\lVert \frac{\symbf{S}_\text{re}}{\lVert \symbf{S}_\text{re} \rVert} - \frac{\symbf{T}_\text{re}}{\lVert \symbf{T}_\text{re} \rVert} \Biggr\rVert, \label{eq:ps_cf_diff}
 \end{align}
-where the PSSE and pulse--acquire 1D spectra are treated as complex-valued vectors $\symbf{S}$ and $\symbf{T}$ respectively (for \textit{`spectrum'} and \textit{`target'}). $\symbf{S}_\text{re}$ and $\symbf{S}_\text{im}$ are the real and imaginary parts of the spectrum $\symbf{S}$, and $S_{\text{re},i}$ is the $i$-th point of the real part of the spectrum.
+where the JRSE and pulse--acquire 1D spectra are treated as complex-valued vectors $\symbf{S}$ and $\symbf{T}$ respectively (for \textit{`spectrum'} and \textit{`target'}). $\symbf{S}_\text{re}$ and $\symbf{S}_\text{im}$ are the real and imaginary parts of the spectrum $\symbf{S}$, and $S_{\text{re},i}$ is the $i$-th point of the real part of the spectrum.
 The operator $\Var_i$ represents the variance over all points in the spectrum $i$, and $\lVert \symbf{x} \rVert$ denotes the 2-norm of the vector $\symbf{x}$, i.e.\ $\sqrt{\sum_i x_i^2}$.
-The implementation of this in Python (\cref{lst:pureshift_costfunctions}) is quite possibly easier to take in.\footnote{The use of \texttt{np.arctan} (the arctangent), and \textit{not} \texttt{np.arctan2} (the argument of a complex number), is intentional. The behaviour shown in \cref{fig:fa_scan_synthetic} isn't reproduced with \texttt{arctan2}. Of course, this means the name `phase' is a misnomer; it's not really the phase of anything meaningful.}
+Python implementations of these are given in \cref{lst:pureshift_costfunctions}.%
+\footnote{The use of \texttt{np.arctan} (the arctangent), and \textit{not} \texttt{np.arctan2} (the argument of a complex number), is intentional. The behaviour shown in \cref{fig:fa_scan_synthetic} isn't reproduced with \texttt{arctan2}. Of course, this means the name `phase' is a misnomer; it's not really the phase of anything meaningful.}
 
 \begin{mylisting}[htb]
 \begin{tcbminted}{python}
@@ -81,14 +83,14 @@ f_diff = np.linalg.norm((Sr / np.linalg.norm(Sr))
 
 These two cost functions were chosen as they exhibited desirable characteristics on synthetic data (\cref{fig:fa_scan_synthetic}).
 In these simulations, the `target' spectrum was chosen to simply be an in-phase absorption-mode doublet with an SNR of 500.
-Synthetic data with increasing amounts of phase distortion (i.e.\ spectra ranging from in-phase absorption, to antiphase dispersion) were generated, and extra Gaussian noise added to create different SNRs.
-It can be seen that, for data which is well-phased (left edges of the plots), both $f_\text{phase}$ (\cref{fig:fa_scan_synthetic_fphase}) and $f_\text{diff}$ (\cref{fig:fa_scan_synthetic_fdiff}) penalise lower SNRs.
-Furthermore, both of the cost functions penalise phase distortions in multiplets, since they increase going from left to right.
-This penalty is stricter for high-SNR spectra, which is also desirable, since it is only in high-SNR spectra that the phase distortions become noticeable.
+Synthetic data with increasing amounts of J-modulation (i.e.\ spectra ranging from in-phase absorption, to antiphase dispersion) were generated, and extra Gaussian noise added to mimic different SNRs.
+It can be seen that, for data which has little J-modulation (left edges of the plots), both $f_\text{phase}$ (\cref{fig:fa_scan_synthetic_fphase}) and $f_\text{diff}$ (\cref{fig:fa_scan_synthetic_fdiff}) penalise lower SNRs.
+Furthermore, both of the cost functions penalise J-modulation, since they increase going from left to right.
+This penalty is stricter for high-SNR spectra, which is also desirable, since it is only in high-SNR spectra that the J-modulation becomes noticeable.
 
-The cost function $f_\text{diff}$ is easier to comprehend: it simply scales both the target and PSSE spectra down by their respective intensities, and compares each point to determine whether the peak shapes obtained are similar.
+The cost function $f_\text{diff}$ is easier to comprehend: it simply scales both the target and JRSE spectra down by their respective intensities, and compares each point to determine whether the peak shapes obtained are similar.
 Although this seems like it should be agnostic towards signal intensity, this is only true for noiseless spectra.
-If a (genuine) PSSE spectrum has low SNR, $\lVert \symbf{S}_\text{re} \rVert$ will be small, and the noise will be scaled down less than for the target spectrum; this difference in the noise then contributes towards the cost function.
+If a (genuine) JRSE spectrum has low SNR, $\lVert \symbf{S}_\text{re} \rVert$ will be small, and the noise will be scaled down less than for the target spectrum; this difference in the \textit{noise} (rather than the signal) then contributes towards the cost function.
 On the other hand, a proper rationalisation of why the cost function $f_\text{phase}$ works is unfortunately not within my capabilities!
 It was mostly developed by trial-and-error (based on the notion that phase distortions would have something to do with $\symbf{S}_\text{re}$ and $\symbf{S}_\text{im}$), and I do not have a good explanation of why it works.
 

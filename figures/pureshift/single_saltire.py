@@ -42,7 +42,7 @@ fa_to_expno = {
 fig, axs = pg.subplots2d(1, 2, figsize=(6, 3), width_ratios=(1, 4))
 
 # show the spectrum on LHS
-pg.read(p, 1002).stage(ax=axs[0], bounds=(4.775, 4.80))
+pg.read(p, 1002).stage(ax=axs[0], bounds=(4.775, 4.80), color='black')
 pg.mkplot(axs[0])
 
 # read in reference data
@@ -56,8 +56,7 @@ markers = ['x', 'd', 'o', '*', '+', 's']
 axs[1].plot([1], [1], marker='o', color='black')
 axs[1].text(s='Double\nsaltire', x=1, y=1.03, ha='center')
 for (fa, expno_range), color, x, y in zip(fa_to_expno.items(),
-                                          pg.color_palette('bright'),
-                                          text_xs, text_ys):
+                                          apt.PAL, text_xs, text_ys):
     signals = []
     sars = []    # ouch at variable name
     taups = []
@@ -83,7 +82,7 @@ for (fa, expno_range), color, x, y in zip(fa_to_expno.items(),
         axs[1].scatter([signal], [sar], marker=marker, color=color)
 
     # Create lines
-    axs[1].plot(signals, sars, color=color)
+    axs[1].plot(signals, sars, color=color, linewidth=0.7)
     axs[1].text(s=rf'$\beta = {fa}^\circ$', x=x, y=y, ha='center',
                 color=color)
     axs[1].legend(ncol=2)
@@ -92,8 +91,8 @@ apt.label_axes_def(axs)
 pg.style_axes(axs[1], 'plot')
 # twiddle with axes limits so that the label doesn't get in the way
 xmin, xmax = axs[1].get_xlim()
-axs[1].set(xlim=(xmin - 0.02, xmax), xlabel="relative signal",
-           ylabel="relative signal-to-artefact ratio")
+axs[1].set(xlim=(xmin - 0.02, xmax), xlabel="relative sensitivity",
+           ylabel="relative purity")
 plt.subplots_adjust(wspace=0.3)
 # apt.show()
 apt.save(__file__)

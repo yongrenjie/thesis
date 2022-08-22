@@ -46,7 +46,7 @@ fig, ax = pg.subplots(figsize=(5, 3))
 bright = pg.color_palette('bright')
 ax.plot(flip_angles, phase_means, marker='o',
         label=r"$f_\mathrm{phase}$", color=bright[0])
-ax.plot(flip_angles, diff_means, marker='o',
+ax.plot(flip_angles, diff_means, marker='d',
         label=r"$f_\mathrm{diff}$", color=bright[1])
 # Can do with error bars if desired, but they're pretty small:
 # ax.errorbar(x=flip_angles, y=phase_means, yerr=phase_stdevs,

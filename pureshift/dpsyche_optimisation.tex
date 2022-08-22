@@ -4,14 +4,14 @@
 As previously discussed, the fact that the dPSYCHE experiment can be very quickly simulated opens up the potential for entirely computational optimisation of the pulse sequence.
 For any arbitrary spin system, it is trivial to remove all the couplings \textit{in silico} and simulate a pulse--acquire spectrum: this gives us a theoretically perfect pure shift spectrum.
 The simulated dPSYCHE experiment (on a system with couplings) can then be compared against this.
-The entire process is repeated using $n$ different spin systems, and the cost function is defined as:
+The entire process is repeated using $s$ different spin systems, and the cost function is defined as:
 \begin{equation}
     \label{eq:f_diff_dpsyche}
-    f_\text{diff,2} = \frac{1}{n}\sum_n \Biggl\lVert \frac{\symbf{S}_\text{re} - c\symbf{T}_\text{re}}{c\lVert \symbf{T}_\text{re} \rVert} \Biggr\rVert^2
+    f_\text{diff,2} = \frac{1}{s}\sum_s \Biggl\lVert \frac{\symbf{S}_\text{re} - c\symbf{T}_\text{re}}{c\lVert \symbf{T}_\text{re} \rVert} \Biggr\rVert^2
 \end{equation}
 where $\symbf{S}$ is the dPSYCHE spectrum, and $\symbf{T}$ is the target spectrum.
-$c$ is a factor to be discussed later, and for now I treat it as $1$.
-This cost function appears superficially very similar to $f_\text{diff}$ (discussed in \cref{subsec:pureshift__optim_techniques}), and is based on the same idea that we want the spectra $\symbf{S}$ and $\symbf{T}$ to match one another, but there are several points of note:
+The prefactor $c$ will be discussed later; for now I treat it as $1$.
+This cost function appears superficially very similar to $f_\text{diff}$ (discussed in \cref{subsec:pureshift__optim_techniques}), and is based on the same principle that we want the spectra $\symbf{S}$ and $\symbf{T}$ to match one another, but there are several points of note:
 \begin{itemize}
     \item The spectrum $\symbf{S}_\text{re}$ is not scaled down by its norm. This means that the sensitivity penalty no longer comes from the difference in the noise (as was previously the case), but rather directly from the difference in peak intensity.
         Since simulated spectra are noiseless, the original $f_\text{diff}$ would not work here.
@@ -28,7 +28,7 @@ The value of $f_\text{diff,2}$ was thus tested with a wide variety of randomly c
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[draft=false]{pureshift/td1_cf.png}
+    \includegraphics[]{pureshift/td1_cf.png}
     {\phantomsubcaption\label{fig:dpsyche_td1_cf_16_8}}
     {\phantomsubcaption\label{fig:dpsyche_td1_cf_16_4}}
     \caption[Comparison of $f_\text{diff,2}$ cost function with different numbers of chunks]{
@@ -49,8 +49,9 @@ However, its ranking of the `best' candidates is not very accurate: the 4-chunk 
 Ultimately, I decided to use the 4-chunk cost function for `quick and dirty' optimisations, where only an approximate optimum was required.
 However, for anything requiring more accuracy, the 8-chunk cost function was used.
 
-Optimisations were next carried out with an (arbitrarily chosen) setting of $m = 9$ (i.e.\ nine hard pulses in the PSE).
-The derivative-based Broyden--Fletcher--Goldfarb--Shanno (BFGS) algorithm was used to carry out the optimisation: this is a popular line search algorithm which uses an approximate Hessian to calculate the search direction at each iteration.\autocite{Kelley1999,Nocedal2006}
+An optimisation was then carried out with a (rather arbitrarily chosen) setting of $m = 9$, i.e.\ nine hard pulses in the PSE.
+A total of $s = 20$ spin systems were used, matching the number of CPU cores on the computer used for the optimisations: these were further subdivided into four two-spin systems, eight three-spin systems, and eight four-spin systems.
+The derivative-based BFGS algorithm was used to carry out the optimisation: this is a popular line search algorithm which uses an approximate Hessian to calculate the search direction at each iteration.\autocite{Kelley1999,Nocedal2006}
 No lower or upper bounds were placed on the flip angles or phases: phases can obviously simply be wrapped to the region $[0, 2\pi)$, and in the simulations, the hard pulses were modelled as being instantaneous rotations, so their flip angles can also just be wrapped to $[0, 2\pi)$.
 (This would not be completely valid if realistic, finite pulses were used, since changing the flip angle would also change their duration.)
 This first optimisation yielded the following optimised parameters for the nine pulses:
@@ -70,7 +71,7 @@ The fact that none of the flip angles exceeded \ang{360} here provides some just
     % There IS one way to retrieve the data: rewind the entire git repo to this
     % date and rerun it.
     \centering
-    \includegraphics[draft=false]{pureshift/dpsyche_nosens_vs_psyche}
+    \includegraphics[]{pureshift/dpsyche_nosens_vs_psyche}
     {\phantomsubcaption\label{fig:dpsyche_nosens_vs_psyche_dp}}
     {\phantomsubcaption\label{fig:dpsyche_nosens_vs_psyche_p}}
     \caption[Comparison of optimised dPSYCHE and PSYCHE]{
@@ -82,16 +83,18 @@ The fact that none of the flip angles exceeded \ang{360} here provides some just
     \label{fig:dpsyche_nosens_vs_psyche}
 \end{figure}
 
-To evaluate the quality of the decoupling on a real sample, the dPSYCHE experiment was experimentally acquired. \cref{fig:dpsyche_nosens_vs_psyche} compares the results against a PSYCHE experiment.
+To evaluate the quality of the decoupling on a real sample, the dPSYCHE experiment was performed experimentally, and the results compared against a PSYCHE experiment (\cref{fig:dpsyche_nosens_vs_psyche}).
+Firstly, it is worth pointing out that a pure shift spectrum (even if not a very good one) was obtained: this validates the form of the PSE and the optimisation approach used here, especially considering that the optimisation was not tailored towards this particular sample.
 The dPSYCHE experiment clearly has much greater sensitivity than the PSYCHE experiment; however, the decoupling quality is extremely poor.
 The reason for this is likely because the optimisation is prioritising sensitivity too highly over purity, and ultimately stems from the factor $c$ in \cref{eq:f_diff_dpsyche} which we have ignored until now.
 Since $c = 1$, the optimisation is essentially guiding the dPSYCHE experiment towards having \textit{exactly the same sensitivity as a pulse--acquire experiment}.
+
 Although this might be a nice idea in principle, it is not physically sensible: no pure shift method has sensitivity which is even close to that of a pulse--acquire experiment.
 It makes more sense to scale down the target spectrum by introducing a factor of $c < 1$ into the cost function (\cref{eq:f_diff_dpsyche}); the parameter $c$ therefore represents the `target sensitivity'.
 By changing the parameter $c$, we can control whether the optimisation emphasises sensitivity or purity more.
-(Note that this option was \textit{not} available to us in the experimental PSSE-based optimisations in \cref{sec:pureshift__optimisation}.)
+(Note that this option was \textit{not} available to us in the experimental JRSE-based optimisations in \cref{sec:pureshift__optimisation}.)
 
-A series of new optimisations were therefore run, with $c$ ranging from $0.2$ to $1$ (TABLE).
+A series of new optimisations were therefore run, with $c$ ranging from $0.2$ to $1$ (\cref{tbl:dpsyche_sens}).
 The 4-chunk cost function was used, and the maximum number of function evaluations capped at 5000.
 Each optimisation was run 10 times with a different starting seed, and the best of the 10 results chosen for further evaluation (\cref{tbl:dpsyche_sens}).
 The resulting spectra (\cref{fig:dpsyche_sens}) show that adjusting $c$ has the desired effect: larger values lead to greater sensitivity and lower purity, and vice versa.
@@ -126,7 +129,7 @@ The resulting spectra (\cref{fig:dpsyche_sens}) show that adjusting $c$ has the 
 \begin{figure}[htbp]
     % matlab_nmr_jy/research/optim_specdiff/opt_sens.m
     \centering
-    \includegraphics[draft=false]{pureshift/dpsyche_sens.png}
+    \includegraphics[]{pureshift/dpsyche_sens.png}
     {\phantomsubcaption\label{fig:dpsyche_sens_d1}}
     {\phantomsubcaption\label{fig:dpsyche_sens_d0p8}}
     {\phantomsubcaption\label{fig:dpsyche_sens_d0p6}}
@@ -146,25 +149,19 @@ The resulting spectra (\cref{fig:dpsyche_sens}) show that adjusting $c$ has the 
     \label{fig:dpsyche_sens}
 \end{figure}
 
-In this spectrum of andrographolide, the \qtyrange{3.5}{5}{\ppm} region is an `easier' region to decouple: there are fewer couplings here and all peaks are firmly within the weak coupling regime.
-The \qtyrange{1.5}{2.8}{\ppm} region is `more difficult' to decouple, especially the peaks at \SI{2.5}{\ppm}, which are mutually strongly coupled.
-The dPSYCHE spectrum with $c = 0.4$ appeared to be a good compromise between purity and sensitivity:
-Furthermore, its sensitivity was higher than that of the original PSYCHE experiment (when conducted with an \ang{20} double saltire)
+In this spectrum of andrographolide, the \qtyrange{3.5}{5}{\ppm} region (blue inset) is an `easier' region to decouple: there are fewer couplings here and all spin systems are firmly within the weak coupling regime.
+The \qtyrange{1.5}{2.8}{\ppm} region (orange inset) is `more difficult' to decouple, especially the two peaks at \SI{2.5}{\ppm}, which are mutually strongly coupled.
+The dPSYCHE spectrum with $c = 0.4$ appeared to be a good compromise between purity and sensitivity: its sensitivity was higher than that of the original (\ang{20} flip angle) PSYCHE experiment.
 Furthermore, it provided good decoupling in the `easier' deshielded region and somewhat acceptable performance in the shielded region, with the notable exception of the strongly coupled peaks at \SI{2.5}{\ppm}.
 
 I therefore ran a longer optimisation using the same starting point and with no limit on the number of function evaluations, which successfully lowered the cost function value by twofold (the last entry in \cref{tbl:dpsyche_sens}).
 The pure shift spectrum obtained using these optimised pulses is shown in \cref{fig:dpsyche_optsens3}.
 The decoupling quality in both regions is comparable to that in the PSYCHE spectrum, again with the exception of the strongly coupled peaks at \SI{2.5}{\ppm}.
 
-To make the dPSYCHE experiment more robust towards strong coupling, a TSE version of the sequence was also written and tested (\cref{fig:tsedpsyche_optsens3}.
-This did indeed improve the decoupling at \SI{2.5}{\ppm}, as expected.
-However, although the TSE-dPSYCHE version still retains its \textit{overall} sensitivity advantage over TSE-PSYCHE (especially evident in the deshielded region), this is not true of every peak: the two peaks at 1.65 and \SI{1.70}{\ppm} seem to have decreased intensities in the TSE-dPSYCHE experiment.
-The reason for this remains unclear.
-
 \begin{figure}[htb]
     % matlab_nmr_jy/research/optim_specdiff/opt_sens3.m
     \centering
-    \includegraphics[draft=false]{pureshift/dpsyche_optsens3.png}
+    \includegraphics[]{pureshift/dpsyche_optsens3.png}
     {\phantomsubcaption\label{fig:dpsyche_optsens3_d}}
     {\phantomsubcaption\label{fig:dpsyche_optsens3_p}}
     \caption[dPSYCHE final optimisation with $c = 0.4$]{
@@ -176,8 +173,9 @@ The reason for this remains unclear.
 \end{figure}
 
 \begin{figure}[htb]
+    % matlab_nmr_jy/research/optim_specdiff/opt_sens3.m but with different pulprog
     \centering
-    \includegraphics[draft=false]{pureshift/tsedpsyche_optsens3.png}
+    \includegraphics[]{pureshift/tsedpsyche_optsens3.png}
     {\phantomsubcaption\label{fig:tsedpsyche_optsens3_d}}
     {\phantomsubcaption\label{fig:tsedpsyche_optsens3_p}}
     \caption[TSE-dPSYCHE final optimisation with $c = 0.4$]{
@@ -188,6 +186,10 @@ The reason for this remains unclear.
     \label{fig:tsedpsyche_optsens3}
 \end{figure}
 
+To make the dPSYCHE experiment more robust towards strong coupling, a TSE version of the sequence was also written and tested (\cref{fig:tsedpsyche_optsens3}).
+This did indeed improve the decoupling at \SI{2.5}{\ppm}, as expected.
+However, although the TSE-dPSYCHE version still retains its \textit{overall} sensitivity advantage over TSE-PSYCHE (especially evident in the deshielded region), this is not true of every peak: the two peaks at 1.65 and \SI{1.70}{\ppm} seem to have decreased intensities in the TSE-dPSYCHE experiment.
+The reason for this remains unclear.
 
 % number of pulses (maybe can omit?)
 \iffalse
@@ -199,13 +201,14 @@ There was no clear winner, but the optimisations with 9 and 15 pulses yielded th
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[draft=false]{pureshift/opt_npulses.png}
+    \includegraphics[]{pureshift/opt_npulses.png}
     \caption[Comparison of cost functions attained with different numbers of pulses]{Blah}
     \label{fig:dpsyche_opt_npulses}
 \end{figure}
 \fi
 
-% state optimisation
+\todo{State optimisation?}
 
+% state optimisation
 
 % conclusions and future work

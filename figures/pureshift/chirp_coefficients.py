@@ -19,7 +19,7 @@ f_sm = np.piecewise(t, [t < s_sm, (t >= s_sm) & (t <= 1 - s_sm), t > 1 - s_sm],
 
 fig, axs = pg.subplots2d(2, 2, figsize=(6.5, 3), sharex=True)
 
-b = pg.color_palette('bright')[0]
+b = 'black'
 axs[0][0].plot(t * taup, phi % (2 * np.pi), linewidth=0.5, color=b)
 axs[0][1].plot(t * taup, f_sm, color=b)
 axs[1][0].plot(t * taup, cx, linewidth=0.5, color=b)

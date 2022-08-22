@@ -7,17 +7,17 @@ As it turns out, handwritten, specialised Matlab code can outperform Spinach by 
 
 The NMR simulations developed here simply use the density operator formalism in Hilbert space, as outlined in \cref{sec:theory__density_operators}.
 The Zeeman basis is used, and non-unitary transformations such as relaxation are neglected.
-Propagation under the Liouville--von Neumann equation (\cref{eq:lvn_interaction_integrated}) requires matrix exponentials $\exp(-\mi H t)$.
+Now, propagation under the Liouville--von Neumann equation (\cref{eq:lvn_interaction_integrated}) requires the calculation of matrix exponentials $\exp(-\mi H t)$.
 For an $N \times N$ matrix, the matrix exponential requires $O(N^3)$ time to calculate (and for a system containing $p$ spins, we have $N = 2^p$); it is often this which is the bottleneck in NMR simulations.
 Minimising the number of matrix exponentials, and/or their computational cost, is the key to achieving speedups, as will be shown in the following text.%
 \footnote{Note that in my simulations, I simply used the builtin \texttt{expm} Matlab function, which implements the matrix exponential using a combination of the scaling-and-squaring method and Pad\'e approximation\autocite{Higham2005SIAMJMAA}.
-This is in contrast to Spinach, which uses a scaled-and-squared Taylor series (according to the \texttt{propagator.m} file, the other methods supposedly did not `live up to their marketing').
+This is in contrast to Spinach, which primarily uses a scaled-and-squared Taylor series (according to the \texttt{propagator.m} file, various other methods supposedly did not `live up to their marketing').
 An in-depth discussion of matrix exponential methods is outside the scope of this thesis, but can be found in a classic paper by Moler and Van Loan\autocite{Moler2003SIAMR}.}
 
-Generally, the accurate simulation of gradient-enhanced experiments requires the sample to be divided up into $n$ discrete slices, each simulated with a different $H_\text{grad}$.\footnote{In simple cases this can be avoided by simply removing all terms with the wrong coherence orders as we know they will be dephased (\cref{eq:generalised_rephasing_2}), but this is too naive an approach for pure shift techniques.}
+Generally, the accurate simulation of pulsed field gradients requires the sample to be divided up into $n$ discrete slices, each simulated with a different $H_\text{grad}$.\footnote{In simple cases this can be avoided by simply removing all terms with the wrong coherence orders as we know they will be dephased (\cref{eq:generalised_rephasing_2}), but this is too naive an approach for pure shift techniques.}
 Thus, a very naive implementation of the dPSYCHE experiment would require $mn$ matrix exponentials, one per pulse per slice.
 The overall structure of the code would resemble \cref{lst:dpsyche_slow}.
-(Strictly speaking, the above code is wrong because the final gradient should have strength \texttt{-2G} and not \texttt{G}, but that is a minor detail.)
+(Strictly speaking, the code is wrong because the final gradient should have strength \texttt{-2G} and not \texttt{G}, but that is a minor detail which I leave out for clarity in the code.)
 
 \begin{mylisting}[htb]
     \centering
@@ -73,8 +73,7 @@ end
 
 Spinach, which is designed to be general, has no idea that these optimisations are possible, so is naturally rather slower.
 However, even this is relatively inefficient.
-Notice that the two components of the gradient propagator, $H_\text{free}$ and $H_\text{grad}$, actually commute with one another (even in the strong coupling case).
-(Showing that $[H_\text{cs}, H_\text{grad}] = 0$ is trivial; the algebra to show that $[H_\text{J}, H_\text{grad}] = 0$ is slightly more tedious, but does not require any special techniques.)
+It can be shown that the two components of the gradient propagator, $H_\text{free}$ and $H_\text{grad}$, actually commute with one another (even in the strong coupling case).
 Thus, we can write:
 \begin{equation}
     \label{eq:split_propagator}
@@ -82,7 +81,7 @@ Thus, we can write:
 \end{equation}
 (in general, for matrices $A$ and $B$, $\exp(A + B) = \exp(A)\exp(B)$ if and only if $[A, B] = 0$).
 This on its own does not reduce the number of matrix exponentials required, but notice now that $H_\text{grad}$ is a sum of $I_{iz}$ terms and is therefore \textit{diagonal} in the Zeeman basis.
-The exponential of a diagonal matrix is trivial to calculate, as we simply need to exponentiate the diagonal \textit{elements:}
+The exponential of a diagonal matrix is almost trivial to calculate, as we simply need to exponentiate the diagonal \textit{elements:}
 \begin{equation}
     \label{eq:expm_diagonal}
     \exp
@@ -100,8 +99,8 @@ The exponential of a diagonal matrix is trivial to calculate, as we simply need 
         0 & 0 & \ldots & \exp(\lambda_n) \\
     \end{pmatrix}.
 \end{equation}
-This can be done in $O(n)$ time by using \texttt{diag(exp(diag(M)))} instead of \texttt{expm(M)} (the \texttt{diag} Matlab function converts a diagonal matrix to a vector of its diagonal entries, and vice versa).
-So, our code now uses only $m + 1$ total matrix exponentials (\cref{lst:dpsyche_fast2}).
+Instead of using the $O(N^3)$ \texttt{expm(M)} function, this can instead be done in $O(N)$ time using \texttt{diag(exp(diag(M)))} (the \texttt{diag} Matlab function converts a diagonal matrix to a vector of its diagonal entries, and vice versa).
+So, our code now uses only $m + 1$ `true' matrix exponentials (\cref{lst:dpsyche_fast2}).
 At this point, our matrix exponentials have almost been eliminated and the largest remaining bottleneck is almost certainly the matrix \textit{multiplications} required for the propagation.
 We can cut this down by a factor of two simply by calculating the overall propagator
 \begin{equation}
@@ -154,7 +153,7 @@ end
 
 The performance of this handwritten code as compared to Spinach is summarised in \cref{tbl:dpsyche_simulations}.
 In all cases, the spectra produced by the two methods were entirely equivalent.
-It should be noted that the handwritten code does \textit{not} even utilise CPU parallelisation, whereas Spinach does.
+It should be noted that the handwritten code does not even utilise CPU parallelisation, whereas Spinach does.
 I investigated the possibility of parallelising the loop over slices (replacing the outer \texttt{for} in \cref{lst:dpsyche_fast2} with \texttt{parfor}): however, this in fact made the code \textit{slower}, presumably due to overhead.
 This is a good thing: it means that \texttt{parfor} can be used in an external loop, e.g.\ for the parallel simulation of the dPSYCHE experiment on different spin systems.
 
@@ -189,8 +188,7 @@ This is a good thing: it means that \texttt{parfor} can be used in an external l
         Comparison of wall-clock times for dPSYCHE simulations.
         The dPSYCHE sequence used contained 15 pulses, each applied with a flip angle of \ang{15} and a phase of \ang{0}.
         Spin systems were generated pseudo-randomly.
-        All timings were measured on a 2019 MacBook Pro with a \SI{2.6}{\GHz} 6-core Intel i7 CPU; no attempts were made to shut other running programmes.
+        All timings were measured on a 2019 MacBook Pro with a \SI{2.6}{\GHz} 6-core Intel i7 CPU.
     }
     \label{tbl:dpsyche_simulations}
 \end{table}
-

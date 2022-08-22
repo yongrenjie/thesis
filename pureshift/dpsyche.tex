@@ -6,7 +6,7 @@ It relies on what is essentially a `temporal discretisation' of the PSYCHE wavef
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[draft=false]{pp/pureshift/dpsyche.png}
+    \includegraphics[]{pp/pureshift/dpsyche.png}
     \caption[dPSYCHE pulse sequence]{
         dPSYCHE pulse sequence.
         Gradient amplitudes are $(g_1, g_2) = (35\%, 41\%)$; the gradients in the PSE $g_2$ are applied with a duration of \SI{500}{\us}.
@@ -27,7 +27,7 @@ There are two major reasons why this is more amenable towards optimisation than 
 \end{enumerate}
 
 One downside of this is that it is difficult, or perhaps even impossible, to explain how the PSE works.%
-\footnote{Of course, we could simulate it and say that it works because the maths says it does; but that isn't very illuminating. The optimisations done in this thesis are somewhat like a scaled-down version of machine learning, in that they produce better results at the cost of interpretability.}
+\footnote{Of course, we could simulate it and say that it works because the maths says it does; but that isn't very illuminating. Some of the optimisations done in this thesis are somewhat like a scaled-down version of machine learning, in that they produce better results at the cost of interpretability.}
 For a symmetric PSE where $\beta_1 = \beta_m$ (and so on) it is probably possible to reuse an explanation based on PSYCHE-style CTP selection, but this is clearly inapplicable if the flip angles and phases are scrambled.
 
 \input{pureshift/dpsyche_simulation.tex}

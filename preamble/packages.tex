@@ -12,6 +12,7 @@
 \graphicspath{{./figures}}
 \usepackage{makecell}
 \usepackage{floatrow}
+\usepackage{longtable}
 \usepackage{multirow}
 \usepackage{braket}
 \usepackage{subcaption}
@@ -24,11 +25,15 @@
 \usepackage{metalogo}
 \usepackage{booktabs}
 \usepackage{xparse}
+\usepackage{acro}
+
+\usepackage[notref,notcite]{showkeys}
+\renewcommand*\showkeyslabelformat[1]{\tiny\ttfamily#1}
 
 % code listings setup
 \usepackage[within=chapter]{newfloat}
 \DeclareFloatingEnvironment[
-    listname={List of listings},
+    listname={List of code listings},
     name={Listing},
 ]{mylisting}
 \usepackage{minted}
@@ -98,8 +103,10 @@
   % see https://tex.stackexchange.com/questions/135671/refsection-and-includeonly-warning#comment883562_152019
 ]{biblatex}
 \DeclareCiteCommand{\citenum}{}{\printfield{labelnumber}}{}{}
-
 \addbibresource{thesis.bib}
+\usepackage{usebib}
+\newbibfield{entryset}
+\bibinput{thesis}
 
 % patch fullcite to not use et al willy-nilly
 % https://tex.stackexchange.com/a/126245/91770
@@ -122,16 +129,18 @@
 }
 
 
-\usepackage[notref,notcite]{showkeys}
-\renewcommand*\showkeyslabelformat[1]{\tiny\ttfamily#1}
-
-\usepackage{usebib}
-\newbibfield{entryset}
-\bibinput{thesis}
-\usepackage{cleveref}
+\usepackage[]{cleveref}
 \crefname{section}{\S}{\S\S}
 \Crefname{section}{\S}{\S\S}
 \crefname{subsection}{\S}{\S\S}
 \Crefname{subsection}{\S}{\S\S}
+% makeatletter required for cleveref to honour capitalise option
+% https://tex.stackexchange.com/a/126023/91770
+\makeatletter
+\if@cref@capitalise
+\crefname{mylisting}{Listing}{Listings}
+\else
 \crefname{mylisting}{listing}{listings}
+\fi
+\makeatother
 \Crefname{mylisting}{Listing}{Listings}

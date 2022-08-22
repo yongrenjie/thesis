@@ -1,4 +1,4 @@
-"""Generates spectra to be included in psse.svg"""
+"""Generates spectra to be included in jrse.svg"""
 
 
 import penguins as pg
@@ -13,8 +13,8 @@ psyche = pg.read(p, 121)
 
 fig, axs = pg.subplots(1, 2, figsize=(5, 2.3))
 b = "3.7..4.58"
-zg.stage(axs[0], bounds=b)
-psyche.stage(axs[1], bounds=b)
+zg.stage(axs[0], bounds=b, color='black')
+psyche.stage(axs[1], bounds=b, color='black')
 
 print(zg['ns'])
 print(psyche['ns'])

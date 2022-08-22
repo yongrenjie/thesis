@@ -8,23 +8,23 @@ The flip angle dependence of PSYCHE spectra is well-understood, which crucially 
 \begin{figure}[htb]
     \centering
     \includegraphics[]{pureshift/fa_scan_cyclo.png}
-    \caption[Behaviour of $f_\text{phase}$ and $f_\text{diff}$ on experimental pure shift spin echo spectra.]{
-        Behaviour of the two cost functions, $f_\text{phase}$ and $f_\text{diff}$, on experimental pure shift spin echo spectra.
+    \caption[Behaviour of $f_\text{phase}$ and $f_\text{diff}$ on experimental J-refocused spin echo spectra.]{
+        Behaviour of the two cost functions, $f_\text{phase}$ and $f_\text{diff}$, on experimental J-refocused spin echo spectra.
         \datacode{5C-190809}
     }
     \label{fig:fa_scan_cyclo}
 \end{figure}
 
 I first sought to measure how the cost functions described above varied with the flip angle.
-To this end, pure shift spin echo spectra using a \textit{single} saltire as the PSE and various flip angles (from \ang{10} to \ang{50}) were acquired (\cref{fig:fa_scan_cyclo}).
+To this end, JRSE spectra using a \textit{single} saltire as the PSE and various flip angles (from \ang{10} to \ang{50}) were acquired (\cref{fig:fa_scan_cyclo}).
 Since both cost functions penalise both low sensitivity and low purity, we might expect that there is be an intermediate value where neither sensitivity nor purity were penalised too much: this would the `optimum' flip angle.
 In the event, it was found that only $f_\text{diff}$ yielded a useful---albeit shallow---minimum at around \ang{25} (recall that the PSE here is a single saltire, so this corresponds roughly to a \ang{15}--\ang{20} double saltire).
-$f_\text{phase}$, on the other hand, was strictly decreasing within the range of flip angles tested: it is possible that there is an optimum at an even larger flip angle, but this would have been a scientifically unsound conclusion given that the sample was decently concentrated (\SI{50}{\milli\molar}).
+The $f_\text{phase}$ cost function, on the other hand, was strictly decreasing within the range of flip angles tested: it is possible that there is an optimum at an even larger flip angle, but this would have been a scientifically unsound conclusion given that the sample was decently concentrated (\SI{50}{\milli\molar}).
 
-This naturally raises the question of why $f_\text{diff}$ yields an optimum which is sensible.
+This naturally raises the question of why $f_\text{diff}$ yields an optimum which falls within what we would consider a `sensible' region.
 It is tempting to believe that the form of $f_\text{diff}$ (\cref{eq:ps_cf_diff}), which is at first glance quite intuitive, naturally leads to a better result.
 I argue here, however, that this is mostly down to \textit{coincidence}.
-This is difficult to explain quantitatively, but in a broader sense, we may imagine that the cost function separately penalises low sensitivity and low purity, i.e.\ it is of the form
+This is difficult to explain quantitatively, but in a broader sense, we may imagine that the cost function separately penalises low sensitivity and low purity, i.e.\ it can be decomposed into something of the form
 \begin{equation}
     \label{eq:cost_function_generic}
     f = g(s) + \lambda h(p),
@@ -39,7 +39,7 @@ In other words, what we \textit{really} seek is a cost function which measures t
     \label{eq:cost_function_generic_p2d}
     f' = g'(s') + \lambda' h'(p'),
 \end{equation}
-where everything is marked with a prime symbol to indicate that it is with respect to the decoupled spectrum, and the parameter $\lambda'$ is chosen to fit our (admittedly subjective) judgement of the required balance.
+where everything is marked with a prime symbol to indicate that it is with respect to the decoupled spectrum, and the parameter $\lambda'$ is chosen to fit our judgement of the required balance, or in other words, yield an optimum of around \ang{20}.
 Now, we may reasonably assume that $s$ and $s'$ are proportional, but $p$ and $p'$ are hardly the same thing: one is manifested in terms of artefact intensity and the other in terms of phase distortions.
 Furthermore, the $\lambda$ provided to us by the cost function $f$ may not necessarily be the same as our ideal choice of $\lambda'$; let alone the forms of the functions $g$ and $h$.
 The fact that \cref{eq:cost_function_generic} \textit{happens} to provide the same flip angle optimum as the idealised \cref{eq:cost_function_generic_p2d} cannot truly be attributed to design!

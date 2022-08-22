@@ -5,7 +5,7 @@
     \centering
     \includegraphics[]{pp/hsqc/etgp.png}
     \caption[Echo--antiecho HSQC pulse sequence]{
-        A typical echo--antiecho HSQC pulse sequence.
+        A typical EA HSQC pulse sequence.
         The delay $\Delta$ is set to $1/(4 \cdot \oneJ{CH})$.
         The gradient amplitudes are chosen such that $|g_1/g_2| = \gamma_{\ch{H}}/\gamma_{\ch{C}} \approx 4$.
         Specifically, the echo dataset is obtained by setting $(g_1, g_2) = (80\%, 20\%)$, and the antiecho dataset by setting $(g_1, g_2) = (80\%, -20\%)$, where gradient amplitudes are quoted as a percentage of the maximum gradient amplitude.
@@ -15,7 +15,7 @@
     \label{fig:hsqc_etgp}
 \end{figure}
 
-The echo--antiecho version of the HSQC experiment (\cref{fig:hsqc_etgp}) is very similar to the States version discussed above.
+The EA version of the HSQC experiment (\cref{fig:hsqc_etgp}) is very similar to the States version discussed above.
 The only real difference is that two gradients are added: one immediately after $t_1$, and one directly before detection.
 As we will see, the effect of this is to enforce a relationship between the coherence orders during the two gradients, or in other words, to select for a specific \textit{coherence transfer pathway} (CTP).
 
@@ -31,7 +31,7 @@ Points \circled{1} and \circled{2} are the same as in the States HSQC (\cref{fig
     \rho = 2I_zS_y\cos(\Omega_S t_1) - 2I_zS_x \sin(\Omega_S t_1).
 \end{equation}
 In the next spin echo with the gradient $g_1$, $H_\text{offset}$ and $H_\text{J}$ are refocused, so we can ignore their effects.
-We assume here that the CTP gradients are applied with duration $\tau$.%
+We assume here that the gradients are applied with duration $\tau$.%
 \footnote{In practice, we also need to include a gradient recovery delay immediately after the gradient to allow for the dissipation of eddy currents, which causes the spin echo to be lengthened slightly. This is inconsequential to the analysis and will be ignored here.}
 The $I_z$ terms in $\rho$ are unaffected by the gradient since they commute with $H_\text{grad}$; however, the transverse $S$-magnetisation is rotated by a phase which depends on the position of the spin system in the sample.
 Immediately after the gradient, we have:
@@ -105,7 +105,7 @@ Detection of this in $t_2$ gives us the echo signal
     s_\text{echo}(t_1, t_2) = -\frac{1}{4}\exp(\mi \Omega_S t_1)\exp(\mi \Omega_I t_2),
 \end{equation}
 in accordance with \cref{eq:echo_antiecho_1a}.
-Note that the prefactor here is $-1/4$, instead of $1/2$ in the States method (\cref{eq:hsqc_cos_signal,eq:hsqc_sin_signal}): this accounts for the decreased SNR in the echo--antiecho method as previously described (the minus sign comes from the extra $180^\circ(S)$ pulse after $t_1$, but is inconsequential as it can be removed by phase correction).
+Note that the prefactor here is $-1/4$, instead of $1/2$ in the States method (\cref{eq:hsqc_cos_signal,eq:hsqc_sin_signal}): this accounts for the decreased SNR in the EA method as previously described (the minus sign comes from the extra $180^\circ(S)$ pulse after $t_1$, but is inconsequential as it can be removed by phase correction).
 
 In a similar way, it can be shown that if we invert the sign of $g_2$, we have that $g_1/g_2 = -\gamma_I/\gamma_S$.
 Now, the second and fourth terms in \cref{eq:hsqc_ea_after_g2_2} are dephased, and we get the antiecho spectrum from this:
@@ -185,11 +185,11 @@ Being flexible in switching between the two bases can greatly simplify the mathe
     \caption[Experimental comparison of States--TPPI and echo--antiecho HSQC]{
         A comparison of HSQC data acquired using various quadrature detection schemes.
         \textbf{(\subref{fig:hsqc_comparison_st_ns1})} States--TPPI HSQC with one scan (i.e.\ no phase cycling) applied.
-        \textbf{(\subref{fig:hsqc_comparison_ea_ns1})} Echo--antiecho HSQC with one scan.
+        \textbf{(\subref{fig:hsqc_comparison_ea_ns1})} EA HSQC with one scan.
         \textbf{(\subref{fig:hsqc_comparison_st_ns2})} States--TPPI HSQC with two scans, using the phase cycling shown in \cref{fig:hsqc_ph}. The artefacts are essentially completely removed.
-        \textbf{(\subref{fig:hsqc_comparison_projections})} Projections of the States--TPPI and echo--antiecho spectra in (\subref{fig:hsqc_comparison_st_ns1}) and (\subref{fig:hsqc_comparison_ea_ns1}) onto the $F_2$ axis (to avoid picking up the artefacts, only the region between 60 and \SI{110}{ppm} in $F_1$ was projected).
+        \textbf{(\subref{fig:hsqc_comparison_projections})} Projections of the States--TPPI and EA spectra in (\subref{fig:hsqc_comparison_st_ns1}) and (\subref{fig:hsqc_comparison_ea_ns1}) onto the $F_2$ axis (to avoid picking up the artefacts, only the region between 60 and \SI{110}{ppm} in $F_1$ was projected).
         The two projections are slightly horizontally offset for visual clarity.
-        The signal intensity is the same, but the noise level in the echo--antiecho spectrum is larger (by a factor of $\sqrt{2}$, as described in the text).
+        The signal intensity is the same, but the noise level in the EA spectrum is larger (by a factor of $\sqrt{2}$, as described in the text).
         \datacode{6A-220809}
     }
     \label{fig:hsqc_comparison}
@@ -197,8 +197,8 @@ Being flexible in switching between the two bases can greatly simplify the mathe
 
 The points developed in this chapter are neatly summarised in \cref{fig:hsqc_comparison}.
 The States--TPPI experiment (\cref{fig:hsqc_comparison_st_ns1}) is the same as the States experiment in \cref{fig:hsqc_ph}, except that on every $t_1$ increment $\phi_1$ and $\phi_\text{rec}$ are inverted, causing the artefacts to be shifted to the edge of the spectrum.
-Comparing the projections of this and the echo--antiecho experiment (\cref{fig:hsqc_comparison_projections}), it can be seen that the States--TPPI version has a larger SNR by a factor of $\sqrt{2}$; however, it clearly requires at least a two-step phase cycle to obtain presentable data, as was done in \cref{fig:hsqc_comparison_st_ns2}.
-Clearly, the sensitivity of the echo--antiecho spectrum in \cref{fig:hsqc_comparison_ea_ns1} is good enough, rendering the extra SNR from the States--TPPI method unnecessary: it is therefore more practical to use the echo--antiecho version, as the spectrum quality is much better.
+Comparing the projections of this and the EA experiment (\cref{fig:hsqc_comparison_projections}), it can be seen that the States--TPPI version has a larger SNR by a factor of $\sqrt{2}$; however, it clearly requires at least a two-step phase cycle to obtain presentable data, as was done in \cref{fig:hsqc_comparison_st_ns2}.
+Clearly, the sensitivity of the EA spectrum in \cref{fig:hsqc_comparison_ea_ns1} is good enough, rendering the extra SNR from the States--TPPI method unnecessary: it is therefore more practical to use the EA version, as the spectrum quality is much better.
 For homonuclear experiments which do not have such stringent artefact suppression requirements, States(--TPPI) quadrature detection is still commonly used.
 
 To end this chapter, we generalise the CTP refocusing requirement introduced in \cref{eq:gradient_refocusing_condition}.

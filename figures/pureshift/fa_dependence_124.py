@@ -25,14 +25,18 @@ saltire4_artefacts = data[6]
 
 fig, ax = plt.subplots(figsize=(6, 4))
 
-bright = pg.color_palette('bright')
-pastel = pg.color_palette('pastel')
-ax.plot(flip_angles, saltire1_signals, color=bright[0], label='1 saltire')
-ax.plot(flip_angles, saltire1_artefacts, color=pastel[0], linestyle='--')
-ax.plot(flip_angles, saltire2_signals, color=bright[1], label='2 saltires')
-ax.plot(flip_angles, saltire2_artefacts, color=pastel[1], linestyle='--')
-ax.plot(flip_angles, saltire4_signals, color=bright[2], label='4 saltires')
-ax.plot(flip_angles, saltire4_artefacts, color=pastel[2], linestyle='--')
+ax.plot(flip_angles, saltire1_signals, color=apt.PAL[0], label='1 saltire',
+        linewidth=0.5)
+ax.plot(flip_angles, saltire1_artefacts, color=apt.PAL[0], linestyle='--',
+        linewidth=0.5)
+ax.plot(flip_angles, saltire2_signals, color=apt.PAL[1], label='2 saltires',
+        linewidth=1.25)
+ax.plot(flip_angles, saltire2_artefacts, color=apt.PAL[1], linestyle='--',
+        linewidth=1.25)
+ax.plot(flip_angles, saltire4_signals, color=apt.PAL[2], label='4 saltires',
+        linewidth=2)
+ax.plot(flip_angles, saltire4_artefacts, color=apt.PAL[2], linestyle='--',
+        linewidth=2)
 ax.legend()
 ax.set_xlabel('flip angle (°)')
 ax.set_ylabel('state overlap')
