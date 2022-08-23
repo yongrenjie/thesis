@@ -20,21 +20,28 @@ It is:
     \item \textit{rapid}, in that it uses an algorithm which is designed to achieve rapid decreases in the objective function: many `manual' optimisations involve either trial-and-error or an exhaustive grid search (i.e.\ increasing a parameter value one step at a time), neither of which are efficient.
 \end{enumerate}
 
-Prior to 
+Despite these advantages, experimental optimisation of NMR parameters has seen only limited use.
+In fact, although there are several examples of such optimisations in laser\autocite{Bardeen1997CPL}, nuclear quadrupole resonance\autocite{Schiano1999JMR,Schiano2000ZNA,Monea2020JMR}, and ESR\autocite{Goodwin2018JMR} spectroscopies, 
+the only direct parallel in NMR which I have found is that of the eDUMBO pulses for heteronuclear\autocite{DePaepe2003CPL,Elena2004CPL} and homonuclear dipolar\autocite{Salager2010CPL} decoupling in solid-state MAS experiments.
+In this work, the Emsley group used `direct spectral optimisation' (equivalent to what I call `experimental optimisation') to determine the best coefficients for a Fourier series pulse.
+The performance of these pulses was measured by a cost function which (primarily) took into account the intensity of the detected peaks: a larger intensity corresponds to better decoupling performance.
+Interestingly, the aim of using an experimental optimisation here was not to obtain sample-specific pulses (point (1)), but rather to account for the `spectrometer response', i.e.\ instrumental non-idealities (point (3)).
+It was assumed that the compound used for the optimisation was a suitably representative choice, so that the optimisation result could simply be applied to other samples with no change.
 
-\todo{A more desirable approach would be to utilize an optimization algorithm (3) which iteratively monitors the quality of a series of spectra acquired with different parameter values, eventually converging to optimal values for the sample under study. Although there exist isolated examples of such iterative optimizations in laser, (4) electron spin resonance, (5) and nuclear quadrupole resonance (6) spectroscopies, such a procedure has only been used in NMR by Emsley and co-workers in the design of dipolar decoupling pulses. (7−9) We emphasize that the proposed method is distinct from other model-based “optimizations”, for example, for sparse sampling in multidimensional NMR (10,11) or relaxation measurements, (12) where data from multiple acquisitions are aggregated until a certain threshold, such as a sufficient confidence in peak locations or extracted parameters, is reached.}
+The likely reason for the low popularity of experimental optimisations is \textit{time}.
+In most cases, it is probably easier to run NMR optimisations in a theoretical manner, which can be much faster compared to the acquisition of a spectrum (depending on what simulations are involved), and also circumvents the effect of noise.
+Examples of such optimisations include the design of shaped pulses, either through optimal control theory\autocite{Skinner2003JMR,Khaneja2005JMR,Kobzar2008JMR,Kobzar2012JMR,Schilling2014ACIE,Glaser2015EPJD} or by simple parameterisation\autocite{Geen1989JMR,Emsley1990CPL,Geen1991JMR,Nuzillard1994JMRSA,Kupce1995JMRSA,Kupce1995JMRSB}: these were briefly discussed in \cref{subsec:pureshift__chirpopt}.
+(In fact, even the aforementioned eDUMBO pulses were not \textit{originally} designed as an experimental optimisation: they are actually an enhancement of the DUMBO decoupling schemes, which were optimised using numerical simulations\autocite{Sakellariou2000CPL}.)
+It is also possible to design entire pulse sequences using \textit{in silico} optimisations\autocite{Shaka1985JMR,Freeman1987JMR,Bechmann2013JMR,Ehni2014JMR,Lapin2020JMR}: this is essentially what I did with the dPSYCHE experiment (\cref{sec:pureshift__dpsyche}).
+However, doing this in an experimental fashion would almost certainly be prohibitively slow.
 
-Having put forth all these points in support of optimisation, it should be noted that there is always an inherent tradeoff against the time required for the optimisation itself.
-For example, it makes little sense to spend several minutes optimising the sensitivity of a pulse--acquire experiment: the time could simply be used to improve the SNR by collecting more scans.
 
-On top of this, the optimisation framework as implemented in POISE is designed to be as general as possible.
-Thus, it \textit{always} follows the framework in FIG: in particular, it simply seeks to find the optimum $\symbf{x}^*$, defined by
-\begin{equation}
-    \label{eq:poise_argmin}
-    \underset{\symbf{x}}{\argmin}\, f(\symbf{x}).
-\end{equation}
-Furthermore, in each function evaluation, the only information retained is the parameters $\symbf{x}$ and the value of the cost function $f(\symbf{x})$.
-The spectral data itself is not stored nor accumulated: thus, it is not possible to perform (for example) an `optimisation' which collects scans until a certain SNR is reached, or one which collects $t_1$ increments of a 2D spectrum and performs non-uniform sampling (NUS) processing until the signal to artefact ratio is sufficiently high.
-These constraints precludes other types of model-based `optimisations', which typically accumulate data points to progressively fit a model until a given confidence level is reached.
-Such procedures have been performed before in the contexts of (for example) relaxation measurements\autocite{Song2018JMR,Tang2019SR}, undersampling in multidimensional NMR\autocite{Eghbalnia2005JACS,Hansen2016ACIE,BrukerSmartDriveNMR}
+In this chapter, I aim to provide a convincing argument that experimental optimisation is not necessarily slow.
+In particular, I will show that it is often possible to devise optimisation routines which yield improved results in a matter of minutes.
+All the optimisations here are performed using a software package written by me, called POISE (Parameter Optimisation by Iterative Spectral Evaluation).
+POISE is open-source (\url{https://github.com/foroozandehgroup/nmrpoise}) and can be installed in a single step through \texttt{pip install nmrpoise}.
+Furthermore, it comes with extensive user documentation, both in the form of a text guide (\url{https://foroozandehgroup.github.io/nmrpoise}) as well as video (\url{https://www.youtube.com/watch?v=QTCeSCRZs4I}).
 
+In contrast to previous work, which typically feature optimisations targeted at one specific application, I have endeavoured to make POISE as customisable and as broad as possible.
+This generality is what allows a single software package, POISE, to perform all the optimisations described in this chapter; it also means that other users can devise specific cost functions and optimisation procedures for their own use.
+Thus, \textit{POISE is more than just the applications shown later in this chapter}: it is really a platform which makes it possible to carry out arbitrary optimisations on an NMR spectrometer.

@@ -11,7 +11,7 @@ Unfortunately, for PSYCHE, $m$ is on the order of $10000$, and an optimisation w
 \footnote{Although problems of this size have been tackled using optimal control theory\autocite{Khaneja2005JMR,deFouquieres2011JMR,Glaser2015EPJD,Goodwin2016JCP}, it is not really feasible to use it in cases where the pulse is applied \textit{together} with a gradient, as is the case in PSYCHE. On top of that, the coupling networks and spin systems of interest are rather more complicated than in typical applications of optimal control.}
 
 As a result of this, we must consider other ways of parameterising the waveform which use fewer degrees of freedom.
-Several approaches to this issue have surfaced in the literature, such as the use of Fourier series\autocite{Geen1991JMR,Kupce1995JMRSB}, Gaussian cascades\autocite{Emsley1990CPL}, or spline interpolation between a subset of pulse points\autocite{Ewing1990CP}.
+Several approaches to this issue have surfaced in the literature, such as the use of Fourier series\autocite{Geen1989JMR,Geen1991JMR,Nuzillard1994JMRSA,Kupce1995JMRSA,Kupce1995JMRSB}, Gaussian cascades\autocite{Emsley1990CPL}, or spline interpolation between a subset of pulse points\autocite{Ewing1990CP}.
 In this instance, we can use the knowledge that the PSYCHE PSE is composed of saltire pulses to our advantage.
 Each saltire pulse is a linear combination of two chirps, defined by:
 \begin{align}
