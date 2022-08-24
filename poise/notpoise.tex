@@ -1,28 +1,31 @@
-\subsection{What POISE is not}
-\label{subsec:poise__notpoise}
+\section{What POISE is not}
+\label{sec:poise__notpoise}
 
-To round off this section on general principles of POISE, I want to make a note about several limitations of the approach chosen. 
-Firstly, while generality is a strength in that POISE can be applied to a diverse range of NMR experiments, it can also be a weakness.
-POISE \textit{always} follows the framework in FIG: in particular, it simply seeks to find the optimum $\symbf{x}^*$, defined by
+Before moving on to cover applications of POISE, I want to make a note about several limitations of the approach chosen. 
+
+Firstly, \textit{POISE is not specialised}.
+While generality is a strength in that POISE can be applied to a diverse range of NMR experiments, it can also be a weakness.
+POISE \textit{always} follows the framework in \cref{fig:poise_flowchart}: in particular, it simply seeks to find the optimum $\symbf{x}^*$, defined by
 \begin{equation}
     \label{eq:poise_argmin}
     \underset{\symbf{x}}{\argmin}\, f(\symbf{x}).
 \end{equation}
 This rigidity in the underlying logic means that it is very conceivable that in specific instances, specialised optimisation routines which use customised strategies for data acquisition and analysis \textit{can} outperform POISE in terms of speed and/or accuracy.
 
-On top of this, in each function evaluation, the only information retained is the parameters $\symbf{x}$ and the value of the cost function $f(\symbf{x})$.
-The spectral data itself is not stored nor accumulated: thus, it is not possible to perform (for example) an `optimisation' which collects scans until a certain SNR is reached, or one which collects $t_1$ increments of a 2D spectrum and performs non-uniform sampling (NUS) processing until the signal to artefact ratio is sufficiently high.
+A related point is that on each function evaluation, the only bits of information retained are the parameters $\symbf{x}$ and the value of the cost function $f(\symbf{x})$.
+The spectral data itself is not stored anywhere:\footnote{In principle, it \textit{could} be. There is nothing stopping me from implementing something to store previous spectra; it was just not the original motivation behind POISE.} thus, it is not possible to perform (for example) an `optimisation' which collects scans until a certain SNR is reached, or one which collects $t_1$ increments of a 2D spectrum and performs non-uniform sampling (NUS) processing until the signal to artefact ratio is sufficiently high.
 In particular, I want to distinguish POISE from other types of `optimisations' reported in the literature, which typically \textit{accumulate} data points until a given confidence level is reached (e.g.\ through a model-fitting procedure).
 Such procedures have been performed before in the contexts of (for example) relaxation measurements\autocite{Song2018JMR,Tang2019SR} and undersampling in multidimensional NMR\autocite{Eghbalnia2005JACS,Hansen2016ACIE,BrukerSmartDriveNMR}.
 
-Next, although POISE can in theory be used for optimisation of processing parameters (for example, by changing the `acquisition' AU programme to perform only processing tasks), this usage is not considered here.
+Secondly, \textit{POISE is not a processing software}.
+Although POISE can in theory be used for optimisation of processing parameters (for example, by changing the `acquisition' AU programme to perform only processing tasks), this usage is not considered here.
 Such optimisations can be more efficiently carried out on a personal computer, without requiring access to a spectrometer.
 
-Having put forth a number of points in \textit{support} of optimisation in the previous sections, it should be noted that there is always an inherent tradeoff against the time required for the optimisation itself.
+Finally, \textit{POISE is not a panacea}.
+It should be noted that there is always an inherent tradeoff against the time required for the optimisation itself.
 For example, it makes little sense to spend several minutes optimising the sensitivity of a pulse--acquire experiment: the time could simply be used to improve the SNR by collecting more scans.
-Thus, for practical use, it is imperative to make sure that the optimisation is either fast, or solves a problem which cannot simply be tackled through signal averaging in the same amount of time.
-It is my hope that this is (broadly) true of the examples shown.
-
-Finally, there is also the critical---though undeniably subjective---question of whether the optimisation is \textit{worth it}: even if better results can be obtained in relatively short times, does this provide a substantial benefit over a `compromise' value in a default parameter set?%
+There is also the critical---though undeniably subjective---question of whether the optimisation is \textit{worth it}: even if better results can be obtained in relatively short times, does this provide a substantial benefit over a `compromise' value in a default parameter set?%
 \footnote{Of course, even though it is nowadays fashionable for authors to imply that their publications possess \textit{great impact}, a similar argument can be applied to \textit{many} scientific discoveries. To use an example from the next chapter, is it really necessary to acquire NOAH spectra when one can just acquire the standalone 2D experiments? I have seen arguments on both sides---some people simply do not need the speedups provided and do not want to spend the time to set up or troubleshoot new experiments.}
 I do not profess to have a definitive answer to this, and I leave the reader to form their own conclusions in the specific contexts where they may consider using POISE.
+In any case, for practical use, it is imperative to make sure that the optimisation is either fast, or solves a problem which cannot simply be tackled through signal averaging in the same amount of time.
+It is my hope that this is (broadly) true of the examples shown.

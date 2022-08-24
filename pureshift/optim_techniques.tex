@@ -2,8 +2,7 @@
 \label{subsec:pureshift__optim_techniques}
 
 Throughout this chapter (and more generally this thesis), various algorithms are used for \textit{optimisation}: that is, to find the parameters $\symbf{x} \in \mathbb{R}^n$ which minimise a \textit{cost function} $f : \mathbb{R}^n \to \mathbb{R}$.
-The theory of optimisation is covered in more detail in \cref{sec:poise__introduction}, so will not be repeated now.
-Here, I make a distinction only between \textit{derivative-based} and \textit{derivative-free} optimisation algorithms: the former use extra information in the form of $\nabla f$ to help locate the optimum, whereas the latter do not, using only the value of $f(\symbf{x})$.
+These algorithms can loosely be categorised as either \textit{derivative-based} or \textit{derivative-free}: the former use extra information in the form of $\nabla f$ to help locate the optimum, whereas the latter do not, using only the value of $f(\symbf{x})$.
 While derivative-based algorithms typically converge to an optimum more quickly, they are unsuitable for problems where the cost function $f$ is noisy.
 In this section, the Nelder--Mead (NM) simplex algorithm\autocite{Nelder1965TCJ} was used: it is a very popular derivative-free method, and although mathematical convergence is not guaranteed\autocite{McKinnon1998SIAMJO}, in practice such cases are rather unlikely to arise.
 In this section, the implementation of the NM algorithm in the Python \texttt{scipy} package was simply used as-is.
@@ -103,7 +102,7 @@ It was mostly developed by trial-and-error (based on the notion that phase disto
     \label{fig:optim_flowchart_early}
 \end{figure}
 
-The general optimisation procedure is conceptually simple and largely consists of the loop shown in \cref{fig:optim_flowchart_early}: this is essentially a specialised version of the POISE flowchart (\todo{CREF TO FIG}).
+The general optimisation procedure is conceptually simple and largely consists of the loop shown in \cref{fig:optim_flowchart_early}: this is essentially a specialised version of the POISE flowchart (\cref{fig:poise_flowchart}).
 The optimisation algorithm is responsible for determining convergence, as well as choosing the new parameters based on previously obtained information; the initial parameters must be supplied by the user.
 
 In practice, it is a technical challenge to implement this loop on a spectrometer as the cost function calculation is performed either in Matlab or Python 3, both of which are not compatible with Bruker's TopSpin software.

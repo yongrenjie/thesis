@@ -1,21 +1,21 @@
 \section{Technical overview}
 \label{sec:poise__technical}
 
+In this section, I first cover the general principles underlying, and the implementation of, POISE.
+The basic operation of POISE is summarised in FIG, which is essentially a generalised version of the pure shift optimisations carried out in \cref{sec:pureshift__optimisation}.
 
+\begin{figure}[htb]
+    \centering
+    \includegraphics[draft=false]{poise/flowchart.png}
+    \caption[Flowchart for POISE optimisations]{Flowchart depicting the main steps in a POISE optimisation.}
+    \label{fig:poise_flowchart}
+\end{figure}
 
+Almost all aspects of this can be customised by the user, which I will now describe.
+I make a distinction here between an optimisation \textit{routine}, as well as the \textit{settings} used to run these routines.
+Routines consist of a series of predefined variables, such as the parameter(s) to be optimised: however, these may be optimised in different \textit{ways}, which is where the settings come in.
+When discussing individual applications in \cref{sec:poise__applications}, I will make repeated reference to these components of an optimisation.
 
-\subsection{Fundamentals}
-\label{subsec:poise__fundamentals}
-
-
-
-\subsection{Optimisation algorithms}
-\label{subsec:poise__algorithms}
-
-
-
-\subsection{Implementation details}
-\label{subsec:poise__implementation}
-
-
-\input{poise/notpoise.tex}
+\input{poise/routines.tex}
+\input{poise/settings.tex}
+\input{poise/implementation.tex}

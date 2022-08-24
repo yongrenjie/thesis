@@ -1,28 +1,19 @@
-% precalculate propagator due to free evolution during gradient
-% only 1 matrix exponential
-U_free = expm(-1i * H_free * t_grad);
+from contextlib import contextmanager
 
-% precalculate pulse propagators; m total matrix exponentials
-for pulse_point=1:m
-    H_pulse = (c_x(pulse_point) * I_x) + (c_y(pulse_point) * I_y)
-    U_pulse(m) = expm(-1j * (H_free + H_pulse) * t_pulse)
-end
+@contextmanager
+def pidfile():
+    # Create a file with the PID
+    pid = os.getpid()
+    pid_fname = Path(__file__).parent / f".pid{pid}"
+    pid_fname.touch()
+    # Run the code in the 'with' block
+    try:
+        yield
+    # Delete the file after the 'with' block is exited
+    finally:
+        if pid_fname.exists():
+            pid_fname.unlink()
 
-% loop over slices
-for slce=1:n
-    % initialise propagator for this slice
-    U_slce = eye(2 ^ p);
-
-    % calculate gradient propagators; no matrix exponentials required
-    H_grad = I_z * G * z(slce);
-    U_grad = U_free * diag(exp(diag(-1j * H_grad * t_grad)));
-
-    % loop over pulse points
-    for point=1:m
-        U_slce = U_pulse(m) * U_slce;
-        U_slce = U_grad * U_slce;
-    end
-
-    % perform propagation only at the end
-    rho = U_slce * rho * U_slce';
-end
+if __name__ == "__main__":
+    with pidfile() as _:
+        main()

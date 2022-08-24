@@ -9,7 +9,7 @@ More complex examples, such as 2D experiments, typically have parameters which s
 In practice, the need for accurate parameters is often `solved' through the use of compromise values, which typically fall in the middle of an expected range for typical molecules.
 For example, these values may be stored as part of a parameter set designed to be reused.
 Alternatively, parameter values may be optimised `by hand'.
-However, compared to this, the use of experimental optimisation has several benefits.
+However, compared to these, the use of experimental optimisation has several benefits.
 It is:
 \begin{enumerate}
     \item \textit{sample-specific}, and as long as the default values are within the optimisation bounds, the optimisation will yield performance which is no worse than the defaults;
@@ -17,7 +17,7 @@ It is:
     \item \textit{instrument-specific}, so can compensate for spectrometer imperfections.
     \item \textit{automated}, so does not require an expert to adjust parameter values manually, or even any user intervention for that matter;
     \item \textit{objective}, in that the quality of a spectrum can (in principle) be mathematically measured through a cost function; and
-    \item \textit{rapid}, in that it uses an algorithm which is designed to achieve rapid decreases in the objective function: many `manual' optimisations involve either trial-and-error or an exhaustive grid search (i.e.\ increasing a parameter value one step at a time), neither of which are efficient.
+    \item \textit{fast}, in that it uses an algorithm which is designed to achieve rapid decreases in the objective function: many `manual' optimisations involve either trial-and-error or an exhaustive grid search (i.e.\ increasing a parameter value one step at a time), neither of which are efficient.
 \end{enumerate}
 
 Despite these advantages, experimental optimisation of NMR parameters has seen only limited use.
@@ -34,7 +34,6 @@ Examples of such optimisations include the design of shaped pulses, either throu
 (In fact, even the aforementioned eDUMBO pulses were not \textit{originally} designed as an experimental optimisation: they are actually an enhancement of the DUMBO decoupling schemes, which were optimised using numerical simulations\autocite{Sakellariou2000CPL}.)
 It is also possible to design entire pulse sequences using \textit{in silico} optimisations\autocite{Shaka1985JMR,Freeman1987JMR,Bechmann2013JMR,Ehni2014JMR,Lapin2020JMR}: this is essentially what I did with the dPSYCHE experiment (\cref{sec:pureshift__dpsyche}).
 However, doing this in an experimental fashion would almost certainly be prohibitively slow.
-
 
 In this chapter, I aim to provide a convincing argument that experimental optimisation is not necessarily slow.
 In particular, I will show that it is often possible to devise optimisation routines which yield improved results in a matter of minutes.

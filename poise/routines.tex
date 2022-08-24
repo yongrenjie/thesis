@@ -1,0 +1,51 @@
+\subsection{Routines}
+\label{subsec:poise__routines}
+
+An \textit{optimisation routine}, as defined in POISE, consists of the following components:
+
+\begin{enumerate}
+    \item \textit{Name}
+
+        This is an identifier used to refer to the entire routine, which is arbitrary, but should ideally be descriptive.
+
+    \item \textit{Parameters}
+
+        The parameters to be optimised.
+        These are given as strings and directly correspond to TopSpin parameter names, for example, \texttt{P1} for a pulse width.
+
+    \item \textit{Initial guess} (one per parameter)
+
+        The point at which the optimisation is started.
+        Naturally, this should represent the user's best guess at where the optimum lies.
+        It is generally sensible to choose the unoptimised, `default' values for these.
+        
+    \item \textit{Lower} and \textit{upper bounds} (one each per parameter)
+
+        Most parameters have a `chemically sensible' range, or alternatively, instrumental limits may sometimes restrict the range of parameter values which can be explored.
+
+    \item \textit{Tolerances} (one per parameter)
+
+        This loosely corresponds to the level of accuracy required for the optimisation.
+        It is pointless setting this to be too small (i.e.\ requesting an overly accurate optimum), as the value of the cost function at two points too close together will likely differ only by noise.
+        Conversely, setting this to be too larger may yield an inaccurate result.
+        This makes it sound as if there is little room for error, but in practice getting the order of magnitude correct is usually enough (and the desired accuracy is also often reasonably clear from the context);
+
+    \item \textit{AU programme}
+
+        The AU programme defined here is used to acquire and process the spectrum.
+        The user may leave this empty, in which case POISE automatically detects the dimensionality of the experiment and performs standard processing steps (Fourier transformation, window multiplication, phase correction, and baseline correction).
+        However, this allows for almost infinite customisation of the actual spectral measurement: for example, the AU programme may call other scripts in TopSpin which create shaped pulses.
+
+    \item \textit{Cost function}
+
+        As before, this measures the `badness' of the spectrum thus recorded, and as before, the optimisation seeks to minimise this value.
+        The cost function is written in Python 3: this design decision is considered later in \cref{subsec:poise__implementation}.
+        Several cost functions which cover `typical' optimisation scenarios, such as maximising or minimising some signal intensity, come pre-installed with POISE, meaning that users do not necessarily need to write their own cost function if they are not familiar with Python.
+\end{enumerate}
+
+POISE allows users to create new routines interactively through a series of dialog boxes.
+Alternatively, routines themselves can be created on-the-fly using the \texttt{poise --create} command: this is useful when some components are not known beforehand, such as if the optimum from a different optimisation is to be used as the initial point in a new one.
+However, this is limited to single-parameter routines.
+
+After being created, routines are stored in the human-readable JSON format: they can therefore be modified using any text editor.
+Examples of these JSON files are presented in subsequent sections.
