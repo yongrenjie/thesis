@@ -1,13 +1,14 @@
 \subsection{Implementation details}
 \label{subsec:poise__implementation}
 
-Having covered the user-facing details of POISE (which are also covered in substantial detail in the user documentation), I now spend some time discussing how POISE is implemented and several design choices.
+In this subsection, I discuss some behind-the-scenes details about how POISE is implemented and several design choices.
+This information is relevant for anybody looking to improve or otherwise modify the POISE codebase.
 
 Firstly, POISE is written in Python 3, and since TopSpin does not have a Python 3 interface,%
 \footnote{Version 4.1.4 of TopSpin now comes with a Python 3 API; however, this was introduced too late for the work in this chapter.}
 this means that POISE is not entirely self-contained within TopSpin: in particular, an external installation of Python 3 is required, which may be a slight inconvenience.
 This choice was necessary because it would have been too time-consuming to implement numerical optimisation algorithms using the existing C or Python 2 APIs in TopSpin (notably, the Python 2 API uses the Jython implementation of the language, which is incompatible with \texttt{numpy}).
-An indirect benefit of this is that, since the `cost' of installing Python 3 is already paid, we can also allow users to define their own cost functions using libraries such as \texttt{numpy} and \texttt{scipy} (without these it is very awkward to perform any kind of data processing).
+An indirect benefit of this is that since the `cost' of installing Python 3 is already paid, we can also allow users to define their own cost functions using libraries such as \texttt{numpy} and \texttt{scipy} (without these it is very awkward to perform any kind of data processing).
 
 POISE is available on the Python Package Index (PyPI), so can be installed using a single command, \texttt{pip install nmrpoise}.
 Like all other Python packages, POISE is first installed to the Python \texttt{site-packages} directory.
@@ -85,3 +86,7 @@ Finally, the frontend must also be careful not to overwrite data by triggering a
 To ensure that this is the case, the frontend \textit{always} brings the optimisation dataset to the foreground immediately before acquisition is started.
 This has a slight drawback in that it can be difficult to view other spectra in TopSpin while an optimisation is proceeding.
 (Note, however, that this is out of my control: TopSpin does not give me any documented way of running an acquisition AU programme on a background dataset.)
+There is one other quirk of TopSpin surrounding data acquisition: it is possible to start the acquisition from a Python script (such as the frontend \texttt{poise.py} script), but it is not possible to block execution of the Python script while acquisition is running.
+Thus, it is not possible to trigger acquisition and wait until it is done before sending a signal to the backend.%
+\footnote{The TopSpin Python documentation claims that this \textit{can} be accomplished using, for example \texttt{XCMD("zg", wait=WAIT\_TILL\_DONE)}. However, none of the suggestions in the documentation worked as intended.}
+The workaround is to call an AU programme containing acquisition commands, which (somehow) blocks the Python script.

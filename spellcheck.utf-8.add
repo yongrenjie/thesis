@@ -11,8 +11,6 @@ speedups
 interferogram
 PSE
 saltires
-#m
-sm/!
 sm
 rf
 Levitt
@@ -46,3 +44,6 @@ deshielded
 idealities
 ideality
 simplices
+pulsecal
+FID
+popt
