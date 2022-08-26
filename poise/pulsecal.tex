@@ -10,6 +10,8 @@ Essentially, we seek to determine $\taup$ for which
 where the RF amplitude $\omega_1$ is not known \textit{a priori} (it is only indirectly controlled via the power level).
 This pulse width is conventionally specified as the \texttt{P1} parameter in TopSpin.
 
+\subsubsection{Optimisation setup}
+
 In theory, performing a pulse--acquire spectrum with a perfect \ang{180} or \ang{360} pulse would yield no detectable (i.e.\ transverse) magnetisation, i.e.\ a \textit{null}.
 Generally, the \ang{360} null is preferred as it minimises effects due to radiation damping, and also allows a smaller relaxation delay to be used.
 We can use POISE to search for this by acquiring the spectrum, performing a magnitude-mode calculation, and using the intensity of the resulting spectrum as a cost function:
@@ -18,7 +20,8 @@ We can use POISE to search for this by acquiring the spectrum, performing a magn
     f_\mathrm{minabsint} = \sum_i |S_i|,
 \end{equation}
 where (reusing notation from \cref{subsec:pureshift__optim_techniques}) $\symbf{S}$ is the spectrum under consideration represented as a complex-valued vector, and the $i$-th point of the spectrum $S_i = \sqrt{\symbf{S}_{\text{re},i}^2 + \symbf{S}_{\text{im},i}^2}$.
-The label \texttt{minabsint} makes reference to the fact that this cost function drives the optimisation to \textit{min}imise the \textit{abs}olute \textit{int}ensity of the spectrum; an implementation is shown in \cref{lst:minabsint}.
+The label \texttt{minabsint} makes reference to the fact that this cost function drives the optimisation to \textit{min}imise the \textit{abs}olute \textit{int}ensity of the spectrum.
+An implementation of this is shown in \cref{lst:minabsint} (for all other cost functions in this chapter, the reader is directed to the POISE source code for their implementations).
 
 \begin{mylisting}[htb]
 \begin{tcbminted}{python}
@@ -34,7 +37,7 @@ def minabsint():
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[draft=false]{poise/p1_scan.png}
+    \includegraphics[]{poise/p1_scan.png}
     \caption[Cost function scan for pulse width optimisation]{Graph showing how the \texttt{minabsint} cost function varies with the pulse width \texttt{P1}.}
     \datacode{6F-200826}
     \label{fig:p1_scan}
@@ -49,23 +52,13 @@ To complete the description of the POISE optimisation, it remains to define the 
 I chose the initial point to be four times the \texttt{prosol} value for \texttt{P1}: this represents our `best guess' and is derived from prior calibration of the pulse width on a standard sample.
 The tolerance is set to \SI{0.2}{\us}, which corresponds to an accuracy of \SI{0.05}{\us} for the \ang{90} pulse width itself.
 The lower and upper bounds are set to be \SI{8}{\us} away from the initial point, representing a `sensible' region within which we expect the null to lie (this may need to be adjusted for samples with high ionic strength, but for typical organic samples this is more than enough).
-Finally, a standard \texttt{poise\_1d} acquisition AU programme is used, which simply acquires the spectrum and performs Fourier transformation, phase correction, and baseline correction.
-The routine in JSON format is shown in \cref{lst:poisecal_48}.
+A standard \texttt{poise\_1d} acquisition AU programme is used, which simply acquires the spectrum and performs Fourier transformation, phase correction, and baseline correction.
+The routine in JSON format is shown in the caption to \cref{tbl:poisecal_48}.
+Finally, in order to reduce the time taken for the optimisation, several tricks are used: each FE is run using no dummy scans and only one scan, the acquisition time is set to just \SI{1.1}{\s} (high resolution is not required for a reliable cost function value), and the relaxation delay \texttt{D1} is set to 0.
+In practice, there is an extra gap of $\sim$ \SI{5}{\s} between successive FEs due to spectrometer initialisation, so an extra relaxation delay is not needed.
 
-\begin{mylisting}[htb]
-\begin{tcbminted}{json}
-{ "name": "p1cal",
-  "pars": ["p1"],
-  "lb": [40.0],
-  "ub": [56.0],
-  "init": [48.0],
-  "tol": [0.2],
-  "cf": "minabsint",
-  "au": "poise_1d" }
-\end{tcbminted}
-    \caption[POISE routine for pulse width calibration.]{POISE routine used for pulse width calibrations shown in \cref{tbl:poisecal_48}.}
-    \label{lst:poisecal_48}
-\end{mylisting}
+
+\subsubsection{The competition}
 
 The performance of POISE can be compared against two `competitors' in this area.
 The traditional method of determining the \ang{90} pulse width is to measure a pulse width array (colloquially, `to array the pulse width').\autocite{Keifer1999CMR}
@@ -75,7 +68,7 @@ An example of this is shown in \cref{fig:p1_scan_spectra}, where the \ang{360} n
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[draft=false]{poise/p1_scan_spectra.png}
+    \includegraphics[]{poise/p1_scan_spectra.png}
     \caption[Pulse width array]{
         An example of a pulse width array, where the variation of the residual water peak is monitored with changes in pulse width.
         These spectra were acquired manually; the TopSpin \texttt{popt} command would yield essentially identical results.
@@ -111,7 +104,7 @@ Although the nutation experiment can be performed extremely quickly using the To
 This is a known effect which arises because the separation is calculated from the top of the peaks, which correspond to the most homogeneous region of the $B_1$ profile.\autocite{Wu2005JMR}
 On the other hand, the \ang{360} null (as measured through \texttt{popt} or POISE, for example) measures a signal which is averaged over the entire $B_1$ profile.
 
-\begin{table}
+\begin{table}[htb]
     \centering
     \begin{tabular}{ccccc}
         \toprule
@@ -119,69 +112,74 @@ On the other hand, the \ang{360} null (as measured through \texttt{popt} or POIS
         \midrule
         1  & \texttt{popt}      & 48.40        & 41   & 299    \\
         2  & \texttt{pulsecal}  & 46.64        & --   & 37     \\
-        3a & POISE (NM)         & 48.38        & 10   & 76--79 \\
-        3b & POISE (MDS)        & 48.38        & 10   & 77--80 \\
-        3c & POISE (Py-BOBYQA)  & 48.29--48.41 & 6--7 & 46--54 \\
+        3 & POISE (NM)         & 48.38        & 10   & 76--79 \\
+        4 & POISE (MDS)        & 48.38        & 10   & 77--80 \\
+        5 & POISE (BOBYQA)  & 48.29--48.41 & 6--7 & 46--54 \\
         \bottomrule
     \end{tabular}
     \caption[Comparison of methods for \ang{360} pulse width determination]{
         Comparison of methods for \ang{360} pulse width determination.
         \texttt{popt} grid searches were run between values of \SI{40}{\us} and \SI{56}{\us}, with a linear increment of \SI{0.4}{\us} (which, through interpolation, provides a precision of approximately \SI{0.2}{\us} in the result, matching the tolerance used for POISE).
         \texttt{pulsecal} was run as normal and the reported pulse width multiplied by 4 to obtain the \ang{360} pulse width for comparison.
-        POISE optimisations were run according to the routine in \cref{lst:poisecal_48}.
-        FEs refers to the number of function evaluations, i.e. the number of spectra acquired.
-        The pulse programme used was the Bruker standard \texttt{zg}.
+        POISE optimisations were run according to the routine in \cref{tbl:poisecal_48}.
         \datacode{6F-200826}
     }
     \label{tbl:poisecal_48}
 \end{table}
 
+
+\subsubsection{Optimisation results}
+
 Compared to these two existing methods, we expect POISE to be faster than the \texttt{popt} grid search, and also more accurate than the nutation experiment in \texttt{pulsecal}.
 This is borne out in practice (\cref{tbl:poisecal_48}).
 \texttt{popt} yields an optimum of \SI{48.4}{\us}, which is closely matched by POISE.
 This is unsurprising because the cost function scan (\cref{fig:p1_scan}) closely parallels the spectral profile obtained through the grid search (\cref{fig:p1_scan_spectra}).
-However, POISE locates this optimum in a far shorter time since its algorithms are more efficient than a simple grid search.
+However, POISE locates this optimum using far fewer FEs because its algorithms are more efficient than a simple grid search.
 While \texttt{pulsecal} is even faster than POISE, it underestimates the \ang{90} pulse width by about 4\%.
 In this particular case, POISE is the only option which strikes a useful balance between speed and accuracy.
+These results also provide the first evidence that Py-BOBYQA is generally faster than the simplex-based methods: this observation is faithfully reproduced in the other optimisations in this chapter.
 
-Another question we might reasonably ask is how robust POISE is towards poor initial guesses.
-In the case of the pulse width calibration, the answer is \textit{very} robust.
+
+\subsubsection{Different initial points}
+
+One question we might reasonably ask is how robust POISE is towards poor initial guesses.
+In the case of the pulse width calibration, the answer is: \textit{very} robust.
 \Cref{tbl:poisecal_43,tbl:poisecal_53} summarise the results obtained with an initial guess of \SI{43}{\us} and \SI{53}{\us} respectively.
-There is slightly decreased performance in that a few more function evaluations are required for convergence, but the difference is minimal, and the accuracy of the result is unchanged.
+There is slightly decreased performance in that a few more FEs are required for convergence, but the accuracy of the result is unchanged.
 
-\begin{table}
+\begin{table}[htb]
     \centering
     \begin{tabular}{ccccc}
         \toprule
         Entry & Method      & Optimum found (\si{\us}) & FEs & Time taken (\si{\s}) \\
         \midrule
-        1a & POISE (NM)     & 48.38        & 14 & 109--114 \\
-        1b & POISE (MDS)    & 48.38        & 14 & 108--112  \\
-        1c & POISE (BOBYQA) & 48.27--48.33 & 9  & 70       \\
+        1 & POISE (NM)     & 48.38        & 14 & 109--114 \\
+        2 & POISE (MDS)    & 48.38        & 14 & 108--112  \\
+        3 & POISE (BOBYQA) & 48.27--48.33 & 9  & 70       \\
         \bottomrule
     \end{tabular}
     \caption[POISE pulse width calibration using initial guess of \SI{43}{\us}]{
         Pulse width optimisations with an initial point of \SI{43}{\us}.
-        The POISE routine is the same as in \cref{lst:poisecal_48}, except with \texttt{"init":[43.0]}.
+        The POISE routine is the same as in \cref{tbl:poisecal_48}, except with \texttt{"init":[43.0]}.
         \datacode{6F-200826}
     }
     \label{tbl:poisecal_43}
 \end{table}
 
-\begin{table}
+\begin{table}[htb]
     \centering
     \begin{tabular}{ccccc}
         \toprule
         Entry & Method      & Optimum found (\si{\us}) & FEs & Time taken (\si{\s}) \\
         \midrule
-        1a & POISE (NM)     & 48.38        & 14 & 110--114 \\
-        1b & POISE (MDS)    & 48.25--48.38 & 16 & 123--126 \\
-        1c & POISE (BOBYQA) & 48.26--48.33 & 9  & 69--70   \\
+        1 & POISE (NM)     & 48.38        & 14 & 110--114 \\
+        2 & POISE (MDS)    & 48.25--48.38 & 16 & 123--126 \\
+        3 & POISE (BOBYQA) & 48.26--48.33 & 9  & 69--70   \\
         \bottomrule
     \end{tabular}
     \caption[POISE pulse width calibration using initial guess of \SI{53}{\us}]{
         Pulse width optimisations with an initial point of \SI{53}{\us}.
-        The POISE routine is the same as in \cref{lst:poisecal_48}, except with \texttt{"init":[53.0]}.
+        The POISE routine is the same as in \cref{tbl:poisecal_48}, except with \texttt{"init":[53.0]}.
         \datacode{6F-200826}
     }
     \label{tbl:poisecal_53}
@@ -191,7 +189,7 @@ It is tempting to use this example to draw the conclusion that the initial point
 However, this is only really true for a simple optimisation like this.
 Looking again at the cost function scan in \cref{fig:p1_scan}, it is clear that there is no other possible minimum that the optimiser could converge to.
 Furthermore, the noise in the cost function is almost indiscernible.
-These represent the \textit{ideal} conditions for an experimental optimisation to work, and it is not surprising that extremely good performance is obtained for POISE.
+These represent the \textit{ideal} conditions for an experimental optimisation to work, and it is not surprising that extremely good performance is obtained with POISE.
 Some of the subsequent examples include more difficult or more noisy cost functions.
 We will see that POISE does indeed have \textit{some} tolerance towards poor initial points, even in the presence of noise (after all, this is the entire purpose of using derivative-free algorithms).
 However, for very challenging optimisations it is very likely that the optimisation will ultimately converge to a local minimum near the initial point.

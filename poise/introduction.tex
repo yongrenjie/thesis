@@ -29,11 +29,10 @@ Interestingly, the aim of using an experimental optimisation here was not to obt
 It was assumed that the compound used for the optimisation was a suitably representative choice, so that the optimisation result could simply be applied to other samples with no change.
 
 The likely reason for the low popularity of experimental optimisations is \textit{time}.
-In most cases, it is probably easier to run NMR optimisations in a theoretical manner, which can be much faster compared to the acquisition of a spectrum (depending on what simulations are involved), and also circumvents the effect of noise.
-Examples of such optimisations include the design of shaped pulses, either through optimal control theory\autocite{Skinner2003JMR,Khaneja2005JMR,Kobzar2008JMR,Kobzar2012JMR,Schilling2014ACIE,Glaser2015EPJD} or by simple parameterisation\autocite{Geen1989JMR,Emsley1990CPL,Geen1991JMR,Nuzillard1994JMRSA,Kupce1995JMRSA,Kupce1995JMRSB}: these were briefly discussed in \cref{subsec:pureshift__chirpopt}.
+Each \textit{function evaluation} (FE), i.e.\ each measurement of the cost function, corresponds to the acquisition of an NMR spectrum which may take seconds to minutes.
+In most cases, it is probably easier to run NMR optimisations in a theoretical manner, which can be much faster and also circumvents the effect of noise.
+Examples of such optimisations include the design of shaped pulses through optimal control theory\autocite{Skinner2003JMR,Khaneja2005JMR,Kobzar2008JMR,Kobzar2012JMR,Schilling2014ACIE,Glaser2015EPJD}, by simple parameterisation\autocite{Geen1989JMR,Emsley1990CPL,Geen1991JMR,Nuzillard1994JMRSA,Kupce1995JMRSA,Kupce1995JMRSB}, or the optimisation of entire pulse sequences\autocite{Shaka1985JMR,Freeman1987JMR,Bechmann2013JMR,Ehni2014JMR,Lapin2020JMR} (this is essentially what I did with the dPSYCHE experiment in \cref{sec:pureshift__dpsyche}).
 (In fact, even the aforementioned eDUMBO pulses were not \textit{originally} designed as an experimental optimisation: they are actually an enhancement of the DUMBO decoupling schemes, which were optimised using numerical simulations\autocite{Sakellariou2000CPL}.)
-It is also possible to design entire pulse sequences using \textit{in silico} optimisations\autocite{Shaka1985JMR,Freeman1987JMR,Bechmann2013JMR,Ehni2014JMR,Lapin2020JMR}: this is essentially what I did with the dPSYCHE experiment (\cref{sec:pureshift__dpsyche}).
-However, doing this in an experimental fashion would almost certainly be prohibitively slow.
 
 In this chapter, I aim to provide a convincing argument that experimental optimisation is not necessarily slow.
 In particular, I will show that it is often possible to devise optimisation routines which yield improved results in a matter of minutes.
