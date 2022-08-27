@@ -13,7 +13,7 @@ Often, in a simple 1D pulse--acquire spectrum it is not hugely important to know
 \end{figure}
 
 Before launching straight into how this may be obtained through optimisation, it is instructive to first consider which parameters are worth optimising.
-For a pulse--acquire experiment (\cref{fig:zg_ernst}), the repetition time is the sum of the acquisition time \texttt{AQ} plus the relaxation delay \texttt{D1}; the flip angle $\theta$ is controlled via the pulse width \texttt{P1}.
+For a pulse--acquire experiment (\cref{fig:zg_ernst}), the repetition time is the sum of the acquisition time \texttt{AQ} plus the recovery delay \texttt{D1}; the flip angle $\theta$ is controlled via the pulse width \texttt{P1}.
 We assume that the experiment has been repeated enough times to reach a \textit{steady state}, that is, the amount of $z$-magnetisation prior to the excitation pulse (point \circled{1}) is a constant $M_{z,\text{ss}}$.
 Application of the excitation pulse leads to a signal scaling as $M_{z,\text{ss}}\sin\theta$, and residual (unexcited) longitudinal magnetisation of $M_{z,\text{ss}}\cos\theta$ at point \circled{2}.
 After the repetition time $\taur$ (point \circled{3}), it can be shown using the Bloch equations\autocite{Bloch1946PR} that the $z$-magnetisation recovers to
@@ -119,7 +119,7 @@ The optima found for these two optimisations are different: this is because the 
     \label{tbl:poise_ernst_onepeak}
 \end{table}
 
-To determine the accuracy of the optima found, I measured $T_1$ of each of these peaks using a typical gradient-enhanced inversion--recovery experiment, and calculated the theoretical Ernst angles from this (\cref{tbl:ernst_invrec}).
+To determine the accuracy of the optima found, rather than performing a reference grid search as in \cref{subsec:poise__pulsecal}, I measured $T_1$ of each of these peaks using a typical gradient-enhanced inversion--recovery experiment, and calculated the theoretical Ernst angles from this (\cref{tbl:ernst_invrec}).
 The first optimisation, which should yield essentially a weighted average of the five Ernst angles, appears at first glance to be biased towards larger values.
 However, this can be rationalised by the fact that that a flip angle larger than $\theta_\text{E}$ is less detrimental to sensitivity compared to one that is smaller (this can be seen by plotting \cref{eq:z_magn_ernst4}).
 On the other hand, the second optimisation yields an accurate value for the relevant peak (number 4 in \cref{tbl:ernst_invrec}), at least to within the specified tolerance of \ang{3}.
@@ -151,5 +151,5 @@ It \textit{may} be more useful for nuclei which have lower sensitivity, such as 
 However, it must be borne in mind that a low-sensitivity experiment will also require more scans per FE, which leads to a corresponding increase in the optimisation time.
 
 In my estimation, a more useful application of this optimisation routine would be to use it to determine an average $T_1$ value for a group of peaks.
-This could then be used to inform the choice of relaxation delay for multidimensional experiments\autocite{Reynolds2002JNP,Burns2021MRC} or quantitative NMR experiments\autocite{Pauli2005JNP,Giraudeau2014MRC}.
+This could then be used to inform the choice of recovery delay for multidimensional experiments\autocite{Reynolds2002JNP,Burns2021MRC} or quantitative NMR experiments\autocite{Pauli2005JNP,Giraudeau2014MRC}.
 It is, however, possible to more directly obtain $T_1$ values from an inversion--recovery experiment, which I describe next.

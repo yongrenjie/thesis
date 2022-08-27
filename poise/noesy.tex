@@ -13,9 +13,9 @@ In this section, I do not deal with this theoretically: the optimisation process
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[draft=false]{poise/noesy_scan.png}
-    \caption[Scan of 2D NOE crosspeak intensities]{
-        Scan of 2D NOE crosspeak intensities.
+    \includegraphics[]{poise/noesy_scan.png}
+    \caption[Reference grid search of 2D NOE crosspeak intensities]{
+        Reference grid search of 2D NOE crosspeak intensities.
         The individual crosspeak intensities are shown in dashed lines; the solid black line is the average of these four, which represents the quantity we seek to optimise.
         \datacode{7B-200725}
     }
@@ -23,13 +23,13 @@ In this section, I do not deal with this theoretically: the optimisation process
 \end{figure}
 
 In the chosen sample, 3-fluorophenylboronic acid, there are four crosspeaks of interest in the 2D NOESY spectrum.
-I first scanned over a range of mixing times to determine where the crosspeak intensities were maximised (\cref{fig:poise_noesy_scan}).
+I first performed a reference grid search to determine where the crosspeak intensities were maximised (\cref{fig:poise_noesy_scan}).
 Generally, a broad minimum between 2.5 and \SI{4}{\s} is observed: any result within this range should be considered as `correct'.%
 \footnote{There is a complicating factor in that the use of such long mixing times also leads to a noticeable increase in the experiment duration. As such, it is not necessarily the case that an optimised mixing time yields a greater sensitivity \textit{per unit time}. In the optimisations which follow, I have neglected this issue. However, it could probably be somewhat accounted for by modifying the form of the cost function.}
 Although this may at first glance seem imprecise, it merely reflects the underlying physical characteristics of the sample under study: it is not the job of an optimisation process to `discover' extra precision where there is none to be found.
 We also see here the first example of a cost function where the noise is significant: this provides a good test of the derivative-free algorithms used in POISE.
 
-While the 2D NOESY scan offers first-hand insight into what our target optimum should be, it is unwise to run an optimisation using the full 2D experiment, simply because of the time required for each FE.
+While the 2D reference grid search offers first-hand insight into what our target optimum should be, it is unwise to run an optimisation using the full 2D experiment, simply because of the time required for each FE.
 A more sensible method is to use a selective 1D NOESY experiment, where the mixing time is represented by the parameter \texttt{D8}.
 Although this is much faster, it does come with two caveats:
 \begin{enumerate}
@@ -45,7 +45,7 @@ Note that if a different 1D NOESY pulse programme is used with different paramet
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[draft=false]{pp/poise/noe1d.png}
+    \includegraphics[]{pp/poise/noe1d.png}
     \caption[1D NOESY pulse sequence used for POISE optimisations]{
         Selective 1D NOESY pulse sequence used for POISE optimisations.
         Phase cycling was performed using $\phi_1 = \phi_\text{rec} = (x, -x)$.
@@ -86,7 +86,7 @@ The resulting 2D NOESY spectra, with the initial and optimised mixing times of \
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[draft=false]{poise/noesy_spec.png}
+    \includegraphics[]{poise/noesy_spec.png}
     {\phantomsubcaption\label{fig:poise_noesy_unoptimised}}
     {\phantomsubcaption\label{fig:poise_noesy_optimised}}
     \caption[2D NOESY spectra before and after optimisation]{

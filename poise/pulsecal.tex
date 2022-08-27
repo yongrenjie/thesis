@@ -13,7 +13,7 @@ This pulse width is conventionally specified as the \texttt{P1} parameter in Top
 \subsubsection{Optimisation setup}
 
 In theory, performing a pulse--acquire spectrum with a perfect \ang{180} or \ang{360} pulse would yield no detectable (i.e.\ transverse) magnetisation, i.e.\ a \textit{null}.
-Generally, the \ang{360} null is preferred as it minimises effects due to radiation damping, and also allows a smaller relaxation delay to be used.
+Generally, the \ang{360} null is preferred as it minimises effects due to radiation damping, and also allows a smaller recovery delay to be used.
 We can use POISE to search for this by acquiring the spectrum, performing a magnitude-mode calculation, and using the intensity of the resulting spectrum as a cost function:
 \begin{equation}
     \label{eq:minabsint}
@@ -38,14 +38,16 @@ def minabsint():
 \begin{figure}[htb]
     \centering
     \includegraphics[]{poise/p1_scan.png}
-    \caption[Cost function scan for pulse width optimisation]{Graph showing how the \texttt{minabsint} cost function varies with the pulse width \texttt{P1}.}
-    \datacode{6F-200826}
+    \caption[Cost function reference grid search for pulse width optimisation]{
+        Reference grid search, showing how the \texttt{minabsint} cost function varies with the pulse width \texttt{P1}.
+        \datacode{6F-200826}
+    }
     \label{fig:p1_scan}
 \end{figure}
 
 To check whether this cost function is sensible, I manually acquired a series of spectra with increasing pulse widths and calculated $f_\text{minabsint}$ for all of these (\cref{fig:p1_scan}).
-In this thesis, I will refer to this process as a \textit{scan} of the cost function.
-It should be noted that scans are a time-consuming procedure, and an end-user of POISE generally does \textit{not} need to do this: I only do it here to provide some insight into the nature of the optimisation.
+In this thesis, I will refer to this process as a \textit{reference grid search}.
+It should be noted that reference grid searches are a time-consuming procedure, and an end-user of POISE generally does \textit{not} need to do this: I only do it here to provide some insight into the nature of the optimisation.
 In any case, it is clear that there is a well-defined minimum, located in this case at \SI{48.3}{\us}; we expect that POISE routines will converge to this point.
 
 To complete the description of the POISE optimisation, it remains to define the rest of the optimisation routine.
@@ -54,8 +56,8 @@ The tolerance is set to \SI{0.2}{\us}, which corresponds to an accuracy of \SI{0
 The lower and upper bounds are set to be \SI{8}{\us} away from the initial point, representing a `sensible' region within which we expect the null to lie (this may need to be adjusted for samples with high ionic strength, but for typical organic samples this is more than enough).
 A standard \texttt{poise\_1d} acquisition AU programme is used, which simply acquires the spectrum and performs Fourier transformation, phase correction, and baseline correction.
 The routine in JSON format is shown in the caption to \cref{tbl:poisecal_48}.
-Finally, in order to reduce the time taken for the optimisation, several tricks are used: each FE is run using no dummy scans and only one scan, the acquisition time is set to just \SI{1.1}{\s} (high resolution is not required for a reliable cost function value), and the relaxation delay \texttt{D1} is set to 0.
-In practice, there is an extra gap of $\sim$ \SI{5}{\s} between successive FEs due to spectrometer initialisation, so an extra relaxation delay is not needed.
+Finally, in order to reduce the time taken for the optimisation, several tricks are used: each FE is run using no dummy scans and only one scan, the acquisition time is set to just \SI{1.1}{\s} (high resolution is not required for a reliable cost function value), and the recovery delay \texttt{D1} is set to 0.
+In practice, there is an extra gap of $\sim$ \SI{5}{\s} between successive FEs due to spectrometer initialisation, so an extra recovery delay is not needed.
 
 
 \subsubsection{The competition}
@@ -133,7 +135,6 @@ On the other hand, the \ang{360} null (as measured through \texttt{popt} or POIS
 Compared to these two existing methods, we expect POISE to be faster than the \texttt{popt} grid search, and also more accurate than the nutation experiment in \texttt{pulsecal}.
 This is borne out in practice (\cref{tbl:poisecal_48}).
 \texttt{popt} yields an optimum of \SI{48.4}{\us}, which is closely matched by POISE.
-This is unsurprising because the cost function scan (\cref{fig:p1_scan}) closely parallels the spectral profile obtained through the grid search (\cref{fig:p1_scan_spectra}).
 However, POISE locates this optimum using far fewer FEs because its algorithms are more efficient than a simple grid search.
 While \texttt{pulsecal} is even faster than POISE, it underestimates the \ang{90} pulse width by about 4\%.
 In this particular case, POISE is the only option which strikes a useful balance between speed and accuracy.
@@ -187,7 +188,7 @@ There is slightly decreased performance in that a few more FEs are required for 
 
 It is tempting to use this example to draw the conclusion that the initial point does not matter in POISE optimisations.
 However, this is only really true for a simple optimisation like this.
-Looking again at the cost function scan in \cref{fig:p1_scan}, it is clear that there is no other possible minimum that the optimiser could converge to.
+Looking again at the reference grid search in \cref{fig:p1_scan}, it is clear that there is no other possible minimum that the optimiser could converge to.
 Furthermore, the noise in the cost function is almost indiscernible.
 These represent the \textit{ideal} conditions for an experimental optimisation to work, and it is not surprising that extremely good performance is obtained with POISE.
 Some of the subsequent examples include more difficult or more noisy cost functions.

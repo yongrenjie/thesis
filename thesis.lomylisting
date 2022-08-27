@@ -3,13 +3,13 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {mylisting}{\numberline {2.1}{\ignorespaces Pure shift cost functions}}{55}{mylisting.caption.29}%
-\contentsline {mylisting}{\numberline {2.2}{\ignorespaces Naive dPSYCHE code}}{69}{mylisting.caption.40}%
-\contentsline {mylisting}{\numberline {2.3}{\ignorespaces Slightly faster dPSYCHE code}}{70}{mylisting.caption.41}%
-\contentsline {mylisting}{\numberline {2.4}{\ignorespaces Fast dPSYCHE code}}{71}{mylisting.caption.42}%
+\contentsline {mylisting}{\numberline {2.1}{\ignorespaces Pure shift cost functions}}{53}{mylisting.caption.29}%
+\contentsline {mylisting}{\numberline {2.2}{\ignorespaces Naive dPSYCHE code}}{67}{mylisting.caption.40}%
+\contentsline {mylisting}{\numberline {2.3}{\ignorespaces Slightly faster dPSYCHE code}}{68}{mylisting.caption.41}%
+\contentsline {mylisting}{\numberline {2.4}{\ignorespaces Fast dPSYCHE code}}{69}{mylisting.caption.42}%
 \addvspace {10\p@ }
-\contentsline {mylisting}{\numberline {3.1}{\ignorespaces Communication between frontend and backend in POISE}}{108}{mylisting.caption.59}%
-\contentsline {mylisting}{\numberline {3.2}{\ignorespaces Context manager to keep track of backend process IDs}}{109}{mylisting.caption.60}%
-\contentsline {mylisting}{\numberline {3.3}{\ignorespaces \texttt {minabsint} cost function}}{111}{mylisting.caption.62}%
+\contentsline {mylisting}{\numberline {3.1}{\ignorespaces Communication between frontend and backend in POISE}}{105}{mylisting.caption.59}%
+\contentsline {mylisting}{\numberline {3.2}{\ignorespaces Context manager to keep track of backend process IDs}}{106}{mylisting.caption.60}%
+\contentsline {mylisting}{\numberline {3.3}{\ignorespaces \texttt {minabsint} cost function}}{108}{mylisting.caption.62}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }

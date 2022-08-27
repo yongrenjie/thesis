@@ -16,7 +16,7 @@ This can either be recorded in a 2D form where the $\tau$ delay is incremented a
 The delay $\tau$ was specified as the parameter \texttt{D27}, and the \texttt{zerorealint} cost function used here is just the absolute value of the integral over the region of interest: an ideal null would have a cost function value of 0.
 \Cref{tbl:ernst_invrec} provides the theoretical values of $T_1 \ln 2$, which were calculated using the more accurate 2D fitting procedure.
 
-A slight drawback of using this method, compared to the Ernst angle optimisations in the previous section, is that the relaxation delay must be sufficiently long to allow for complete relaxation between FEs: in this case, I used a \texttt{D1} of \SI{5}{\s}.
+A slight drawback of using this method, compared to the Ernst angle optimisations in the previous section, is that the recovery delay must be sufficiently long to allow for complete relaxation between FEs: in this case, I used a \texttt{D1} of \SI{5}{\s}.
 On the other hand, this also means that dummy scans are no longer needed: I therefore set \texttt{DS=0} and \texttt{NS=1}.
 
 

@@ -1,4 +1,37 @@
 \subsection{Ultrafast NMR}
 \label{subsec:poise__epsi}
 
-EPSI gradient imbalance
+The final example of a single-parameter POISE optimisation is also the most complicated: it pertains to the EPSI acquisition technique, which was previously introduced in \cref{sec:pureshift__epsidosy}.
+EPSI acquisition allows signals from different slices of the sample to be simultaneously detected in a single FID, and (in liquid-state NMR) has most famously been used in the context of \textit{ultrafast} 2D experiments\autocite{Frydman2002PNASUSA,Pelupessy2003JACS,Frydman2003JACS,Tal2010PNMRS,Giraudeau2014ARAC,Gouilleux2018ARNMRS}, where the $t_1$ evolution is spatially encoded and read out using the EPSI technique.
+
+During an EPSI acquisition period, alternating gradients of equal magnitude but opposite sign are applied, as shown in \todo{FIG -- zgepsi and tocsyepsi}.
+Each data point collected therefore depends not only on $t_2$ (the acquisition time domain) but also on $k$, a wavenumber which measures the extent of gradient dephasing caused by the acquisition gradients:
+\begin{equation}
+    \label{eq:epsi_k_space}
+    k = \int_0^{t_2} \gamma G(t) \,\mathrm{d}t.
+\end{equation}
+This value of $k$ increases during positive gradients and decreases during negative gradients, leading to a zigzag pattern in $k$-space, all while $t_2$ is still increasing (\todo{FIG -- data points, correct and incorrect})
+The \textit{prephasing gradient} immediately before acquisition has the same duration as the EPSI gradients, but has half the amplitude, meaning that $k$ begins from a negative value, specifically, $k_\text{max} / 2$, where $k_\text{max}$ is the change in $k$ caused by one complete positive EPSI gradient.
+As shown in previous reviews\autocite{Frydman2003JACS}, the spatial profile $f(z)$ can be obtained by Fourier transformation of the $k$ domain.
+Alternatively, since $t_1$ is proportional to $z$ and the indirect-dimension frequency $F_1$ is itself obtained through Fourier transformation of the $t_1$-domain, the $F_1$ and $k$ domains are in fact directly proportional: no Fourier transform is required along this axis to obtain the indirect-dimension frequencies.
+
+This rapid alternating of gradients is very demanding on spectrometers, and it is often the case that the positive and negative EPSI gradients---although \textit{nominally} specified with the same amplitude---are not perfectly balanced.
+This causes a `drift' in the $k$-domain over time, as illustrated in \todo{FIG}.
+In this section, POISE is used to perform an \textit{instrument-specific} optimisation in order to correct for this effect.
+
+\todo{change axis order of $k,t_2$ --- Frydman always uses a weird depiction for whatever reason...}
+
+
+\subsubsection{Optimisation setup}
+
+To measure the drift in $k$-space, it is easiest to use a pulse sequence for which there is no spatial encoding; the pulse--EPSI experiment (\todo{FIG}) is perfectly suited for this.
+In the pulse programme, I multiplied the amplitudes of the negative gradients by a factor $\alpha$, represented as \texttt{CNST16} in TopSpin:
+the objective of POISE is therefore to determine the optimum value for this which minimises the drift.
+Calculating this drift requires fairly substantial processing, which is most easily done inside the cost function using \texttt{numpy} functions (rather than, for example, a TopSpin AU script).
+This consists of the following steps:
+\begin{enumerate}
+    \item reading in the 1D FID and reshaping it into a 2D $(k, t_2)$ matrix;
+    \item discarding data obtained during negative gradients;
+    \item determining, for each point in $t_2$, the value of $k$ for which the maximum signal is found;
+    \item performing linear regression on these points and obtaining the slope of $k$ against $t_2$, which directly represents the drift in $k$-space.
+\end{enumerate}
