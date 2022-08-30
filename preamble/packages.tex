@@ -50,13 +50,6 @@
 }
 
 
-% siunitx & unit definitions
-\usepackage[exponent-product=\cdot]{siunitx}
-\sisetup{input-digits = 0123456789\mitpi}
-\DeclareSIUnit{\ppm}{ppm}
-\DeclareSIUnit{\gauss}{G}
-\DeclareSIUnit{\molar}{M}
-
 % The titleformat commands are taken from titlesec documentation,
 % section 8.2, and modified to only change the font.
 \usepackage{titlesec}
@@ -72,6 +65,21 @@
     labelfont=it,
     margin=15pt,
 }
+
+% siunitx & unit definitions
+\usepackage[exponent-product=\cdot]{siunitx}
+\sisetup{}
+\DeclareSIUnit{\ppm}{ppm}
+\DeclareSIUnit{\gauss}{G}
+\DeclareSIUnit{\molar}{M}
+\sisetup{
+    input-digits=0123456789\mitpi,
+    mode=text,
+    reset-text-family=false,
+    reset-text-series=false,
+    reset-text-shape=false
+}
+
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}

@@ -26,9 +26,10 @@ An \textit{optimisation routine}, as defined in POISE, consists of the following
     \item \textit{Tolerances} (one per parameter)
 
         This loosely corresponds to the level of accuracy required for the optimisation.
-        It is pointless setting this to be too small (i.e.\ requesting an overly accurate optimum), as the value of the cost function at two points too close together will likely differ only by noise.
-        Conversely, setting this to be too larger may yield an inaccurate result.
-        This makes it sound as if there is little room for error, but in practice getting the order of magnitude correct is usually enough (and the desired accuracy is also often reasonably clear from the context);
+        There is no point in setting this to be too small (i.e.\ requesting an overly accurate optimum), as the value of the cost function at two points too close together will likely differ only by noise.
+        Furthermore, parameter values cannot be implemented with arbitrary precision on a spectrometer: the available resolution on this sets a lower bound for the tolerance (see \cref{subsec:poise__epsi} for a more concrete discussion of this).
+        On the other hand, setting the tolerance to be too large may simply yield an imprecise and meaningless result.
+        These conditions make it sound as if there is little room for error, but in practice getting the order of magnitude correct is usually enough (and the desired accuracy is also often reasonably clear from the context);
 
     \item \textit{AU programme}
 
