@@ -9,10 +9,10 @@ Furthermore, since only local minima are sought, the time required for convergen
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[]{pp/poise/hmbc.png}
-    {\phantomsubcaption\label{fig:poise_hmbc_pulseq_hmbc}}
-    {\phantomsubcaption\label{fig:poise_hmbc_pulseq_hsqc}}
-    \caption[Pulse sequences used for POISE HMBC optimisation]{
+    \includegraphics[]{pp/poise/hmbc.png}%
+    {\phantomsubcaption\label{fig:poise_hmbc_pulseq_hmbc}}%
+    {\phantomsubcaption\label{fig:poise_hmbc_pulseq_hsqc}}%
+    \caption[Pulse sequences used for HMBC optimisation]{
         \textbf{(\subref{fig:poise_hmbc_pulseq_hmbc})} Standard 2D HMBC pulse sequence with a second-order low-pass J-filter.
         \textbf{(\subref{fig:poise_hmbc_pulseq_hsqc})} 1D LPJF--HSQC pulse sequence used in the POISE optimisation.
         In practice, only the first increment of this experiment was recorded.
@@ -83,7 +83,7 @@ These optima should therefore not be viewed as a representative summary of the f
         3     & BOBYQA    & 133.38 & 155.03                 & 6.42 & 14--17 & 251--304 \\
         \bottomrule
     \end{tabular}
-    \caption[POISE optimisations on HMBC]{
+    \caption[HMBC low-pass J-filter optimisations]{
         Results of HMBC POISE optimisations.
         For each optimisation algorithm, the best optimum found is reported along with the value of the cost function $f_\text{sos}$ (a lower value represents a better optimum).
         The number of FEs, as well as the time taken, is still reported as a range over the five optimisation runs performed per algorithm.
@@ -95,7 +95,7 @@ These optima should therefore not be viewed as a representative summary of the f
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[]{poise/hmbc_scan.png}
+    \includegraphics[]{poise/hmbc_scan.png}%
     \caption[Reference grid search for HMBC optimisation]{
         Reference grid search for HMBC optimisation.
         Darker regions correspond to lower cost function values, i.e.\ better spectra.
@@ -110,15 +110,15 @@ Interestingly, BOBYQA finds an optimum which is different from---and substantial
 As mentioned previously, it is not generally possible to predict which optimum an algorithm will converge to, and this is complicated even further by the presence of noise, which imparts some stochastic character to the optimisation.
 Nevertheless, the other runs actually show that similar optima are reproducibly obtained: the optima found from each of the five rounds, as well as a reference grid search, are plotted in \cref{fig:poise_hmbc_scan}.
 It appears that the simplex-based methods get stuck in a suboptimal region, whereas BOBYQA is able to move leftwards and downwards into a more productive region (with one exception).
-However, the exact reasons for this remains unclear.
+However, the exact reasons for this remain unclear.
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[]{poise/hmbc_spec.png}
-    {\phantomsubcaption\label{fig:poise_hmbc_spec_unopt2}}
-    {\phantomsubcaption\label{fig:poise_hmbc_spec_opt2}}
-    {\phantomsubcaption\label{fig:poise_hmbc_spec_3}}
-    \caption[Comparison of HMBC spectra before and after POISE optimisation]{
+    \includegraphics[]{poise/hmbc_spec.png}%
+    {\phantomsubcaption\label{fig:poise_hmbc_spec_unopt2}}%
+    {\phantomsubcaption\label{fig:poise_hmbc_spec_opt2}}%
+    {\phantomsubcaption\label{fig:poise_hmbc_spec_3}}%
+    \caption[HMBC spectra before and after optimisation]{
         \textbf{(\subref{fig:poise_hmbc_spec_unopt2})} HMBC spectrum with `compromise' values of 120 and \SI{180}{\Hz} for $J_\text{min}$ and $J_\text{max}$ respectively in the second-order LPJF.
         The one-bond artefacts are highlighted in red boxes.
         \textbf{(\subref{fig:poise_hmbc_spec_opt2})} HMBC spectrum with optimised second-order LPJF delays.
@@ -137,8 +137,8 @@ The performance of the optimised second-order LPJF was in fact almost comparable
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[]{pp/hmbc/noah_no90.png}
-    \caption[NOAH HMBC module used for POISE optimisations]{
+    \includegraphics[]{pp/hmbc/noah_no90.png}%
+    \caption[NOAH HMBC module used for optimisations]{
         NOAH HMBC module used for POISE optimisations.
     }
     \label{fig:noah_hmbc_no90}
@@ -165,7 +165,7 @@ I therefore sought to apply the same optimisation routine to the $zz$-HMBC modul
         3     & BOBYQA    & 119.49 & 182.74                 & 5.78 & 9--16  & 164--293 \\
         \bottomrule
     \end{tabular}
-    \caption[POISE optimisations on NOAH HMBC module]{
+    \caption[NOAH HMBC low-pass J-filter optimisations]{
         Results of POISE optimisations on the LPJF in the NOAH HMBC module.
         All optimisation details are the same as in \cref{tbl:poise_hmbc}, except that the LPJF--HSQC pulse sequence used for the optimisation was modified accordingly to include a $zz$-filter.
         \datacode{7Z-210814}
@@ -180,11 +180,11 @@ This was indeed verified experimentally: the addition of a \carbon{} \ang{90} pu
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[]{poise/hmbc_noah_spec.png}
-    {\phantomsubcaption\label{fig:poise_hmbc_noah_spec_unopt}}
-    {\phantomsubcaption\label{fig:poise_hmbc_noah_spec_opt}}
-    {\phantomsubcaption\label{fig:poise_hmbc_noah_spec_with90}}
-    \caption[Comparison of NOAH HMBC spectra before and after POISE optimisation]{
+    \includegraphics[]{poise/hmbc_noah_spec.png}%
+    {\phantomsubcaption\label{fig:poise_hmbc_noah_spec_unopt}}%
+    {\phantomsubcaption\label{fig:poise_hmbc_noah_spec_opt}}%
+    {\phantomsubcaption\label{fig:poise_hmbc_noah_spec_with90}}%
+    \caption[NOAH HMBC spectra before and after optimisation]{
         \textbf{(\subref{fig:poise_hmbc_noah_spec_unopt})} NOAH HMBC spectrum before POISE optimisation, using the default settings of 120 and \SI{180}{\Hz}.
         One-bond artefacts are highlighted in red boxes.
         \textbf{(\subref{fig:poise_hmbc_noah_spec_opt})} NOAH HMBC spectrum after POISE `optimisation' (using $J_\text{min} = \SI{125.2}{\Hz}$, $J_\text{max} = \SI{193.2}{\Hz}$, as per entry 2 of \cref{tbl:poise_hmbc_noah}).

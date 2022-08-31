@@ -30,9 +30,9 @@ These distortions are just about visible in \cref{fig:jrse_jrse}.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[]{pureshift/jrse.png}
-    {\phantomsubcaption\label{fig:jrse_zg}}
-    {\phantomsubcaption\label{fig:jrse_jrse}}
+    \includegraphics[]{pureshift/jrse.png}%
+    {\phantomsubcaption\label{fig:jrse_zg}}%
+    {\phantomsubcaption\label{fig:jrse_jrse}}%
     \caption[J-refocused spin echo experiment]{
         \textbf{(\subref{fig:jrse_zg})} Pulse--acquire experiment and the resulting spectrum.
         \textbf{(\subref{fig:jrse_jrse})} J-refocused spin echo experiment and the resulting spectrum.
@@ -68,9 +68,9 @@ f_diff = np.linalg.norm((Sr / np.linalg.norm(Sr))
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[]{pureshift/fa_scan_synthetic.png}
-    {\phantomsubcaption\label{fig:fa_scan_synthetic_fphase}}
-    {\phantomsubcaption\label{fig:fa_scan_synthetic_fdiff}}
+    \includegraphics[]{pureshift/fa_scan_synthetic.png}%
+    {\phantomsubcaption\label{fig:fa_scan_synthetic_fphase}}%
+    {\phantomsubcaption\label{fig:fa_scan_synthetic_fdiff}}%
     \caption[Evaluation of $f_\text{phase}$ and $f_\text{diff}$ cost functions on synthetic data]{
         Behaviour of the two cost functions, $f_\text{phase}$ and $f_\text{diff}$, on synthetic spectra with various SNRs.
         Zero phase distortion refers to an in-phase absorption-mode doublet, whereas complete phase distortion refers to an antiphase dispersion-mode doublet.
@@ -95,7 +95,7 @@ It was mostly developed by trial-and-error (based on the notion that phase disto
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[]{pureshift/optim_flowchart_early.png}
+    \includegraphics[]{pureshift/optim_flowchart_early.png}%
     \caption[Flowchart for pure shift optimisation process]{
         Flowchart illustrating the steps for optimisation of a pure shift spectrum.
     }

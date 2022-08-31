@@ -28,9 +28,9 @@ The value of $f_\text{diff,2}$ was thus tested with a wide variety of randomly c
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[]{pureshift/td1_cf.png}
-    {\phantomsubcaption\label{fig:dpsyche_td1_cf_16_8}}
-    {\phantomsubcaption\label{fig:dpsyche_td1_cf_16_4}}
+    \includegraphics[]{pureshift/td1_cf.png}%
+    {\phantomsubcaption\label{fig:dpsyche_td1_cf_16_8}}%
+    {\phantomsubcaption\label{fig:dpsyche_td1_cf_16_4}}%
     \caption[Comparison of $f_\text{diff,2}$ cost function with different numbers of chunks]{
         Comparison of $f_\text{diff,2}$ values when simulated with different numbers of chunks.
         16 chunks is assumed to be the `gold standard'.
@@ -71,9 +71,9 @@ The fact that none of the flip angles exceeded \ang{360} here provides some just
     % There IS one way to retrieve the data: rewind the entire git repo to this
     % date and rerun it.
     \centering
-    \includegraphics[]{pureshift/dpsyche_nosens_vs_psyche}
-    {\phantomsubcaption\label{fig:dpsyche_nosens_vs_psyche_dp}}
-    {\phantomsubcaption\label{fig:dpsyche_nosens_vs_psyche_p}}
+    \includegraphics[]{pureshift/dpsyche_nosens_vs_psyche}%
+    {\phantomsubcaption\label{fig:dpsyche_nosens_vs_psyche_dp}}%
+    {\phantomsubcaption\label{fig:dpsyche_nosens_vs_psyche_p}}%
     \caption[Comparison of optimised dPSYCHE and PSYCHE]{
         \textbf{(\subref{fig:dpsyche_nosens_vs_psyche_dp})} dPSYCHE experiment acquired using the flip angles and phases in \cref{eq:dpsyche_opt_nosens_angles,eq:dpsyche_opt_nosens_phases}.
         The $\beta$ hard pulses in the PSE were applied with an RF amplitude of 
@@ -129,13 +129,13 @@ The resulting spectra (\cref{fig:dpsyche_sens}) show that adjusting $c$ has the 
 \begin{figure}[htbp]
     % matlab_nmr_jy/research/optim_specdiff/opt_sens.m
     \centering
-    \includegraphics[]{pureshift/dpsyche_sens.png}
-    {\phantomsubcaption\label{fig:dpsyche_sens_d1}}
-    {\phantomsubcaption\label{fig:dpsyche_sens_d0p8}}
-    {\phantomsubcaption\label{fig:dpsyche_sens_d0p6}}
-    {\phantomsubcaption\label{fig:dpsyche_sens_d0p4}}
-    {\phantomsubcaption\label{fig:dpsyche_sens_d0p2}}
-    {\phantomsubcaption\label{fig:dpsyche_sens_p}}
+    \includegraphics[]{pureshift/dpsyche_sens.png}%
+    {\phantomsubcaption\label{fig:dpsyche_sens_d1}}%
+    {\phantomsubcaption\label{fig:dpsyche_sens_d0p8}}%
+    {\phantomsubcaption\label{fig:dpsyche_sens_d0p6}}%
+    {\phantomsubcaption\label{fig:dpsyche_sens_d0p4}}%
+    {\phantomsubcaption\label{fig:dpsyche_sens_d0p2}}%
+    {\phantomsubcaption\label{fig:dpsyche_sens_p}}%
     \caption[dPSYCHE optimisations with different sensitivities]{
         \textbf{(\subref{fig:dpsyche_sens_d1})} dPSYCHE, $c = 1$.
         \textbf{(\subref{fig:dpsyche_sens_d0p8})} dPSYCHE, $c = 0.8$.
@@ -161,9 +161,9 @@ The decoupling quality in both regions is comparable to that in the PSYCHE spect
 \begin{figure}[htb]
     % matlab_nmr_jy/research/optim_specdiff/opt_sens3.m
     \centering
-    \includegraphics[]{pureshift/dpsyche_optsens3.png}
-    {\phantomsubcaption\label{fig:dpsyche_optsens3_d}}
-    {\phantomsubcaption\label{fig:dpsyche_optsens3_p}}
+    \includegraphics[]{pureshift/dpsyche_optsens3.png}%
+    {\phantomsubcaption\label{fig:dpsyche_optsens3_d}}%
+    {\phantomsubcaption\label{fig:dpsyche_optsens3_p}}%
     \caption[dPSYCHE final optimisation with $c = 0.4$]{
         \textbf{(\subref{fig:dpsyche_optsens3_d})} Fully optimised dPSYCHE experiment with $c = 0.4$.
         \textbf{(\subref{fig:dpsyche_optsens3_p})} Double-saltire PSYCHE with $\beta = \ang{20}$.
@@ -175,9 +175,9 @@ The decoupling quality in both regions is comparable to that in the PSYCHE spect
 \begin{figure}[htb]
     % matlab_nmr_jy/research/optim_specdiff/opt_sens3.m but with different pulprog
     \centering
-    \includegraphics[]{pureshift/tsedpsyche_optsens3.png}
-    {\phantomsubcaption\label{fig:tsedpsyche_optsens3_d}}
-    {\phantomsubcaption\label{fig:tsedpsyche_optsens3_p}}
+    \includegraphics[]{pureshift/tsedpsyche_optsens3.png}%
+    {\phantomsubcaption\label{fig:tsedpsyche_optsens3_d}}%
+    {\phantomsubcaption\label{fig:tsedpsyche_optsens3_p}}%
     \caption[TSE-dPSYCHE final optimisation with $c = 0.4$]{
         \textbf{(\subref{fig:tsedpsyche_optsens3_d})} Fully optimised TSE-dPSYCHE experiment with $c = 0.4$.
         \textbf{(\subref{fig:tsedpsyche_optsens3_p})} Double-saltire TSE-PSYCHE with $\beta = \ang{20}$.
@@ -201,7 +201,7 @@ There was no clear winner, but the optimisations with 9 and 15 pulses yielded th
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[]{pureshift/opt_npulses.png}
+    \includegraphics[]{pureshift/opt_npulses.png}%
     \caption[Comparison of cost functions attained with different numbers of pulses]{Blah}
     \label{fig:dpsyche_opt_npulses}
 \end{figure}

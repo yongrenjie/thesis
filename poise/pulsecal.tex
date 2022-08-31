@@ -31,14 +31,14 @@ def minabsint():
     mag = np.abs(r + 1j * i)
     return np.sum(mag)
 \end{tcbminted}
-\caption[\texttt{minabsint} cost function]{The implementation of the \texttt{minabsint} cost function in POISE.}
+\caption[Implementation of \texttt{minabsint} cost function]{The implementation of the \texttt{minabsint} cost function in POISE.}
 \label{lst:minabsint}
 \end{mylisting}
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[]{poise/p1_scan.png}
-    \caption[Cost function reference grid search for pulse width optimisation]{
+    \includegraphics[]{poise/p1_scan.png}%
+    \caption[Reference grid search for pulse width optimisation]{
         Reference grid search, showing how the \texttt{minabsint} cost function varies with the pulse width \texttt{P1}.
         \datacode{6F-200826}
     }
@@ -70,7 +70,7 @@ An example of this is shown in \cref{fig:p1_scan_spectra}, where the \ang{360} n
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[]{poise/p1_scan_spectra.png}
+    \includegraphics[]{poise/p1_scan_spectra.png}%
     \caption[Pulse width array]{
         An example of a pulse width array, where the variation of the residual water peak is monitored with changes in pulse width.
         These spectra were acquired manually; the TopSpin \texttt{popt} command would yield essentially identical results.
@@ -159,7 +159,7 @@ There is slightly decreased performance in that a few more FEs are required for 
         3 & POISE (BOBYQA) & 48.27--48.33 & 9  & 70       \\
         \bottomrule
     \end{tabular}
-    \caption[POISE pulse width calibration using initial guess of \SI{43}{\us}]{
+    \caption[Pulse width calibrations using initial guess of \SI{43}{\us}]{
         Pulse width optimisations with an initial point of \SI{43}{\us}.
         The POISE routine is the same as in \cref{tbl:poisecal_48}, except with \texttt{"init":[43.0]}.
         \datacode{6F-200826}
@@ -178,7 +178,7 @@ There is slightly decreased performance in that a few more FEs are required for 
         3 & POISE (BOBYQA) & 48.26--48.33 & 9  & 69--70   \\
         \bottomrule
     \end{tabular}
-    \caption[POISE pulse width calibration using initial guess of \SI{53}{\us}]{
+    \caption[Pulse width calibrations using initial guess of \SI{53}{\us}]{
         Pulse width optimisations with an initial point of \SI{53}{\us}.
         The POISE routine is the same as in \cref{tbl:poisecal_48}, except with \texttt{"init":[53.0]}.
         \datacode{6F-200826}

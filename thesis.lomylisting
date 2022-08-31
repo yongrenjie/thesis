@@ -10,6 +10,6 @@
 \addvspace {10\p@ }
 \contentsline {mylisting}{\numberline {3.1}{\ignorespaces Communication between frontend and backend in POISE}}{105}{mylisting.caption.59}%
 \contentsline {mylisting}{\numberline {3.2}{\ignorespaces Context manager to keep track of backend process IDs}}{106}{mylisting.caption.60}%
-\contentsline {mylisting}{\numberline {3.3}{\ignorespaces \texttt {minabsint} cost function}}{108}{mylisting.caption.62}%
+\contentsline {mylisting}{\numberline {3.3}{\ignorespaces Implementation of \texttt {minabsint} cost function}}{108}{mylisting.caption.62}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }

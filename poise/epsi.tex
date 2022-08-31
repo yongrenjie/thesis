@@ -6,11 +6,11 @@ EPSI acquisition allows signals from different slices of the sample to be simult
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[]{pp/poise/epsi.png}
-    {\phantomsubcaption\label{fig:poise_epsi_zgepsi}}
-    {\phantomsubcaption\label{fig:poise_epsi_tocsyepsi}}
-    {\phantomsubcaption\label{fig:poise_epsi_epsicorrect}}
-    {\phantomsubcaption\label{fig:poise_epsi_epsiwrong}}
+    \includegraphics[]{pp/poise/epsi.png}%
+    {\phantomsubcaption\label{fig:poise_epsi_zgepsi}}%
+    {\phantomsubcaption\label{fig:poise_epsi_tocsyepsi}}%
+    {\phantomsubcaption\label{fig:poise_epsi_epsicorrect}}%
+    {\phantomsubcaption\label{fig:poise_epsi_epsiwrong}}%
     \caption[Pulse sequences used for EPSI optimisation]{
         Pulse sequences used for EPSI optimisation, and depiction of the $(k, t_2)$ data matrices thus obtained.
         \textbf{(\subref{fig:poise_epsi_zgepsi})} Pulse--EPSI experiment.
@@ -54,7 +54,7 @@ The \texttt{epsi\_gradient\_drift} cost function therefore consists of the follo
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[]{figures/poise/epsi_scan.png}
+    \includegraphics[]{figures/poise/epsi_scan.png}%
     \caption[Reference grid search for EPSI optimisation]{
         Reference grid search for EPSI optimisation.
         \datacode{6F-210316}
@@ -86,7 +86,7 @@ Furthermore, \texttt{AQ} should be kept under \SI{100}{\ms}.
         3     & BOBYQA    & 1.000383--1.000388 & 7   & 34--35               \\
         \bottomrule
     \end{tabular}
-    \caption{
+    \caption[EPSI gradient imbalance optimisations]{
         Results of EPSI gradient imbalance optimisations.
         Note that in practice, all of these optimisations actually converge to $\alpha = 1.0004$; the extra decimal place is not used by the spectrometer (see text for further discussion).
         The POISE routine used here is: \mintinline[breaklines]{json}{{"name": "epsi", "pars": ["cnst16"], "lb": [0.99], "ub": [1.01], "init": [1.0], "tol": [0.0001], "cf": "epsi_gradient_drift", "au": "poise_1d"}}.
@@ -111,11 +111,11 @@ This further underlines the importance of choosing a sensible optimisation toler
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[]{poise/epsi_spec.png}
-    {\phantomsubcaption\label{fig:epsi_spec_kt_noopt}}
-    {\phantomsubcaption\label{fig:epsi_spec_kt_opt}}
-    {\phantomsubcaption\label{fig:epsi_spec_tocsy_noopt}}
-    {\phantomsubcaption\label{fig:epsi_spec_tocsy_opt}}
+    \includegraphics[]{poise/epsi_spec.png}%
+    {\phantomsubcaption\label{fig:epsi_spec_kt_noopt}}%
+    {\phantomsubcaption\label{fig:epsi_spec_kt_opt}}%
+    {\phantomsubcaption\label{fig:epsi_spec_tocsy_noopt}}%
+    {\phantomsubcaption\label{fig:epsi_spec_tocsy_opt}}%
     \caption[Comparison between unoptimised and optimised EPSI spectra]{
         \textbf{(\subref{fig:epsi_spec_kt_noopt},\subref{fig:epsi_spec_kt_opt})} Magnitude-mode $(k, t_2)$ data matrices obtained from the pulse--EPSI experiment, before and after optimisation of $\alpha$ respectively.
         \textbf{(\subref{fig:epsi_spec_tocsy_noopt},\subref{fig:epsi_spec_tocsy_opt})} The corresponding 2D ultrafast TOCSY spectra, recorded with the unoptimised and optimised value of $\alpha$ respectively.

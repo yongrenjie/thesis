@@ -25,11 +25,11 @@ The latter two parameters are assumed to be given in units of ordinary frequenci
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[]{pureshift/chirp_coefficients.png}
-    {\phantomsubcaption\label{fig:chirp_coefficients_phase}}
-    {\phantomsubcaption\label{fig:chirp_coefficients_smoothing}}
-    {\phantomsubcaption\label{fig:chirp_coefficients_cx}}
-    {\phantomsubcaption\label{fig:chirp_coefficients_cy}}
+    \includegraphics[]{pureshift/chirp_coefficients.png}%
+    {\phantomsubcaption\label{fig:chirp_coefficients_phase}}%
+    {\phantomsubcaption\label{fig:chirp_coefficients_smoothing}}%
+    {\phantomsubcaption\label{fig:chirp_coefficients_cx}}%
+    {\phantomsubcaption\label{fig:chirp_coefficients_cy}}%
     \caption[Phase and Cartesian amplitudes of a typical chirp pulse]{
         Plots of the quantities in \cref{eq:chirp_pulse_phase,eq:chirp_pulse_cx,eq:chirp_pulse_cy} for a typical chirp pulse ($\taup = \SI{30}{\ms}$, $\Delta F = \SI{10}{\kHz}$).
         \textbf{(\subref{fig:chirp_coefficients_phase})} $\phi(t)$ wrapped to the range $[0, 2\pi)$.
@@ -71,10 +71,10 @@ After the sum of these two pulses is reflected about its end, we obtain a single
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[]{pureshift/chirpopt_spurious.png}
-    {\phantomsubcaption\label{fig:chirpopt_spurious_target}}
-    {\phantomsubcaption\label{fig:chirpopt_spurious_saltire}}
-    {\phantomsubcaption\label{fig:chirpopt_spurious_badoptimum}}
+    \includegraphics[]{pureshift/chirpopt_spurious.png}%
+    {\phantomsubcaption\label{fig:chirpopt_spurious_target}}%
+    {\phantomsubcaption\label{fig:chirpopt_spurious_saltire}}%
+    {\phantomsubcaption\label{fig:chirpopt_spurious_badoptimum}}%
     \caption[Spurious optimum obtained in waveform optimisation using $f_\text{diff}$]{
         \textbf{(\subref{fig:chirpopt_spurious_target})} Target spectrum (pulse--acquire).
         \textbf{(\subref{fig:chirpopt_spurious_saltire})} JRSE spectrum obtained using the initial guess (a saltire).
@@ -106,11 +106,11 @@ Unfortunately, although the pulse shape is shown in \cref{fig:newpulse_tsepsyche
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[]{pureshift/newpulse_tsepsyche.png}
-    {\phantomsubcaption\label{fig:newpulse_tsepsyche_saltire}}
-    {\phantomsubcaption\label{fig:newpulse_tsepsyche_newpulse}}
-    {\phantomsubcaption\label{fig:newpulse_tsepsyche_saltirespec}}
-    {\phantomsubcaption\label{fig:newpulse_tsepsyche_newpulsespec}}
+    \includegraphics[]{pureshift/newpulse_tsepsyche.png}%
+    {\phantomsubcaption\label{fig:newpulse_tsepsyche_saltire}}%
+    {\phantomsubcaption\label{fig:newpulse_tsepsyche_newpulse}}%
+    {\phantomsubcaption\label{fig:newpulse_tsepsyche_saltirespec}}%
+    {\phantomsubcaption\label{fig:newpulse_tsepsyche_newpulsespec}}%
     \caption[Evaluation of an `optimised' pulse in a TSE-PSYCHE experiment]{
         \textbf{(\subref{fig:newpulse_tsepsyche_saltire})} $x$- and $y$-coefficients of the initial saltire pulse (as a fraction of the maximum amplitude $A$).
         \textbf{(\subref{fig:newpulse_tsepsyche_newpulse})} $x$- and $y$-coefficients of the `optimised' pulse (as a fraction of the maximum amplitude $A$).
@@ -124,7 +124,7 @@ Unfortunately, although the pulse shape is shown in \cref{fig:newpulse_tsepsyche
 One issue is that the optimisation algorithms used here can only perform a \textit{local} optimisation, i.e.\ it may not necessarily locate a global optimum.
 We cannot rule out the possibility that \textit{some} pulse within this parameter space may in fact outperform a saltire pulse.
 However, finding this optimum---which may lie very far away from the initial guess of a saltire pulse---is not generally something which can be accomplished in a reasonable amount of time, even though 12 parameters is far more tractable than 20000.
-Furthermore, the cost functions described here do work, they are generally quite `flat', in that they do not discriminate very sharply between `good' and `bad' spectra.
+Furthermore, although the cost functions described here do work, they are generally quite `flat', in that they do not discriminate very sharply between `good' and `bad' spectra.
 Combined with the fact that the cost function is noisy, this makes experimental optimisation of the waveform an uphill task.
 Nevertheless, much of the knowledge (and code) in this section was later used in the development of POISE.
 
