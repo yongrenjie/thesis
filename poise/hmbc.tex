@@ -9,7 +9,7 @@ Furthermore, since only local minima are sought, the time required for convergen
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[draft=false]{pp/poise/hmbc.png}
+    \includegraphics[]{pp/poise/hmbc.png}
     {\phantomsubcaption\label{fig:poise_hmbc_pulseq_hmbc}}
     {\phantomsubcaption\label{fig:poise_hmbc_pulseq_hsqc}}
     \caption[Pulse sequences used for POISE HMBC optimisation]{
@@ -63,11 +63,11 @@ which has the effect of penalising intense artefacts more strongly.
 
 \subsubsection{Optimisation results}
 
-In previous sections, I have quoted ranges for each optimised parameter in an effort to show the variability of the optimisation result (or the lack thereof).
-In multiple--parameter optimisations, it is no longer appropriate to report separate ranges for both parameters, since the parameters are in general interdependent: thus, the spread of values obtained for the first parameter will depend on the value obtained for the second, and vice versa.
-I will therefore provide ranges only for the number of FEs, as well as the time taken: the optima found are not given as ranges, but rather the \textit{best} optimum found from the usual five separate runs, as measured by the reduction in the cost function.
+In previous sections, I have quoted ranges for the optima found in an effort to show that the optimisation results are reproducible.
+In multiple--parameter optimisations, it is no longer appropriate to report separate ranges for both parameters, since the parameters are in general \textit{interdependent}, in that the spread of values obtained for the first parameter depends on the value obtained for the second, and vice versa.
+I therefore only provide ranges for the number of FEs, as well as the time taken.
+As for optima found, I will quote only the \textit{best} of these, as measured by the reduction in the cost function.
 These optima should therefore not be viewed as a representative summary of the five different runs, but rather as an example of the improvement which may be obtained through POISE.
-
 
 \begin{table}[htb]
     \hbadness=10000
@@ -93,15 +93,9 @@ These optima should therefore not be viewed as a representative summary of the f
     \label{tbl:poise_hmbc}
 \end{table}
 
-Interestingly, BOBYQA finds an optimum which is different from---and substantially better than---the other two algorithms.
-As mentioned previously, it is not generally possible to predict which optimum an algorithm will converge to, and this is complicated even further by the presence of noise, which imparts some stochastic character to the optimisation.
-Nevertheless, the other runs actually show that similar optima are reproducibly obtained: the optima found from each of the five rounds, as well as a reference grid search, are plotted in \cref{fig:poise_hmbc_scan}.
-It appears that the simplex-based methods get stuck in a suboptimal region, whereas BOBYQA is able to move leftwards and downwards into a more productive region (with one exception).
-However, the exact reasons for this remains unclear.
-
 \begin{figure}[htb]
     \centering
-    \includegraphics[draft=false]{poise/hmbc_scan.png}
+    \includegraphics[]{poise/hmbc_scan.png}
     \caption[Reference grid search for HMBC optimisation]{
         Reference grid search for HMBC optimisation.
         Darker regions correspond to lower cost function values, i.e.\ better spectra.
@@ -112,13 +106,15 @@ However, the exact reasons for this remains unclear.
     \label{fig:poise_hmbc_scan}
 \end{figure}
 
-In any case, when the best of these optimised values (i.e.\ entry 3 in \cref{tbl:poise_hmbc}) were used to run a standard 2D HMBC, a significant reduction in one-bond artefacts was observed.
-The performance of the optimised second-order LPJF was in fact almost comparable to that of a third-order LPJF (\cref{fig:poise_hmbc_spec}).
-(However, using a third-order LPJF risks suppressing some of the desired HMBC signal as well, so if all else is equal, the optimised second-order LPJF should be preferred.)
+Interestingly, BOBYQA finds an optimum which is different from---and substantially better than---the other two algorithms.
+As mentioned previously, it is not generally possible to predict which optimum an algorithm will converge to, and this is complicated even further by the presence of noise, which imparts some stochastic character to the optimisation.
+Nevertheless, the other runs actually show that similar optima are reproducibly obtained: the optima found from each of the five rounds, as well as a reference grid search, are plotted in \cref{fig:poise_hmbc_scan}.
+It appears that the simplex-based methods get stuck in a suboptimal region, whereas BOBYQA is able to move leftwards and downwards into a more productive region (with one exception).
+However, the exact reasons for this remains unclear.
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[draft=false]{poise/hmbc_spec.png}
+    \includegraphics[]{poise/hmbc_spec.png}
     {\phantomsubcaption\label{fig:poise_hmbc_spec_unopt2}}
     {\phantomsubcaption\label{fig:poise_hmbc_spec_opt2}}
     {\phantomsubcaption\label{fig:poise_hmbc_spec_3}}
@@ -132,13 +128,16 @@ The performance of the optimised second-order LPJF was in fact almost comparable
     \label{fig:poise_hmbc_spec}
 \end{figure}
 
+In any case, when the best of these optimised values (i.e.\ entry 3 in \cref{tbl:poise_hmbc}) were used to run a standard 2D HMBC, a significant reduction in one-bond artefacts was observed.
+The performance of the optimised second-order LPJF was in fact almost comparable to that of a third-order LPJF (\cref{fig:poise_hmbc_spec}).
+(However, using a third-order LPJF risks suppressing some of the desired HMBC signal as well, so if all else is equal, the optimised second-order LPJF should be preferred.)
 
 
 \subsubsection{Application to NOAH HMBC}
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[draft=false]{pp/hmbc/noah_no90.png}
+    \includegraphics[]{pp/hmbc/noah_no90.png}
     \caption[NOAH HMBC module used for POISE optimisations]{
         NOAH HMBC module used for POISE optimisations.
     }
@@ -181,7 +180,7 @@ This was indeed verified experimentally: the addition of a \carbon{} \ang{90} pu
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[draft=false]{poise/hmbc_noah_spec.png}
+    \includegraphics[]{poise/hmbc_noah_spec.png}
     {\phantomsubcaption\label{fig:poise_hmbc_noah_spec_unopt}}
     {\phantomsubcaption\label{fig:poise_hmbc_noah_spec_opt}}
     {\phantomsubcaption\label{fig:poise_hmbc_noah_spec_with90}}
