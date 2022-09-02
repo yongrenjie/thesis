@@ -67,9 +67,9 @@ This yielded an expected optimum of $\alpha = 1.0004$.
 (The sample used here was ferulic acid, but in principle this should not matter as the drift is due to the spectrometer and not the sample.)
 
 To save time in the optimisation itself, I reused the strategy of setting \texttt{DS=0} and \texttt{NS=1}.
-As before, since each FE is separated by approximately five seconds of processing and spectrometer initialisation, this means that there is no need for another recovery delay; thus, \texttt{D1} was set to \SI{0.5}{\s}.
+As before, since each FE is separated by approximately five seconds of processing and spectrometer initialisation, this means that there is no need for another recovery delay; thus, \texttt{D1} was set to \qty{0.5}{\s}.
 However, note that such a short recovery delay should \textit{not} be used if \texttt{DS} is larger than 0 or \texttt{NS} larger than 1: EPSI acquisitions should not be carried out in rapid succession.
-Furthermore, \texttt{AQ} should be kept under \SI{100}{\ms}.
+Furthermore, \texttt{AQ} should be kept under \qty{100}{\ms}.
 
 
 \subsubsection{Optimisation results}
@@ -79,7 +79,7 @@ Furthermore, \texttt{AQ} should be kept under \SI{100}{\ms}.
     \centering
     \begin{tabular}{ccccc}
         \toprule
-        Entry & Algorithm & Optimum found      & FEs & Time taken (\si{\s}) \\
+        Entry & Algorithm & Optimum found      & FEs & Time taken (\unit{\s}) \\
         \midrule
         1     & NM        & 1.000375           & 10  & 49--52               \\
         2     & MDS       & 1.000375           & 10  & 49--50               \\
@@ -119,7 +119,7 @@ This further underlines the importance of choosing a sensible optimisation toler
     \caption[Comparison between unoptimised and optimised EPSI spectra]{
         \textbf{(\subref{fig:epsi_spec_kt_noopt},\subref{fig:epsi_spec_kt_opt})} Magnitude-mode $(k, t_2)$ data matrices obtained from the pulse--EPSI experiment, before and after optimisation of $\alpha$ respectively.
         \textbf{(\subref{fig:epsi_spec_tocsy_noopt},\subref{fig:epsi_spec_tocsy_opt})} The corresponding 2D ultrafast TOCSY spectra, recorded with the unoptimised and optimised value of $\alpha$ respectively.
-        The MLEV mixing period used was \SI{10}{\ms}.
+        The MLEV mixing period used was \qty{10}{\ms}.
     }
     \label{fig:epsi_spec}
 \end{figure}

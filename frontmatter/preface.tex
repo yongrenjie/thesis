@@ -41,7 +41,7 @@ The underlying \LaTeX{} code for this thesis, as well as all figures, can be acc
 
 The caption of every figure showing experimental data includes a `code' at the end, which indicates the spectrometer and sample used for the data, as well as the date (in \texttt{YYMMDD} format).
 The available spectrometers and samples are enumerated in \cref{tbl:spectrometers,tbl:samples,fig:samples}.
-Therefore, for example, the code \texttt{7Z-211225} would represent data acquired on the \SI{700}{\MHz} spectrometer, using the zolmitriptan sample, on Christmas Day 2021.
+Therefore, for example, the code \texttt{7Z-211225} would represent data acquired on the \qty{700}{\MHz} spectrometer, using the zolmitriptan sample, on Christmas Day 2021.
 
 \begin{table}[htb]
     \begin{tabular}{ccl}
@@ -49,30 +49,30 @@ Therefore, for example, the code \texttt{7Z-211225} would represent data acquire
         \textbf{Code} & \textbf{Internal name} & \textbf{Details} \\
         \midrule
         \texttt{7} & \href{http://nmrweb.chem.ox.ac.uk/av700.aspx}{AV700} & \makecell[l]{
-             \SI{700}{\MHz} \proton{} resonance frequency \\
-             \SI{5}{\mm} TCI \proton{}/\carbon{}/\nitrogen{} inverse cryoprobe \\
-             \SI{53}{\gauss\per\cm} maximum $z$-gradient amplitude \\
+             \qty{700}{\MHz} \proton{} resonance frequency \\
+             \qty{5}{\mm} TCI \proton{}/\carbon{}/\nitrogen{} inverse cryoprobe \\
+             \qty{53}{\gauss\per\cm} maximum $z$-gradient amplitude \\
              AVANCE III console, TopSpin 3.6.2
          } \\
          \midrule
         \texttt{6} & \href{http://nmrweb.chem.ox.ac.uk/av600.aspx}{AV600} & \makecell[l]{
-             \SI{600}{\MHz} \proton{} resonance frequency \\
-             \SI{5}{\mm} Prodigy \ch{N2} broadband cryoprobe (\proton{}/\fluorine{} outer coil) \\
-             \SI{66}{\gauss\per\cm} maximum $z$-gradient amplitude \\
+             \qty{600}{\MHz} \proton{} resonance frequency \\
+             \qty{5}{\mm} Prodigy \ch{N2} broadband cryoprobe (\proton{}/\fluorine{} outer coil) \\
+             \qty{66}{\gauss\per\cm} maximum $z$-gradient amplitude \\
              AVANCE III console, TopSpin 3.6.2
          } \\
         \midrule
         \texttt{5} & \href{http://nmrweb.chem.ox.ac.uk/avx500.aspx}{AVX500} & \makecell[l]{
-             \SI{500}{\MHz} \proton{} resonance frequency \\
-             \SI{5}{\mm} TBO \proton{}/\fluorine{}/\ch{X} broadband room-temperature  probe \\
-             \SI{50}{\gauss\per\cm} maximum $z$-gradient amplitude \\
+             \qty{500}{\MHz} \proton{} resonance frequency \\
+             \qty{5}{\mm} TBO \proton{}/\fluorine{}/\ch{X} broadband room-temperature  probe \\
+             \qty{50}{\gauss\per\cm} maximum $z$-gradient amplitude \\
              AVANCE III console, TopSpin 3.6.2
          } \\
         \midrule
         \texttt{4} & \href{http://nmrweb.chem.ox.ac.uk/avb400.aspx}{AVB400} & \makecell[l]{
-             \SI{400}{\MHz} \proton{} resonance frequency \\
-             \SI{5}{\mm} broadband (room-temperature) SmartProbe \\
-             \SI{50}{\gauss\per\cm} maximum $z$-gradient amplitude \\
+             \qty{400}{\MHz} \proton{} resonance frequency \\
+             \qty{5}{\mm} broadband (room-temperature) SmartProbe \\
+             \qty{50}{\gauss\per\cm} maximum $z$-gradient amplitude \\
              AVANCE NEO console, TopSpin 4.0.8
          } \\
         \bottomrule
@@ -86,17 +86,17 @@ Therefore, for example, the code \texttt{7Z-211225} would represent data acquire
         \toprule
         \textbf{Code} & \textbf{Compound} & \textbf{Solvent} & \textbf{Concentration} \\
         \midrule
-        \texttt{A}  & Andrographolide & \dmso      & \SI{40}{\milli\molar}  \\
-        \texttt{B}  & (3-Fluorophenyl)boronic acid & \dmso & \SI{120}{\milli\molar}  \\
-        \texttt{C}  & Cyclosporin A   & \ch{C6D6}  & \SI{50}{\milli\molar}  \\
-        \texttt{E}  & Ethanol         & \ch{D2O}   & \SI{1}{\molar}         \\
-        \texttt{F}  & Ferulic acid    & \dmso      & \SI{50}{\milli\molar}  \\
-        \texttt{G}  & Gramicidin S    & \dmso      & \SI{40}{\milli\molar}  \\
+        \texttt{A}  & Andrographolide & \dmso      & \qty{40}{\milli\molar}  \\
+        \texttt{B}  & (3-Fluorophenyl)boronic acid & \dmso & \qty{120}{\milli\molar}  \\
+        \texttt{C}  & Cyclosporin A   & \ch{C6D6}  & \qty{50}{\milli\molar}  \\
+        \texttt{E}  & Ethanol         & \ch{D2O}   & \qty{1}{\molar}         \\
+        \texttt{F}  & Ferulic acid    & \dmso      & \qty{50}{\milli\molar}  \\
+        \texttt{G}  & Gramicidin S    & \dmso      & \qty{40}{\milli\molar}  \\
         \texttt{P}  & Rodent urine    & \ch{D2O}   & --                     \\
-        \texttt{S}  & Sucrose         & 90\% \ch{H2O} / 10\% \ch{D2O} & \SI{22}{\milli\molar}  \\
-        \texttt{T}  & Ethyl ferulate  & \dmso      & \SI{200}{\milli\molar} \\
-        \texttt{X}  & Brucine         & \ch{CDCl3} & \SI{50}{\milli\molar} \\
-        \texttt{Z}  & Zolmitriptan    & \dmso      & \SI{50}{\milli\molar}  \\
+        \texttt{S}  & Sucrose         & 90\% \ch{H2O} / 10\% \ch{D2O} & \qty{22}{\milli\molar}  \\
+        \texttt{T}  & Ethyl ferulate  & \dmso      & \qty{200}{\milli\molar} \\
+        \texttt{X}  & Brucine         & \ch{CDCl3} & \qty{50}{\milli\molar} \\
+        \texttt{Z}  & Zolmitriptan    & \dmso      & \qty{50}{\milli\molar}  \\
         \bottomrule
     \end{tabular}
     \caption[Samples used in this thesis]{Samples used in this thesis. Note that concentrations are approximate and not necessarily constant, as samples were remade over time due to e.g.\ decomposition. However, it is reasonable to assume that the variation in concentration is below 10\%. See \cref{fig:samples} for chemical structures.}

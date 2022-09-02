@@ -1,7 +1,21 @@
 \section{Introduction}
 \label{sec:noah__introduction}
 
-The opening sections for the NOAH chapter will likely be very similar to the recent RSC book chapter.
-That was written quite recently so reflects my current perspective quite accurately, and I am quite happy with the way it was laid out (in contrast to the \textit{Nature Reviews Methods Primers} work).
+The characterisation of small molecules and biomolecules by NMR spectroscopy relies on a suite of standard 2D NMR experiments, which seek to detect heteronuclear scalar couplings (e.g.\ HSQC and HMBC), homonuclear scalar couplings (e.g.\ COSY and TOCSY), or through-space interactions (e.g.\ NOESY and ROESY).
+Although 2D experiments provide far superior resolution and information content compared to 1D spectra, they also require substantially longer experiment durations, as the indirect dimension must be constructed through the acquisition of many $t_1$ increments.
+This problem is further exacerbated by the fact that structural elucidation or verification often necessitates the acquisition of several different 2D experiments.
 
-Magnetisation pools, etc.
+The acceleration of 2D NMR has thus proven to be a popular area of research, encompassing techniques such as
+\acf{nus}\autocite{Barna1987JMR,Kazimierczuk2010PNMRS,Mobli2014PNMRS,Kazimierczuk2015MRC},
+fast pulsing (i.e.\ shortening of recovery delays)\autocite{SchulzeSunninghausen2014JACS,Schanda2006JACS,Kupce2007MRC,Schanda2009PNMRS},
+ultrafast NMR\autocite{Frydman2002PNASUSA,Pelupessy2003JACS,Frydman2003JACS,Tal2010PNMRS,Gouilleux2018ARNMRS,Kupce2021NRMP},
+Hadamard encoding\autocite{Kupce2003JMR,Kupce2003PNMRS},
+and spectral aliasing\autocite{Jeannerat2000MRC,Bermel2009JACS,Njock2010C}.
+All of these methods seek to directly speed up the acquisition of \textit{individual} 2D spectra.
+In contrast, \textit{multiple-FID techniques} such as
+time-shared NMR\autocite{Nolis2007ACIE,Parella2010CMR},
+multiple-receiver NMR\autocite{Kupce2006JACS,Kupce2008JACS,Kovacs2016MRC},
+and---of course---NOAH supersequences\autocite{Kupce2017ACIE,Kupce2021PNMRS,Kupce2021NRMP},
+instead aim to collecting multiple 2D spectra in (roughly) the time needed to acquire one `conventional' 2D spectrum.
+This essentially amounts to an increase in \textit{efficiency}, rather than pure speed.
+

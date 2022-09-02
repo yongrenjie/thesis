@@ -19,7 +19,7 @@ I first sought to measure how the cost functions described above varied with the
 To this end, JRSE spectra using a \textit{single} saltire as the PSE and various flip angles (from \ang{10} to \ang{50}) were acquired (\cref{fig:fa_scan_cyclo}).
 Since both cost functions penalise both low sensitivity and low purity, we might expect that there is be an intermediate value where neither sensitivity nor purity were penalised too much: this would the `optimum' flip angle.
 In the event, it was found that only $f_\text{diff}$ yielded a useful---albeit shallow---minimum at around \ang{25} (recall that the PSE here is a single saltire, so this corresponds roughly to a \ang{15}--\ang{20} double saltire).
-The $f_\text{phase}$ cost function, on the other hand, was strictly decreasing within the range of flip angles tested: it is possible that there is an optimum at an even larger flip angle, but this would have been a scientifically unsound conclusion given that the sample was decently concentrated (\SI{50}{\milli\molar}).
+The $f_\text{phase}$ cost function, on the other hand, was strictly decreasing within the range of flip angles tested: it is possible that there is an optimum at an even larger flip angle, but this would have been a scientifically unsound conclusion given that the sample was decently concentrated (\qty{50}{\milli\molar}).
 
 This naturally raises the question of why $f_\text{diff}$ yields an optimum which falls within what we would consider a `sensible' region.
 It is tempting to believe that the form of $f_\text{diff}$ (\cref{eq:ps_cf_diff}), which is at first glance quite intuitive, naturally leads to a better result.

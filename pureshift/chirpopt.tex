@@ -31,7 +31,7 @@ The latter two parameters are assumed to be given in units of ordinary frequenci
     {\phantomsubcaption\label{fig:chirp_coefficients_cx}}%
     {\phantomsubcaption\label{fig:chirp_coefficients_cy}}%
     \caption[Phase and Cartesian amplitudes of a typical chirp pulse]{
-        Plots of the quantities in \cref{eq:chirp_pulse_phase,eq:chirp_pulse_cx,eq:chirp_pulse_cy} for a typical chirp pulse ($\taup = \SI{30}{\ms}$, $\Delta F = \SI{10}{\kHz}$).
+        Plots of the quantities in \cref{eq:chirp_pulse_phase,eq:chirp_pulse_cx,eq:chirp_pulse_cy} for a typical chirp pulse ($\taup = \qty{30}{\ms}$, $\Delta F = \qty{10}{\kHz}$).
         \textbf{(\subref{fig:chirp_coefficients_phase})} $\phi(t)$ wrapped to the range $[0, 2\pi)$.
         \textbf{(\subref{fig:chirp_coefficients_smoothing})} The quarter-sine smoothing profile which is later applied to the entire waveform (\cref{eq:sming_function}); here $s_\text{sm} = 0.2$.
         \textbf{(\subref{fig:chirp_coefficients_cx})} $c_x(t)/A$ prior to smoothing.
@@ -64,10 +64,10 @@ where $t' = t/\taup$ (and here $\taup$ refers to the duration of the \textit{ent
 
 The initial point chosen was:
 \begin{itemize}
-    \item Chirp 1: $\taup = \SI{15}{\ms}$; $\Delta F = \SI{-5}{\kHz}$; $\phi_0 = 0$; $A = \SI{36}{\Hz}$; $t_0 = 0$; $f_0 = \SI{5}{\kHz}$;
-    \item Chirp 2: $\taup = \SI{15}{\ms}$; $\Delta F = \SI{5}{\kHz}$; $\phi_0 = 0$; $A = \SI{36}{\Hz}$; $t_0 = 0$; $f_0 = \SI{-5}{\kHz}$.
+    \item Chirp 1: $\taup = \qty{15}{\ms}$; $\Delta F = \qty{-5}{\kHz}$; $\phi_0 = 0$; $A = \qty{36}{\Hz}$; $t_0 = 0$; $f_0 = \qty{5}{\kHz}$;
+    \item Chirp 2: $\taup = \qty{15}{\ms}$; $\Delta F = \qty{5}{\kHz}$; $\phi_0 = 0$; $A = \qty{36}{\Hz}$; $t_0 = 0$; $f_0 = \qty{-5}{\kHz}$.
 \end{itemize}
-After the sum of these two pulses is reflected about its end, we obtain a single saltire with bandwidth \SI{10}{\kHz}, duration $\SI{30}{\ms}$, and an amplitude of $\SI{72}{\Hz}$, corresponding to a flip angle of approximately \ang{32}.
+After the sum of these two pulses is reflected about its end, we obtain a single saltire with bandwidth \qty{10}{\kHz}, duration $\qty{30}{\ms}$, and an amplitude of $\qty{72}{\Hz}$, corresponding to a flip angle of approximately \ang{32}.
 
 \begin{figure}[htbp]
     \centering
@@ -88,12 +88,12 @@ After the sum of these two pulses is reflected about its end, we obtain a single
 Using this setup, several optimisations of the 12 parameters above were conducted using the $f_\text{diff}$ cost function, which had performed well enough in the flip angle optimisations.
 However, it was quickly noticed that this led to spurious optima being located, such as the one in \cref{fig:chirpopt_spurious_badoptimum}.
 Although the initial point (a saltire) yielded a much larger SNR (\cref{fig:chirpopt_spurious_saltire}), the value of $f_\text{diff}$ was still larger (i.e.\ worse) than for this false optimum.
-The reason for this is almost certainly because the saltire pulse distorts the relative intensity of the strong singlets in the spectrum, notably the $\ch{C6D5H}$ peak at \SI{7.15}{ppm}, and the \textit{N}-methyl groups between 2.5 and \SI{3.8}{\ppm}), whereas the false optimum does not (most likely by coincidence).
+The reason for this is almost certainly because the saltire pulse distorts the relative intensity of the strong singlets in the spectrum, notably the $\ch{C6D5H}$ peak at \qty{7.15}{ppm}, and the \textit{N}-methyl groups between 2.5 and \qty{3.8}{\ppm}), whereas the false optimum does not (most likely by coincidence).
 
 Of course, singlets are completely unimportant when devising a pure shift experiment.
 Unfortunately, singlets are also typically more intense than the rest of the spectrum, and thus contribute disproportionately to the cost function.
 A simple and effective way to circumvent this is to restrict the region of the spectrum being evaluated.
-In this case, I chose to use the cyclosporin $\ch{H}^{\alpha}$ region between 4.72 and \SI{5.94}{ppm} (grey dotted box in \cref{fig:chirpopt_spurious}).
+In this case, I chose to use the cyclosporin $\ch{H}^{\alpha}$ region between 4.72 and \qty{5.94}{ppm} (grey dotted box in \cref{fig:chirpopt_spurious}).
 This yields a formally different cost function, which I label as $f'_\text{diff}$.
 With this, much more logical behaviour was observed: in particular, the saltire pulse performed better than the spurious optimum previously found.
 

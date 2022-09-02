@@ -13,7 +13,7 @@ Here, $G$ is the amplitude of the encoding and decoding gradients, $\delta$ the 
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[draft=false]{pp/poise/dosy.png}
+    \includegraphics[]{pp/poise/dosy.png}
     {\phantomsubcaption\label{fig:poise_dosy_pulseq_ste}}
     {\phantomsubcaption\label{fig:poise_dosy_pulseq_stebpp}}
     {\phantomsubcaption\label{fig:poise_dosy_pulseq_oneshot}}
@@ -33,7 +33,7 @@ Traditionally, this is done `by hand' by acquiring individual increments of the 
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[draft=false]{poise/diffusion_sim.png}%
+    \includegraphics[]{poise/diffusion_sim.png}%
     {\phantomsubcaption\label{fig:diffusion_sim_weak}}%
     {\phantomsubcaption\label{fig:diffusion_sim_ok}}%
     {\phantomsubcaption\label{fig:diffusion_sim_strong}}%
@@ -73,7 +73,7 @@ In this case, we are going in the other direction, allowing POISE to be incorpor
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[draft=false]{poise/dosy_flowchart.png}%
+    \includegraphics[]{poise/dosy_flowchart.png}%
     \caption[Flowchart for DOSY parameter optimisation]{
         Flowchart for DOSY parameter optimisation. In fact, this consists of two subproblems which can be individually solved using POISE.
     }
@@ -88,7 +88,7 @@ In principle, though, the optimisation can be run with any DOSY variant, includi
 The first optimisation subproblem is the determination of an appropriate diffusion delay $\Delta$.
 Since larger diffusion delays lead to a greater loss of signal through $T_1$ relaxation, as well as more convection\autocite{Swan2015JMR}, $\Delta$ should always be kept as short as possible.%
 \footnote{In hindsight, it would likely have been better to increase $\delta$ instead: this would also have a larger effect as the attenuation depends quadratically on $\delta$ but only linearly on $\Delta$. Care must be taken to not increase $\delta$ beyond what the spectrometer can tolerate, though.}
-Thus, the wrapper script should always be started with the smallest value of $\Delta$ which is sensible for the sample under study: in the present case, I used an initial value of \SI{50}{\ms}.
+Thus, the wrapper script should always be started with the smallest value of $\Delta$ which is sensible for the sample under study: in the present case, I used an initial value of \qty{50}{\ms}.
 The next step is to determine whether using the full range of available gradient amplitudes leads to sufficient attenuation (which I defined to be 75\%), relative to the first increment of the DOSY acquired using $G_\text{min}$.
 This involves setting $G_\text{max}$ to the largest permissible value (for the Oneshot sequence, this is 80\%), then calculating a cost function $f_\text{dosy,aux}$:
 \begin{equation}
@@ -102,7 +102,7 @@ In order for the wrapper script to monitor this cost function, POISE is instruct
 At each point, POISE stores the value of $f_\text{dosy,aux}$ in the \texttt{TI} parameter, allowing the wrapper script to check it.
 If the value of $f_\text{dosy,aux}$ is negative, then the wrapper script moves on to the next subproblem.
 However, if it is still positive, then there is no way the desired attenuation can be accomplished using the gradient strengths available.
-Thus, $\Delta$ is increased by a fixed amount (\SI{50}{\ms} in this case), and the sub-optimisation step repeated.\footnote{If sample spinning is used, then this incrementation of $\Delta$ needs to be chosen carefully, as the diffusion delay should always correspond to an integral number of rotations.}
+Thus, $\Delta$ is increased by a fixed amount (\qty{50}{\ms} in this case), and the sub-optimisation step repeated.\footnote{If sample spinning is used, then this incrementation of $\Delta$ needs to be chosen carefully, as the diffusion delay should always correspond to an integral number of rotations.}
 
 Once a suitable value of $\Delta$ has been found, the script then searches for the correct value of $G_\text{max}$ in order to provide the `correct' amount of attenuation (in this case, 75\%).
 This is done through a conventional POISE optimisation, where the cost function is
@@ -132,11 +132,11 @@ I am more comfortable labelling this as a demonstration of how POISE can be inte
 The DOSY optimisation procedure described above was tested on the sample of andrographolide (in DMSO-$d_6$.
 Despite this being a single-component sample, it does at least have some mildly interesting behaviour, in that the exchangeable \ch{OH} protons have a larger apparent diffusion coefficient compared to the \ch{CH} protons.
 
-As described previously, the procedure was initialised with a value of $\Delta = \SI{50}{\ms}$.
-The gradient duration $\delta$, which is not modified, was set to \SI{2}{\ms}.
-Invariably, the first sub-optimisation increased this diffusion delay to \SI{100}{\ms}.
+As described previously, the procedure was initialised with a value of $\Delta = \qty{50}{\ms}$.
+The gradient duration $\delta$, which is not modified, was set to \qty{2}{\ms}.
+Invariably, the first sub-optimisation increased this diffusion delay to \qty{100}{\ms}.
 Since this part only uses one function evaluation in POISE, the optimisation algorithm used does not actually matter.
-However, the algorithm does matter for the second sub-optimisation (which searches for the `ideal' $G_\text{max}$).
+However, the algorithm does matter for the second sub-optimisation (which searches for the best value of $G_\text{max}$).
 This part was therefore performed five times per algorithm, in line with previous optimisations in this chapter (\cref{tbl:poise_dosy_opt2}).
 
 \begin{table}[htb]
@@ -144,15 +144,15 @@ This part was therefore performed five times per algorithm, in line with previou
     \centering
     \begin{tabular}{ccccc}
         \toprule
-        Entry & Algorithm & Optimum found (\%) & FEs  & Time taken (\si{\s}) \\
+        Entry & Algorithm & Optimum found (\%) & FEs  & Time taken (\unit{\s}) \\
         \midrule
         1     & NM        & 75.00              & 9    & 195--197             \\
         2     & MDS       & 75.00              & 9    & 196--197             \\
         3     & BOBYQA    & 75.00--75.60       & 8--9 & 175--197             \\
         \bottomrule
     \end{tabular}
-    \caption{
-        Results of gradient amplitude sub-optimisation for diffusion NMR spectroscopy.
+    \caption[DOSY maximum gradient amplitude sub-optimisations]{
+        Results of maximum gradient amplitude sub-optimisations for DOSY parameter setup.
         The POISE routine used here is: \mintinline[breaklines]{json}{{"name": "dosy", "pars": ["gpz1"], "lb": [20.0], "ub": [80.0], "init": [50.0], "tol": [2.0], "cf": "dosy", "au": "poise_1d"}}.
         \datacode{6A-200823}
     }
@@ -160,9 +160,9 @@ This part was therefore performed five times per algorithm, in line with previou
 \end{table}
 
 In this case, all three algorithms converged to the same result of $75\%$.
-The full Oneshot DOSY spectrum was then acquired using these parameters of $\Delta = \SI{100}{\ms}$, $\delta = \SI{2}{\ms}$, and $G_\text{max} = 75\%$ (nominally \SI{49.3}{\gauss\per\cm} on the spectrometer used here, see \cref{tbl:spectrometers}).
+The full Oneshot DOSY spectrum was then acquired using these parameters of $\Delta = \qty{100}{\ms}$, $\delta = \qty{2}{\ms}$, and $G_\text{max} = 75\%$ (nominally \qty{49.3}{\gauss\per\cm} on the spectrometer used here, see \cref{tbl:spectrometers}).
 The overall time taken was approximately five minutes: two for the first sub-optimisation to find $\Delta$, and three for the second sub-optimisation (as shown in \cref{tbl:poise_dosy_opt2}).
-This figure may of course be larger depending on the number of scans used (here I used \texttt{DS=2} and \texttt{NS=4}), as well as how many iterations there are in the first sub-optimisation (each iteration contributes two FEs since the reference spectrum with $G_\text{min}$ must be re-acquired when $\Delta$ is changed).
+This figure may of course be larger depending on the number of scans used (here I used \texttt{DS=2} and \texttt{NS=4}), as well as the number of iterations required in the first sub-optimisation.
 
 The resulting attenuation profiles for one \ch{CH} and one \ch{OH} peak are shown in \cref{fig:poise_diffusion_profiles}.
 The apparently more slowly-diffusing \ch{CH} peak is attenuated to 28\% of its original intensity, whereas the exchanging \ch{OH} peak is attenuated to 20\%.
@@ -173,11 +173,11 @@ Gaussian fitting using the modified Stejskal--Tanner equation
     I(G) = I(0) \exp\left\{-(\gamma\delta G)^2 D \left[\Delta - \frac{\delta(5 - 3\alpha^2)}{16} - \frac{\tau(1-\alpha^2)}{2}\right]\right\}
 \end{equation}
 yielded \textit{apparent} diffusion coefficients of \qty{7.411(13)e-9}{\m\squared\per\s} for the \ch{CH} peak and \qty{9.369(49)e-9}{\m\squared\per\s} for the \ch{OH} peak.
-(The equation was obtained from the pulse sequence provided on the University of Manchester website; here $\tau$ represents the time between the midpoints of each gradient within the bipolar pulse pair, and $\alpha$ the gradient imbalance factor as shown in \cref{fig:poise_dosy_pulseq_oneshot}.)
+(The equation was obtained from the pulse programme provided on the University of Manchester website; here $\tau$ represents the time between the midpoints of each gradient within the bipolar pulse pair, and $\alpha$ the gradient imbalance factor as shown in \cref{fig:poise_dosy_pulseq_oneshot}.)
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[draft=false]{poise/dosy_profiles.png}%
+    \includegraphics[]{poise/dosy_profiles.png}%
     \caption[Diffusion profiles of \ch{CH} and \ch{OH} peaks after optimisation of DOSY parameters]{
         Diffusion profiles obtained using a Oneshot experiment for a \ch{CH} peak (blue, circles) and an \ch{OH} peak (orange, crosses) in andrographolide.
         The dashed lines represent the Gaussian curves obtained through non-linear least-squares fitting (\texttt{scipy.optimize.curve\_fit}).
@@ -189,11 +189,21 @@ yielded \textit{apparent} diffusion coefficients of \qty{7.411(13)e-9}{\m\square
 
 
 
-\subsubsection{Simultaneous optimisation of $\Delta$ and $G_\text{max}$}
+\subsubsection{Simultaneous optimisation of $\symbf{\Delta}$ and $\symbfit{G}_\text{max}$}
 
 It is possible---albeit inefficient, as previously mentioned---to dispense with the wrapper script entirely and perform a single optimisation of both $\Delta$ and $G_\text{max}$.
-In order to ensure that $\Delta$ is not increased by too much, we must add a penalty term to the cost function:
+In order to ensure that $\Delta$ is not increased too much, we must add a penalty term to the cost function:
 \begin{equation}
     \label{eq:dosy_2p_cf}
-    f_\text{dosy,2p} = f_\text{dosy} + (\Delta / \unit{\s})
+    f_\text{dosy,2p} = f_\text{dosy} + (\Delta / \unit{\s}) = \left| \frac{\sum_i S_i(G_\text{max})}{\sum_i S_i(G_\text{min})} - 0.25 \right| + (\Delta / \unit{\s})
 \end{equation}
+(where `2p' stands for two-parameter).
+One significant drawback of this is that the reference spectrum $\symbf{S}(G_\text{min})$ must be reacquired every time $\Delta$ is changed: so, each FE requires twice as long as before.
+For example, using the NM algorithm, the optimisation converged to $\Delta = \qty{91.6}{\ms}$ and $G_\text{max} = 79.3\%$.
+Although this result is quite similar to what we had obtained before, the optimisation took over 26 minutes, over five times longer than previously.
+I therefore opted not to perform the full 15 optimisations.
+
+Curiously, BOBYQA did not work as well with this cost function: in the two times I tested it, BOBYQA converged to an `optimum' of $\Delta = \qty{225}{\ms}$ and $G_\text{max} = 50\%$.
+This did yield the expected 75\% attenuation in the spectrum, but $\Delta$ is clearly rather longer than we would like it to be.
+Furthermore, because of the penalty term, the value of the cost function at this point was far larger than the corresponding optimum found using the NM algorithm.
+It is likely that some of the trust-region optimisation parameters must be tweaked to make this work properly, but I did not spend any further time investigating this.

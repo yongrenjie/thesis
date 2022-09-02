@@ -16,13 +16,13 @@ This can either be recorded in a 2D form where the $\tau$ delay is incremented a
 The delay $\tau$ was specified as the parameter \texttt{D27}, and the \texttt{zerorealint} cost function used here is just the absolute value of the integral over the region of interest: an ideal null would have a cost function value of 0.
 \Cref{tbl:ernst_invrec} provides the theoretical values of $T_1 \ln 2$, which were calculated using the more accurate 2D fitting procedure.
 
-A slight drawback of using this method, compared to the Ernst angle optimisations in the previous section, is that the recovery delay must be sufficiently long to allow for complete relaxation between FEs: in this case, I used a \texttt{D1} of \SI{5}{\s}.
+A slight drawback of using this method, compared to the Ernst angle optimisations in the previous section, is that the recovery delay must be sufficiently long to allow for complete relaxation between FEs: in this case, I used a \texttt{D1} of \qty{5}{\s}.
 On the other hand, this also means that dummy scans are no longer needed: I therefore set \texttt{DS=0} and \texttt{NS=1}.
 
 
 \subsubsection{Optimisation results}
 
-Just as in the Ernst angle optimisations, these were performed twice, once on the entire 6--\SI{8}{\ppm} region and once on just a single peak (note that this time, the chosen peak is at \SI{7.08}{\ppm}), or peak 3 in \cref{tbl:ernst_invrec}).
+Just as in the Ernst angle optimisations, these were performed twice, once on the entire 6--\qty{8}{\ppm} region and once on just a single peak (note that this time, the chosen peak is at \qty{7.08}{\ppm}), or peak 3 in \cref{tbl:ernst_invrec}).
 The results are shown in \cref{tbl:invrec_fivepeaks,tbl:invrec_onepeak}.
 The former correctly yields an `averaged' value over the five peaks, and the latter closely matches the theoretical value for the peak in question.
 
@@ -31,7 +31,7 @@ The former correctly yields an `averaged' value over the five peaks, and the lat
     \centering
     \begin{tabular}{ccccc}
         \toprule
-        Entry & Algorithm & Optimum found (\si{\s}) & FEs    & Time taken (\si{\s}) \\
+        Entry & Algorithm & Optimum found (\unit{\s}) & FEs    & Time taken (\unit{\s}) \\
         \midrule
         1     & NM        & 0.938--0.969            & 14--16 & 204--235             \\
         2     & MDS       & 0.956--0.975            & 16     & 233--235             \\
@@ -39,7 +39,7 @@ The former correctly yields an `averaged' value over the five peaks, and the lat
         \bottomrule
     \end{tabular}
     \caption[Inversion--recovery optimisations on a range of peaks]{
-        Inversion--recovery optimisations on all aromatic and olefinic peaks in ferulic acid (between 6 and \SI{8}{\ppm}.
+        Inversion--recovery optimisations on all aromatic and olefinic peaks in ferulic acid (between 6 and \qty{8}{\ppm}.
         The POISE routine used here is: \mintinline[breaklines]{json}{{"name": "invrec", "pars": ["d27"], "lb": [0.35], "ub": [1.75], "init": [0.6], "tol": [0.01], "cf": "zerorealint", "au": "poise_1d"}}.
         \datacode{5F-210619}
     }
@@ -51,7 +51,7 @@ The former correctly yields an `averaged' value over the five peaks, and the lat
     \centering
     \begin{tabular}{ccccc}
         \toprule
-        Entry & Algorithm & Optimum found (\si{\s}) & FEs   & Time taken (\si{\s}) \\
+        Entry & Algorithm & Optimum found (\unit{\s}) & FEs   & Time taken (\unit{\s}) \\
         \midrule
         1     & NM        & 0.863--0.875            & 14    & 202--205             \\
         2     & MDS       & 0.863--0.869            & 14    & 203--204             \\
@@ -59,9 +59,9 @@ The former correctly yields an `averaged' value over the five peaks, and the lat
         \bottomrule
     \end{tabular}
     \caption[Inversion--recovery optimisations on only one peak]{
-        Inversion--recovery optimisations on the peak at \SI{7.08}{\ppm} in ferulic acid.
-        The POISE routine is the same as in \cref{tbl:poise_ernst_fivepeaks}, but the spectral region under optimisation was set to be 7.02--\SI{7.15}{\ppm}.
-        The theoretical optimum (from \cref{tbl:ernst_invrec}) is \SI{0.887}{\s}.
+        Inversion--recovery optimisations on the peak at \qty{7.08}{\ppm} in ferulic acid.
+        The POISE routine is the same as in \cref{tbl:poise_ernst_fivepeaks}, but the spectral region under optimisation was set to be 7.02--\qty{7.15}{\ppm}.
+        The theoretical optimum (from \cref{tbl:ernst_invrec}) is \qty{0.887}{\s}.
         \datacode{5F-210619}
     }
     \label{tbl:invrec_onepeak}

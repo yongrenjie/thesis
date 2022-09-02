@@ -39,12 +39,12 @@ Equivalently, we can define an `effective J-coupling', $J_\text{eff}$ for which 
 
 \subsubsection{Optimisation setup}
 
-Given the analysis above, it is extraordinarily easy to set up the optimisation: the parameter being optimised is $J_\text{eff}$, and the initial point chosen is simply $\oneJ{CH}$ (to be precise, a `compromise' $\oneJ{CH}$ value of \SI{150}{\Hz}).
+Given the analysis above, it is extraordinarily easy to set up the optimisation: the parameter being optimised is $J_\text{eff}$, and the initial point chosen is simply $\oneJ{CH}$ (to be precise, a `compromise' $\oneJ{CH}$ value of \qty{150}{\Hz}).
 Although generally it is not a good idea to use a 2D experiment as part of the FE, in this specific case it is acceptable because the ASAP-HSQC has such a short running time.
 In this case, we simply take the projection of the 2D ASAP-HSQC onto the $F_2$ axis, integrate it, and take the negative to obtain the cost function (negative because we are trying to maximise the intensity).
 
 A reference grid search was performed so that I could later verify the optimisation results (\cref{fig:asaphsqc_scan}).
-The exact point where the crosspeak intensities are maximised is not obvious: generally, the signal increases up until $J_\text{eff} \approx \SI{230}{\Hz}$, after which it plateaus off.
+The exact point where the crosspeak intensities are maximised is not obvious: generally, the signal increases up until $J_\text{eff} \approx \qty{230}{\Hz}$, after which it plateaus off.
 In a similar fashion to the NOE optimisations (\cref{subsec:poise__noe}), we may therefore consider any value above this to be `correct'.
 
 \begin{figure}[htb]
@@ -58,7 +58,7 @@ In a similar fashion to the NOE optimisations (\cref{subsec:poise__noe}), we may
 \end{figure}
 
 To speed up the optimisation, optimisations were run using a `low-quality' ASAP-HSQC spectrum with only 32 $t_1$ increments.
-A recovery delay of \SI{0.1}{\s} was used.
+A recovery delay of \qty{0.1}{\s} was used.
 
 \subsubsection{Optimisation results}
 
@@ -67,7 +67,7 @@ A recovery delay of \SI{0.1}{\s} was used.
     \centering
     \begin{tabular}{ccccc}
         \toprule
-        Entry & Algorithm & Optimum found (\si{\Hz}) & FEs  & Time taken (\si{\s}) \\
+        Entry & Algorithm & Optimum found (\unit{\Hz}) & FEs  & Time taken (\unit{\s}) \\
         \midrule
         1     & NM        & 250.0--256.3            & 8--9 & 169--195             \\
         2     & MDS       & 237.5--243.8            & 8    & 171--179             \\
@@ -89,7 +89,7 @@ A recovery delay of \SI{0.1}{\s} was used.
     {\phantomsubcaption\label{fig:asaphsqc_spec_proj}}%
     \caption[Projections of ASAP-HSQC spectra before and after optimisation]{
         \textbf{(\subref{fig:asaphsqc_spec_spec})} ASAP-HSQC spectrum of the 3-fluorophenylboronic acid sample.
-        \textbf{(\subref{fig:asaphsqc_spec_proj})} Projections of the ASAP-HSQC spectra before (grey dotted line, using $J_\text{eff} = \SI{150}{\Hz}$) and after (green dotted line, using $J_\text{eff} = \SI{245}{\Hz}$) optimisation of the INEPT delay.
+        \textbf{(\subref{fig:asaphsqc_spec_proj})} Projections of the ASAP-HSQC spectra before (grey dotted line, using $J_\text{eff} = \qty{150}{\Hz}$) and after (green dotted line, using $J_\text{eff} = \qty{245}{\Hz}$) optimisation of the INEPT delay.
         Sensitivity increases for each peak are indicated.
         \datacode{7B-200722}
     }
@@ -97,7 +97,7 @@ A recovery delay of \SI{0.1}{\s} was used.
 \end{figure}
 
 The results from the POISE optimisations are collated in \cref{tbl:poise_asaphsqc}.
-As can be seen, even though the FE involves acquisition of a 2D spectrum, the optimisation itself completes in just 2--3 minutes, correctly converging to $J_\text{eff}$ values in the region of around \SI{240}{\Hz}.
+As can be seen, even though the FE involves acquisition of a 2D spectrum, the optimisation itself completes in just 2--3 minutes, correctly converging to $J_\text{eff}$ values in the region of around \qty{240}{\Hz}.
 When re-evaluated on a `full' ASAP-HSQC experiment with 64 $t_1$ increments (\cref{fig:asaphsqc_spec_spec}),%
 \footnote{The \carbon{} resonances of interest in this compound fall within a very small window, so relatively few $t_1$ increments are needed.}
 the optimisation yielded an 18--27\% improvement in the sensitivity of the ASAP-HSQC spectrum, as shown in \cref{fig:asaphsqc_spec_proj}.

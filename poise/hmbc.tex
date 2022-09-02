@@ -50,7 +50,7 @@ Although the LPJF--HSQC can in principle be recorded as a full 2D experiment, to
 
 For simplicity, I chose to reuse the definitions of $\tau_1$ and $\tau_2$ in the Bruker library sequence (\cref{eq:hmbc_lpjf_bruker}): the optimisation parameters are $J_\text{min}$ and $J_\text{max}$.%
 \footnote{Note that using the definitions in \cref{eq:hmbc_lpjf_theoretical_min,eq:hmbc_lpjf_theoretical_max} would not yield any difference in the final optimised result, since it is always possible to tweak $J_\text{min}$ and $J_\text{max}$ in \cref{eq:hmbc_lpjf_bruker} to match these `better' values of $\tau_1$ and $\tau_2$.}
-Both parameters were constrained to lie between 100 and \SI{200}{\Hz}, with a tolerance of \SI{3}{\Hz}.
+Both parameters were constrained to lie between 100 and \qty{200}{\Hz}, with a tolerance of \qty{3}{\Hz}.
 To match the magnitude-mode processing typically used for 2D HMBC experiments, the acquisition AU programme was modified to also process this spectrum in magnitude mode.
 The integral of the entire spectrum can therefore be used as the desired cost function for the POISE optimisation.
 More specifically, I chose to use a sum of squares:
@@ -76,7 +76,7 @@ These optima should therefore not be viewed as a representative summary of the f
         \toprule
               &           & \multicolumn{3}{c}{Best optimum found} & \multicolumn{2}{c}{Aggregated results} \\
         \cmidrule(lr){3-5} \cmidrule(lr){6-7}
-        Entry & Algorithm & $J_\text{min}$ & $J_\text{max}$ & $f_\text{sos} / 10^7$ & FEs & Time taken (\si{\s}) \\
+        Entry & Algorithm & $J_\text{min}$ & $J_\text{max}$ & $f_\text{sos} / 10^7$ & FEs & Time taken (\unit{\s}) \\
         \midrule
         1     & NM        & 143.07 & 185.71                 & 8.65 & 20--24 & 358--430 \\
         2     & MDS       & 141.73 & 185.82                 & 8.36 & 18     & 321--323 \\
@@ -119,7 +119,7 @@ However, the exact reasons for this remain unclear.
     {\phantomsubcaption\label{fig:poise_hmbc_spec_opt2}}%
     {\phantomsubcaption\label{fig:poise_hmbc_spec_3}}%
     \caption[HMBC spectra before and after optimisation]{
-        \textbf{(\subref{fig:poise_hmbc_spec_unopt2})} HMBC spectrum with `compromise' values of 120 and \SI{180}{\Hz} for $J_\text{min}$ and $J_\text{max}$ respectively in the second-order LPJF.
+        \textbf{(\subref{fig:poise_hmbc_spec_unopt2})} HMBC spectrum with `compromise' values of 120 and \qty{180}{\Hz} for $J_\text{min}$ and $J_\text{max}$ respectively in the second-order LPJF.
         The one-bond artefacts are highlighted in red boxes.
         \textbf{(\subref{fig:poise_hmbc_spec_opt2})} HMBC spectrum with optimised second-order LPJF delays.
         \textbf{(\subref{fig:poise_hmbc_spec_3})} HMBC spectrum with third-order LPJF.
@@ -158,7 +158,7 @@ I therefore sought to apply the same optimisation routine to the $zz$-HMBC modul
         \toprule
               &           & \multicolumn{3}{c}{Best optimum found} & \multicolumn{2}{c}{Aggregated results} \\
         \cmidrule(lr){3-5} \cmidrule(lr){6-7}
-        Entry & Algorithm & $J_\text{min}$ & $J_\text{max}$ & $f_\text{sos} / 10^9$ & FEs & Time taken (\si{\s}) \\
+        Entry & Algorithm & $J_\text{min}$ & $J_\text{max}$ & $f_\text{sos} / 10^9$ & FEs & Time taken (\unit{\s}) \\
         \midrule
         1     & NM        & 117.05 & 188.59                 & 5.37 & 25--29 & 451--523 \\
         2     & MDS       & 125.21 & 193.16                 & 5.35 & 14--17 & 249--310 \\
@@ -185,9 +185,9 @@ This was indeed verified experimentally: the addition of a \carbon{} \ang{90} pu
     {\phantomsubcaption\label{fig:poise_hmbc_noah_spec_opt}}%
     {\phantomsubcaption\label{fig:poise_hmbc_noah_spec_with90}}%
     \caption[NOAH HMBC spectra before and after optimisation]{
-        \textbf{(\subref{fig:poise_hmbc_noah_spec_unopt})} NOAH HMBC spectrum before POISE optimisation, using the default settings of 120 and \SI{180}{\Hz}.
+        \textbf{(\subref{fig:poise_hmbc_noah_spec_unopt})} NOAH HMBC spectrum before POISE optimisation, using the default settings of 120 and \qty{180}{\Hz}.
         One-bond artefacts are highlighted in red boxes.
-        \textbf{(\subref{fig:poise_hmbc_noah_spec_opt})} NOAH HMBC spectrum after POISE `optimisation' (using $J_\text{min} = \SI{125.2}{\Hz}$, $J_\text{max} = \SI{193.2}{\Hz}$, as per entry 2 of \cref{tbl:poise_hmbc_noah}).
+        \textbf{(\subref{fig:poise_hmbc_noah_spec_opt})} NOAH HMBC spectrum after POISE `optimisation' (using $J_\text{min} = \qty{125.2}{\Hz}$, $J_\text{max} = \qty{193.2}{\Hz}$, as per entry 2 of \cref{tbl:poise_hmbc_noah}).
         \textbf{(\subref{fig:poise_hmbc_noah_spec_with90})} NOAH HMBC spectrum with no POISE optimisation, but instead adding a \ang{90} \carbon{} pulse at the end of the $zz$-filter (see also \todo{SECTION}).
         \datacode{7Z-210814}
     }

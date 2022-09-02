@@ -48,16 +48,16 @@ def minabsint():
 To check whether this cost function is sensible, I manually acquired a series of spectra with increasing pulse widths and calculated $f_\text{minabsint}$ for all of these (\cref{fig:p1_scan}).
 In this thesis, I will refer to this process as a \textit{reference grid search}.
 It should be noted that reference grid searches are a time-consuming procedure, and an end-user of POISE generally does \textit{not} need to do this: I only do it here to provide some insight into the nature of the optimisation.
-In any case, it is clear that there is a well-defined minimum, located in this case at \SI{48.3}{\us}; we expect that POISE routines will converge to this point.
+In any case, it is clear that there is a well-defined minimum, located in this case at \qty{48.3}{\us}; we expect that POISE routines will converge to this point.
 
 To complete the description of the POISE optimisation, it remains to define the rest of the optimisation routine.
 I chose the initial point to be four times the \texttt{prosol} value for \texttt{P1}: this represents our `best guess' and is derived from prior calibration of the pulse width on a standard sample.
-The tolerance is set to \SI{0.2}{\us}, which corresponds to an accuracy of \SI{0.05}{\us} for the \ang{90} pulse width itself.
-The lower and upper bounds are set to be \SI{8}{\us} away from the initial point, representing a `sensible' region within which we expect the null to lie (this may need to be adjusted for samples with high ionic strength, but for typical organic samples this is more than enough).
+The tolerance is set to \qty{0.2}{\us}, which corresponds to an accuracy of \qty{0.05}{\us} for the \ang{90} pulse width itself.
+The lower and upper bounds are set to be \qty{8}{\us} away from the initial point, representing a `sensible' region within which we expect the null to lie (this may need to be adjusted for samples with high ionic strength, but for typical organic samples this is more than enough).
 A standard \texttt{poise\_1d} acquisition AU programme is used, which simply acquires the spectrum and performs Fourier transformation, phase correction, and baseline correction.
 The routine in JSON format is shown in the caption to \cref{tbl:poisecal_48}.
-Finally, in order to reduce the time taken for the optimisation, several tricks are used: each FE is run using no dummy scans and only one scan, the acquisition time is set to just \SI{1.1}{\s} (high resolution is not required for a reliable cost function value), and the recovery delay \texttt{D1} is set to 0.
-In practice, there is an extra gap of $\sim$ \SI{5}{\s} between successive FEs due to spectrometer initialisation, so an extra recovery delay is not needed.
+Finally, in order to reduce the time taken for the optimisation, several tricks are used: each FE is run using no dummy scans and only one scan, the acquisition time is set to just \qty{1.1}{\s} (high resolution is not required for a reliable cost function value), and the recovery delay \texttt{D1} is set to 0.
+In practice, there is an extra gap of $\sim$ \qty{5}{\s} between successive FEs due to spectrometer initialisation, so an extra recovery delay is not needed.
 
 
 \subsubsection{The competition}
@@ -66,7 +66,7 @@ The performance of POISE can be compared against two `competitors' in this area.
 The traditional method of determining the \ang{90} pulse width is to measure a pulse width array (colloquially, `to array the pulse width').\autocite{Keifer1999CMR}
 This entails measuring a series of pulse--acquire spectra, over which $\taup$ is evenly incremented: in optimisation parlance this would be called a \textit{grid search}.
 This leads to a sinusoidal pattern in the peak intensities, from which the \ang{360} null can be directly read off.
-An example of this is shown in \cref{fig:p1_scan_spectra}, where the \ang{360} null at $\taup \approx \SI{48}{\us}$ is visible (it is never a \textit{perfect} null because of off-resonance effects and $\omega_1$, i.e.\ $B_1$, inhomogeneity).
+An example of this is shown in \cref{fig:p1_scan_spectra}, where the \ang{360} null at $\taup \approx \qty{48}{\us}$ is visible (it is never a \textit{perfect} null because of off-resonance effects and $\omega_1$, i.e.\ $B_1$, inhomogeneity).
 
 \begin{figure}[htb]
     \centering
@@ -110,7 +110,7 @@ On the other hand, the \ang{360} null (as measured through \texttt{popt} or POIS
     \centering
     \begin{tabular}{ccccc}
         \toprule
-        Entry & Method & Optimum found (\si{\us}) & FEs & Time taken (\si{\s}) \\
+        Entry & Method & Optimum found (\unit{\us}) & FEs & Time taken (\unit{\s}) \\
         \midrule
         1  & \texttt{popt}      & 48.40        & 41   & 299    \\
         2  & \texttt{pulsecal}  & 46.64        & --   & 37     \\
@@ -121,7 +121,7 @@ On the other hand, the \ang{360} null (as measured through \texttt{popt} or POIS
     \end{tabular}
     \caption[Comparison of methods for \ang{360} pulse width determination]{
         Comparison of methods for \ang{360} pulse width determination.
-        \texttt{popt} grid searches were run between values of \SI{40}{\us} and \SI{56}{\us}, with a linear increment of \SI{0.4}{\us} (which, through interpolation, provides a precision of approximately \SI{0.2}{\us} in the result, matching the tolerance used for POISE).
+        \texttt{popt} grid searches were run between values of \qty{40}{\us} and \qty{56}{\us}, with a linear increment of \qty{0.4}{\us} (which, through interpolation, provides a precision of approximately \qty{0.2}{\us} in the result, matching the tolerance used for POISE).
         \texttt{pulsecal} was run as normal and the reported pulse width multiplied by 4 to obtain the \ang{360} pulse width for comparison.
         POISE optimisations were run according to the routine in \cref{tbl:poisecal_48}.
         \datacode{6F-200826}
@@ -134,7 +134,7 @@ On the other hand, the \ang{360} null (as measured through \texttt{popt} or POIS
 
 Compared to these two existing methods, we expect POISE to be faster than the \texttt{popt} grid search, and also more accurate than the nutation experiment in \texttt{pulsecal}.
 This is borne out in practice (\cref{tbl:poisecal_48}).
-\texttt{popt} yields an optimum of \SI{48.4}{\us}, which is closely matched by POISE.
+\texttt{popt} yields an optimum of \qty{48.4}{\us}, which is closely matched by POISE.
 However, POISE locates this optimum using far fewer FEs because its algorithms are more efficient than a simple grid search.
 While \texttt{pulsecal} is even faster than POISE, it underestimates the \ang{90} pulse width by about 4\%.
 In this particular case, POISE is the only option which strikes a useful balance between speed and accuracy.
@@ -145,22 +145,22 @@ These results also provide the first evidence that Py-BOBYQA is generally faster
 
 One question we might reasonably ask is how robust POISE is towards poor initial guesses.
 In the case of the pulse width calibration, the answer is: \textit{very} robust.
-\Cref{tbl:poisecal_43,tbl:poisecal_53} summarise the results obtained with an initial guess of \SI{43}{\us} and \SI{53}{\us} respectively.
+\Cref{tbl:poisecal_43,tbl:poisecal_53} summarise the results obtained with an initial guess of \qty{43}{\us} and \qty{53}{\us} respectively.
 There is slightly decreased performance in that a few more FEs are required for convergence, but the accuracy of the result is unchanged.
 
 \begin{table}[htb]
     \centering
     \begin{tabular}{ccccc}
         \toprule
-        Entry & Method      & Optimum found (\si{\us}) & FEs & Time taken (\si{\s}) \\
+        Entry & Method      & Optimum found (\unit{\us}) & FEs & Time taken (\unit{\s}) \\
         \midrule
         1 & POISE (NM)     & 48.38        & 14 & 109--114 \\
         2 & POISE (MDS)    & 48.38        & 14 & 108--112  \\
         3 & POISE (BOBYQA) & 48.27--48.33 & 9  & 70       \\
         \bottomrule
     \end{tabular}
-    \caption[Pulse width calibrations using initial guess of \SI{43}{\us}]{
-        Pulse width optimisations with an initial point of \SI{43}{\us}.
+    \caption[Pulse width calibrations using initial guess of \qty{43}{\us}]{
+        Pulse width optimisations with an initial point of \qty{43}{\us}.
         The POISE routine is the same as in \cref{tbl:poisecal_48}, except with \texttt{"init":[43.0]}.
         \datacode{6F-200826}
     }
@@ -171,15 +171,15 @@ There is slightly decreased performance in that a few more FEs are required for 
     \centering
     \begin{tabular}{ccccc}
         \toprule
-        Entry & Method      & Optimum found (\si{\us}) & FEs & Time taken (\si{\s}) \\
+        Entry & Method      & Optimum found (\unit{\us}) & FEs & Time taken (\unit{\s}) \\
         \midrule
         1 & POISE (NM)     & 48.38        & 14 & 110--114 \\
         2 & POISE (MDS)    & 48.25--48.38 & 16 & 123--126 \\
         3 & POISE (BOBYQA) & 48.26--48.33 & 9  & 69--70   \\
         \bottomrule
     \end{tabular}
-    \caption[Pulse width calibrations using initial guess of \SI{53}{\us}]{
-        Pulse width optimisations with an initial point of \SI{53}{\us}.
+    \caption[Pulse width calibrations using initial guess of \qty{53}{\us}]{
+        Pulse width optimisations with an initial point of \qty{53}{\us}.
         The POISE routine is the same as in \cref{tbl:poisecal_48}, except with \texttt{"init":[53.0]}.
         \datacode{6F-200826}
     }

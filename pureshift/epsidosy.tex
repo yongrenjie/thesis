@@ -2,7 +2,7 @@
 \label{sec:pureshift__epsidosy}
 
 In the final section of this chapter, I turn to something entirely different: the combination of pure shift diffusion NMR with ultrafast acquisition.
-This work was done in collaboration with Jean-Nicolas Dumez (University of Nantes): the original project idea was first conceived and implemented there.
+This work was done in collaboration with \JND{} (University of Nantes): the original project idea was first conceived and implemented there.
 Unfortunately, the results we obtained at Oxford were not promising enough to drive the project further, especially in light of time constraints.
 However, for the sake of completeness, I describe the overall concept as well as these results in this section.
 
@@ -66,7 +66,7 @@ Note also that it is mandatory to use unidirectional chirps in the PSYCHE PSE: i
 However, in the ultrafast version, the PSE is also responsible for creating the requisite spatial encoding of gradient areas.
 Using saltire pulses here would lead to an undesired `double' encoding, yielding data which cannot be processed correctly.
 
-The sequence itself was written and evaluated by Corentin Jacquemmoz and Jean-Nicolas Dumez at the University of Nantes, on a concentrated (\SI{1}{\molar}) sample of ethanol in \ch{D2O}.
+The sequence itself was written and evaluated by Corentin Jacquemmoz and \JND{} at the University of Nantes, on a concentrated (\qty{1}{\molar}) sample of ethanol in \ch{D2O}.
 Their results are shown in \cref{fig:epsi_jnd_mf_jnd_kt,fig:epsi_jnd_mf_jnd_zd,fig:epsi_jnd_mf_jnd_trace}.
 When I later tried to reproduce these results, I additionally used the POISE routine described in \cref{subsec:poise__epsi} to optimise the amplitude ratio between the positive and negative gradients during the EPSI acquisition (without optimisation, the results obtained were even poorer); my results are shown in \cref{fig:epsi_jnd_mf_mf_kt,fig:epsi_jnd_mf_mf_zd,fig:epsi_jnd_mf_mf_trace}.
 The data processing used to generate these figures was written by me,\footnote{The Nantes team have a more complete Matlab package for this, which goes several steps further than that shown here and includes features such as phase correction and fitting of the diffusion profiles to various (though not yet fully appropriate) Stejskal--Tanner equations. However, these were not necessary here as the project never got to that stage, and I preferred to use Python.} and broadly consists of the following steps: reshaping of the EPSI raw data, concatenation of PSYCHE chunks, and Fourier transformation in both dimensions.%
@@ -83,7 +83,7 @@ For simplicity, the data points acquired during the negative gradients is discar
     {\phantomsubcaption\label{fig:epsi_jnd_mf_mf_zd}}%
     {\phantomsubcaption\label{fig:epsi_jnd_mf_mf_trace}}%
     \caption[Comparison of EPSI PSYCHE-iDOSY data acquired in Nantes and Oxford]{
-        \textbf{(\subref{fig:epsi_jnd_mf_jnd_kt})--(\subref{fig:epsi_jnd_mf_jnd_trace})} EPSI PSYCHE-iDOSY data obtained by Corentin Jacquemmoz and Jean-Nicolas Dumez at the University of Nantes.
+        \textbf{(\subref{fig:epsi_jnd_mf_jnd_kt})--(\subref{fig:epsi_jnd_mf_jnd_trace})} EPSI PSYCHE-iDOSY data obtained by Corentin Jacquemmoz and \JND{} at the University of Nantes.
         The three plots respectively show the 2D raw $(k, t_2)$ data (after PSYCHE processing has been carried out); the Fourier transformed $(z, \delta)$ data; and the individual diffusion profiles for each peak.
         \textbf{(\subref{fig:epsi_jnd_mf_mf_kt})--(\subref{fig:epsi_jnd_mf_mf_trace})} The equivalent data which I recorded in Oxford.
         The central peak corresponds to \ch{HDO}; the Oxford sample used was drier and thus it is less intense in (\subref{fig:epsi_jnd_mf_mf_zd}) compared to (\subref{fig:epsi_jnd_mf_jnd_zd}).
@@ -143,7 +143,7 @@ However, a simple pulse--EPSI experiment (\cref{fig:zg_epsi}) shows that the $B_
 
 Curiously, \cref{fig:epsi_jnd_mf_mf_kt} shows that in the Oxford data, there is a progressive `shifting' along the $k$-axis in each PSYCHE chunk.
 (The POISE optimisation in \cref{subsec:poise__epsi} was used to correct for the drifting \textit{within} each chunk, but cannot be applied to the overall drift after the concatenation of chunks.)
-One possible explanation for this (Jean-Nicolas Dumez, private communication) is perhaps lingering effects from gradients applied during the pulse sequence, which have more time to dissipate when $t_1$ is longer.
+One possible explanation for this is perhaps lingering effects from gradients applied during the pulse sequence, which have more time to dissipate when $t_1$ is longer.
 This, however, does not have an appreciable impact on the data: it can be crudely corrected by circularly shifting the data along the $k$-axis by an appropriate amount, and Fourier transformation of the resulting data yielded effectively the same results.
 
 All in all, it appears that the fundamental idea behind the ultrafast PSYCHE-iDOSY experiment is sound: the Nantes data is an excellent proof-of-principle.

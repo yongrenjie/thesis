@@ -150,13 +150,13 @@ The resulting spectra (\cref{fig:dpsyche_sens}) show that adjusting $c$ has the 
 \end{figure}
 
 In this spectrum of andrographolide, the \qtyrange{3.5}{5}{\ppm} region (blue inset) is an `easier' region to decouple: there are fewer couplings here and all spin systems are firmly within the weak coupling regime.
-The \qtyrange{1.5}{2.8}{\ppm} region (orange inset) is `more difficult' to decouple, especially the two peaks at \SI{2.5}{\ppm}, which are mutually strongly coupled.
+The \qtyrange{1.5}{2.8}{\ppm} region (orange inset) is `more difficult' to decouple, especially the two peaks at \qty{2.5}{\ppm}, which are mutually strongly coupled.
 The dPSYCHE spectrum with $c = 0.4$ appeared to be a good compromise between purity and sensitivity: its sensitivity was higher than that of the original (\ang{20} flip angle) PSYCHE experiment.
-Furthermore, it provided good decoupling in the `easier' deshielded region and somewhat acceptable performance in the shielded region, with the notable exception of the strongly coupled peaks at \SI{2.5}{\ppm}.
+Furthermore, it provided good decoupling in the `easier' deshielded region and somewhat acceptable performance in the shielded region, with the notable exception of the strongly coupled peaks at \qty{2.5}{\ppm}.
 
 I therefore ran a longer optimisation using the same starting point and with no limit on the number of function evaluations, which successfully lowered the cost function value by twofold (the last entry in \cref{tbl:dpsyche_sens}).
 The pure shift spectrum obtained using these optimised pulses is shown in \cref{fig:dpsyche_optsens3}.
-The decoupling quality in both regions is comparable to that in the PSYCHE spectrum, again with the exception of the strongly coupled peaks at \SI{2.5}{\ppm}.
+The decoupling quality in both regions is comparable to that in the PSYCHE spectrum, again with the exception of the strongly coupled peaks at \qty{2.5}{\ppm}.
 
 \begin{figure}[htb]
     % matlab_nmr_jy/research/optim_specdiff/opt_sens3.m
@@ -187,8 +187,8 @@ The decoupling quality in both regions is comparable to that in the PSYCHE spect
 \end{figure}
 
 To make the dPSYCHE experiment more robust towards strong coupling, a TSE version of the sequence was also written and tested (\cref{fig:tsedpsyche_optsens3}).
-This did indeed improve the decoupling at \SI{2.5}{\ppm}, as expected.
-However, although the TSE-dPSYCHE version still retains its \textit{overall} sensitivity advantage over TSE-PSYCHE (especially evident in the deshielded region), this is not true of every peak: the two peaks at 1.65 and \SI{1.70}{\ppm} seem to have decreased intensities in the TSE-dPSYCHE experiment.
+This did indeed improve the decoupling at \qty{2.5}{\ppm}, as expected.
+However, although the TSE-dPSYCHE version still retains its \textit{overall} sensitivity advantage over TSE-PSYCHE (especially evident in the deshielded region), this is not true of every peak: the two peaks at 1.65 and \qty{1.70}{\ppm} seem to have decreased intensities in the TSE-dPSYCHE experiment.
 The reason for this remains unclear.
 
 % number of pulses (maybe can omit?)

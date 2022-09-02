@@ -59,21 +59,21 @@ However, it does imply that \texttt{AQ} should be kept as short as possible, and
 \begin{figure}[htb]
     \centering
     \includegraphics[]{poise/ernst_sensitivity.png}%
-    \caption[Sensitivity per unit time as a function of \texttt{AQ} and \texttt{D1}]{Sensitivity per unit time as a function of \texttt{AQ} and \texttt{D1}, assuming that an Ernst angle excitation pulse is used. $T_1$ was set to \SI{1.5}{\s}.}
+    \caption[Sensitivity per unit time as a function of \texttt{AQ} and \texttt{D1}]{Sensitivity per unit time as a function of \texttt{AQ} and \texttt{D1}, assuming that an Ernst angle excitation pulse is used. $T_1$ was set to \qty{1.5}{\s}.}
     \label{fig:ernst_sensitivity}
 \end{figure}
 
 Knowing this, we can then set up a meaningful optimisation routine.
 We seek to optimise the pulse width \texttt{P1} such that the intensity of the real part of the spectrum is maximised (corresponding to a \texttt{maxrealint} cost function).
 In practice, I took the extra step of calibrating the \ang{90} pulse width (as per the previous section) and modifying the pulse programme such that the flip angle could be specified as the parameter \texttt{CNST20}: this is not generally necessary and is only useful for evaluating the results, as will be shown later.
-As per the above analysis, I set \texttt{AQ} and \texttt{D1} to be \SI{1.2}{\s} and 0 respectively.
+As per the above analysis, I set \texttt{AQ} and \texttt{D1} to be \qty{1.2}{\s} and 0 respectively.
 The number of scans (\texttt{NS}) can be set to 1, but unlike in the pulse width calibration (\cref{subsec:poise__pulsecal}), we must use enough dummy scans to ensure that a steady-state signal intensity is recorded: in practice I set \texttt{DS=4}.
 This means that each FE, and thus the overall optimisation, requires a slightly longer time than the pulse width calibrations previously shown.
 
 
 \subsubsection{Optimisation results}
 
-The Ernst angle optimisation was run with two different spectral regions of interest: firstly, on all the aromatic and olefinic peaks in the sample of ferulic acid (\cref{tbl:poise_ernst_fivepeaks}), and secondly, on only the peak at \SI{6.79}{\ppm} (\cref{tbl:poise_ernst_onepeak}).
+The Ernst angle optimisation was run with two different spectral regions of interest: firstly, on all the aromatic and olefinic peaks in the sample of ferulic acid (\cref{tbl:poise_ernst_fivepeaks}), and secondly, on only the peak at \qty{6.79}{\ppm} (\cref{tbl:poise_ernst_onepeak}).
 (This spectral region can be selected using the TopSpin \texttt{dpl} command, which stores the bounds using the parameters \texttt{F1P} and \texttt{F2P}: all built-in cost functions respect these two parameters.)
 Generally, optimisations could be completed in under two minutes.
 The optima found for these two optimisations are different: this is because the former searches for a compromise Ernst angle which balances $T_1$ of all peaks within the region, and the latter optimises only for one $T_1$.
@@ -83,7 +83,7 @@ The optima found for these two optimisations are different: this is because the 
     \centering
     \begin{tabular}{ccccc}
         \toprule
-        Entry & Algorithm & Optimum found ($^\circ$) & FEs   & Time taken (\si{\s}) \\
+        Entry & Algorithm & Optimum found ($^\circ$) & FEs   & Time taken (\unit{\s}) \\
         \midrule
         1     & NM        & 67.5--73.1               & 9--13 & 91--132              \\
         2     & MDS       & 67.5--73.1               & 9     & 90--92               \\
@@ -91,7 +91,7 @@ The optima found for these two optimisations are different: this is because the 
         \bottomrule
     \end{tabular}
     \caption[Ernst angle optimisations on a range of peaks]{
-        Ernst angle optimisation, performed on all aromatic and olefinic peaks in ferulic acid (between 6 and \SI{8}{\ppm}).
+        Ernst angle optimisation, performed on all aromatic and olefinic peaks in ferulic acid (between 6 and \qty{8}{\ppm}).
         The POISE routine used here is: \mintinline[breaklines]{json}{{"name": "ernst", "pars": ["cnst20"], "lb": [10.0], "ub": [90.0], "init": [30.0], "tol": [3.0], "cf": "maxrealint", "au": "poise_1d"}}.
         \datacode{5F-210619}
     }
@@ -103,7 +103,7 @@ The optima found for these two optimisations are different: this is because the 
     \centering
     \begin{tabular}{ccccc}
         \toprule
-        Entry & Algorithm & Optimum found ($^\circ$) & FEs   & Time taken (\si{\s}) \\
+        Entry & Algorithm & Optimum found ($^\circ$) & FEs   & Time taken (\unit{\s}) \\
         \midrule
         1     & NM        & 60.0--67.5               & 9--11 & 91--111              \\
         2     & MDS       & 65.6--67.5               & 11    & 110--111             \\
@@ -111,8 +111,8 @@ The optima found for these two optimisations are different: this is because the 
         \bottomrule
     \end{tabular}
     \caption[Ernst angle optimisations on only one peak]{
-        Ernst angle optimisations on the peak at \SI{6.79}{\ppm} in ferulic acid.
-        The POISE routine is the same as in \cref{tbl:poise_ernst_fivepeaks}, but the spectral region under optimisation was set to be 6.71--\SI{6.87}{\ppm}
+        Ernst angle optimisations on the peak at \qty{6.79}{\ppm} in ferulic acid.
+        The POISE routine is the same as in \cref{tbl:poise_ernst_fivepeaks}, but the spectral region under optimisation was set to be 6.71--\qty{6.87}{\ppm}
         The theoretical optimum, as given in \cref{tbl:ernst_invrec}, is \ang{61.6}.
         \datacode{5F-210619}
     }
@@ -128,7 +128,7 @@ On the other hand, the second optimisation yields an accurate value for the rele
     \centering
     \begin{tabular}{ccccc}
         \toprule
-        Peak & \proton{} chemical shift (ppm) & $T_1$ (\si{\s}) & $\theta_\text{E}$ ($^\circ$) & $T_1\ln 2$ (\si{\s})\\
+        Peak & \proton{} chemical shift (ppm) & $T_1$ (\unit{\s}) & $\theta_\text{E}$ ($^\circ$) & $T_1\ln 2$ (\unit{\s})\\
         \midrule
         1 & 7.49 & 1.750 & 59.8 & 1.213 \\
         2 & 7.27 & 0.977 & 73.0 & 0.677 \\
@@ -138,7 +138,7 @@ On the other hand, the second optimisation yields an accurate value for the rele
         \bottomrule
     \end{tabular}
     \caption[$T_1$ values for ferulic acid]{
-        $T_1$ and corresponding Ernst angles for each peak in ferulic acid, calculated for a repetition time of \SI{1.20}{\s}.
+        $T_1$ and corresponding Ernst angles for each peak in ferulic acid, calculated for a repetition time of \qty{1.20}{\s}.
         The values of $T_1 \ln 2$ are also provided here, in anticipation of the inversion--recovery experiments performed in \cref{subsec:poise__invrec}.
         \datacode{5F-210619}
     }
