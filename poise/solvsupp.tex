@@ -1,9 +1,9 @@
 \subsection{Water suppression}
 \label{subsec:poise__solvsupp}
 
-The optimisation of water suppression represents a slightly simpler example of multiple-parameter optimisation.
-In particular, the 1D NOESY experiment with presaturation (\cref{fig:poise_solvsupp_pulseq}) was used as the pulse sequence to optimise\autocite{Mckay2011CMR}: its performance depends on up to four parameters, namely the transmitter offset (\texttt{O1}), presaturation power (\texttt{CNST20} in the pulse programme I used), the NOE mixing time (\texttt{D8}), and the presaturation duration or recovery delay (\texttt{D1}).
-In this section, I use the symbols $\nu_\text{tx}$, $k$, $\taum$, and $\taur$ to respectively refer to these four parameters.
+The suppression of solvent signals is one of the most important techniques in modern NMR, especially in cases where solvent deuteration is not a viable strategy (e.g.\ when exchangeable protons must be observed).\autocite{Zheng2010PNMRS,Giraudeau2015M}
+Here, we specifically seek to optimise the 1D NOESY experiment with presaturation\autocite{Mckay2011CMR} (\cref{fig:poise_solvsupp_pulseq}): although this sequence is popular, its performance can depend on at least four parameters, namely the transmitter offset, presaturation power, the NOE mixing time, and the presaturation duration or recovery delay.
+In this section, I use the symbols $\nu_\text{tx}$, $k$, $\taum$, and $\taur$ to respectively refer to these four parameters: the corresponding TopSpin parameters are \texttt{O1}, \texttt{CNST20}, \texttt{D8}, and \texttt{D1}.
 
 \begin{figure}[htb]
     \centering
@@ -180,6 +180,7 @@ However, for more routine usage, it is probably preferable to limit the number o
 The water suppression optimisations shown above were in fact developed and first evaluated on a sample of sucrose in 90\% \ch{H2O}/10\% \ch{D2O}.
 This sample is less `interesting' in that there are no resonances close to the water peak, and I also did not perform replicates of each optimisation run (this data never made it into the POISE paper).
 Nevertheless, I still believe it is still worth adding the results here, as they demonstrate that the optimisation procedure can be easily applied to different samples.
+Furthermore, the suppression requirements are even more demanding here because there is simply more water present.
 
 In this case, the one-parameter optimisation seemed to have no significant effect on the result: this is possibly because the initial value chosen for that single parameter (the transmitter offset) already happened to be an optimum.
 However, the two- through four-parameter optimisations all yielded significant improvements in the water suppression (\cref{fig:poise_solvsupp_sucrose_spec}).

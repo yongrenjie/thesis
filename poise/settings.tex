@@ -10,15 +10,15 @@ Likewise, parameters such as the number of scans can be adjusted in order to run
 Once the experiment parameters have been set up, there are a few more options which control how the optimisation is carried out:
 
 \begin{itemize}
-    \item the \texttt{--maxfev} option allows the user to control the maximum number of FEs, or in other words, the maximum number of experiments run.
+    \item the \texttt{-\phantom{}-maxfev} option allows the user to control the maximum number of FEs, or in other words, the maximum number of experiments run.
         If the optimisation has not converged after acquiring this many spectra, the best result so far is simply returned.
         This effectively allows the time spent on optimisation to be capped.
 
-    \item the \texttt{--quiet} option silences all output from the optimiser (the best parameters found are stored in the dataset itself after the optimisation ends, and can therefore be retrieved).
+    \item the \texttt{-\phantom{}-quiet} option silences all output from the optimiser (the best parameters found are stored in the dataset itself after the optimisation ends, and can therefore be retrieved).
         This is useful when a POISE optimisation is to be run under automation.
         
-    \item the \texttt{--separate} option allows each FE to be run in a new experiment number, so that the optimisation trajectory can be analysed after its conclusion.
+    \item the \texttt{-\phantom{}-separate} option allows each FE to be run in a new experiment number, so that the optimisation trajectory can be analysed after its conclusion.
 
-    \item perhaps most importantly, the \texttt{--algorithm} option allows the user to choose one of three optimisation algorithms.
+    \item perhaps most importantly, the \texttt{-\phantom{}-algorithm} option allows the user to choose one of three optimisation algorithms.
         I now describe these algorithms in greater detail.
 \end{itemize}

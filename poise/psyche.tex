@@ -1,7 +1,7 @@
 \subsection{PSYCHE pure shift NMR}
 \label{subsec:poise__psyche}
 
-In \cref{sec:pureshift__optimisation}, I described early attempts towards the optimisation of PSYCHE pure shift spectra.
+In \cref{sec:pureshift__optimisation}, I described the motivation behind, and early attempts towards, the optimisation of PSYCHE pure shift spectra.
 The content in this section is similar, except that it was performed within the framework of POISE.
 
 \begin{figure}[htb]
@@ -23,7 +23,7 @@ The content in this section is similar, except that it was performed within the 
 
 \subsubsection{Optimisation setup}
 
-In this section, the standard double-saltire PSYCHE pure shift element was used (\cref{fig:poise_psyche_pulseq_psyche}).
+In this section, the standard double-saltire PSYCHE pure shift element was used (\cref{fig:poise_psyche_pulseq_psyche}).\autocite{Foroozandeh2014ACIE,Foroozandeh2018CEJ}
 As described in \cref{subsec:pureshift__optim_techniques}, the PSYCHE pure shift element can be described using six parameters; in this section, we investigate only three of these, namely the amplitude (i.e.\ flip angle $\beta$), bandwidth $\Delta F$, and duration $\taup$.
 In addition to this, the amplitude of the weak gradient during the PSE $g_3$ was also chosen as a fourth parameter to vary.
 As before, the quality of the PSE is evaluated using a JRSE experiment (\cref{fig:poise_psyche_pulseq_jrse}), which is then compared against a pulse--acquire spectrum: the cost function used is $f_\text{diff}$.
