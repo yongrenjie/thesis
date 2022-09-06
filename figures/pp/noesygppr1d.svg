@@ -24,13 +24,13 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="2.2430184"
-     inkscape:cx="141.55033"
-     inkscape:cy="308.73576"
+     inkscape:zoom="2.1030557"
+     inkscape:cx="149.06881"
+     inkscape:cy="278.40442"
      inkscape:window-width="1355"
-     inkscape:window-height="530"
+     inkscape:window-height="502"
      inkscape:window-x="1812"
-     inkscape:window-y="186"
+     inkscape:window-y="158"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1">
     <inkscape:grid
@@ -146,16 +146,16 @@
        inkscape:export-ydpi="500" />
     <text
        xml:space="preserve"
-       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
-       x="52.714878"
-       y="63.470825"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+       x="53.501114"
+       y="59.212498"
        id="text16419-7-4-9-6"><tspan
          sodipodi:role="line"
          id="tspan16417-1-3-5-2"
-         style="font-style:italic;fill:#023eff;stroke-width:0.264583"
-         x="52.714878"
-         y="63.470825">τ<tspan
-   style="font-style:normal;font-size:65%;baseline-shift:sub"
+         style="font-style:italic;fill:#000000;stroke-width:0.264583"
+         x="53.501114"
+         y="59.212498">τ<tspan
+   style="font-style:normal;font-size:65%;baseline-shift:sub;fill:#000000"
    id="tspan35352-7">m</tspan></tspan></text>
     <text
        inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
@@ -262,8 +262,8 @@
    style="font-style:normal;font-size:65%;baseline-shift:sub"
    id="tspan35109-9-5">2</tspan></tspan></text>
     <path
-       style="fill:#023eff;stroke:#023eff;stroke-width:0.32;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow1L-2);marker-end:url(#marker43746-8)"
-       d="M 48.009179,65.058326 H 62.400001"
+       style="fill:#000000;stroke:#000000;stroke-width:0.32;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow1L-2);marker-end:url(#marker43746-8)"
+       d="M 48,60.8 H 62.390822"
        id="path43533-0" />
     <text
        inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"

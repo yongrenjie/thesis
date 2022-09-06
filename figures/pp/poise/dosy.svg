@@ -25,10 +25,10 @@
      inkscape:document-units="mm"
      showgrid="true"
      inkscape:zoom="1.495176"
-     inkscape:cx="249.80337"
-     inkscape:cy="144.13019"
+     inkscape:cx="213.68722"
+     inkscape:cy="277.22489"
      inkscape:window-width="1503"
-     inkscape:window-height="708"
+     inkscape:window-height="680"
      inkscape:window-x="1863"
      inkscape:window-y="25"
      inkscape:window-maximized="0"
@@ -377,13 +377,13 @@
      id="layer1">
     <text
        xml:space="preserve"
-       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
        x="34.316296"
        y="13.710385"
        id="text16419-7-5"><tspan
          sodipodi:role="line"
          id="tspan16417-1-8"
-         style="font-style:italic;fill:#023eff;stroke-width:0.264583"
+         style="font-style:italic;fill:#000000;stroke-width:0.264583"
          x="34.316296"
          y="13.710385">ε</tspan></text>
     <text
@@ -467,13 +467,13 @@
        inkscape:export-ydpi="500" />
     <text
        xml:space="preserve"
-       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
        x="60.236877"
        y="13.710378"
        id="text16419-7-5-8"><tspan
          sodipodi:role="line"
          id="tspan16417-1-8-5"
-         style="font-style:italic;fill:#023eff;stroke-width:0.264583"
+         style="font-style:italic;fill:#000000;stroke-width:0.264583"
          x="60.236877"
          y="13.710378">ε</tspan></text>
     <rect
@@ -521,13 +521,13 @@
        id="path1293-5" />
     <text
        xml:space="preserve"
-       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
        x="46.971657"
        y="13.710385"
        id="text16419-1"><tspan
          sodipodi:role="line"
          id="tspan16417-7"
-         style="fill:#023eff;stroke-width:0.264583"
+         style="fill:#000000;stroke-width:0.264583"
          x="46.971657"
          y="13.710385">Δ</tspan></text>
     <text
@@ -595,13 +595,13 @@
        d="M 47.051671,24 A 0.94832939,4.7999983 0 0 1 48,19.200002 0.94832939,4.7999983 0 0 1 48.948329,24 H 48 Z" />
     <text
        xml:space="preserve"
-       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
        x="34.316292"
        y="42.510387"
        id="text16419-7-5-9"><tspan
          sodipodi:role="line"
          id="tspan16417-1-8-0"
-         style="font-style:italic;fill:#023eff;stroke-width:0.264583"
+         style="font-style:italic;fill:#000000;stroke-width:0.264583"
          x="34.316292"
          y="42.510387">ε</tspan></text>
     <text
@@ -685,13 +685,13 @@
        inkscape:export-ydpi="500" />
     <text
        xml:space="preserve"
-       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
        x="69.836876"
        y="42.510384"
        id="text16419-7-5-8-9"><tspan
          sodipodi:role="line"
          id="tspan16417-1-8-5-7"
-         style="font-style:italic;fill:#023eff;stroke-width:0.264583"
+         style="font-style:italic;fill:#000000;stroke-width:0.264583"
          x="69.836876"
          y="42.510384">ε</tspan></text>
     <rect
@@ -759,13 +759,13 @@
        id="path1293-5-6" />
     <text
        xml:space="preserve"
-       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
        x="47.771652"
        y="35.200001"
        id="text16419-1-5"><tspan
          sodipodi:role="line"
          id="tspan16417-7-7"
-         style="fill:#023eff;stroke-width:0.264583"
+         style="fill:#000000;stroke-width:0.264583"
          x="47.771652"
          y="35.200001">Δ</tspan></text>
     <text
@@ -836,24 +836,24 @@
        inkscape:export-ydpi="500" />
     <text
        xml:space="preserve"
-       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
        x="64.716301"
        y="42.510384"
        id="text16419-7-5-8-9-1"><tspan
          sodipodi:role="line"
          id="tspan16417-1-8-5-7-7"
-         style="font-style:italic;fill:#023eff;stroke-width:0.264583"
+         style="font-style:italic;fill:#000000;stroke-width:0.264583"
          x="64.716301"
          y="42.510384">ε</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
        x="39.116295"
        y="42.510387"
        id="text1376"><tspan
          sodipodi:role="line"
          id="tspan1374"
-         style="font-style:italic;fill:#023eff;stroke-width:0.264583"
+         style="font-style:italic;fill:#000000;stroke-width:0.264583"
          x="39.116295"
          y="42.510387">ε</tspan></text>
     <text
@@ -915,13 +915,13 @@
          y="68.799995">(c)</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
        x="40.716293"
        y="71.310387"
        id="text16419-7-5-9-8"><tspan
          sodipodi:role="line"
          id="tspan16417-1-8-0-2"
-         style="font-style:italic;fill:#023eff;stroke-width:0.264583"
+         style="font-style:italic;fill:#000000;stroke-width:0.264583"
          x="40.716293"
          y="71.310387">ε</tspan></text>
     <text
@@ -995,13 +995,13 @@
        inkscape:export-ydpi="500" />
     <text
        xml:space="preserve"
-       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
        x="76.236877"
        y="71.310379"
        id="text16419-7-5-8-9-6"><tspan
          sodipodi:role="line"
          id="tspan16417-1-8-5-7-2"
-         style="font-style:italic;fill:#023eff;stroke-width:0.264583"
+         style="font-style:italic;fill:#000000;stroke-width:0.264583"
          x="76.236877"
          y="71.310379">ε</tspan></text>
     <rect
@@ -1148,28 +1148,28 @@
        inkscape:export-ydpi="500" />
     <text
        xml:space="preserve"
-       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
        x="71.116302"
        y="71.310379"
        id="text16419-7-5-8-9-1-2"><tspan
          sodipodi:role="line"
          id="tspan16417-1-8-5-7-7-8"
-         style="font-style:italic;fill:#023eff;stroke-width:0.264583"
+         style="font-style:italic;fill:#000000;stroke-width:0.264583"
          x="71.116302"
          y="71.310379">ε</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
        x="45.516296"
        y="71.310387"
        id="text1376-5"><tspan
          sodipodi:role="line"
          id="tspan1374-9"
-         style="font-style:italic;fill:#023eff;stroke-width:0.264583"
+         style="font-style:italic;fill:#000000;stroke-width:0.264583"
          x="45.516296"
          y="71.310387">ε</tspan></text>
     <path
-       style="fill:#023eff;stroke:#023eff;stroke-width:0.32;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow1L);marker-end:url(#marker43746)"
+       style="fill:#023eff;stroke:#000000;stroke-width:0.32;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow1L);marker-end:url(#marker43746)"
        d="m 35.199998,36.799997 h 27.2"
        id="path43533" />
     <path
@@ -1300,17 +1300,17 @@
        inkscape:export-ydpi="500" />
     <text
        xml:space="preserve"
-       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
        x="54.171654"
        y="63.999992"
        id="text16419-1-5-0"><tspan
          sodipodi:role="line"
          id="tspan16417-7-7-1"
-         style="fill:#023eff;stroke-width:0.264583"
+         style="fill:#000000;stroke-width:0.264583"
          x="54.171654"
          y="63.999992">Δ</tspan></text>
     <path
-       style="fill:#023eff;stroke:#023eff;stroke-width:0.32;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow1L-2);marker-end:url(#marker43746-3)"
+       style="fill:#023eff;stroke:#000000;stroke-width:0.32;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow1L-2);marker-end:url(#marker43746-3)"
        d="m 41.600001,65.599994 h 27.2"
        id="path43533-0" />
   </g>

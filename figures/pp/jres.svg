@@ -8,7 +8,7 @@
    version="1.1"
    id="svg5"
    inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)"
-   sodipodi:docname="2dj.svg"
+   sodipodi:docname="jres.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -25,12 +25,12 @@
      inkscape:document-units="mm"
      showgrid="true"
      inkscape:zoom="2.2474519"
-     inkscape:cx="8.2315444"
-     inkscape:cy="28.25422"
+     inkscape:cx="47.831947"
+     inkscape:cy="28.699168"
      inkscape:window-width="1355"
-     inkscape:window-height="614"
+     inkscape:window-height="586"
      inkscape:window-x="2028"
-     inkscape:window-y="157"
+     inkscape:window-y="129"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1">
     <inkscape:grid
@@ -107,38 +107,37 @@
        inkscape:export-xdpi="500"
        inkscape:export-ydpi="500" />
     <g
-       id="g2786"
-       transform="translate(-58.658243,-51.767673)">
+       id="g879">
       <text
          xml:space="preserve"
-         style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
-         x="76.800003"
-         y="65.599998"
+         style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+         x="18.14176"
+         y="13.832326"
          id="text35356-0"><tspan
            sodipodi:role="line"
            id="tspan35354-1"
-           style="fill:#023eff;stroke-width:0.264583"
-           x="76.800003"
-           y="65.599998"><tspan
-             style="font-style:italic"
+           style="fill:#000000;stroke-width:0.264583"
+           x="18.14176"
+           y="13.832326"><tspan
+             style="font-style:italic;fill:#000000"
              id="tspan35358-8">t</tspan><tspan
-             style="font-size:65%;baseline-shift:sub"
+             style="font-size:65%;baseline-shift:sub;fill:#000000"
              id="tspan35360-7-7">1</tspan></tspan></text>
       <path
-         style="fill:none;stroke:#023eff;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         d="m 76.258246,66.858979 h 3.200001"
+         style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 17.600003,15.091306 h 3.200001"
          id="path2687" />
       <text
          xml:space="preserve"
-         style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
-         x="77.029221"
-         y="70.229485"
+         style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+         x="18.370977"
+         y="18.461811"
          id="text16419-7-4-7-9-6"><tspan
            sodipodi:role="line"
            id="tspan16417-1-3-8-1-4"
-           style="font-style:normal;fill:#023eff;stroke-width:0.264583"
-           x="77.029221"
-           y="70.229485">2</tspan></text>
+           style="font-style:normal;fill:#000000;stroke-width:0.264583"
+           x="18.370977"
+           y="18.461811">2</tspan></text>
     </g>
     <rect
        inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
@@ -151,38 +150,37 @@
        inkscape:export-xdpi="500"
        inkscape:export-ydpi="500" />
     <g
-       id="g2786-7"
-       transform="translate(-40.930842,-51.767676)">
+       id="g895">
       <text
          xml:space="preserve"
-         style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
-         x="76.800003"
-         y="65.599998"
+         style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+         x="35.86916"
+         y="13.832322"
          id="text35356-0-1"><tspan
            sodipodi:role="line"
            id="tspan35354-1-3"
-           style="fill:#023eff;stroke-width:0.264583"
-           x="76.800003"
-           y="65.599998"><tspan
-             style="font-style:italic"
+           style="fill:#000000;stroke-width:0.264583"
+           x="35.86916"
+           y="13.832322"><tspan
+             style="font-style:italic;fill:#000000"
              id="tspan35358-8-8">t</tspan><tspan
-             style="font-size:65%;baseline-shift:sub"
+             style="font-size:65%;baseline-shift:sub;fill:#000000"
              id="tspan35360-7-7-4">1</tspan></tspan></text>
       <path
-         style="fill:none;stroke:#023eff;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         d="m 76.258246,66.858979 h 3.200001"
+         style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 35.327404,15.091303 h 3.200001"
          id="path2687-8" />
       <text
          xml:space="preserve"
-         style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
-         x="77.029221"
-         y="70.229485"
+         style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+         x="36.098377"
+         y="18.461809"
          id="text16419-7-4-7-9-6-0"><tspan
            sodipodi:role="line"
            id="tspan16417-1-3-8-1-4-4"
-           style="font-style:normal;fill:#023eff;stroke-width:0.264583"
-           x="77.029221"
-           y="70.229485">2</tspan></text>
+           style="font-style:normal;fill:#000000;stroke-width:0.264583"
+           x="36.098377"
+           y="18.461809">2</tspan></text>
     </g>
   </g>
 </svg>

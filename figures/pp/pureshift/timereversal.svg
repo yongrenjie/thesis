@@ -25,12 +25,12 @@
      inkscape:document-units="mm"
      showgrid="true"
      inkscape:zoom="2.1949236"
-     inkscape:cx="490.44988"
-     inkscape:cy="269.94106"
+     inkscape:cx="339.19176"
+     inkscape:cy="270.39666"
      inkscape:window-width="1355"
-     inkscape:window-height="586"
+     inkscape:window-height="558"
      inkscape:window-x="1923"
-     inkscape:window-y="261"
+     inkscape:window-y="233"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1">
     <inkscape:grid
@@ -279,13 +279,13 @@
    id="tspan34096-0-4-7">1</tspan></tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
        x="54.325111"
        y="68.110382"
        id="text16419-7-4-7"><tspan
          sodipodi:role="line"
          id="tspan16417-1-3-8"
-         style="font-style:italic;fill:#023eff;stroke-width:0.264583"
+         style="font-style:italic;fill:#000000;stroke-width:0.264583"
          x="54.325111"
          y="68.110382">τ</tspan></text>
     <rect
@@ -300,13 +300,13 @@
        inkscape:export-ydpi="500" />
     <text
        xml:space="preserve"
-       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
        x="68.738968"
        y="68.110382"
        id="text16419-7-4-7-9"><tspan
          sodipodi:role="line"
          id="tspan16417-1-3-8-1"
-         style="font-style:italic;fill:#023eff;stroke-width:0.264583"
+         style="font-style:italic;fill:#000000;stroke-width:0.264583"
          x="68.738968"
          y="68.110382">τ</tspan></text>
     <path
@@ -444,115 +444,113 @@
    style="font-style:normal;font-size:65%;baseline-shift:sub"
    id="tspan628">1</tspan></tspan></text>
     <g
-       id="g2786"
-       transform="translate(-1.0582465,-0.5676696)">
+       id="g7006">
       <text
          xml:space="preserve"
-         style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
-         x="76.800003"
-         y="65.599998"
+         style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+         x="75.74176"
+         y="65.032326"
          id="text35356-0"><tspan
            sodipodi:role="line"
            id="tspan35354-1"
-           style="fill:#023eff;stroke-width:0.264583"
-           x="76.800003"
-           y="65.599998"><tspan
-             style="font-style:italic"
+           style="fill:#000000;stroke-width:0.264583"
+           x="75.74176"
+           y="65.032326"><tspan
+             style="font-style:italic;fill:#000000"
              id="tspan35358-8">t</tspan><tspan
-             style="font-size:65%;baseline-shift:sub"
+             style="font-size:65%;baseline-shift:sub;fill:#000000"
              id="tspan35360-7">1</tspan></tspan></text>
       <path
-         style="fill:none;stroke:#023eff;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         d="m 76.258246,66.858979 h 3.200001"
+         style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 75.2,66.291309 h 3.200001"
          id="path2687" />
       <text
          xml:space="preserve"
-         style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
-         x="77.029221"
-         y="70.229485"
+         style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+         x="75.970978"
+         y="69.661812"
          id="text16419-7-4-7-9-6"><tspan
            sodipodi:role="line"
            id="tspan16417-1-3-8-1-4"
-           style="font-style:normal;fill:#023eff;stroke-width:0.264583"
-           x="77.029221"
-           y="70.229485">2</tspan></text>
+           style="font-style:normal;fill:#000000;stroke-width:0.264583"
+           x="75.970978"
+           y="69.661812">2</tspan></text>
     </g>
     <g
-       id="g2786-8"
-       transform="translate(32.848484,-0.5676696)">
+       id="g7015">
       <text
          xml:space="preserve"
-         style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
-         x="76.800003"
-         y="65.599998"
+         style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+         x="109.64848"
+         y="65.032326"
          id="text35356-0-4"><tspan
            sodipodi:role="line"
            id="tspan35354-1-0"
-           style="fill:#023eff;stroke-width:0.264583"
-           x="76.800003"
-           y="65.599998"><tspan
-             style="font-style:italic"
+           style="fill:#000000;stroke-width:0.264583"
+           x="109.64848"
+           y="65.032326"><tspan
+             style="font-style:italic;fill:#000000"
              id="tspan35358-8-0">t</tspan><tspan
-             style="font-size:65%;baseline-shift:sub"
+             style="font-size:65%;baseline-shift:sub;fill:#000000"
              id="tspan35360-7-6">1</tspan></tspan></text>
       <path
-         style="fill:none;stroke:#023eff;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         d="m 76.258246,66.858979 h 3.200001"
+         style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 109.10673,66.291309 h 3.2"
          id="path2687-2" />
       <text
          xml:space="preserve"
-         style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
-         x="77.029221"
-         y="70.229485"
+         style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+         x="109.8777"
+         y="69.661812"
          id="text16419-7-4-7-9-6-4"><tspan
            sodipodi:role="line"
            id="tspan16417-1-3-8-1-4-7"
-           style="font-style:normal;fill:#023eff;stroke-width:0.264583"
-           x="77.029221"
-           y="70.229485">2</tspan></text>
+           style="font-style:normal;fill:#000000;stroke-width:0.264583"
+           x="109.8777"
+           y="69.661812">2</tspan></text>
     </g>
     <text
        xml:space="preserve"
-       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
        x="82.302444"
        y="68.110382"
        id="text16419-7-4-3-6"><tspan
          sodipodi:role="line"
          id="tspan16417-1-3-0-8"
-         style="font-style:italic;fill:#023eff;stroke-width:0.264583"
+         style="font-style:italic;fill:#000000;stroke-width:0.264583"
          x="82.302444"
          y="68.110382">ε</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
        x="87.13015"
        y="68.110382"
        id="text2943"><tspan
          sodipodi:role="line"
          id="tspan2941"
-         style="font-style:italic;fill:#023eff;stroke-width:0.264583"
+         style="font-style:italic;fill:#000000;stroke-width:0.264583"
          x="87.13015"
          y="68.110382">ε</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
        x="90.302437"
        y="68.110382"
        id="text2947"><tspan
          sodipodi:role="line"
          id="tspan2945"
-         style="font-style:italic;fill:#023eff;stroke-width:0.264583"
+         style="font-style:italic;fill:#000000;stroke-width:0.264583"
          x="90.302437"
          y="68.110382">ε</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
        x="103.13015"
        y="68.110382"
        id="text2951"><tspan
          sodipodi:role="line"
          id="tspan2949"
-         style="font-style:italic;fill:#023eff;stroke-width:0.264583"
+         style="font-style:italic;fill:#000000;stroke-width:0.264583"
          x="103.13015"
          y="68.110382">ε</tspan></text>
   </g>

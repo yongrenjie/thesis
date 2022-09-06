@@ -5,17 +5,25 @@ The characterisation of small molecules and biomolecules by NMR spectroscopy rel
 Although 2D experiments provide far superior resolution and information content compared to 1D spectra, they also require substantially longer experiment durations, as the indirect dimension must be constructed through the acquisition of many $t_1$ increments.
 This problem is further exacerbated by the fact that structural elucidation or verification often necessitates the acquisition of several different 2D experiments.
 
-The acceleration of 2D NMR has thus proven to be a popular area of research, encompassing techniques such as
+The acceleration of 2D NMR has thus proven to be a popular area of research.
+We may broadly categorise existing techniques into two classes: firstly, those which seek to directly speed up the acquisition of \textit{individual} 2D spectra, and secondly, \textit{multiple-FID} experiments which aim to collect two or more 2D spectra in the time required for one.%
+\footnote{These are by no means mutually exclusive: many of the techniques here can be combined to provide even greater efficiency.}
+The former category includes methods such as 
 \acf{nus}\autocite{Barna1987JMR,Kazimierczuk2010PNMRS,Mobli2014PNMRS,Kazimierczuk2015MRC},
 fast pulsing (i.e.\ shortening of recovery delays)\autocite{SchulzeSunninghausen2014JACS,Schanda2006JACS,Kupce2007MRC,Schanda2009PNMRS},
 ultrafast NMR\autocite{Frydman2002PNASUSA,Pelupessy2003JACS,Frydman2003JACS,Tal2010PNMRS,Gouilleux2018ARNMRS,Kupce2021NRMP},
 Hadamard encoding\autocite{Kupce2003JMR,Kupce2003PNMRS},
-and spectral aliasing\autocite{Jeannerat2000MRC,Bermel2009JACS,Njock2010C}.
-All of these methods seek to directly speed up the acquisition of \textit{individual} 2D spectra.
-In contrast, \textit{multiple-FID techniques} such as
+and spectral aliasing\autocite{Jeannerat2000MRC,Bermel2009JACS,Njock2010C};
+whereas the latter encompasses 
 time-shared NMR\autocite{Nolis2007ACIE,Parella2010CMR},
 multiple-receiver NMR\autocite{Kupce2006JACS,Kupce2008JACS,Kovacs2016MRC},
-and---of course---NOAH supersequences\autocite{Kupce2017ACIE,Kupce2021PNMRS,Kupce2021NRMP},
-instead aim to collecting multiple 2D spectra in (roughly) the time needed to acquire one `conventional' 2D spectrum.
-This essentially amounts to an increase in \textit{efficiency}, rather than pure speed.
+and---of course---NOAH supersequences\autocite{Kupce2017ACIE,Kupce2021PNMRS,Kupce2021NRMP}.
 
+The scope of this introductory section will be limited to only NOAH supersequences.
+However, many of these techniques are closely related, and I will introduce concepts from elsewhere as needed.
+It should be noted that there are several other multiple-FID experiments which, while not explicitly advertised as such, are conceptually identical to NOAH experiments.\autocite{Nagy2019CC,Nagy2020JMR,Nagy2021ACIE,Timari2022CC}
+I do not discuss these here.
+
+\input{noah/snr.tex}
+\input{noah/magpools.tex}
+\input{noah/case_studies.tex}

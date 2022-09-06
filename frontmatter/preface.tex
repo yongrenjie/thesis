@@ -17,14 +17,22 @@ Delays are variously represented by the letters $\Delta$ and $\tau$; exact value
 Pulses without explicit phases are assumed to be applied along the rotating-frame $+x$-axis; phases of the form $\phi_i$ are typically cycled during the experiment and will be specified in the captions.
 Grey boxes labelled `dec.' represent decoupling periods.
 
+In this thesis, I use \textit{gradient} to refer to pulsed field gradients; this is shorter and reflects common usage.
 Where relevant, $z$-gradient amplitudes are given as percentages of the maximum gradient amplitude, which is probe-dependent (see \cref{tbl:spectrometers}).
 This maximum amplitude is unlikely to substantially affect the performance of any of the pulse sequences; consequently, in the text I quote gradient amplitudes only as percentages.
 Gradients which are inverted for echo--antiecho selection are depicted as a pair of positive and negative gradients (e.g.\ $g_2$ above).
 Note that whether the gradient is above or below the $G_z$ line has no direct bearing on the sign of its amplitude (this may, in general, depend on the magnetogyric ratios of the nuclei being detected).
-$\varepsilon$ is always used to denote the time required for a pulsed field gradient, plus the subsequent recovery delay.
+$\varepsilon$ is always used to denote the time required for a gradient, plus the subsequent recovery delay.
 
 In practice, the implementation of a pulse sequence may differ in tiny ways: for example delays may be modified to accommodate finite pulse widths and other technicalities.
 Furthermore, shaped pulses may be used in place of hard pulses in order to optimise the pulse sequence, e.g.\ by allowing more efficient refocusing or excitation.
+
+For some experiments, particularly in the NOAH chapter (\cref{chpt:noah}), product operator analysis is added above the pulse sequence.
+Typically, these show how a \proton{}--X spin pair and an isolated \proton{} spin evolve under during pulse sequence: these directly correspond to the so-called \magn{X} and \magnnot{X} magnetisation pools (i.e.\ protons directly coupled and not directly coupled to \carbon{}, see \cref{subsec:noah__magpools} for further explanation).
+One-letter terms $m$ ($m \in \{x, y, z\}$) are shorthand for single-spin terms on proton, i.e.\ $I_m$.
+Two-letter terms $mn$ are shorthand for two-spin terms on both the proton and heteronucleus, i.e.\ $2I_mS_n$.
+The effects of gradients are ignored in the product operator analysis: this can be justified because the \acp{ctp} of interest are ultimately rephased, meaning that the gradients have no net effect (\cref{subsec:theory__hsqc_ea} illustrates this in more detail).
+For simplicity, any modulation acquired during $t_1$ is also omitted in these analyses; it will be discussed in the text where relevant.
 
 \section*{Software}
 
