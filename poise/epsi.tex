@@ -2,7 +2,7 @@
 \label{subsec:poise__epsi}
 
 The final example of a single-parameter POISE optimisation is also the most complicated: it pertains to the EPSI acquisition technique, which was previously introduced in \cref{sec:pureshift__epsidosy}.
-EPSI acquisition allows signals from different slices of the sample to be simultaneously detected in a single FID, and (in liquid-state NMR) has most famously been used in the context of \textit{ultrafast} 2D experiments\autocite{Frydman2002PNASUSA,Pelupessy2003JACS,Frydman2003JACS,Tal2010PNMRS,Giraudeau2014ARAC,Gouilleux2018ARNMRS}, where the $t_1$ evolution is spatially encoded and read out using the EPSI technique.
+EPSI acquisition allows signals from different slices of the sample to be simultaneously detected in a single FID, and (in liquid-state NMR) has most famously been used in the context of \textit{ultrafast} 2D experiments\autocite{Frydman2002PNASUSA,Pelupessy2003JACS,Frydman2003JACS,Tal2010PNMRS,Giraudeau2014ARAC,Gouilleux2018ARNMRS,Kupce2021NRMP}, where the $t_1$ evolution is spatially encoded and read out using the EPSI technique.
 
 \begin{figure}[htb]
     \centering
@@ -29,9 +29,8 @@ During an EPSI acquisition period, alternating gradients of equal magnitude but 
     k = \int_0^{t_2} \gamma G(t) \,\mathrm{d}t.
 \end{equation}
 This value of $k$ increases during positive gradients and decreases during negative gradients, leading to a zigzag pattern in $k$-space, all while $t_2$ is still increasing (\cref{fig:poise_epsi_epsicorrect}).
-The \textit{prephasing gradient} immediately before acquisition has the same duration as the EPSI gradients, but has half the amplitude, meaning that $k$ begins from a negative value, specifically, $k_\text{max} / 2$, where $k_\text{max}$ is the change in $k$ caused by one complete positive EPSI gradient.
-As explained in previous reviews\autocite{Frydman2003JACS}, the spatial profile $f(z)$ can be obtained by Fourier transformation of the $k$ domain.
-Alternatively, since $t_1$ is proportional to $z$ and the indirect-dimension frequency $F_1$ is itself obtained through Fourier transformation of the $t_1$-domain, the $F_1$ and $k$ domains are in fact directly proportional: no Fourier transform is required along this axis to obtain the indirect-dimension frequencies.
+The \textit{prephasing gradient} immediately before acquisition has the same duration as the EPSI gradients, but has half the amplitude, meaning that $k$ begins from a negative value, specifically, $-k_\text{max} / 2$, where $k_\text{max}$ is the change in $k$ caused by one complete positive EPSI gradient.
+The indirect-dimension frequencies $F_1$ can be directly read off from the $k$-domain as $F_1$ is directly proportional to $k$: this can also be understood as the EPSI gradients unwinding a phase-modulated `helix' created by chemical shift evolution during the $t_1$ period, as has been beautifully illustrated in previous reviews.\autocite{Frydman2003JACS,Tal2010PNMRS}
 
 This rapid alternating of gradients is very demanding on spectrometers, and it is often the case that the positive and negative EPSI gradients---although \textit{nominally} specified with the same amplitude---are not perfectly balanced.
 This causes a `drift' in the $k$-domain over time, as illustrated in \cref{fig:poise_epsi_epsiwrong}.
@@ -40,10 +39,11 @@ In this section, POISE is used to perform an \textit{instrument-specific} optimi
 
 \subsubsection{Optimisation setup}
 
-To measure the drift in $k$-space, it is easiest to use a pulse sequence for which there is no spatial encoding; the pulse--EPSI experiment (\cref{fig:poise_epsi_zgepsi}) is perfectly suited for this.
+To measure the drift in $k$-space, it is easiest to use a pulse sequence for which there is no spatial encoding.
+The pulse--EPSI experiment (\cref{fig:poise_epsi_zgepsi}) is perfectly suited for this.
 In the pulse programme, I multiplied the amplitudes of the negative gradients by a factor $\alpha$, represented as \texttt{CNST16} in TopSpin:
-the objective of POISE is therefore to determine the optimum value for this which minimises the drift.
-Calculating this drift requires fairly substantial processing, which is most easily done inside the cost function using \texttt{numpy} functions (rather than, for example, a TopSpin AU script).
+the objective of POISE is therefore to determine the optimum value for this factor which minimises the drift.
+Calculating this drift requires fairly substantial processing, which is most easily done inside the cost function using the \texttt{numpy} library.
 The \texttt{epsi\_gradient\_drift} cost function therefore consists of the following steps:
 \begin{enumerate}
     \item reading in the 1D FID and reshaping it into a 2D $(k, t_2)$ matrix;
@@ -68,8 +68,8 @@ This yielded an expected optimum of $\alpha = 1.0004$.
 
 To save time in the optimisation itself, I reused the strategy of setting \texttt{DS=0} and \texttt{NS=1}.
 As before, since each FE is separated by approximately five seconds of processing and spectrometer initialisation, this means that there is no need for another recovery delay; thus, \texttt{D1} was set to \qty{0.5}{\s}.
-However, note that such a short recovery delay should \textit{not} be used if \texttt{DS} is larger than 0 or \texttt{NS} larger than 1: EPSI acquisitions should not be carried out in rapid succession.
-Furthermore, \texttt{AQ} should be kept under \qty{100}{\ms}.
+However, note that such a short recovery delay should \textit{not} be used if \texttt{DS} is larger than 0 or \texttt{NS} larger than 1, as EPSI acquisitions should not be carried out in rapid succession.
+Furthermore, \texttt{AQ} should be kept under \qty{100}{\ms} (I used \qty{91.8}{\ms} here).
 
 
 \subsubsection{Optimisation results}
@@ -96,18 +96,20 @@ Furthermore, \texttt{AQ} should be kept under \qty{100}{\ms}.
 \end{table}
 
 In the event, all three optimisation algorithms successfully find the the optimal value of $\alpha$ in under a minute (\cref{tbl:poise_epsi}).
-It is worth clarifying one subtlety of POISE here.
-In the table, the optima are quoted to a rather greater precision than one might expect at first: however, the actual precision of the optimisation result is not given by the number of significant figures,\footnote{The entire concept of `significant figures' is a very crude way of expressing uncertainty anyway.} but rather a combination of two factors:
+This is \textit{extremely} fast and the resulting value of $\alpha$ can be used for \text{any} subsequent ultrafast experiment, including the ultrafast PSYCHE-iDOSY experiment described in \cref{sec:pureshift__epsidosy}.
+
+However, it is worth clarifying one subtlety of POISE here.
+In the table, the optima are quoted to a rather greater precision than one might expect at first: however, the actual precision of the optimisation result is not given by the number of significant figures,\footnote{The entire concept of `significant figures' is anyway a very crude method of expressing uncertainty.} but rather a combination of two factors:
 
 \begin{itemize}
     \item first, the \textit{optimisation tolerance}, which is purely determined by the optimisation routine. Thus, in \cref{tbl:poise_epsi}, the optimum of 1.000375 actually means $1.000375 \pm 0.0001$ (and not $1.000375 \pm 0.0000005$, as `significant figures' would imply); and
     \item second, the available \textit{spectrometer resolution}, which represents how precisely the spectrometer can implement a given parameter value.
         In this case, the available resolution is $0.0001$, which means that even if we input the `optimum' of $\alpha = 1.000375$, the experiment is executed with $\alpha = 1.0004$ (see also \cref{fig:epsi_spec}).
         The optimisation algorithm has no knowledge of this, so it still reports a value of $1.000375$.
-        When reporting optima from POISE, users should be wary of this.
+        \textbf{When reporting optima from POISE, users should be wary of any rounding performed by the spectrometer.}
 \end{itemize}
 
-This further underlines the importance of choosing a sensible optimisation tolerance: it should be \textit{at least} as large as the instrument resolution (larger values can be used when an extremely accurate result is not needed).
+This in fact further underlines the importance of choosing a sensible optimisation tolerance: it should be \textit{at least} as large as the instrument resolution (larger values can be used when an extremely accurate result is not needed).
 
 \begin{figure}[htb]
     \centering
@@ -124,11 +126,10 @@ This further underlines the importance of choosing a sensible optimisation toler
     \label{fig:epsi_spec}
 \end{figure}
 
-The $(k, t_2)$ data matrices obtained from the excitation--EPSI pulse sequence are shown in \cref{fig:epsi_spec_kt_noopt,fig:epsi_spec_kt_opt}.
+Returning to the current optimisation, the $(k, t_2)$ data matrices obtained from the excitation--EPSI pulse sequence are shown in \cref{fig:epsi_spec_kt_noopt,fig:epsi_spec_kt_opt}.
 In the former, where the default value of $\alpha = 1$ is used, there is a noticeable drift in $k$-space.
 This is removed in the optimised experiment with $\alpha = 1.0004$.
-Using the optimised value of $\alpha$ in fact leads to much improved ultrafast spectra, such as the TOCSY spectra recorded with the pulse sequence in \cref{fig:poise_epsi_tocsyepsi}.
-\Cref{fig:epsi_spec_tocsy_noopt,fig:epsi_spec_tocsy_opt} show respectively the ultrafast TOCSY spectra recorded without and with optimisation of the gradient ratio $\alpha$.
-In the latter, substantial improvements in lineshapes are obtained, even allowing some couplings to be properly resolved in the indirect dimension.
+The optimised value of $\alpha$ can then be transferred to other ultrafast experiment, such as the ultrafast TOCSY (\cref{fig:poise_epsi_tocsyepsi}).
+The improvements thus obtained are shown in \cref{fig:epsi_spec_tocsy_noopt,fig:epsi_spec_tocsy_opt}: in the optimised spectrum, substantial improvements in lineshapes are obtained, even allowing some couplings to be properly resolved in the indirect dimension.
 In principle, this $k$-drift could be compensated for by shearing of the $(k, t_2)$ data matrix prior to Fourier transformation.
-However, similar improvements in lineshapes could not be accomplished using the \texttt{ufproc.py} processing script provided by Giraudeau et al.\autocite{Gouilleux2018ARNMRS} (and I did not attempt to do so manually).
+However, similar improvements in lineshapes could not be accomplished using any existing processing scripts, including those in the protocol of Giraudeau et al.\autocite{Gouilleux2018ARNMRS}; I did not attempt to manually shear the data myself either.

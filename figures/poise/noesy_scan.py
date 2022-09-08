@@ -22,7 +22,7 @@ avg_integrals = np.mean(integrals, axis=0)
 for i in [3, 34]:
     print(f"avg_integral at mixing time {d8s[i]} s = {avg_integrals[i]}")
 
-fig, ax = pg.subplots(figsize=(6, 4))
+fig, ax = pg.subplots(figsize=(6, 4.5))
 for peak, ints in zip(peaks, integrals):
     ax.plot(d8s, ints, linestyle="--", linewidth=0.8)
 ax.plot(d8s, avg_integrals, color="black", linewidth=1.5)

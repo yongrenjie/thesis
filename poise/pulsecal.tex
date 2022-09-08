@@ -19,9 +19,10 @@ We can use POISE to search for this by acquiring the spectrum, performing a magn
     \label{eq:minabsint}
     f_\mathrm{minabsint} = \sum_i |S_i|,
 \end{equation}
-where (reusing notation from \cref{subsec:pureshift__optim_techniques}) $\symbf{S}$ is the spectrum under consideration represented as a complex-valued vector, and the $i$-th point of the spectrum $S_i = \sqrt{\symbf{S}_{\text{re},i}^2 + \symbf{S}_{\text{im},i}^2}$.
-The label \texttt{minabsint} makes reference to the fact that this cost function drives the optimisation to \textit{min}imise the \textit{abs}olute \textit{int}ensity of the spectrum.
-An implementation of this is shown in \cref{lst:minabsint} (for all other cost functions in this chapter, the reader is directed to the POISE source code for their implementations).
+where (reusing notation from \cref{subsec:pureshift__optim_techniques}) $\symbf{S}$ is the spectrum under consideration represented as a complex-valued vector, and the $i$-th point of the spectrum is $S_i = \sqrt{\symbf{S}_{\text{re},i}^2 + \symbf{S}_{\text{im},i}^2}$.
+The label \texttt{minabsint} refers to how this cost function drives the optimisation to \textit{min}imise the \textit{abs}olute \textit{int}ensity of the spectrum.
+To show how easily this can be coded in Python 3, an implementation of this is shown in \cref{lst:minabsint} (for all other cost functions in this chapter, the reader is directed to the POISE source code for their implementations).
+The \texttt{get1d\_...} helper functions are provided by POISE.
 
 \begin{mylisting}[htb]
 \begin{tcbminted}{python}
@@ -45,12 +46,12 @@ def minabsint():
     \label{fig:p1_scan}
 \end{figure}
 
-To check whether this cost function is sensible, I manually acquired a series of spectra with increasing pulse widths and calculated $f_\text{minabsint}$ for all of these (\cref{fig:p1_scan}).
-In this thesis, I will refer to this process as a \textit{reference grid search}.
-It should be noted that reference grid searches are a time-consuming procedure, and an end-user of POISE generally does \textit{not} need to do this: I only do it here to provide some insight into the nature of the optimisation.
-In any case, it is clear that there is a well-defined minimum, located in this case at \qty{48.3}{\us}; we expect that POISE routines will converge to this point.
+To check whether this cost function was sensible, I manually acquired a series of spectra with increasing pulse widths and calculated $f_\text{minabsint}$ for all of these (\cref{fig:p1_scan}).
+In this chapter, I will refer to this process as a \textit{reference grid search}.
+It should be noted that reference grid searches are a time-consuming procedure, and an end-user of POISE generally does \textit{not} need to do this (it would defeat the purpose of the optimisation).
+I only perform one here to provide some insight into the nature of the optimisation.
+In any case, the reference grid search makes it clear that there is a well-defined minimum, located in this case at \qty{48.3}{\us}; if the POISE optimisation process is accurate, it should converge to this point.
 
-To complete the description of the POISE optimisation, it remains to define the rest of the optimisation routine.
 I chose the initial point to be four times the \texttt{prosol} value for \texttt{P1}: this represents our `best guess' and is derived from prior calibration of the pulse width on a standard sample.
 The tolerance is set to \qty{0.2}{\us}, which corresponds to an accuracy of \qty{0.05}{\us} for the \ang{90} pulse width itself.
 The lower and upper bounds are set to be \qty{8}{\us} away from the initial point, representing a `sensible' region within which we expect the null to lie (this may need to be adjusted for samples with high ionic strength, but for typical organic samples this is more than enough).
@@ -64,7 +65,8 @@ In practice, there is an extra gap of $\sim$ \qty{5}{\s} between successive FEs 
 
 The performance of POISE can be compared against two `competitors' in this area.
 The traditional method of determining the \ang{90} pulse width is to measure a pulse width array (colloquially, `to array the pulse width').\autocite{Keifer1999CMR}
-This entails measuring a series of pulse--acquire spectra, over which $\taup$ is evenly incremented: in optimisation parlance this would be called a \textit{grid search}.
+This entails measuring a series of pulse--acquire spectra, over which $\taup$ is evenly incremented: in optimisation parlance this would be called a \textit{grid search}.%
+\footnote{This differs from the \textit{reference grid search} above only in spirit (hence the similar names). The process is exactly the same, but the grid search is used to actually locate the optimum, whereas in the reference grid search the aim is purely to verify whether the faster optimisation algorithms converge to the correct point.}
 This leads to a sinusoidal pattern in the peak intensities, from which the \ang{360} null can be directly read off.
 An example of this is shown in \cref{fig:p1_scan_spectra}, where the \ang{360} null at $\taup \approx \qty{48}{\us}$ is visible (it is never a \textit{perfect} null because of off-resonance effects and $\omega_1$, i.e.\ $B_1$, inhomogeneity).
 
@@ -106,7 +108,10 @@ Although the nutation experiment can be performed extremely quickly using the To
 This is a known effect which arises because the separation is calculated from the top of the peaks, which correspond to the most homogeneous region of the $B_1$ profile.\autocite{Wu2005JMR}
 On the other hand, the \ang{360} null (as measured through \texttt{popt} or POISE, for example) measures a signal which is averaged over the entire $B_1$ profile.
 
-\begin{table}[htb]
+
+\subsubsection{Optimisation results}
+
+\begin{table}[!ht]
     \centering
     \begin{tabular}{ccccc}
         \toprule
@@ -129,22 +134,20 @@ On the other hand, the \ang{360} null (as measured through \texttt{popt} or POIS
     \label{tbl:poisecal_48}
 \end{table}
 
-
-\subsubsection{Optimisation results}
-
 Compared to these two existing methods, we expect POISE to be faster than the \texttt{popt} grid search, and also more accurate than the nutation experiment in \texttt{pulsecal}.
 This is borne out in practice (\cref{tbl:poisecal_48}).
 \texttt{popt} yields an optimum of \qty{48.4}{\us}, which is closely matched by POISE.
 However, POISE locates this optimum using far fewer FEs because its algorithms are more efficient than a simple grid search.
-While \texttt{pulsecal} is even faster than POISE, it underestimates the \ang{90} pulse width by about 4\%.
+The \texttt{pulsecal} routine is even faster than POISE (and could be yet faster if it was instructed to not optimise the receiver gain prior to performing the nutation experiment).
+However, it underestimates the \ang{90} pulse width by about 4\%.
 In this particular case, POISE is the only option which strikes a useful balance between speed and accuracy.
-These results also provide the first evidence that Py-BOBYQA is generally faster than the simplex-based methods: this observation is faithfully reproduced in the other optimisations in this chapter.
+These results also provide the first evidence that Py-BOBYQA is generally faster than the simplex-based methods: this observation is consistently reproduced in many of the other optimisations in this chapter.
 
 
 \subsubsection{Different initial points}
 
 One question we might reasonably ask is how robust POISE is towards poor initial guesses.
-In the case of the pulse width calibration, the answer is: \textit{very} robust.
+In the case of the pulse width calibration, the answer is \textit{very} robust.
 \Cref{tbl:poisecal_43,tbl:poisecal_53} summarise the results obtained with an initial guess of \qty{43}{\us} and \qty{53}{\us} respectively.
 There is slightly decreased performance in that a few more FEs are required for convergence, but the accuracy of the result is unchanged.
 
@@ -193,4 +196,4 @@ Furthermore, the noise in the cost function is almost indiscernible.
 These represent the \textit{ideal} conditions for an experimental optimisation to work, and it is not surprising that extremely good performance is obtained with POISE.
 Some of the subsequent examples include more difficult or more noisy cost functions.
 We will see that POISE does indeed have \textit{some} tolerance towards poor initial points, even in the presence of noise (after all, this is the entire purpose of using derivative-free algorithms).
-However, for very challenging optimisations it is very likely that the optimisation will ultimately converge to a local minimum near the initial point.
+However, for very challenging optimisations (especially ones with many parameters) it is very likely that the optimisation will ultimately converge to a local minimum close to the initial point.

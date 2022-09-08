@@ -1,12 +1,12 @@
 \section{Quantum mechanics}
 \label{sec:theory__quantum_mechanics}
 
-The most fundamental equation in (non-relativistic) quantum mechanics, which governs the time evolution of a quantum state $\ket{\Psi(t)}$, is the time-dependent Schr\"{o}dinger equation:
+The most fundamental equation in (non-relativistic) quantum mechanics, which governs the time evolution of a quantum state $\ket{\Psi(t)}$ under a Hamiltonian $H$, is the time-dependent Schr\"{o}dinger equation:
 \begin{equation}
     \label{eq:tdse}
     \frac{\partial\ket{\Psi(t)}}{\partial t} = -\frac{\mi}{\hbar}H\ket{\Psi(t)} 
 \end{equation}
-For a Hamiltonian $H$ which does not change during a period of time $t_1 \leq t \leq t_2$ (i.e.\ is \textit{time-independent}), this can be integrated to yield an explicit solution:
+For a Hamiltonian which is constant over a period of time $t_1 \leq t \leq t_2$ (i.e.\ is \textit{time-independent}), this can be integrated to yield an explicit solution:
 \begin{equation}
     \label{eq:time_evolution}
     \ket{\Psi(t_2)} = \exp\left[-\frac{\mi H (t_2 - t_1)}{\hbar}\right]\ket{\Psi(t_1)}
@@ -22,7 +22,7 @@ where $t_n > t_{n-1} > \cdots > t_0$.
 The case where $H$ continuously varies with time is more complicated, but we will not need to consider it in this thesis.
 
 In NMR spectroscopy, we manipulate the \textit{spin angular momentum} of atomic nuclei in order to obtain information about chemical structure and dynamics.
-The present work is restricted to systems with spin quantum number $I = 1/2$.
+The present work is restricted to nuclei with spin quantum number $I = 1/2$.
 These are two-level systems, where the eigenstates of $I_z$ (denoted as $\ket{\alpha}$ and $\ket{\beta}$ for $m_I = +1/2$ and $-1/2$ respectively) are used as a standard basis, called the \textit{Zeeman basis}.
 The $z$-axis is conventionally chosen as the quantisation axis in textbook treatments of angular momentum (primarily for mathematical convenience), but in the context of NMR, it bears even more significance as we define the $z$-axis to be the axis along which the static magnetic field is aligned.
 Since the matrix elements of an operator $O$ are given by $O_{mn} = \braket{m|O|n}$, we can work out the matrix representations of the angular momentum operators in the Zeeman basis:
@@ -100,8 +100,9 @@ the scalar coupling Hamiltonian may be simplified (the \textit{secular approxima
 This condition is always satisfied whenever spins $i$ and $j$ are different nuclides.
 
 Throughout the course of an NMR experiment, RF pulses and gradients are turned on and off, and thus $H_\text{pulse}$ and $H_\text{grad}$ are time-dependent---although they will always satisfy the `piecewise constant' criterion which allows us to use \cref{eq:time_evolution_piecewise}.
-The `free precession' (or simply `free') Hamiltonian, $H_\text{free}$, refers to the Hamiltonian operative whenever no pulses or gradients are being applied: 
+The `free precession' (or simply `free') Hamiltonian, $H_\text{free}$, refers to the Hamiltonian which is operative whenever no pulses or gradients are being applied: 
 \begin{equation}
     \label{eq:h_free}
     H_\text{free} = H_\text{cs} + H_\text{J}.
 \end{equation}
+

@@ -1,17 +1,18 @@
 \subsection{Implementation details}
 \label{subsec:poise__implementation}
 
-In this subsection, I discuss some behind-the-scenes details about how POISE is implemented and several design choices.
+In this section, I discuss some behind-the-scenes details about how POISE is implemented and several design choices.
 This information is relevant for anybody looking to improve or otherwise modify the POISE codebase.
 
-Firstly, POISE is written in Python 3, and since TopSpin does not have a Python 3 interface,%
+Firstly, POISE is written in Python 3, and since TopSpin does not have a built-in Python 3 interface,%
 \footnote{Version 4.1.4 of TopSpin now comes with a Python 3 API; however, this was introduced too late for the work in this chapter.}
 this means that POISE is not entirely self-contained within TopSpin: in particular, an external installation of Python 3 is required, which may be a slight inconvenience.
 This choice was necessary because it would have been too time-consuming to implement numerical optimisation algorithms using the existing C or Python 2 APIs in TopSpin (notably, the Python 2 API uses the Jython implementation of the language, which is incompatible with \texttt{numpy}).
-An indirect benefit of this is that since the `cost' of installing Python 3 is already paid, we can also allow users to define their own cost functions using libraries such as \texttt{numpy} and \texttt{scipy} (without these it is very awkward to perform any kind of data processing).
+However, a benefit of this is that since the `cost' of installing Python 3 is already paid, we can also allow users to define their own cost functions using libraries such as \texttt{numpy} and \texttt{scipy}.
+Without these, performing any kind of non-trivial data processing is significantly more awkward.
 
-POISE is available on the Python Package Index (PyPI), so can be installed using a single command, \texttt{pip install nmrpoise}.
-Like all other Python packages, POISE is first installed to the Python \texttt{site-packages} directory.
+Like most Python 3 packages, POISE is available on the Python Package Index (PyPI), so can be installed using a single command: \texttt{pip install nmrpoise}.
+As usual, POISE is first installed to the Python \texttt{site-packages} directory.
 If the \texttt{nmrpoise} package is imported from a Python 3 script, then this code is read.
 This may be required on occasion, as the \texttt{nmrpoise} package provides a few functions to analyse optimisation logs created by POISE.
 We might refer to this code as the `library' component of \texttt{nmrpoise}.
@@ -27,15 +28,10 @@ The installation then creates:
 \end{itemize}
 All optimisations are run using the code \textit{only} in the backend directory, and not anything in Python's \texttt{site-packages} folder.
 This is because the frontend script must know how to launch the backend (i.e.\ where to find the files), and it is simply easiest to predefine this location.%
-\footnote{In fact, it is possible to dynamically determine the \texttt{site-packages} installation location at runtime, meaning that the entire backend does not need to be copied to TopSpin directories. However, that would mean the cost functions would be buried inside the \texttt{site-packages} directory, which can be difficult to find.}
+\footnote{In fact, it is possible to dynamically determine the \texttt{site-packages} installation location at runtime, meaning that the entire backend does not need to be copied to TopSpin directories.
+However, that would mean the cost functions would be buried inside the \texttt{site-packages} directory, which can be difficult to find.}
 
-Having files in two different places does mean that some form of communication between the two must be established.
-In POISE, this is accomplished through the use of anonymous pipes, one for each direction of communication (\cref{lst:poise_communication}).
-In this way, the backend can signal to the frontend what values of parameters should be evaluated; the frontend can then begin data acquisition, and signal to the backend when this is complete so that the cost function can be calculated.
-Although this setup works perfectly fine when left to run untouched, a frustrating number of `tricks' are required to keep these synchronised if either the frontend or the backend are terminated unexpectedly, or if acquisition is prematurely stopped by the user (which usually suggests that they wish to stop the optimisation).
-This includes the backend creating a file with its process ID every time it is called and deleting it upon exit (\cref{lst:poise_backendpid}), meaning that the frontend can locate any stray backend processes which were not appropriately terminated.
-
-\begin{mylisting}[htb]
+\begin{mylisting}[!ht]
 \begin{tcbminted}{python}
 try:
     # Launch backend
@@ -55,6 +51,12 @@ try:
     \caption[Communication between frontend and backend in POISE]{Excerpt from the POISE frontend script, illustrating the two-way communication between frontend and backend.}
     \label{lst:poise_communication}
 \end{mylisting}
+
+Having files in two different places does mean that some form of communication between the two must be established.
+In POISE, this is accomplished through the use of anonymous pipes, one for each direction of communication (\cref{lst:poise_communication}).
+In this way, the backend can signal to the frontend what values of parameters should be evaluated; the frontend can then begin data acquisition, and signal to the backend when this is complete so that the cost function can be calculated.
+Although this setup works perfectly fine when left to run untouched, a frustrating number of `tricks' are required to keep these synchronised if either the frontend or the backend are terminated unexpectedly, or if acquisition is prematurely stopped by the user (which usually suggests that they wish to stop the optimisation).
+This includes the backend creating a file with its process ID every time it is called and deleting it upon exit (\cref{lst:poise_backendpid}), meaning that the frontend can locate any stray backend processes which were not appropriately terminated.
 
 \begin{mylisting}[htb]
 \begin{tcbminted}{python}
@@ -82,11 +84,12 @@ if __name__ == "__main__":
     \label{lst:poise_backendpid}
 \end{mylisting}
 
-Finally, the frontend must also be careful not to overwrite data by triggering acquisition of other experiments: this can easily happen if, for example, a user opens a new dataset in TopSpin.
-To ensure that this is the case, the frontend \textit{always} brings the optimisation dataset to the foreground immediately before acquisition is started.
-This has a slight drawback in that it can be difficult to view other spectra in TopSpin while an optimisation is proceeding.
-(Note, however, that this is out of my control: TopSpin does not give me any documented way of running an acquisition AU programme on a background dataset.)
-There is one other quirk of TopSpin surrounding data acquisition: it is possible to start the acquisition from a Python script (such as the frontend \texttt{poise.py} script), but it is not possible to block execution of the Python script while acquisition is running.
+Finally, there is one other quirk of TopSpin surrounding data acquisition: it is possible to start the acquisition from a Python script (such as the frontend \texttt{poise.py} script), but it is not possible to block execution of the Python script while acquisition is running.
 Thus, it is not possible to trigger acquisition and wait until it is done before sending a signal to the backend.%
 \footnote{The TopSpin Python documentation claims that this \textit{can} be accomplished using, for example \texttt{XCMD("zg", wait=WAIT\_TILL\_DONE)}. However, none of the suggestions in the documentation worked as intended.}
 The workaround is to call an AU programme containing acquisition commands, which (somehow) blocks the Python script.
+Of course, this also means that the AU programme can be extended to include other commands, which is yet another way in which optimisations can be customised.
+During optimisations, the frontend must also be careful not to overwrite other experiments: this can easily happen if, for example, a user opens a new dataset in TopSpin just before acquisition is started.
+To ensure that this is the case, the frontend \textit{always} brings the optimisation dataset to the foreground immediately before the acquisition AU programme is executed.
+This has a slight drawback in that it can be difficult to view other spectra in TopSpin while an optimisation is proceeding.
+(Unfortunately, this is out of my control: TopSpin does not provide any documented way of running an acquisition AU programme on a background dataset.)

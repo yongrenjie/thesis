@@ -1,11 +1,11 @@
 \subsection{ASAP-HSQC excitation delay}
 \label{subsec:poise__asaphsqc}
 
-The next example of the ASAP-HSQC experiment\autocite{SchulzeSunninghausen2014JACS,SchulzeSunninghausen2017JMR,Koos2019JMR,Becker2019JMR} continues to illustrate how custom cost functions in POISE can be used to carry out a variety of optimisations.
+The next example of a POISE optimisation is the ASAP-HSQC experiment\autocite{SchulzeSunninghausen2014JACS,SchulzeSunninghausen2017JMR}: here, I use it to again illustrate the new possibilities which custom cost functions enable.
 In the ASAP-HSQC experiment (\cref{fig:asaphsqc_pulseq}), a HSQC spectrum is recorded using only \carbon{}--bound proton magnetisation, and the \carbont{}--bound (`bulk') proton magnetisation is returned to the equilibrium $+z$ axis (i.e.\ the $I_z$ state).
 In this way, instead of having a conventional recovery delay, the \carbon{}--\proton{} magnetisation can be directly replenished using isotropic mixing, which causes transfer of $z$-magnetisation from bulk protons.
 The elision of the recovery delay from the sequence thus leads to significantly shorter experiment durations: in one of the more extreme examples, a HSQC spectrum could be recorded within 7 seconds.
-This separation of different `magnetisation pools' is conceptually very similar to that in NOAH experiments, and in anticipation of that, I use the notation \magn{C} and \magnnot{C} to represent magnetisation belonging to protons coupled and not coupled to \carbon{} respectively.
+This separation of different `magnetisation pools' is conceptually very similar to that in NOAH experiments (\cref{subsec:noah__magpools}), and in anticipation of that, I use the notation \magn{C} and \magnnot{C} to represent magnetisation belonging to protons coupled and not coupled to \carbon{} respectively.
 
 \begin{figure}[htb]
     \centering
@@ -21,27 +21,32 @@ This separation of different `magnetisation pools' is conceptually very similar 
 \end{figure}
 
 By modifying the length of the delay $\Delta_\text{E}$ in the initial INEPT block, it is possible to adjust the proportion of the \magn{C} magnetisation excited during the sequence: the remainder is stored along $z$.
-This means that the signal is decreased by a factor of $\sin\theta_\text{eff}$ (where $\theta_\text{eff}$ is an effective flip angle), but means that on the next scan or increment, there is a larger pool of \magn{C} magnetisation to start from.
-The combination of these factors means that there is an optimum $\Delta_\text{E}$ which yields the greatest steady-state signal.
-(Notice that this is entirely analogous to the Ernst angle previously discussed in \cref{subsec:poise__ernst}.)
-The delay $\Delta_\text{E}$ is related to the effective flip angle, $\theta_\text{eff}$, through
+The delay $\Delta_\text{E}$ can be related to an \textit{effective flip angle}, $\theta_\text{eff}$, through
 \begin{equation}
     \label{eq:asaphsqc_ernst_angle}
     \theta_\text{eff} = 2\pi J \Delta_\text{E}.
 \end{equation}
 where $J$ is here short for $\oneJ{CH}$.
-Equivalently, we can define an `effective J-coupling', $J_\text{eff}$ for which the excitation is optimised:
+This partial excitation means that the signal is decreased by a factor of $\sin\theta_\text{eff}$, but means that on the next scan or increment, there is a larger pool of \magn{C} magnetisation to start from.
+The combination of these factors means that there is an optimum $\Delta_\text{E}$ which yields the greatest steady-state signal.
+Equivalently, we can define an `effective J-coupling', $J_\text{eff}$ for which the INEPT delay is optimised:
 \begin{equation}
     \label{eq:asaphsqc_j_eff}
-    \Delta_\text{E} = \frac{1}{4 J_\text{eff}} \quad\Longleftrightarrow\quad J_\text{eff} = \frac{\pi J}{2\theta_\text{eff}}.
+    \Delta_\text{E} = \frac{1}{4 J_\text{eff}} \quad\Longleftrightarrow\quad J_\text{eff} = \frac{\pi J}{2\theta_\text{eff}},
 \end{equation}
+and we can search for the ideal $J_\text{eff}$ to maximise the sensitivity of the ASAP-HSQC spectrum.
+
+Notice that this is entirely analogous to the Ernst angle previously discussed in \cref{subsec:poise__ernst}.
+However, here, the magnetisation is being recovered partly through isotropic mixing and partly through relaxation during the FID.
+This makes an analytic description of the ASAP-HSQC experiment rather more complicated (although it has been studied before\autocite{Koos2019JMR}).
+Directly optimising the excitation delay $\Delta_\text{E}$ with POISE, which circumvents the theory entirely, is therefore an attractive option for practical day-to-day use.
 
 
 \subsubsection{Optimisation setup}
 
-Given the analysis above, it is extraordinarily easy to set up the optimisation: the parameter being optimised is $J_\text{eff}$, and the initial point chosen is simply $\oneJ{CH}$ (to be precise, a `compromise' $\oneJ{CH}$ value of \qty{150}{\Hz}).
+Given the analysis above, it is extraordinarily easy to set up the optimisation: the parameter being optimised is $J_\text{eff}$, and the initial point chosen is a `compromise' $\oneJ{CH}$ value of \qty{150}{\Hz}.
 Although generally it is not a good idea to use a 2D experiment as part of the FE, in this specific case it is acceptable because the ASAP-HSQC has such a short running time.
-In this case, we simply take the projection of the 2D ASAP-HSQC onto the $F_2$ axis, integrate it, and take the negative to obtain the cost function (negative because we are trying to maximise the intensity).
+In this case, we simply take the projection of the 2D ASAP-HSQC onto the $F_2$ axis, integrate it, and take the negative of that to obtain the cost function.
 
 A reference grid search was performed so that I could later verify the optimisation results (\cref{fig:asaphsqc_scan}).
 The exact point where the crosspeak intensities are maximised is not obvious: generally, the signal increases up until $J_\text{eff} \approx \qty{230}{\Hz}$, after which it plateaus off.
@@ -101,3 +106,7 @@ As can be seen, even though the FE involves acquisition of a 2D spectrum, the op
 When re-evaluated on a `full' ASAP-HSQC experiment with 64 $t_1$ increments (\cref{fig:asaphsqc_spec_spec}),%
 \footnote{The \carbon{} resonances of interest in this compound fall within a very small window, so relatively few $t_1$ increments are needed.}
 the optimisation yielded an 18--27\% improvement in the sensitivity of the ASAP-HSQC spectrum, as shown in \cref{fig:asaphsqc_spec_proj}.
+
+In fact, this specific example is not particularly impressive in itself.
+The ASAP-HSQC experiment shown in \cref{fig:asaphsqc_spec_spec} takes only around 45 seconds to acquire, so simply repeating it two or three more times would yield a similar or even larger increase in SNR.
+However, this argument may easily be swung in the opposite direction if more $t_1$ increments were to be used, such as 256 for a more `typical' \carbon{} spectral window, or even more if extremely high $F_1$ resolution is desired (the original paper\autocite{SchulzeSunninghausen2014JACS} provides an example of a three-hour ASAP-HSQC experiment where 16384 $t_1$ increments were recorded to differentiate two peaks separated by \qty{3}{\Hz} in $F_1$).

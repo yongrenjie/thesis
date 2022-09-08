@@ -2,21 +2,31 @@
 \label{sec:poise__technical}
 
 In this section, I first cover the general principles underlying, and the implementation of, POISE.
-The basic operation of POISE is summarised in \cref{fig:poise_flowchart}, which is essentially a generalised version of the pure shift optimisations carried out in \cref{sec:pureshift__optimisation}.
+The basic operation of POISE is summarised in the flowchart of \cref{fig:poise_flowchart}: this is a generalised version of the pure shift optimisations carried out in \cref{sec:pureshift__optimisation}.
+Almost all aspects of this can be customised by the user, as will be described.
 
-\begin{figure}[htb]
+\begin{figure}[!ht]
     \centering
     \includegraphics[]{poise/flowchart.png}%
     \caption[Flowchart for POISE optimisations]{Flowchart depicting the main steps in a POISE optimisation.}
     \label{fig:poise_flowchart}
 \end{figure}
 
-Almost all aspects of this can be customised by the user, which I will now describe.
-I make a distinction here between an optimisation \textit{routine}, as well as the \textit{settings} used to run these routines.
-Routines consist of a series of predefined variables, such as the parameter(s) to be optimised: however, these may be optimised in different \textit{ways}, which is where the settings come in.
-When discussing individual applications in \cref{sec:poise__applications}, I will make repeated reference to these components of an optimisation.
+I begin by drawing a distinction between an optimisation \textit{routine}, as well as the \textit{way} in which these routines can be run (\cref{fig:poise_ingredients}).
+Routines consist of a series of predefined variables, such as the parameter(s) to be optimised: however, these may be optimised in different ways, which is where the experiment used to perform the optimisation, as well as other options, come in.
+These `ingredients' of an optimisation will be repeatedly referred to in the discussion of individual applications in \cref{sec:poise__applications}.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[draft=false]{poise/ingredients.png}%
+    \caption[Ingredients of a POISE optimisation]{
+        The various `ingredients' of a POISE optimisation and how they can be set up.
+    }
+    \label{fig:poise_ingredients}
+\end{figure}
 
 \input{poise/routines.tex}
+\input{poise/experiment.tex}
 \input{poise/settings.tex}
 \input{poise/algorithms.tex}
 \input{poise/implementation.tex}

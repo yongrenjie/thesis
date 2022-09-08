@@ -1,0 +1,50 @@
+\subsubsection{Py-BOBYQA}
+
+Unlike the NM and MDS algorithm, Py-BOBYQA is not simplex-based, but is a trust-region algorithm.\autocite{Powell2009Proc,Cartis2019ACMTMS}
+The fundamental idea behind a (derivative-free) trust-region method is to sample the cost function at a set of points $Y$, and construct a model $m$ through interpolation, which matches the cost function at these points:
+\begin{equation}
+    \label{eq:trust_region_model}
+    \forall y \in Y, m(y) = f(y).
+\end{equation}
+The model at iteration $k$ is labelled $m_k$.
+Most trust region methods use a quadratic model, and Py-BOBYQA is no exception.
+This can be expressed as:
+\begin{equation}
+    \label{eq:trust_region_quadratic_model}
+    m_k(x_k + p) = c + g^Tp + p^TGp,
+\end{equation}
+where $G$ is a symmetric matrix and $x_k$ is the centre of the model at iteration $k$ ($x_0$ being the user-specified initial point).
+For this model to be fully determined, the set $Y$ must therefore contain $(n+1)(n+2)/2$ points in total.
+
+The algorithm further maintains a \textit{trust region radius} $\Delta_k$ at each iteration, which is a measure of how reliable the model is.
+The initial trust region radius, $\Delta_0$, can be arbitrarily chosen: in the case of POISE, I elected to set $\Delta_0$ to be $10$ times the desired tolerance.
+The model $m_k$ is then used to calculate the next step $s_k$, which is obtained by minimising $m_k$ over all points within a radius of $\Delta_k$ from the centre $x_k$ (the \textit{trust region subproblem}):
+\begin{equation}
+    \label{eq:trust_region_subproblem}
+    s_k = \argmin_{\lVert s \rVert \leq \Delta_k} m_k(x_k + s).
+\end{equation}
+Since $m_k$ itself is noiseless, this can be solved using almost any algorithm: Py-BOBYQA uses a conjugate gradient method.
+The cost function is then evaluated at the trial point $x_k + s_k$, and compared against the value predicted by the model.
+If the ratio of `actual improvement' to `predicted improvement' is large enough, i.e.
+\begin{equation}
+    \label{eq:trust_region_threshold}
+    r_k = \frac{f(x_k) - f(x_k + s_k)}{m_k(x_k) - m_k(x_k + s_k)} \geq \eta
+\end{equation}
+for some threshold value $\eta$, then the step $s_k$ is accepted and $x_{k+1}$ is set to $x_k + s_k$, replacing the worst point in $Y$.
+Additionally, the trust region radius $\Delta_k$ may be increased so that the next step(s) can be more ambitious.
+Conversely, if $r_k < \eta$, then there are one of two possibilities: either the model is poorly conditioned (in that the points in $Y$ are very unevenly distributed), in which case one of the points is replaced and the model recalculataed; or the model is sufficiently well-conditioned, in which case the step is rejected, and $\Delta_k$ is decreased.
+
+Py-BOBYQA goes beyond a standard derivative-free trust-region algorithm in further limiting the rate at which the radius $\Delta_k$ can change (amongst others).
+Specifically, Py-BOBYQA also maintains a lower bound on the trust region radius $\rho_k$, and on unsuccessful iterations $\Delta_k$ is not allowed to decrease further than $\rho_k$.
+This prevents $\Delta_k$ from decreasing too quickly until the algorithm is certain that $Y$ is sufficiently well-conditioned.\autocite{Powell2003MP}
+Another core feature of Py-BOBYQA is the implementation of multiple restarts, which endows it with greater robustness towards noise and also allows it to escape local minima.\autocite{Cartis2019ACMTMS,Cartis2022O}
+However, the multiple-restarts feature in Py-BOBYQA was disabled in POISE as this often led to overly long optimisations.%
+\footnote{Most mathematics papers on optimisation have no qualms in using hundreds or even thousands of FEs, and it is this context in which Py-BOBYQA outperforms other algorithms. Unfortunately for me, POISE works in an \textit{extremely} restrictive regime where even 50 FEs would be considered very expensive.}
+
+Crucially, Py-BOBYQA differs from the simplex-based methods in that \textit{it cares about the actual value of the cost function}.
+In the NM and MDS methods, only the relative ordering of the points in the simplex matters; it makes no difference to the algorithm whether the worst point has a cost function value of 10 or 1000.
+However, in Py-BOBYQA, the value of $f$ is used in constructing the model, and thus directly influences the optimisation trajectory.
+Although this is beneficial in cases where the underlying cost function is relatively well-behaved,%
+\footnote{I \textit{think} this means cases where the cost function is well described by a quadratic model. Of course, because of Taylor's theorem, every non-noisy cost function can be locally described by a quadratic model within a sufficiently small region. However, for meaningful progress to be made with noisy cost functions, the model must be built over a large enough region such that noise becomes less relevant.}
+and is reflected in faster convergence rates for such problems, it can be problematic for some cost functions.
+Py-BOBYQA is set as the default optimiser in POISE, but the user is strongly recommended to try the NM method as a first step when troubleshooting optimisations.

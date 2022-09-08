@@ -17,35 +17,39 @@ An \textit{optimisation routine}, as defined in POISE, consists of the following
 
         The point at which the optimisation is started.
         Naturally, this should represent the user's best guess at where the optimum lies.
-        It is generally sensible to choose the unoptimised, `default' values for these.
+        It is generally sensible to choose unoptimised, `default' values for these.
         
     \item \textit{Lower} and \textit{upper bounds} (one each per parameter)
 
-        Most parameters have a `chemically sensible' range, or alternatively, instrumental limits may sometimes restrict the range of parameter values which can be explored.
+        These may be chosen based on a range of values which are `chemically sensible', or alternatively, instrumental specifications may sometimes restrict the range of parameter values which can be explored.
 
     \item \textit{Tolerances} (one per parameter)
 
-        This loosely corresponds to the level of accuracy required for the optimisation.
-        There is no point in setting this to be too small (i.e.\ requesting an overly accurate optimum), as the value of the cost function at two points too close together will likely differ only by noise.
-        Furthermore, parameter values cannot be implemented with arbitrary precision on a spectrometer: the available resolution on this sets a lower bound for the tolerance (see \cref{subsec:poise__epsi} for a more concrete discussion of this).
-        On the other hand, setting the tolerance to be too large may simply yield an imprecise and meaningless result.
-        These conditions make it sound as if there is little room for error, but in practice getting the order of magnitude correct is usually enough (and the desired accuracy is also often reasonably clear from the context);
+        The tolerance loosely corresponds to the level of accuracy required for the optimisation.
+        Of course, setting the tolerance to be too large will simply yield an imprecise and meaningless result.
+        However, there is no point in setting this to be too small (i.e.\ requesting an overly accurate optimum): this increases the time required for convergence, because the value of the cost function evaluated at two points too close together will differ only by noise.
+        Furthermore, parameter values cannot be implemented with arbitrary precision on a spectrometer, and the available resolution sets a lower bound for the tolerance (see \cref{subsec:poise__epsi} for a more concrete discussion of this).
+        These conditions make it sound as if there is little room for error, but in practice the desired accuracy is often reasonably clear from the context, and it generally suffices to get the order of magnitude correct;
 
     \item \textit{AU programme}
 
-        The AU programme defined here is used to acquire and process the spectrum.
+        The AU programme defined in an optimisation routine is used to acquire and process the spectrum.
         The user may leave this empty, in which case POISE automatically detects the dimensionality of the experiment and performs standard processing steps (Fourier transformation, window multiplication, phase correction, and baseline correction).
-        However, this allows for almost infinite customisation of the actual spectral measurement: for example, the AU programme may call other scripts in TopSpin which create shaped pulses.
+        This is often sufficient for many applications.
+        However, this does allow for almost infinite customisation of the actual spectral measurement: for example, the AU programme may call other scripts in TopSpin which create shaped pulses (as shown in \cref{subsec:poise__psyche}).
 
     \item \textit{Cost function}
 
-        As before, this measures the `badness' of the spectrum thus recorded, and as before, the optimisation seeks to minimise this value.
-        The cost function is written in Python 3: this design decision is considered later in \cref{subsec:poise__implementation}.
-        Several cost functions which cover `typical' optimisation scenarios, such as maximising or minimising some signal intensity, come pre-installed with POISE, meaning that users do not necessarily need to write their own cost function if they are not familiar with Python.
+        The cost function measures the `badness' of the spectrum thus recorded.
+        As in the previous chapter, the optimisation algorithm seeks to minimise this value.
+        POISE cost functions must be written in Python 3: this design decision is considered later in \cref{subsec:poise__implementation}.
+        For ease of use, several cost functions which cover `typical' optimisation scenarios, such as maximising or minimising signal intensity, come pre-installed with POISE.
+        This means that users do not necessarily need to write their own cost function if they are not familiar with Python.
 \end{enumerate}
 
+Collectively, a routine is therefore a description of \textit{what is to be optimised}.
 POISE allows users to create new routines interactively through a series of dialog boxes.
-Alternatively, routines themselves can be created on-the-fly using the \texttt{poise --create} command: this is useful when some components are not known beforehand, such as if the optimum from a different optimisation is to be used as the initial point in a new one.
+Alternatively, routines themselves can be created on-the-fly using the \texttt{poise -\phantom{}-create} command: this is useful when some components are not known beforehand, such as if the optimum from a different optimisation is to be used as the initial point in a new one.
 However, this is limited to single-parameter routines.
 
 After being created, routines are stored in the human-readable JSON format: they can therefore be modified using any text editor.

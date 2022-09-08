@@ -34,9 +34,9 @@ cnst25s = cnst25s.reshape(17, 17)
 cnst26s = cnst26s.reshape(17, 17)
 cfs = cfs.reshape(17, 17)
 
-fig, ax = plt.subplots(figsize=(5, 3))
-im = ax.contourf(cnst25s, cnst26s, cfs, levels=40, cmap='viridis')
-ax.set(xlabel=r"$J_\mathrm{min}$ (Hz)", ylabel=r"$J_\mathrm{max}$ (Hz)")
+fig, ax = plt.subplots(figsize=(6, 4))
+im = ax.contourf(cnst25s, cnst26s, cfs, levels=np.linspace(1e9, 1.5e11, 40), cmap='viridis')
+ax.set(xlabel=r"$J'_{\!\!\!\mathrm{min}}$ (Hz)", ylabel=r"$J'_{\!\!\!\mathrm{max}}$ (Hz)")
 
 divider = make_axes_locatable(ax)
 cax = divider.append_axes("right", size="5%", pad=0.05)
@@ -63,14 +63,14 @@ if 1:
               [135.56995896899093, 159.33347674412357],
               [133.3763611236035, 155.03334904617574],
               ]
-    for alg, data, color, marker in zip(["NM", "MDS", "BOBYQA"],
-                                        [nm, mds, bobyqa],
-                                        apt.PAL[0:3],
-                                        'xod'):
+    for alg, data, marker in zip(["NM", "MDS", "BOBYQA"],
+                                 [nm, mds, bobyqa],
+                                 '.+*'):
         x, y = zip(*data)
-        ax.scatter(x, y, color=color, marker=marker, label=alg)
-    ax.legend()
+        ax.scatter(x, y, color='#999999', marker=marker, label=alg)
+    ax.legend(loc='upper left')
 
 
+apt.tl()
 # apt.show()
 apt.save(__file__)

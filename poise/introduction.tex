@@ -2,13 +2,14 @@
 \label{sec:poise__introduction}
 
 In the previous chapter, I covered various approaches to improving pure shift NMR through the use of optimisation.
-Although the optimisation code written there was highly specialised and only designed to work on pure shift applications, it was envisioned that this optimisation approach could be applied to essentially \textit{any} NMR experiment where parameter optimisation was required.
-In principle, this description is appropriate for \textit{every} experiment: even the simplest pulse--acquire experiment can be optimised through the use of Ernst angle excitation.
-More complex examples, such as 2D experiments, typically have parameters which should be chosen to optimally match coupling constants (INEPT delay) or relaxation rates (NOE mixing time).
+Although the optimisation code written there was highly specialised and only designed to work on pure shift applications, it was envisioned that this optimisation approach could be applied to essentially \textit{any} NMR experiment which required parameter optimisation.
+This qualification is technically true of \textit{every} experiment: even the simplest pulse--acquire experiment can be optimised through the use of Ernst angle excitation.
+More complex examples, such as 2D experiments, typically have parameters which should be chosen to optimally match coupling constants (e.g.\ the INEPT delay, \cref{fig:inept}) or relaxation rates (e.g.\ the NOE mixing time).
 
-In practice, the need for accurate parameters is often `solved' through the use of compromise values, which typically fall in the middle of an expected range for typical molecules.
-For example, these values may be stored as part of a parameter set designed to be reused.
-Alternatively, parameter values may be optimised `by hand'.
+In routine NMR spectroscopy, this requirement for accurate parameters is often `solved' through the use of compromise values, which typically fall in the middle of an expected range for typical molecules.
+For example, the INEPT delay may be optimised for a $\oneJ{CH}$ value of \qty{145}{\Hz}, which is reasonably close to most actual $\oneJ{CH}$ constants for $\mathrm{sp^3}$ and $\mathrm{sp^2}$ carbons.
+As an alternative, parameter values may be optimised `by hand' prior to acquisition.
+Such a procedure is often recommended for more complicated experiments such as solvent suppression, diffusion NMR or saturation transfer difference experiments.
 However, compared to these, the use of experimental optimisation has several benefits.
 It is:
 \begin{enumerate}
@@ -22,24 +23,25 @@ It is:
 
 Despite these advantages, experimental optimisation of NMR parameters has seen only limited use.
 In fact, although there are several examples of such optimisations in laser\autocite{Bardeen1997CPL}, nuclear quadrupole resonance\autocite{Schiano1999JMR,Schiano2000ZNA,Monea2020JMR}, and ESR\autocite{Goodwin2018JMR} spectroscopies, 
-the only direct parallel in NMR which I have found is that of the eDUMBO pulses for heteronuclear\autocite{DePaepe2003CPL,Elena2004CPL} and homonuclear dipolar\autocite{Salager2010CPL} decoupling in solid-state MAS experiments.
-In this work, the Emsley group used `direct spectral optimisation' (equivalent to what I call `experimental optimisation') to determine the best coefficients for a Fourier series pulse.
-The performance of these pulses was measured by a cost function which (primarily) took into account the intensity of the detected peaks: a larger intensity corresponds to better decoupling performance.
+the only direct parallel in NMR which I am aware of is that of the eDUMBO pulses for heteronuclear\autocite{DePaepe2003CPL,Elena2004CPL} and homonuclear dipolar\autocite{Salager2010CPL} decoupling in solid-state magic-angle spinning experiments.
+In this work, the Emsley group used `direct spectral optimisation' to determine the best coefficients for a pulse expressed as a Fourier series.
+The performance of these pulses was measured by a cost function which primarily took into account the intensity of the detected peaks: a larger intensity corresponds to better decoupling performance.
 Interestingly, the aim of using an experimental optimisation here was not to obtain sample-specific pulses (point (1)), but rather to account for the `spectrometer response', i.e.\ instrumental non-idealities (point (3)).
 It was assumed that the compound used for the optimisation was a suitably representative choice, so that the optimisation result could simply be applied to other samples with no change.
 
 The likely reason for the low popularity of experimental optimisations is \textit{time}.
 Each \textit{function evaluation} (FE), i.e.\ each measurement of the cost function, corresponds to the acquisition of an NMR spectrum which may take seconds to minutes.
-In most cases, it is probably easier to run NMR optimisations in a theoretical manner, which can be much faster and also circumvents the effect of noise.
-Examples of such optimisations include the design of shaped pulses through optimal control theory\autocite{Skinner2003JMR,Kobzar2004JMR,Khaneja2005JMR,Kobzar2008JMR,Kobzar2012JMR,Schilling2014ACIE,Glaser2015EPJD}, by simple parameterisation\autocite{Geen1989JMR,Emsley1990CPL,Geen1991JMR,Nuzillard1994JMRSA,Kupce1995JMRSA,Kupce1995JMRSB}, or the optimisation of entire pulse sequences\autocite{Shaka1985JMR,Freeman1987JMR,Bechmann2013JMR,Ehni2014JMR,Lapin2020JMR} (this is essentially what I did with the dPSYCHE experiment in \cref{sec:pureshift__dpsyche}).
-(In fact, even the aforementioned eDUMBO pulses were not \textit{originally} designed as an experimental optimisation: they are actually an enhancement of the DUMBO decoupling schemes, which were optimised using numerical simulations\autocite{Sakellariou2000CPL}.)
+Thus, where possible, it is easier to run NMR optimisations in a \textit{theoretical} manner, which can be much faster and also circumvents the effect of noise.
+Examples of such optimisations include the design of shaped pulses through optimal control theory\autocite{Skinner2003JMR,Kobzar2004JMR,Khaneja2005JMR,Kobzar2008JMR,Kobzar2012JMR,Schilling2014ACIE,Glaser2015EPJD}, by simple parameterisation\autocite{Geen1989JMR,Emsley1990CPL,Geen1991JMR,Nuzillard1994JMRSA,Kupce1995JMRSA,Kupce1995JMRSB}, or the optimisation of entire pulse sequences\autocite{Shaka1985JMR,Freeman1987JMR,Bechmann2013JMR,Ehni2014JMR,Lapin2020JMR} (the dPSYCHE experiment in \cref{sec:pureshift__dpsyche} falls under this category).
+In fact, even the aforementioned eDUMBO pulses were not \textit{originally} designed as an experimental optimisation: they are actually an enhancement of the DUMBO decoupling schemes, which were optimised using numerical simulations\autocite{Sakellariou2000CPL}.
 
 In this chapter, I aim to provide a convincing argument that experimental optimisation is not necessarily slow.
-In particular, I will show that it is often possible to devise optimisation routines which yield improved results in a matter of minutes.
-All the optimisations here are performed using a software package written by me, called POISE (Parameter Optimisation by Iterative Spectral Evaluation).
+In particular, I show that it is often possible to devise optimisation routines which yield improved results in a matter of minutes.
+All the optimisations here are performed using a software package written by me, called POISE (Pararemter Optimisation by Iterative Spectral Evaluation)
 POISE is open-source (\url{https://github.com/foroozandehgroup/nmrpoise}) and can be installed in a single step through \texttt{pip install nmrpoise}.
 Furthermore, it comes with extensive user documentation, both in the form of a text guide (\url{https://foroozandehgroup.github.io/nmrpoise}) as well as video (\url{https://www.youtube.com/watch?v=QTCeSCRZs4I}).
 
 In contrast to previous work, which typically feature optimisations targeted at one specific application, I have endeavoured to make POISE as customisable and as broad as possible.
-This generality is what allows a single software package, POISE, to perform all the optimisations described in this chapter; it also means that other users can devise specific cost functions and optimisation procedures for their own use.
+Although it is just a single piece of software, this generality is what allows POISE to perform all the optimisations described in this chapter.
+Furthermore, it also means that other users can devise specific cost functions and optimisation procedures for their own use which can also be run using POISE.
 Thus, \textit{POISE is more than just the applications shown later in this chapter}: it is really a platform which makes it possible to carry out arbitrary optimisations on an NMR spectrometer.

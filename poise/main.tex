@@ -1,11 +1,12 @@
 \chapter{POISE}
 \label{chpt:poise}
 
-This chapter describes the development of software for on-the-fly optimisation of NMR experimental parameters, titled POISE (\textit{Parameter Optimisation by Iterative Spectral Evaluation}).
-The primary benefit of this is that parameters may be adjusted for individual spectrometers and samples, which may vary greatly in their chemical properties.
-POISE is primarily written in Python 3.
+This chapter describes the development of a piece of software for on-the-fly optimisation of NMR experimental parameters, titled POISE (\textit{Parameter Optimisation by Iterative Spectral Evaluation}).
+POISE is primarily written in Python 3, and includes an interface to Bruker's TopSpin, allowing optimisations to be started directly from the TopSpin command line.
+Through this optimisation process, NMR acquisition parameters can be adjusted for individual spectrometers and samples, which may vary greatly in their properties: this ultimately leads to improved spectral quality.
+
 In this chapter, I first provide some details about the implementation of POISE.
-The bulk of the text which follows is devoted to a number of applications in liquid-state NMR spectroscopy.
+The bulk of the text which follows is devoted to a number of applications in solution-state NMR spectroscopy.
 At the end, the extension of the concept of on-the-fly optimisation to ESR spectroscopy is also briefly discussed: I contributed code for this, but the experimental ESR work and data analysis were carried out by \JBV{} and William Myers (University of Oxford).
 
 The work in this chapter forms the subject of two publications:

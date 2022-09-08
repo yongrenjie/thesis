@@ -1,0 +1,9 @@
+\subsection{The experiment}
+\label{subsec:poise__experiment}
+
+Once the user has defined a (named) routine, it can then be run from the TopSpin command line using the command \texttt{poise ROUTINE\_NAME}.
+However, the routine itself does not specify what experiment is to be run (i.e.\ the pulse programme), nor any of the other parameters in the experiment.
+These must be set by the user, and can most conveniently be stored in a TopSpin parameter set which can simply be loaded before starting the optimisation.
+
+This flexibility means that the same \textit{type} of optimisation may be applied to different pulse sequences: for example, an experiment to optimise the NOE mixing time (as described in \cref{subsec:poise__noe}) can be run with different versions of the NOESY sequence depending on what is most appropriate, as long as the parameter being optimised always has the same identifier in TopSpin (\texttt{D8} for the mixing time).
+Likewise, parameters such as the number of scans can be adjusted in order to run optimisations on samples with different concentrations, without having to redefine a new routine.

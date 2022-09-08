@@ -8,7 +8,7 @@
    version="1.1"
    id="svg5"
    inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)"
-   sodipodi:docname="dosy_floschart.svg"
+   sodipodi:docname="dosy_flowchart.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -24,13 +24,13 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="0.92514014"
-     inkscape:cx="375.07831"
-     inkscape:cy="225.37126"
+     inkscape:zoom="1.4267615"
+     inkscape:cx="229.54081"
+     inkscape:cy="280.00474"
      inkscape:window-width="1355"
-     inkscape:window-height="558"
+     inkscape:window-height="530"
      inkscape:window-x="2028"
-     inkscape:window-y="101"
+     inkscape:window-y="73"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1">
     <inkscape:grid
@@ -247,19 +247,19 @@
        width="17.6"
        height="8"
        x="99.199989"
-       y="84.799995"
+       y="86.400002"
        ry="1.3333334" />
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;stroke-width:0.264583"
        x="104.98566"
-       y="90.107033"
+       y="91.707039"
        id="text2355-7"><tspan
          sodipodi:role="line"
          id="tspan2353-7"
          style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans Semi-Bold';stroke-width:0.264583"
          x="104.98566"
-         y="90.107033">End</tspan></text>
+         y="91.707039">End</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;stroke-width:0.264583"
@@ -351,7 +351,7 @@
        id="path2714-8-0-3-7" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.32;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1L-4)"
-       d="m 91.200004,88.799997 h 6.4"
+       d="m 91.200004,90.4 h 6.4"
        id="path2714-7" />
     <rect
        style="fill:#c5e5cd;fill-opacity:1;stroke:#000000;stroke-width:0.350716;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stop-color:#000000"
@@ -376,12 +376,12 @@
          style="text-align:center;text-anchor:middle;stroke-width:0.264583"
          x="69.599998"
          y="65.354668"
-         id="tspan2607-5">attenuation is</tspan><tspan
+         id="tspan2607-5">≥ 75% attenuation is</tspan><tspan
          sodipodi:role="line"
          style="text-align:center;text-anchor:middle;stroke-width:0.264583"
          x="69.599998"
          y="69.764381"
-         id="tspan665">sufficient</tspan></text>
+         id="tspan665">attained</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1L-7)"
        d="M 47.200005,63.999998 H 27.200002 v -19.2"
@@ -405,20 +405,20 @@
        style="fill:#ffdddc;fill-opacity:1;stroke:#000000;stroke-width:0.32;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stop-color:#000000"
        id="rect2299-8-5-5-6-7"
        width="41.600002"
-       height="11.200001"
+       height="14.400006"
        x="49.599998"
        y="83.199997"
        ry="0" />
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;stroke-width:0.264583"
-       x="70.391174"
-       y="87.595261"
+       x="70.432274"
+       y="87.31144"
        id="text2577-1"><tspan
          sodipodi:role="line"
          style="text-align:center;text-anchor:middle;stroke-width:0.264583"
-         x="70.391174"
-         y="87.595261"
+         x="70.432274"
+         y="87.31144"
          id="tspan2579-3">Optimise <tspan
    style="font-style:italic"
    id="tspan2043">G</tspan><tspan
@@ -426,9 +426,14 @@
    id="tspan2039">max</tspan> to</tspan><tspan
          sodipodi:role="line"
          style="text-align:center;text-anchor:middle;stroke-width:0.264583"
-         x="70.391174"
-         y="92.004974"
-         id="tspan2037">provide 75% attenuation</tspan></text>
+         x="70.432274"
+         y="91.721153"
+         id="tspan2037">provide exactly</tspan><tspan
+         sodipodi:role="line"
+         style="text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="70.432274"
+         y="96.130867"
+         id="tspan569">75% attenuation</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.319999;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1L-7-3-8-3-1)"
        d="m 69.599999,76.020878 v 5.76"
@@ -437,34 +442,34 @@
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;stroke-width:0.264583"
        x="63.178261"
-       y="80.36586"
+       y="80.946121"
        id="text2412"><tspan
          sodipodi:role="line"
          id="tspan2410"
          style="font-style:italic;stroke-width:0.264583"
          x="63.178261"
-         y="80.36586">Yes</tspan></text>
+         y="80.946121">Yes</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#e8000b;stroke-width:0.264583"
-       x="22.4"
-       y="89.599998"
+       x="23.458334"
+       y="91.394829"
        id="text2850"><tspan
          sodipodi:role="line"
          id="tspan2848"
          style="font-style:italic;fill:#e8000b;stroke-width:0.264583"
-         x="22.4"
-         y="89.599998">Optimisation 2</tspan></text>
+         x="23.458334"
+         y="91.394829">Optimisation 2</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#e8000b;stroke-width:0.264583"
-       x="99.199997"
-       y="57.599998"
+       x="98.141663"
+       y="54.59483"
        id="text2850-0"><tspan
          sodipodi:role="line"
          id="tspan2848-6"
          style="font-style:italic;fill:#e8000b;stroke-width:0.264583"
-         x="99.199997"
-         y="57.599998">Optimisation 1</tspan></text>
+         x="98.141663"
+         y="54.59483">Optimisation 1</tspan></text>
   </g>
 </svg>

@@ -24,13 +24,13 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="0.6934464"
-     inkscape:cx="678.49513"
-     inkscape:cy="-218.47399"
+     inkscape:zoom="1.1159634"
+     inkscape:cx="251.35232"
+     inkscape:cy="95.433234"
      inkscape:window-width="1355"
-     inkscape:window-height="530"
+     inkscape:window-height="446"
      inkscape:window-x="2028"
-     inkscape:window-y="73"
+     inkscape:window-y="25"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1">
     <inkscape:grid
@@ -99,18 +99,6 @@
          y="39.609715" /></text>
     <circle
        style="fill:#000000;stroke:#000000;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
-       id="path600"
-       cx="110.57051"
-       cy="22.4"
-       r="1.4294902" />
-    <circle
-       style="fill:#000000;stroke:#000000;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
-       id="path600-4"
-       cx="110.57051"
-       cy="54.400002"
-       r="1.4294902" />
-    <circle
-       style="fill:#000000;stroke:#000000;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
        id="path600-4-8"
        cx="148.9705"
        cy="38.400002"
@@ -135,94 +123,60 @@
        id="path1480-5-7" />
     <text
        xml:space="preserve"
-       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;stroke-width:0.264583"
-       x="109.35881"
-       y="59.741665"
-       id="text1585"><tspan
-         sodipodi:role="line"
-         id="tspan1583"
-         style="stroke-width:0.264583"
-         x="109.35881"
-         y="59.741665"><tspan
-           style="font-style:italic"
-           id="tspan1589">y</tspan><tspan
-           style="font-size:65%;baseline-shift:super"
-           id="tspan1587">1</tspan></tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;stroke-width:0.264583"
-       x="108.8"
-       y="18.670834"
-       id="text1585-1"><tspan
-         sodipodi:role="line"
-         id="tspan1583-5"
-         style="stroke-width:0.264583"
-         x="108.8"
-         y="18.670834"><tspan
-           style="font-style:italic"
-           id="tspan1589-3">y</tspan><tspan
-           style="font-size:65%;baseline-shift:super"
-           id="tspan1587-5">2</tspan></tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;stroke-width:0.264583"
-       x="148.8"
-       y="43.200001"
+       style="font-size:4.23333px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;stroke-width:0.264583"
+       x="151.48337"
+       y="38.953861"
        id="text1585-1-8"><tspan
          sodipodi:role="line"
          id="tspan1583-5-3"
-         style="stroke-width:0.264583"
-         x="148.8"
-         y="43.200001"><tspan
-           style="font-style:italic"
+         style="font-size:4.23333px;stroke-width:0.264583"
+         x="151.48337"
+         y="38.953861"><tspan
+           style="font-style:italic;font-size:4.23333px"
            id="tspan1589-3-5">y</tspan><tspan
            style="font-size:65%;baseline-shift:super"
-           id="tspan1587-5-2">3</tspan></tspan></text>
+           id="tspan696">3</tspan></tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
-       x="67.199997"
+       style="font-size:4.23333px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;stroke-width:0.264583"
+       x="105.6"
        y="38.953861"
-       id="text1585-1-8-2"><tspan
+       id="text1585-1-8-9"><tspan
          sodipodi:role="line"
-         id="tspan1583-5-3-5"
-         style="fill:#023eff;stroke-width:0.264583"
-         x="67.199997"
-         y="38.953861"><tspan
-           style="font-style:italic;fill:#023eff"
-           id="tspan1589-3-5-2">y</tspan><tspan
-           style="font-size:65%;baseline-shift:sub;fill:#023eff"
-           id="tspan1836">r</tspan></tspan></text>
+         id="tspan1583-5-3-3"
+         style="font-style:italic;font-size:4.23333px;stroke-width:0.264583"
+         x="105.6"
+         y="38.953861">y</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
-       x="26.129168"
-       y="38.953861"
-       id="text1585-1-8-2-1"><tspan
-         sodipodi:role="line"
-         id="tspan1583-5-3-5-3"
-         style="fill:#023eff;stroke-width:0.264583"
-         x="26.129168"
-         y="38.953861"><tspan
-           style="font-style:italic;fill:#023eff"
-           id="tspan1589-3-5-2-97">y</tspan><tspan
-           style="font-size:65%;baseline-shift:sub;fill:#023eff"
-           id="tspan1836-3">e</tspan></tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
+       style="font-size:4.23333px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
        x="123.2"
        y="38.953861"
        id="text1585-1-8-2-8"><tspan
          sodipodi:role="line"
          id="tspan1583-5-3-5-5"
-         style="fill:#023eff;stroke-width:0.264583"
+         style="font-size:4.23333px;fill:#023eff;stroke-width:0.264583"
          x="123.2"
          y="38.953861"><tspan
-           style="font-style:italic;fill:#023eff"
+           style="font-style:italic;font-size:4.23333px;fill:#023eff"
            id="tspan1589-3-5-2-9">y</tspan><tspan
-           style="font-size:65%;baseline-shift:sub;fill:#023eff"
-           id="tspan1836-4">ic</tspan></tspan></text>
+           style="font-size:65%;baseline-shift:sub"
+           id="tspan694">ic</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
+       x="94.400002"
+       y="38.953861"
+       id="text1585-1-8-2-8-5"><tspan
+         sodipodi:role="line"
+         id="tspan1583-5-3-5-5-5"
+         style="font-size:4.23333px;fill:#023eff;stroke-width:0.264583"
+         x="94.400002"
+         y="38.953861"><tspan
+           style="font-style:italic;font-size:4.23333px;fill:#023eff"
+           id="tspan1589-3-5-2-9-4">y</tspan><tspan
+           style="font-size:65%;baseline-shift:sub"
+           id="tspan694-1">oc</tspan></tspan></text>
     <path
        style="fill:#023eff;stroke:#023eff;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:0.529166, 0.264583;stroke-dashoffset:0;stroke-opacity:1"
        d="M 110.4,22.4 91.54289,38.135278"
@@ -252,21 +206,6 @@
        cy="38.400002"
        r="1.4294902"
        transform="scale(-1,1)" />
-    <text
-       xml:space="preserve"
-       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
-       x="94.400002"
-       y="38.953861"
-       id="text1585-1-8-2-8-5"><tspan
-         sodipodi:role="line"
-         id="tspan1583-5-3-5-5-7"
-         style="fill:#023eff;stroke-width:0.264583"
-         x="94.400002"
-         y="38.953861"><tspan
-           style="font-style:italic;fill:#023eff"
-           id="tspan1589-3-5-2-9-2">y</tspan><tspan
-           style="font-size:65%;baseline-shift:sub"
-           id="tspan2032">oc</tspan></tspan></text>
     <path
        style="fill:#023eff;stroke:#023eff;stroke-width:0.264584px;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:0.529166, 0.264584;stroke-dashoffset:0;stroke-opacity:1"
        d="M 110.40001,22.4 31.828713,38.135278"
@@ -275,5 +214,87 @@
        style="fill:#023eff;stroke:#023eff;stroke-width:0.264584px;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:0.529166, 0.264584;stroke-dashoffset:0;stroke-opacity:1"
        d="M 108.9713,54.037241 30.400005,38.301963"
        id="path1480-5-7-7-62" />
+    <circle
+       style="fill:#000000;stroke:#000000;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="path600-4"
+       cx="110.4"
+       cy="54.400002"
+       r="1.4294902" />
+    <circle
+       style="fill:#000000;stroke:#000000;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="path600"
+       cx="110.4"
+       cy="22.4"
+       r="1.4294902" />
+    <circle
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:0;stop-color:#000000"
+       id="path600-7"
+       cx="110.38335"
+       cy="38.400097"
+       r="1.4294902" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 105.89168,36.061666 h 1.6"
+       id="path1191" />
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;stroke-width:0.264583"
+       x="109.62358"
+       y="60.34824"
+       id="text1585-1-8-3"><tspan
+         sodipodi:role="line"
+         id="tspan1583-5-3-9"
+         style="font-size:4.23333px;stroke-width:0.264583"
+         x="109.62358"
+         y="60.34824"><tspan
+           style="font-style:italic;font-size:4.23333px"
+           id="tspan1589-3-5-9">y</tspan><tspan
+           style="font-size:65%;baseline-shift:super"
+           id="tspan696-9">1</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;stroke-width:0.264583"
+       x="109.45573"
+       y="18.79561"
+       id="text1585-1-8-4"><tspan
+         sodipodi:role="line"
+         id="tspan1583-5-3-7"
+         style="font-size:4.23333px;stroke-width:0.264583"
+         x="109.45573"
+         y="18.79561"><tspan
+           style="font-style:italic;font-size:4.23333px"
+           id="tspan1589-3-5-1">y</tspan><tspan
+           style="font-size:65%;baseline-shift:super"
+           id="tspan696-3">2</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
+       x="66.116661"
+       y="38.953861"
+       id="text1585-1-8-2-8-9"><tspan
+         sodipodi:role="line"
+         id="tspan1583-5-3-5-5-1"
+         style="font-size:4.23333px;fill:#023eff;stroke-width:0.264583"
+         x="66.116661"
+         y="38.953861"><tspan
+           style="font-style:italic;font-size:4.23333px;fill:#023eff"
+           id="tspan1589-3-5-2-9-5">y</tspan><tspan
+           style="font-size:65%;baseline-shift:sub"
+           id="tspan694-5">r</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
+       x="26.129168"
+       y="38.953861"
+       id="text1585-1-8-2-8-2"><tspan
+         sodipodi:role="line"
+         id="tspan1583-5-3-5-5-7"
+         style="font-size:4.23333px;fill:#023eff;stroke-width:0.264583"
+         x="26.129168"
+         y="38.953861"><tspan
+           style="font-style:italic;font-size:4.23333px;fill:#023eff"
+           id="tspan1589-3-5-2-9-1">y</tspan><tspan
+           style="font-size:65%;baseline-shift:sub"
+           id="tspan694-52">e</tspan></tspan></text>
   </g>
 </svg>
