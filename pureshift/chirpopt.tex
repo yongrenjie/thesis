@@ -5,6 +5,9 @@ Given that a working optimisation setup, including cost functions, had been deve
 This goes beyond simply modifying the number of saltires, as was done in \cref{sec:pureshift__nsaltire}.
 There is no real reason why the pulse \textit{must} be an integer number of saltires: in principle it can have \textit{any} shape, although being symmetric about the centre of the pulse would likely still be beneficial in terms of preserving the mechanism of spatiotemporal averaging.
 
+
+\subsubsection{Sum-of-chirp parameterisation}
+
 A naive attempt at optimising the pulse would simply involve modifying every pulse point in the double-saltire waveform used in the PSYCHE element.
 As described in \cref{sec:theory__rotating_frame}, each pulse point consists of a pair of $x$- and $y$-amplitudes $(c_x, c_y)$; therefore, for a pulse with $m$ points, we would have a parameter vector $\symbf{x} \in \mathbb{R}^{2m}$.
 Unfortunately, for PSYCHE, $m$ is on the order of $10000$, and an optimisation with $20000$ points is totally unfeasible.%
@@ -61,6 +64,9 @@ $f_\text{sm}$ depends on a smoothing parameter $s_\text{sm}$, which is typically
     \end{cases}
 \end{equation}
 where $t' = t/\taup$ (and here $\taup$ refers to the duration of the \textit{entire} waveform, after reflection.).
+
+
+\subsubsection{Optimisations}
 
 The initial point chosen was:
 \begin{itemize}

@@ -1,9 +1,9 @@
 \subsection{The echo--antiecho HSQC: gradients and coherence selection}
 \label{subsec:theory__hsqc_ea}
 
-\begin{figure}[htbp]
+\begin{figure}[!ht]
     \centering
-    \includegraphics[]{pp/hsqc/etgp.png}%
+    \includegraphics[]{pp/hsqc/etgp_ctp.png}%
     \caption[Echo--antiecho HSQC pulse sequence]{
         A typical EA HSQC pulse sequence.
         The delay $\Delta$ is set to $1/(4 \cdot \oneJ{CH})$.
@@ -11,13 +11,17 @@
         Specifically, the echo dataset is obtained by setting $(g_1, g_2) = (80\%, 20\%)$, and the antiecho dataset by setting $(g_1, g_2) = (80\%, -20\%)$, where gradient amplitudes are quoted as a percentage of the maximum gradient amplitude.
         Unlike in the States HSQC (\cref{fig:hsqc_ph}), phase cycling of $\phi_1$ and $\phi_\text{rec}$ is no longer mandatory as the gradients $g_1$ and $g_2$ dephase unwanted magnetisation (although it can still be performed to attain \textit{even} better artefact suppression).
         $\tau$ represents the duration of both gradients, and is usually on the order of \qty{1}{ms}.
+        The lines below the pulse sequence illustrate the coherence orders selected for during the echo experiment, which are collectively referred to as a coherence transfer pathway: for the antiecho experiment the \carbon{} CTP must be inverted.
     }
     \label{fig:hsqc_etgp}
 \end{figure}
 
 The EA version of the HSQC experiment (\cref{fig:hsqc_etgp}) is very similar to the States version discussed above.
 The only real difference is that two gradients are added: one immediately after $t_1$, and one directly before detection.
-As we will see, the effect of this is to enforce a relationship between the coherence orders during the two gradients, or in other words, to select for a specific \textit{coherence transfer pathway} (CTP).
+As we will see, the effect of this is to enforce a relationship between the coherence orders during the two gradients, or in other words, to select for a specific \textit{coherence transfer pathway} (CTP), as illustrated by the lines beneath the pulse sequence in \cref{fig:hsqc_etgp}.
+
+
+\subsubsection{Brute force}
 
 Recall that the Hamiltonian caused by a gradient of strength $G$ is given by $H_\text{grad} = \sum_i \gamma_i Gz I_{iz}$ (\cref{eq:h_grad}), where $z$ is the $z$-position of the spin.
 In the case of our two-spin system, we can more explicitly write this as:
@@ -92,12 +96,12 @@ If the gradient strengths $(g_1, g_2)$ and/or their durations $\tau$ are suffici
 The result is that, just before detection, we have:
 \begin{equation}
     \label{eq:hsqc_ea_echo_cartesian}
-    \rho = -\frac{1}{2}I_x\cos(\Omega_S t_1) + \frac{1}{2}I_y\sin(\Omega_S t_1),
+    \rho_\text{echo} = -\frac{1}{2}I_x\cos(\Omega_S t_1) + \frac{1}{2}I_y\sin(\Omega_S t_1),
 \end{equation}
 or, extracting the detectable $I_-$ components,
 \begin{equation}
     \label{eq:hsqc_ea_echo_detectable}
-    \rho = -\frac{1}{4}I_-\cos(\Omega_S t_1) + \frac{\mi}{4}I_-\sin(\Omega_S t_1) = -\frac{1}{4}I_-\exp(-\mi\Omega_S t_1).
+    \rho_\text{echo} = -\frac{1}{4}I_-\cos(\Omega_S t_1) + \frac{\mi}{4}I_-\sin(\Omega_S t_1) = -\frac{1}{4}I_-\exp(-\mi\Omega_S t_1).
 \end{equation}
 Detection of this in $t_2$ gives us the echo signal
 \begin{equation}
@@ -114,9 +118,13 @@ Now, the second and fourth terms in \cref{eq:hsqc_ea_after_g2_2} are dephased, a
     s_\text{antiecho}(t_1, t_2) = -\frac{1}{4}\exp(-\mi \Omega_S t_1)\exp(\mi \Omega_I t_2).
 \end{equation}
 
+
+\subsubsection{The shift basis}
+
 In the above treatment, I have only used the `rules' developed so far for Cartesian product operators to explain the effects of gradients.
 \textit{This is clearly very tedious!}
-When gradients are involved, it proves simpler to use a different basis, specifically $\{E, I_z, I_+, I_-\}$.
+When gradients are involved, it proves simpler to use a different basis, specifically $\{E, I_z, I_+, I_-\}$: this is called the \textit{shift basis}.%
+\footnote{The normalisation factors of each of these operators may be modified slightly for consistency, as in Cavanagh et al.\autocite{Cavanagh2007}, but this is largely inconsequential for the purposes of this section.}
 The coherence orders of these, and their products, are easily read off from the terms involved: for example, $I_-S_-$ is double-quantum coherence with $p = -2$.
 The evolution of these terms under various Hamiltonians is summarised by Keeler\autocite{Keeler2010}, but two cases are particularly simple and important here:
 \begin{enumerate}
@@ -128,6 +136,8 @@ The evolution of these terms under various Hamiltonians is summarised by Keeler\
         \end{equation}
 \end{enumerate}
 We have seen examples of the latter before: compare, for example, \cref{eq:rho_coherences,eq:fid_coherences}.
+Being flexible in switching between the two bases can greatly simplify the mathematics involved, as terms which do not survive can be immediately dropped, and the simpler phase modulation $\exp(\mi\omega t)$ can be used instead of unwieldy $\cos(\omega t)$ and $\sin(\omega t)$ terms.
+
 Consider now how a spatially dependent phase is imparted to a coherence as it proceeds through the HSQC sequence.
 We assume that between the two gradients the coherence $I_{ip}$ is transferred to $I_{jq}$, i.e.\ $q$-order coherence on some other spin $j$:
 \begin{equation}
@@ -145,17 +155,8 @@ and in the specific case of the HSQC, we know that spins $i$ and $j$ are respect
     p\gamma_S g_1 + q\gamma_I g_2 = 0.
 \end{equation}
 For the echo experiment, we choose $g_1/g_2 = \gamma_I/\gamma_S$, which means that this is satisfied if and only if $p + q = 0$.
-Since $I_{q}$ is only detectable if $q = -1$, this means that $p = +1$: in other words, the gradient combination selects for the $I_zS_+$ term during $t_1$.
-We also note here that any signal generated from the bulk magnetisation (\proton{} not directly coupled to \carbon{}) cannot be rephased by these gradients: this would require that
-\begin{equation}
-    \label{eq:unrefocusable_bulk}
-    p\gamma_I g_1 + q\gamma_I g_2 = 0 \Leftrightarrow p \gamma_I + q\gamma_S = 0,
-\end{equation}
-which cannot be satisfied for any sensible integer values of $p$ and $q$ except for $p = q = 0$, which is not observable during $t_2$ anyway.
-So, the CTP gradients effectively remove all unwanted signals arising from the bulk magnetisation: the cycling of $\phi_1$ and $\phi_\text{rec}$ done in the States experiment is rendered unnecessary.
-
-Returning to our analysis, at the start of $t_1$ we had the operator $-2I_zS_y = \mi(I_zS_+ - I_zS_-)$.
-For the echo experiment, we need only care about the first of these two terms.
+Since $I_{q}$ is only detectable if $q = -1$, this means that $p = +1$.
+At the start of $t_1$, we have the operator $-2I_zS_y = \mi(I_zS_+ - I_zS_-)$: of these two terms, the gradient combination selects for the $I_zS_+$ term during $t_1$, and rejects the $I_zS_-$ term.
 This evolves during $t_1$ (and the $180^\circ(I)$ pulse) to give
 \begin{equation}
     \label{eq:hsqc_echo_shift_aftert1}
@@ -166,14 +167,28 @@ The gradient echo after $t_1$ transforms this to
     \label{eq:hsqc_echo_shift_after_g1}
     -\mi I_zS_- \exp(-\mi \Omega_S t_1)\exp(-\mi \gamma_S g_1 z\tau) = -\mi I_z(S_x - \mi S_y) \exp(-\mi \Omega_S t_1)\exp(-\mi \gamma_S g_1 z\tau).
 \end{equation}
-Again, the mixing period only transforms $2I_zS_y \to I_x$, so we get
+Again, the mixing period only transforms $2I_zS_y \to I_x$, so we can discard the $I_zS_x$ term and get
 \begin{equation}
     \label{eq:hsqc_echo_shift_before_g2}
     -\frac{1}{2} I_x \exp(-\mi \Omega_S t_1)\exp(-\mi \gamma_S g_1 z\tau)
 \end{equation}
 just before applying the $g_2$ gradient.
-The $I_x$ term can then be decomposed into $(I_+ + I_-)/2$, and we already know the end of the story: the $I_-$ term is rephased by $g_2$ and then detected to yield $s_\text{echo}(t_1, t_2)$ (\cref{eq:hsqc_ea_echo_signal}).
-Being flexible in switching between the two bases can greatly simplify the mathematics involved, as terms which do not survive can be immediately dropped, and the simpler phase modulation $\exp(\mi\omega t)$ can be used instead of unwieldy $\cos(\omega t)$ and $\sin(\omega t)$ terms.
+This $I_x$ term can then be decomposed into $(I_+ + I_-)/2$, and we already know the end of the story: the $I_-$ component is rephased by $g_2$ and then detected to yield $s_\text{echo}(t_1, t_2)$ (\cref{eq:hsqc_ea_echo_signal}).
+This \textit{CTP selection} is frequently depicted in the diagrammatic form of \cref{fig:hsqc_etgp}, where solid lines indicate the coherence orders which are selected for at each part of the pulse sequence.
+In this case, during the gradient $g_1$, we have $+1$-coherence on \carbon{}; and during the gradient $g_2$, we have $-1$-coherence on \proton{}.
+
+Conversely, for the antiecho experiment, the gradient ratio $g_1/g_2 = -\gamma_I/\gamma_S$ necessitates instead that $p - q = 0$.
+This therefore selects for the $I_zS_-$ term during $t_1$, and the remaining analysis can be carried out along the same lines.
+The relevant CTP diagram is similar to that in \cref{fig:hsqc_etgp}, except that the \carbon{} component (orange line) is inverted.
+
+Finally, we note here that any signal generated from the bulk magnetisation (protons not directly coupled to \carbon{}) cannot be rephased by these gradients.
+Since such magnetisation is always on spin $I$, this would require that
+\begin{equation}
+    \label{eq:unrefocusable_bulk}
+    p\gamma_I g_1 + q\gamma_I g_2 = 0 \Leftrightarrow p \gamma_I + q\gamma_S = 0,
+\end{equation}
+which cannot be satisfied for any sensible integer values of $p$ and $q$ except for $p = q = 0$, which is not observable during $t_2$ anyway.
+So, the CTP gradients effectively remove all unwanted signals arising from the bulk magnetisation: the cycling of $\phi_1$ and $\phi_\text{rec}$ done in the States experiment is rendered unnecessary.
 
 \begin{figure}[htbp]
     \centering
@@ -195,11 +210,14 @@ Being flexible in switching between the two bases can greatly simplify the mathe
     \label{fig:hsqc_comparison}
 \end{figure}
 
-The points developed in this chapter are neatly summarised in \cref{fig:hsqc_comparison}.
+The points developed in this chapter are neatly demonstrated in \cref{fig:hsqc_comparison}.
 The States--TPPI experiment (\cref{fig:hsqc_comparison_st_ns1}) is the same as the States experiment in \cref{fig:hsqc_ph}, except that on every $t_1$ increment $\phi_1$ and $\phi_\text{rec}$ are inverted, causing the artefacts to be shifted to the edge of the spectrum.
 Comparing the projections of this and the EA experiment (\cref{fig:hsqc_comparison_projections}), it can be seen that the States--TPPI version has a larger SNR by a factor of $\sqrt{2}$; however, it clearly requires at least a two-step phase cycle to obtain presentable data, as was done in \cref{fig:hsqc_comparison_st_ns2}.
 Clearly, the sensitivity of the EA spectrum in \cref{fig:hsqc_comparison_ea_ns1} is good enough, rendering the extra SNR from the States--TPPI method unnecessary: it is therefore more practical to use the EA version, as the spectrum quality is much better.
 For homonuclear experiments which do not have such stringent artefact suppression requirements, States(--TPPI) quadrature detection is still commonly used.
+
+
+\subsubsection{Coherence transfer pathways}
 
 To end this chapter, we generalise the CTP refocusing requirement introduced in \cref{eq:gradient_refocusing_condition}.
 The treatment here is similar to that of Mitschang et al.\autocite{Mitschang1995JCP}

@@ -18,6 +18,9 @@
     \label{fig:pureshift_elements}
 \end{figure}
 
+
+\subsubsection{Zangger--Sterk}
+
 We are finally now in a position to study individual PSEs and their mechanisms of action.
 We begin with the Zangger--Sterk (ZS, or `slice-selective') PSE\autocite{Zangger1997JMR}, in which a selective refocusing pulse and a weak gradient are simultaneously applied (\cref{fig:pureshift_elements_zs}).
 In practice, an rSNOB pulse\autocite{Kupce1995JMRSB} is often used as the refocusing pulse.
@@ -29,6 +32,9 @@ The sensitivity of the ZS method tends to be low (the factor $c$ tends to be on 
 Nevertheless, it still finds wide usage in pure shift applications nowadays, especially because it is compatible with the real-time acquisition mode\autocite{Meyer2013ACIE}: as long as the pulse and the weak gradient are the same each time, then the same active spins will always be chosen in the same slice (as long as diffusion effects are ignored).
 The PSE can also be customised through the bandwidth of the refocusing pulse: decreasing this improves the spatial differentiation between spins which have similar intrinsic offsets, yielding better decoupling quality, albeit at the cost of sensitivity.
 The ZS element can be easily---and has been---adapted for use in many experiments, including (but not limited to) absorption-mode 2DJ spectroscopy\autocite{Pell2007JMR} and selective refocusing (SERF) experiments for the measurement of $\nJ{HH}$\autocite{Giraud2010ACIE,Gubensak2014CC,Mishra2017JMR,Buchberger2018MRC}.
+
+
+\subsubsection{BIRD}
 
 Next up is the \textit{bilinear rotation decoupling} (BIRD) pulse element (\cref{fig:pureshift_elements_bird}).
 BIRD is not spatially selective like the ZS method; instead, it is \textit{isotope-selective} in that it acts as a $180^\circ_y$ pulse on \carbon{}--bound protons, and does not affect \carbont{}--bound protons.
@@ -43,11 +49,16 @@ However, it is also compatible with real-time acquisition\autocite{Lupulescu2012
 It should be noted that the BIRD element does not need to be combined with a hard \ang{180} pulse to form a JRE: the inverse effect of only flipping the passive spins can be accomplished by simply changing the phase of both internal \ang{180} pulses to $+y$.
 Using the nomenclature of Uhr{\'i}n et al.,\autocite{Uhrin1993JMRSA} the PSE and JRE forms of the BIRD pulse can be labelled as BIRD\textsuperscript{d,X} and BIRD\textsuperscript{r,X} respectively.
 
+\subsubsection{Time-reversal}
+
 The \textit{time-reversal} PSE (\cref{fig:pureshift_elements_tr}) is even simpler: it consists only of one hard pulse with flip angle $\beta$\autocite{Sorensen1985JACS}.
 The catch is that the experiment must be repeated with different values of $\beta$, and the results added up with specific weightings.\autocite{Griesinger1986JCP}
 This leads to cancellation of \textit{some}, but not all, of the unwanted coherences: for example, on its own, it does not suppress COSY-type coherence transfer such as $I_{1-}I_{2\alpha} \to I_{1\alpha}I_{2+}$.
 This proved to be inconsequential in the original application of $F_1$ decoupling in a 2D NOESY\autocite{Sorensen1985JACS}; however, it is not acceptable in a 1D context as it leads to substantial artefacts.
 This will be discussed in more detail in \cref{sec:pureshift__timerev}, so a fuller analysis of the time-reversal PSE is deferred until then.
+
+
+\subsubsection{PSYCHE}
 
 Finally, we come to the PSYCHE method, which is generally considered the current state of the art for pure shift NMR.\autocite{Foroozandeh2014ACIE}
 The corresponding PSE (\cref{fig:pureshift_elements_psyche}) consists of two swept-frequency pulses applied during a weak gradient: for example, a pair of chirps with opposite sweep directions can be used.

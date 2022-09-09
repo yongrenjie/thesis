@@ -23,6 +23,8 @@ Generally, using a larger number of saltires but with a smaller flip angle accom
 This may be qualitatively rationalised as more saltires providing more possible CTPs which generate the desired signal (the same idea is generally invoked when discussing the difference between unidirectional chirps and saltires\autocite{Foroozandeh2018CEJ}).
 However, regardless of the number of saltires, the fundamental strategy of adjusting the flip angle to control the signal-to-artefact ratio remains valid, which naturally raises the question of whether specific waveforms and flip angles can be chosen in order to obtain the best decoupling quality.
 
+\subsubsection{Quadruple-saltire PSYCHE}
+
 \begin{figure}[htb]
     \centering
     \includegraphics[]{pureshift/quadruple_saltire_30ms.png}%
@@ -56,6 +58,8 @@ Overall, the quadruple-saltire \ang{55} experiment does have better sensitivity 
 However, the artefacts are not always suppressed as nicely as in the chosen reference peak: for example, the peak at \qty{4.05}{ppm} is significantly less clean in the quadruple-saltire experiment.
 Any apparent advantage over the double-saltire experiment is therefore not very clear---at least from this data alone.%
 \footnote{In fact, I also performed some preliminary experiments where the four-saltire PSE was lengthened to \qty{60}{\ms}. The artefact behaviour in these spectra were better than in their \qty{30}{\ms} counterparts, which is to be expected since a longer PSE leads to better spatiotemporal averaging. However, I unfortunately did not compare these against a \qty{60}{\ms} double-saltire experiment, so these results are not included in this thesis. (It would be rather unfair to compare them against the \qty{30}{\ms} double-saltire.)}
+
+\subsubsection{Single-saltire PSYCHE}
 
 Moving on to the single-saltire case, in addition to searching for a better signal and artefact profile as before, another possible motivation would be that the duration of the PSE can be decreased.
 This would minimise losses due to relaxation and diffusion during the PSE, which were not taken into account in \cref{fig:fa_dependence_124} (and the simulations there did not vary $\taup$ anyway).

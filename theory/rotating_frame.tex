@@ -15,7 +15,7 @@ In this case, the static part $H_0$ simply corresponds to precession of the spin
     \label{eq:interaction_ham0}
     H_0 = \sum_i \omega_{\text{rot},i}I_{iz}.
 \end{equation}
-(Generally, each instance of the same nuclide (e.g.\ \proton{} or \carbon{}) will share the same $\omega_\text{rot}$, so the subscript $\omega_{\text{rot},i}$ is useful only to distinguish different nuclear species.)
+(Generally, each instance of the same nuclide (e.g.\ \proton{} or \carbon{}) will share the same $\omega_\text{rot}$, so the subscript $i$ in $\omega_{\text{rot},i}$ is useful only for distinguishing different nuclear species.)
 This allows us to define $H_1$ as
 \begin{align}
     \label{eq:reduced_ham}
@@ -46,10 +46,9 @@ where
     \label{eq:interaction_h1i}
     H_{1,I} = \exp(\mi H_0 t) H_1 \!\exp(-\mi H_0 t).
 \end{equation}
-The underlying principle here is that the `interesting' behaviour should be contained in $H_1$ (or rather $H_{1,I}$), and the interaction-picture states $\ket{\Psi}_I$ only evolve under this term.
-The effect of $H_0$ is not neglected, but rather it is `absorbed' into the operators instead of the ket (\cref{eq:interaction_h1i}).
+The underlying principle here is that the `interesting' behaviour should be contained in $H_1$, and instead of explicitly considering the time evolution under the `uninteresting' $H_0$, it is just used to transform $H_1$ into $H_{1,I}$.
 
-We now turn our attention to how the various NMR Hamiltonians (\cref{eq:h_cs,eq:h_j,eq:h_pulse,eq:h_grad}) are transformed in the interaction picture; that is to say, what the individual terms in the rhs of
+We now turn our attention to how the various NMR Hamiltonians (\cref{eq:h_cs,eq:h_j,eq:h_pulse,eq:h_grad}) are transformed in the interaction picture; that is to say, what the individual terms in the right-hand side of
 \begin{equation}
     \label{eq:interaction_nmr_hamiltonians}
     \begin{aligned}
