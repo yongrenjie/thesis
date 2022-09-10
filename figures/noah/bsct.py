@@ -21,8 +21,8 @@ for ds, ax, f1b, f2b, lev in zip(dss, axs.flat, f1bs, f2bs, levels):
     pg.mkplot(ax)
     pg.ymove(ax)
 
-axs[1][0].arrow(x=4.85, y=2.77, dx=-0.3, dy=0, color='red', head_width=0.15)
-axs[1][0].arrow(y=4.85, x=2.77, dy=-0.3, dx=0, color='red', head_width=0.15)
+axs[1][0].arrow(x=4.90, y=2.77, dx=-0.3, dy=0, color='black', head_width=0.15)
+axs[1][0].arrow(y=4.90, x=2.77, dy=-0.3, dx=0, color='black', head_width=0.15)
 
 apt.label_axes_def(axs)
 # apt.show()
