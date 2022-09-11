@@ -1,28 +1,45 @@
-% precalculate propagator due to free evolution during gradient
-% only 1 matrix exponential
-U_free = expm(-1i * H_free * t_grad);
+/* PREAMBLE */
+; gns_noah2-SCqf
+; 13C HSQC
+; 1H magnitude-mode COSY
+"d4          = 0.25s/cnst2"  ; 13C INEPT
+"in0         = inf1/2"       ; 13C HSQC increment
+"in11        = 2*dw"         ; COSY increment
+; ...
+define delay DC_HSQCa
+"DC_HSQCa    = d4-p14/2"
+"l0          = td1/2"        ; TD1/NBL
 
-% precalculate pulse propagators; m total matrix exponentials
-for pulse_point=1:m
-    H_pulse = (c_x(pulse_point) * I_x) + (c_y(pulse_point) * I_y)
-    U_pulse(m) = expm(-1j * (H_free + H_pulse) * t_pulse)
-end
+/* MAIN SECTION */
+1 ze
+4 d1 st0
+  ; MODULE 1 - HSQC
+  (p1 ph0):f1
+  ; ...
+  goscnp ph30 cpd2:f2
+  50u do:f2
+  2m st
+  ; MODULE 2 - COSY
+  (p1 ph12):f1
+  ; ...
+  go=2 ph26
+  1m iu1        ; TD1/NBL counter
+  1m igrad EA   ; echo–antiecho gradients
+  1m id11       ; COSY t1
+  30m wr #0 if #0 zd
+if "l1 % 2 == 0" {
+  1m id0        ; HSQC t1
+}
+  lo to 4 times l0
+exit
 
-% loop over slices
-for slce=1:n
-    % initialise propagator for this slice
-    U_slce = eye(2 ^ p);
-
-    % calculate gradient propagators; no matrix exponentials required
-    H_grad = I_z * G * z(slce);
-    U_grad = U_free * diag(exp(diag(-1j * H_grad * t_grad)));
-
-    % loop over pulse points
-    for point=1:m
-        U_slce = U_pulse(m) * U_slce;
-        U_slce = U_grad * U_slce;
-    end
-
-    % perform propagation only at the end
-    rho = U_slce * rho * U_slce';
-end
+/* EPILOGUE */
+ph0=0
+;gpnam4: SMSQ10.100
+;gpz4: 70% (13C CTP)
+;cpd2:wvm:wudec: cawurst_d-20(220 ppm, 1.4 ms; L2H)
+;d4: 1/4J(CH)
+;auprog: noah_hsqc:noah_cosy QF
+;module identifiers: C_HSQC H_COSY_QF
+;pulse programme created by genesis-v2.2.2, https://nmr-genesis.co.uk
+;Sun Sep 11 2022 16:04:54 GMT+0800 (Malaysia Time)

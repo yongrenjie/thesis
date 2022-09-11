@@ -1,12 +1,29 @@
 \subsection{Time savings and sensitivity analyses}
 \label{subsec:noah__snr}
 
+\begin{figure}[htb]
+    \centering
+    \includegraphics[draft=false]{noah/timings.png}%
+    {\phantomsubcaption\label{fig:noah_timings_noah_sc}}%
+    {\phantomsubcaption\label{fig:noah_timings_conv_s}}%
+    {\phantomsubcaption\label{fig:noah_timings_conv_c}}%
+    \caption[Comparison of NOAH and conventional 2D experiments]{
+        \textbf{(\subref{fig:noah_timings_noah_sc})} \noah{S,C} supersequence, comprising HSQC and COSY modules (see \cref{tbl:noah_modules} for an explanation of the single-letter module codes used).
+        \textbf{(\subref{fig:noah_timings_conv_s})} `Conventional' echo--antiecho HSQC (the same as in \cref{fig:hsqc_etgp}).
+        \textbf{(\subref{fig:noah_timings_conv_c})} `Conventional' COSY.
+        The timings referred to in the text are highlighted for all three experiments; I have assumed that $d_1$ for each experiment is the same.
+        Note that the lengths are not to scale: $d_1$ is typically far longer than the $\tau_\text{ps}$ and $\tau_\text{acq}$.
+    }
+    \label{fig:noah_timings}
+\end{figure}
+
 In a typical 2D NMR experiment, the majority of the experiment duration is taken up by the \textit{recovery delay}---the time required for spins to return to their equilibrium polarisation, such that the next transient or $t_1$ increment can be recorded.
 The removal (or shortening) of recovery delays is thus a very effective way of speeding up 2D data acquisition.
-In NOAH supersequences, 2D experiments (`modules') can be directly concatenated without the addition of extra recovery delays between them (\todo{FIG}): only one overall recovery delay is required for the entire supersequence.
+In NOAH supersequences, 2D experiments (`modules') can be directly concatenated without the addition of extra recovery delays between them: only one overall recovery delay is required for the entire supersequence.
 This means that, to a first approximation, a supersequence containing $N$ modules ($N \geq 2$) can be acquired in the time needed for just one module.
+\Cref{fig:noah_timings} shows an example of a NOAH supersequence formed from two modules (HSQC and COSY): the various timings referred to in the text which follows are also marked on the diagram.
 
-To be more precise, we can express the experiment duration, $\tau_\text{exp}$, as a sum of its parts:
+The duration of an NMR experiment, $\tau_\text{exp}$, can be expressed as a sum of its parts:
 \begin{equation}
     \label{eq:exp_duration_2d}
     \tau_\text{exp} = \tau_\text{ps} + \tau_\text{acq} + d_1,
