@@ -6,7 +6,7 @@ The GENESIS code is written in TypeScript; during deployment, this is compiled t
 No server-side code is required, meaning that the GENESIS web page is actually a static site (it is currently hosted using GitHub Pages).
 
 \begin{mylisting}[!htbp] % lst:genesis_sc {{{1
-\begin{tcbminted}{text}
+\begin{tcbminted}{bruker}
 /* PREAMBLE */
 ; gns_noah2-SCqf
 ; 13C HSQC
@@ -66,15 +66,55 @@ The algorithm used for pulse programme construction can loosely be separated int
     \item the \textit{epilogue}, which contains phase cycle information as well as footer comments describing each parameter. Instructions for generating shaped pulses using Bruker's WaveMaker software are also included here, as well as instructions for automatic processing (\cref{subsec:noah__genesis_processing}), and comments indicating how the pulse programme was generated (for reproducibility purposes).
 \end{enumerate}
 
+
 The construction of the preamble and main section is largely accomplished through the collation of module-specific information, the most important of which are:
 \begin{itemize}
     \item information about the module itself, which go into the header comments;
     \item parameter definitions, which are collated to form the preamble. Duplicates must be removed here to avoid errors; and
     \item the pulse programmes themselves, which are directly concatenated to form the main section.
 \end{itemize}
-These, as well as other smaller bits of information (e.g.\ relevant citations, appropriate processing scripts), are stored within \texttt{NOAHModule} objects.
+These, as well as other smaller bits of information (e.g.\ relevant citations, appropriate processing scripts), are stored within \texttt{NOAHModule} objects (an example is provided in \cref{lst:module_c_hsqc}).
 Each distinct module corresponds to one such object.
 Therefore, if one wants to add a new module to GENESIS, most of the work can be completed by simply defining a new \texttt{NOAHModule} object: no changes to the algorithm itself are needed.
+
+\begin{mylisting}[!ht] % lst:module_c_hsqc {{{1
+\begin{tcbminted}{typescript}
+let shortDescription = `; 13C HSQC`
+
+let preamble = `
+"d4      = 0.25s/cnst2"                ; 13C INEPT
+; ...
+"D[ID]a  = d4-p14/2"    // [ID] is later replaced with the module code
+`
+
+let pulprog = `
+  ; 13C-1H HSQC
+
+  ; INEPT
+  (p1 ph0):f1
+  ; ...
+  goscnp ph30 cpd2:f2
+  50u do:f2
+`
+
+const mod = new NOAHModule(
+    "C_HSQC",           // internal module code
+    "c13",              // module category
+    "S",                // single-letter code, Table 4.1
+    [],                 // relevant citations (if any)
+    "noah_hsqc",        // AU programme for processing
+    shortDescription,   // short description
+    [AF_EDIT],          // available acquisition flags
+    preamble,           // preamble text
+    pulprog,            // pulse programme text
+    1,                  // number of FIDs
+    false               // flag for 'parallel' modules
+);
+export default mod;
+\end{tcbminted}
+\caption[HSQC \texttt{NOAHModule} object]{An excerpt of the \texttt{NOAHModule} object for the HSQC module (internal code \texttt{C\_HSQC}.}
+    \label{lst:module_c_hsqc}
+\end{mylisting} % }}}1
 
 To put the epilogue together, the pulse programme constructed so far is scanned for pulse phases, shaped pulses, and all other parameters.
 Using predefined lookup tables, GENESIS then outputs pulse phase definitions, WaveMaker directives (where appropriate), and comments containing textual descriptions of each parameter.
@@ -90,8 +130,8 @@ I therefore opted to change the structure to use only one loop, and to control t
 The outcome is entirely equivalent, but edge cases can be implemented simply by adding another check on the loop counter \texttt{L1}.
 
 \begin{mylisting}[!ht] % lst:genesis_looping {{{1
-\begin{tcbmintedsbs}{text}
-\begin{minted}[fontsize=\small]{text}
+\begin{tcbmintedsbs}{bruker}
+\begin{minted}[fontsize=\small]{bruker}
 "l0 = td1/4"
 
 
@@ -118,7 +158,7 @@ The outcome is entirely equivalent, but edge cases can be implemented simply by 
 end
 \end{minted}
 \tcblower
-\begin{minted}[fontsize=\small]{text}
+\begin{minted}[fontsize=\small]{bruker}
 "l0 = td1/2"
 "l1 = 0"
 
@@ -160,7 +200,7 @@ In general, where possible, these parameters are chosen to be consistent with pu
 This makes it easy to read in parameters either from the \textit{prosol} relation tables in TopSpin, or from other existing parameter sets.
 Some delays are module-specific and do not need to be reused, and in standard library sequences, are often labelled as \texttt{DELTA1}, \texttt{DELTA2}, and so on.
 To avoid conflicting definitions and also to improve readability, I rename these such that they include the name of the module: thus, in a \carbon{} HSQC these may be labelled \texttt{DC\_HSQC\_1}.
-Here, \texttt{C\_HSQC} is the module code, which will be explained further below.
+Here, \texttt{C\_HSQC} is the name associated with the \texttt{NOAHModule} object.
 
 If combined with some caution when adding new modules, these measures ensure that \textit{within} a supersequence there are no parameter clashes: we may view this as a \textit{local uniqueness} of parameters.
 However, the impact of this design choice is even more far-reaching:
@@ -176,9 +216,76 @@ Fortunately, this situation has not (yet) surfaced.%
 
 \subsubsection{Parameter descriptions}
 
+At the epilogue of the pulse programme, extra comments are added for every parameter present in the pulse programme.
+Most of these are purely textual, and appear in the TopSpin \texttt{ased} parameter setup screen; this naturally helps to make the pulse programmes as easy to use as possible.
+However, some of these comments have especial meaning: gradient amplitudes and shapes, for example, are specified in a way which allows them to be automatically populated using the \texttt{gppp} Python script in TopSpin.
+Furthermore, WaveMaker directives are also specified for some shaped pulses, allowing them to be created in an on-the-fly manner using the \texttt{wvm} command.
+This means that the user (generally) need not separately download and install a set of shaped pulses.
+
 \subsubsection{Module choice}
 
-Developer mode
+One final issue which must be overcome is the fact that some NOAH modules may be implemented differently depending on the supersequence which it is being used in.
+The HMBC module described in \cref{subsec:noah__case_studies} is one such example: the form of the $zz$-filter depends on whether the HMBC module must retain \magn{C} and/or \magn{N} magnetisation for subsequent modules.
+Thus, in the \noah{B,S} supersequence the $zz$-HMBC must be used, but in the \noah{S,B} supersequence the `original' HMBC without a $zz$-filter is preferable.
+Since they have different pulse programmes, each of these `versions' of the HMBC are described by \textit{separate} \texttt{NOAHModule} objects.
+
+However, it is unlikely that the majority of users would want to manually configure the supersequence in such detail.
+Thus, the GENESIS web interface actually hides these different versions from the user, only showing one button labelled `HMBC'.
+Under the hood, the correct version of the HMBC is automatically chosen based on what other modules the user has chosen (\cref{fig:hmbc_flowchart}).
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[draft=false]{noah/hmbc_flowchart.png}%
+    \caption[Flowchart for choosing HMBC module version]{
+        Flowchart showing how the correct `version' of the HMBC module is determined when constructing a supersequence using GENESIS.
+        When developer mode is on, the user directly chooses module codes corresponding to each version of the HMBC.
+        When it is off, the appropriate version is chosen based on which other modules are present in the supersequence.
+    }
+    \label{fig:hmbc_flowchart}
+\end{figure}
+
+Should the user indeed desire to control the exact module used, the website also offers a `developer mode' switch: turning this on allows the user to directly choose the desired module code.
+(Enabling developer mode also reveals a handful of extra modules which were used exclusively for my DPhil and are not generally of interest.)
+
 
 \subsubsection{Tests}
+
+One risk inherent in any NMR experiment is the possibility of causing spectrometer damage when executing malformed pulse programmes.
+To minimise the chances of this, each version of GENESIS is checked against a series of automatic tests before being released.
+The most important tests ensure that each module containing decoupling statements also turn off decoupling immediately after acquisition.
+On top of this, there are also a series of regression tests where (Some) supersequences are checked against those generated by previous versions: any differences in these are automatically flagged for review.
+
+None of this can actually \textit{stop} wrong pulse programmes from being written.
+For example, if a module are incorrectly programmed (which is still very easy), then any supersequence containing that module will not be fully functional.
+However, the inclusion of tests minimises the chance of creating faulty pulse programmes.
+
+It should be mentioned that this is not a \textit{new} problem which GENESIS introduces: errors in pulse programmes can arise equally easily (if not \textit{even more easily}) when they are handwritten.
+There is no way to really circumvent this, except through careful inspection of the pulse programme prior to execution.
+The real difference with GENESIS is that users may be more likely to blindly use the pulse programmes it creates, without applying an equal amount of caution.
+The tests are therefore not meant to ensure perfection, but rather to avoid some of the worst consequences which may surface.
+Of course, it is also not possible for GENESIS to prevent users from setting up parameters incorrectly (e.g.\ overly long acquisition times).
+
+
+\subsubsection{Reproducibility}
+
+The final section of a GENESIS pulse programme consists of comments intended solely for reproducibility purposes.
+These comments indicate exactly which \texttt{NOAHModule} objects were used to create the pulse programme (these can be manually entered via developer mode), as well as a GENESIS \textit{version number}.
+Since GENESIS has been updated with some regularity during my DPhil, each release is assigned a version number, which broadly follows the principles of \textit{semantic versioning}.
+Old versions of GENESIS may be accessed by navigating to the specific URL \texttt{https://nmr-genesis.co.uk/X/Y/Z} for version \texttt{X.Y.Z}.
+Together, these two pieces of information allow all pulse programmes to be regenerated whenever necessary: this is important for ensuring that the spectra thus acquired are reproducible (as far as possible).
+
+
 \subsubsection{How smart is GENESIS?}
+
+Having written several pages of text about the \textit{features} present in GENESIS, it is tempting to think that it is `intelligent' in its design of pulse programmes.
+At various points in time, extensions to the concept have even been proposed: in GENESIS, the building blocks used for pulse programme construction are NOAH modules, but one could envision breaking up these into the smallest possible units of pulses, delays, gradients, and so on, and using something like GENESIS to construct \textit{arbitrary} pulse programmes.
+This was even speculatively mentioned in the paper.
+
+However, in truth, GENESIS is a long way from being able to do such things.
+In particular, it does not have any actual understanding of the Bruker pulse programming syntax: \textit{almost} all of the pulse programme instructions are hardcoded as strings.%
+\footnote{There are several exceptions where some parameters are dynamically generated, mainly to avoid clashes between, for example, DIPSI mixing in different parts of the supersequence.}
+Thus, the creation of pulse programmes is not \textit{truly} being done from the ground up: instead of `combining pulse sequence elements', a more accurate description is that the \textit{text} corresponding to different pulse sequence elements is being concatenated.
+In a way, there is a lot of brute force involved.
+
+Of course, it is hardly a trivial task to write something more sophisticated, and I do not think I can do it without rather more knowledge in computer science (especially a course on compilers and/or programming language theory).
+However, this was one of the things which I would have really liked to do had I had more time!

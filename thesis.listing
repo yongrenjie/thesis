@@ -1,45 +1,32 @@
-/* PREAMBLE */
-; gns_noah2-SCqf
-; 13C HSQC
-; 1H magnitude-mode COSY
-"d4          = 0.25s/cnst2"  ; 13C INEPT
-"in0         = inf1/2"       ; 13C HSQC increment
-"in11        = 2*dw"         ; COSY increment
-; ...
-define delay DC_HSQCa
-"DC_HSQCa    = d4-p14/2"
-"l0          = td1/2"        ; TD1/NBL
+let shortDescription = `; 13C HSQC`
 
-/* MAIN SECTION */
-1 ze
-4 d1 st0
-  ; MODULE 1 - HSQC
+let preamble = `
+"d4      = 0.25s/cnst2"                ; 13C INEPT
+; ...
+"D[ID]a  = d4-p14/2"    // [ID] is later replaced with the module code
+`
+
+let pulprog = `
+  ; 13C-1H HSQC
+
+  ; INEPT
   (p1 ph0):f1
   ; ...
   goscnp ph30 cpd2:f2
   50u do:f2
-  2m st
-  ; MODULE 2 - COSY
-  (p1 ph12):f1
-  ; ...
-  go=2 ph26
-  1m iu1        ; TD1/NBL counter
-  1m igrad EA   ; echo–antiecho gradients
-  1m id11       ; COSY t1
-  30m wr #0 if #0 zd
-if "l1 % 2 == 0" {
-  1m id0        ; HSQC t1
-}
-  lo to 4 times l0
-exit
+`
 
-/* EPILOGUE */
-ph0=0
-;gpnam4: SMSQ10.100
-;gpz4: 70% (13C CTP)
-;cpd2:wvm:wudec: cawurst_d-20(220 ppm, 1.4 ms; L2H)
-;d4: 1/4J(CH)
-;auprog: noah_hsqc:noah_cosy QF
-;module identifiers: C_HSQC H_COSY_QF
-;pulse programme created by genesis-v2.2.2, https://nmr-genesis.co.uk
-;Sun Sep 11 2022 16:04:54 GMT+0800 (Malaysia Time)
+const mod = new NOAHModule(
+    "C_HSQC",           // internal module code
+    "c13",              // module category
+    "S",                // single-letter code, Table 4.1
+    [],                 // relevant citations (if any)
+    "noah_hsqc",        // AU programme for processing
+    shortDescription,   // short description
+    [AF_EDIT],          // available acquisition flags
+    preamble,           // preamble text
+    pulprog,            // pulse programme text
+    1,                  // number of FIDs
+    false               // flag for 'parallel' modules
+);
+export default mod;
