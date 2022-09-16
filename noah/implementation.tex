@@ -235,7 +235,7 @@ Under the hood, the correct version of the HMBC is automatically chosen based on
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[draft=false]{noah/hmbc_flowchart.png}%
+    \includegraphics[]{noah/hmbc_flowchart.png}%
     \caption[Flowchart for choosing HMBC module version]{
         Flowchart showing how the correct `version' of the HMBC module is determined when constructing a supersequence using GENESIS.
         When developer mode is on, the user directly chooses module codes corresponding to each version of the HMBC.
@@ -283,9 +283,11 @@ This was even speculatively mentioned in the paper.
 
 However, in truth, GENESIS is a long way from being able to do such things.
 In particular, it does not have any actual understanding of the Bruker pulse programming syntax: \textit{almost} all of the pulse programme instructions are hardcoded as strings.%
-\footnote{There are several exceptions where some parameters are dynamically generated, mainly to avoid clashes between, for example, DIPSI mixing in different parts of the supersequence.}
+\footnote{There are several exceptions where some parameters (for example, loop counters in DIPSI mixing) are dynamically generated, mainly to avoid clashes between different parts of the supersequence.}
 Thus, the creation of pulse programmes is not \textit{truly} being done from the ground up: instead of `combining pulse sequence elements', a more accurate description is that the \textit{text} corresponding to different pulse sequence elements is being concatenated.
-In a way, there is a lot of brute force involved.
+There is actually a substantial amount of brute force involved.
+In a similar way, it is not possible for the automated tests to really check for `correctness' of the pulse programmes.
 
-Of course, it is hardly a trivial task to write something more sophisticated, and I do not think I can do it without rather more knowledge in computer science (especially a course on compilers and/or programming language theory).
-However, this was one of the things which I would have really liked to do had I had more time!
+Of course, it is hardly a trivial task to write something more sophisticated: I would need to construct abstract representations of each pulse sequence element, and functions which could transform these into actual pulse programme commands.
+I feel that I would need rather more knowledge in computer science, especially a course on compilers and/or programming language theory, to do this.
+However, this was something I would have really liked to do had I had more time!

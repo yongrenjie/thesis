@@ -13,13 +13,13 @@ For a Hamiltonian which is constant over a period of time $t_1 \leq t \leq t_2$ 
 \end{equation}
 In NMR, it is conventional to use units of angular frequencies instead of energies, for example by replacing $H/\hbar \to H$; this will henceforth be assumed.
 The term $\exp[-\mi H(t_2 - t_1)]$ is called the \textit{propagator} of the system and denoted $U(t_2, t_1)$; this is often further simplified to $U(\tau)$ where $\tau = t_2 - t_1$ is the duration of the evolution.
-For a Hamiltonian which varies with time but is piecewise constant, in that it can be broken up into several finite periods within which $H$ is time-independent, the time evolution of the state is simply given by successive application of propagators:
+For a Hamiltonian which varies with time but is piecewise constant, in that it can be broken up into several finite periods within which $H\/$ is time-independent, the time evolution of the state is simply given by successive application of propagators:
 \begin{equation}
     \label{eq:time_evolution_piecewise}
     \ket{\Psi(t_n)} = U(t_n,t_{n-1})\cdots U(t_2,t_1)U(t_1,t_0) \ket{\Psi(t_0)}
 \end{equation}
 where $t_n > t_{n-1} > \cdots > t_0$.
-The case where $H$ continuously varies with time is more complicated, but we will not need to consider it in this thesis.
+The case where $H\/$ continuously varies with time is more complicated, but we will not need to consider it in this thesis.
 
 In NMR spectroscopy, we manipulate the \textit{spin angular momentum} of atomic nuclei in order to obtain information about chemical structure and dynamics.
 The present work is restricted to nuclei with spin quantum number $I = 1/2$.
@@ -49,7 +49,7 @@ We also define the following linear combinations:
         I_\beta = \frac{1}{2}E - I_z &= \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}
     \end{aligned}
 \end{equation}
-where $E$ is the $2 \times 2$ identity matrix.
+where $E\/$ is the $2 \times 2$ identity matrix.
 The \textit{coherence order} of an operator, denoted $p$, is defined by the Zeeman basis states it connects, i.e.\ the nonzero elements in its matrix form when expressed in this basis: an operator $O = \ket{m_2}\bra{m_1}$ would represent $(m_2 - m_1)$-order coherence, since $\braket{m_2|O|m_1} \neq 0$.
 Thus, in the above equations, $I_+ = \ket{\alpha}\bra{\beta}$ represents a coherence order of $+1$; $I_-$ a coherence order of $-1$; $I_x$ and $I_y$ are both a mixture of $\pm 1$-coherence; and the remainder have coherence order $0$.
 
@@ -64,7 +64,7 @@ For example, the operator $2I_xS_z$ can be represented as follows:\footnote{This
     \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} \right]
     = \frac{1}{2} \begin{pmatrix} 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & -1 \\ 1 & 0 & 0 & 0 \\ 0 & -1 & 0 & 0 \end{pmatrix}
 \end{equation}
-The Hamiltonians $H$ for nuclear spin interactions, which will be encountered frequently in this chapter, are formed from such operators.\autocite{Levitt2008}
+The Hamiltonians $H\/$ for nuclear spin interactions, which will be encountered frequently in this chapter, are formed from such operators.\autocite{Levitt2008}
 In solution-state NMR, these interactions include:
 \begin{align}
     H_\text{cs} &= \sum_i \omega_{0,i} I_{iz} & &\text{(chemical shift)} \label{eq:h_cs} \\

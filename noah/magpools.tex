@@ -12,38 +12,33 @@ Using the notation of Orts and Gossert\autocite{Orts2018M}, the magnetisation of
 Protons not directly bonded to NMR-active heteronuclei are labelled \magnnot{X}, and will often be referred to as `bulk' magnetisation, since (in natural-abundance samples) the majority of protons fall into this category.
 
 Most standard 2D experiments do not preserve unused magnetisation but instead dephase it through CTP gradient selection; thus, NOAH modules often require some modifications compared to standard experiments.
-For example, compared to the echo--antiecho HSQC (discussed in \cref{subsec:theory__hsqc_ea}), the NOAH HSQC module\autocite{Kupce2017ACIE} adds an extra CTP gradient so that the bulk magnetisation is refocused and ultimately returned to the $+z$ equilibrium state (\cref{fig:noah_hsqc}).
+For example, compared to the echo--antiecho HSQC (discussed in \cref{subsec:theory__hsqc_ea}), the NOAH HSQC module\autocite{Kupce2017ACIE} adds an extra CTP gradient so that the bulk magnetisation is refocused and ultimately returned to the $+z$ equilibrium state (\cref{fig:noah_sb_po_s}).
 (This is largely identical to the `symmetrised' ASAP-HSQC experiment\autocite{SchulzeSunninghausen2017JMR}.)
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[draft=false]{pp/hsqc/noah_po}%
-    \caption[NOAH HSQC module with product operator analysis]{
+    \includegraphics[]{noah/hsqc_hmbc_prodops.png}%
+    {\phantomsubcaption\label{fig:noah_sb_po_s}}%
+    {\phantomsubcaption\label{fig:noah_sb_po_b}}%
+    \caption[NOAH HSQC and HMBC modules with product operator analysis]{
+        \textbf{(\subref{fig:noah_sb_po_s})} 
         NOAH HSQC module.
-        The delay $\Delta$ is set to $1 / (4 \cdot \oneJ{CH})$.
+        \textbf{(\subref{fig:noah_sb_po_b})} 
+        NOAH HMBC module.
+        The \ang{90} pulse highlighted in red is described in \cref{subsec:noah__hmbc}.
+        Delays are set as: $\Delta = 1 / (4 \cdot \oneJ{CH})$; $\Delta_\text{LR} = 1 / (2 \cdot \nJ{CH})$; $\tau_1 = 1 / (2 \cdot \oneJ{CH,\text{max}})$; $\tau_2 = 1 / (2 \cdot \oneJ{CH,\text{min}})$ (see also \cref{subsec:poise__hmbc} for the LPJF).
         Phase cycling is performed with $\phi_1 = (x, -x)$, $\phi_2 = (x, x, -x, -x)$, and $\phi_\text{rec} = (x, -x, -x, x)$.
-        Gradient amplitudes are $(g_1, g_2) = (80\%, \pm 40.2\%)$.
-        The notation for product operator analysis is explained in the \textit{Preface}.
+        Gradient amplitudes are $(g_1, g_2, g_3, g_4, g_5) = (80\%, \pm 40.2\%, 15\%, -10\%, -5\%)$.
+        Product operator analysis is provided above both modules for both the \magn{C} and \magnnot{C} magnetisation pools; the notation for this is explained in the \textit{Preface}.
     }
-    \label{fig:noah_hsqc}
+    \label{fig:noah_sb_po}
 \end{figure}
 
 Sometimes, the modifications required are more extensive, as in the HMBC module.
-If this module is followed by a HSQC module (or any other module which draws on \magn{C} magnetisation), the initial \ang{90} excitation pulse must be replaced with a $zz$-filter (\cref{fig:noah_hmbc_no90_po}).
+If this module is followed by a HSQC module (or any other module which draws on \magn{C} magnetisation), the initial \ang{90} excitation pulse must be replaced with a $zz$-filter (\cref{fig:noah_sb_po_b}).
 This performs an \textit{isotope-selective rotation} in that \magn{C} magnetisation is stored along the $z$-axis, but \magnnot{C} magnetisation is excited (and subsequently detected).
 In general, sequences which are thus modified have lower sensitivities (i.e.\ $A < 1$) than the `original' sequences from which they were derived.
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[draft=false]{pp/hmbc/noah_no90_po.png}%
-    \caption[NOAH HMBC module with product operator analysis]{
-        NOAH HMBC module.
-    Delays are set as: $\Delta = 1 / (2 \cdot \nJ{CH})$; $\tau_1 = 1 / (2 \cdot \oneJ{CH,\text{max}})$; $\tau_2 = 1 / (2 \cdot \oneJ{CH,\text{min}})$ (see also \cref{subsec:poise__hmbc}).
-        Phase cycling is performed with $\phi_1 = (x, -x)$, $\phi_2 = (x, x, -x, -x)$, and $\phi_\text{rec} = (x, -x, -x, x)$.
-        Gradient amplitudes are $(g_1, g_2, g_3, g_4, g_5) = (15\%, -10\%, -5\%, 80\%, \pm40.2\%)$.
-    }
-    \label{fig:noah_hmbc_no90_po}
-\end{figure}
+This is partly because of imperfect manipulation of magnetisation by the extra pulse sequence elements, and also increased losses due to relaxation during these extended sequences.
 
 In contrast, modules placed towards the \textit{end} of a supersequence do not need to be modified, as they do not need to preserve any magnetisation.
 This includes virtually all homonuclear modules, which are allowed to simply consume any remaining magnetisation.

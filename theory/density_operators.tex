@@ -68,28 +68,28 @@ For a canonical ensemble, this is given by:
     \label{eq:thermal_density_operator}
     \rho_0 = \frac{\exp(-\beta\hbar H)}{\Tr[\exp(-\beta\hbar H)]}
 \end{equation}
-where $\beta = 1/(k_\mathrm{B}T)$ and the Hamiltonian $H$ is in units of angular momentum, as has been consistently used here.
+where $\beta = 1/(k_\mathrm{B}T)$ and the Hamiltonian $H\/$ is in units of angular momentum, as has been consistently used here.
 At equilibrium, no pulses or gradients are being applied, so the appropriate Hamiltonian is the free (Schr\"odinger-picture) Hamiltonian $H_\text{free}$ (\cref{eq:h_free}).%
-\footnote{It would be completely insensible to use the interaction-picture $H_{\text{free},I}$, as its entire existence is merely a mathematical formalism. If that were not the case, it would imply that we can change the equilibrium state $\rho_0$ by simply \textit{choosing} a different $H_0$ to factor out.}
+\footnote{The interaction-picture $H_{\text{free},I}$ would not be appropriate here, as its entire existence is merely a mathematical formalism. If that were not the case, it would imply that we can change the equilibrium state $\rho_0$ by simply \textit{choosing} a different $H_0$ to factor out.}
 Consider the case of a single spin: we have that $H_\text{J} = 0$, and hence $H_\text{free} = H_\text{cs} = \omega_0 I_z$. Thus,
 \begin{equation}
     \label{eq:nmr_equilibrium_rho}
     \rho_0 = \frac{\exp(cI_z)}{\Tr[\exp(cI_z)]} \approx \frac{E + cI_z}{\Tr(E + cI_z)} = E + cI_z,
 \end{equation}
-where $c = -\beta\hbar\omega_0 = -\hbar\omega_0/k_\mathrm{B}T$ and $E$ is the identity matrix; the approximation $\exp(cI_z) \approx E + cI_z$ is justified here as $c$ is typically very small ($\sim 10^{-5}$).
+where $c = -\beta\hbar\omega_0 = -\hbar\omega_0/(k_\mathrm{B}T)$ and $E\/$ is the identity matrix; the approximation $\exp(cI_z) \approx E + cI_z$ is justified here as $c\/$ is typically very small ($\sim 10^{-5}$).
 
 Throughout this thesis I consider only linear transformations of the form in \cref{eq:lvn_interaction_integrated}, which use unitary propagators of the form $U = \exp(-\mi Ht)$:
 \begin{equation}
     \label{eq:unitary_rho0}
     U\rho_0\,U^\dagger = U(E + cI_z)U^\dagger = UE\,U^\dagger + c(UI_zU^\dagger) = E + c(UI_zU^\dagger)
 \end{equation}
-When describing NMR experiments, it is typical to simply ignore both the $E$ term as well as the proportionality factor $c$, and focus only on the transformation of the $I_z$ term.
+When describing NMR experiments, it is typical to simply ignore both the $E\/$ term as well as the proportionality factor $c$, and focus only on the transformation of the $I_z$ term.
 Thus, one may define a `simplified' equilibrium density operator:\footnote{This is similar to the `deviation' density operator\autocite{Chuang1998PRSLA,Jones2011PNMRS} which measures how far a density operator deviates from the identity; but I have gone one step further in dropping the factor of $c$. Note that the alternative term `reduced density operator' has a different meaning (it refers to the density operator of a subsystem, obtained by taking a partial trace over all other degrees of freedom).}
 \begin{equation}
     \label{eq:rho0_simplified}
     \rho_0' = I_z.
 \end{equation}
-The $E$ term is in fact truly inconsequential, as it cannot ever be transformed into detectable magnetisation.
+The $E\/$ term is in fact truly inconsequential, as it cannot ever be transformed into detectable magnetisation.
 However, the constant $c$ is still relevant: it is manifested in the magnitude of the NMR signal which is ultimately detected.
 It should be mentioned that $\rho_0'$ is not a true density operator: for example, $\Tr(\rho_0') = 0$ and not $1$ as is required for a density operator.
 Nonetheless, all the physically interesting dynamics of the system such as expectation values are fully contained within $\rho_0'$ (at least up to the proportionality constant $c$).

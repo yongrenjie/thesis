@@ -13,8 +13,8 @@
 
 Having tackled a simple single-spin case, we now move to the analysis of coupled spin systems and the development of the so-called `product operator formalism'.\autocite{Sorensen1984PNMRS}
 In particular, we look at the INEPT experiment\autocite{Morris1979JACS,Morris1980JACS}, in which magnetisation is transferred from a a nuclide with a high magnetogyric ratio to one with a low magnetogyric ratio through a scalar coupling: for example, from \proton{} to \carbon{} using the one-bond coupling constant, $\oneJ{CH}$ (\cref{fig:inept}).
-Following tradition, the two nuclei are respectively labelled $I$ and $S$.%
-\footnote{This may seem insensible since $I$ is the \textit{sensitive} and $S$ the \textit{insensitive} nucleus, and indeed, in the original literature\autocite{Morris1979JACS} the meanings of $I$ and $S$ were swapped. However, this usage has not been consistent\autocite{Pines1972JCP}, and in modern usage the identification of $I$ as the sensitive nucleus seems to have prevailed.}
+Following tradition, the two nuclei are respectively labelled $I\/$ and $S$.%
+\footnote{This may seem insensible since $I\/$ is the \textit{sensitive} and $S$ the \textit{insensitive} nucleus, and indeed, in the original literature\autocite{Morris1979JACS} the meanings of $I\/$ and $S$ were swapped. However, this usage has not been consistent\autocite{Pines1972JCP}, and in modern usage the identification of $I\/$ as the sensitive nucleus seems to have prevailed.}
 The Schr\"odinger-picture free Hamiltonian for a weakly coupled system (cf.\ \cref{eq:weak_coupling,eq:h_j_secular}) is $H_\text{free} = \omega_{0,I} I_z + \omega_{0,S} S_z + 2\pi J_{IS} I_z S_z$.
 At the very beginning of the sequence (point \circled{1}), we formally have the equilibrium density operator
 \begin{equation}
@@ -24,14 +24,14 @@ At the very beginning of the sequence (point \circled{1}), we formally have the 
 \end{equation}
 using the same approximations as in \cref{eq:nmr_equilibrium_rho}.
 The scalar coupling term can be safely neglected as $2\pi J_{IS}$ is several orders of magnitude smaller than the Larmor frequencies $\omega_0$.
-After removing the physically irrelevant $E$ term and factoring out a constant of $\beta\hbar B_0$, we end up with:
+After removing the physically irrelevant $E\/$ term and factoring out a constant of $\beta\hbar B_0$, we end up with:
 \begin{equation}
     \label{eq:density_eqm_heteronuclear_simplified}
     \rho'_0 = \gamma_I I_z + \gamma_S S_z.
 \end{equation}
-This represents equilibrium magnetisation (or \textit{polarisation}) on both spins $I$ and $S$, in proportion to their magnetogyric ratios.
+This represents equilibrium magnetisation (or \textit{polarisation}) on both spins $I\/$ and $S$, in proportion to their magnetogyric ratios.
 In general, an NMR experiment may manipulate---and ultimately detect---both of these terms.
-Since unitary evolution according to the Liouville--von Neumann equation is \textit{linear}, in that $U(\rho_1 + \rho_2)\adj{U} = U\rho_1\adj{U} + U\rho_2\adj{U}$, we can treat these two terms separately: we focus first on the spin-$I$ polarisation, $\rho_I = \gamma_I I_z$.
+Since unitary evolution according to the Liouville--von Neumann equation is \textit{linear}, in that $U(\rho_1 + \rho_2)\adj{U} = U\rho_1\adj{U} + U\rho_2\adj{U}$, we can treat these two terms separately: we focus first on the spin-$I\/$ polarisation, $\rho_I = \gamma_I I_z$.
 The first $90^\circ_x$ \proton{} pulse tips this magnetisation into the transverse plane (ignoring off-resonance effects):
 \begin{equation}
     \label{eq:rho_after_pulse_x}
@@ -89,7 +89,7 @@ from which we extract the complex signal
 \end{equation}
 After Fourier transformation, the resulting spectrum has two peaks with opposite phase and have the frequencies $\Omega_S \pm \pi J_{IS}$; because of the factor of $1/(2\mi)$, the real part of the spectrum will contain dispersion-mode signals (\cref{fig:doublet_lorentzians_dis_anti}).
 If desired, zeroth-order phase correction can be performed here, yielding instead a pair of absorption-mode signals still with opposite phases (\cref{fig:doublet_lorentzians_abs_anti}).
-In either case, this is termed an \textit{antiphase} doublet; the product operators which give rise to it ($2I_zS_x$ and $2I_zS_y$) are said to be antiphase with respect to spin $I$.
+In either case, this is termed an \textit{antiphase} doublet; the product operators which give rise to it ($2I_zS_x$ and $2I_zS_y$) are said to be antiphase with respect to spin $I\/$.
 Importantly, the amplitude of the signal scales as $\gamma_I$ rather than $\gamma_S$; since $\gamma_I > \gamma_S$, this represents a sensitivity enhancement compared to the direct excitation of $S$-magnetisation.
 
 \begin{figure}[htbp]
@@ -131,7 +131,7 @@ This leads to potentially unwanted phase distortions in the spectrum, which one 
 This can be accomplished through the technique of \textit{phase cycling}, where pulse and receiver phases are changed in concert and the resulting FIDs summed in order to select for a particular signal.
 In this case, the INEPT experiment is performed twice, once with the phases as given in \cref{fig:inept}, and once where the initial $90^\circ_x(I)$ pulse is replaced with a $90^\circ_{-x}(I)$ pulse.
 The first of these gives us the same signals as above.
-However, inverting the initial $I$ pulse leads to $s_I$ acquiring a minus sign, because the initial $I_z$ term is rotated to $I_y$ instead of $-I_y$.
+However, inverting the initial $I\/$ pulse leads to $s_I$ acquiring a minus sign, because the initial $I_z$ term is rotated to $I_y$ instead of $-I_y$.
 On the other hand, the signal component $s_S$ is unaffected by this pulse and thus does not experience a change of sign.
 The two FIDs we record are thus as follows:
 \begin{align}
@@ -154,4 +154,4 @@ Although this is often touted as being `simpler' than full density operator calc
 \end{equation}
 Since the operators $\{E, I_x, I_y, I_z\}$ form a complete basis for a single-spin system, their products (i.e.\ product operators) likewise form a complete basis for multiple-spin systems, and so \textit{any} density matrix for a multiple-spin system may be expressed as a linear combination of product operators.
 Strictly speaking, the use of product operators therefore does not actually sacrifice any power in and of itself.
-However, the heuristics such as those in \cref{fig:prodop_rules} \textit{are} limiting, in that the evolution under some Hamiltonians---for example, strong coupling $\symbf{I}\cdot\symbf{S}$, or pulses for off-resonance spins where $H$ is a sum of $I_x$ and $I_z$---cannot be neatly captured in such a pictorial form.
+However, the heuristics such as those in \cref{fig:prodop_rules} \textit{are} limiting, in that the evolution under some Hamiltonians---for example, strong coupling $\symbf{I}\cdot\symbf{S}$, or pulses for off-resonance spins where $H\/$ is a sum of $I_x$ and $I_z$---cannot be neatly captured in such a pictorial form.

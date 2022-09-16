@@ -60,6 +60,9 @@ Thus, a NOAH supersequence containing three modules---say \nitrogen{} HMQC, \car
     \caption[Sensitivity and time-saving analyses of several NOAH supersequences]{
         Sensitivity and time-saving analyses of several typical NOAH supersequences.
         All experiments were acquired with 2 scans per increment, 256 $t_1$ increments, an acquisition time of \qty{67}{\ms}, and a recovery delay of \qty{1.5}{\s}.
+        The HMBC module used here includes the extra \carbon{} \ang{90} pulse described later in \cref{subsec:noah__hmbc}: this has no significant impact on the SNR, and is only mentioned as a technicality.
+        The \nitrogen{} seHSQC module is that described in \cref{subsec:noah__sehsqc_n}.
+        The CT module here was run with States indirect-dimension quadrature detection, and the individual C module (in entry 1) with echo--antiecho.
         The following Bruker library sequences were used as the `conventional' experiments: \texttt{hmbcetgpl2nd}, \texttt{hsqcetf3gpsi2}, \texttt{hsqcetgpsp.2}, \texttt{cosygpqf}, and \texttt{dipsi2gpphzs}.
         \datacode{7Z-220224}
     }
@@ -69,10 +72,10 @@ Thus, a NOAH supersequence containing three modules---say \nitrogen{} HMQC, \car
 \subsubsection{\noah{S,C}: HSQC + COSY}
 
 We begin with perhaps the simplest example of a NOAH supersequence, one containing the HSQC and COSY modules: this is labelled as a \noah{S,C} experiment (entry 1, \cref{tbl:noah_sensitivities}).
-As shown in \cref{fig:noah_hsqc}, the HSQC module only samples \magn{C} magnetisation, and leaves \magnnot{C} magnetisation along the $+z$-axis
+As shown in \cref{fig:noah_sb_po_s}, the HSQC module only samples \magn{C} magnetisation, and leaves \magnnot{C} magnetisation along the $+z$-axis
 Although the HSQC experiment has to be modified to preserve this \magnnot{C} magnetisation, its sensitivity is practically unaffected as compared to a `standard' HSQC ($A = 0.97$).
 Furthermore, the COSY module retains \textit{most} of its sensitivity ($A = 0.90$).
-The small loss here is because the HSQC module does not \textit{perfectly} preserve the \magnnot{C} magnetisation: for example, evolution of J-couplings as well as relaxation occur during the HSQC pulse sequence, which are ignored in the product operator analysis in \cref{fig:noah_hsqc}.
+The small loss here is because the HSQC module does not \textit{perfectly} preserve the \magnnot{C} magnetisation: for example, evolution of J-couplings as well as relaxation occur during the HSQC pulse sequence, which are ignored in the product operator analysis in \cref{fig:noah_sb_po_s}.
 
 The value of the time-saving factor, $\rho_t = 1.87$, is very close to the theoretical limit of $N = 2$.
 This reflects the fact that the pulse sequence itself, $\tau_\text{ps}$, is fairly short for both the HSQC and COSY modules; the deviation therefore chiefly arises from the acquisition time, $\tau_\text{acq}$.
@@ -83,7 +86,7 @@ In a hypothetical \noah{C,S} supersequence, the later HSQC module would only be 
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[draft=false]{noah/sc_noah_vs_conv.png}%
+    \includegraphics[]{noah/sc_noah_vs_conv.png}%
     {\phantomsubcaption\label{fig:sc_noah_vs_conv_noah_s}}%
     {\phantomsubcaption\label{fig:sc_noah_vs_conv_noah_c}}%
     {\phantomsubcaption\label{fig:sc_noah_vs_conv_conv_s}}%
@@ -117,7 +120,7 @@ The COSY, TOCSY, and combined COSY/TOCSY modules are shown in \cref{fig:ct_state
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[draft=false]{pp/ct_states.png}%
+    \includegraphics[]{pp/ct_states.png}%
     {\phantomsubcaption\label{fig:ct_states_c}}%
     {\phantomsubcaption\label{fig:ct_states_t}}%
     {\phantomsubcaption\label{fig:ct_states_ct}}%
@@ -136,14 +139,15 @@ This reflects the addition of a TOCSY mixing period, which contributes to $\tau_
 
 \subsubsection{\noah{B,S}: HMBC + HSQC}
 
-As mentioned previously, the HMBC module shown in \cref{fig:noah_hmbc_no90_po} is designed to retain \magn{C} magnetisation through the addition of the $zz$-filter.
+As mentioned previously, the HMBC module shown in \cref{fig:noah_sb_po_b} is designed to retain \magn{C} magnetisation through the addition of the $zz$-filter.
 This can be used in a subsequent HSQC module in a \noah{B,S} supersequence.
-Entry 3 of \cref{tbl:noah_sensitivities} shows that the addition of the $zz$-filter to eh HMBC causes a relatively small 7\% decrease in sensitivity; on the other hand, the HSQC loses 13\% of its sensitivity because of incomplete magnetisation preservation.
+Entry 3 of \cref{tbl:noah_sensitivities} shows that the addition of the $zz$-filter to the HMBC causes a relatively small 7\% decrease in sensitivity; on the other hand, the HSQC loses 13\% of its sensitivity because of incomplete magnetisation preservation.
 
 Generally, it has been recommended that less sensitive modules are placed earlier in the supersequence so that they can access a larger proportion of the equilibrium magnetisation.
 Since the HMBC is less sensitive of the two modules, this rule of thumb suggests that the BS supersequence would be better than the alternative SB supersequence.
 In fact, the opposite is true, as entry 4 of \cref{tbl:noah_sensitivities} shows.
-The HSQC module has a boost in sensitivity because it is placed first in the supersequence, and no longer needs to rely on the \magn{C} magnetisation preserved by the HMBC; and the HMBC also benefits because the $zz$-filter modification is no longer needed.
+The HSQC module has a boost in sensitivity because it is placed first in the supersequence, and no longer needs to rely on the \magn{C} magnetisation preserved by the HMBC; and the HMBC also benefits because the $zz$-filter modification is no longer needed.%
+\footnote{In fact, the final \ang{180} pulse in the HMBC module could also be removed: this is likely to give a further boost in SNR, as discussed in \cref{subsec:noah__hmbc}. However, this was not done here.}
 Arguably, the ordering of modules in a supersequence should be considered on a case-by-case basis.
 
 \subsubsection{\noah{B,S,C,T}: HMBC + HSQC + COSY + TOCSY}
@@ -168,7 +172,7 @@ Adding a period of isotropic mixing before the COSY module\autocite{Kupce2018CC}
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[draft=false]{noah/bsct.png}%
+    \includegraphics[]{noah/bsct.png}%
     {\phantomsubcaption\label{fig:bsct_b}}%
     {\phantomsubcaption\label{fig:bsct_s}}%
     {\phantomsubcaption\label{fig:bsct_c}}%
