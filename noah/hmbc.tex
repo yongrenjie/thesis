@@ -17,7 +17,7 @@ Generally, HMBC experiments seek to suppress this through the use of a low-pass 
 The NOAH HMBC module \textit{additionally} contains a $zz$-filter, which stores \magn{C} magnetisation along $+z$ before the LPJF.
 Thus, in theory, one-bond artefacts should be suppressed in the NOAH HMBC to an even greater extent.
 
-However, this is not borne out: in some cases, the NOAH HMBC in fact has \textit{more intense} one-bond artefacts when compared against a standard HMBC experiment (\cref{fig:noah_hmbc_1jch_no90,fig:noah_hmbc_1jch_std_lp2}).
+However, this expectation is not borne out: in some cases, the NOAH HMBC in fact has \textit{more intense} one-bond artefacts when compared against a standard HMBC experiment (\cref{fig:noah_hmbc_1jch_no90,fig:noah_hmbc_1jch_std_lp2}).
 Even performing an optimisation of the LPJF delays, as described in \cref{subsec:poise__hmbc}, did not lead to any reduction in artefacts.
 I hypothesised instead that these artefacts arose from imperfect manipulation of \magn{C} magnetisation by the $zz$-filter.%
 \footnote{It would be nice to back this up with simulations, but I did not have the time to run these.}
@@ -34,7 +34,7 @@ In GENESIS pulse programmes, this can be done using the \texttt{-DLP3} acquisiti
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[draft=false]{noah/hmbc_1jch.png}%
+    \includegraphics[]{noah/hmbc_1jch.png}%
     {\phantomsubcaption\label{fig:noah_hmbc_1jch_no90}}%
     {\phantomsubcaption\label{fig:noah_hmbc_1jch_90}}%
     {\phantomsubcaption\label{fig:noah_hmbc_1jch_std_lp2}}%
