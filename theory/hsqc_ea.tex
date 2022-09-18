@@ -106,7 +106,7 @@ or, extracting the detectable $I_-$ components,
 Detection of this in $t_2$ gives us the echo signal
 \begin{equation}
     \label{eq:hsqc_ea_echo_signal}
-    s_\text{echo}(t_1, t_2) = -\frac{1}{4}\exp(\mi \Omega_S t_1)\exp(\mi \Omega_I t_2),
+    s_\text{echo}(t_1, t_2) = -\frac{1}{4}\exp(-\mi \Omega_S t_1)\exp(\mi \Omega_I t_2),
 \end{equation}
 in accordance with \cref{eq:echo_antiecho_1a}.
 Note that the prefactor here is $-1/4$, instead of $1/2$ in the States method (\cref{eq:hsqc_cos_signal,eq:hsqc_sin_signal}): this accounts for the decreased SNR in the EA method as previously described (the minus sign comes from the extra $180^\circ(S)$ pulse after $t_1$, but is inconsequential as it can be removed by phase correction).
@@ -115,7 +115,7 @@ In a similar way, it can be shown that if we invert the sign of $g_2$, we have t
 Now, the second and fourth terms in \cref{eq:hsqc_ea_after_g2_2} are dephased, and we get the antiecho spectrum from this:
 \begin{equation}
     \label{eq:hsqc_ea_antiecho_signal}
-    s_\text{antiecho}(t_1, t_2) = -\frac{1}{4}\exp(-\mi \Omega_S t_1)\exp(\mi \Omega_I t_2).
+    s_\text{antiecho}(t_1, t_2) = -\frac{1}{4}\exp(\mi \Omega_S t_1)\exp(\mi \Omega_I t_2).
 \end{equation}
 
 
