@@ -13,8 +13,8 @@ Furthermore, since only local minima are sought, the time required for convergen
     {\phantomsubcaption\label{fig:poise_hmbc_pulseq_hmbc}}%
     {\phantomsubcaption\label{fig:poise_hmbc_pulseq_hsqc}}%
     \caption[Pulse sequences used for HMBC optimisation]{
-        \textbf{(\subref{fig:poise_hmbc_pulseq_hmbc})} Standard 2D HMBC pulse sequence with a second-order LPJF.
-        \textbf{(\subref{fig:poise_hmbc_pulseq_hsqc})} 1D LPJF--HSQC pulse sequence used in the POISE optimisation.
+        \textbf{(\subref*{fig:poise_hmbc_pulseq_hmbc})} Standard 2D HMBC pulse sequence with a second-order LPJF.
+        \textbf{(\subref*{fig:poise_hmbc_pulseq_hsqc})} 1D LPJF--HSQC pulse sequence used in the POISE optimisation.
         In practice, only the first increment of this experiment was recorded.
         Delays are set as follows: $\Delta = 1 / (4 \cdot \oneJ{CH}); \Delta_\text{LR} = 1 / (2 \cdot \nJ{CH})$; $\tau$ is as short as possible (several microseconds); and $\tau_1$ and $\tau_2$ are as described in the text.
         Phase cycling is performed with $\phi_1 = \phi_\text{rec} = (x, -x)$, and $\phi_2 = (x, x, -x, -x)$.
@@ -121,10 +121,10 @@ Also, BOBYQA does not always outperform NM and MDS in the other optimisations in
     {\phantomsubcaption\label{fig:poise_hmbc_spec_opt2}}%
     {\phantomsubcaption\label{fig:poise_hmbc_spec_3}}%
     \caption[HMBC spectra before and after optimisation]{
-        \textbf{(\subref{fig:poise_hmbc_spec_unopt2})} HMBC spectrum with `compromise' values of 120 and \qty{180}{\Hz} for $J'_\text{min}$ and $J'_\text{max}$ respectively in the second-order LPJF.
+        \textbf{(\subref*{fig:poise_hmbc_spec_unopt2})} HMBC spectrum with `compromise' values of 120 and \qty{180}{\Hz} for $J'_\text{min}$ and $J'_\text{max}$ respectively in the second-order LPJF.
         The one-bond artefacts are highlighted in red boxes.
-        \textbf{(\subref{fig:poise_hmbc_spec_opt2})} HMBC spectrum with optimised second-order LPJF delays.
-        \textbf{(\subref{fig:poise_hmbc_spec_3})} HMBC spectrum with third-order LPJF.
+        \textbf{(\subref*{fig:poise_hmbc_spec_opt2})} HMBC spectrum with optimised second-order LPJF delays.
+        \textbf{(\subref*{fig:poise_hmbc_spec_3})} HMBC spectrum with third-order LPJF.
         \datacode{7Z-210814}
     }
     \label{fig:poise_hmbc_spec}
@@ -189,10 +189,10 @@ This was indeed verified experimentally: the addition of a \carbon{} \ang{90} pu
     {\phantomsubcaption\label{fig:poise_hmbc_noah_spec_opt}}%
     {\phantomsubcaption\label{fig:poise_hmbc_noah_spec_with90}}%
     \caption[NOAH HMBC spectra before and after optimisation]{
-        \textbf{(\subref{fig:poise_hmbc_noah_spec_unopt})} NOAH HMBC spectrum before POISE optimisation, using the default settings of 120 and \qty{180}{\Hz}.
+        \textbf{(\subref*{fig:poise_hmbc_noah_spec_unopt})} NOAH HMBC spectrum before POISE optimisation, using the default settings of 120 and \qty{180}{\Hz}.
         One-bond artefacts are highlighted in red boxes.
-        \textbf{(\subref{fig:poise_hmbc_noah_spec_opt})} NOAH HMBC spectrum after POISE `optimisation' (using $J'_\text{min} = \qty{125.2}{\Hz}$, $J'_\text{max} = \qty{193.2}{\Hz}$, as per entry 2 of \cref{tbl:poise_hmbc_noah}).
-        \textbf{(\subref{fig:poise_hmbc_noah_spec_with90})} NOAH HMBC spectrum with no POISE optimisation, but instead adding a \ang{90} \carbon{} pulse at the end of the $zz$-filter (see also \cref{subsec:noah__hmbc}).
+        \textbf{(\subref*{fig:poise_hmbc_noah_spec_opt})} NOAH HMBC spectrum after POISE `optimisation' (using $J'_\text{min} = \qty{125.2}{\Hz}$, $J'_\text{max} = \qty{193.2}{\Hz}$, as per entry 2 of \cref{tbl:poise_hmbc_noah}).
+        \textbf{(\subref*{fig:poise_hmbc_noah_spec_with90})} NOAH HMBC spectrum with no POISE optimisation, but instead adding a \ang{90} \carbon{} pulse at the end of the $zz$-filter (see also \cref{subsec:noah__hmbc}).
         \datacode{7Z-210814}
     }
     \label{fig:poise_hmbc_noah_spec}

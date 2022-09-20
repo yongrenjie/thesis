@@ -35,10 +35,10 @@ The latter two parameters are assumed to be given in units of ordinary frequenci
     {\phantomsubcaption\label{fig:chirp_coefficients_cy}}%
     \caption[Phase and Cartesian amplitudes of a typical chirp pulse]{
         Plots of the quantities in \cref{eq:chirp_pulse_phase,eq:chirp_pulse_cx,eq:chirp_pulse_cy} for a typical chirp pulse ($\taup = \qty{30}{\ms}$, $\Delta F = \qty{10}{\kHz}$).
-        \textbf{(\subref{fig:chirp_coefficients_phase})} $\phi(t)$ wrapped to the range $[0, 2\pi)$.
-        \textbf{(\subref{fig:chirp_coefficients_smoothing})} The quarter-sine smoothing profile which is later applied to the entire waveform (\cref{eq:sming_function}); here $s_\text{sm} = 0.2$.
-        \textbf{(\subref{fig:chirp_coefficients_cx})} $c_x(t)/A$ prior to smoothing.
-        \textbf{(\subref{fig:chirp_coefficients_cy})} $c_y(t)/A$ prior to smoothing.
+        \textbf{(\subref*{fig:chirp_coefficients_phase})} $\phi(t)$ wrapped to the range $[0, 2\pi)$.
+        \textbf{(\subref*{fig:chirp_coefficients_smoothing})} The quarter-sine smoothing profile which is later applied to the entire waveform (\cref{eq:sming_function}); here $s_\text{sm} = 0.2$.
+        \textbf{(\subref*{fig:chirp_coefficients_cx})} $c_x(t)/A$ prior to smoothing.
+        \textbf{(\subref*{fig:chirp_coefficients_cy})} $c_y(t)/A$ prior to smoothing.
         The amplitude $A$ is simply a constant, which is related to the flip angle of the chirp.\autocite{Foroozandeh2018CEJ}
     }
     \label{fig:chirp_coefficients}
@@ -82,9 +82,9 @@ After the sum of these two pulses is reflected about its end, we obtain a single
     {\phantomsubcaption\label{fig:chirpopt_spurious_saltire}}%
     {\phantomsubcaption\label{fig:chirpopt_spurious_badoptimum}}%
     \caption[Spurious optimum obtained in waveform optimisation using $f_\text{diff}$]{
-        \textbf{(\subref{fig:chirpopt_spurious_target})} Target spectrum (pulse--acquire).
-        \textbf{(\subref{fig:chirpopt_spurious_saltire})} JRSE spectrum obtained using the initial guess (a saltire).
-        \textbf{(\subref{fig:chirpopt_spurious_badoptimum})} JRSE spectrum obtained with a spurious optimum point.
+        \textbf{(\subref*{fig:chirpopt_spurious_target})} Target spectrum (pulse--acquire).
+        \textbf{(\subref*{fig:chirpopt_spurious_saltire})} JRSE spectrum obtained using the initial guess (a saltire).
+        \textbf{(\subref*{fig:chirpopt_spurious_badoptimum})} JRSE spectrum obtained with a spurious optimum point.
         The grey dotted box shows the restricted region over which $f_\text{diff}$ was subsequently applied to, yielding a formally different cost function $f'_\text{diff}$; this yielded more sensible results where the cost function for the saltire pulse was smaller.
         \datacode{6C-190823}
     }
@@ -118,10 +118,10 @@ Unfortunately, although the pulse shape is shown in \cref{fig:newpulse_tsepsyche
     {\phantomsubcaption\label{fig:newpulse_tsepsyche_saltirespec}}%
     {\phantomsubcaption\label{fig:newpulse_tsepsyche_newpulsespec}}%
     \caption[Evaluation of an `optimised' pulse in a TSE-PSYCHE experiment]{
-        \textbf{(\subref{fig:newpulse_tsepsyche_saltire})} $x$- and $y$-coefficients of the initial saltire pulse (as a fraction of the maximum amplitude $A$).
-        \textbf{(\subref{fig:newpulse_tsepsyche_newpulse})} $x$- and $y$-coefficients of the `optimised' pulse (as a fraction of the maximum amplitude $A$).
-        \textbf{(\subref{fig:newpulse_tsepsyche_saltirespec})} TSE-PSYCHE spectrum obtained with the initial guess (a saltire pulse).
-        \textbf{(\subref{fig:newpulse_tsepsyche_newpulsespec})} TSE-PSYCHE spectrum obtained with the `optimised' pulse, with virtually equivalent performance.
+        \textbf{(\subref*{fig:newpulse_tsepsyche_saltire})} $x$- and $y$-coefficients of the initial saltire pulse (as a fraction of the maximum amplitude $A$).
+        \textbf{(\subref*{fig:newpulse_tsepsyche_newpulse})} $x$- and $y$-coefficients of the `optimised' pulse (as a fraction of the maximum amplitude $A$).
+        \textbf{(\subref*{fig:newpulse_tsepsyche_saltirespec})} TSE-PSYCHE spectrum obtained with the initial guess (a saltire pulse).
+        \textbf{(\subref*{fig:newpulse_tsepsyche_newpulsespec})} TSE-PSYCHE spectrum obtained with the `optimised' pulse, with virtually equivalent performance.
         \datacode{6C-190831}
     }
     \label{fig:newpulse_tsepsyche}

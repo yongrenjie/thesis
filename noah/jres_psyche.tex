@@ -20,9 +20,9 @@ The indirect-dimension spectral width is specified as \texttt{CNST38}.
     {\phantomsubcaption\label{fig:2dj_example_j}}%
     \caption[Spectra from a \noah{Spn,Sp,J} supersequence]{
         Spectra obtained from a \noah{Spn,Sp,J} supersequence.
-        \textbf{(\subref{fig:2dj_example_spn})} \nitrogen{} seHSQC (256 $t_1$ increments and 2 scans per increment).
-        \textbf{(\subref{fig:2dj_example_spc})} \carbon{} seHSQC.
-        \textbf{(\subref{fig:2dj_example_j})} PSYCHE 2DJ (32 $t_1$ increments and 8 scans per increment).
+        \textbf{(\subref*{fig:2dj_example_spn})} \nitrogen{} seHSQC (256 $t_1$ increments and 2 scans per increment).
+        \textbf{(\subref*{fig:2dj_example_spc})} \carbon{} seHSQC.
+        \textbf{(\subref*{fig:2dj_example_j})} PSYCHE 2DJ (32 $t_1$ increments and 8 scans per increment).
         \datacode{7G-201028}
     }
     \label{fig:2dj_example}
@@ -47,10 +47,10 @@ In the GENESIS pulse programmes, this feature is enabled by default (it can be t
     {\phantomsubcaption\label{fig:psyche_wrongsw1_good_sap}}%
     \caption[Effect of missetting the chunk size in PSYCHE spectra]{
         A series of 1D PSYCHE spectra obtained from the \noah{Spn,Sp,P} supersequence (saltire flip angle of \ang{15}).
-        \textbf{(\subref{fig:psyche_wrongsw1_bad_nosap})} 1D PSYCHE spectrum acquired without SAPPHIRE averaging and an incorrect chunk size which is not an integral number of complex data points.
-        \textbf{(\subref{fig:psyche_wrongsw1_bad_sap})} 1D PSYCHE spectrum with  8-step SAPPHIRE averaging and an incorrect chunk size; this manifests as phase errors which cannot be corrected.
-        \textbf{(\subref{fig:psyche_wrongsw1_good_nosap})--(\subref{fig:psyche_wrongsw1_good_sap})} The same as (\subref{fig:psyche_wrongsw1_bad_nosap}) and (\subref{fig:psyche_wrongsw1_bad_sap}), but with the chunk size automatically corrected in the pulse programme.
-        The impact of the SAPPHIRE averaging is less obvious in these datasets (compare (\subref{fig:psyche_wrongsw1_good_nosap}) and (\subref{fig:psyche_wrongsw1_good_sap})), but is more striking when larger chunk sizes are used, as discussed in the original paper\autocite{Moutzouri2017CC}.
+        \textbf{(\subref*{fig:psyche_wrongsw1_bad_nosap})} 1D PSYCHE spectrum acquired without SAPPHIRE averaging and an incorrect chunk size which is not an integral number of complex data points.
+        \textbf{(\subref*{fig:psyche_wrongsw1_bad_sap})} 1D PSYCHE spectrum with  8-step SAPPHIRE averaging and an incorrect chunk size; this manifests as phase errors which cannot be corrected.
+        \textbf{(\subref*{fig:psyche_wrongsw1_good_nosap})--(\subref*{fig:psyche_wrongsw1_good_sap})} The same as (\subref*{fig:psyche_wrongsw1_bad_nosap}) and (\subref*{fig:psyche_wrongsw1_bad_sap}), but with the chunk size automatically corrected in the pulse programme.
+        The impact of the SAPPHIRE averaging is less obvious in these datasets (compare (\subref*{fig:psyche_wrongsw1_good_nosap}) and (\subref*{fig:psyche_wrongsw1_good_sap})), but is more striking when larger chunk sizes are used, as discussed in the original paper\autocite{Moutzouri2017CC}.
         \datacode{7C-211123}
     }
     \label{fig:psyche_wrongsw1}

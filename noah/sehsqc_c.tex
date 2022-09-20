@@ -15,9 +15,9 @@ In the original version of the seHSQC (\cref{fig:sehsqc_po_crk}), developed by C
         Sensitivity-enhanced HSQC sequences discussed in this section, along with product operator analysis.
         This analysis is provided only for the first step of the phase cycle, and assumes an $IS\/$ spin pair with $\Delta' = 1 / (4 \cdot \oneJ{CH})$.
         `cos \magn{C}' refers to the component of the \magn{C} magnetisation which is cosine-modulated during $t_1$.
-        \textbf{(\subref{fig:sehsqc_po_crk})} Cavanagh--Rance--Kay seHSQC.
-        \textbf{(\subref{fig:sehsqc_po_noah1})} NOAH seHSQC1 module.
-        \textbf{(\subref{fig:sehsqc_po_noah2})} NOAH seHSQC2 module.
+        \textbf{(\subref*{fig:sehsqc_po_crk})} Cavanagh--Rance--Kay seHSQC.
+        \textbf{(\subref*{fig:sehsqc_po_noah1})} NOAH seHSQC1 module.
+        \textbf{(\subref*{fig:sehsqc_po_noah2})} NOAH seHSQC2 module.
         Phase cycling is performed with $\phi_1 = (x, -x)$, $\phi_2 = (x, x, -x, -x)$, and $\phi_\text{rec} = (x, -x, -x, x)$.
         The delay $\Delta$ is set to $1 / (4 \cdot \oneJ{CH})$; see the text for a discussion of $\Delta'$.
         The pulses marked with a phase of $\pm y$ are applied with a phase of $y$ in the echo experiment and $-y$ in the antiecho.
@@ -110,8 +110,8 @@ The ZIP element therefore represents an isotope-specific rotation on \proton{} s
     {\phantomsubcaption\label{fig:sehsqc_grad_schemes_jon}}%
     \caption[Comparison of gradient schemes in seHSQC2 module]{
         Comparison of CTP gradient schemes in seHSQC2 module.
-        \textbf{(\subref{fig:sehsqc_grad_schemes_alex})} As reported in Hansen et al.\autocite{Hansen2021AC} $g_0$ is a purge gradient with arbitrary amplitude; the amplitude of the final CTP gradient must be halved.
-        \textbf{(\subref{fig:sehsqc_grad_schemes_jon})} The version used in this work (corresponding to \cref{fig:sehsqc_po_noah2}).
+        \textbf{(\subref*{fig:sehsqc_grad_schemes_alex})} As reported in Hansen et al.\autocite{Hansen2021AC} $g_0$ is a purge gradient with arbitrary amplitude; the amplitude of the final CTP gradient must be halved.
+        \textbf{(\subref*{fig:sehsqc_grad_schemes_jon})} The version used in this work (corresponding to \cref{fig:sehsqc_po_noah2}).
     }
     \label{fig:sehsqc_grad_schemes}
 \end{figure}
@@ -130,9 +130,9 @@ The scheme I used leads to similar results, but has one advantage in that it all
         Sensitivities of seHSQC and CLIP-COSY modules in the \noah{Sp,Cc} supersequences (run using $\Delta' = 1 / (8 \cdot \oneJ{CH})$).
         Intensities are reported relative to the corresponding peaks in a \noah{S,Cc} supersequence; HSQC peaks are further broken down by their multiplicity.
         Each dot represents one peak; the solid lines as well as the numbers at the bottom of each plot represent averages over all peaks.
-        \textbf{(\subref{fig:noah_sehsqc_comp_crk})} Using the CRK seHSQC.
-        \textbf{(\subref{fig:noah_sehsqc_comp_v1})} Using the seHSQC1 module.
-        \textbf{(\subref{fig:noah_sehsqc_comp_v2})} Using the seHSQC2 module.
+        \textbf{(\subref*{fig:noah_sehsqc_comp_crk})} Using the CRK seHSQC.
+        \textbf{(\subref*{fig:noah_sehsqc_comp_v1})} Using the seHSQC1 module.
+        \textbf{(\subref*{fig:noah_sehsqc_comp_v2})} Using the seHSQC2 module.
         \datacode{7A-201115}
     }
     \label{fig:noah_sehsqc_comp}
@@ -177,8 +177,8 @@ Some artefacts still remain, which perhaps arise due to pulse imperfections (or 
     {\phantomsubcaption\label{fig:sehsqc_cosy_arts_2}}%
     \caption[Comparison of COSY-type artefacts in NOAH seHSQC modules]{
         Comparison of COSY-type artefacts in NOAH seHSQC modules.
-        \textbf{(\subref{fig:sehsqc_cosy_arts_1})} seHSQC1.
-        \textbf{(\subref{fig:sehsqc_cosy_arts_2})} seHSQC2. The artefacts are highlighted in red boxes.
+        \textbf{(\subref*{fig:sehsqc_cosy_arts_1})} seHSQC1.
+        \textbf{(\subref*{fig:sehsqc_cosy_arts_2})} seHSQC2. The artefacts are highlighted in red boxes.
         \datacode{7A-201115}
     }
     \label{fig:sehsqc_cosy_arts}
@@ -202,8 +202,8 @@ These artefacts can most clearly be seen in the diagonal peaks of methyl groups,
     {\phantomsubcaption\label{fig:sehsqc_wing_arts_1grad}}%
     \caption[Wing artefacts in CLIP-COSY spectra when extra seHSQC2 gradient is omitted]{
         Wing artefacts in CLIP-COSY spectra, taken from \noah{Sp,Cc} supersequences.
-        \textbf{(\subref{fig:sehsqc_wing_arts_2grad})} Using the seHSQC2 module as shown in \cref{fig:sehsqc_po_noah2}.
-        \textbf{(\subref{fig:sehsqc_wing_arts_1grad})} Using a modified seHSQC2 module where the gradient echo just before $t_1$ is removed.
+        \textbf{(\subref*{fig:sehsqc_wing_arts_2grad})} Using the seHSQC2 module as shown in \cref{fig:sehsqc_po_noah2}.
+        \textbf{(\subref*{fig:sehsqc_wing_arts_1grad})} Using a modified seHSQC2 module where the gradient echo just before $t_1$ is removed.
         The wing artefacts flanking the two rightmost diagonal peaks can be clearly seen; the boxed artefacts are studied further in \cref{fig:sehsqc_wing_arts_proj}.
         \datacode{7A-201115}
     }
@@ -231,11 +231,11 @@ In fact, it is necessary to apply CTP gradients on both sides of $t_1$ in order 
     \caption[More detail about wing artefacts in CLIP-COSY spectra]{
         A closer look at wing artefacts in CLIP-COSY spectra, taken from \noah{Sp,Cc} supersequences with various modifications made to the seHSQC2 module.
         The spectra being plotted are 1D slices through $f_2 = \qty{0.67}{\ppm}$ of the 2D CLIP-COSY spectrum; this corresponds to the boxed region in \cref{fig:sehsqc_wing_arts_1grad}.
-        \textbf{(\subref{fig:sehsqc_wing_arts_proj_onon})} Using the default seHSQC2 module, with one gradient before and one after $t_1$.
-        \textbf{(\subref{fig:sehsqc_wing_arts_proj_offon})} The same as (\subref{fig:sehsqc_wing_arts_proj_onon}), but with the gradient before $t_1$ turned off (the spin echo is still present, but the gradient intensity is set to 0).
-        \textbf{(\subref{fig:sehsqc_wing_arts_proj_onoff})} The same as (\subref{fig:sehsqc_wing_arts_proj_onon}), but with the gradient after $t_1$ turned off.
-        \textbf{(\subref{fig:sehsqc_wing_arts_proj_offoff})} The same as (\subref{fig:sehsqc_wing_arts_proj_onon}), but with both gradients turned off.
-        \textbf{(\subref{fig:sehsqc_wing_arts_proj_offon_sw4})} The same as (\subref{fig:sehsqc_wing_arts_proj_offon}), but with the seHSQC spectral width reduced by a factor of 4.
+        \textbf{(\subref*{fig:sehsqc_wing_arts_proj_onon})} Using the default seHSQC2 module, with one gradient before and one after $t_1$.
+        \textbf{(\subref*{fig:sehsqc_wing_arts_proj_offon})} The same as (\subref*{fig:sehsqc_wing_arts_proj_onon}), but with the gradient before $t_1$ turned off (the spin echo is still present, but the gradient intensity is set to 0).
+        \textbf{(\subref*{fig:sehsqc_wing_arts_proj_onoff})} The same as (\subref*{fig:sehsqc_wing_arts_proj_onon}), but with the gradient after $t_1$ turned off.
+        \textbf{(\subref*{fig:sehsqc_wing_arts_proj_offoff})} The same as (\subref*{fig:sehsqc_wing_arts_proj_onon}), but with both gradients turned off.
+        \textbf{(\subref*{fig:sehsqc_wing_arts_proj_offon_sw4})} The same as (\subref*{fig:sehsqc_wing_arts_proj_offon}), but with the seHSQC spectral width reduced by a factor of 4.
         \datacode{7A-201115}
     }
     \label{fig:sehsqc_wing_arts_proj}
@@ -258,8 +258,8 @@ It suffices to add a spin echo of total duration $4\Delta = 1 / \oneJ{CH}$ just 
     {\phantomsubcaption\label{fig:sehsqc_edited_2}}%
     \caption[Multiplicity-edited NOAH seHSQC modules]{
         Multiplicity-edited NOAH seHSQC modules.
-        \textbf{(\subref{fig:sehsqc_edited_1})} Edited seHSQC1.
-        \textbf{(\subref{fig:sehsqc_edited_2})} Edited seHSQC2.
+        \textbf{(\subref*{fig:sehsqc_edited_1})} Edited seHSQC1.
+        \textbf{(\subref*{fig:sehsqc_edited_2})} Edited seHSQC2.
     }
     \label{fig:sehsqc_edited}
 \end{figure}
@@ -273,9 +273,9 @@ It suffices to add a spin echo of total duration $4\Delta = 1 / \oneJ{CH}$ just 
     \caption[Sensitivity comparisons for multiplicity-edited seHSQC]{
         Sensitivity comparisons for multiplicity-edited seHSQC in \noah{Sp,Cc} supersequences.
         The delay $\Delta'$ was set to $1 / (8 \cdot \oneJ{CH})$.
-        \textbf{(\subref{fig:noah_sehsqc_comp_edited_crk})} Using the edited CRK seHSQC.
-        \textbf{(\subref{fig:noah_sehsqc_comp_edited_1})} Using the edited seHSQC1 module.
-        \textbf{(\subref{fig:noah_sehsqc_comp_edited_2})} Using the edited seHSQC2 module.
+        \textbf{(\subref*{fig:noah_sehsqc_comp_edited_crk})} Using the edited CRK seHSQC.
+        \textbf{(\subref*{fig:noah_sehsqc_comp_edited_1})} Using the edited seHSQC1 module.
+        \textbf{(\subref*{fig:noah_sehsqc_comp_edited_2})} Using the edited seHSQC2 module.
         \datacode{7A-201115}
     }
     \label{fig:noah_sehsqc_comp_edited}
@@ -303,9 +303,9 @@ The corresponding sensitivity comparisons are shown in \cref{fig:noah_sehsqc_1ov
     \caption[Sensitivity comparisons for seHSQC with $\Delta' = 1 / (4 \cdot \oneJ{CH})$]{
         Sensitivity comparisons with $\Delta'$ set to $1 / (4 \cdot \oneJ{CH})$.
         Multiplicity editing was not used.
-        \textbf{(\subref{fig:noah_sehsqc_1over4j_crk})} Using the edited CRK seHSQC.
-        \textbf{(\subref{fig:noah_sehsqc_1over4j_1})} Using the edited seHSQC1 module.
-        \textbf{(\subref{fig:noah_sehsqc_1over4j_2})} Using the edited seHSQC2 module.
+        \textbf{(\subref*{fig:noah_sehsqc_1over4j_crk})} Using the edited CRK seHSQC.
+        \textbf{(\subref*{fig:noah_sehsqc_1over4j_1})} Using the edited seHSQC1 module.
+        \textbf{(\subref*{fig:noah_sehsqc_1over4j_2})} Using the edited seHSQC2 module.
         \datacode{7A-201115}
     }
     \label{fig:noah_sehsqc_1over4j}
@@ -325,9 +325,9 @@ The conclusions are entirely similar when multiplicity editing is enabled (\cref
     {\phantomsubcaption\label{fig:noah_sehsqc_1over4j_edited_2}}%
     \caption[Sensitivity comparisons for edited seHSQC with $\Delta' = 1 / (4 \cdot \oneJ{CH})$]{
         Sensitivity comparisons with $\Delta'$ set to $1 / (4 \cdot \oneJ{CH})$ and with multiplicity editing.
-        \textbf{(\subref{fig:noah_sehsqc_1over4j_edited_crk})} Using the edited CRK seHSQC.
-        \textbf{(\subref{fig:noah_sehsqc_1over4j_edited_1})} Using the edited seHSQC1 module.
-        \textbf{(\subref{fig:noah_sehsqc_1over4j_edited_2})} Using the edited seHSQC2 module.
+        \textbf{(\subref*{fig:noah_sehsqc_1over4j_edited_crk})} Using the edited CRK seHSQC.
+        \textbf{(\subref*{fig:noah_sehsqc_1over4j_edited_1})} Using the edited seHSQC1 module.
+        \textbf{(\subref*{fig:noah_sehsqc_1over4j_edited_2})} Using the edited seHSQC2 module.
         \datacode{7A-201115}
     }
     \label{fig:noah_sehsqc_1over4j_edited}
@@ -379,8 +379,8 @@ In particular, the delays $\alpha$ and $\beta$ must be chosen in order to satisf
     {\phantomsubcaption\label{fig:spv1_urp_magn_y_phase}}%
     \caption[Simulated performance of URP used for seHSQC1 module]{
         Simulated performance of URP used for seHSQC1 module on $z$- and $y$-magnetisation. The pulse fidelity was 99.99\%.
-        \textbf{(\subref{fig:spv1_urp_magn_z_x})--(\subref{fig:spv1_urp_magn_z_phase})} Using $z$-magnetisation as input: the plots respectively show the amount of $x$-magnetisation, $y$-magnetisation, $z$-magnetisation, transverse magnetisation ($M_{xy} = \sqrt{M_x^2 + M_y^2}$), and the phase of the transverse magnetisation generated, as a function of offset frequency.
-        \textbf{(\subref{fig:spv1_urp_magn_y_x})--(\subref{fig:spv1_urp_magn_y_phase})} The same, but using $y$-magnetisation as input.
+        \textbf{(\subref*{fig:spv1_urp_magn_z_x})--(\subref*{fig:spv1_urp_magn_z_phase})} Using $z$-magnetisation as input: the plots respectively show the amount of $x$-magnetisation, $y$-magnetisation, $z$-magnetisation, transverse magnetisation ($M_{xy} = \sqrt{M_x^2 + M_y^2}$), and the phase of the transverse magnetisation generated, as a function of offset frequency.
+        \textbf{(\subref*{fig:spv1_urp_magn_y_x})--(\subref*{fig:spv1_urp_magn_y_phase})} The same, but using $y$-magnetisation as input.
     }
     \label{fig:spv1_urp_magn}
 \end{figure}
@@ -400,9 +400,9 @@ The reason for the poorer sensitivity therefore likely lies elsewhere.
         Sensitivity comparisons using the seHSQC1 URP.
         $\Delta'$ was set to $1 / (8 \cdot \oneJ{CH})$; no multiplicity editing was used.
         Note that a different dataset was used for this figure and \cref{fig:noah_sehsqc_comp}, so the numbers are very slightly different.
-        \textbf{(\subref{fig:sehsqc1_urp_sens_1dp})} Original seHSQC1 module with double \proton{} \ang{90} pulse.
-        \textbf{(\subref{fig:sehsqc1_urp_sens_1urp})} seHSQC1 using the optimised URP shown in \cref{fig:spv1_urp_magn}.
-        \textbf{(\subref{fig:sehsqc1_urp_sens_2})} seHSQC2 module for comparison.
+        \textbf{(\subref*{fig:sehsqc1_urp_sens_1dp})} Original seHSQC1 module with double \proton{} \ang{90} pulse.
+        \textbf{(\subref*{fig:sehsqc1_urp_sens_1urp})} seHSQC1 using the optimised URP shown in \cref{fig:spv1_urp_magn}.
+        \textbf{(\subref*{fig:sehsqc1_urp_sens_2})} seHSQC2 module for comparison.
         \datacode{7A-220110}
     }
     \label{fig:sehsqc1_urp_sens}
@@ -438,12 +438,12 @@ However, its performance in all respects was not as good as the ZIP version: bot
     {\phantomsubcaption\label{fig:noah_sehsqc_bigbird_zip_ed}}%
     \caption[Comparison of BIG-BIRD and ZIP pulse elements in seHSQC2 module]{
         Sensitivity comparisons of BIG-BIRD and ZIP pulse elements in seHSQC2 module.
-        The reference dataset being compared against is still the \noah{S,Cc} (but with editing in (\subref{fig:noah_sehsqc_bigbird_bb_ed}) and (\subref{fig:noah_sehsqc_bigbird_zip_ed}).
+        The reference dataset being compared against is still the \noah{S,Cc} (but with editing in (\subref*{fig:noah_sehsqc_bigbird_bb_ed}) and (\subref*{fig:noah_sehsqc_bigbird_zip_ed}).
         The delay $\Delta'$ was set to $1 / (8 \cdot \oneJ{CH})$.
-        \textbf{(\subref{fig:noah_sehsqc_bigbird_bb_noed})} Unedited seHSQC2 using BIG-BIRD.
-        \textbf{(\subref{fig:noah_sehsqc_bigbird_zip_noed})} Unedited seHSQC2 using ZIP.
-        \textbf{(\subref{fig:noah_sehsqc_bigbird_bb_ed})} Edited seHSQC2 using BIG-BIRD.
-        \textbf{(\subref{fig:noah_sehsqc_bigbird_zip_ed})} Edited seHSQC2 using ZIP.
+        \textbf{(\subref*{fig:noah_sehsqc_bigbird_bb_noed})} Unedited seHSQC2 using BIG-BIRD.
+        \textbf{(\subref*{fig:noah_sehsqc_bigbird_zip_noed})} Unedited seHSQC2 using ZIP.
+        \textbf{(\subref*{fig:noah_sehsqc_bigbird_bb_ed})} Edited seHSQC2 using BIG-BIRD.
+        \textbf{(\subref*{fig:noah_sehsqc_bigbird_zip_ed})} Edited seHSQC2 using ZIP.
         \datacode{7A-201115}
     }
     \label{fig:noah_sehsqc_bigbird}

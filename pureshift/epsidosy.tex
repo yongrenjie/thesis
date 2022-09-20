@@ -14,12 +14,12 @@ However, for the sake of completeness, I describe the overall concept as well as
     {\phantomsubcaption\label{fig:epd_pulseq_epsidosy}}%
     {\phantomsubcaption\label{fig:epd_pulseq_epsipsychedosy}}%
     \caption[EPSI PSYCHE-iDOSY and associated pulse sequences]{
-        \textbf{(\subref{fig:epd_pulseq_stedosy})} Basic stimulated echo DOSY experiment.
+        \textbf{(\subref*{fig:epd_pulseq_stedosy})} Basic stimulated echo DOSY experiment.
         To acquire the diffusion dimension, the amplitudes of gradients with arrows inside are incremented.
         $\Delta$ indicates the diffusion delay.
-        \textbf{(\subref{fig:epd_pulseq_psychedosy})} PSYCHE-iDOSY experiment. $\tau$ is set to $1/(4 \cdot T_\text{chunk})$, as before.
-        \textbf{(\subref{fig:epd_pulseq_epsidosy})} Ultrafast DOSY experiment. The EPSI acquisition block is highlighted in orange, consisting of a prephasing gradient followed by detection in the presence of alternating gradients.
-        \textbf{(\subref{fig:epd_pulseq_epsipsychedosy})} Ultrafast PSYCHE-iDOSY experiment. Note the use of unidirectional chirps rather than saltire pulses.
+        \textbf{(\subref*{fig:epd_pulseq_psychedosy})} PSYCHE-iDOSY experiment. $\tau$ is set to $1/(4 \cdot T_\text{chunk})$, as before.
+        \textbf{(\subref*{fig:epd_pulseq_epsidosy})} Ultrafast DOSY experiment. The EPSI acquisition block is highlighted in orange, consisting of a prephasing gradient followed by detection in the presence of alternating gradients.
+        \textbf{(\subref*{fig:epd_pulseq_epsipsychedosy})} Ultrafast PSYCHE-iDOSY experiment. Note the use of unidirectional chirps rather than saltire pulses.
     }
     \label{fig:epd_pulseq}
 \end{figure}
@@ -83,10 +83,10 @@ For simplicity, the data points acquired during the negative gradients is discar
     {\phantomsubcaption\label{fig:epsi_jnd_mf_mf_zd}}%
     {\phantomsubcaption\label{fig:epsi_jnd_mf_mf_trace}}%
     \caption[Comparison of EPSI PSYCHE-iDOSY data acquired in Nantes and Oxford]{
-        \textbf{(\subref{fig:epsi_jnd_mf_jnd_kt})--(\subref{fig:epsi_jnd_mf_jnd_trace})} EPSI PSYCHE-iDOSY data obtained by Corentin Jacquemmoz and \JND{} at the University of Nantes.
+        \textbf{(\subref*{fig:epsi_jnd_mf_jnd_kt})--(\subref*{fig:epsi_jnd_mf_jnd_trace})} EPSI PSYCHE-iDOSY data obtained by Corentin Jacquemmoz and \JND{} at the University of Nantes.
         The three plots respectively show the 2D raw $(k, t_2)$ data (after PSYCHE processing has been carried out); the Fourier transformed $(z, \delta)$ data; and the individual diffusion profiles for each peak.
-        \textbf{(\subref{fig:epsi_jnd_mf_mf_kt})--(\subref{fig:epsi_jnd_mf_mf_trace})} The equivalent data which I recorded in Oxford.
-        The central peak corresponds to \ch{HDO}; the Oxford sample used was drier and thus it is less intense in (\subref{fig:epsi_jnd_mf_mf_zd}) compared to (\subref{fig:epsi_jnd_mf_jnd_zd}).
+        \textbf{(\subref*{fig:epsi_jnd_mf_mf_kt})--(\subref*{fig:epsi_jnd_mf_mf_trace})} The equivalent data which I recorded in Oxford.
+        The central peak corresponds to \ch{HDO}; the Oxford sample used was drier and thus it is less intense in (\subref*{fig:epsi_jnd_mf_mf_zd}) compared to (\subref*{fig:epsi_jnd_mf_jnd_zd}).
         \datacode{6E-210426}
     }
     \label{fig:epsi_jnd_mf}
@@ -117,9 +117,9 @@ However, this cannot be varied too much as the PSYCHE gradients are also respons
     {\phantomsubcaption\label{fig:epsi_parameters_morepsyche_kt}}%
     {\phantomsubcaption\label{fig:epsi_parameters_morepsyche_trace}}%
     \caption[Effects of varying acquisition parameters on ultrafast PSYCHE-iDOSY spectra]{
-        \textbf{(\subref{fig:epsi_parameters_moreepsi_kt})--(\subref{fig:epsi_parameters_moreepsi_trace})} The same as in \cref{fig:epsi_jnd_mf_mf_kt,fig:epsi_jnd_mf_mf_trace}, but with the EPSI acquisition gradient increased to 32\% (from 24\% in the original).
+        \textbf{(\subref*{fig:epsi_parameters_moreepsi_kt})--(\subref*{fig:epsi_parameters_moreepsi_trace})} The same as in \cref{fig:epsi_jnd_mf_mf_kt,fig:epsi_jnd_mf_mf_trace}, but with the EPSI acquisition gradient increased to 32\% (from 24\% in the original).
         \datacode{6E-210426}
-        \textbf{(\subref{fig:epsi_parameters_morepsyche_kt})--(\subref{fig:epsi_parameters_morepsyche_trace})} The same as in \cref{fig:epsi_jnd_mf_mf_kt,fig:epsi_jnd_mf_mf_trace}, but with the PSYCHE gradient increased to 5\% (from 3\% in the original).        
+        \textbf{(\subref*{fig:epsi_parameters_morepsyche_kt})--(\subref*{fig:epsi_parameters_morepsyche_trace})} The same as in \cref{fig:epsi_jnd_mf_mf_kt,fig:epsi_jnd_mf_mf_trace}, but with the PSYCHE gradient increased to 5\% (from 3\% in the original).        
         \datacode{6E-210505}
     }
     \label{fig:epsi_parameters}
@@ -134,8 +134,8 @@ However, a simple pulse--EPSI experiment (\cref{fig:zg_epsi}) shows that the $B_
     {\phantomsubcaption\label{fig:zg_epsi_pulseq}}%
     {\phantomsubcaption\label{fig:zg_epsi_spec}}%
     \caption[Pulse--EPSI pulse sequence and data]{
-        \textbf{(\subref{fig:zg_epsi_pulseq})} Pulse--EPSI pulse sequence. The variation of the peak intensity along the $z$-axis directly corresponds to the $B_1$ spatial profile.
-        \textbf{(\subref{fig:zg_epsi_spec})} The resulting data after Fourier transformation in both dimensions ($k \leftrightarrow z$ and $t_2 \leftrightarrow \delta$).
+        \textbf{(\subref*{fig:zg_epsi_pulseq})} Pulse--EPSI pulse sequence. The variation of the peak intensity along the $z$-axis directly corresponds to the $B_1$ spatial profile.
+        \textbf{(\subref*{fig:zg_epsi_spec})} The resulting data after Fourier transformation in both dimensions ($k \leftrightarrow z$ and $t_2 \leftrightarrow \delta$).
         \datacode{6E-210426}
     }
     \label{fig:zg_epsi}

@@ -34,8 +34,8 @@ These distortions are just about visible in \cref{fig:jrse_jrse}.
     {\phantomsubcaption\label{fig:jrse_zg}}%
     {\phantomsubcaption\label{fig:jrse_jrse}}%
     \caption[J-refocused spin echo experiment]{
-        \textbf{(\subref{fig:jrse_zg})} Pulse--acquire experiment and the resulting spectrum.
-        \textbf{(\subref{fig:jrse_jrse})} J-refocused spin echo experiment and the resulting spectrum.
+        \textbf{(\subref*{fig:jrse_zg})} Pulse--acquire experiment and the resulting spectrum.
+        \textbf{(\subref*{fig:jrse_jrse})} J-refocused spin echo experiment and the resulting spectrum.
         The PSE used was the PSYCHE double saltire, with a flip angle of \ang{25}; the delay $\tau$ was \qty{11}{\ms}.
         The OH peak at \qty{4.1}{ppm} is lost, most likely due to chemical exchange.
         \datacode{6A-200816}
@@ -74,8 +74,8 @@ f_diff = np.linalg.norm((Sr / np.linalg.norm(Sr))
     \caption[Evaluation of $f_\text{phase}$ and $f_\text{diff}$ cost functions on synthetic data]{
         Behaviour of the two cost functions, $f_\text{phase}$ and $f_\text{diff}$, on synthetic spectra with various SNRs.
         Zero phase distortion refers to an in-phase absorption-mode doublet, whereas complete phase distortion refers to an antiphase dispersion-mode doublet.
-        \textbf{(\subref{fig:fa_scan_synthetic_fphase})} The $f_\text{phase}$ cost function.
-        \textbf{(\subref{fig:fa_scan_synthetic_fdiff})} The $f_\text{diff}$ cost function, measured against a spectrum with no phase distortion and an SNR of 500.
+        \textbf{(\subref*{fig:fa_scan_synthetic_fphase})} The $f_\text{phase}$ cost function.
+        \textbf{(\subref*{fig:fa_scan_synthetic_fdiff})} The $f_\text{diff}$ cost function, measured against a spectrum with no phase distortion and an SNR of 500.
     }
     \label{fig:fa_scan_synthetic}
 \end{figure}

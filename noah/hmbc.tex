@@ -40,11 +40,11 @@ In GENESIS pulse programmes, this can be done using the \texttt{-DLP3} acquisiti
     {\phantomsubcaption\label{fig:noah_hmbc_1jch_std_lp2}}%
     {\phantomsubcaption\label{fig:noah_hmbc_1jch_std_lp3}}%
     \caption[Suppression of one-bond artefacts in NOAH HMBC spectra]{
-        \textbf{(\subref{fig:noah_hmbc_1jch_no90})} NOAH $zz$-HMBC module without the additional \ang{90} pulse.
+        \textbf{(\subref*{fig:noah_hmbc_1jch_no90})} NOAH $zz$-HMBC module without the additional \ang{90} pulse.
         One-bond artefacts are highlighted in red.
-        \textbf{(\subref{fig:noah_hmbc_1jch_90})} NOAH $zz$-HMBC with the \ang{90} pulse.
-        \textbf{(\subref{fig:noah_hmbc_1jch_std_lp2})} Standard library HMBC with a second-order LPJF.
-        \textbf{(\subref{fig:noah_hmbc_1jch_std_lp3})} Standard library HMBC with a third-order LPJF.
+        \textbf{(\subref*{fig:noah_hmbc_1jch_90})} NOAH $zz$-HMBC with the \ang{90} pulse.
+        \textbf{(\subref*{fig:noah_hmbc_1jch_std_lp2})} Standard library HMBC with a second-order LPJF.
+        \textbf{(\subref*{fig:noah_hmbc_1jch_std_lp3})} Standard library HMBC with a third-order LPJF.
         \datacode{7A-210916}
     }
     \label{fig:noah_hmbc_1jch}
@@ -74,10 +74,10 @@ It is necessary to ensure that there is at least one gradient placed after this 
         The coherences selected for during each gradient are indicated above each gradient, using the same notation for product operators as described in the \textit{Preface}: the `upper' term (e.g.\ $+$ in $\pm$) refers to the echo experiment, and the `lower' term to the antiecho experiment.
         So, for example, $+\pm$ refers to selection of $I_+S_+$ during the echo experiment and $I_+S_-$ during the antiecho experiment.
         Gradient amplitudes are as described in the text.
-        \textbf{(\subref{fig:noah_hmbc_grads_bga})} `Asymmetric scheme A', modified from the standard library sequence to include an additional \ang{180} pulse and gradient.
-        \textbf{(\subref{fig:noah_hmbc_grads_bgb})} `Asymmetric scheme B', where the \ang{180} pulse is shifted forward to the end of $t_1$.
-        \textbf{(\subref{fig:noah_hmbc_grads_bgc})} `Asymmetric scheme C', which modifies the $zz$-filter instead of using an extra \ang{180} pulse.
-        \textbf{(\subref{fig:noah_hmbc_grads_b})} The original `symmetric' scheme (the same as in \cref{fig:noah_sb_po_b}), placed here for convenience.
+        \textbf{(\subref*{fig:noah_hmbc_grads_bga})} `Asymmetric scheme A', modified from the standard library sequence to include an additional \ang{180} pulse and gradient.
+        \textbf{(\subref*{fig:noah_hmbc_grads_bgb})} `Asymmetric scheme B', where the \ang{180} pulse is shifted forward to the end of $t_1$.
+        \textbf{(\subref*{fig:noah_hmbc_grads_bgc})} `Asymmetric scheme C', which modifies the $zz$-filter instead of using an extra \ang{180} pulse.
+        \textbf{(\subref*{fig:noah_hmbc_grads_b})} The original `symmetric' scheme (the same as in \cref{fig:noah_sb_po_b}), placed here for convenience.
     }
     \label{fig:noah_hmbc_grads}
 \end{figure}
@@ -162,7 +162,7 @@ Likewise, scheme B contains no gradients during the second half of $t_1$.
     {\phantomsubcaption\label{fig:hmbc_grad_spec_asymmc}}%
     \caption[HMBC spectra acquired with different gradient schemes]{
         HMBC spectra acquired with the gradient schemes of \cref{fig:hmbc_grad_sens}.
-        Extra `wing' artefacts present in two of the spectra (asymmetric scheme A with $\alpha = 1.67$, \textbf{(\subref{fig:hmbc_grad_spec_asymma1})}, and asymmetric scheme B, \textbf{(\subref{fig:hmbc_grad_spec_asymmb})}) are highlighted in red boxes.
+        Extra `wing' artefacts present in two of the spectra (asymmetric scheme A with $\alpha = 1.67$, \textbf{(\subref*{fig:hmbc_grad_spec_asymma1})}, and asymmetric scheme B, \textbf{(\subref*{fig:hmbc_grad_spec_asymmb})}) are highlighted in red boxes.
         \datacode{7A-211226}
     }
     \label{fig:hmbc_grad_spec}
@@ -209,10 +209,10 @@ One clue lies in the fact that these peaks are very sensitive to the \proton{} \
     {\phantomsubcaption\label{fig:hmbc_invert_1_pw}}%
     {\phantomsubcaption\label{fig:hmbc_invert_1_bssc}}%
     \caption[Inverted peaks in homonuclear module of \noah*{B,S,X}-type supersequences]{
-        \textbf{(\subref{fig:hmbc_invert_1_orig})} CLIP-COSY from a \noah{B,S,Cc} supersequence, acquired with a \proton{} \ang{90} pulse width of \qty{11.28}{\us} (this value was obtained using the POISE calibration described in \cref{subsec:poise__pulsecal}).
+        \textbf{(\subref*{fig:hmbc_invert_1_orig})} CLIP-COSY from a \noah{B,S,Cc} supersequence, acquired with a \proton{} \ang{90} pulse width of \qty{11.28}{\us} (this value was obtained using the POISE calibration described in \cref{subsec:poise__pulsecal}).
         An inverted peak is visible at \qty{2.25}{\ppm}.
-        \textbf{(\subref{fig:hmbc_invert_1_pw})} The same, but acquired using a \ang{90} pulse width of \qty{11.78}{\us}.
-        \textbf{(\subref{fig:hmbc_invert_1_bssc})} CLIP-COSY from a \noah{B,S,S,Cc} supersequence. The \ang{90} pulse width was \qty{11.28}{\us}, the same as in (\subref{fig:hmbc_invert_1_orig}).
+        \textbf{(\subref*{fig:hmbc_invert_1_pw})} The same, but acquired using a \ang{90} pulse width of \qty{11.78}{\us}.
+        \textbf{(\subref*{fig:hmbc_invert_1_bssc})} CLIP-COSY from a \noah{B,S,S,Cc} supersequence. The \ang{90} pulse width was \qty{11.28}{\us}, the same as in (\subref*{fig:hmbc_invert_1_orig}).
         \datacode{7Z-220214}
     }
     \label{fig:hmbc_invert_1}
@@ -232,10 +232,10 @@ Unfortunately, a good explanation for these artefacts has remained elusive.
     {\phantomsubcaption\label{fig:hmbc_invert_2_bspc_asap}}%
     {\phantomsubcaption\label{fig:hmbc_invert_2_spbc_asap}}%
     \caption[Effect of module ordering and ASAP mixing on inverted peaks in \noah*{B,S,X}-type supersequences]{
-        \textbf{(\subref{fig:hmbc_invert_2_bspc})} CLIP-COSY from a \noah{B,Sp,Cc} supersequence.
+        \textbf{(\subref*{fig:hmbc_invert_2_bspc})} CLIP-COSY from a \noah{B,Sp,Cc} supersequence.
         An inverted diagonal peak can be seen at \qty{6.6}{\ppm}.
-        \textbf{(\subref{fig:hmbc_invert_2_spbc})} From a \noah{Sp,B,Cc} supersequence.
-        \textbf{(\subref{fig:hmbc_invert_2_bspc_asap})--(\subref{fig:hmbc_invert_2_spbc_asap})} The same as (\subref{fig:hmbc_invert_2_bspc}) and (\subref{fig:hmbc_invert_2_spbc}), but with \qty{40}{\ms} ASAP mixing placed just before the CLIP-COSY module.
+        \textbf{(\subref*{fig:hmbc_invert_2_spbc})} From a \noah{Sp,B,Cc} supersequence.
+        \textbf{(\subref*{fig:hmbc_invert_2_bspc_asap})--(\subref*{fig:hmbc_invert_2_spbc_asap})} The same as (\subref*{fig:hmbc_invert_2_bspc}) and (\subref*{fig:hmbc_invert_2_spbc}), but with \qty{40}{\ms} ASAP mixing placed just before the CLIP-COSY module.
         \datacode{7A-211227}
     }
     \label{fig:hmbc_invert_2}
