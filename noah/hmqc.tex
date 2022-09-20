@@ -1,4 +1,62 @@
-\subsection{HMQC}
+\subsection{\texorpdfstring{\nitrogen{}}{15N} HMQC}
 \label{subsec:noah__hmqc}
 
-Suppression of wing artefacts (GENESIS paper)
+In \cref{subsec:noah__sehsqc_n}, I will discuss how the sensitivity-enhanced HSQC modules developed above may be adapted into \proton{}--\nitrogen{} experiments.
+However, before that, I make a slight detour to cover the \nitrogen{} HMQC experiment, which (up until my DPhil) was the experiment of choice for detecting one-bond \proton{}--\nitrogen{} correlations.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[draft=false]{pp/hmqc/all.png}%
+    {\phantomsubcaption\label{fig:noah_hmqc_2grad}}%
+    {\phantomsubcaption\label{fig:noah_hmqc_4grad}}%
+    \caption[NOAH HMQC pulse sequences]{
+        \textbf{(\subref{fig:noah_hmqc_2grad})} With two encoding gradients around $t_1$.
+        \textbf{(\subref{fig:noah_hmqc_4grad})} With four encoding gradients around $t_1$.
+        Phase cycling is performed with $\phi_1 = (x, -x)$, $\phi_2 = (x, x, -x, -x)$, and $\phi_\text{rec} = (x, -x, -x, x)$.
+        The delay $\Delta$ is set to $1 / (4 \cdot \oneJ{NH})$.
+        Gradient amplitudes are: $g_1 = 80\%$; $g_2 = \pm 32.4\%$; $g_2' = g_2/2$.
+    }
+    \label{fig:noah_hmqc}
+\end{figure}
+
+The HMQC module is based on the ASAP-HMQC reported by Kup{\v{c}}e and Freeman\autocite{Kupce2007MRC}, which used a symmetric gradient scheme similar to that in the seHSQC modules previously described (\cref{fig:noah_hmqc_2grad}).
+However, in the NOAH module\autocite{Kupce2017ACIE}, bipolar gradient pulse pairs were placed before and after $t_1$ (\cref{fig:noah_hmqc_4grad}).
+This was likely implemented in order to allow the final gradient, $g_2$, to have as large an amplitude as possible.
+In heteronuclear experiments, this final gradient is particularly important for dephasing bulk magnetisation which is transverse just prior to detection (due to pulse imperfections or relaxation).
+If this gradient is too weak, this unwanted magnetisation will be incompletely dephased, leading to artefacts in the resulting spectrum.
+
+Strategies to maximise this gradient amplitude are particularly crucial in \proton{}--\nitrogen{} experiments (as compared to \proton{}--\carbon{} experiments) for two reasons.
+Firstly, the natural abundance of \nitrogen{} (0.36\%) is even smaller than \carbon{} (1.1\%), meaning that better suppression must be achieved in order for the artefacts to not obscure the signal.
+Secondly, the gyromagnetic ratio of \nitrogen{} is also smaller: thus, since $g_2/g_1 \propto \gammaN/\gammaH$, an unmodified pulse sequence will naturally have a smaller $g_2$.
+
+In this respect, the four-gradient scheme in \cref{fig:noah_hmqc_4grad} is superior to the two-gradient scheme, because the gradient $g_2$ will have an amplitude of $4\gammaN g_1/\gammaH$.
+However, when used in a NOAH supersequence, this leads to wing artefacts in downstream modules, since bulk \magnnot{N} magnetisation effectively does not experience any coherence order selection during $t_1$.
+This motivates a return to the two-gradient scheme of \cref{fig:noah_hmqc_2grad}.
+To compensate for the fact that the decoding gradient $g_2'$ has half of the amplitude of $g_2$, all CTP gradients were instead \textit{lengthened} from their usual duration of \qty{1}{\ms} to \qty{2.5}{\ms}.
+This ensures that any stray transverse bulk magnetisation at the end of the HMQC module is effectively dephased.
+
+The HMQC spectra thus obtained are shown in \cref{fig:hmqc_grad_spec}.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[draft=false]{noah/hmqc_grad.png}%
+    {\phantomsubcaption\label{fig:hmqc_grad_spec_2grad_1ms_hmqc}}%
+    {\phantomsubcaption\label{fig:hmqc_grad_spec_2grad_1ms_hmqcp}}%
+    {\phantomsubcaption\label{fig:hmqc_grad_spec_2grad_1ms_cosy}}%
+    {\phantomsubcaption\label{fig:hmqc_grad_spec_4grad_1ms_hmqc}}%
+    {\phantomsubcaption\label{fig:hmqc_grad_spec_4grad_1ms_hmqcp}}%
+    {\phantomsubcaption\label{fig:hmqc_grad_spec_4grad_1ms_cosy}}%
+    {\phantomsubcaption\label{fig:hmqc_grad_spec_2grad_2p5ms_hmqc}}%
+    {\phantomsubcaption\label{fig:hmqc_grad_spec_2grad_2p5ms_hmqcp}}%
+    {\phantomsubcaption\label{fig:hmqc_grad_spec_2grad_2p5ms_cosy}}%
+    \caption[Comparison of \noah{M,Sp,Cc} modules with different HMQC gradient schemes]{
+        Comparison of HMQC and CLIP-COSY spectra obtained from \noah{M,Sp,Cc} supersequences, acquired using different HMQC gradient schemes.
+        In the first row, the HMQC spectrum itself is shown.
+        In the second row, the positive projection of the HMQC spectrum onto the $f_2$ axis is shown; the numbers indicate peak intensities with respect to the reference dataset (the left column).
+        In the third row, (an inset of) the CLIP-COSY spectrum is shown.
+        \textbf{(\subref{fig:hmqc_grad_spec_2grad_1ms_hmqc})--(\subref{fig:hmqc_grad_spec_2grad_1ms_cosy})} Using the two-gradient scheme of \cref{fig:noah_hmqc_2grad}, with \qty{1}{ms} gradients.
+        \textbf{(\subref{fig:hmqc_grad_spec_4grad_1ms_hmqc})--(\subref{fig:hmqc_grad_spec_4grad_1ms_cosy})} Using the four-gradient scheme of \cref{fig:noah_hmqc_4grad}, with \qty{1}{ms} gradients.
+        \textbf{(\subref{fig:hmqc_grad_spec_2grad_2p5ms_hmqc})--(\subref{fig:hmqc_grad_spec_2grad_2p5ms_cosy})} Using the two-gradient scheme of \cref{fig:noah_hmqc_2grad}, with \qty{2.5}{ms} gradients.
+    }
+    \label{fig:hmqc_grad_spec}
+\end{figure}

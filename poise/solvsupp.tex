@@ -1,7 +1,7 @@
 \subsection{Water suppression}
 \label{subsec:poise__solvsupp}
 
-The suppression of solvent signals is one of the most important techniques in modern NMR, especially in cases where solvent deuteration is not a viable strategy (e.g.\ when exchangeable protons must be observed).\autocite{Zheng2010PNMRS,Giraudeau2015M}
+The suppression of solvent signals is one of the most important techniques in modern NMR, especially in cases where solvent deuteration is not a viable strategy (e.g.\ when exchangeable protons must be observed).\autocite{Hore1983JMR,Zheng2010PNMRS,Giraudeau2015M}
 Here, we specifically seek to optimise the 1D NOESY experiment with presaturation\autocite{Mckay2011CMR} (\cref{fig:poise_solvsupp_pulseq}): although this sequence is popular, its performance can depend on at least four parameters, namely the transmitter offset, presaturation power, the NOE mixing time, and the presaturation duration or recovery delay.
 In this section, I use the symbols $\nu_\text{tx}$, $k_\text{ps}$, $\taum$, and $\taur$ to respectively refer to these four parameters: the corresponding TopSpin parameters are \texttt{O1}, \texttt{CNST20}, \texttt{D8}, and \texttt{D1}.
 
