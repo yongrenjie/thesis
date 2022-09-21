@@ -24,10 +24,13 @@ for i in [3, 34]:
 
 fig, ax = pg.subplots(figsize=(6, 4.5))
 for peak, ints in zip(peaks, integrals):
-    ax.plot(d8s, ints, linestyle="--", linewidth=0.8)
-ax.plot(d8s, avg_integrals, color="black", linewidth=1.5)
+    ax.scatter(d8s, ints, s=4, label=None)
+    ax.plot(d8s, ints, linestyle="--", linewidth=0.8,
+            label=rf"$(\delta_1, \delta_2) = {peak}$")
+ax.scatter(d8s, avg_integrals, color="black", s=8)
+ax.plot(d8s, avg_integrals, color="black", linewidth=1.5, label='average')
 
-ax.legend([*peak_labels, "average"], ncol=3)
+ax.legend(ncol=3)
 ax.set(xlabel="mixing time (s)",
        ylabel="crosspeak intensity (au)",
        )

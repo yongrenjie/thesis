@@ -30,8 +30,9 @@ for expno, ax in zip(expnos[1:], axs[1][1:]):
         ax.text(x=peak, y=integ, transform=ax.transData,
                 ha='left' if i < 2 else 'right',
                 s=f'{integ/ref_integ:.2f}×', color='black')
-axs[1][0].text(x=peaks[2], y=ref_proj.integrate(peak=peaks[2], margin=margin, mode='max'),
-               s='*', ha='center', color='red', fontsize=12)
+for art in [peaks[2], 7.2]:
+    axs[1][0].text(x=art, y=ref_proj.integrate(peak=art, margin=margin, mode='max'),
+                   s='*', ha='center', color='red', fontsize=12)
 # plot CLIP-COSY
 for expno, ax in zip(expnos, axs[2]):
     ds = pg.read(p, expno * 1000 + 3)

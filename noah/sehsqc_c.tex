@@ -58,6 +58,7 @@ Since the seHSQC has the same noise level as in an EA HSQC, this also correspond
 It should, however, be noted that the PEP transfer is only fully attained for $IS\/$ spin pairs if the delay $\Delta'$ is set to $1 / (4 \cdot \oneJ{CH})$.
 For $I_2S\/$ or $I_3\/S$ spin systems, no gain in sensitivity is accomplished with this setting of $\Delta' = 1 / (4 \cdot \oneJ{CH})$.
 It is more common, therefore, to shorten $\Delta'$ to $1 / (8 \cdot \oneJ{CH})$: this sacrifices some transfer efficiency for $IS\/$ systems, but allows for some sensitivity enhancement for $I_2S\/$ and $I_3S\/$ systems (\cref{tbl:sehsqc_theory}).
+In this work, all experiments were run assuming a value of \qty{145}{\Hz} for $\oneJ{CH}$.
 
 \begin{table}[!ht]
     \begin{tabular}{cccc}
@@ -230,7 +231,7 @@ In fact, it is necessary to apply CTP gradients on both sides of $t_1$ in order 
     {\phantomsubcaption\label{fig:sehsqc_wing_arts_proj_offon_sw4}}%
     \caption[More detail about wing artefacts in CLIP-COSY spectra]{
         A closer look at wing artefacts in CLIP-COSY spectra, taken from \noah{Sp,Cc} supersequences with various modifications made to the seHSQC2 module.
-        The spectra being plotted are 1D slices through $f_2 = \qty{0.67}{\ppm}$ of the 2D CLIP-COSY spectrum; this corresponds to the boxed region in \cref{fig:sehsqc_wing_arts_1grad}.
+        The spectra being plotted are 1D slices through $F_2 = \qty{0.67}{\ppm}$ of the 2D CLIP-COSY spectrum; this corresponds to the boxed region in \cref{fig:sehsqc_wing_arts_1grad}.
         \textbf{(\subref*{fig:sehsqc_wing_arts_proj_onon})} Using the default seHSQC2 module, with one gradient before and one after $t_1$.
         \textbf{(\subref*{fig:sehsqc_wing_arts_proj_offon})} The same as (\subref*{fig:sehsqc_wing_arts_proj_onon}), but with the gradient before $t_1$ turned off (the spin echo is still present, but the gradient intensity is set to 0).
         \textbf{(\subref*{fig:sehsqc_wing_arts_proj_onoff})} The same as (\subref*{fig:sehsqc_wing_arts_proj_onon}), but with the gradient after $t_1$ turned off.
@@ -303,9 +304,9 @@ The corresponding sensitivity comparisons are shown in \cref{fig:noah_sehsqc_1ov
     \caption[Sensitivity comparisons for seHSQC with $\Delta' = 1 / (4 \cdot \oneJ{CH})$]{
         Sensitivity comparisons with $\Delta'$ set to $1 / (4 \cdot \oneJ{CH})$.
         Multiplicity editing was not used.
-        \textbf{(\subref*{fig:noah_sehsqc_1over4j_crk})} Using the edited CRK seHSQC.
-        \textbf{(\subref*{fig:noah_sehsqc_1over4j_1})} Using the edited seHSQC1 module.
-        \textbf{(\subref*{fig:noah_sehsqc_1over4j_2})} Using the edited seHSQC2 module.
+        \textbf{(\subref*{fig:noah_sehsqc_1over4j_crk})} Using the CRK seHSQC.
+        \textbf{(\subref*{fig:noah_sehsqc_1over4j_1})} Using the seHSQC1 module.
+        \textbf{(\subref*{fig:noah_sehsqc_1over4j_2})} Using the seHSQC2 module.
         \datacode{7A-201115}
     }
     \label{fig:noah_sehsqc_1over4j}
@@ -315,7 +316,10 @@ As can be appreciated, the sensitivity boosts obtained for \ch{CH} groups is hig
 However, in this case, there is a small sensitivity \textit{loss} for \ch{CH2} and \ch{CH3} groups as compared to the original HSQC (which is consistent with previous studies\autocite{Schleucher1994JBNMR}).
 For \ch{CH3} groups this is unlikely to be of any consequence, but particularly for diastereotopic \ch{CH2} groups this may not be desirable.
 
-The conclusions are entirely similar when multiplicity editing is enabled (\cref{fig:noah_sehsqc_1over4j_edited}), so will not be further discussed.
+It is interesting to note that the performance of the seHSQC1 module is much closer to that of the seHSQC2 here.
+The fact that seHSQC1 performs worse with the reduced value of $\Delta' = 1 / (8 \cdot \oneJ{CH})$ suggests that there are some inefficiencies in this section of the pulse sequence; however, there is no immediate explanation for this in the product operators (the relevant terms in the seHSQC1 are entirely similar to that in the CRK, save for a minus sign).
+
+The conclusions drawn are entirely similar when multiplicity editing is enabled (\cref{fig:noah_sehsqc_1over4j_edited}), so will not be further discussed.
 
 \begin{figure}[!ht]
     \centering

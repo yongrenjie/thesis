@@ -3,16 +3,16 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {mylisting}{\numberline {2.1}{\ignorespaces Pure shift cost functions}}{56}{mylisting.caption.38}%
-\contentsline {mylisting}{\numberline {2.2}{\ignorespaces Naive dPSYCHE code}}{71}{mylisting.caption.51}%
-\contentsline {mylisting}{\numberline {2.3}{\ignorespaces Slightly faster dPSYCHE code}}{72}{mylisting.caption.52}%
-\contentsline {mylisting}{\numberline {2.4}{\ignorespaces Fast dPSYCHE code}}{73}{mylisting.caption.53}%
+\contentsline {mylisting}{\numberline {2.1}{\ignorespaces Pure shift cost functions}}{54}{mylisting.caption.38}%
+\contentsline {mylisting}{\numberline {2.2}{\ignorespaces Naive dPSYCHE code}}{69}{mylisting.caption.51}%
+\contentsline {mylisting}{\numberline {2.3}{\ignorespaces Slightly faster dPSYCHE code}}{70}{mylisting.caption.52}%
+\contentsline {mylisting}{\numberline {2.4}{\ignorespaces Fast dPSYCHE code}}{71}{mylisting.caption.53}%
 \addvspace {10\p@ }
-\contentsline {mylisting}{\numberline {3.1}{\ignorespaces Communication between frontend and backend in POISE}}{109}{mylisting.caption.71}%
-\contentsline {mylisting}{\numberline {3.2}{\ignorespaces Context manager to keep track of backend process IDs}}{110}{mylisting.caption.72}%
-\contentsline {mylisting}{\numberline {3.3}{\ignorespaces Implementation of \texttt {minabsint} cost function}}{113}{mylisting.caption.74}%
+\contentsline {mylisting}{\numberline {3.1}{\ignorespaces Communication between frontend and backend in POISE}}{106}{mylisting.caption.71}%
+\contentsline {mylisting}{\numberline {3.2}{\ignorespaces Context manager to keep track of backend process IDs}}{107}{mylisting.caption.72}%
+\contentsline {mylisting}{\numberline {3.3}{\ignorespaces Implementation of \texttt {minabsint} cost function}}{110}{mylisting.caption.74}%
 \addvspace {10\p@ }
-\contentsline {mylisting}{\numberline {4.1}{\ignorespaces Abridged GENESIS pulse programme}}{184}{mylisting.caption.167}%
-\contentsline {mylisting}{\numberline {4.2}{\ignorespaces HSQC \texttt {NOAHModule} object}}{186}{mylisting.caption.169}%
-\contentsline {mylisting}{\numberline {4.3}{\ignorespaces GENESIS implementation of looping}}{187}{mylisting.caption.171}%
+\contentsline {mylisting}{\numberline {4.1}{\ignorespaces Abridged GENESIS pulse programme}}{180}{mylisting.caption.167}%
+\contentsline {mylisting}{\numberline {4.2}{\ignorespaces HSQC \texttt {NOAHModule} object}}{182}{mylisting.caption.169}%
+\contentsline {mylisting}{\numberline {4.3}{\ignorespaces GENESIS implementation of looping}}{183}{mylisting.caption.171}%
 \addvspace {10\p@ }
