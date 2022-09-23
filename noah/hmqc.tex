@@ -6,7 +6,7 @@ However, before that, I make a slight detour to cover the \nitrogen{} HMQC exper
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[draft=false]{pp/hmqc/all.png}%
+    \includegraphics[]{pp/hmqc/all.png}%
     {\phantomsubcaption\label{fig:noah_hmqc_2grad}}%
     {\phantomsubcaption\label{fig:noah_hmqc_4grad}}%
     \caption[NOAH HMQC pulse sequences]{
@@ -52,7 +52,7 @@ However, this decrease is only on the order of $5\%$ (for this particular case),
 
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[draft=false]{noah/hmqc_grad.png}%
+    \includegraphics[]{noah/hmqc_grad.png}%
     {\phantomsubcaption\label{fig:hmqc_grad_spec_4grad_1ms_hmqc}}%
     {\phantomsubcaption\label{fig:hmqc_grad_spec_4grad_1ms_hmqcp}}%
     {\phantomsubcaption\label{fig:hmqc_grad_spec_4grad_1ms_cosy}}%
@@ -90,9 +90,9 @@ Since the signal intensity is not affected much, I deemed this to be a perfectly
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[draft=false]{noah/hmqc_cnst16_scan.png}%
+    \includegraphics[]{noah/hmqc_cnst16_scan.png}%
     \caption[Variation of HMQC signal and artefact intensity with CTP gradient duration]{
-        Variation of HMQC signal and artefact intensity with CTP gradient duration.
+        Variation of HMQC signal and artefact intensity with CTP gradient duration, as measured by (absolute) peak heights in the positive $F_2$ projection.
         \datacode{7Z-200926}
     }
     \label{fig:hmqc_cnst16}
@@ -110,7 +110,7 @@ An alternative is to simply increase the spectral width of the \nitrogen{} modul
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[draft=false]{noah/n15_t1_diagram.png}%
+    \includegraphics[]{noah/n15_t1_diagram.png}%
     {\phantomsubcaption\label{fig:n15_t1_normal}}%
     {\phantomsubcaption\label{fig:n15_t1_k}}%
     {\phantomsubcaption\label{fig:n15_t1_k_lp}}%
@@ -131,13 +131,13 @@ An alternative is to simply increase the spectral width of the \nitrogen{} modul
 In a `typical' NOAH supersequence (\cref{fig:n15_t1_normal}), 256 $t_1$ increments would be recorded (corresponding to the eight blue dots);
 for the gramicidin sample used here, the largest value of $t_1$ (denoted as $\AQ$) is around \qty{60}{\ms}.
 The default TopSpin processing routine for 2D NMR applies forward linear prediction (LP)\autocite{Ni1986JMR,Tirendi1989JMR,Led1991CR,Koehl1999PNMRS} in the indirect dimension, such as to double the number of points: the data points obtained through LP are indicated by orange dots.
-This leads to an \textit{effective} AQ which is twice as large, denoted as $\AQeff$.
+This leads to an \textit{effective} $\AQ$ which is twice as large, denoted as $\AQeff$.
 Finally, zero filling (ZF) is applied to increase the digital resolution to a given value, as represented by the green dots.
 
-In the $k$-scaled spectrum, both AQ (and thus $\AQeff$) are halved, in return for a doubling of the number of scans (\cref{fig:n15_t1_k}).
+In the $k$-scaled spectrum, both $\AQ$ (and thus $\AQeff$) are halved, in return for a doubling of the number of scans (\cref{fig:n15_t1_k}).
 The resolution in the indirect dimension is proportional to $\AQeff$; thus, this also corresponds to a $2\times$ decrease in resolution.
 However, this can be counteracted through the use of extra linear prediction (\cref{fig:n15_t1_k_lp}) to extend $\AQeff$ back to its original value.
-The SW-scaled spectra (\cref{fig:n15_t1_sw,fig:n15_t1_sw_lp}) are almost entirely equivalent to the $k$-scaled spectra in terms of their effect on AQ and $\AQeff$, except that the sampling schedule is very slightly modified.
+The SW-scaled spectra (\cref{fig:n15_t1_sw,fig:n15_t1_sw_lp}) are almost entirely equivalent to the $k$-scaled spectra in terms of their effect on $\AQ$ and $\AQeff$, except that the sampling schedule is very slightly modified.
 
 \Cref{fig:hmqc_scale} shows the effects of performing $k$- or SW-scaling on the \nitrogen{} HMQC module (without any extra linear prediction beyond the default).
 In this case, these scaling procedures can in fact can lead to significant gains in SNR (as measured by peak heights), with up to $2.6\times$ improvements being observed at the extreme of 8-fold $k$- or SW-scaling.
@@ -145,7 +145,7 @@ This likely arises because the $J_{\ch{HH}}$ modulation in the indirect dimensio
 
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[draft=false]{noah/hmqc_scale.png}%
+    \includegraphics[]{noah/hmqc_scale.png}%
     {\phantomsubcaption\label{fig:hmqc_scale_std2}}%
     {\phantomsubcaption\label{fig:hmqc_scale_std1}}%
     {\phantomsubcaption\label{fig:hmqc_scale_k22}}%
@@ -183,7 +183,7 @@ Further tests would need to be done on more dilute samples\footnote{Or, perhaps,
 
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[draft=false]{noah/hmqc_scale_lp.png}%
+    \includegraphics[]{noah/hmqc_scale_lp.png}%
     {\phantomsubcaption\label{fig:hmqc_scale_lp_std2}}%
     {\phantomsubcaption\label{fig:hmqc_scale_lp_std1}}%
     {\phantomsubcaption\label{fig:hmqc_scale_lp_k22}}%

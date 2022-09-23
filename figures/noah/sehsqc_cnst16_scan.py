@@ -4,7 +4,7 @@ import aptenodytes as apt
 apt.thesis()
 p = apt.nmrd() / '200926-7z-n15-cnst16-scan'
 
-dss = [pg.read(p, e * 1000 + 1) for e in range(1, 17)]
+dss = [pg.read(p, e * 1000 + 1) for e in range(17, 33)]
 projs = [ds.f2projp() for ds in dss]
 cnst16s = [ds['cnst16'] for ds in dss]
 

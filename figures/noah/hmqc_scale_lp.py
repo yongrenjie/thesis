@@ -62,7 +62,7 @@ for ds, ax, aq, aqeff, sw, td1, ns, title, noise in zip(dss, axes_2d, aqs, aqeff
     pg.mkplot(ax)
     pg.ymove(ax)
 for ds, ax, noise in zip(dss, axes_1d, noise_levs):
-    ds.f1projp().stage(ax, bounds="111..131", scale=1/noise)
+    ds.f1projp().stage(ax, bounds="111..131", scale=1/noise, color="black")
     pg.mkplot(ax)
 # Standardise ylims of projections.
 ymin = min(ax.get_ylim()[0] for ax in axes_1d)

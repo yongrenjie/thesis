@@ -24,7 +24,7 @@ for ds, ax, title in zip(dss, axs[0], titles):
     pg.ymove(ax)
 # Plot projections
 for ds, ax in zip(dss, axs[1]):
-    ds.f1projp().stage(ax, bounds="111..131")
+    ds.f1projp().stage(ax, bounds="111..131", color="black")
     pg.mkplot(ax)
 # Standardise ylims of projections.
 ymin = min(ax.get_ylim()[0] for ax in axs[1])

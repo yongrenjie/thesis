@@ -18,13 +18,13 @@ apt.thesis()
 
 path = apt.nmrd() / "210310-7g-n15-sw1"
 dss = [
-    pg.read(path, 1001, 1),  # normal
-    pg.read(path, 2001, 1),  # k = 2 no LP
-    pg.read(path, 3001, 1),  # k = 4 no LP
-    pg.read(path, 4001, 1),  # k = 8 no LP
-    pg.read(path, 5001, 1),  # SW * 2 no LP
-    pg.read(path, 6001, 1),  # SW * 4 no LP
-    pg.read(path, 7001, 1),  # SW * 8 no LP
+    pg.read(path, 101001, 1),  # normal
+    pg.read(path, 102001, 1),  # k = 2 no LP
+    pg.read(path, 103001, 1),  # k = 4 no LP
+    pg.read(path, 104001, 1),  # k = 8 no LP
+    pg.read(path, 105001, 1),  # SW * 2 no LP
+    pg.read(path, 106001, 1),  # SW * 4 no LP
+    pg.read(path, 107001, 1),  # SW * 8 no LP
 ]
 titles = [r"standard",
           r"$k$, 2×",
