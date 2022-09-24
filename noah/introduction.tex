@@ -5,24 +5,26 @@ The characterisation of small molecules and biomolecules by NMR spectroscopy rel
 Although 2D experiments provide far superior resolution and information content compared to 1D spectra, they also require substantially longer experiment durations, as the indirect dimension must be constructed through the acquisition of many $t_1$ increments.
 This problem is further exacerbated by the fact that structural elucidation or verification often necessitates the acquisition of several different 2D experiments.
 
-The acceleration of 2D NMR has thus proven to be a popular area of research.
-We may broadly categorise existing techniques into two classes: firstly, those which seek to directly speed up the acquisition of \textit{individual} 2D spectra, and secondly, \textit{multiple-FID} experiments which aim to collect two or more 2D spectra in the time required for one.%
+The acceleration of 2D NMR has thus proven to be a popular area of research, and we may broadly categorise the existing techniques into two classes.%
 \footnote{These are by no means mutually exclusive: many of the techniques here can be combined to provide even greater efficiency.}
-The former category includes methods such as 
+Firstly come the methods which seek to directly speed up the acquisition of \textit{individual} 2D spectra: these include
 \acf{nus}\autocite{Barna1987JMR,Kazimierczuk2010PNMRS,Mobli2014PNMRS,Kazimierczuk2015MRC},
 fast pulsing (i.e.\ shortening of recovery delays)\autocite{SchulzeSunninghausen2014JACS,Schanda2006JACS,Kupce2007MRC,Schanda2009PNMRS},
 ultrafast NMR\autocite{Frydman2002PNASUSA,Pelupessy2003JACS,Frydman2003JACS,Tal2010PNMRS,Gouilleux2018ARNMRS,Kupce2021NRMP},
 Hadamard encoding\autocite{Kupce2003JMR,Kupce2003PNMRS},
-and spectral aliasing\autocite{Jeannerat2000MRC,Bermel2009JACS,Njock2010C,Jeannerat2011eMR};
-whereas the latter encompasses 
-time-shared NMR\autocite{Nolis2007ACIE,Parella2010CMR},
-multiple-receiver NMR\autocite{Kupce2006JACS,Kupce2008JACS,Kovacs2016MRC},
-and---of course---NOAH supersequences\autocite{Kupce2017ACIE,Kupce2021PNMRS,Kupce2021NRMP}.
+and spectral aliasing\autocite{Jeannerat2000MRC,Bermel2009JACS,Njock2010C,Jeannerat2011eMR}.
 
-The scope of this introductory section will be limited to only NOAH supersequences.
-However, many of these techniques are closely related, and I will introduce concepts from elsewhere as needed.
-It should be noted that there are several other multiple-FID experiments which, while not explicitly advertised as such, are conceptually identical to NOAH experiments.\autocite{Nagy2019CC,Nagy2020JMR,Nagy2021ACIE,Timari2022CC}
-I do not discuss these here.
+On the other hand, \textit{multiple-FID experiments} aim to collect two or more 2D spectra in the time required for one.
+The corresponding FIDs may either be detected at the same time (as in
+time-shared NMR\autocite{Nolis2007ACIE,Parella2010CMR,Nolis2019JMR_psHSQC} and
+multiple-receiver NMR\autocite{Kupce2006JACS,Kupce2008JACS,Kovacs2016MRC}),
+or \textit{sequentially}: NOAH supersequences\autocite{Kupce2017ACIE,Kupce2021PNMRS,Kupce2021NRMP} fall under this category.
+Specifically, NOAH supersequences are set aside from other sequential-acquisition experiments\autocite{Haasnoot1984JMR,Gurevich1984JMR,MotiramCorral2018CC,Nolis2019MRC,Nolis2019CPC,Nolis2019JMR} by their `modular' nature: they can be constructed from building blocks which each (usually) contain one FID.
+Typically, each of these building blocks corresponds to a specific 2D experiment, as will be shown below.
+It should be noted that there are several other multiple-FID experiments which, while not explicitly advertised as such, are built from `modules' and are conceptually identical to NOAH experiments\autocite{Nagy2019CC,Nagy2020JMR,Nagy2021ACIE,Timari2022CC}; I do not discuss these here.
+
+The concatenation of different modules in NOAH supersequences relies on the combination of modules which draw on different \textit{magnetisation pools}.
+Before explaining this, I first provide an overview of how the time savings for NOAH experiments may be quantified and analysed.
 
 \input{noah/snr.tex}
 \input{noah/magpools.tex}
