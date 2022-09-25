@@ -1,4 +1,106 @@
 \subsection{HSQC-COSY}
 \label{subsec:noah__hsqccosy}
 
-Comparison of several versions of HSQC-COSY (JACS Au SI)
+One downside of the HSQC-TOCSY experiment discussed in the previous section is the (largely) indiscriminate transfer of magnetisation effected by the DIPSI mixing
+It is difficult to determine how many transfer steps give rise to each peak, unless several HSQC-TOCSY spectra with different mixing times are recorded, which is a time-consuming process.%
+\footnote{Of course, as per the previous section, this could be done in a NOAH supersequence where each HSQC-TOCSY spectrum is assigned a fraction of the \magn{C} magnetisation. However, one must be wary of stretching the same magnetisation pool too thinly between many different modules: the resulting decrease in sensitivity may lead to peaks being lost.}
+
+For unambiguous spectral assignment, it may be preferable to have a mixing process which only effects coherence transfer across a single coupling: this can be described as an HSQC-COSY experiment.
+Similar experiments, including the H2BC\autocite{Nyberg2005JACS,Nyberg2005MRC}, 2BOB/H2OBC\autocite{Kupce2017MRC}, and HMQC-COSY\autocite{Hu2011JBNMR} have previously been proposed: the 2BOB experiment in particular has previously been incorporated in NOAH supersequences\autocite{Kupce2019JMR}.
+These often use constant-time techniques in order to remove $\nJ{HH}$ splittings and minimise linewidths in the indirect dimension; however, the drawback of this approach is that peak \textit{amplitudes} are modulated by $\nJ{HH}$.
+Furthermore, it is not generally possible to obtain absorption-mode lineshapes for all peaks in the spectrum: typically the `direct' responses are in-phase absorption, and `indirect' responses antiphase dispersion.
+(Here, the terms in-phase and antiphase are used with respect to $\nJ{HH}$; specifically, for the indirect peaks, this refers to the `active' coupling over which the coherence was transferred).
+
+
+\subsubsection{HSQC-CLIP-COSY}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[draft=false]{pp/hsqccosy/clip_po.png}%
+    \caption[HSQC-CLIP-COSY experiment]{
+        HSQC-CLIP-COSY experiment with product operator analysis for the HSQC-COSY signal derived from the \magn{C} magnetisation, as well as the bulk \magnnot{C} magnetisation.
+        Both the `direct', HSQC-type peaks, as well as the `indirect' responses arising from coherence transfer in the perfect echo block, are analysed.
+        The shorthand notation for product operators is expanded here to deal with a three-spin $IKS$ system, where $I$ and $S$ are a mutually bonded \proton{}--\carbon{} pair as usual, and $K$ is a `remote' proton coupled to $I$.
+        Terms with asterisks are on spin $K$; thus, for example, $zx*$ refers to an $I_zK_x$ term.
+        The delay $\tau$ is chosen to be $1 / (4 \cdot \sum \nJ{HH})$; typically, this sum of couplings is set as \qty{30}{Hz}, leading to a value of $\tau = \qty{8.33}{\ms}$.
+        The ZQF gradient $g_3$ should be calibrated as per Thrippleton et al.\autocite{Thrippleton2003ACIE}; $g_4$ is a purge gradient with arbitrary amplitude.
+        All other symbols have the same meaning as in \cref{fig:sehsqc_po}.
+    }
+    \label{fig:hsqcc_clip_po}
+\end{figure}
+
+These problems are circumvented by the HSQC-CLIP-COSY experiment\autocite{Gyongyosi2018CPC,Gyongyosi2021AC}, where the basic HSQC experiment is combined with clean in-phase (CLIP) coherence transfer using a perfect echo\autocite{Aguilar2012CC,Parella2019MRC,Koos2016ACIE} and ZQF\autocite{Thrippleton2003ACIE} (\cref{fig:hsqcc_clip_po}).
+The use of a HSQC-type experiment means that $\nJ{HH}$ does not evolve during $t_1$, and the CLIP transfer ensures that all peaks have in-phase absorption lineshapes.
+Much like the HSQC-TOCSY experiment before it, this experiment may be implemented with direct/indirect response editing: it is this version of the experiment which is shown in \cref{fig:hsqcc_clip_po}.%
+\footnote{Note that this editing is orthogonal to \textit{multiplicity editing}, which labels both direct and indirect responses with a sign that depends on the multiplicity of the \carbon{} nucleus detected in $t_1$. The addition of multiplicity editing leads to highly confusing spectra, so is ignored here---although the option to do so \textit{is} provided in the GENESIS pulse programmes if the user so desires.}
+If this editing is not desired, then the final $2\Delta$--\ang{180}($I,S$)--$2\Delta$ spin echo can simply be reduced to a minimal gradient echo, i.e.\ $\varepsilon$--\ang{180}($I$)--$\varepsilon$.
+
+Unfortunately, the HSQC-CLIP-COSY experiment does not preserve \magnnot{C} magnetisation; thus, it cannot be directly used in a NOAH supersequence without sacrificing the sensitivity of terminal homonuclear modules.
+In particular, the ZQF used in the HSQC-CLIP-COSY experiment dephases all magnetisation that is not along $z$.
+If we wished to retain \magnnot{C} magnetisation, it would therefore have to (somehow) be placed along $z$ during this period, and would have to be differentiated from the HSQC-COSY signal \textit{after} the ZQF, which is not possible.%
+\footnote{To be precise, although the $\oneJ{CH}$ Hamiltonian could be used to separate bulk magnetisation and the HSQC-type `direct' responses, the `indirect' responses cannot be differentiated.}
+On top of that, the experiment also cannot be modified to provide partial excitation of \magn{C} magnetisation, which limits the ways in which it can be combined with other \carbon{} modules.
+
+
+\subsubsection{Double spin echo HSQC-COSY}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[draft=false]{pp/hsqccosy/dse_po.png}%
+    \caption[Double spin echo HSQC-COSY experiment]{
+        `Double spin echo' HSQC-COSY experiment; all symbols have the same meaning as in \cref{fig:hsqcc_clip_po}.
+    }
+    \label{fig:hsqcc_dse_po}
+\end{figure}
+
+Before tackling these problems directly, I discuss a simpler version of the HSQC-COSY experiment, which uses a simple spin echo for $\nJ{HH}$ evolution instead of the perfect echo of the CLIP version.
+Together with the final $4\Delta$ spin echo, this forms a `double spin echo' (DSE) version of the HSQC-COSY experiment (\cref{fig:hsqcc_dse_po}): the `double' refers only to the mixing section after $t_1$.
+The removal of the CLIP coherence transfer element leads to mixed lineshapes in this experiment, where the direct responses are (mostly) in-phase absorption, and the indirect responses (mostly) antiphase dispersion.%
+\footnote{The qualifier \textit{mostly} is required because evolution of $\nJ{HH}$ during the final spin echo leads to mixtures of in-phase absorption and antiphase dispersion. This evolution is generally small, though, because $2\Delta$ is smaller than $\tau$.}
+
+Like the CLIP version, this DSE experiment does not preserve bulk magnetisation; it is also incompatible with partial \magn{C} excitation.
+However, it does provide more raw sensitivity than the CLIP version: in the CLIP version, any antiphase signal at the end of the perfect echo is destroyed by the ZQF.
+All of this available signal is sampled in the DSE version, but this comes with a cost of not having pure absorption lineshapes.
+
+It should be mentioned that prepending this DSE HSQC-COSY with the ZIP element would in fact return the bulk \magnnot{C} magnetisation to $+z$ at the end of the sequence.
+Unfortunately, I did not manage to test this experimentally.
+
+
+\subsubsection{Triple spin echo HSQC-COSY}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[draft=false]{pp/hsqccosy/tse_po.png}%
+    {\phantomsubcaption\label{fig:hsqcc_tse_po_1}}%
+    {\phantomsubcaption\label{fig:hsqcc_tse_po_2}}%
+    \caption[Triple spin echo HSQC-COSY experiment]{
+        `Triple spin echo' (TSE) HSQC-COSY experiment.
+        \textbf{(\subref*{fig:hsqcc_tse_po_1})} The first part of the experiment; this can be used on its own, but leads to spurious `relayed' peaks arising via coherence transfer over two scalar couplings.
+        \textbf{(\subref*{fig:hsqcc_tse_po_2})} The second part of the experiment; co-adding this dataset with the first part leads to suppression of the relayed peaks.
+        All symbols have the same meaning as in \cref{fig:hsqcc_clip_po}.
+    }
+    \label{fig:hsqcc_tse_po}
+\end{figure}
+
+In the DSE HSQC-COSY, the first of the two spin echoes after $t_1$ serves a dual purpose: $\oneJ{CH}$ is allowed to evolve for a duration of $\tau - (\tau - \Delta) + \Delta = 2\Delta$ (thus generating peaks which are in-phase with respect to $\oneJ{CH}$), and $\nJ{HH}$ evolves for the total duration of $2\tau$ (allowing coherence transfer to remote spins).
+The triple spin echo (TSE) HSQC-COSY is derived from the DSE version by separating the first spin echo into two distinct parts: one for $\oneJ{CH}$ refocusing, and one for $\nJ{HH}$ evolution.
+As shown by the product operator analysis in \cref{fig:hsqcc_tse_po_1}, this not only preserves the bulk \magnnot{C} magnetisation, but is also compatible with partial \magn{C} excitation.
+
+The problem with the TSE version is the spectral quality: consider an even larger spin system of the form $\ch{S-I-K-L}$, where $\{I,K,L\}$ are \proton{} and $S\/$ is \carbon{}.
+At the end of $t_1$, single-quantum magnetisation on spin $I\/$ is present.
+Any evolution of $J_{IK}$ in the first spin echo (of duration $2\Delta$) leads to terms of the form $2I_yK_z$, and can then be transferred onto spin $K\/$ by the subsequent 90\rlap{\unit{\degree}}$_{x}$ pulse.
+This magnetisation can then further evolve under $J_{KL}$ during the $2\tau$ spin echo, and then be transferred a \textit{second} time by the 90\rlap{\unit{\degree}}$_{-x}$ to spin $L$.
+Since the intensity of this transfer pathway is proportional to $\sin(2\pi J_{IK}\Delta)$, these `relay' artefacts are especially prominent for large $J_{IK}$.
+
+In order to suppress these, the experiment must be run a second time but with an additional \ang{180} \carbon{} pulse inserted during the second spin echo (\cref{fig:hsqcc_tse_po_2}).
+Any magnetisation still on spin $I\/$ will therefore evolve under $\oneJ{CH}$ for a total period of $4\Delta$, leading to net inversion.
+However, magnetisation which has already been transferred to spin $K\/$ at this point will not be inverted: it is this magnetisation which is responsible for the relay artefacts.
+Therefore, by subtracting the two datasets (or equivalently, inverting the receiver phase and adding the two datasets), the desired peaks will be added up and the artefacts cancelled through subtraction.
+
+The insertion of this \ang{180} pulse also causes any unexcited \magn{C} magnetisation to be inverted.
+In order to ensure that this is returned to $+z$ at the end of the sequence (and not $-z$), the initial INEPT delay must be \textit{lengthened} instead of shortened, as per:
+\begin{equation}
+    \label{eq:delta_e_prime}
+    \DeltaEp = \frac{2\Delta (\pi - \arcsin f)}{\pi},
+\end{equation}
+where, as before, $f\/$ is the proportion of magnetisation to be excited.

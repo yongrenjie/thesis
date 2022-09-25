@@ -24,13 +24,13 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="2.0930632"
-     inkscape:cx="355.69877"
-     inkscape:cy="143.09172"
+     inkscape:zoom="2.5982758"
+     inkscape:cx="327.71733"
+     inkscape:cy="135.28202"
      inkscape:window-width="1355"
-     inkscape:window-height="614"
+     inkscape:window-height="586"
      inkscape:window-x="2028"
-     inkscape:window-y="157"
+     inkscape:window-y="129"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1">
     <inkscape:grid
@@ -145,15 +145,15 @@
        inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="37.509457"
-       y="31.725193"
+       x="37.721188"
+       y="31.722906"
        id="text14-2-7"
        inkscape:export-xdpi="500"
        inkscape:export-ydpi="500"><tspan
          sodipodi:role="line"
          id="tspan12-5-03"
-         x="37.509457"
-         y="31.725193"
+         x="37.721188"
+         y="31.722906"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';stroke-width:0.264583"><tspan
    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.29306px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';baseline-shift:super;stroke-width:0.264583"
    id="tspan16-1-9">1</tspan>H</tspan></text>
@@ -168,7 +168,7 @@
     <path
        inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
        style="fill:none;stroke:#000000;stroke-width:0.319999;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
-       d="M 41.388269,30.402286 H 119.94181"
+       d="M 41.6,30.4 H 120"
        id="path10-22-2"
        inkscape:export-xdpi="500"
        inkscape:export-ydpi="500" />
@@ -176,14 +176,14 @@
        inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="36.497158"
+       x="36.718063"
        y="42.922905"
        id="text14-2-7-5"
        inkscape:export-xdpi="500"
        inkscape:export-ydpi="500"><tspan
          sodipodi:role="line"
          id="tspan12-5-03-5"
-         x="36.497158"
+         x="36.718063"
          y="42.922905"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';stroke-width:0.264583"><tspan
    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.29306px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';baseline-shift:super;stroke-width:0.264583"
@@ -191,7 +191,7 @@
     <path
        inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
        style="fill:none;stroke:#000000;stroke-width:0.319999;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
-       d="M 41.44646,41.599999 H 120"
+       d="M 41.6,41.6 H 120"
        id="path10-22-2-8"
        inkscape:export-xdpi="500"
        inkscape:export-ydpi="500" />
@@ -199,22 +199,22 @@
        inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="36.570835"
-       y="52.5229"
+       x="37.555565"
+       y="52.522903"
        id="text14-2-7-5-2-2"
        inkscape:export-xdpi="500"
        inkscape:export-ydpi="500"><tspan
          sodipodi:role="line"
          id="tspan12-5-03-5-5-8"
-         x="36.570835"
-         y="52.5229"
+         x="37.555565"
+         y="52.522903"
          style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';stroke-width:0.264583">G<tspan
    style="font-size:65%;baseline-shift:sub"
    id="tspan25204">z</tspan></tspan></text>
     <path
        inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
        style="fill:none;stroke:#000000;stroke-width:0.319999;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
-       d="M 40.869344,51.199995 H 119.42289"
+       d="m 41.6,51.2 h 78.40001"
        id="path10-22-2-8-2-9"
        inkscape:export-xdpi="500"
        inkscape:export-ydpi="500" />

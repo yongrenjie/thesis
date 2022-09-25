@@ -2,9 +2,9 @@
 \label{subsec:poise__asaphsqc}
 
 The next example of a POISE optimisation is the ASAP-HSQC experiment\autocite{SchulzeSunninghausen2014JACS,SchulzeSunninghausen2017JMR}: here, I use it to again illustrate the new possibilities which custom cost functions enable.
-In the ASAP-HSQC experiment (\cref{fig:asaphsqc_pulseq}), a HSQC spectrum is recorded using only \carbon{}--bound proton magnetisation, and the \carbont{}--bound (`bulk') proton magnetisation is returned to the equilibrium $+z$ axis (i.e.\ the $I_z$ state).
+In the ASAP-HSQC experiment (\cref{fig:asaphsqc_pulseq}), an HSQC spectrum is recorded using only \carbon{}--bound proton magnetisation, and the \carbont{}--bound (`bulk') proton magnetisation is returned to the equilibrium $+z$ axis (i.e.\ the $I_z$ state).
 In this way, instead of having a conventional recovery delay, the \carbon{}--\proton{} magnetisation can be directly replenished using isotropic mixing, which causes transfer of $z$-magnetisation from bulk protons.
-The elision of the recovery delay from the sequence thus leads to significantly shorter experiment durations: in one of the more extreme examples, a HSQC spectrum could be recorded within 7 seconds.
+The elision of the recovery delay from the sequence thus leads to significantly shorter experiment durations: in one of the more extreme examples, an HSQC spectrum could be recorded within 7 seconds.
 This separation of different `magnetisation pools' is conceptually very similar to that in NOAH experiments (\cref{subsec:noah__magpools}), and in anticipation of that, I use the notation \magn{C} and \magnnot{C} to represent magnetisation belonging to protons coupled and not coupled to \carbon{} respectively.
 
 \begin{figure}[htb]

@@ -1,16 +1,21 @@
 \subsection{\texorpdfstring{\nitrogen{}}{15N} sensitivity-enhanced HSQC}
 \label{subsec:noah__sehsqc_n}
 
-I now move on to the \nitrogen{} seHSQC experiment, which (for small molecules) is an improvement on the HMQC experiment for two reasons: firstly, the PEP transfer grants additional sensitivity (and can be optimised for \ch{NH} groups); and secondly, splittings due to $\nJ{HH}$ are not observed in the indirect dimension.
+The implementation of the \nitrogen{} seHSQC modules is entirely identical to the \carbon{} versions previously discussed (\cref{subsec:noah__sehsqc_c}), except for the following points:
+\begin{itemize}
+    \item CTP gradient amplitudes were set using $g_1 = 80\%$ and $g_2 = \mp 16.2\%$ (note the sign change because of the negative magnetogyric ratio of \nitrogen);
+    \item CTP gradient durations were lengthened to \qty{2.5}{\ms} (as discussed for the \nitrogen{} HMQC) in order to suppress artefacts in the seHSQC itself;
+    \item the delays $\Delta$ and $\Delta'$ were both set to $1/(4 \cdot \oneJ{NH})$ to maximise sensitivity for \ch{NH} groups;
+    \item \carbon{} adiabatic pulses were replaced with hard pulses on \nitrogen{}.
+\end{itemize}
 
-Unsurprisingly, much of the discussion in the HMQC section is also relevant here.
-For example, although both seHSQC modules already use two-gradient schemes and therefore do adequately suppress wing artefacts in later modules, the CTP gradient duration must still be lengthened in order to suppress bulk artefacts in the seHSQC itself.
+Multiplicity editing was not implemented or used in the \nitrogen{} experiments; there is generally little need for this.
 
 \subsubsection{Sensitivity analysis}
 
-To quantify these sensitivity gains, I ran several \noah{X,Sp,Cc} experiments, where the first module was a \nitrogen{} HSQC, seHSQC1, or seHSQC2 module (\cref{fig:n15_sens}).
-Including the HSQC module in this analysis allows us to determine how much of the sensitivity gain is due to multiplet collapse, and how much is due to the sensitivity enhancement.
-The value of both delays $\Delta$ and $\Delta'$ were set to $1 / (4 \cdot \oneJ{NH})$; no multiplicity editing was used.
+The seHSQC is expected to provide sensitivity gains over the HMQC for two reasons: first, the seHSQC peaks are not split by $\nJ{HH}$ in the indirect dimension, and secondly, the PEP transfer element leads to (in theory) a doubling in sensitivity for \ch{NH} groups.
+To quantify these gains, I ran several \noah{X,Sp,Cc} experiments, where the first module was a \nitrogen{} HSQC, seHSQC1, or seHSQC2 module (\cref{fig:n15_sens}).
+Including the \nitrogen{} HSQC module in this analysis allows us to determine how much of the sensitivity gain is due to multiplet collapse, and how much is due to the sensitivity enhancement block.
 The peak at \qty{8.0}{\ppm} is folded and is therefore omitted from this analysis.
 
 \begin{figure}[!ht]
