@@ -1,6 +1,9 @@
 \subsection{Optimisations and experimental evaluation}
 \label{subsec:pureshift__dpsyche_optimisation}
 
+
+\subsubsection{Spectrum-comparison cost function}
+
 As previously discussed, the fact that the dPSYCHE experiment can be very quickly simulated opens up the potential for entirely computational optimisation of the pulse sequence.
 For any arbitrary spin system, it is trivial to remove all the couplings \textit{in silico} and simulate a pulse--acquire spectrum: this gives us a theoretically perfect pure shift spectrum.
 The simulated dPSYCHE experiment (on a system with couplings) can then be compared against this.
@@ -189,7 +192,10 @@ The decoupling quality in both regions is comparable to that in the PSYCHE spect
 To make the dPSYCHE experiment more robust towards strong coupling, a TSE version of the sequence was also written and tested (\cref{fig:tsedpsyche_optsens3}).
 This did indeed improve the decoupling at \qty{2.5}{\ppm}, as expected.
 However, although the TSE-dPSYCHE version still retains its \textit{overall} sensitivity advantage over TSE-PSYCHE (especially evident in the deshielded region), this is not true of every peak: the two peaks at 1.65 and \qty{1.70}{\ppm} seem to have decreased intensities in the TSE-dPSYCHE experiment.
-The reason for this remains unclear.
+The reason for this is not fully clear.
+One could say that the optimised pulses are not likely work equally well on \textit{all} combinations of chemical shifts and couplings, and these peaks may simply fall into one of the less effective regions; but in the (non-TSE) dPSYCHE experiment (\cref{fig:dpsyche_optsens3_d}), these distortions in intensity are not observed.
+One possible conclusion is that some of the intensity in the non-TSE experiment in fact stems from artefacts which are not fully suppressed: this may also explain the slight broadening at the base of the peaks in \cref{fig:dpsyche_optsens3_d}.
+
 
 % number of pulses (maybe can omit?)
 \iffalse
@@ -207,8 +213,27 @@ There was no clear winner, but the optimisations with 9 and 15 pulses yielded th
 \end{figure}
 \fi
 
-\todo{State optimisation?}
 
-% state optimisation
+\subsubsection{State-transfer cost function}
 
-% conclusions and future work
+The optimisations conducted so far have been based on directly evaluating the simulated pure shift spectrum.
+However, since these optimisations are conducted in a purely theoretical manner, it is possible to simply calculate the effect of the PSE on each input state to determine its quality.
+We would want to maximise the degree of desired state transfer (which leads to the pure shift signal), and minimise the degree of unwanted state transfers (which lead to artefacts).
+This would be a more direct way of evaluating the PSE.
+
+We can split the possible state transfers up into several categories:
+\begin{enumerate}
+    \item desired (e.g.\ $I_{1+}I_{2\alpha} \to I_{1-}I_{2\alpha}$)
+    \item undesired, but can be dephased by CTP gradients (e.g.\ $I_{1+}I_{2\alpha} \to I_{1+}I_{2\alpha}$)
+    \item undesired, but can be suppressed by the TSE element (e.g.\ $I_{1+}I_{2\alpha} \to I_{1\alpha}I_{2-}$)
+    \item undesired, but survive even with the TSE element (e.g.\ $I_{1+}I_{2\alpha} \to I_{1-}I_{2\beta}$)
+\end{enumerate}
+For a TSE-dPSYCHE experiment, we only need to consider items (1) and (4); without the TSE addition, we would additionally need to take item (3) into account.
+These state transfer coefficients would also have to be summed over all possible input states: for an $n$-spin system, there are $n \cdot 2^{n-1}$ possible input states ($n$ possible spins which could be active, and $2^{n-1}$ permutations of passive spin states).
+The cost function would then be constructed as a linear combination of these two or three terms, where the coefficients serve a similar function to the parameter $c$ in the spectrum-comparison cost function (\cref{eq:f_diff_dpsyche}) in that they control the balance between sensitivity and purity.
+
+\todo{Table comparing fspec and fstate?}
+
+Unfortunately, even though all of the code for efficient (parallelised) computation of this cost function was written, I did not have the time to actually perform optimisations using this cost function and to experimentally validate the results.
+This is a slight disappointment to me, as the initial results shown in this section have been quite promising, and it is likely that the state transfer-based optimisations would have improved this even further.
+However, even from just the results obtained so far, it is clear that the interleaved pulses and gradients used in the dPSYCHE PSE form a reasonable \textit{ansatz} which can yield pure shift spectra which are almost comparable to the PSYCHE method.

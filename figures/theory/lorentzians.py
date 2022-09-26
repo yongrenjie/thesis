@@ -31,8 +31,8 @@ apt.thesis()
 fig, axs = plt.subplots(1, 2, figsize=(6, 2.5), sharey=True)
 
 freqs = np.linspace(-25, 25, 1025)
-axs[0].plot(freqs / (2 * np.pi), absorption(0, np.pi, freqs), color='#023eff')
-axs[1].plot(freqs / (2 * np.pi), dispersion(0, np.pi, freqs), color='#023eff')
+axs[0].plot(freqs / (2 * np.pi), absorption(0, np.pi, freqs), color='black', linewidth=1.2)
+axs[1].plot(freqs / (2 * np.pi), dispersion(0, np.pi, freqs), color='black', linewidth=1.2)
 
 for ax in axs:
     # lifted from https://matplotlib.org/stable/gallery/spines/spine_placement_demo.html

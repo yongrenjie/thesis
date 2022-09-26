@@ -29,10 +29,14 @@ apt.thesis()
 fig, axs = plt.subplots(2, 2, figsize=(6, 5), sharey="row")
 
 freqs = np.linspace(-30, 30, 1024)
-axs[0][0].plot(freqs, -dispersion(12, 1, freqs) + dispersion(-12, 1, freqs), color='#023eff')
-axs[0][1].plot(freqs, absorption(12, 1, freqs) - absorption(-12, 1, freqs), color='#023eff')
-axs[1][0].plot(freqs, -dispersion(12, 1, freqs) - dispersion(-12, 1, freqs), color='#023eff')
-axs[1][1].plot(freqs, absorption(12, 1, freqs) + absorption(-12, 1, freqs), color='#023eff')
+axs[0][0].plot(freqs, -dispersion(12, 1, freqs) + dispersion(-12, 1, freqs),
+               color='black', linewidth=1.2)
+axs[0][1].plot(freqs, absorption(12, 1, freqs) - absorption(-12, 1, freqs),
+               color='black', linewidth=1.2)
+axs[1][0].plot(freqs, -dispersion(12, 1, freqs) - dispersion(-12, 1, freqs),
+               color='black', linewidth=1.2)
+axs[1][1].plot(freqs, absorption(12, 1, freqs) + absorption(-12, 1, freqs),
+               color='black', linewidth=1.2)
 
 for ax in axs.flat:
     ax.spines.left.set_color('none')

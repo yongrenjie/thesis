@@ -65,14 +65,7 @@ The case of the `double' COSY + X homonuclear modules, however, proved to be mor
 This is illustrated here using X = TOCSY, but the considerations below are equally applicable to X = NOESY or ROESY.
 It is tempting to simply place ES blocks prior to both FIDs: in the COSY module, this dephases transverse solvent magnetisation as desired, and (in principle) should leave longitudinal magnetisation untouched, meaning that the TOCSY module which later consumes this should be unaffected.
 
-However, this is not totally true.
-\textit{Inside} the bandwidth of the selective \ang{180} pulse, any longitudinal magnetisation experiences an \ang{720} rotation; and \textit{outside} of the bandwidth, it experiences a \ang{360} rotation.
-However, \textit{between} these two extremes, there is a crossover point where longitudinal magnetisation is sent into the transverse plane and subsequently dephased by gradients.
-These lead to nulls in \cref{fig:double_es_sim_z}, and peaks which fall within this range will be lost in the TOCSY module.
-This is visible in the spectra of \cref{fig:double_es_spec}: although the water suppression obtained using this `double ES' scheme is better, several peaks in the TOCSY spectrum have disappeared, because they fall precisely into these nulls.
-It proves better to omit the ES in the COSY module: an adequate degree of water suppression in the COSY can still be attained thanks to the use of presaturation.
-
-\begin{figure}[htb]
+\begin{figure}[!ht]
     \centering
     \includegraphics[]{noah/double_es_sim.png}%
     {\phantomsubcaption\label{fig:double_es_sim_xy}}%
@@ -85,8 +78,14 @@ It proves better to omit the ES in the COSY module: an adequate degree of water 
     \label{fig:double_es_sim}
 \end{figure}
 
+However, this is not totally true.
+\textit{Inside} the bandwidth of the selective \ang{180} pulse, any longitudinal magnetisation experiences an \ang{720} rotation; and \textit{outside} of the bandwidth, it experiences a \ang{360} rotation.
+However, \textit{between} these two extremes, there is a crossover point where longitudinal magnetisation is sent into the transverse plane and subsequently dephased by gradients.
+This is reflected in simulations of the ES element, specifically the nulls in \cref{fig:double_es_sim_z}: peaks which fall within this range will be lost in the TOCSY module.
+This is visible in the spectra of \cref{fig:double_es_spec}: although the water suppression obtained using this `double ES' scheme is better, several peaks in the TOCSY spectrum have disappeared, because they fall precisely into these nulls.
+It proves better to omit the ES in the COSY module: an adequate degree of water suppression in the COSY can still be attained thanks to the use of presaturation.
 
-\begin{figure}[htb]
+\begin{figure}[!ht]
     \centering
     \includegraphics[]{noah/double_es_spec.png}%
     {\phantomsubcaption\label{fig:double_es_spec_2es_c}}%

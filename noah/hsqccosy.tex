@@ -92,7 +92,8 @@ Any evolution of $J_{IK}$ in the first spin echo (of duration $2\Delta$) leads t
 This magnetisation can then further evolve under $J_{KL}$ during the $2\tau$ spin echo, and then be transferred a \textit{second} time by the 90\rlap{\unit{\degree}}$_{-x}$ to spin $L$.
 Since the intensity of this transfer pathway is proportional to $\sin(2\pi J_{IK}\Delta)$, these `relay' artefacts are especially prominent for large $J_{IK}$.
 
-In order to suppress these, the experiment must be run a second time but with an additional \ang{180} \carbon{} pulse inserted during the second spin echo (\cref{fig:hsqcc_tse_po_2}).
+In order to suppress these, the experiment must be run a second time but with an additional \ang{180} \carbon{} pulse inserted during the second spin echo (\cref{fig:hsqcc_tse_po_2}).%
+\footnote{A very similar strategy is used in the Bruker seHSQC pulse sequence \texttt{hsqcedetgpsisp2.4} to suppress the COSY-type artefacts. However, to the best of my knowledge, this sequence has not been published anywhere.}
 Any magnetisation still on spin $I\/$ will therefore evolve under $\oneJ{CH}$ for a total period of $4\Delta$, leading to net inversion.
 However, magnetisation which has already been transferred to spin $K\/$ at this point will not be inverted: it is this magnetisation which is responsible for the relay artefacts.
 Therefore, by subtracting the two datasets (or equivalently, inverting the receiver phase and adding the two datasets), the desired peaks will be added up and the artefacts cancelled through subtraction.
@@ -104,3 +105,107 @@ In order to ensure that this is returned to $+z$ at the end of the sequence (and
     \DeltaEp = \frac{2\Delta (\pi - \arcsin f)}{\pi},
 \end{equation}
 where, as before, $f\/$ is the proportion of magnetisation to be excited.
+
+
+\subsubsection{Supersequences}
+
+\begin{figure}[!htp]
+    \centering
+    \includegraphics[draft=false]{noah/hsqccosy_comp.png}%
+    {\phantomsubcaption\label{fig:hsqccosy_comp_clip}}%
+    {\phantomsubcaption\label{fig:hsqccosy_comp_dse}}%
+    {\phantomsubcaption\label{fig:hsqccosy_comp_tse_norps}}%
+    {\phantomsubcaption\label{fig:hsqccosy_comp_tocsy}}%
+    {\phantomsubcaption\label{fig:hsqccosy_comp_tse}}%
+    \caption[Comparison of spectra acquired with different HSQC-COSY modules]{
+        HSQC-COSY and HSQC-TOCSY spectra, taken from (respectively) \noah{Sc,S,Cc} and \noah{St,S,Cc} experiments.
+        \textbf{(\subref*{fig:hsqccosy_comp_clip})} HSQC-CLIP-COSY.
+        \textbf{(\subref*{fig:hsqccosy_comp_dse})} DSE HSQC-COSY.
+        \textbf{(\subref*{fig:hsqccosy_comp_tse_norps})} TSE HSQC-COSY without suppression of relay artefacts (described in the text).
+        \textbf{(\subref*{fig:hsqccosy_comp_tocsy})} HSQC-TOCSY with \qty{10}{\ms} mixing time.
+        \textbf{(\subref*{fig:hsqccosy_comp_tse})} TSE HSQC-COSY with suppression of relay artefacts.
+        \datacode{7A-210303}
+    }
+    \label{fig:hsqccosy_comp}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[draft=false]{noah/hsqccosy_sens.png}%
+    {\phantomsubcaption\label{fig:hsqccosy_sens_clip}}%
+    {\phantomsubcaption\label{fig:hsqccosy_sens_dse}}%
+    {\phantomsubcaption\label{fig:hsqccosy_sens_tse_1}}%
+    {\phantomsubcaption\label{fig:hsqccosy_sens_tse_0p8}}%
+    \caption[Sensitivity comparisons for \noah{Sc,S,Cc} supersequences]{
+        Sensitivity comparisons for all three modules in \noah{Sc,S,Cc} supersequences.
+        Peak intensities are relative to the HSQC-CLIP-COSY module itself (the leftmost column in (\subref*{fig:hsqccosy_sens_clip})), as well as HSQC and CLIP-COSY spectra from a \noah{S,Cc} experiment.
+        Numbers in parentheses indicate averages over all peaks.
+        \textbf{(\subref*{fig:hsqccosy_sens_clip})} HSQC-CLIP-COSY.
+        \textbf{(\subref*{fig:hsqccosy_sens_dse})} DSE HSQC-COSY.
+        \textbf{(\subref*{fig:hsqccosy_sens_tse_1})} TSE HSQC-COSY, acquired with $f = 1$.
+        \textbf{(\subref*{fig:hsqccosy_sens_tse_0p8})} TSE HSQC-COSY, acquired with $f = 0.8$.
+        \datacode{7A-210723}
+    }
+    \label{fig:hsqccosy_sens}
+\end{figure}
+
+The spectral quality, and sensitivity, of all of these modules is captured in \cref{fig:hsqccosy_comp,fig:hsqccosy_sens}.
+The CLIP version (\cref{fig:hsqccosy_comp_clip,fig:hsqccosy_sens_clip}) has the best lineshapes, but its sensitivity is slightly lower.
+The DSE version (\cref{fig:hsqccosy_comp_dse,fig:hsqccosy_sens_dse}) provides greater sensitivity, but at the cost of impure lineshapes.
+
+For the TSE version, we first look at the importance of the relay artefact suppression procedure described above.
+The extra relay artefacts are clearly visible in \cref{fig:hsqccosy_comp_tse_norps}, acquired using the `basic' sequence in \cref{fig:hsqcc_tse_po_1} only.
+(As previously mentioned, these arise from large $\nJ{HH}$ which evolve during the $2\Delta$ spin echo; for this specific compound, the offending couplings are $^3\!J$ between two axial protons in a six-membered ring, and $^2J$ in diastereotopic methylenes).
+The presence of these peaks largely defeats the purpose of using a HSQC-COSY experiment; in fact, this unoptimised TSE HSQC-COSY is qualitatively very similar to a HSQC-TOCSY acquired with a short mixing time of \qty{10}{\ms} (\cref{fig:hsqccosy_comp_tocsy}).%
+\footnote{The HSQC-TOCSY even gives better peak shapes, since the DIPSI mixing transfers in-phase magnetisation to in-phase magnetisation.}
+However, these artefacts can be efficiently removed using the suppression technique described in the text above; the result in \cref{fig:hsqccosy_comp_tse} is qualitatively similar to the two other HSQC-COSY experiments.
+Using this suppression technique, the sensitivity of the TSE HSQC-COSY (when acquired with $f = 1$) falls between that of the CLIP and DSE versions.
+
+\Cref{fig:hsqccosy_sens} also shows the relative sensitivities of the later modules in \noah{Sc,S,Cc} supersequences.
+In all of the first three cases (CLIP, DSE, and TSE HSQC-COSY with $f = 1$, \cref{fig:hsqccosy_sens_clip,fig:hsqccosy_sens_dse,fig:hsqccosy_sens_tse_1}), the HSQC sensitivity is low (ca.\ 20\%) because no \magn{C} magnetisation is retained for it to use.
+Thus, the signal derives only from \magn{C} magnetisation which has recovered during the HSQC-COSY FID.
+However, when the TSE version is used, partial \magn{C} excitation can be used to control this sensitivity: for example, when $f = 0.8$ (\cref{fig:hsqccosy_sens_tse_0p8}), the HSQC-COSY sensitivity is decreased (on average equalling that of the HSQC-CLIP-COSY), but the sensitivity of the HSQC module is almost doubled.
+Generally, choosing a value of $f < 1$ allows for the HSQC-COSY and HSQC sensitivities to be better balanced.
+
+Finally, the CLIP-COSY module suffers when the HSQC-CLIP-COSY or the DSE HSQC-COSY are used, because both of these dephase \magnnot{C} magnetisation;
+however, the TSE version successfully preserves around $70\%$ of this magnetisation for it, regardless of the value of $f$.
+(This value is slightly lower than the $\sim 90\%$ magnetisation preserved by the HSQC module, because the bulk magnetisation is placed in the transverse plane during the $2\tau$ spin echo (\cref{fig:hsqcc_tse_po_1}) and experiences losses due to $\nJ{HH}$ evolution.)
+
+
+\subsubsection{HSQC-COSY in context}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[draft=false]{noah/hsqccosy_sens_with_hmbc.png}%
+    {\phantomsubcaption\label{fig:hsqccosy_sens_with_hmbc_clip}}%
+    {\phantomsubcaption\label{fig:hsqccosy_sens_with_hmbc_dse}}%
+    {\phantomsubcaption\label{fig:hsqccosy_sens_with_hmbc_tse_1}}%
+    {\phantomsubcaption\label{fig:hsqccosy_sens_with_hmbc_tse_0p8}}%
+    \caption[Sensitivity comparisons for \noah{B,Sc,S,Cc} supersequences]{
+        Sensitivity comparisons for the three last modules in \noah{B,Sc,S,Cc} supersequences.
+        Peak intensities are relative to the HSQC-CLIP-COSY module from a \noah{Sc,S,Cc} supersequence, and HSQC and CLIP-COSY spectra from a \noah{S,Cc} experiment (i.e.\ the same reference spectra as in \cref{fig:hsqccosy_sens}).
+        \textbf{(\subref*{fig:hsqccosy_sens_with_hmbc_clip})} HSQC-CLIP-COSY.
+        \textbf{(\subref*{fig:hsqccosy_sens_with_hmbc_dse})} DSE HSQC-COSY.
+        \textbf{(\subref*{fig:hsqccosy_sens_with_hmbc_tse_1})} TSE HSQC-COSY, acquired with $f = 1$.
+        \textbf{(\subref*{fig:hsqccosy_sens_with_hmbc_tse_0p8})} TSE HSQC-COSY, acquired with $f = 0.8$.
+        \datacode{7A-210723}
+    }
+    \label{fig:hsqccosy_sens_with_hmbc}
+\end{figure}
+
+In \noah{Sc,S,Cc}-type supersequences, using the TSE HSQC-COSY module here appears to be a sensible option as it is capable of preserving some \magn{C} magnetisation for the HSQC, as well as all \magnnot{C} magnetisation for the CLIP-COSY.
+However, this may not necessarily be so important in the context of a larger supersequence---particularly one which begins with the HMBC module, which \textit{already} dephases \magnnot{C} magnetisation (meaning that there is not much of it to preserve).
+
+\Cref{fig:hsqccosy_sens_with_hmbc} provides the same sensitivity comparisons as in \cref{fig:hsqccosy_sens}, but in the context of a \noah{B,Sc,S,Cc} supersequence instead.
+The HSQC-COSY and HSQC modules largely follow the same pattern as before, but with an approximate 10\% loss across the board: this reflects the imperfect preservation of \magn{C} magnetisation by the $zz$-HMBC module.
+The CLIP-COSY module, however, has a substantially lower sensitivity regardless of which HSQC-COSY module is chosen.
+When the CLIP or DSE HSQC-COSY modules are used, the CLIP-COSY retains only roughly 30\% of its original intensity: this is the same as in \cref{fig:hsqccosy_sens}.
+With the TSE HSQC-COSY, this is boosted to around 40\% because there is one extra FID in which the \magnnot{C} polarisation can be recovered.
+However, the use of the HMBC module effectively puts a cap on the amount of signal available to this module.
+
+For virtually all homonuclear modules (including the CLIP-COSY), this small difference in sensitivity will not make a real difference in the interpretability of the spectrum.
+This is especially so considering that the HMBC module---which has a far lower sensitivity---is being used:
+if we can tolerate the sensitivity loss in a \noah{B,S,Cc} experiment, then logically, the sensitivity loss in a \noah{B,Sc,S,Cc} experiment should be perfectly acceptable as well, regardless of which HSQC-COSY module is used.
+In this case, the only compelling argument for using the TSE HSQC-COSY would be to preserve a portion of \magn{C} magnetisation for a later \carbon{} module.
+Even this may not be necessary if, for example, the seHSQC module is used to maximise sensitivity.
+Thus, in this context, the decision of which HSQC-COSY module to use is slightly more nuanced: the cleaner lineshapes provided by the CLIP version, or the sensitivity of the DSE version, may be more preferable.
