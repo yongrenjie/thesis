@@ -58,7 +58,7 @@ The lower and upper bounds are set to be \qty{8}{\us} away from the initial poin
 A standard \texttt{poise\_1d} acquisition AU programme is used, which simply acquires the spectrum and performs Fourier transformation, phase correction, and baseline correction.
 The routine in JSON format is shown in the caption to \cref{tbl:poisecal_48}.
 Finally, in order to reduce the time taken for the optimisation, several tricks are used: each FE is run using no dummy scans and only one scan, the acquisition time is set to just \qty{1.1}{\s} (high resolution is not required for a reliable cost function value), and the recovery delay \texttt{D1} is set to 0.
-In practice, there is an extra gap of $\sim$ \qty{5}{\s} between successive FEs due to spectrometer initialisation, so an extra recovery delay is not needed.
+In practice, there is an extra gap of around \qty{5}{\s} between successive FEs due to spectrometer initialisation, so an extra recovery delay is not needed.
 
 
 \subsubsection{The competition}
@@ -74,7 +74,7 @@ An example of this is shown in \cref{fig:p1_scan_spectra}, where the \ang{360} n
     \centering
     \includegraphics[]{poise/p1_scan_spectra.png}%
     \caption[Pulse width array]{
-        An example of a pulse width array, where the variation of the residual water peak is monitored with changes in pulse width.
+        An example of a pulse width array, where the variation of the water peak is monitored with changes in pulse width (the sample used in DMSO-$d_6$, but is slightly wet).
         These spectra were acquired manually; the TopSpin \texttt{popt} command would yield essentially identical results.
         \datacode{6F-200826}
     }
@@ -137,9 +137,10 @@ On the other hand, the \ang{360} null (as measured through \texttt{popt} or POIS
 Compared to these two existing methods, we expect POISE to be faster than the \texttt{popt} grid search, and also more accurate than the nutation experiment in \texttt{pulsecal}.
 This is borne out in practice (\cref{tbl:poisecal_48}).
 \texttt{popt} yields an optimum of \qty{48.4}{\us}, which is closely matched by POISE.
-However, POISE locates this optimum using far fewer FEs because its algorithms are more efficient than a simple grid search.
-The \texttt{pulsecal} routine is even faster than POISE (and could be yet faster if it was instructed to not optimise the receiver gain prior to performing the nutation experiment).
-However, it underestimates the \ang{90} pulse width by about 4\%.
+However, across all five optimisation runs performed for each algorithm, POISE locates this optimum using far fewer FEs because its algorithms are more efficient than a simple grid search.
+While the \texttt{pulsecal} routine is even faster than POISE,%
+\footnote{It could be yet faster if it was instructed to not optimise the receiver gain prior to performing the nutation experiment.}
+it underestimates the \ang{90} pulse width by about 4\%.
 In this particular case, POISE is the only option which strikes a useful balance between speed and accuracy.
 These results also provide the first evidence that Py-BOBYQA is generally faster than the simplex-based methods: this observation is consistently reproduced in many of the other optimisations in this chapter.
 

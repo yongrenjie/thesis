@@ -11,7 +11,7 @@ In this section, we exploit this customisability to devise a more complicated co
 The ideal NOE mixing time for a given compound depends on the rates of various relaxation processes: too short a mixing time does not allow for sufficient buildup of the NOE, but too long a mixing time leads to loss of signal through relaxation.
 In this section, I do not deal with this theoretically: the optimisation process is merely used to find the empirically best value (for the sample under study).
 
-\begin{figure}[htb]
+\begin{figure}[!ht]
     \centering
     \includegraphics[]{poise/noesy_scan.png}%
     \caption[Reference grid search of 2D NOE crosspeak intensities]{
@@ -26,11 +26,12 @@ In this section, I do not deal with this theoretically: the optimisation process
 In the chosen sample, 3-fluorophenylboronic acid, there are four crosspeaks of interest in the 2D NOESY spectrum.
 I first performed a reference grid search to determine where the crosspeak intensities were maximised (\cref{fig:poise_noesy_scan}).
 Generally, a broad minimum between 2.5 and \qty{4}{\s} is observed: any result within this range should be considered as `correct'.%
+The relatively large value for the optimal mixing time reflects the small size of the molecule used in this study (it has a molar mass of \qty{139.92}{\g\per\mol}), which corresponds to rapid tumbling and long $T_1$ values.
 \footnote{There is a complicating factor in that the use of such long mixing times also leads to a noticeable increase in the experiment duration.
 As such, it may be more prudent to consider the sensitivity \textit{per unit time}.
 In the optimisations which follow, I have neglected this issue: the $2\times$ increase in sensitivity demonstrated below would only be cancelled out by a $4\times$ increase in time, which is not the case here.
 However, to be more rigorous, this factor could be accounted for by modifying the form of the cost function.}
-Although this may at first glance seem imprecise, it merely reflects the underlying physical characteristics of the sample under study: an optimisation process cannot `discover' extra precision where there is none to be found.
+Although the broad minimum may at first glance seem imprecise, it merely reflects the underlying physical characteristics of the sample under study: an optimisation process cannot `discover' extra precision where there is none to be found.
 We also see here the first example of a cost function where the noise is significant: this provides a good test of the derivative-free algorithms used in POISE.
 
 While the 2D reference grid search offers first-hand insight into what our target optimum should be, it is unwise to run an optimisation using the full 2D experiment, simply because of the time required for each FE.
@@ -39,12 +40,12 @@ Although this is much faster, it does come with two caveats:
 \begin{enumerate}
     \item The frequency for selective irradiation must be first chosen, likely after acquisition of a 1D \proton{} spectrum.
         Thus, the optimisation does require some \textit{a priori} knowledge of the system being studied.
-    \item The crosspeak intensities in the 1D NOESY \textit{must} be sufficiently representative of those in the full 2D NOESY.
+    \item The peaks observed in the 1D NOESY \textit{must} be sufficiently representative of those in the full 2D NOESY.
 \end{enumerate}
 
-The cost function used (\texttt{noe\_1d}) must thus pick out only the crosspeaks from the 1D NOESY spectrum.
-It does this by detecting the frequency used for the selective irradiation (which is given by the \texttt{SPOFFS2} parameter), excising a region of ca.\ \qty{100}{\Hz} around the irradiation frequency, and integrating the remainder of the spectrum.
-In order to account for the fact that the NOE crosspeaks may be either positive or negative, the absolute value of the integral is taken, and the negative of this is used as the cost function (since we seek to maximise the intensity).
+As for the cost function, it must be able to pick out only the peaks from the 1D NOESY spectrum which correspond to genuine NOE transfer, rejecting (for example) the selectively irradiated peak as well as other artefacts.
+The cost function used here (\texttt{noe\_1d}) does this by reading the frequency used for the selective irradiation from the \texttt{SPOFFS2} parameter, excising a region of ca.\ \qty{100}{\Hz} around this irradiation frequency, and integrating the remainder of the spectrum.
+In order to account for the fact that the desired peaks may be either positive or negative, the absolute value of the integral is taken, and the negative of this is used as the cost function (since we seek to maximise the intensity).
 Note that if a different 1D NOESY pulse programme is used with different parameter definitions, then the cost function must be adjusted accordingly.
 
 \begin{figure}[!ht]

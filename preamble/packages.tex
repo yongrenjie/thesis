@@ -19,7 +19,6 @@
 \usepackage{chemformula}    % must be after xcolor if xcolor has options
 \setchemformula{math-scripts=true}  % requires updated chemformula
 \usepackage[perpage,symbol*]{footmisc}
-\usepackage{epigraph}
 \usepackage[nottoc]{tocbibind}
 \usepackage{metalogo}
 \usepackage{booktabs}
@@ -28,6 +27,15 @@
 
 \usepackage[notref,notcite]{showkeys}
 \renewcommand*\showkeyslabelformat[1]{\tiny\ttfamily#1}
+
+% epigraphs
+\usepackage{epigraph}
+% \renewcommand{\textflush}{flushepinormal}
+\renewcommand{\epigraphflush}{center}
+\setlength{\epigraphwidth}{0.8\textwidth}
+\setlength{\epigraphrule}{0pt}
+\setlength{\beforeepigraphskip}{0pt}
+\setlength{\afterepigraphskip}{\baselineskip}
 
 % code listings setup
 \usepackage[within=chapter]{newfloat}
@@ -62,6 +70,7 @@
 % section 8.2, and modified to only change the font.
 \usepackage{titlesec}
 \titleformat{\chapter}[display]{\fontsubhead\bfseries\huge}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{50pt}{30pt}
 \titleformat{\section}{\fontsubhead\bfseries\Large}{\thesection}{1em}{}
 \titleformat{\subsection}{\fontsubhead\bfseries\large}{\thesubsection}{1em}{}
 \titleformat{\subsubsection}{\fontsubhead\bfseries\normalsize}{\thesubsubsection}{1em}{}

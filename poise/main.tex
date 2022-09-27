@@ -1,9 +1,13 @@
 \chapter{POISE}
 \label{chpt:poise}
 
+\epigraph{\singlespacing%
+Success supposes endeavour. \ldots{} Why do you talk of success? Where is your merit? What are you proud of? You made a lucky guess; and \textit{that} is all that can be said.
+}{--- \textsc{Jane Austen}, \textit{Emma}}
+
 This chapter describes the development of a piece of software for on-the-fly optimisation of NMR experimental parameters, titled POISE (\textit{Parameter Optimisation by Iterative Spectral Evaluation}).
 POISE is primarily written in Python 3, and includes an interface to Bruker's TopSpin, allowing optimisations to be started directly from the TopSpin command line.
-Through this optimisation process, NMR acquisition parameters can be adjusted for individual spectrometers and samples, which may vary greatly in their properties: this ultimately leads to improved spectral quality.
+Through this optimisation process, NMR acquisition parameters can be adjusted for individual spectrometers and samples, ultimately leading to improved spectral quality.
 
 In this chapter, I first provide some details about the implementation of POISE.
 The bulk of the text which follows is devoted to a number of applications in solution-state NMR spectroscopy.

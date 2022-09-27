@@ -17,14 +17,15 @@ The delay $\tau$ was specified as the parameter \texttt{D27}, and the \texttt{ze
 \Cref{tbl:ernst_invrec} provides the theoretical values of $T_1 \ln 2$, which were calculated using the more accurate 2D fitting procedure.
 
 A slight drawback of using this method, compared to the Ernst angle optimisations in the previous section, is that the recovery delay must be sufficiently long to allow for complete relaxation between FEs: in this case, I used a \texttt{D1} of \qty{5}{\s}.
-On the other hand, this also means that dummy scans are no longer needed: I therefore set \texttt{DS=0} and \texttt{NS=1}.
+This is compensated for by the fact that dummy scans are no longer needed to reach a steady-state; I therefore set \texttt{DS=0} and \texttt{NS=1}.
 
 
 \subsubsection{Optimisation results}
 
-Just as in the Ernst angle optimisations, these were performed twice, once on the entire 6--\qty{8}{\ppm} region and once on just a single peak (note that this time, the chosen peak is at \qty{7.08}{\ppm}, or peak 3 in \cref{tbl:ernst_invrec}).
+Just as in the Ernst angle optimisations, two different types of optimisations were performed: one on the entire \qtyrange{6}{8}{\ppm} region, and one on just a single peak (note that here, the chosen peak is at \qty{7.08}{\ppm}, or peak 3 in \cref{tbl:ernst_invrec}).
 The results are shown in \cref{tbl:invrec_fivepeaks,tbl:invrec_onepeak}.
-The former correctly yields an `averaged' value over the five peaks (the mean over the five peaks is \qty{0.975}{\s}), and the latter closely matches the theoretical value for the peak in question (\qty{0.887}{\s}).
+The optimisation over the entire aromatic region correctly converges to an `averaged' value of $T_1\ln 2$ over the five peaks (the mean value for the five peaks is \qty{0.975}{\s}).
+The second optimisation performed only on a single peak is no less accurate, yielding an optimum which closely matches the theoretical value for the peak in question (\qty{0.887}{\s}).
 
 \begin{table}[htb]
     \hbadness=10000
@@ -69,7 +70,7 @@ The former correctly yields an `averaged' value over the five peaks (the mean ov
 \end{table}
 
 The only downside of these optimisations would then be the time required, which is on the order of 2--4 minutes.
-Although this is less time than required for a full 2D inversion--recovery experiment, POISE has the drawback that an optimisation can only be run on one peak at a time.
+Although this is less time than required for a full pseudo-2D inversion--recovery experiment, POISE has the drawback that an optimisation can only be run on one peak at a time.
 Thus, if the aim is to determine $T_1$ for all peaks, then the 2D experiment may well end up being faster.
 On top of that, there are many other ways to measure $T_1$ which are faster than a full 2D inversion--recovery experiment and almost certainly also faster than POISE.\autocite{Christensen1974JPC,Homer1985JMR,Loening2003JMR,Smith2013CPC,Wei2021JOC}
 However, no explicit comparisons were performed in this work.

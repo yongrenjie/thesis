@@ -1,7 +1,7 @@
 \section{Density operators}
 \label{sec:theory__density_operators}
 
-NMR experiments are not executed on one single spin at a time: instead, the samples used typically contain $\sim 10^{20}$ spins.
+NMR experiments are not executed on one single spin at a time; instead, the samples used typically contain on the order of $10^{20}$ spins.
 Furthermore, each of these spins may have its own wavefunction: it is generally impossible to force every spin to possess the same state.
 Since we are only interested in the \textit{ensemble} behaviour such as expectation values, rather than the dynamics of each individual spin, we can use the \textit{density operator} formalism instead of dealing with a composite wavefunction of many spins.
 The density operator, $\rho$, is defined (in the Schr\"odinger picture) as
@@ -76,7 +76,7 @@ Consider the case of a single spin: we have that $H_\text{J} = 0$, and hence $H_
     \label{eq:nmr_equilibrium_rho}
     \rho_0 = \frac{\exp(cI_z)}{\Tr[\exp(cI_z)]} \approx \frac{E + cI_z}{\Tr(E + cI_z)} = E + cI_z,
 \end{equation}
-where $c = -\beta\hbar\omega_0 = -\hbar\omega_0/(k_\mathrm{B}T)$ and $E\/$ is the identity matrix; the approximation $\exp(cI_z) \approx E + cI_z$ is justified here as $c\/$ is typically very small ($\sim 10^{-5}$).
+where $c = -\beta\hbar\omega_0 = -\hbar\omega_0/(k_\mathrm{B}T)$ and $E\/$ is the identity matrix; the approximation $\exp(cI_z) \approx E + cI_z$ is justified here as $c\/$ is typically very small (on the order of $10^{-5}$).
 
 Throughout this thesis I consider only linear transformations of the form in \cref{eq:lvn_interaction_integrated}, which use unitary propagators of the form $U = \exp(-\mi Ht)$:
 \begin{equation}

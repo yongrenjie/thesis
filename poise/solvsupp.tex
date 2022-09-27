@@ -73,7 +73,7 @@ However, for more routine usage, it is probably preferable to limit the number o
     \label{tbl:poise_solvsupp_summary}
 \end{table}
 
-\begin{figure}[htb]
+\begin{figure}[!ht]
     \centering
     \includegraphics[]{poise/solvsupp_spec.png}
     \caption[1D NOESY spectra of rodent urine sample before and after optimisation]{
@@ -84,7 +84,8 @@ However, for more routine usage, it is probably preferable to limit the number o
         This was probably an oversight on my part.
         Nevertheless, it does not affect any of the conclusions drawn here.
         \datacode{4P-210620}
-    } \label{fig:poise_solvsupp_spec}
+    }
+    \label{fig:poise_solvsupp_spec}
 \end{figure}
 
 \begin{table}
@@ -182,17 +183,41 @@ The water suppression optimisations shown above were in fact first developed and
 This sample is less `interesting' in that there are no resonances close to the water peak, and I also did not perform replicates of each optimisation run (this data never made it into the POISE paper).
 Nevertheless, I still believe it is still worth adding the results here, as they demonstrate that the optimisation procedure can be easily applied to different samples.
 
-In this case, the one-parameter optimisation seemed to have no significant effect on the result: this is possibly because the initial value chosen for that single parameter (the transmitter offset) already happened to be an optimum.
+In this case, the one-parameter optimisation seemed to have no significant effect on the result.
 However, the two- through four-parameter optimisations all yielded significant improvements in the water suppression (\cref{fig:poise_solvsupp_sucrose_spec}).
+The parameters used for each of these spectra are listed in \cref{tbl:poise_solvsupp_sucrose}.
 
-\begin{figure}[htb]
+\begin{figure}[!ht]
     \centering
     \includegraphics[]{poise/solvsupp_sucrose_spec.png}
     \caption[1D NOESY spectra of sucrose sample before and after optimisation]{
         Insets of 1D NOESY spectra acquired after optimisation of 1, 2, 3, or 4 parameters (the exact parameters being optimised are the same as in \cref{fig:poise_solvsupp_spec}).
         The sample used was sucrose in 90\% \ch{H2O}/10\% \ch{D2O}.
         The time required to obtain the optimised parameters is also indicated for each spectrum.
+        The parameters used for each of these spectra are in \cref{tbl:poise_solvsupp_sucrose}.
         \datacode{4S-210617}
     }
     \label{fig:poise_solvsupp_sucrose_spec}
 \end{figure}
+
+\begin{table}[!htb]
+    \centering
+    \begin{tabular}{cccccccc}
+        \toprule
+        Description   & $f_\mathrm{sos} / 10^{10}$ & FEs & Time (\unit{\s}) & $\nu_\text{tx}$ (\unit{\Hz}) & $k_\text{ps}$ (\unit{\Hz}) & $\taum$ (\unit{\s}) & $\taur$ (\unit{\s}) \\
+        \hline
+        Initial point & 7.74 & -- & --   & (1880.61) & (50.0) & (0.100) & (2.00) \\
+        1 parameter   & 7.25 & 15 & 650  & 1882.11   & (50.0) & (0.100) & (2.00) \\
+        2 parameters  & 3.65 & 19 & 825  & 1881.50   & 75.58  & (0.100) & (2.00) \\
+        3 parameters  & 5.71 & 20 & 863  & 1881.40   & 78.48  & 0.045   & (2.00) \\
+        4 parameters  & 4.62 & 29 & 1396 & 1881.09   & 58.54  & 0.107   & 2.91   \\
+        \hline
+    \end{tabular}
+    \caption[Overview of water suppression optimisations on sucrose sample]{
+        Optimised water suppression parameters for a sample of sucrose in 90\% \ch{H2O}/10\% \ch{D2O}.
+        Parameters in parentheses were not optimised and were simply carried over from the initial point.
+        These correspond to the spectra in \cref{fig:poise_solvsupp_sucrose_spec}.
+        \datacode{4S-210617}
+    }
+    \label{tbl:poise_solvsupp_sucrose}
+\end{table}

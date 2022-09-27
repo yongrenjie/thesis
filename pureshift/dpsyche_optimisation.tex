@@ -229,11 +229,46 @@ We can split the possible state transfers up into several categories:
     \item undesired, but survive even with the TSE element (e.g.\ $I_{1+}I_{2\alpha} \to I_{1-}I_{2\beta}$)
 \end{enumerate}
 For a TSE-dPSYCHE experiment, we only need to consider items (1) and (4); without the TSE addition, we would additionally need to take item (3) into account.
-These state transfer coefficients would also have to be summed over all possible input states: for an $n$-spin system, there are $n \cdot 2^{n-1}$ possible input states ($n$ possible spins which could be active, and $2^{n-1}$ permutations of passive spin states).
+These state transfer coefficients would also have to be summed (or averaged) over all possible input states: for an $n$-spin system, there are $n \cdot 2^{n-1}$ possible input states ($n$ possible spins which could be active, and $2^{n-1}$ permutations of passive spin states).
 The cost function would then be constructed as a linear combination of these two or three terms, where the coefficients serve a similar function to the parameter $c$ in the spectrum-comparison cost function (\cref{eq:f_diff_dpsyche}) in that they control the balance between sensitivity and purity.
 
-\todo{Table comparing fspec and fstate?}
+\begin{table}[htb]
+    % matlab_nmr_jy/research/optim_state/specopt_to_states2.m
+    \begin{tabular}{ccccc}
+        \toprule
+        \textbf{Entry} & \textbf{Description} & \textbf{Signal} & \textbf{All artefacts} & \textbf{TSE artefacts} \\
+        \midrule
+        1 & dPSYCHE, $c = 1$                       & 0.1544 & 0.1906 & 0.1126 \\
+        2 & dPSYCHE, $c = 0.8$                     & 0.1417 & 0.1313 & 0.0707 \\
+        3 & dPSYCHE, $c = 0.6$                     & 0.1226 & 0.1016 & 0.0359 \\
+        4 & dPSYCHE, $c = 0.4$                     & 0.0869 & 0.0561 & 0.0171 \\
+        5 & dPSYCHE, $c = 0.2$                     & 0.0443 & 0.0315 & 0.0087 \\
+        6 & dPSYCHE, $c = 0.4$ (long optimisation) & 0.0915 & 0.0282 & 0.0119 \\
+        7 & PSYCHE, \ang{20} double saltire        & 0.0420 & 0.0083 & 0.0040 \\
+        7 & PSYCHE, \ang{34} double saltire        & 0.0918 & 0.0342 & 0.0249 \\
+        \bottomrule
+    \end{tabular}
+    \caption[Evaluation of previous optima using state-transfer cost functions]{
+        Evaluation of previous optima using the state-transfer cost functions.
+        One PSYCHE experiment is included for comparison.
+        `Signal' refers to the coefficient for the desired state transfer;
+        `all artefact' the average coefficient for all undesired state transfers;
+        and `TSE artefact' the average coefficient for all undesired state transfers which are not suppressed by the TSE sequence.
+        These are further averaged over all possible input states with coherence order $+1$.
+        A three-spin system with couplings of \qty{7}{\Hz} and \qty{10}{\Hz} was used for this calculation.
+    }
+    \label{tbl:specopt_to_states}
+\end{table}
+
+\Cref{tbl:specopt_to_states} shows the values of each of these components for all of the optima obtained so far.
+Entries 1 through 5 show the effect of varying $c$: as expected, decreasing $c$ leads to less signal and also fewer artefacts.
+These correspond to the spectra shown in \cref{fig:dpsyche_sens}.
+Unsurprisingly, the `long' optimisation (entry 6) also performs better in all respects than the corresponding `short' optimisation with $c = 0.4$ (entry 4).
+Finally, it is worth comparing the best dPSYCHE result (the long optimisation, entry 6) with the standard PSYCHE method (entries 7 and 8).
+When PSYCHE is run with a `normal' flip angle of \ang{20}, the purity is far superior to any of the dPSYCHE experiments.
+However, the sensitivity is only around half that of the dPSYCHE.
+In order to accomplish the same sensitivity as the dPSYCHE, the PSYCHE flip angle must be increased to approximately \ang{34}; in this case, the artefact intensity is greater than that of the dPSYCHE experiment.
 
 Unfortunately, even though all of the code for efficient (parallelised) computation of this cost function was written, I did not have the time to actually perform optimisations using this cost function and to experimentally validate the results.
 This is a slight disappointment to me, as the initial results shown in this section have been quite promising, and it is likely that the state transfer-based optimisations would have improved this even further.
-However, even from just the results obtained so far, it is clear that the interleaved pulses and gradients used in the dPSYCHE PSE form a reasonable \textit{ansatz} which can yield pure shift spectra which are almost comparable to the PSYCHE method.
+However, even from just the results obtained so far, it is clear that the interleaved pulses and gradients used in the dPSYCHE PSE form a reasonable \textit{ansatz} which can yield pure shift spectra which are comparable to the PSYCHE method.

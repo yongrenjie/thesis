@@ -1,3 +1,25 @@
 \chapter{Abstract}
 
-I did stuff
+Solution-state nuclear magnetic resonance (NMR) spectroscopy is one of the most important analytical techniques in modern organic chemistry.
+A series of `core' NMR techniques is widely used for the routine characterisation of organic molecules, ranging from 1D \proton{} and \carbon{} experiments to more complex 2D experiments such as COSY, HSQC, HMBC, and more.
+Nonetheless, there remains much room for developments in NMR, especially considering the increased \textit{complexity} and \textit{quantity} of molecules which are being studied.
+This thesis describes multiple approaches towards improving the quality, as well as the speed, of NMR data acquisition.
+
+In \cref{chpt:theory}, I first set out the quantum mechanical formalisms required for the analysis of NMR pulse sequences.
+The work which follows may be divided into three sections:
+
+\begin{itemize}
+    \item \textit{Improved techniques for pure shift NMR} (\cref{chpt:pureshift}).
+        In a pure shift experiment, the effects of all homonuclear scalar couplings are suppressed, leading to highly-resolved spectra where each multiplet is collapsed to a singlet.
+        A variety of theoretical and experimental approaches are used to search for pure shift methods which have both high sensitivity and low artefact intensity.
+        
+    \item \textit{On-the-fly optimisation of NMR experiments} (\cref{chpt:poise}).
+        Here, I couple NMR acquisition with derivative-free optimisation algorithms which seek to minimise a cost function measured on spectral data.
+        The resulting software, called POISE, allows experiment parameters to be tailored specifically for each sample and spectrometer in a fully automated fashion.
+        The use of POISE to improve spectral sensitivity and purity is demonstrated on a wide-ranging series of NMR experiments.
+
+    \item \textit{Accelerated 2D NMR data collection} (\cref{chpt:noah}).
+        NOAH supersequences allow multiple 2D experiments (`modules') to be acquired in the time of one, through the careful manipulation of different magnetisation pools.
+        This chapter contains work on pulse sequence development, including new NOAH-compatible modules, as well as improvements to various pre-existing modules.
+        I also describe the GENESIS web site, which creates Bruker pulse programmes for arbitrary NOAH supersequences.
+\end{itemize}

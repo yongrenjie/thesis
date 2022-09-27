@@ -43,7 +43,7 @@ In contrast, the interferogram method as only one JRE is applied on each increme
 This leads to a series of FID `chunks' which must then be concatenated to form the desired FID.
 To prevent the J-coupling from evolving too much during a single chunk, the required spacing of the JREs, or equivalently the duration of each chunk $T_\text{chunk}$, must satisfy $T_\text{chunk} \ll 1/J$ (in practice, it is on the order of $1/(2J)$).
 Naturally, real-time acquisition still comes with the sensitivity penalty of $c$.
-However, it allows a pure shift spectrum to be acquired in effectively the same time as the original coupled spectrum; its `single-scan' nature also allows, for example, the application of hyperpolarisation techniques which cannot be reproducibly repeated.\autocite{Donovan2014ACIE,Taylor2021MRC}
+However, it allows a pure shift spectrum to be acquired in effectively the same time as the original coupled spectrum; its `single-scan' nature also allows, for example, the application of hyperpolarisation techniques which cannot be reproducibly repeated over multiple increments.\autocite{Donovan2014ACIE,Taylor2021MRC}
 
 Unfortunately, it is not always possible to perform real-time acquisition.
 The reason is because the JRE is applied multiple times, and each time it is, it must select for the same active and passive spins in the same molecule as it did the last time.

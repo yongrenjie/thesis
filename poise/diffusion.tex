@@ -25,11 +25,11 @@ Here, $G$ is the amplitude of the encoding and decoding gradients, $\delta$ the 
     \label{fig:poise_dosy_pulseq}
 \end{figure}
 
-In a 2D DOSY experiment, each increment is recorded with a different gradient amplitude $G$.
+In a pseudo-2D DOSY experiment, each increment is recorded with a different gradient amplitude $G$.
 The value of $D$ can then be extracted through various means, most simply an exponential fitting of the measured intensities $I(G)$ for single species (or distinct species which do not overlap).
 In order to minimise the uncertainty in the calculated diffusion coefficients, the parameters $\Delta$ and $\delta$, as well as the range of gradient amplitudes used (and possibly also their distribution), should be chosen in order to yield a diffusion profile of the form in \cref{fig:diffusion_sim_ok}.
 Generally, the last increment (acquired using the maximum gradient strength, $G_\text{max}$ should have an attenuation of 5--35\%\footnote{Recommendations tend to vary.} when compared against the first increment (acquired with the minimum gradient amplitude, $G_\text{min}$, which may be 0).
-Traditionally, this is done `by hand' by acquiring individual increments of the 2D diffusion experiment, checking the attenuation, and adjusting the parameters accordingly.\autocite{Johnson1999PNMRS,Claridge2016}
+Traditionally, this is done `by hand' by acquiring individual increments of the pseudo-2D diffusion experiment, checking the attenuation, and adjusting the parameters accordingly.\autocite{Johnson1999PNMRS,Claridge2016}
 
 \begin{figure}[htb]
     \centering
@@ -79,8 +79,8 @@ In this case, we are going in the other direction, allowing POISE to be incorpor
     \label{fig:dosy_flowchart}
 \end{figure}
 
-The DOSY optimisation procedure uses a 1D pulse programme throughout: this should essentially be a single increment of the desired 2D DOSY experiment.%
-\footnote{1D versions of most DOSY variants are available in the TopSpin standard library, but can also be easily obtained by disabling the gradient incrementation in the 2D versions.}
+The DOSY optimisation procedure uses a 1D pulse programme throughout: this should essentially be a single increment of the desired pseudo-2D DOSY experiment.%
+\footnote{1D versions of most DOSY variants are available in the TopSpin standard library, but can also be easily obtained by disabling the gradient incrementation in the pseudo-2D versions.}
 In this work, I specifically used the Oneshot DOSY sequence\autocite{Pelta2002MRC} (\cref{fig:poise_dosy_pulseq_oneshot}): this sequence has the advantage of not requiring onerously long phase cycles, which would otherwise lead to very long FEs and optimisations.\footnote{However, using \textit{too few} scans leads to inaccuracies in the diffusion coefficients.\autocite{Pelta2002MRC} I chose to use 4 scans per FE here.}
 In principle, though, the optimisation can be run with any DOSY variant, including convection-compensated sequences\autocite{Jerschow1997JMR,Sorland2000JMR,Nilsson2005JMR}: the \texttt{dosy\_opt.py} wrapper script is sufficiently general that only minor modifications are needed to use it with other DOSY sequences.
 
