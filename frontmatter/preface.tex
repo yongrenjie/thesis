@@ -1,32 +1,37 @@
 \chapter{Preface}
 
+\epigraph{\singlespacing%
+Miss Dashwood, at this point, turning her eyes on him with the most angry contempt, stopped him, by saying, `It is hardly worth while, Mr.\ Willoughby, for you to relate, or for me to listen any longer. Such a beginning as this cannot be followed by any thing. Do not let me be pained by hearing any thing more on the subject.'
+}{--- \textsc{Jane Austen}, \textit{Sense and Sensibility}}
+
 \section*{Pulse sequence notation}
 
 \begin{figure}[ht]
     \centering
     \includegraphics[]{pp/sehsqc/crk_preface.png}%
-    \caption[Example pulse sequence to illustrate notation]{An example of a pulse sequence (the sensitivity-enhanced HSQC, see \cref{subsec:noah__sehsqc_c}), used here to illustrate the notation used in this thesis.}
+    \caption[Example pulse sequence to illustrate notation]{An example of a pulse sequence (the sensitivity-enhanced HSQC), used here to illustrate the notation used in this thesis.}
     \label{fig:preface_sehsqc}
 \end{figure}
 
 NMR pulse sequences in this thesis are depicted in a reasonably conventional manner: \cref{fig:preface_sehsqc} shows an example of this.
-The notation used is described here to avoid any ambiguity.
+To avoid any ambiguity, I describe this notation here.
 Filled black rectangular bars indicate \ang{90} pulses; empty bars indicate \ang{180} pulses.
 Pulses with other flip angles are depicted using filled grey bars, typically with the Greek letter $\beta$ above it representing the flip angle.
 Delays are variously represented by the letters $\Delta$ and $\tau$; exact values of these will be given in the respective captions.
-Pulses without explicit phases are assumed to be applied along the rotating-frame $+x$-axis; phases of the form $\phi_i$ are typically cycled during the experiment and will be specified in the captions.
-Grey boxes labelled `dec.' represent decoupling periods.
+Pulses without explicit phases are assumed to be applied along the (rotating-frame) $+x$-axis; pulses with phases labelled as $\phi_i$ are typically phase-cycled, details of which are specified in the respective captions.
+Grey boxes labelled `dec.' represent periods of heteronuclear decoupling.
 
-In this thesis, I use the word \textit{gradient} to refer to pulsed field gradients; this is shorter and reflects common usage.
+In this thesis, I use the word \textit{gradient} to refer to pulsed field gradients; this is more concise and reflects common usage.
 Where relevant, $z$-gradient amplitudes are given as percentages of the maximum gradient amplitude, which is probe-dependent (see \cref{tbl:spectrometers}).
 This maximum amplitude is unlikely to substantially affect the performance of any of the pulse sequences; consequently, in the text I quote gradient amplitudes only as percentages.
+Nevertheless, if necessary, absolute gradient amplitudes may still be determined for each individual dataset by referring to \cref{tbl:spectrometers}.
 Gradients which are inverted for echo--antiecho selection are depicted as a pair of positive and negative gradients (e.g.\ $g_2$ above).
-$\varepsilon$ is always used to denote the time required for a gradient, plus the subsequent recovery delay.
+$\varepsilon$ is always used to denote the time required for a gradient, plus the subsequent recovery delay (\qty{200}{\us} throughout this work).
 
-In practice, the implementation of a pulse sequence may differ in tiny ways: for example delays may be modified to accommodate finite pulse widths and other technicalities.
+In practice, the implementation of a pulse sequence may differ in tiny ways: for example, delays may be modified to accommodate finite pulse widths and other technicalities.
 Furthermore, shaped pulses may be used in place of hard pulses in order to optimise the pulse sequence, e.g.\ by allowing more efficient refocusing: as a rule, adiabatic pulses are used for all \carbon{} \ang{180} rotations.
 
-For some experiments, particularly in the NOAH chapter (\cref{chpt:noah}), product operator analysis is added above the pulse sequence.
+For some experiments, particularly in the NOAH chapter (\cref{chpt:noah}), a product operator analysis is added above the pulse sequence.
 Typically, these show how a \proton{}--X spin pair and an isolated \proton{} spin evolve under during pulse sequence: these directly correspond to the so-called \magn{X} and \magnnot{X} magnetisation pools (i.e.\ protons directly coupled and not directly coupled to \carbon{}, see \cref{subsec:noah__magpools} for further explanation).
 One-letter terms $m$ ($m \in \{x, y, z\}$) are shorthand for single-spin terms on proton, i.e.\ $I_m$.
 Two-letter terms $mn$ are shorthand for two-spin terms on both the proton and heteronucleus, i.e.\ $2I_mS_n$.
@@ -40,17 +45,17 @@ Quantum mechanical NMR simulations were done in Matlab R2021a or R2021b.
 This thesis is written using the \LaTeX{} typesetting system: specifically, I used the \LuaLaTeX{} engine.
 
 Pulse sequences and other diagrams are drawn using the vector graphics programme \href{https://inkscape.org/}{Inkscape}.
-Plots are generated using \href{https://www.python.org/}{Python 3}, using a number of packages (namely: \href{https://github.com/numpy/numpy}{\texttt{numpy}}, \href{https://github.com/scipy/scipy}{\texttt{scipy}}, \href{https://github.com/matplotlib/matplotlib}{\texttt{matplotlib}}, \href{https://github.com/mwaskom/seaborn}{\texttt{seaborn}}, and \href{https://github.com/yongrenjie/penguins}{\texttt{penguins}}, the last of which was written by me, and described further in \cref{sec:other__penguins}).
+Plots are generated using \href{https://www.python.org/}{Python 3}, using a number of packages (namely: \href{https://github.com/numpy/numpy}{\texttt{numpy}}, \href{https://github.com/scipy/scipy}{\texttt{scipy}}, \href{https://github.com/matplotlib/matplotlib}{\texttt{matplotlib}}, \href{https://github.com/mwaskom/seaborn}{\texttt{seaborn}}, and \href{https://github.com/yongrenjie/penguins}{\texttt{penguins}}, the last of which was written by me.
 
 The underlying \LaTeX{} code for this thesis, as well as all figures, can be accessed at \todo{TODO (likely GitHub)}.
 
 \section*{Samples used}
 
-The caption of every figure showing experimental data includes a `code' at the end, which indicates the spectrometer and sample used for the data, as well as the date (in \texttt{YYMMDD} format).
+The caption of every figure containing experimental data includes a `code' at the end, which specifies the spectrometer and sample used for the data, as well as the date (in \texttt{YYMMDD} format).
 The available spectrometers and samples are enumerated in \cref{tbl:spectrometers,tbl:samples,fig:samples}.
 Therefore, for example, the code \texttt{7Z-211225} would represent data acquired on the \qty{700}{\MHz} spectrometer, using the zolmitriptan sample, on Christmas Day 2021.
 
-\begin{table}[htb]
+\begin{table}[!htbp]
     \begin{tabular}{ccl}
         \toprule
         \textbf{Code} & \textbf{Internal name} & \textbf{Details} \\
@@ -88,7 +93,7 @@ Therefore, for example, the code \texttt{7Z-211225} would represent data acquire
     \label{tbl:spectrometers}
 \end{table}
 
-\begin{table}[htb]
+\begin{table}[!htbp]
     \begin{tabular}{cccc}
         \toprule
         \textbf{Code} & \textbf{Compound} & \textbf{Solvent} & \textbf{Concentration} \\
@@ -110,7 +115,7 @@ Therefore, for example, the code \texttt{7Z-211225} would represent data acquire
     \label{tbl:samples}
 \end{table}
 
-\begin{figure}
+\begin{figure}[!htbp]
     \includegraphics[width=\textwidth]{samples_fira.png}%
     \caption[Chemical structures of samples used in this thesis]{Chemical structures of samples used in this thesis. See \cref{tbl:samples} for more information.}
     \label{fig:samples}
