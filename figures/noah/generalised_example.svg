@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="179mm"
+   height="200mm"
+   viewBox="0 0 179 200"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)"
+   sodipodi:docname="generalised_example.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="true"
+     inkscape:zoom="1.228666"
+     inkscape:cx="438.28023"
+     inkscape:cy="458.22056"
+     inkscape:window-width="1640"
+     inkscape:window-height="827"
+     inkscape:window-x="1670"
+     inkscape:window-y="53"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid1049"
+       units="mm"
+       spacingx="0.32"
+       spacingy="0.32"
+       originx="0"
+       originy="0" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <inkscape:path-effect
+       effect="mirror_symmetry"
+       start_point="48.947914,82.020831"
+       end_point="48.947914,87.312499"
+       center_point="48.947914,84.666665"
+       id="path-effect4739-9"
+       is_visible="true"
+       lpeversion="1.1"
+       mode="free"
+       discard_orig_path="false"
+       fuse_paths="false"
+       oposite_fuse="false"
+       split_items="false"
+       split_open="false"
+       lpesatellites=""
+       link_styles="false" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.32;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       d="m 110.4,113.6 h 32 l 1.6,4.8 h 19.2 l 1.6,-4.8 h 3.2 -3.2 l -1.6,-4.8 H 144 l -1.6,4.8"
+       id="path1377" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;stroke-width:0.264583"
+       x="24"
+       y="67.199997"
+       id="text2472"><tspan
+         sodipodi:role="line"
+         id="tspan2470"
+         style="stroke-width:0.264583"
+         x="24"
+         y="67.199997" /></text>
+    <path
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       style="fill:none;stroke:#000000;stroke-width:0.32;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       d="m 20.8,91.19999 h 81.6"
+       id="path10-22-2-8-2-9-9-7-1"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       style="fill:#ffffff;stroke:#023eff;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-5-0"
+       width="23.999998"
+       height="6.3999977"
+       x="36.800003"
+       y="87.999992"
+       ry="1.0239956" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-0-6-4"
+       width="9.5999985"
+       height="6.3999977"
+       x="24"
+       y="88"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;stroke-width:0.264583"
+       x="27.286674"
+       y="92.337692"
+       id="text2498-1-9"><tspan
+         sodipodi:role="line"
+         id="tspan2496-59-9"
+         style="stroke-width:0.264583"
+         x="27.286674"
+         y="92.337692"><tspan
+           style="font-style:italic"
+           id="tspan2502-1-4">d</tspan><tspan
+           style="font-size:65%;baseline-shift:sub"
+           id="tspan2500-3-5">1</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
+       x="41.735653"
+       y="92.337692"
+       id="text2506-8-0"><tspan
+         sodipodi:role="line"
+         id="tspan2504-8-6"
+         style="fill:#023eff;stroke-width:0.264583"
+         x="41.735653"
+         y="92.337692">HSQC (0)</tspan></text>
+    <rect
+       style="fill:#ffffff;stroke:#ff7c00;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-1-9-9"
+       width="23.999998"
+       height="6.3999977"
+       x="68.799995"
+       y="87.999992"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#ff7c00;stroke-width:0.264583"
+       x="73.374557"
+       y="92.337692"
+       id="text2506-9-4-0"><tspan
+         sodipodi:role="line"
+         id="tspan2504-2-3-8"
+         style="fill:#ff7c00;stroke-width:0.264583"
+         x="73.374557"
+         y="92.337692">TOCSY (0)</tspan></text>
+    <path
+       inkscape:export-filename="/Users/yongrenjie/Desktop/a.png"
+       id="path3919-7-8-6-3-9-8"
+       title="cos(x)*exp(-x/15)"
+       d="m 61.279305,88.500536 c 0.05911,0.04863 0.118102,0.372713 0.1771,0.87059 0.05904,0.49776 0.118102,1.163965 0.177197,1.823368 0.05897,0.659411 0.118095,1.305889 0.177094,1.785895 0.05897,0.480013 0.118094,0.789168 0.177093,0.869169 0.05911,0.08 0.118095,-0.06948 0.177204,-0.39157 0.05897,-0.322087 0.118005,-0.813605 0.177087,-1.341064 0.05897,-0.527459 0.118094,-1.086046 0.1771,-1.538988 0.05897,-0.452935 0.118088,-0.796176 0.1771,-0.957606 0.05904,-0.161533 0.118095,-0.139945 0.177184,0.04263 0.05897,0.182584 0.117998,0.524287 0.177093,0.928569 0.05897,0.404282 0.118101,0.8673 0.177107,1.272678 0.05904,0.405489 0.118088,0.749599 0.177087,0.955633 0.05911,0.206028 0.118108,0.272331 0.177197,0.19573 0.05897,-0.0765 0.118101,-0.294912 0.177107,-0.589817 0.05897,-0.294912 0.118095,-0.663466 0.177087,-1.010652 0.05911,-0.347069 0.118094,-0.669598 0.1771,-0.8924 0.05904,-0.222904 0.118095,-0.344221 0.17719,-0.344221 0.05897,-1.1e-4 0.118088,0.120986 0.177094,0.322964 0.05897,0.201979 0.118115,0.482855 0.177093,0.768228 0.05904,0.28527 0.118094,0.572285 0.177197,0.792127 0.05897,0.219733 0.118005,0.370416 0.177086,0.422256 0.05897,0.05173 0.118109,0.0041 0.177101,-0.121757 0.05904,-0.126143 0.118094,-0.329757 0.177107,-0.554862 0.05904,-0.225098 0.118095,-0.469591 0.177197,-0.673212 0.05897,-0.203516 0.117984,-0.364284 0.17708,-0.447679 0.05897,-0.0834 0.118101,-0.08877 0.177107,-0.022 0.05904,0.06677 0.118094,0.204931 0.177093,0.374796 0.05904,0.169865 0.118102,0.369871 0.177197,0.549379 0.05897,0.179404 0.118102,0.336557 0.177094,0.435953 0.05897,0.0994 0.118101,0.140063 0.177107,0.117702 0.05904,-0.02221 0.118095,-0.107287 0.17719,-0.228933 0.05897,-0.121647 0.117991,-0.27858 0.177087,-0.430146 0.05897,-0.151567 0.118101,-0.296223 0.177107,-0.399895 0.05897,-0.103783 0.118094,-0.165707 0.177087,-0.174797"
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       inkscape:export-filename="/Users/yongrenjie/Desktop/a.png"
+       id="path3919-7-8-6-3-7-5-2"
+       title="cos(x)*exp(-x/15)"
+       d="m 93.279305,88.500536 c 0.05911,0.04863 0.118102,0.372713 0.1771,0.87059 0.05904,0.49776 0.118102,1.163965 0.177197,1.823368 0.05897,0.659411 0.118095,1.305889 0.177094,1.785895 0.05897,0.480013 0.118094,0.789168 0.177093,0.869169 0.05911,0.08 0.118095,-0.06948 0.177204,-0.39157 0.05897,-0.322087 0.118005,-0.813605 0.177087,-1.341064 0.05897,-0.527459 0.118094,-1.086046 0.1771,-1.538988 0.05897,-0.452935 0.118088,-0.796176 0.1771,-0.957606 0.05904,-0.161533 0.118095,-0.139945 0.177184,0.04263 0.05897,0.182584 0.117998,0.524287 0.177093,0.928569 0.05897,0.404282 0.118101,0.8673 0.177107,1.272678 0.05904,0.405489 0.118088,0.749599 0.177087,0.955633 0.05911,0.206028 0.118108,0.272331 0.177197,0.19573 0.05897,-0.0765 0.118101,-0.294912 0.177107,-0.589817 0.05897,-0.294912 0.118095,-0.663466 0.177087,-1.010652 0.05911,-0.347069 0.118094,-0.669598 0.1771,-0.8924 0.05904,-0.222904 0.118095,-0.344221 0.17719,-0.344221 0.05897,-1.1e-4 0.118088,0.120986 0.177094,0.322964 0.05897,0.201979 0.118115,0.482855 0.177093,0.768228 0.05904,0.28527 0.118094,0.572285 0.177198,0.792127 0.059,0.219733 0.118,0.370416 0.17708,0.422256 0.059,0.05173 0.11811,0.0041 0.17711,-0.121757 0.059,-0.126143 0.11809,-0.329757 0.1771,-0.554862 0.059,-0.225098 0.1181,-0.469591 0.1772,-0.673212 0.059,-0.203516 0.11798,-0.364284 0.17708,-0.447679 0.059,-0.0834 0.1181,-0.08877 0.17711,-0.022 0.059,0.06677 0.11809,0.204931 0.17709,0.374796 0.059,0.169865 0.1181,0.369871 0.1772,0.549379 0.059,0.179404 0.1181,0.336557 0.17709,0.435953 0.059,0.0994 0.1181,0.140063 0.17711,0.117702 0.059,-0.02221 0.11809,-0.107287 0.17719,-0.228933 0.059,-0.121647 0.11799,-0.27858 0.17708,-0.430146 0.059,-0.151567 0.11811,-0.296223 0.17711,-0.399895 0.059,-0.103783 0.1181,-0.165707 0.17709,-0.174797"
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       style="fill:none;stroke:#000000;stroke-width:0.32;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       d="m 20.8,99.199987 h 81.59999"
+       id="path10-22-2-8-2-9-9-8-1-8"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       style="fill:#ffffff;stroke:#023eff;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-7-7-0"
+       width="23.999998"
+       height="6.3999977"
+       x="36.799999"
+       y="95.999992"
+       ry="1.0239956" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-0-1-4-2"
+       width="9.5999985"
+       height="6.3999977"
+       x="24"
+       y="96"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;stroke-width:0.264583"
+       x="27.286674"
+       y="100.33769"
+       id="text2498-5-5-0"><tspan
+         sodipodi:role="line"
+         id="tspan2496-5-1-9"
+         style="stroke-width:0.264583"
+         x="27.286674"
+         y="100.33769"><tspan
+           style="font-style:italic"
+           id="tspan2502-8-4-5">d</tspan><tspan
+           style="font-size:65%;baseline-shift:sub"
+           id="tspan2500-5-6-3">1</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
+       x="41.735653"
+       y="100.33769"
+       id="text2506-6-0-5"><tspan
+         sodipodi:role="line"
+         id="tspan2504-7-3-9"
+         style="fill:#023eff;stroke-width:0.264583"
+         x="41.735653"
+         y="100.33769">HSQC (0)</tspan></text>
+    <rect
+       style="fill:#ffffff;stroke:#e8000b;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-1-1-1-1"
+       width="23.999998"
+       height="6.3999977"
+       x="68.799995"
+       y="95.999992"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#e8000b;stroke-width:0.264583"
+       x="72.771301"
+       y="100.33769"
+       id="text2506-9-6-4-2"><tspan
+         sodipodi:role="line"
+         id="tspan2504-2-1-7-8"
+         style="fill:#e8000b;stroke-width:0.264583"
+         x="72.771301"
+         y="100.33769">NOESY (0)</tspan></text>
+    <path
+       inkscape:export-filename="/Users/yongrenjie/Desktop/a.png"
+       id="path3919-7-8-6-3-4-95-4"
+       title="cos(x)*exp(-x/15)"
+       d="m 61.279305,96.500537 c 0.05911,0.0486 0.118102,0.37271 0.1771,0.87059 0.05904,0.49776 0.118102,1.16396 0.177197,1.82337 0.05897,0.65941 0.118095,1.305883 0.177094,1.785893 0.05897,0.48001 0.118094,0.78917 0.177093,0.86917 0.05911,0.08 0.118095,-0.0695 0.177204,-0.39157 0.05897,-0.32209 0.118005,-0.81361 0.177087,-1.34106 0.05897,-0.527463 0.118094,-1.086053 0.1771,-1.538993 0.05897,-0.45294 0.118088,-0.79618 0.1771,-0.95761 0.05904,-0.16153 0.118095,-0.13994 0.177184,0.0426 0.05897,0.18259 0.117998,0.52429 0.177093,0.92857 0.05897,0.40428 0.118101,0.8673 0.177107,1.27268 0.05904,0.405493 0.118088,0.749603 0.177087,0.955633 0.05911,0.20603 0.118108,0.27233 0.177197,0.19573 0.05897,-0.0765 0.118101,-0.29491 0.177107,-0.58982 0.05897,-0.29491 0.118095,-0.663463 0.177087,-1.010653 0.05911,-0.34707 0.118094,-0.6696 0.1771,-0.8924 0.05904,-0.2229 0.118095,-0.34422 0.17719,-0.34422 0.05897,-1.1e-4 0.118088,0.12099 0.177094,0.32297 0.05897,0.20197 0.118115,0.48285 0.177093,0.76822 0.05904,0.28527 0.118094,0.57229 0.177197,0.792133 0.05897,0.21973 0.118005,0.37042 0.177086,0.42226 0.05897,0.0517 0.118109,0.004 0.177101,-0.12176 0.05904,-0.12614 0.118094,-0.32976 0.177107,-0.554863 0.05904,-0.2251 0.118095,-0.46959 0.177197,-0.67321 0.05897,-0.20352 0.117984,-0.36429 0.17708,-0.44768 0.05897,-0.0834 0.118101,-0.0888 0.177107,-0.022 0.05904,0.0668 0.118094,0.20493 0.177093,0.37479 0.05904,0.16987 0.118102,0.36987 0.177197,0.54938 0.05897,0.17941 0.118102,0.33656 0.177094,0.435953 0.05897,0.0994 0.118101,0.14007 0.177107,0.11771 0.05904,-0.0222 0.118095,-0.10729 0.17719,-0.228943 0.05897,-0.12164 0.117991,-0.27858 0.177087,-0.43014 0.05897,-0.15157 0.118101,-0.29623 0.177107,-0.3999 0.05897,-0.10378 0.118094,-0.1657 0.177087,-0.17479"
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       inkscape:export-filename="/Users/yongrenjie/Desktop/a.png"
+       id="path3919-7-8-6-3-7-4-7-0"
+       title="cos(x)*exp(-x/15)"
+       d="m 93.279305,96.500537 c 0.05911,0.0486 0.118102,0.37271 0.1771,0.87059 0.05904,0.49776 0.118102,1.16396 0.177197,1.82337 0.05897,0.65941 0.118095,1.305883 0.177094,1.785893 0.05897,0.48001 0.118094,0.78917 0.177093,0.86917 0.05911,0.08 0.118095,-0.0695 0.177204,-0.39157 0.05897,-0.32209 0.118005,-0.81361 0.177087,-1.34106 0.05897,-0.527463 0.118094,-1.086053 0.1771,-1.538993 0.05897,-0.45294 0.118088,-0.79618 0.1771,-0.95761 0.05904,-0.16153 0.118095,-0.13994 0.177184,0.0426 0.05897,0.18259 0.117998,0.52429 0.177093,0.92857 0.05897,0.40428 0.118101,0.8673 0.177107,1.27268 0.05904,0.405493 0.118088,0.749603 0.177087,0.955633 0.05911,0.20603 0.118108,0.27233 0.177197,0.19573 0.05897,-0.0765 0.118101,-0.29491 0.177107,-0.58982 0.05897,-0.29491 0.118095,-0.663463 0.177087,-1.010653 0.05911,-0.34707 0.118094,-0.6696 0.1771,-0.8924 0.05904,-0.2229 0.118095,-0.34422 0.17719,-0.34422 0.05897,-1.1e-4 0.118088,0.12099 0.177094,0.32297 0.05897,0.20197 0.118115,0.48285 0.177093,0.76822 0.05904,0.28527 0.118094,0.57229 0.177198,0.792133 0.059,0.21973 0.118,0.37042 0.17708,0.42226 0.059,0.0517 0.11811,0.004 0.17711,-0.12176 0.059,-0.12614 0.11809,-0.32976 0.1771,-0.554863 0.059,-0.2251 0.1181,-0.46959 0.1772,-0.67321 0.059,-0.20352 0.11798,-0.36429 0.17708,-0.44768 0.059,-0.0834 0.1181,-0.0888 0.17711,-0.022 0.059,0.0668 0.11809,0.20493 0.17709,0.37479 0.059,0.16987 0.1181,0.36987 0.1772,0.54938 0.059,0.17941 0.1181,0.33656 0.17709,0.435953 0.059,0.0994 0.1181,0.14007 0.17711,0.11771 0.059,-0.0222 0.11809,-0.10729 0.17719,-0.228943 0.059,-0.12164 0.11799,-0.27858 0.17708,-0.43014 0.059,-0.15157 0.11811,-0.29623 0.17711,-0.3999 0.059,-0.10378 0.1181,-0.1657 0.17709,-0.17479"
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       style="fill:none;stroke:#000000;stroke-width:0.32;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       d="M 20.800002,107.19999 H 102.39999"
+       id="path10-22-2-8-2-9-9-8-1-8-0"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       style="fill:#ffffff;stroke:#023eff;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-7-7-0-2"
+       width="23.999998"
+       height="6.3999977"
+       x="36.799999"
+       y="103.99999"
+       ry="1.0239956" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-0-1-4-2-3"
+       width="9.5999985"
+       height="6.3999977"
+       x="24"
+       y="104"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;stroke-width:0.264583"
+       x="27.286674"
+       y="108.33769"
+       id="text2498-5-5-0-9"><tspan
+         sodipodi:role="line"
+         id="tspan2496-5-1-9-9"
+         style="stroke-width:0.264583"
+         x="27.286674"
+         y="108.33769"><tspan
+           style="font-style:italic"
+           id="tspan2502-8-4-5-7">d</tspan><tspan
+           style="font-size:65%;baseline-shift:sub"
+           id="tspan2500-5-6-3-0">1</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
+       x="41.735653"
+       y="108.33769"
+       id="text2506-6-0-5-3"><tspan
+         sodipodi:role="line"
+         id="tspan2504-7-3-9-9"
+         style="fill:#023eff;stroke-width:0.264583"
+         x="41.735653"
+         y="108.33769">HSQC (0)</tspan></text>
+    <rect
+       style="fill:#ffffff;stroke:#e8000b;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-1-1-1-1-8"
+       width="23.999998"
+       height="6.3999977"
+       x="68.799995"
+       y="103.99999"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#e8000b;stroke-width:0.264583"
+       x="72.771301"
+       y="108.33769"
+       id="text2506-9-6-4-2-6"><tspan
+         sodipodi:role="line"
+         id="tspan2504-2-1-7-8-5"
+         style="fill:#e8000b;stroke-width:0.264583"
+         x="72.771301"
+         y="108.33769">NOESY (0)</tspan></text>
+    <path
+       inkscape:export-filename="/Users/yongrenjie/Desktop/a.png"
+       id="path3919-7-8-6-3-4-95-4-7"
+       title="cos(x)*exp(-x/15)"
+       d="m 61.279307,104.50054 c 0.05911,0.0486 0.118102,0.37271 0.1771,0.87059 0.05904,0.49776 0.118102,1.16396 0.177197,1.82337 0.05897,0.65941 0.118095,1.30588 0.177094,1.78589 0.05897,0.48001 0.118094,0.78917 0.177093,0.86917 0.05911,0.08 0.118095,-0.0695 0.177204,-0.39157 0.05897,-0.32209 0.118005,-0.81361 0.177087,-1.34106 0.05897,-0.52746 0.118094,-1.08605 0.1771,-1.53899 0.05897,-0.45294 0.118088,-0.79618 0.1771,-0.95761 0.05904,-0.16153 0.118095,-0.13994 0.177184,0.0426 0.05897,0.18259 0.117998,0.52429 0.177093,0.92857 0.05897,0.40428 0.118101,0.8673 0.177107,1.27268 0.05904,0.40549 0.118088,0.7496 0.177087,0.95563 0.05911,0.20603 0.118108,0.27233 0.177197,0.19573 0.05897,-0.0765 0.118101,-0.29491 0.177107,-0.58982 0.05897,-0.29491 0.118095,-0.66346 0.177087,-1.01065 0.05911,-0.34707 0.118094,-0.6696 0.1771,-0.8924 0.05904,-0.2229 0.118095,-0.34422 0.17719,-0.34422 0.05897,-1.1e-4 0.118088,0.12099 0.177094,0.32297 0.05897,0.20197 0.118115,0.48285 0.177093,0.76822 0.05904,0.28527 0.118094,0.57229 0.177197,0.79213 0.05897,0.21973 0.118005,0.37042 0.177086,0.42226 0.05897,0.0517 0.118109,0.004 0.177101,-0.12176 0.05904,-0.12614 0.118094,-0.32976 0.177107,-0.55486 0.05904,-0.2251 0.118095,-0.46959 0.177197,-0.67321 0.05897,-0.20352 0.117984,-0.36429 0.17708,-0.44768 0.05897,-0.0834 0.118101,-0.0888 0.177107,-0.022 0.05904,0.0668 0.118094,0.20493 0.177093,0.37479 0.05904,0.16987 0.118102,0.36987 0.177197,0.54938 0.05897,0.17941 0.118102,0.33656 0.177094,0.43595 0.05897,0.0994 0.118101,0.14007 0.177107,0.11771 0.05904,-0.0222 0.118095,-0.10729 0.17719,-0.22894 0.05897,-0.12164 0.117991,-0.27858 0.177087,-0.43014 0.05897,-0.15157 0.118101,-0.29623 0.177107,-0.3999 0.05897,-0.10378 0.118094,-0.1657 0.177087,-0.17479"
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       inkscape:export-filename="/Users/yongrenjie/Desktop/a.png"
+       id="path3919-7-8-6-3-7-4-7-0-6"
+       title="cos(x)*exp(-x/15)"
+       d="m 93.279302,104.50054 c 0.0591,0.0486 0.11811,0.37271 0.1771,0.87059 0.059,0.49776 0.11811,1.16396 0.1772,1.82337 0.059,0.65941 0.1181,1.30588 0.1771,1.78589 0.059,0.48001 0.11809,0.78917 0.17709,0.86917 0.0591,0.08 0.11809,-0.0695 0.1772,-0.39157 0.059,-0.32209 0.11801,-0.81361 0.17709,-1.34106 0.059,-0.52746 0.11809,-1.08605 0.1771,-1.53899 0.059,-0.45294 0.11809,-0.79618 0.1771,-0.95761 0.059,-0.16153 0.11809,-0.13994 0.17718,0.0426 0.059,0.18259 0.118,0.52429 0.1771,0.92857 0.059,0.40428 0.1181,0.8673 0.1771,1.27268 0.059,0.40549 0.11809,0.7496 0.17709,0.95563 0.0591,0.20603 0.11811,0.27233 0.1772,0.19573 0.059,-0.0765 0.1181,-0.29491 0.1771,-0.58982 0.059,-0.29491 0.1181,-0.66346 0.17709,-1.01065 0.0591,-0.34707 0.1181,-0.6696 0.1771,-0.8924 0.059,-0.2229 0.1181,-0.34422 0.17719,-0.34422 0.059,-1.1e-4 0.11809,0.12099 0.1771,0.32297 0.059,0.20197 0.11811,0.48285 0.17709,0.76822 0.059,0.28527 0.11809,0.57229 0.1772,0.79213 0.059,0.21973 0.118,0.37042 0.17708,0.42226 0.059,0.0517 0.11811,0.004 0.17711,-0.12176 0.059,-0.12614 0.11809,-0.32976 0.1771,-0.55486 0.059,-0.2251 0.1181,-0.46959 0.1772,-0.67321 0.059,-0.20352 0.11798,-0.36429 0.17708,-0.44768 0.059,-0.0834 0.1181,-0.0888 0.17711,-0.022 0.059,0.0668 0.11809,0.20493 0.17709,0.37479 0.059,0.16987 0.1181,0.36987 0.1772,0.54938 0.059,0.17941 0.1181,0.33656 0.17709,0.43595 0.059,0.0994 0.1181,0.14007 0.17711,0.11771 0.059,-0.0222 0.11809,-0.10729 0.17719,-0.22894 0.059,-0.12164 0.11799,-0.27858 0.17708,-0.43014 0.059,-0.15157 0.11811,-0.29623 0.17711,-0.3999 0.059,-0.10378 0.1181,-0.1657 0.17709,-0.17479"
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       style="fill:none;stroke:#000000;stroke-width:0.32;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       d="m 20.8,115.2 h 81.59999"
+       id="path10-22-2-8-2-9-9-8-3-2-1"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       style="fill:#ffffff;stroke:#023eff;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-7-2-9-08"
+       width="23.999998"
+       height="6.3999977"
+       x="36.799999"
+       y="111.99998"
+       ry="1.0239956" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-0-1-6-7-1"
+       width="9.5999985"
+       height="6.3999977"
+       x="24"
+       y="112"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;stroke-width:0.264583"
+       x="27.286674"
+       y="116.33769"
+       id="text2498-5-8-6-4"><tspan
+         sodipodi:role="line"
+         id="tspan2496-5-9-8-9"
+         style="stroke-width:0.264583"
+         x="27.286674"
+         y="116.33769"><tspan
+           style="font-style:italic"
+           id="tspan2502-8-1-29-5">d</tspan><tspan
+           style="font-size:65%;baseline-shift:sub"
+           id="tspan2500-5-4-9-90">1</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
+       x="40.568932"
+       y="116.33769"
+       id="text2506-6-8-8-2"><tspan
+         sodipodi:role="line"
+         id="tspan2504-7-8-3-35"
+         style="fill:#023eff;stroke-width:0.264583"
+         x="40.568932"
+         y="116.33769">HSQC (Δ<tspan
+   style="font-style:italic"
+   id="tspan5430-7-9">t</tspan><tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan5424-1-0">1</tspan>)</tspan></text>
+    <rect
+       style="fill:#ffffff;stroke:#ff7c00;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-1-1-3-2-1"
+       width="23.999998"
+       height="6.3999977"
+       x="68.799995"
+       y="111.99998"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#ff7c00;stroke-width:0.264583"
+       x="72.296539"
+       y="116.33769"
+       id="text2506-9-6-1-6-3"><tspan
+         sodipodi:role="line"
+         id="tspan2504-2-1-1-1-6"
+         style="fill:#ff7c00;stroke-width:0.264583"
+         x="72.296539"
+         y="116.33769">TOCSY (Δ<tspan
+   style="font-style:italic"
+   id="tspan5412-7-9">t</tspan><tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan5420-6-0">1</tspan>)</tspan></text>
+    <path
+       inkscape:export-filename="/Users/yongrenjie/Desktop/a.png"
+       id="path3919-7-8-6-3-4-9-5-4"
+       title="cos(x)*exp(-x/15)"
+       d="m 61.279305,112.50054 c 0.05911,0.0486 0.118102,0.37271 0.1771,0.87059 0.05904,0.49776 0.118102,1.16397 0.177197,1.82337 0.05897,0.65941 0.118095,1.30589 0.177094,1.78589 0.05897,0.48002 0.118094,0.78917 0.177093,0.86917 0.05911,0.08 0.118095,-0.0695 0.177204,-0.39157 0.05897,-0.32208 0.118005,-0.8136 0.177087,-1.34106 0.05897,-0.52746 0.118094,-1.08605 0.1771,-1.53899 0.05897,-0.45294 0.118088,-0.79618 0.1771,-0.95761 0.05904,-0.16153 0.118095,-0.13994 0.177184,0.0426 0.05897,0.18259 0.117998,0.52429 0.177093,0.92857 0.05897,0.40429 0.118101,0.8673 0.177107,1.27268 0.05904,0.40549 0.118088,0.7496 0.177087,0.95564 0.05911,0.20602 0.118108,0.27233 0.177197,0.19573 0.05897,-0.0765 0.118101,-0.29492 0.177107,-0.58982 0.05897,-0.29491 0.118095,-0.66347 0.177087,-1.01065 0.05911,-0.34707 0.118094,-0.6696 0.1771,-0.8924 0.05904,-0.22291 0.118095,-0.34423 0.17719,-0.34423 0.05897,-1.1e-4 0.118088,0.12099 0.177094,0.32297 0.05897,0.20198 0.118115,0.48285 0.177093,0.76823 0.05904,0.28527 0.118094,0.57228 0.177197,0.79212 0.05897,0.21974 0.118005,0.37042 0.177086,0.42226 0.05897,0.0517 0.118109,0.004 0.177101,-0.12176 0.05904,-0.12614 0.118094,-0.32975 0.177107,-0.55486 0.05904,-0.2251 0.118095,-0.46959 0.177197,-0.67321 0.05897,-0.20352 0.117984,-0.36428 0.17708,-0.44768 0.05897,-0.0834 0.118101,-0.0888 0.177107,-0.022 0.05904,0.0668 0.118094,0.20493 0.177093,0.3748 0.05904,0.16986 0.118102,0.36987 0.177197,0.54938 0.05897,0.1794 0.118102,0.33655 0.177094,0.43595 0.05897,0.0994 0.118101,0.14006 0.177107,0.1177 0.05904,-0.0222 0.118095,-0.10729 0.17719,-0.22893 0.05897,-0.12165 0.117991,-0.27858 0.177087,-0.43015 0.05897,-0.15157 0.118101,-0.29622 0.177107,-0.39989 0.05897,-0.10379 0.118094,-0.16571 0.177087,-0.1748"
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       inkscape:export-filename="/Users/yongrenjie/Desktop/a.png"
+       id="path3919-7-8-6-3-7-4-0-0-0"
+       title="cos(x)*exp(-x/15)"
+       d="m 93.279305,112.50054 c 0.05911,0.0486 0.118102,0.37271 0.1771,0.87059 0.05904,0.49776 0.118102,1.16397 0.177197,1.82337 0.05897,0.65941 0.118095,1.30589 0.177094,1.78589 0.05897,0.48002 0.118094,0.78917 0.177093,0.86917 0.05911,0.08 0.118095,-0.0695 0.177204,-0.39157 0.05897,-0.32208 0.118005,-0.8136 0.177087,-1.34106 0.05897,-0.52746 0.118094,-1.08605 0.1771,-1.53899 0.05897,-0.45294 0.118088,-0.79618 0.1771,-0.95761 0.05904,-0.16153 0.118095,-0.13994 0.177184,0.0426 0.05897,0.18259 0.117998,0.52429 0.177093,0.92857 0.05897,0.40429 0.118101,0.8673 0.177107,1.27268 0.05904,0.40549 0.118088,0.7496 0.177087,0.95564 0.05911,0.20602 0.118108,0.27233 0.177197,0.19573 0.05897,-0.0765 0.118101,-0.29492 0.177107,-0.58982 0.05897,-0.29491 0.118095,-0.66347 0.177087,-1.01065 0.05911,-0.34707 0.118094,-0.6696 0.1771,-0.8924 0.05904,-0.22291 0.118095,-0.34423 0.17719,-0.34423 0.05897,-1.1e-4 0.118088,0.12099 0.177094,0.32297 0.05897,0.20198 0.118115,0.48285 0.177093,0.76823 0.05904,0.28527 0.118094,0.57228 0.177198,0.79212 0.059,0.21974 0.118,0.37042 0.17708,0.42226 0.059,0.0517 0.11811,0.004 0.17711,-0.12176 0.059,-0.12614 0.11809,-0.32975 0.1771,-0.55486 0.059,-0.2251 0.1181,-0.46959 0.1772,-0.67321 0.059,-0.20352 0.11798,-0.36428 0.17708,-0.44768 0.059,-0.0834 0.1181,-0.0888 0.17711,-0.022 0.059,0.0668 0.11809,0.20493 0.17709,0.3748 0.059,0.16986 0.1181,0.36987 0.1772,0.54938 0.059,0.1794 0.1181,0.33655 0.17709,0.43595 0.059,0.0994 0.1181,0.14006 0.17711,0.1177 0.059,-0.0222 0.11809,-0.10729 0.17719,-0.22893 0.059,-0.12165 0.11799,-0.27858 0.17708,-0.43015 0.059,-0.15157 0.11811,-0.29622 0.17711,-0.39989 0.059,-0.10379 0.1181,-0.16571 0.17709,-0.1748"
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       style="fill:none;stroke:#000000;stroke-width:0.32;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       d="M 20.800004,131.2 H 102.39999"
+       id="path10-22-2-8-2-9-9-8-3-2-7-2"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       style="fill:#ffffff;stroke:#023eff;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-7-2-9-0-4"
+       width="23.999998"
+       height="6.3999977"
+       x="36.799999"
+       y="127.99998"
+       ry="1.0239956" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-0-1-6-7-8-4"
+       width="9.5999985"
+       height="6.3999977"
+       x="24.000002"
+       y="128"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;stroke-width:0.264583"
+       x="27.28668"
+       y="132.33769"
+       id="text2498-5-8-6-5-1"><tspan
+         sodipodi:role="line"
+         id="tspan2496-5-9-8-3-9"
+         style="stroke-width:0.264583"
+         x="27.28668"
+         y="132.33769"><tspan
+           style="font-style:italic"
+           id="tspan2502-8-1-29-7-0">d</tspan><tspan
+           style="font-size:65%;baseline-shift:sub"
+           id="tspan2500-5-4-9-9-2">1</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
+       x="40.568932"
+       y="132.33769"
+       id="text2506-6-8-8-6-1"><tspan
+         sodipodi:role="line"
+         id="tspan2504-7-8-3-3-5"
+         style="fill:#023eff;stroke-width:0.264583"
+         x="40.568932"
+         y="132.33769">HSQC (Δ<tspan
+   style="font-style:italic"
+   id="tspan5430-7-1-4">t</tspan><tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan5424-1-5-9">1</tspan>)</tspan></text>
+    <rect
+       style="fill:#ffffff;stroke:#e8000b;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-1-1-3-2-8-0"
+       width="23.999998"
+       height="6.3999977"
+       x="68.799995"
+       y="127.99998"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#e8000b;stroke-width:0.264583"
+       x="71.693283"
+       y="132.33769"
+       id="text2506-9-6-1-6-0-2"><tspan
+         sodipodi:role="line"
+         id="tspan2504-2-1-1-1-9-0"
+         style="fill:#e8000b;stroke-width:0.264583"
+         x="71.693283"
+         y="132.33769">NOESY (Δ<tspan
+   style="font-style:italic;fill:#e8000b"
+   id="tspan5412-7-2-3">t</tspan><tspan
+   style="font-size:65%;baseline-shift:sub;fill:#e8000b"
+   id="tspan5420-6-4-8">1</tspan>)</tspan></text>
+    <path
+       inkscape:export-filename="/Users/yongrenjie/Desktop/a.png"
+       id="path3919-7-8-6-3-4-9-5-3-2"
+       title="cos(x)*exp(-x/15)"
+       d="m 61.279309,128.50054 c 0.05911,0.0486 0.118102,0.37272 0.1771,0.87059 0.05904,0.49776 0.118102,1.16397 0.177197,1.82337 0.05897,0.65941 0.118095,1.30589 0.177094,1.78589 0.05897,0.48002 0.118094,0.78917 0.177093,0.86917 0.05911,0.08 0.118095,-0.0695 0.177204,-0.39157 0.05897,-0.32208 0.118005,-0.8136 0.177087,-1.34106 0.05897,-0.52746 0.118094,-1.08605 0.1771,-1.53899 0.05897,-0.45293 0.118088,-0.79617 0.1771,-0.9576 0.05904,-0.16154 0.118095,-0.13995 0.177184,0.0426 0.05897,0.18258 0.117998,0.52428 0.177093,0.92856 0.05897,0.40429 0.118101,0.8673 0.177107,1.27268 0.05904,0.40549 0.118088,0.7496 0.177087,0.95564 0.05911,0.20602 0.118108,0.27233 0.177197,0.19573 0.05897,-0.0765 0.118101,-0.29492 0.177107,-0.58982 0.05897,-0.29491 0.118095,-0.66347 0.177087,-1.01065 0.05911,-0.34707 0.118094,-0.6696 0.1771,-0.8924 0.05904,-0.22291 0.118095,-0.34422 0.17719,-0.34422 0.05897,-1.1e-4 0.118088,0.12098 0.177094,0.32296 0.05897,0.20198 0.118115,0.48285 0.177093,0.76823 0.05904,0.28527 0.118094,0.57228 0.177197,0.79212 0.05897,0.21974 0.118005,0.37042 0.177086,0.42226 0.05897,0.0517 0.118109,0.004 0.177101,-0.12176 0.05904,-0.12614 0.118094,-0.32975 0.177107,-0.55486 0.05904,-0.2251 0.118095,-0.46959 0.177197,-0.67321 0.05897,-0.20352 0.117984,-0.36428 0.17708,-0.44768 0.05897,-0.0834 0.118101,-0.0888 0.177107,-0.022 0.05904,0.0668 0.118094,0.20493 0.177093,0.3748 0.05904,0.16986 0.118102,0.36987 0.177197,0.54938 0.05897,0.1794 0.118102,0.33655 0.177094,0.43595 0.05897,0.0994 0.118101,0.14006 0.177107,0.1177 0.05904,-0.0222 0.118095,-0.10729 0.17719,-0.22893 0.05897,-0.12165 0.117991,-0.27858 0.177087,-0.43015 0.05897,-0.15157 0.118101,-0.29622 0.177107,-0.39989 0.05897,-0.10379 0.118094,-0.16571 0.177087,-0.1748"
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       inkscape:export-filename="/Users/yongrenjie/Desktop/a.png"
+       id="path3919-7-8-6-3-7-4-0-0-3-1"
+       title="cos(x)*exp(-x/15)"
+       d="m 93.279309,128.50054 c 0.05911,0.0486 0.118102,0.37272 0.1771,0.87059 0.05904,0.49776 0.118102,1.16397 0.177197,1.82337 0.05897,0.65941 0.118095,1.30589 0.177094,1.78589 0.05897,0.48002 0.118094,0.78917 0.177093,0.86917 0.05911,0.08 0.118095,-0.0695 0.177204,-0.39157 0.05897,-0.32208 0.118005,-0.8136 0.177087,-1.34106 0.05897,-0.52746 0.118094,-1.08605 0.1771,-1.53899 0.05897,-0.45293 0.118088,-0.79617 0.1771,-0.9576 0.05904,-0.16154 0.118095,-0.13995 0.177184,0.0426 0.05897,0.18258 0.117998,0.52428 0.177093,0.92856 0.05897,0.40429 0.118101,0.8673 0.177107,1.27268 0.05904,0.40549 0.118088,0.7496 0.177087,0.95564 0.05911,0.20602 0.118108,0.27233 0.177197,0.19573 0.05897,-0.0765 0.118101,-0.29492 0.177107,-0.58982 0.05897,-0.29491 0.118095,-0.66347 0.177087,-1.01065 0.05911,-0.34707 0.118094,-0.6696 0.1771,-0.8924 0.05904,-0.22291 0.118095,-0.34422 0.17719,-0.34422 0.05897,-1.1e-4 0.118088,0.12098 0.177094,0.32296 0.05897,0.20198 0.118116,0.48285 0.177096,0.76823 0.059,0.28527 0.11809,0.57228 0.177193,0.79212 0.059,0.21974 0.11801,0.37042 0.17709,0.42226 0.059,0.0517 0.11811,0.004 0.1771,-0.12176 0.059,-0.12614 0.11809,-0.32975 0.17711,-0.55486 0.059,-0.2251 0.11809,-0.46959 0.17719,-0.67321 0.059,-0.20352 0.11799,-0.36428 0.17708,-0.44768 0.059,-0.0834 0.11811,-0.0888 0.17711,-0.022 0.059,0.0668 0.1181,0.20493 0.17709,0.3748 0.059,0.16986 0.11811,0.36987 0.1772,0.54938 0.059,0.1794 0.1181,0.33655 0.1771,0.43595 0.059,0.0994 0.1181,0.14006 0.1771,0.1177 0.059,-0.0222 0.1181,-0.10729 0.17719,-0.22893 0.059,-0.12165 0.11799,-0.27858 0.17709,-0.43015 0.059,-0.15157 0.1181,-0.29622 0.17711,-0.39989 0.059,-0.10379 0.11809,-0.16571 0.17708,-0.1748"
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <rect
+       style="fill:#e9e9e9;fill-opacity:1;stroke:#000000;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-0-12-0-6"
+       width="9.5999985"
+       height="6.3999977"
+       x="113.60001"
+       y="110.39997"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;stroke-width:0.264583"
+       x="116.88668"
+       y="114.5666"
+       id="text2498-4-3-8"><tspan
+         sodipodi:role="line"
+         id="tspan2496-6-9-3"
+         style="stroke-width:0.264583"
+         x="116.88668"
+         y="114.5666"><tspan
+           style="font-style:italic"
+           id="tspan2502-7-5-2">d</tspan><tspan
+           style="font-size:65%;baseline-shift:sub"
+           id="tspan2500-55-3-9">1</tspan></tspan></text>
+    <rect
+       style="fill:#f0f8ff;fill-opacity:1;stroke:#023eff;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-9-1-7"
+       width="14.399993"
+       height="6.3999977"
+       x="126.40003"
+       y="110.39997"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
+       x="127.2924"
+       y="114.65479"
+       id="text2506-7-1-3"><tspan
+         sodipodi:role="line"
+         id="tspan2504-5-2-4"
+         style="fill:#023eff;stroke-width:0.264583"
+         x="127.2924"
+         y="114.65479"><tspan
+   style="font-style:italic"
+   id="tspan11548">k</tspan>–HSQC</tspan></text>
+    <rect
+       style="fill:#fff1e7;fill-opacity:1;stroke:#ff7c00;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-1-3-6-8"
+       width="14.399996"
+       height="6.3999977"
+       x="145.60001"
+       y="105.59998"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#ff7c00;stroke-width:0.264583"
+       x="147.81879"
+       y="110.01531"
+       id="text2506-9-9-9-6"><tspan
+         sodipodi:role="line"
+         id="tspan2504-2-9-1-11"
+         style="fill:#ff7c00;stroke-width:0.264583"
+         x="147.81879"
+         y="110.01531">TOCSY</tspan></text>
+    <rect
+       style="fill:#ffefed;fill-opacity:1;stroke:#e8000b;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-1-3-6-4-5"
+       width="14.399996"
+       height="6.3999977"
+       x="145.59999"
+       y="115.2"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#e8000b;stroke-width:0.264583"
+       x="147.36723"
+       y="119.6153"
+       id="text2506-9-9-9-8-6"><tspan
+         sodipodi:role="line"
+         id="tspan2504-2-9-1-1-9"
+         style="fill:#e8000b;stroke-width:0.264583"
+         x="147.36723"
+         y="119.6153">NOESY</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.319999;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 103.91332,139.2 c 4.16,0 0.0155,-24.23374 3.2,-25.48746 -3.18456,-1.32701 0.93847,-25.48858 -3.2,-25.487617"
+       id="path44739-3-7-7-3-6-3-9-8"
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="/Users/yongrenjie/dphil/paper/abbs/figures/sequences.png"
+       inkscape:export-xdpi="1000.0667"
+       inkscape:export-ydpi="1000.0667" />
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;stroke-width:0.264583"
+       x="-139.20003"
+       y="64"
+       id="text4013-7-0"
+       transform="rotate(-90)"><tspan
+         sodipodi:role="line"
+         id="tspan4011-1-2"
+         style="font-size:4.23333px;stroke-width:0.264583"
+         x="-139.20003"
+         y="64">•••</tspan></text>
+    <path
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       style="fill:none;stroke:#000000;stroke-width:0.32;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       d="M 20.800004,123.20001 H 102.39999"
+       id="path10-22-2-8-2-9-9-8-3-2-7-2-2"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       style="fill:#ffffff;stroke:#023eff;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-7-2-9-0-4-7"
+       width="23.999998"
+       height="6.3999977"
+       x="36.799999"
+       y="119.99998"
+       ry="1.0239956" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-0-1-6-7-8-4-0"
+       width="9.5999985"
+       height="6.3999977"
+       x="24.000002"
+       y="120"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;stroke-width:0.264583"
+       x="27.28668"
+       y="124.3377"
+       id="text2498-5-8-6-5-1-3"><tspan
+         sodipodi:role="line"
+         id="tspan2496-5-9-8-3-9-9"
+         style="stroke-width:0.264583"
+         x="27.28668"
+         y="124.3377"><tspan
+           style="font-style:italic"
+           id="tspan2502-8-1-29-7-0-9">d</tspan><tspan
+           style="font-size:65%;baseline-shift:sub"
+           id="tspan2500-5-4-9-9-2-9">1</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
+       x="40.568932"
+       y="124.3377"
+       id="text2506-6-8-8-6-1-1"><tspan
+         sodipodi:role="line"
+         id="tspan2504-7-8-3-3-5-7"
+         style="fill:#023eff;stroke-width:0.264583"
+         x="40.568932"
+         y="124.3377">HSQC (Δ<tspan
+   style="font-style:italic"
+   id="tspan5430-7-1-4-2">t</tspan><tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan5424-1-5-9-3">1</tspan>)</tspan></text>
+    <rect
+       style="fill:#ffffff;stroke:#e8000b;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-1-1-3-2-8-0-6"
+       width="23.999998"
+       height="6.3999977"
+       x="68.799995"
+       y="119.99998"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#e8000b;stroke-width:0.264583"
+       x="71.693283"
+       y="124.3377"
+       id="text2506-9-6-1-6-0-2-5"><tspan
+         sodipodi:role="line"
+         id="tspan2504-2-1-1-1-9-0-5"
+         style="fill:#e8000b;stroke-width:0.264583"
+         x="71.693283"
+         y="124.3377">NOESY (Δ<tspan
+   style="font-style:italic;fill:#e8000b"
+   id="tspan5412-7-2-3-8">t</tspan><tspan
+   style="font-size:65%;baseline-shift:sub;fill:#e8000b"
+   id="tspan5420-6-4-8-1">1</tspan>)</tspan></text>
+    <path
+       inkscape:export-filename="/Users/yongrenjie/Desktop/a.png"
+       id="path3919-7-8-6-3-4-9-5-3-2-4"
+       title="cos(x)*exp(-x/15)"
+       d="m 61.279309,120.50055 c 0.05911,0.0486 0.118102,0.37272 0.1771,0.87059 0.05904,0.49776 0.118102,1.16397 0.177197,1.82337 0.05897,0.65941 0.118095,1.30589 0.177094,1.78589 0.05897,0.48002 0.118094,0.78917 0.177093,0.86917 0.05911,0.08 0.118095,-0.0695 0.177204,-0.39157 0.05897,-0.32208 0.118005,-0.8136 0.177087,-1.34106 0.05897,-0.52746 0.118094,-1.08605 0.1771,-1.53899 0.05897,-0.45293 0.118088,-0.79617 0.1771,-0.9576 0.05904,-0.16154 0.118095,-0.13995 0.177184,0.0426 0.05897,0.18258 0.117998,0.52428 0.177093,0.92856 0.05897,0.40429 0.118101,0.8673 0.177107,1.27268 0.05904,0.40549 0.118088,0.7496 0.177087,0.95564 0.05911,0.20602 0.118108,0.27233 0.177197,0.19573 0.05897,-0.0765 0.118101,-0.29492 0.177107,-0.58982 0.05897,-0.29491 0.118095,-0.66347 0.177087,-1.01065 0.05911,-0.34707 0.118094,-0.6696 0.1771,-0.8924 0.05904,-0.22291 0.118095,-0.34422 0.17719,-0.34422 0.05897,-1.1e-4 0.118088,0.12098 0.177094,0.32296 0.05897,0.20198 0.118115,0.48285 0.177093,0.76823 0.05904,0.28527 0.118094,0.57228 0.177197,0.79212 0.05897,0.21974 0.118005,0.37042 0.177086,0.42226 0.05897,0.0517 0.118109,0.004 0.177101,-0.12176 0.05904,-0.12614 0.118094,-0.32975 0.177107,-0.55486 0.05904,-0.2251 0.118095,-0.46959 0.177197,-0.67321 0.05897,-0.20352 0.117984,-0.36428 0.17708,-0.44768 0.05897,-0.0834 0.118101,-0.0888 0.177107,-0.022 0.05904,0.0668 0.118094,0.20493 0.177093,0.3748 0.05904,0.16986 0.118102,0.36987 0.177197,0.54938 0.05897,0.1794 0.118102,0.33655 0.177094,0.43595 0.05897,0.0994 0.118101,0.14006 0.177107,0.1177 0.05904,-0.0222 0.118095,-0.10729 0.17719,-0.22893 0.05897,-0.12165 0.117991,-0.27858 0.177087,-0.43015 0.05897,-0.15157 0.118101,-0.29622 0.177107,-0.39989 0.05897,-0.10379 0.118094,-0.16571 0.177087,-0.1748"
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       inkscape:export-filename="/Users/yongrenjie/Desktop/a.png"
+       id="path3919-7-8-6-3-7-4-0-0-3-1-7"
+       title="cos(x)*exp(-x/15)"
+       d="m 93.279309,120.50055 c 0.05911,0.0486 0.118102,0.37272 0.1771,0.87059 0.05904,0.49776 0.118102,1.16397 0.177197,1.82337 0.05897,0.65941 0.118095,1.30589 0.177094,1.78589 0.05897,0.48002 0.118094,0.78917 0.177093,0.86917 0.05911,0.08 0.118095,-0.0695 0.177204,-0.39157 0.05897,-0.32208 0.118005,-0.8136 0.177087,-1.34106 0.05897,-0.52746 0.118094,-1.08605 0.1771,-1.53899 0.05897,-0.45293 0.118088,-0.79617 0.1771,-0.9576 0.05904,-0.16154 0.118095,-0.13995 0.177184,0.0426 0.05897,0.18258 0.117998,0.52428 0.177093,0.92856 0.05897,0.40429 0.118101,0.8673 0.177107,1.27268 0.05904,0.40549 0.118088,0.7496 0.177087,0.95564 0.05911,0.20602 0.118108,0.27233 0.177197,0.19573 0.05897,-0.0765 0.118101,-0.29492 0.177107,-0.58982 0.05897,-0.29491 0.118095,-0.66347 0.177087,-1.01065 0.05911,-0.34707 0.118094,-0.6696 0.1771,-0.8924 0.05904,-0.22291 0.118095,-0.34422 0.17719,-0.34422 0.05897,-1.1e-4 0.118088,0.12098 0.177094,0.32296 0.05897,0.20198 0.118116,0.48285 0.177096,0.76823 0.059,0.28527 0.11809,0.57228 0.177193,0.79212 0.059,0.21974 0.11801,0.37042 0.17709,0.42226 0.059,0.0517 0.11811,0.004 0.1771,-0.12176 0.059,-0.12614 0.11809,-0.32975 0.17711,-0.55486 0.059,-0.2251 0.11809,-0.46959 0.17719,-0.67321 0.059,-0.20352 0.11799,-0.36428 0.17708,-0.44768 0.059,-0.0834 0.11811,-0.0888 0.17711,-0.022 0.059,0.0668 0.1181,0.20493 0.17709,0.3748 0.059,0.16986 0.11811,0.36987 0.1772,0.54938 0.059,0.1794 0.1181,0.33655 0.1771,0.43595 0.059,0.0994 0.1181,0.14006 0.1771,0.1177 0.059,-0.0222 0.1181,-0.10729 0.17719,-0.22893 0.059,-0.12165 0.11799,-0.27858 0.17709,-0.43015 0.059,-0.15157 0.1181,-0.29622 0.17711,-0.39989 0.059,-0.10379 0.11809,-0.16571 0.17708,-0.1748"
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#ff7c00;stroke-width:0.264583"
+       x="160.64"
+       y="112.64"
+       id="text1102"><tspan
+         sodipodi:role="line"
+         id="tspan1100"
+         style="fill:#ff7c00;stroke-width:0.264583"
+         x="160.64"
+         y="112.64">1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#e8000b;stroke-width:0.264583"
+       x="160.64"
+       y="122.24"
+       id="text1102-5"><tspan
+         sodipodi:role="line"
+         id="tspan1100-4"
+         style="fill:#e8000b;stroke-width:0.264583"
+         x="160.64"
+         y="122.24">2</tspan></text>
+  </g>
+</svg>

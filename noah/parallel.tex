@@ -1,4 +1,4 @@
-\section{Parallel NOAH supersequences}
+\section{Parallel and generalised NOAH supersequences}
 \label{sec:noah__parallel}
 
 To conclude this chapter, I discuss how \textit{multiple} NOAH supersequences may be run in parallel in order to obtain yet more data from a single experiment.
@@ -6,6 +6,8 @@ As of the time of writing, current software limitations in TopSpin limit the \te
 This makes it presently impossible to extend a supersequence linearly beyond five modules.
 However, it is possible to \textit{interleave} different supersequences, such that one $t_1$ increment of supersequence A is acquired, followed by one $t_1$ increment of supersequence B, before the value of $t_1$ is increased for both supersequences.
 In this text, I refer to this as a `vertical' stacking of modules (as opposed to the traditional NOAH concept, which focuses on `horizontal' concatenation of modules).
+
+\subsection{Parallel NOAH supersequences}
 
 \begin{figure}[!htbp]
     \centering
@@ -53,23 +55,179 @@ The main benefits of this process are, in my opinion:
         In this way, less intrinsically sensitive modules can be assigned a larger number of scans, such that all modules in the supersequence have (relatively) equalised intensities.
 \end{itemize}
 
-In principle, all of the above may still be accomplished by acquiring multiple separate supersequences and then combining the results appropriately.
+In principle, all of the above may still be accomplished in a roundabout manner by acquiring multiple separate supersequences and then combining the results.
+This is most obvious in \cref{fig:parallel_noah_overview_parallel}.
 However, the current implementation of parallel supersequences provides \textit{convenience} for the user, as all experiments may be simultaneously acquired and processed.
 This factor should not be overlooked, especially considering that all the different constructions (\cref{fig:parallel_noah_overview_interleaved,fig:parallel_noah_overview_kscaled,fig:parallel_noah_overview_parallel}) must be processed in a slightly different manner: it is easier to do this from within a single experiment, rather than attempting to combine FIDs from separate datasets after the fact.
+There is also another argument for acquiring increments in an interleaved manner: this helps to minimise drifts in the spectra which arise from temporal instabilities in (for example) temperature.
 
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[draft=false]{noah/tsnoah_example.png}%
+    {\phantomsubcaption\label{fig:tsnoah_example_overall}}%
+    {\phantomsubcaption\label{fig:tsnoah_example_b1}}%
+    {\phantomsubcaption\label{fig:tsnoah_example_b2}}%
+    {\phantomsubcaption\label{fig:tsnoah_example_sc1}}%
+    {\phantomsubcaption\label{fig:tsnoah_example_sc2}}%
+    {\phantomsubcaption\label{fig:tsnoah_example_s1}}%
+    {\phantomsubcaption\label{fig:tsnoah_example_s2}}%
+    {\phantomsubcaption\label{fig:tsnoah_example_cc}}%
+    {\phantomsubcaption\label{fig:tsnoah_example_t}}%
+    \caption[Spectra from a NOAH-8 `parallel' supersequence]{
+        \textbf{(\subref*{fig:tsnoah_example_overall})} Condensed representation of the supersequence, which may be interpreted in the same way as \cref{fig:parallel_noah_overview_parallel}.
+        \textbf{(\subref*{fig:tsnoah_example_b1})} HMBC, optimised for $\nJ{CH} = \qty{5}{\Hz}$.
+        \textbf{(\subref*{fig:tsnoah_example_b2})} HMBC, optimised for $\nJ{CH} = \qty{10}{\Hz}$.
+        \textbf{(\subref*{fig:tsnoah_example_sc1})} IP HSQC-CLIP-COSY.
+        \textbf{(\subref*{fig:tsnoah_example_sc2})} AP HSQC-CLIP-COSY.
+        \textbf{(\subref*{fig:tsnoah_example_s2})} IP multiplicity-edited seHSQC.
+        \textbf{(\subref*{fig:tsnoah_example_s2})} AP multiplicity-edited seHSQC.
+        \textbf{(\subref*{fig:tsnoah_example_cc})} CLIP-COSY.
+        \textbf{(\subref*{fig:tsnoah_example_t})} TOCSY (\qty{60}{\ms} mixing time).
+    }
+    \label{fig:tsnoah_example}
+\end{figure}
 
-\todo{TS vs IPAP argument}
+\Cref{fig:tsnoah_example_overall} shows one example of a more complex parallel supersequence containing 8 modules.
+In this supersequence, the HMBC module is recorded twice with the delay $\Delta_\text{LR}$ optimised for two different values of $\nJ{CH}$ (\cref{fig:tsnoah_example_b1,fig:tsnoah_example_b2}): these spectra furnish a (slightly) different set of correlations, which allow for more complete structure determination.
+The HSQC-CLIP-COSY is acquired in an IPAP fashion, where direct/indirect editing is used in one experiment (\cref{fig:tsnoah_example_sc2}) and not in the other (\cref{fig:tsnoah_example_sc1}).
+Likewise, the $F2$-coupled seHSQC experiment is also performed in an IPAP manner, where this time the `IPAP' components are the two peaks in each doublet.
+Multiplicity editing is additionally used here in both IP and AP seHSQC spectra.
+Finally, we have two interleaved homonuclear modules, the CLIP-COSY and TOCSY (\cref{fig:tsnoah_example_cc,fig:tsnoah_example_t}), which provide complementary information about spin networks.
+The four IPAP-processed spectra from this supersequence are shown in \cref{fig:tsnoah_ipap_spec}.
 
-\todo{one example}
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[draft=false]{noah/tsnoah_ipap_spec.png}%
+    {\phantomsubcaption\label{fig:tsnoah_ipap_spec_sc_direct}}%
+    {\phantomsubcaption\label{fig:tsnoah_ipap_spec_sc_indirect}}%
+    {\phantomsubcaption\label{fig:tsnoah_ipap_spec_s_alpha}}%
+    {\phantomsubcaption\label{fig:tsnoah_ipap_spec_s_beta}}%
+    \caption[IPAP processed spectra from NOAH-8 supersequence]{
+        \textbf{(\subref*{fig:tsnoah_ipap_spec_sc_direct})--(\subref*{fig:tsnoah_ipap_spec_sc_indirect})} IPAP-processed HSQC-COSY spectra (from \cref{fig:tsnoah_example_sc1,fig:tsnoah_example_sc2}), which separate the `direct' and `indirect' HSQC-COSY responses described in \cref{subsec:noah__hsqccosy}.
+        \textbf{(\subref*{fig:tsnoah_ipap_spec_s_alpha})--(\subref*{fig:tsnoah_ipap_spec_s_beta})} IPAP-processed seHSQC spectra (from \cref{fig:tsnoah_example_s1,fig:tsnoah_example_s2}), each of which contain one peak of each \proton{}--\carbon{} doublet.
+    }
+    \label{fig:tsnoah_ipap_spec}
+\end{figure}
+
+\subsubsection{Time-shared NMR}
+
+In my published work\autocite{Kupce2021JACSA}, what I refer to as IPAP here is frequently labelled as a TS, or \textit{time-shared} experiment.
+In TS NMR, pulse sequences are specially designed in order to record two (or more) different signals at once, such as a \carbon{} HSQC and a \nitrogen{} HSQC: this has found use in both biomolecular\autocite{Farmer1991JMR,Boelens1994JBNMR,Pascal1994JMRSB,Sattler1995JBNMR,Frueh2009JBNMR,Lohr2014JMR} and small-molecule NMR\autocite{Nolis2006MRC,PerezTrujillo2007OL,Nolis2007ACIE,Parella2010CMR}.
+Often, the design of TS experiments involves the joint evolution of both heteronuclear chemical shifts in a shared $t_1$ period: hence the term `time-shared'.
+
+It should be noted that TS experiments use \textit{simultaneous} acquisition, as opposed to the \textit{sequential} acquisition of NOAH experiments.
+In other words, the two or more signals recorded in a TS experiment are part of the same FID, meaning that the resulting spectra will contain peaks from both signals.
+If these can be easily disambiguated (e.g.\ by the differing chemical shifts of \carbon{}- or \nitrogen{}-bonded protons), then the TS experiment allows more data to be collected in the same amount of time as a non-TS experiment.
+However, if these signals must be separated, then the TS experiment must be repeated: once where the two signals have the same phase, and once where they have opposite phases.
+The underlying signals can then be disentangled through linear combination.\autocite{Sorensen1990JMR,Farmer1991JMR}
+
+Mathematically, this is exactly the same process as IPAP processing.
+In my view, what separates the two is the fact that the IPAP technique seeks to disentangle components which are \textit{innate} to the pulse sequence under consideration and cannot usually be isolated---such as doublets in a $F_2$-coupled HSQC---whereas TS experiments must be \textit{specially crafted} to record these multiple components.
+Equivalently, the time savings (or sensitivity improvement) from a TS experiment stem from the fact that it is being compared against a pair of experiments which each yield only one of the two signals detected in the TS sequence.
+
+In this case, the IPAP label clearly applies to the pair of $F_2$-coupled seHSQC modules in \cref{fig:tsnoah_example_s1,fig:tsnoah_example_s2}.
+However, for the HSQC-COSY modules in \cref{fig:tsnoah_example_sc1,fig:tsnoah_example_sc2}, the situation is less clear.
+The two `signals' which we should consider are the `direct' and `indirect' peaks; however, it is not entirely obvious which experiments can be used for these.
+The `direct' peaks correspond to a (\carbon{}-decoupled) HSQC experiment.%
+\footnote{It should be noted that the intensities of the direct peaks in an HSQC-COSY spectrum are lower than in the corresponding HSQC spectrum, because the direct peaks in an HSQC-COSY stem only from magnetisation which does \textit{not} evolve under $\nJ{HH}$ during the mixing period. However, TS experiments do generally have lower sensitivity than the non-TS counterparts, so this is not really an issue.}
+However, for the `indirect' peaks, there is no real equivalent spectrum to be compared against: the H2BC experiment\autocite{Nyberg2005JACS,Nyberg2005MRC} yields a similar set of peaks, but in this experiment, the `direct' peaks have in fact been intentionally suppressed through the application of a LPJF.
+When the LPJF is removed (as in the 2BOB/H2OBC experiments\autocite{Kupce2017MRC}), a similar information content to the HSQC-COSY is obtained.
+So, it is not entirely accurate to write that the HSQC-COSY combines a HSQC plus H2BC spectrum.
+Consequently, I personally prefer to view it as an IPAP experiment.
+
+Of course, the analysis above is only applicable to the modules shown in \cref{fig:tsnoah_example}.
+None of this precludes the application of \textit{true} time-shared experiments to NOAH supersequences: it is completely possible to implement, for example, a \carbon{}/\nitrogen{} TS experiment within the context of a parallel supersequence.
+However, many TS experiments are already designed to detect signals arising from different magnetisation pools (e.g.\ \magn{C} and \magn{N}).
+This is already something which can be accomplished in a cleaner manner using (linear) NOAH supersequences.
 
 
 \subsection{Generalised supersequences}
 
-\todo{Explain how these differ from parallel---different number of `threads' per module}
+From the discussion above, it is evident that there is no need to stop at \textit{two} interleaved modules: it is possible to endlessly stack modules in a vertical manner.
+Furthermore, different modules may be acquired a different number of times.
+Thus, in \cref{fig:parallel_noah_overview_interleaved}, two supersequences were interleaved, and the TOCSY and NOESY modules were acquired once each in each $t_1$ increment.
+However, if $M$ different supersequences are being interleaved, then a set of two different modules may be acquired $m_1$ and $m_2$ times, as long as $m_1 + m_2 = M$.
+For example, a supersequence with $m_1 = 1$ and $m_2 = 3$ is shown in \cref{fig:generalised_example}.
+Generally, it is desirable to assign larger $m_i$ values to less sensitive modules, as the results can be summed up to yield improved signal-to-noise.
 
-\todo{Balance sensitivities of modules}
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[draft=false]{noah/generalised_example.png}%
+    \caption[A basic example of a generalised supersequence]{
+        A basic example of a `generalised' NOAH supersequence, where an arbitrary number of supersequences (here three) can be vertically `stacked'.
+        For each value of $t_1$, the TOCSY is acquired once, the NOESY twice, and the HSQC three times, as indicated by the subscripts in the condensed representation on the right.
+    }
+    \label{fig:generalised_example}
+\end{figure}
 
-\todo{Pulse sequence implementation}
+\subsubsection{Pulse sequence implementation}
+
+Unfortunately, GENESIS is not (at present) advanced enough to create pulse programmes generalised supersequences.
+Thus, the pulse programmes for this section have been written by hand.
+The overall structure of such a pulse programme is shown in \cref{lst:generalised_pp}.
+The parameter \texttt{CNST51} corresponds to the number of supersequences being interleaved, i.e., $M$ in the discussion above.
+The values of $m_1$ and $m_2$ are encoded as \texttt{CNST52} and \texttt{CNST53}; the latter of these can be automatically calculated.
+
+\begin{mylisting}[!htbp] % lst:generalised_pp {{{1
+\begin{tcbminted}{bruker}
+"l0     = td1/2"             ; TD1/NBL
+"cnst53 = cnst51 - cnst52"   ; automatically calculate m_2
+
+1 ze
+2 30m
+4 50u UNBLKGRAD
+
+  d1 st0
+
+  ; HSQC goes here
+  ; ...
+  goscnp ph30
+
+  ; check which module to run
+  if "l3 % cnst51 < cnst52"
+{
+  ; TOCSY goes here
+  ; ...
+  go=2 ph31
+}
+  else
+{
+  ; NOESY goes here
+  ; ...
+  go=2 ph31
+}
+
+  ; move to next 'row' in diagram
+  1m iu3
+  30m wr #0 if #0 zd
+
+  ; check if M 'rows' have passed
+  if "l3 % cnst51 == 0"
+{
+  1m iu1
+  1m igrad EA
+}
+
+  lo to 4 times l0
+\end{tcbminted}
+    \caption[Structure of pulse programme for generalised supersequences]{
+        The overall structure of the pulse programme for the generalised supersequence in \cref{fig:generalised_example}.
+    }
+    \label{lst:generalised_pp}
+\end{mylisting} % }}}1
+
+This structure provides a clear blueprint for how GENESIS can be adapted to produce generalised supersequences.
+The values of the parameters $M$ and $m_i$ are to be chosen by the user; the only thing which GENESIS needs to detect is how many modules are being interleaved, which determines the number of $m_i$'s.
+It should be noted that the `parallel' supersequence of \cref{fig:parallel_noah_overview_kscaled} can be obtained by setting $M = 2$ and $m_1 = m_2 = 1$, and standard linear supersequences simply have $M = m_1 = 1$.
+Thus, if generalised supersequences were to be implemented in GENESIS, all other types of supersequences can be obtained `for free'.
+
+A small technical detail in \cref{lst:generalised_pp} is that each \texttt{go=2} statement loops back to the label \texttt{2}, such that the experiment is repeated \texttt{NS} times.
+This means that in the left side of \cref{fig:generalised_example}, each row is already acquired a total of \texttt{NS} times, in addition to any repetition which is explicitly shown.
+Thus, after summation of the explicitly repeated increments, the HSQC will in fact end up with a total of \texttt{3*NS} scans.
+However, the \textit{phase cycle} is only moved forward within the \texttt{NS} loop; each time \texttt{NS} repetitions are completed, the phase cycle is reset to the beginning.
+This means that even though each FID in the HSQC is acquired \texttt{3*NS} times, only an \texttt{NS}-step phase cycle is used.
+Thus, in order to obtain spectra of the highest possible quality, any common divisors of $M$ and the $m_i$'s should be factorised out and placed into \texttt{NS} instead.
+
 
 \todo{Examples of such supersequences -- ADEQUATE/NHMBC stuff}
 

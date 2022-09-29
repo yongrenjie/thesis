@@ -1,32 +1,39 @@
-let shortDescription = `; 13C HSQC`
+"l0     = td1/2"             ; TD1/NBL
+"cnst53 = cnst51 - cnst52"   ; automatically calculate m_2
 
-let preamble = `
-"d4      = 0.25s/cnst2"                ; 13C INEPT
-; ...
-"D[ID]a  = d4-p14/2"    // [ID] is later replaced with the module code
-`
+1 ze
+2 30m
+4 50u UNBLKGRAD
 
-let pulprog = `
-  ; 13C-1H HSQC
+  d1 st0
 
-  ; INEPT
-  (p1 ph0):f1
+  ; HSQC goes here
   ; ...
-  goscnp ph30 cpd2:f2
-  50u do:f2
-`
+  goscnp ph30
 
-const mod = new NOAHModule(
-    "C_HSQC",           // internal module code
-    "c13",              // module category
-    "S",                // single-letter code, Table 4.1
-    [],                 // relevant citations (if any)
-    "noah_hsqc",        // AU programme for processing
-    shortDescription,   // short description
-    [AF_EDIT],          // available acquisition flags
-    preamble,           // preamble text
-    pulprog,            // pulse programme text
-    1,                  // number of FIDs
-    false               // flag for 'parallel' modules
-);
-export default mod;
+  ; check which module to run
+  if "l3 % cnst51 < cnst52"
+{
+  ; TOCSY goes here
+  ; ...
+  go=2 ph31
+}
+  else
+{
+  ; NOESY goes here
+  ; ...
+  go=2 ph31
+}
+
+  ; move to next 'row' in diagram
+  1m iu3
+  30m wr #0 if #0 zd
+
+  ; check if M 'rows' have passed
+  if "l3 % cnst51 == 0"
+{
+  1m iu1
+  1m igrad EA
+}
+
+  lo to 4 times l0

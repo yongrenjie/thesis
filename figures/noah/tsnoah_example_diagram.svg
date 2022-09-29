@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="179mm"
+   height="200mm"
+   viewBox="0 0 179 200"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)"
+   sodipodi:docname="tsnoah_example_diagram.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="true"
+     inkscape:zoom="2.3171188"
+     inkscape:cx="312.67279"
+     inkscape:cy="118.68187"
+     inkscape:window-width="1640"
+     inkscape:window-height="827"
+     inkscape:window-x="1682"
+     inkscape:window-y="197"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid1049"
+       units="mm"
+       spacingx="0.32"
+       spacingy="0.32"
+       originx="0"
+       originy="0" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <inkscape:path-effect
+       effect="mirror_symmetry"
+       start_point="48.947914,82.020831"
+       end_point="48.947914,87.312499"
+       center_point="48.947914,84.666665"
+       id="path-effect4739-9"
+       is_visible="true"
+       lpeversion="1.1"
+       mode="free"
+       discard_orig_path="false"
+       fuse_paths="false"
+       oposite_fuse="false"
+       split_items="false"
+       split_open="false"
+       lpesatellites=""
+       link_styles="false" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.32;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-dasharray:none"
+       d="M 22.4,12.8 H 36.799998 L 38.4,7.9999998 H 139.2 L 140.8,12.8 h 3.2 -3.2 l -1.6,4.8 H 38.4 l -1.600002,-4.8"
+       id="path722" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52778px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;stroke-width:0.264583"
+       x="17.6"
+       y="8"
+       id="text38541-7"><tspan
+         sodipodi:role="line"
+         id="tspan38539-9"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:3.52778px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans Semi-Bold';stroke-width:0.264583"
+         x="17.6"
+         y="8">(a)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;stroke-width:0.264583"
+       x="24"
+       y="67.199997"
+       id="text2472"><tspan
+         sodipodi:role="line"
+         id="tspan2470"
+         style="stroke-width:0.264583"
+         x="24"
+         y="67.199997" /></text>
+    <rect
+       style="fill:#e9e9e9;fill-opacity:1;stroke:#000000;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-0-12-0-6-3"
+       width="9.5999985"
+       height="6.3999977"
+       x="25.6"
+       y="9.6000004"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;stroke-width:0.264583"
+       x="28.886713"
+       y="13.766626"
+       id="text2498-4-3-8-1"><tspan
+         sodipodi:role="line"
+         id="tspan2496-6-9-3-1"
+         style="stroke-width:0.264583"
+         x="28.886713"
+         y="13.766626"><tspan
+           style="font-style:italic"
+           id="tspan2502-7-5-2-5">d</tspan><tspan
+           style="font-size:65%;baseline-shift:sub"
+           id="tspan2500-55-3-9-3">1</tspan></tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-9-1-7-9"
+       width="23.999989"
+       height="6.3999977"
+       x="40.000011"
+       y="4.8000121"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52778px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+       x="42.298626"
+       y="9.2347336"
+       id="text2506-7-1-3-6"><tspan
+         sodipodi:role="line"
+         id="tspan2504-5-2-4-3"
+         style="font-size:3.52778px;fill:#000000;stroke-width:0.264583"
+         x="42.298626"
+         y="9.2347336">HMBC (5 Hz)</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.319999;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-9-1-7-9-4"
+       width="25.600004"
+       height="6.3999977"
+       x="67.199997"
+       y="4.8000002"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52778px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+       x="68.719948"
+       y="9.2347336"
+       id="text2506-7-1-3-6-7"><tspan
+         sodipodi:role="line"
+         id="tspan2504-5-2-4-3-1"
+         style="font-size:3.52778px;fill:#000000;stroke-width:0.264583"
+         x="68.719948"
+         y="9.2347336">IP HSQC-COSY</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-9-1-7-9-6-3"
+       width="25.600002"
+       height="6.3999977"
+       x="67.199989"
+       y="14.399988"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52778px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+       x="68.395386"
+       y="18.834723"
+       id="text2506-7-1-3-6-2-8"><tspan
+         sodipodi:role="line"
+         id="tspan2504-5-2-4-3-7-4"
+         style="font-size:3.52778px;fill:#000000;stroke-width:0.264583"
+         x="68.395386"
+         y="18.834723">AP HSQC-COSY</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-9-1-7-9-4-7"
+       width="19.199995"
+       height="6.3999977"
+       x="96"
+       y="4.8000002"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52778px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+       x="97.288567"
+       y="9.2347336"
+       id="text2506-7-1-3-6-7-4"><tspan
+         sodipodi:role="line"
+         id="tspan2504-5-2-4-3-1-8"
+         style="font-size:3.52778px;fill:#000000;stroke-width:0.264583"
+         x="97.288567"
+         y="9.2347336">IP seHSQC</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-9-1-7-9-6-3-5"
+       width="19.199999"
+       height="6.3999977"
+       x="95.999992"
+       y="14.399989"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52778px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+       x="96.963989"
+       y="18.834723"
+       id="text2506-7-1-3-6-2-8-8"><tspan
+         sodipodi:role="line"
+         id="tspan2504-5-2-4-3-7-4-3"
+         style="font-size:3.52778px;fill:#000000;stroke-width:0.264583"
+         x="96.963989"
+         y="18.834723">AP seHSQC</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-9-1-7-9-4-7-7"
+       width="19.199995"
+       height="6.3999977"
+       x="118.4"
+       y="4.8000002"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52778px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+       x="119.72913"
+       y="9.2347336"
+       id="text2506-7-1-3-6-7-4-6"><tspan
+         sodipodi:role="line"
+         id="tspan2504-5-2-4-3-1-8-0"
+         style="font-size:3.52778px;fill:#000000;stroke-width:0.264583"
+         x="119.72913"
+         y="9.2347336">CLIP-COSY</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-9-1-7-9-6-3-5-0"
+       width="19.199999"
+       height="6.3999977"
+       x="118.4"
+       y="14.399989"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52778px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+       x="123.01878"
+       y="18.834723"
+       id="text2506-7-1-3-6-2-8-8-9"><tspan
+         sodipodi:role="line"
+         id="tspan2504-5-2-4-3-7-4-3-5"
+         style="font-size:3.52778px;fill:#000000;stroke-width:0.264583"
+         x="123.01878"
+         y="18.834723">TOCSY</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-9-1-7-9-5"
+       width="23.999989"
+       height="6.3999977"
+       x="40"
+       y="14.4"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52778px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+       x="41.434311"
+       y="18.834723"
+       id="text2506-7-1-3-6-5"><tspan
+         sodipodi:role="line"
+         id="tspan2504-5-2-4-3-8"
+         style="font-size:3.52778px;fill:#000000;stroke-width:0.264583"
+         x="41.434311"
+         y="18.834723">HMBC (10 Hz)</tspan></text>
+  </g>
+</svg>

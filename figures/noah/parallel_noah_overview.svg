@@ -25,12 +25,12 @@
      inkscape:document-units="mm"
      showgrid="true"
      inkscape:zoom="1.5311419"
-     inkscape:cx="341.24858"
+     inkscape:cx="340.92203"
      inkscape:cy="401.66101"
      inkscape:window-width="1640"
-     inkscape:window-height="883"
+     inkscape:window-height="855"
      inkscape:window-x="1670"
-     inkscape:window-y="109"
+     inkscape:window-y="81"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1">
     <inkscape:grid
@@ -2028,6 +2028,6 @@
          id="tspan14397"
          style="font-style:italic;font-size:3.175px;fill:#8c8c8c;stroke-width:0.264583"
          x="128"
-         y="160.58844">vertical concatenation</tspan></text>
+         y="160.58844">vertical stacking</tspan></text>
   </g>
 </svg>
