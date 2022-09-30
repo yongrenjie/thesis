@@ -8,6 +8,7 @@ However, it is possible to \textit{interleave} different supersequences, such th
 In this text, I refer to this as a `vertical' stacking of modules (as opposed to the traditional NOAH concept, which focuses on `horizontal' concatenation of modules).
 
 \subsection{Parallel NOAH supersequences}
+\label{sec:noah__parallel_parallel}
 
 \begin{figure}[!htbp]
     \centering
@@ -141,7 +142,9 @@ However, many TS experiments are already designed to detect signals arising from
 This is already something which can be accomplished in a cleaner manner using (linear) NOAH supersequences.
 
 
+
 \subsection{Generalised supersequences}
+\label{sec:noah__parallel_generalised}
 
 From the discussion above, it is evident that there is no need to stop at \textit{two} interleaved modules: it is possible to endlessly stack modules in a vertical manner.
 Furthermore, different modules may be acquired a different number of times.
@@ -171,17 +174,18 @@ The values of $m_1$ and $m_2$ are encoded as \texttt{CNST52} and \texttt{CNST53}
 \begin{mylisting}[!htbp] % lst:generalised_pp {{{1
 \begin{tcbminted}{bruker}
 "l0     = td1/2"             ; TD1/NBL
-"cnst53 = cnst51 - cnst52"   ; automatically calculate m_2
+"cnst53 = cnst51 - cnst52"   ; automatically calculate m_2 = M - m_1
+; ...
 
 1 ze
 2 30m
 4 50u UNBLKGRAD
-
   d1 st0
 
   ; HSQC goes here
   ; ...
-  goscnp ph30
+  goscnp ph30 cpd2:f2
+  50u do:f2
 
   ; check which module to run
   if "l3 % cnst51 < cnst52"
@@ -205,10 +209,12 @@ The values of $m_1$ and $m_2$ are encoded as \texttt{CNST52} and \texttt{CNST53}
   if "l3 % cnst51 == 0"
 {
   1m iu1
-  1m igrad EA
+  1m igrad EA   ; HSQC echo-antiecho gradients
+  ; ...
 }
 
   lo to 4 times l0
+end
 \end{tcbminted}
     \caption[Structure of pulse programme for generalised supersequences]{
         The overall structure of the pulse programme for the generalised supersequence in \cref{fig:generalised_example}.
@@ -217,7 +223,7 @@ The values of $m_1$ and $m_2$ are encoded as \texttt{CNST52} and \texttt{CNST53}
 \end{mylisting} % }}}1
 
 This structure provides a clear blueprint for how GENESIS can be adapted to produce generalised supersequences.
-The values of the parameters $M$ and $m_i$ are to be chosen by the user; the only thing which GENESIS needs to detect is how many modules are being interleaved, which determines the number of $m_i$'s.
+The only thing which GENESIS needs to detect is how many modules are being interleaved, which determines the number of $m_i$'s.
 It should be noted that the `parallel' supersequence of \cref{fig:parallel_noah_overview_kscaled} can be obtained by setting $M = 2$ and $m_1 = m_2 = 1$, and standard linear supersequences simply have $M = m_1 = 1$.
 Thus, if generalised supersequences were to be implemented in GENESIS, all other types of supersequences can be obtained `for free'.
 
@@ -229,6 +235,137 @@ This means that even though each FID in the HSQC is acquired \texttt{3*NS} times
 Thus, in order to obtain spectra of the highest possible quality, any common divisors of $M$ and the $m_i$'s should be factorised out and placed into \texttt{NS} instead.
 
 
-\todo{Examples of such supersequences -- ADEQUATE/NHMBC stuff}
+\subsubsection{Examples}
 
-\todo{Covariance stuff in recent paper draft}
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[draft=false]{noah/abbs_pp.png}%
+    {\phantomsubcaption\label{fig:abbs_pp_abbs}}%
+    {\phantomsubcaption\label{fig:abbs_pp_abbss}}%
+    \caption[Examples of generalised supersequences]{
+        Two examples of generalised NOAH supersequences.
+        \textbf{(\subref*{fig:abbs_pp_abbs})} A \noah{A,Bn,B,S} supersequence.
+        \textbf{(\subref*{fig:abbs_pp_abbss})} A \noah{A,Bn,B,S,Spn} supersequence.
+    }
+    \label{fig:abbs_pp}
+\end{figure}
+
+Since generalised supersequences allow the effective number of scans to be individually customised for each module, they offer an avenue for modules with (very) different intrinsic sensitivities to be combined.
+On the very-low-sensitivity end are spectra such as ADEQUATE and \nitrogen{} HMBC; compared to these, the HSQC experiments may be considered high-sensitivity.
+It should be reiterated that the time savings to be obtained through this combination ($\rho_t$) are still on the order of 2, because only two modules are being horizontally concatenated at a time.
+
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[draft=false]{noah/abbs_spec.png}%
+    {\phantomsubcaption\label{fig:abbs_spec_a}}%
+    {\phantomsubcaption\label{fig:abbs_spec_bn}}%
+    {\phantomsubcaption\label{fig:abbs_spec_b}}%
+    {\phantomsubcaption\label{fig:abbs_spec_s}}%
+    \caption[Spectra from \noah{A,Bn,B,S} generalised supersequence]{
+        Spectra from the \noah{A,Bn,B,S} generalised supersequence (\cref{fig:abbs_pp_abbs}).
+        \textbf{(\subref*{fig:abbs_spec_a})} ADEQUATE.
+        \textbf{(\subref*{fig:abbs_spec_bn})} \nitrogen{} HMBC, optimised for an $\nJ{NH}$ value of \qty{8}{\Hz}.
+        \textbf{(\subref*{fig:abbs_spec_b})} \carbon{} HMBC, optimised for an $\nJ{CH}$ value of \qty{8}{\Hz}.
+        \textbf{(\subref*{fig:abbs_spec_s})} \carbon{} HSQC.
+        \datacode{7X-220604}
+    }
+    \label{fig:abbs_spec}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[draft=false]{noah/abbss_spec.png}%
+    {\phantomsubcaption\label{fig:abbss_spec_a}}%
+    {\phantomsubcaption\label{fig:abbss_spec_bn}}%
+    {\phantomsubcaption\label{fig:abbss_spec_b}}%
+    {\phantomsubcaption\label{fig:abbss_spec_s}}%
+    {\phantomsubcaption\label{fig:abbss_spec_sn}}%
+    \caption[Spectra from \noah{A,Bn,B,S,Spn} generalised supersequence]{
+        Spectra from the \noah{A,Bn,B,S,Spn} generalised supersequence (\cref{fig:abbs_pp_abbss}).
+        \textbf{(\subref*{fig:abbss_spec_a})} ADEQUATE.
+        \textbf{(\subref*{fig:abbss_spec_bn})} \nitrogen{} HMBC, optimised for an $\nJ{NH}$ value of \qty{4}{\Hz}.
+        \textbf{(\subref*{fig:abbss_spec_b})} \carbon{} HMBC, optimised for an $\nJ{CH}$ value of \qty{8}{\Hz}.
+        \textbf{(\subref*{fig:abbss_spec_sn})} \nitrogen{} seHSQC.
+        \textbf{(\subref*{fig:abbss_spec_s})} \carbon{} HSQC.
+        \datacode{7C-220722}
+    }
+    \label{fig:abbss_spec}
+\end{figure}
+
+\Cref{fig:abbs_pp} shows some examples of such experiments, where the relative numbers of scans are chosen with the aim of balancing the sensitivities of each module.
+The ADEQUATE module used here is the ZIP-ADEQUATE experiment shown in \cref{fig:adequate_noah}; this consumes \magn{C} magnetisation and preserves the \magnnot{C} magnetisation required by the \nitrogen{} HMBC, \carbon{} HMBC, and \nitrogen{} seHSQC.
+However, the \carbon{} HSQC module draws on the same magnetisation pool; therefore, in order to maximise the intensities in this experiment, a period of isotropic mixing is applied only before the HSQC module in order to effect polarisation transfer from \magnnot{C} spins.
+The spectra thus obtained are shown in \cref{fig:abbs_spec,fig:abbss_spec}.
+
+Another additional implementation detail, related to the earlier point about phase cycling, is that on each repetition of the ADEQUATE/\nitrogen{} HMBC increments, the \nitrogen{} HMBC signal (specifically, the first \nitrogen{} \ang{90} pulse) and receiver phases are additionally inverted.
+This can be accomplished by adding the corresponding extra phase incrementation instructions just underneath the \texttt{1m iu3} line in \cref{lst:generalised_pp}, and can be thought of as a form of `manual' phase cycling, which is independent of (and complementary to) the usual phase cycle specified in the pulse programme.
+The reason for doing this is to suppress artefacts which appear at $F_1 \approx 0$ in the \nitrogen{} HMBC, which stem from the ADEQUATE module (when the \nitrogen{} HMBC is run on its own, these artefacts do not appear).
+The exact origin of these artefacts is still unclear,%
+\footnote{Their frequencies in $F_1$ are not exactly zero, so there is \textit{some} kind of modulation in the $t_1$ period of the ADEQUATE module, but it is not entirely clear where this is happening. My current best guess is that the offending magnetisation evolves during the constant-time period of the ADEQUATE, where the double-quantum frequencies are reconverted into single-quantum frequencies.}
+but their phase is constant; thus, inverting the \nitrogen{} HMBC receiver phase leads to their cancellation.
+It should be noted that the issue of phase cycling is not unique to generalised supersequences: indeed, such phase cycling would also be necessary in a standard linear \noah{A,Bn} supersequence.
+However, because the degree of built-in phase cycling in a generalised supersequence is lower than the actual number of transients recorded for each module, some of it must be explicitly specified in this way.
+
+
+\subsubsection{Covariance analysis}
+
+The generalised supersequences shown in \cref{fig:abbs_pp,fig:abbs_spec,fig:abbss_spec} yield very thorough information about heteronuclear connectivity, including one-bond and long-range \proton{}--\carbon{} and \proton{}--\nitrogen{} couplings.
+These spectra can be used as inputs for indirect covariance processing\autocite{Zhang2004JACS,Snyder2009JPCA,Jaeger2014ARNMRS} in order to yield `unnatural' (but very informative) double heteronuclear correlation spectra, in which each peak represents a correlation between two dilute heteronuclei (\carbon{} or \nitrogen{}).
+Directly recording such spectra through an NMR experiment would require substantially more time, because of the extremely low probability of finding two heteronuclei in the same isotopologue.
+
+Some possible covariance spectra obtained from the data in \cref{fig:abbs_spec,fig:abbss_spec} are shown in \cref{fig:covariance_spec}.
+All covariance calculations were performed in Python, according to the formulae:
+\begin{equation}
+    \label{eq:covariance_unsymmetrical}
+    \symbf{C} = \symbf{S}_1\symbf{S}_2^T
+\end{equation}
+for unsymmetrical indirect covariance (where $\symbf{S}_1$ and $\symbf{S}_2$ are the input spectra and $\symbf{C}$ the covariance spectrum), or
+\begin{equation}
+    \label{eq:covariance_generalised}
+    \symbf{M} = \left[\begin{pmatrix}\symbf{S}_1 \\ \symbf{S}_2\end{pmatrix}
+    \begin{pmatrix}\symbf{S}_1 & \symbf{S}_2 \end{pmatrix}\right]^\lambda
+\end{equation}
+for generalised indirect covariance; the covariance spectrum $\symbf{C}$ can then be obtained as an off-diagonal block of the matrix $\symbf{M}$.
+$\lambda$ is a parameter which is chosen in order to balance peak intensity and artefact intensity\autocite{Snyder2009JPCA}.
+
+In \cref{fig:covariance_spec_bruc_cn}, the brucine \nitrogen{} HMBC and \carbon{} HSQC spectra  (\cref{fig:abbs_spec_bn,fig:abbs_spec_s}) are processed using unsymmetrical indirect covariance to yield a \carbon{}--\nitrogen{} correlation spectrum which contains both one- and long-range correlations.\autocite{Martin2007JHC,Martin2007MRC}
+The sign of the peaks indicates the multiplicity of the \carbon{} involved, and stems from the use of multiplicity editing in the \carbon{} HSQC spectrum.
+Unfortunately, one of the weaknesses of covariance spectra is on show here: there are several artefacts in this spectrum (marked by asterisks), caused by overlap in the \proton{} dimension of both input spectra.
+
+The other three spectra (\cref{fig:covariance_spec_cyclo_caco,fig:covariance_spec_cyclo_cacb_nosymm,fig:covariance_spec_cyclo_cacb_symm}) combine the cyclosporin \carbon{} HSQC and ADEQUATE modules (\cref{fig:abbss_spec_a,fig:abbss_spec_s}) to generate a \carbon{}--\carbon{} one-bond correlation spectrum: essentially, an INADEQUATE spectrum (but with single-quantum frequencies in both dimensions)\autocite{Martin2011MRC,Martin2011MRC2}.
+This should in principle be symmetric about the main diagonal.
+However, since the HSQC only detects protonated carbons, and the ADEQUATE input spectrum only detects correlations involving at least one protonated carbon.
+Thus, correlations between two quaternary carbons do not appear, and correlations between protonated and quaternary carbons only appear once in the spectrum (instead of twice).
+This does not a problem in the case of cyclosporin, though, as the only quaternary carbons are those of the carbonyl (\ch{CO}) group, which will still display correlations to the adjacent \ch{C}$\alpha$ carbons.
+
+These \ch{C}$\alpha$--\ch{CO} correlations are shown in \cref{fig:covariance_spec_cyclo_caco}.
+There are 11 peaks here, one for each amino acid residue in cyclosporin: again, the sign indicates the \ch{C}$\alpha$ multiplicity (all are \ch{CH} except for the \textit{N}-methylglycine \ch{CH2}).
+In \cref{fig:covariance_spec_cyclo_cacb_nosymm,fig:covariance_spec_cyclo_cacb_symm}, the \ch{C}$\alpha$--\ch{C}$\beta$ correlations are shown.
+This part of the spectrum has been further subjected to a sign-preserving symmetrisation procedure, where the intensity at each point $p(\Omega_1, \Omega_2)$ is replaced by
+\begin{equation}
+    \label{eq:covariance_symmetrisation}
+    p(\Omega_1, \Omega_2) = \sgn[p(\Omega_1, \Omega_2)] \cdot \min\left\{|p(\Omega_1, \Omega_2)|, |p(\Omega_2, \Omega_1)|\right\}.
+\end{equation}
+Here, $\sgn{x}$ refers to the sign of $x$, or equivalently $x / |x|$ (for $x \neq 0$).
+Since all \ch{C}$\alpha$ and \ch{C}$\beta$ carbons in cyclosporin are protonated, the spectrum is expected to be symmetric; this symmetrisation process therefore helps to remove some of the artefacts which tend to plague the interpretation of covariance spectra.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[draft=false]{noah/covariance.png}%
+    {\phantomsubcaption\label{fig:covariance_spec_bruc_cn}}%
+    {\phantomsubcaption\label{fig:covariance_spec_cyclo_caco}}%
+    {\phantomsubcaption\label{fig:covariance_spec_cyclo_cacb_nosymm}}%
+    {\phantomsubcaption\label{fig:covariance_spec_cyclo_cacb_symm}}%
+    \caption[Examples of covariance spectra obtained from generalised NOAH supersequences]{
+        Examples of covariance spectra obtained from generalised NOAH supersequences.
+        \textbf{(\subref*{fig:covariance_spec_bruc_cn})} \carbon{}--\nitrogen{} correlation spectrum for brucine.
+        Asterisks indicate artefacts arising from peak overlap.
+        \textbf{(\subref*{fig:covariance_spec_cyclo_caco})} Inset of the \carbon{}--\carbon{} one-bond correlation spectrum for cyclosporin, obtained by processing the ADEQUATE and \carbon{} HSQC spectra in \cref{fig:abbss_spec_a,fig:abbss_spec_s} using generalised indirect covariance ($\lambda = 0.5$).
+        The region shown here contains correlations between \ch{CO} and \ch{C}$\alpha$ carbons.
+        \textbf{(\subref*{fig:covariance_spec_cyclo_cacb_nosymm})--(\subref*{fig:covariance_spec_cyclo_cacb_symm})} A different inset from the same \carbon{}--\carbon{} correlation spectrum as in (\subref*{fig:covariance_spec_cyclo_caco}), but this time showing correlations in the alkyl region.
+        The spectrum in (\subref*{fig:covariance_spec_cyclo_cacb_symm}) has been further subject to a sign-preserving symmetrisation process.
+        The \ch{CO}--\ch{C}$\alpha$ and \ch{C}$\alpha$--\ch{C}$\beta$ correlations for all residues are labelled in (\subref*{fig:covariance_spec_cyclo_caco}) and (\subref*{fig:covariance_spec_cyclo_cacb_symm}) (following the numbering in \todo{REF}).
+    }
+    \label{fig:covariance_spec}
+\end{figure}

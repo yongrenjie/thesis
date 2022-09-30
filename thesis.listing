@@ -1,15 +1,16 @@
 "l0     = td1/2"             ; TD1/NBL
-"cnst53 = cnst51 - cnst52"   ; automatically calculate m_2
+"cnst53 = cnst51 - cnst52"   ; automatically calculate m_2 = M - m_1
+; ...
 
 1 ze
 2 30m
 4 50u UNBLKGRAD
-
   d1 st0
 
   ; HSQC goes here
   ; ...
-  goscnp ph30
+  goscnp ph30 cpd2:f2
+  50u do:f2
 
   ; check which module to run
   if "l3 % cnst51 < cnst52"
@@ -33,7 +34,9 @@
   if "l3 % cnst51 == 0"
 {
   1m iu1
-  1m igrad EA
+  1m igrad EA   ; HSQC echo-antiecho gradients
+  ; ...
 }
 
   lo to 4 times l0
+end

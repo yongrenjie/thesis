@@ -30,4 +30,4 @@ for ax in axs[-2:]:
 
 apt.label_axes_def(axs, start=2)
 # apt.show()
-apt.save(__file__, svg=True)
+apt.save(__file__)

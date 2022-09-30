@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="179mm"
+   height="200mm"
+   viewBox="0 0 179 200"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)"
+   sodipodi:docname="abbs_pp.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="true"
+     inkscape:zoom="1.3527162"
+     inkscape:cx="314.5523"
+     inkscape:cy="425.07068"
+     inkscape:window-width="1640"
+     inkscape:window-height="799"
+     inkscape:window-x="1620"
+     inkscape:window-y="225"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid1049"
+       units="mm"
+       spacingx="0.32"
+       spacingy="0.32"
+       originx="0"
+       originy="0" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <inkscape:path-effect
+       effect="mirror_symmetry"
+       start_point="48.947914,82.020831"
+       end_point="48.947914,87.312499"
+       center_point="48.947914,84.666665"
+       id="path-effect4739-9"
+       is_visible="true"
+       lpeversion="1.1"
+       mode="free"
+       discard_orig_path="false"
+       fuse_paths="false"
+       oposite_fuse="false"
+       split_items="false"
+       split_open="false"
+       lpesatellites=""
+       link_styles="false" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.32;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       d="m 88,78.4 h 40 L 129.6,64 h 25.6 l 1.6,14.4 h 3.2 -3.2 l -1.6,14.4 h -25.6 l -1.6,-14.4 1.6,-4.8 h 25.6 l 1.6,4.8 -1.6,4.8 H 129.6 L 128,78.4"
+       id="path4473" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.32;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       d="M 8.0000007,78.399995 H 47.999999 l 1.600002,-9.600001 h 25.6 l 1.6,9.600001 h 3.200001 -3.200001 l -1.6,9.599999 h -25.6 l -1.600002,-9.599999 h 28.800002"
+       id="path3763" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;stroke-width:0.264583"
+       x="24"
+       y="67.199997"
+       id="text2472"><tspan
+         sodipodi:role="line"
+         id="tspan2470"
+         style="stroke-width:0.264583"
+         x="24"
+         y="67.199997" /></text>
+    <rect
+       style="fill:#e9e9e9;fill-opacity:1;stroke:#000000;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-0-12-0-6"
+       width="9.5999985"
+       height="6.3999977"
+       x="11.2"
+       y="75.199997"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;stroke-width:0.264583"
+       x="14.486668"
+       y="79.366623"
+       id="text2498-4-3-8"><tspan
+         sodipodi:role="line"
+         id="tspan2496-6-9-3"
+         style="stroke-width:0.264583"
+         x="14.486668"
+         y="79.366623"><tspan
+           style="font-style:italic"
+           id="tspan2502-7-5-2">d</tspan><tspan
+           style="font-size:65%;baseline-shift:sub"
+           id="tspan2500-55-3-9">1</tspan></tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-9-1-7"
+       width="17.599979"
+       height="6.3999977"
+       x="24.000023"
+       y="75.199997"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+       x="24.650875"
+       y="79.454819"
+       id="text2506-7-1-3"><tspan
+         sodipodi:role="line"
+         id="tspan2504-5-2-4"
+         style="fill:#000000;stroke-width:0.264583"
+         x="24.650875"
+         y="79.454819">ADEQUATE</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-1-3-6-8"
+       width="18.384119"
+       height="6.3999977"
+       x="51.200008"
+       y="65.599998"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+       x="52.980495"
+       y="70.015327"
+       id="text2506-9-9-9-6"><tspan
+         sodipodi:role="line"
+         id="tspan2504-2-9-1-11"
+         style="fill:#000000;stroke-width:0.264583"
+         x="52.980495"
+         y="70.015327"><tspan
+   style="font-size:65%;baseline-shift:super;fill:#000000"
+   id="tspan1080">15</tspan>N HMBC</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-1-3-6-8-1"
+       width="18.384119"
+       height="6.3999977"
+       x="51.200008"
+       y="75.199997"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+       x="53.199749"
+       y="79.615326"
+       id="text2506-9-9-9-6-4"><tspan
+         sodipodi:role="line"
+         id="tspan2504-2-9-1-11-7"
+         style="fill:#000000;stroke-width:0.264583"
+         x="53.199749"
+         y="79.615326"><tspan
+   style="font-size:65%;baseline-shift:super;fill:#000000"
+   id="tspan1080-1">13</tspan>C HMBC</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-1-3-6-8-3"
+       width="18.384119"
+       height="6.3999977"
+       x="51.200008"
+       y="84.799995"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+       x="53.499615"
+       y="89.215324"
+       id="text2506-9-9-9-6-8"><tspan
+         sodipodi:role="line"
+         id="tspan2504-2-9-1-11-4"
+         style="fill:#000000;stroke-width:0.264583"
+         x="53.499615"
+         y="89.215324"><tspan
+   style="font-size:65%;baseline-shift:super;fill:#000000"
+   id="tspan1080-8">13</tspan>C HSQC</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+       x="70.336777"
+       y="72.640015"
+       id="text1102"><tspan
+         sodipodi:role="line"
+         id="tspan1100"
+         style="fill:#000000;stroke-width:0.264583"
+         x="70.336777"
+         y="72.640015">29</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+       x="70.336784"
+       y="82.240013"
+       id="text1102-5"><tspan
+         sodipodi:role="line"
+         id="tspan1100-4"
+         style="fill:#000000;stroke-width:0.264583"
+         x="70.336784"
+         y="82.240013">2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+       x="70.336792"
+       y="91.839996"
+       id="text1102-5-8"><tspan
+         sodipodi:role="line"
+         id="tspan1100-4-3"
+         style="fill:#000000;stroke-width:0.264583"
+         x="70.336792"
+         y="91.839996">1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52778px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;stroke-width:0.264583"
+       x="3.2"
+       y="64"
+       id="text38541"><tspan
+         sodipodi:role="line"
+         id="tspan38539"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:3.52778px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans Semi-Bold';stroke-width:0.264583"
+         x="3.2"
+         y="64">(a)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52778px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;stroke-width:0.264583"
+       x="83.199997"
+       y="64"
+       id="text38541-4"><tspan
+         sodipodi:role="line"
+         id="tspan38539-4"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:3.52778px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans Semi-Bold';stroke-width:0.264583"
+         x="83.199997"
+         y="64">(b)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+       x="42.35265"
+       y="82.240013"
+       id="text1102-5-4"><tspan
+         sodipodi:role="line"
+         id="tspan1100-4-1"
+         style="fill:#000000;stroke-width:0.264583"
+         x="42.35265"
+         y="82.240013">32</tspan></text>
+    <rect
+       style="fill:#e9e9e9;fill-opacity:1;stroke:#000000;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-0-12-0-6-1"
+       width="9.5999985"
+       height="6.3999977"
+       x="91.199997"
+       y="75.200005"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;stroke-width:0.264583"
+       x="94.486664"
+       y="79.366646"
+       id="text2498-4-3-8-8"><tspan
+         sodipodi:role="line"
+         id="tspan2496-6-9-3-4"
+         style="stroke-width:0.264583"
+         x="94.486664"
+         y="79.366646"><tspan
+           style="font-style:italic"
+           id="tspan2502-7-5-2-9">d</tspan><tspan
+           style="font-size:65%;baseline-shift:sub"
+           id="tspan2500-55-3-9-7">1</tspan></tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-9-1-7-3"
+       width="17.599979"
+       height="6.3999977"
+       x="104.00002"
+       y="75.200005"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+       x="104.65087"
+       y="79.454849"
+       id="text2506-7-1-3-1"><tspan
+         sodipodi:role="line"
+         id="tspan2504-5-2-4-0"
+         style="fill:#000000;stroke-width:0.264583"
+         x="104.65087"
+         y="79.454849">ADEQUATE</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-1-3-6-8-2"
+       width="18.384119"
+       height="6.3999977"
+       x="131.2"
+       y="60.800022"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+       x="132.98048"
+       y="65.215332"
+       id="text2506-9-9-9-6-3"><tspan
+         sodipodi:role="line"
+         id="tspan2504-2-9-1-11-71"
+         style="fill:#000000;stroke-width:0.264583"
+         x="132.98048"
+         y="65.215332"><tspan
+   style="font-size:65%;baseline-shift:super;fill:#000000"
+   id="tspan1080-89">15</tspan>N HMBC</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-1-3-6-8-1-3"
+       width="18.384119"
+       height="6.3999977"
+       x="131.2"
+       y="70.400002"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+       x="133.19974"
+       y="74.815346"
+       id="text2506-9-9-9-6-4-7"><tspan
+         sodipodi:role="line"
+         id="tspan2504-2-9-1-11-7-4"
+         style="fill:#000000;stroke-width:0.264583"
+         x="133.19974"
+         y="74.815346"><tspan
+   style="font-size:65%;baseline-shift:super;fill:#000000"
+   id="tspan1080-1-8">13</tspan>C HMBC</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-1-3-6-8-3-0"
+       width="18.384119"
+       height="6.3999977"
+       x="131.2"
+       y="80"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+       x="133.4996"
+       y="84.415337"
+       id="text2506-9-9-9-6-8-4"><tspan
+         sodipodi:role="line"
+         id="tspan2504-2-9-1-11-4-0"
+         style="fill:#000000;stroke-width:0.264583"
+         x="133.4996"
+         y="84.415337"><tspan
+   style="font-size:65%;baseline-shift:super;fill:#000000"
+   id="tspan1080-8-5">13</tspan>C HSQC</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+       x="150.33678"
+       y="67.840027"
+       id="text1102-7"><tspan
+         sodipodi:role="line"
+         id="tspan1100-0"
+         style="fill:#000000;stroke-width:0.264583"
+         x="150.33678"
+         y="67.840027">28</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+       x="150.33678"
+       y="77.440025"
+       id="text1102-5-0"><tspan
+         sodipodi:role="line"
+         id="tspan1100-4-5"
+         style="fill:#000000;stroke-width:0.264583"
+         x="150.33678"
+         y="77.440025">2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+       x="150.33679"
+       y="87.040024"
+       id="text1102-5-8-6"><tspan
+         sodipodi:role="line"
+         id="tspan1100-4-3-7"
+         style="fill:#000000;stroke-width:0.264583"
+         x="150.33679"
+         y="87.040024">1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+       x="122.35264"
+       y="82.240036"
+       id="text1102-5-4-8"><tspan
+         sodipodi:role="line"
+         id="tspan1100-4-1-0"
+         style="fill:#000000;stroke-width:0.264583"
+         x="122.35264"
+         y="82.240036">32</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
+       id="rect906-1-3-6-8-3-0-6"
+       width="18.384119"
+       height="6.3999977"
+       x="131.2"
+       y="89.600006"
+       ry="1.0239956" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+       x="131.48648"
+       y="94.01535"
+       id="text2506-9-9-9-6-8-4-5"><tspan
+         sodipodi:role="line"
+         id="tspan2504-2-9-1-11-4-0-7"
+         style="fill:#000000;stroke-width:0.264583"
+         x="131.48648"
+         y="94.01535"><tspan
+   style="font-size:65%;baseline-shift:super;fill:#000000"
+   id="tspan1080-8-5-3">15</tspan>N seHSQC</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
+       x="150.33679"
+       y="96.64003"
+       id="text1102-5-8-6-4"><tspan
+         sodipodi:role="line"
+         id="tspan1100-4-3-7-3"
+         style="fill:#000000;stroke-width:0.264583"
+         x="150.33679"
+         y="96.64003">1</tspan></text>
+  </g>
+</svg>
