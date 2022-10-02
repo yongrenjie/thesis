@@ -31,7 +31,7 @@ The MDS algorithm was proposed partially for the purpose of avoiding this ill-co
 The MDS method is also simplex-based, and uses similar reflection/expansion/contraction steps to the NM algorithm.
 However, instead of (e.g.) reflecting a single worst point $y_{n+1}$ about the other points, it reflects \textit{all} of the $n$ worst points $\{y_2, y_3, \cdots, y_{n+1}\}$ about the best point $y_1$.
 This means that the shape of the simplex $Y$, and thus its condition $\kappa(Y)$, is always preserved: this provides it with much better convergence properties, as was shown by Torczon et al.\autocite{Torczon1989,Torczon1991SIAMJO}.%
-\footnote{Specifically, it can be concluded that at least one of the search directions was bounded away from being orthogonal to the gradient; or in simpler (and less precise) terms, at least one of the search directions is close enough to a direction in which the cost function $f$ decreases.}
+\footnote{Specifically, it can be concluded that at least one of the search directions was bounded away from being orthogonal to the gradient; or in simpler (and less precise) terms, at least one of the search directions is close enough to a direction in which the cost function $f\/$ decreases.}
 The increased reliability of the MDS algorithm over the NM algorithm was demonstrated on a variety of example optimisation problems: even in the very simple case where the cost function was simply the norm of a vector,
 \begin{equation}
     \label{eq:norm_cf}

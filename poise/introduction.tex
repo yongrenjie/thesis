@@ -15,7 +15,7 @@ It is:
 \begin{enumerate}
     \item \textit{sample-specific}, and as long as the default values are within the optimisation bounds, the optimisation will yield performance which is no worse than the defaults;
     \item more \textit{robust} towards unusual molecular structures, which have physical or chemical properties which fall outside of an expected range;
-    \item \textit{instrument-specific}, so can compensate for spectrometer imperfections.
+    \item \textit{instrument-specific}, so can compensate for spectrometer imperfections;
     \item \textit{automated}, so does not require an expert to adjust parameter values manually, or even any user intervention for that matter;
     \item \textit{objective}, in that the quality of a spectrum can (in principle) be mathematically measured through a cost function; and
     \item \textit{fast}, in that it uses an algorithm which is designed to achieve rapid decreases in the objective function: many `manual' optimisations involve either trial-and-error or an exhaustive grid search (i.e.\ increasing a parameter value one step at a time), neither of which are efficient.
@@ -37,7 +37,7 @@ In fact, even the aforementioned eDUMBO pulses were not \textit{originally} desi
 
 In this chapter, I aim to provide a convincing argument that experimental optimisation is not necessarily slow.
 In particular, I show that it is often possible to devise optimisation routines which yield improved results in a matter of minutes.
-All the optimisations here are performed using a software package written by me, called POISE (Pararemter Optimisation by Iterative Spectral Evaluation)
+All the optimisations here are performed using a software package written by me, called POISE (Parameter Optimisation by Iterative Spectral Evaluation).
 POISE is open-source (\url{https://github.com/foroozandehgroup/nmrpoise}) and can be installed in a single step through \texttt{pip install nmrpoise}.
 Furthermore, it comes with extensive user documentation, both in the form of a text guide (\url{https://foroozandehgroup.github.io/nmrpoise}) as well as video (\url{https://www.youtube.com/watch?v=QTCeSCRZs4I}).
 

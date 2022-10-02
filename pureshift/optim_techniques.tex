@@ -2,8 +2,8 @@
 \label{subsec:pureshift__optim_techniques}
 
 Throughout this chapter (and more generally this thesis), various algorithms are used for \textit{optimisation}: that is, to find the parameters $\symbf{x} \in \mathbb{R}^n$ which minimise a \textit{cost function} $f : \mathbb{R}^n \to \mathbb{R}$.
-These algorithms can loosely be categorised as either \textit{derivative-based} or \textit{derivative-free}: the former use extra information in the form of $\nabla f$ to help locate the optimum, whereas the latter do not, using only the value of $f(\symbf{x})$.
-While derivative-based algorithms typically converge to an optimum more quickly, they are unsuitable for problems where the cost function $f$ is noisy.
+These algorithms can loosely be categorised as either \textit{derivative-based} or \textit{derivative-free}: the former use extra information in the form of $\nabla f\/$ to help locate the optimum, whereas the latter do not, using only the value of $f(\symbf{x})$.
+While derivative-based algorithms typically converge to an optimum more quickly, they are unsuitable for problems where the cost function $f\/$ is noisy.
 In this section, the Nelder--Mead (NM) simplex algorithm\autocite{Nelder1965TCJ} was used: it is a very popular derivative-free method, and although mathematical convergence is not guaranteed\autocite{McKinnon1998SIAMJO}, in practice such cases are rather unlikely to arise.
 In this section, the implementation of the NM algorithm in the Python \texttt{scipy} package was simply used as-is.
 
@@ -83,7 +83,7 @@ f_diff = np.linalg.norm((Sr / np.linalg.norm(Sr))
 These two cost functions were chosen as they exhibited desirable characteristics on synthetic data (\cref{fig:fa_scan_synthetic}).
 In these simulations, the `target' spectrum was chosen to simply be an in-phase absorption-mode doublet with an SNR of 500.
 Synthetic data with increasing amounts of J-modulation (i.e.\ spectra ranging from in-phase absorption, to antiphase dispersion) were generated, and extra Gaussian noise added to mimic different SNRs.
-It can be seen that, for data which has little J-modulation (left edges of the plots), both $f_\text{phase}$ (\cref{fig:fa_scan_synthetic_fphase}) and $f_\text{diff}$ (\cref{fig:fa_scan_synthetic_fdiff}) penalise lower SNRs.
+It can be seen that, for data which have little J-modulation (left edges of the plots), both $f_\text{phase}$ (\cref{fig:fa_scan_synthetic_fphase}) and $f_\text{diff}$ (\cref{fig:fa_scan_synthetic_fdiff}) penalise lower SNRs.
 Furthermore, both of the cost functions penalise J-modulation, since they increase going from left to right.
 This penalty is stricter for high-SNR spectra, which is also desirable, since it is only in high-SNR spectra that the J-modulation becomes noticeable.
 

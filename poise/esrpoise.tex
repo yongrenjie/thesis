@@ -2,7 +2,7 @@
 \label{sec:poise__esrpoise}
 
 In the final section of this chapter, I briefly discuss how the concept of on-the-fly optimisation may be extended to pulsed ESR spectroscopy as well.
-Much of the underlying code from (NMR-)POISE was recycled for this, including the implementation of the three optimisation algorithms (NM, MDS, and BOBYQA).
+Much of the underlying code from NMR-POISE was recycled for this, including the implementation of the three optimisation algorithms (NM, MDS, and BOBYQA).
 I added only one small difference in ESR-POISE, namely, a way to control the initial size of the simplex (for NM and MDS) or the trust region radius (for BOBYQA): in NMR-POISE, this is fixed at ten times the desired optimisation tolerance.
 The overall optimisation framework (\cref{fig:poise_flowchart}), as well as the concept of the optimisation routine (\cref{subsec:poise__routines}), are retained: this preserves the generality of POISE, which is probably its greatest strength.
 

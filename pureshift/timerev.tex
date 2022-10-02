@@ -16,7 +16,7 @@ However, the hard pulse does this:
 \end{equation}
 where (as before) $S = \sin\beta$, $s = \sin(\beta/2)$, and $c = \cos(\beta/2)$.
 As in the analysis for PSYCHE (\cref{subsec:pureshift__psyche_analysis}), term 1 here represents the desired signal; term 2 recoupling artefacts; and terms 3 and 4 COSY-type artefacts arising from coherence transfer.
-Terms with difference coherence orders have been neglected as they can be removed using CTP gradients.\footnote{In the original work\autocite{Sorensen1985JACS} which predated widespread use of field gradients, other terms were removed through phase cycling, which is essentially equivalent.}
+Terms with difference coherence orders have been neglected as they can be removed using CTP gradients.\footnote{In the original work\autocite{Sorensen1985JACS} which predated the widespread use of field gradients, other terms were removed through phase cycling, which is essentially equivalent.}
 Unlike in the PSYCHE analysis, however, we have not neglected any other terms of smaller order in $s$.
 
 Since the desired and undesired terms have different coefficients, it is possible to \textit{fully cancel out the recoupling artefacts} by recording (in this case) two different spectra with different values of $\beta$ and performing an appropriate linear combination:
@@ -90,7 +90,7 @@ Firstly, the minimum duration of the experiment is lengthened by a factor of $N$
 However, and perhaps more importantly in the context of \textit{pure shift} NMR, the artefacts surrounding the main peaks are not perfectly cancelled through the process of summation.
 As a result, random distortions are observed around the desired peaks in the pure shift spectrum: this is noticeable in the \qty{4.04}{ppm} peak in \cref{fig:timereversal_insets}, and is even worse for more intense signals.
 
-In terms of sensitivity, the time-reversal spectrum is not particularly exceptional, either.
+In terms of sensitivity, the time-reversal spectrum is not particularly exceptional either.
 Each of the five subspectra above were acquired with 2 scans; when compared against a typical TSE-PSYCHE experiment acquired with only 4 scans (i.e.\ 40\% of the experiment duration), the TSE-PSYCHE experiment had comparable or perhaps even slightly better SNR (\cref{fig:timereversal_sensitivity}).
 The likely reason for this is because in the time-reversal experiment, signal is actually being \textit{cancelled out} through the process of summation, as is quite clearly shown in \cref{fig:timereversal_insets}.
 In principle, the sensitivity of the time-reversal experiment could be optimised by acquiring the more heavily weighted spectra with more scans.
@@ -115,5 +115,5 @@ Performing such an optimisation would also require a pure shift spectrum to have
 \end{figure}
 
 Interestingly, \cref{fig:timereversal_insets} suggests that the $j = 1$ spectrum \textit{on its own} already provides as good a result as the summed pure shift spectrum.
-This is not surprising, as the use of a hard pulse as the PSE yields a conceptually very similar result to PSYCHE in that the signal to artefact ratio depends on $\tan^2(\beta/2)$ (of course, the COSY-type artefacts must still be suppressed through the TSE scheme).
+This is not surprising, as the use of a hard pulse as the PSE yields a conceptually very similar result to PSYCHE in that the signal-to-artefact ratio depends on $\tan^2(\beta/2)$ (of course, the COSY-type artefacts must still be suppressed through the TSE scheme).
 This suggests that even without summation of multiple subspectra, the TSE time-reversal pulse sequence in \cref{fig:timereversal_pulseq} is a viable pure shift experiment---albeit one which does not have any significant advantage over PSYCHE.

@@ -26,7 +26,7 @@ The simplex would be singular if the three points were collinear.)
 
 The NM algorithm is in fact quite intuitive to understand.
 The initial simplex is first constructed using the supplied initial point: POISE specifically uses the method of Spendley et al.\autocite{Spendley1962T} to construct a \textit{regular simplex}.
-The optimisation itself begins by measuring the cost function $f$ at every point of the simplex, and sorting the points in ascending order of cost function values (i.e.\ from best to worst), such that $f(y_1) \leq f(y_2) \leq \cdots \leq f(y_{n+1})$.
+The optimisation itself begins by measuring the cost function $f\/$ at every point of the simplex, and sorting the points in ascending order of cost function values (i.e.\ from best to worst), such that $f(y_1) \leq f(y_2) \leq \cdots \leq f(y_{n+1})$.
 The centroid of the simplex is defined by the $n$ best points:
 \begin{equation}
     \label{eq:simplex_centroid}

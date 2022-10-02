@@ -109,7 +109,7 @@ These optima should therefore not be viewed as a complete summary of the five di
 
 Interestingly, BOBYQA finds an optimum which is different from---and substantially better than---the other two algorithms.
 As mentioned previously, it is not generally possible to predict which optimum an algorithm will converge to, and this is complicated even further by the presence of noise, which imparts some stochastic character to the optimisation.
-Nevertheless, a closer inspection of the other optimisation runs actually show that the better performance of BOBYQA on this problem is reproducible: the optima found from each of the five rounds, as well as a reference grid search, are plotted in \cref{fig:poise_hmbc_scan}.
+Nevertheless, a closer inspection of the other optimisation runs actually shows that the better performance of BOBYQA on this problem is reproducible: the optima found from each of the five rounds, as well as a reference grid search, are plotted in \cref{fig:poise_hmbc_scan}.
 It appears that the simplex-based methods get stuck in a suboptimal region, whereas BOBYQA is usually able to move leftwards and downwards into a more productive region.
 However, the exact reasons for this remain unclear.
 Also, BOBYQA does not always outperform NM and MDS in the other optimisations in this chapter (this is possibly a manifestation of the `no free lunch theorem'\autocite{Wolpert1997IEEETEC}, which states that when averaged over all problems, no optimisation algorithm strictly outperforms another).

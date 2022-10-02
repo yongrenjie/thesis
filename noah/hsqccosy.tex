@@ -16,7 +16,7 @@ Furthermore, it is not generally possible to obtain absorption-mode lineshapes f
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[draft=false]{pp/hsqccosy/clip_po.png}%
+    \includegraphics[]{pp/hsqccosy/clip_po.png}%
     \caption[HSQC-CLIP-COSY experiment]{
         HSQC-CLIP-COSY experiment with product operator analysis for the HSQC-COSY signal derived from the \magn{C} magnetisation, as well as the bulk \magnnot{C} magnetisation.
         Both the `direct', HSQC-type peaks, as well as the `indirect' responses arising from coherence transfer in the perfect echo block, are analysed.
@@ -46,7 +46,7 @@ On top of that, the experiment also cannot be modified to provide partial excita
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[draft=false]{pp/hsqccosy/dse_po.png}%
+    \includegraphics[]{pp/hsqccosy/dse_po.png}%
     \caption[Double spin echo HSQC-COSY experiment]{
         `Double spin echo' HSQC-COSY experiment; all symbols have the same meaning as in \cref{fig:hsqcc_clip_po}.
     }
@@ -70,7 +70,7 @@ Unfortunately, I did not manage to test this experimentally.
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[draft=false]{pp/hsqccosy/tse_po.png}%
+    \includegraphics[]{pp/hsqccosy/tse_po.png}%
     {\phantomsubcaption\label{fig:hsqcc_tse_po_1}}%
     {\phantomsubcaption\label{fig:hsqcc_tse_po_2}}%
     \caption[Triple spin echo HSQC-COSY experiment]{
@@ -88,8 +88,8 @@ As shown by the product operator analysis in \cref{fig:hsqcc_tse_po_1}, this not
 
 The problem with the TSE version is the spectral quality: consider an even larger spin system of the form $\ch{S-I-K-L}$, where $\{I,K,L\}$ are \proton{} and $S\/$ is \carbon{}.
 At the end of $t_1$, single-quantum magnetisation on spin $I\/$ is present.
-Any evolution of $J_{IK}$ in the first spin echo (of duration $2\Delta$) leads to terms of the form $2I_yK_z$, and can then be transferred onto spin $K\/$ by the subsequent 90\rlap{\unit{\degree}}$_{x}$ pulse.
-This magnetisation can then further evolve under $J_{KL}$ during the $2\tau$ spin echo, and then be transferred a \textit{second} time by the 90\rlap{\unit{\degree}}$_{-x}$ to spin $L$.
+Any evolution of $J_{IK}$ in the first spin echo (of duration $2\Delta$) leads to terms of the form $2I_yK_z$, and can then be transferred onto spin $K\/$ by the subsequent \angang{90}{x} pulse.
+This magnetisation can then further evolve under $J_{KL}$ during the $2\tau$ spin echo, and then be transferred a \textit{second} time by the \angang{90}{-x} pulse to spin $L$.
 Since the intensity of this transfer pathway is proportional to $\sin(2\pi J_{IK}\Delta)$, these `relay' artefacts are especially prominent for large $J_{IK}$.
 
 In order to suppress these, the experiment must be run a second time but with an additional \ang{180} \carbon{} pulse inserted during the second spin echo (\cref{fig:hsqcc_tse_po_2}).%
@@ -111,7 +111,7 @@ where, as before, $f\/$ is the proportion of magnetisation to be excited.
 
 \begin{figure}[!htp]
     \centering
-    \includegraphics[draft=false]{noah/hsqccosy_comp.png}%
+    \includegraphics[]{noah/hsqccosy_comp.png}%
     {\phantomsubcaption\label{fig:hsqccosy_comp_clip}}%
     {\phantomsubcaption\label{fig:hsqccosy_comp_dse}}%
     {\phantomsubcaption\label{fig:hsqccosy_comp_tse_norps}}%
@@ -131,7 +131,7 @@ where, as before, $f\/$ is the proportion of magnetisation to be excited.
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[draft=false]{noah/hsqccosy_sens.png}%
+    \includegraphics[]{noah/hsqccosy_sens.png}%
     {\phantomsubcaption\label{fig:hsqccosy_sens_clip}}%
     {\phantomsubcaption\label{fig:hsqccosy_sens_dse}}%
     {\phantomsubcaption\label{fig:hsqccosy_sens_tse_1}}%
@@ -155,7 +155,7 @@ The DSE version (\cref{fig:hsqccosy_comp_dse,fig:hsqccosy_sens_dse}) provides gr
 
 For the TSE version, we first look at the importance of the relay artefact suppression procedure described above.
 The extra relay artefacts are clearly visible in \cref{fig:hsqccosy_comp_tse_norps}, acquired using the `basic' sequence in \cref{fig:hsqcc_tse_po_1} only.
-(As previously mentioned, these arise from large $\nJ{HH}$ which evolve during the $2\Delta$ spin echo; for this specific compound, the offending couplings are $^3\!J$ between two axial protons in a six-membered ring, and $^2J$ in diastereotopic methylenes).
+(As previously mentioned, these arise from large $\nJ{HH}$ which evolve during the $2\Delta$ spin echo; for this specific compound, the offending couplings are $^3\!J\/$ between two axial protons in a six-membered ring, and $^2\!J\/$ in diastereotopic methylenes).
 The presence of these peaks largely defeats the purpose of using a HSQC-COSY experiment; in fact, this unoptimised TSE HSQC-COSY is qualitatively very similar to a HSQC-TOCSY acquired with a short mixing time of \qty{10}{\ms} (\cref{fig:hsqccosy_comp_tocsy}).%
 \footnote{The HSQC-TOCSY even gives better peak shapes, since the DIPSI mixing transfers in-phase magnetisation to in-phase magnetisation.}
 However, these artefacts can be efficiently removed using the suppression technique described in the text above; the result in \cref{fig:hsqccosy_comp_tse} is qualitatively similar to the two other HSQC-COSY experiments.
@@ -176,7 +176,7 @@ however, the TSE version successfully preserves around $70\%$ of this magnetisat
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[draft=false]{noah/hsqccosy_sens_with_hmbc.png}%
+    \includegraphics[]{noah/hsqccosy_sens_with_hmbc.png}%
     {\phantomsubcaption\label{fig:hsqccosy_sens_with_hmbc_clip}}%
     {\phantomsubcaption\label{fig:hsqccosy_sens_with_hmbc_dse}}%
     {\phantomsubcaption\label{fig:hsqccosy_sens_with_hmbc_tse_1}}%

@@ -64,7 +64,7 @@ so $U(\tau) I_{1+} I_{2\alpha} \adj{U}(\tau)$ is
 \end{equation}
 Essentially, under $H_{\text{free},I}$, all of these operators acquire phase factors which depend on the difference between two of the frequencies $\omega_{\lambda\mu}$.
 I explicitly state the rules for the single-quantum operators on spin 1 here:%
-\footnote{Note that \S{} 10.4.2 of Keeler's text\autocite{Keeler2010} has a sign error in these equations---the sign of the $\pi J$ evolution is flipped---though it proves to be inconsequential as the sign of $J$ cannot be observed.}
+\footnote{Note that \S{} 10.4.2 of Keeler's text\autocite{Keeler2010} has a sign error in these equations---the sign of the $\pi J\/$ evolution is flipped---though it proves to be inconsequential as the sign of $J\/$ cannot be observed.}
 \begin{align}
     I_{1+}I_{2\alpha} &\longrightarrow \exp[-\mi(\Omega_1 + \pi J)\tau] I_{1+}I_{2\alpha} \label{eq:shift_basis_evolution_pa} \\
     I_{1+}I_{2\beta} &\longrightarrow \exp[-\mi(\Omega_1 - \pi J)\tau] I_{1+}I_{2\beta} \label{eq:shift_basis_evolution_pb} \\
@@ -72,13 +72,13 @@ I explicitly state the rules for the single-quantum operators on spin 1 here:%
     I_{1-}I_{2\beta} &\longrightarrow \exp[\mi(\Omega_1 - \pi J)\tau] I_{1-}I_{2\beta} \label{eq:shift_basis_evolution_mb}
 \end{align}
 The rules for the corresponding operators on spin 2 can be easily obtained by permutation of labels.
-Notice that the evolution frequencies of the $-1$-quantum operators (\cref{eq:shift_basis_evolution_ma,eq:shift_basis_evolution_mb}) each correspond to one peak of the corresponding multiplet in an NMR spectrum: for example, $\Omega_1 + \pi J$ and $\Omega_1 - \pi J$ correspond to the two peaks of the spin-1 doublet.
+Notice that the evolution frequencies of the $-1$-quantum operators (\cref{eq:shift_basis_evolution_ma,eq:shift_basis_evolution_mb}) each correspond to one peak of the corresponding multiplet in an NMR spectrum: for example, $\Omega_1 + \pi J\/$ and $\Omega_1 - \pi J\/$ correspond to the two peaks of the spin-1 doublet.
 
-Consider now a simple spin echo sequence: $90^\circ_{x}$--$\tau$--$180^\circ_{x}$--$\tau$--detection.
+Consider now a simple spin echo sequence: \angang{90}{x}--$\tau$--\angang{180}{x}--$\tau$--detection.
 The initial excitation pulse acts on both spins 1 and 2, and thus generates a mixture of all eight possible single-quantum operators (the four above plus four more on spin 2).
 For simplicity, we consider only the $I_{1+}I_{2\alpha}$ term.
 This evolves in the first $\tau$ delay to give $\exp[-\mi(\Omega_1 + \pi J)\tau] I_{1+}I_{2\alpha}$.
-The $180^\circ$ pulse \textit{flips} both spins 1 and 2, in that it causes the transitions $I_+ \leftrightarrow I_-$ and $I_\alpha \leftrightarrow I_\beta$; consequently, we have that
+The \ang{180} pulse \textit{flips} both spins 1 and 2, in that it causes the transitions $I_+ \leftrightarrow I_-$ and $I_\alpha \leftrightarrow I_\beta$; consequently, we have that
 \begin{equation}
     \label{eq:spin_echo_1}
     \exp[-\mi(\Omega_1 + \pi J)\tau] I_{1+}I_{2\alpha} \longrightarrow \exp[-\mi(\Omega_1 + \pi J)\tau] I_{1-}I_{2\beta}.
@@ -91,11 +91,11 @@ In the second delay, we get a second phase factor from the evolution of the $I_{
     = &\exp(-2\mi \pi J\tau) I_{1-}I_{2\beta}.
 \end{align}
 Detection of this gives us one of the two peaks of the spin-1 doublet, as described previously, but with a phase factor tacked on.
-The $\Omega_1$ terms in the phase factor are cancelled out, which reflects the fact that the offset (or chemical shift) is refocused by the $180^\circ$ pulse.
+The $\Omega_1$ terms in the phase factor are cancelled out, which reflects the fact that the offset (or chemical shift) is refocused by the \ang{180} pulse.
 However, the J-evolution is not refocused, which leads to characteristic phase distortions in the detected multiplets.
 The same is true of the seven other single-quantum operators.
 
-In order to refocus the J-evolution as well as the chemical shift, we would need---instead of a $180^\circ$ pulse---a pulse sequence element which simultaneously effects \textit{all} of the following transitions on spin 1:
+In order to refocus the J-evolution as well as the chemical shift, we would need---instead of a \ang{180} pulse---a pulse sequence element which simultaneously effects \textit{all} of the following transitions on spin 1:
 \begin{equation}
     \label{eq:pure_shift_requirement_spin1}
     I_{1+}I_{2\alpha} \longrightarrow I_{1-}I_{2\alpha}; \quad I_{1+}I_{2\beta} \longrightarrow I_{1-}I_{2\beta}; \quad
@@ -109,7 +109,7 @@ and on spin 2:
 \end{equation}
 Such an element forms the basis of a pure shift technique, and I refer to it here as a \textit{pure shift element} (PSE).
 The difficulty in designing a PSE is that \textit{all} spins must be simultaneously decoupled from each other (and not just one spin).
-For example, if we only had to invert spin 1 and not spin 2 (i.e.\ only \cref{eq:pure_shift_requirement_spin1} and not \cref{eq:pure_shift_requirement_spin2}), this could be trivially accomplished by a selective $180^\circ$ pulse on spin 1.
+For example, if we only had to invert spin 1 and not spin 2 (i.e.\ only \cref{eq:pure_shift_requirement_spin1} and not \cref{eq:pure_shift_requirement_spin2}), this could be trivially accomplished by a selective \ang{180} pulse on spin 1.
 However, this would not bring about the correct transitions for spin 2.
 Yet another complicating factor is that the spins will have offsets and couplings which are \textit{a priori} not known; so the design of the PSE cannot use these parameters as inputs.
 These limitations mean that it is impossible to accomplish the above transitions \textit{in full}; rather, a more realistic scenario involves
@@ -137,7 +137,7 @@ The basic 2DJ sequence involves a spin echo of duration $t_1$, immediately follo
 If we only consider a single operator and reuse the analysis above, setting the spin echo delay $\tau$ to be $t_1/2$ instead, then we have that
 \begin{equation}
     \label{eq:2dj_operator_analysis}
-    I_{1+}I_{2\alpha} \xrightarrow[]{t_1/2} \xrightarrow[]{180^\circ} \xrightarrow[]{t_1/2} \exp(-\mi \pi J t_1) I_{1-}I_{2\beta}.
+    I_{1+}I_{2\alpha} \xrightarrow[]{t_1/2} \xrightarrow[]{\ang{180}} \xrightarrow[]{t_1/2} \exp(-\mi \pi J t_1) I_{1-}I_{2\beta}.
 \end{equation}
 This yields a complex signal of the form
 \begin{equation}
@@ -146,8 +146,8 @@ This yields a complex signal of the form
 \end{equation}
 which when Fourier transformed yields a phase twist lineshape at $(-\pi J, \Omega_1 - \pi J)$.
 The other component on spin 1 (starting from $I_{1+}I_{2\beta}$) likewise yields a phase twist at $(\pi J, \Omega_1 + \pi J)$.
-It has long been known that \textit{shearing} this 2DJ spectrum by $45^\circ$ (i.e.\ moving each data point $(\Omega_1, \Omega_2)$ to $(\Omega_1, \Omega_2 - \Omega_1)$) generates a spectrum which only has chemical shift information in the $\omega_2$ dimension.
-After magnitude-mode processing, projection of this spectrum onto the $\omega_2$ axis, for example, would in principle yield a pure shift spectrum.\footnote{Or equivalently, projection of the unsheared spectrum along a $45^\circ$ axis\autocite{Aue1976JCP}.}
+It has long been known that \textit{shearing} this 2DJ spectrum by \ang{45} (i.e.\ moving each data point $(\Omega_1, \Omega_2)$ to $(\Omega_1, \Omega_2 - \Omega_1)$) generates a spectrum which only has chemical shift information in the $\omega_2$ dimension.
+After magnitude-mode processing, projection of this spectrum onto the $\omega_2$ axis, for example, would in principle yield a pure shift spectrum.\footnote{Or equivalently, projection of the unsheared spectrum along a \ang{45} axis\autocite{Aue1976JCP}.}
 This is true, but in practice the phase twist lineshapes cause the resulting resolution to be very poor, which defeats the purpose of using a pure shift spectrum.
 To circumvent this issue, a number of special processing techniques have been proposed\autocite{Xu1991JMR,Nuzillard1996JMRSA,Simova1997JMR} (see also references therein); but more ideally, we want a phase-sensitive 2DJ spectrum, which can be obtained by recording a pair of `echo' and `antiecho' signals:%
 \footnote{The terms `echo' and `antiecho' refer to the relative senses of the coherences evolving during $t_1$ and $t_2$: in the echo spectrum these have opposite signs, e.g.\ $I_zS_+$ and $I_-$ in the HSQC, and in the antiecho spectrum they have the same sign. As pointed out by Pell and Keeler\autocite{Pell2007JMR}, this is not really appropriate for the 2DJ experiment since each half of $t_1$ has a coherence with a different sense, but we will stick to this nomenclature as the underlying concept is very similar to that of echo--antiecho processing.}
@@ -160,7 +160,7 @@ The antiecho signal (\cref{eq:2dj_signal_antiecho}) is of course the same as in 
 \begin{align}
     \label{eq:2dj_signal_echo_ctp}
     I_{1-}I_{2\alpha} \xrightarrow[]{t_1/2} &\exp[\mi(\Omega_1 + \pi J)t_1/2] I_{1-}I_{2\alpha} \\
-    \xrightarrow[]{180^\circ} &\exp[\mi(\Omega_1 + \pi J)t_1/2] I_{1+}I_{2\beta} \\
+    \xrightarrow[]{\ang{180}} &\exp[\mi(\Omega_1 + \pi J)t_1/2] I_{1+}I_{2\beta} \\
     \xrightarrow[]{t_1/2} &\exp(\mi \pi J t_1) I_{1+}I_{2\beta} \\
     \xrightarrow[]{\text{PSE}} &\,c \exp(\mi \pi J t_1) I_{1-}I_{2\beta} \\
     \xrightarrow[]{t_2} &\,c \exp(\mi \pi J t_1) \exp[\mi(\Omega_1 - \pi J) t_2].

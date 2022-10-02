@@ -32,7 +32,7 @@ After removing the physically irrelevant $E\/$ term and factoring out a constant
 This represents equilibrium magnetisation (or \textit{polarisation}) on both spins $I\/$ and $S$, in proportion to their magnetogyric ratios.
 In general, an NMR experiment may manipulate---and ultimately detect---both of these terms.
 Since unitary evolution according to the Liouville--von Neumann equation is \textit{linear}, in that $U(\rho_1 + \rho_2)\adj{U} = U\rho_1\adj{U} + U\rho_2\adj{U}$, we can treat these two terms separately: we focus first on the spin-$I\/$ polarisation, $\rho_I = \gamma_I I_z$.
-The first $90^\circ_x$ \proton{} pulse tips this magnetisation into the transverse plane (ignoring off-resonance effects):
+The first \angang{90}{x} \proton{} pulse tips this magnetisation into the transverse plane (ignoring off-resonance effects):
 \begin{equation}
     \label{eq:rho_after_pulse_x}
     \rho_I \to \exp[-\mi(\pi/2) I_x] \gamma_I I_z \exp[\mi(\pi/2) I_x] = -\gamma_I I_y.
@@ -57,24 +57,24 @@ Note that in going from the first to the second line, we can only `split up' $H_
         Simplified rules for the evolution of product operators under different common Hamiltonians (offset, weak/secular J-coupling, and pulses).
         These Hamiltonians often have the form $\omega M$ where $M$ is some `base operator', and are applied for a time $\tau$.
         The boxed operators in the centre of each group refer to $M$; the initial state is then `rotated' about this by an angle of $\omega\tau$ to obtain the final state, or more formally, it is transformed into itself times $\cos(\omega\tau)$, plus the next term in the cycle times $\sin(\omega\tau)$.
-        For example, an $90^\circ_x$ pulse has the `base' operator $I_x$ and the angle $\omega\tau = \pi/2$; thus, the initial state $I_z$ would be rotated to $I_z\cos(\pi/2) - I_y\sin(\pi/2) = -I_y$.
+        For example, an \angang{90}{x} pulse has the `base' operator $I_x$ and the angle $\omega\tau = \pi/2$; thus, the initial state $I_z$ would be rotated to $I_z\cos(\pi/2) - I_y\sin(\pi/2) = -I_y$.
     }
     \label{fig:prodop_rules}
 \end{figure}
 
 When analysing pulse sequences by hand, however, it is far more convenient to use a set of heuristics which summarise the effects of various pulse sequence elements.
 For example, \cref{fig:prodop_rules} summarises the evolution of a density operator under a single term of the Hamiltonian: as above, since $[H_\text{offset}, H_\text{J}] = 0$, we only need to consider one term at a time.
-More high-level rules may be devised as well: for example, during the $\Delta\text{--}180^\circ_{x}(I),180^\circ_{x}(S)\text{--}\Delta$ spin echo which comes next, the $J_{IS}$ interaction in $H_{\text{free},I}$ is allowed to evolve for a period of $2\Delta$, but the offset term is \textit{refocused} and can be ignored.
+More high-level rules may be devised as well: for example, during the $\Delta$--\angang{180}{x}$(I,S)$--$\Delta$ spin echo which comes next, the $J_{IS}$ interaction in $H_{\text{free},I}$ is allowed to evolve for a period of $2\Delta$, but the offset term is \textit{refocused} and can be ignored.
 (The sign inversion caused by the \ang{180} pulses must also be included.)
 As per \cref{fig:prodop_rules}, this transforms the $-I_y$ term to $-2I_xS_z$ at point \circled{2}: the Hamiltonian is $\pi J_{IS} 2I_zS_z$ for a total time of $2\Delta = 1/(2J_{IS})$, so the `angle' rotated through is $\pi J_{IS}/(2J_{IS}) = \pi/2$.
-Immediately after this, the $90^\circ_y(I),90^\circ_x(S)$ pair of pulses rotates this magnetisation to $-2I_zS_y$ (point \circled{3}).
+Immediately after this, the \angang{90}{x}$(I,S)$ pair of pulses rotates this magnetisation to $-2I_zS_y$ (point \circled{3}).
 These transformations are often denoted with simpler notation:
 \begin{equation}
     \label{eq:inept_prodop}
     \gamma_I I_z
-    \xrightarrow{90^\circ_x(I)} -\gamma_I I_y
-    \xrightarrow{\Delta\text{--}180^\circ_{x}(I),180^\circ_{x}(S)\text{--}\Delta} -2\gamma_I I_xS_z
-    \xrightarrow{90^\circ_y(I),90^\circ_x(S)} -2\gamma_I I_zS_y
+    \xrightarrow{\angang{90}{x}(I)} -\gamma_I I_y
+    \xrightarrow{\Delta\text{--}\angang{180}{x}(I,S)\text{--}\Delta} -2\gamma_I I_xS_z
+    \xrightarrow{\angang{90}{y}(I),\angang{90}{x}(S)} -2\gamma_I I_zS_y
 \end{equation}
 During the detection period, the term $-2\gamma_II_zS_y$ evolves as
 \begin{align}
@@ -111,13 +111,13 @@ Importantly, the amplitude of the signal scales as $\gamma_I$ rather than $\gamm
 \end{figure}
 
 Of course, this is only half of the picture; we have not considered what happens to the other part of the magnetisation, namely $\rho_S = \gamma_S S_z$.
-Clearly, this is unaffected by the initial $90^\circ_x(I)$ pulse and the first $\Delta$ delay.
-The $180^\circ_x(S)$ pulse inverts it, and the final $90^\circ_x(S)$ pulse in fact transforms it into observable $S$-magnetisation:
+Clearly, this is unaffected by the initial $\angang{90}{x}(I)$ pulse and the first $\Delta$ delay.
+The $\angang{180}{x}(S)$ pulse inverts it, and the final $\angang{90}{x}(S)$ pulse in fact transforms it into observable $S$-magnetisation:
 \begin{equation}
     \label{eq:inept_prodop_s}
-    \gamma_S S_z \xrightarrow{90^\circ_x(I)\text{--}\Delta} \gamma_S S_z
-    \xrightarrow{180^\circ_x(I),180^\circ_x(S)\text{--}\Delta} -\gamma_S S_z
-    \xrightarrow{90^\circ_y(I),90^\circ_x(S)} \gamma_S S_y
+    \gamma_S S_z \xrightarrow{\angang{90}{x}(I)\text{--}\Delta} \gamma_S S_z
+    \xrightarrow{\angang{180}{x}(I),\angang{180}{x}(S)\text{--}\Delta} -\gamma_S S_z
+    \xrightarrow{\angang{90}{y}(I),\angang{90}{x}(S)} \gamma_S S_y
 \end{equation}
 This term produces \textit{in-phase} spin-$S$ magnetisation during the detection period (where the two components of the doublet have the same phase):
 \begin{equation}
@@ -129,7 +129,7 @@ The signal actually measured by the spectrometer is $s(t) = s_I(t) + s_S(t)$; an
 This leads to potentially unwanted phase distortions in the spectrum, which one would prefer to suppress.
 
 This can be accomplished through the technique of \textit{phase cycling}, where pulse and receiver phases are changed in concert and the resulting FIDs summed in order to select for a particular signal.
-In this case, the INEPT experiment is performed twice, once with the phases as given in \cref{fig:inept}, and once where the initial $90^\circ_x(I)$ pulse is replaced with a $90^\circ_{-x}(I)$ pulse.
+In this case, the INEPT experiment is performed twice, once with the phases as given in \cref{fig:inept}, and once where the initial $\angang{90}{x}(I)$ pulse is replaced with a $\angang{90}{-x}(I)$ pulse.
 The first of these gives us the same signals as above.
 However, inverting the initial $I\/$ pulse leads to $s_I$ acquiring a minus sign, because the initial $I_z$ term is rotated to $I_y$ instead of $-I_y$.
 On the other hand, the signal component $s_S$ is unaffected by this pulse and thus does not experience a change of sign.
@@ -148,7 +148,7 @@ The `simplified' analysis of pulse sequences shown in \cref{eq:inept_prodop,eq:i
 Although this is often touted as being `simpler' than full density operator calculations, it is really just a shorthand which masks the quantum mechanical theory developed in this chapter:
 \begin{equation}
     \label{eq:product_operator_shorthand}
-    \underbrace{I_z \xrightarrow{90^\circ_x(I)} -I_y}_{\textit{product operator}}
+    \underbrace{I_z \xrightarrow{\angang{90}{x}(I)} -I_y}_{\textit{product operator}}
     \quad\Longleftrightarrow\quad
     \underbrace{\exp(-\mi I_x\pi/2)I_z\exp(\mi I_x\pi/2) = -I_y}_{\textit{density operator}}
 \end{equation}

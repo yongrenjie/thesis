@@ -20,7 +20,7 @@ In the original version of the seHSQC (\cref{fig:sehsqc_po_crk}), developed by C
         \textbf{(\subref*{fig:sehsqc_po_noah2})} NOAH seHSQC2 module.
         Phase cycling is performed with $\phi_1 = (x, -x)$, $\phi_2 = (x, x, -x, -x)$, and $\phi_\text{rec} = (x, -x, -x, x)$.
         The delay $\Delta$ is set to $1 / (4 \cdot \oneJ{CH})$; see the text for a discussion of $\Delta'$.
-        The pulses marked with a phase of $\pm y$ are applied with a phase of $y$ in the echo experiment and $-y$ in the antiecho.
+        The pulses marked with a phase of $\pm y\/$ are applied with a phase of $y\/$ in the echo experiment and $-y\/$ in the antiecho.
         Gradient amplitudes are $(g_1, g_2, g_2', g_3, g_4) = (70\%, \pm 35.2\%, \pm 17.6\%, 11\%, -5\%)$.
     }
     \label{fig:sehsqc_po}
@@ -100,8 +100,8 @@ The final modification involves the addition of an extra gradient immediately be
 
 The seHSQC2 module (\cref{fig:sehsqc_po_noah2}), on the other hand, was initially reported by Hansen et al.\autocite{Hansen2021AC}
 In this pulse sequence, the initial \proton{} \ang{90} excitation pulse is replaced with a $zz$ isotope-selective pulse element (ZIP element), which is very similar to the $zz$-filter but has different pulse phases.
-This acts as a 90\rlap{\unit{\degree}}$_{-x}$ pulse on the \magn{C} magnetisation pool and thus ultimately leads to the same signals being detected (save for a trivial \ang{180} phase shift).
-However, on \magnnot{C} magnetisation, the ZIP element acts as a 90\rlap{\unit{\degree}}$_{y}$ pulse; it turns out that this modification alone is sufficient to return the bulk \magnnot{C} magnetisation to $+z$ at the end of the sequence.
+This acts as a \angang{90}{-x} pulse on the \magn{C} magnetisation pool and thus ultimately leads to the same signals being detected (save for a trivial \ang{180} phase shift).
+However, on \magnnot{C} magnetisation, the ZIP element acts as a \angang{90}{y} pulse; it turns out that this modification alone is sufficient to return the bulk \magnnot{C} magnetisation to $+z$ at the end of the sequence.
 The ZIP element therefore represents an isotope-specific rotation on \proton{} spins, where the rotation axis depends on whether it is coupled to \carbon{} or not.
 
 \begin{figure}[!ht]
@@ -348,7 +348,7 @@ One remaining possibility is the presence of some non-ideality in the pulses the
 \footnote{The concept of a \textit{composite pulse}\autocite{Levitt1986PNMRS} is usually associated with greater efficiency / uniformity, but here I have used the term to loosely refer to a consecutive series of pulses.}
 
 In order to investigate the extent to which this was responsible, I sought to use optimal control theory to develop a \textit{universal rotation pulse} (URP) which could replace this composite pulse.
-Such a pulse must accomplish the transformations in \cref{eq:sehsqc1_dp}, namely $z \to y$ and $y \to x$.%
+Such a pulse must accomplish the transformations in \cref{eq:sehsqc1_dp}, namely $z \to y\/$ and $y \to x$.%
 \footnote{The effect of this pulse on $x$-magnetisation is not important for the seHSQC1, but is in fact fully determined by these two constraints: $UI_x\adj{U} = -\mi U(I_yI_z - I_zI_y)\adj{U} = -\mi(UI_y\adj{U}UI_z\adj{U} - UI_z\adj{U}UI_y\adj{U}) = -\mi(I_xI_y - I_yI_x) = I_z$.
 This reveals a geometric interpretation of this pulse element: it is actually a \ang{120} rotation about the vector $(1, 1, 1)$, which is closely related to the $C_3$ symmetry operation in the octahedral point group.}
 This optimisation was performed using an interior-point algorithm (the default in Matlab \texttt{fmincon}) and the ESCALADE method\autocite{Foroozandeh2021A} for the calculation of analytic derivatives.

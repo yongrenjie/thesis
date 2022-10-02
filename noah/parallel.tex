@@ -12,7 +12,7 @@ In this text, I refer to this as a `vertical' stacking of modules (as opposed to
 
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[draft=false]{noah/parallel_noah_overview.png}%
+    \includegraphics[]{noah/parallel_noah_overview.png}%
     {\phantomsubcaption\label{fig:parallel_noah_overview_conv}}%
     {\phantomsubcaption\label{fig:parallel_noah_overview_interleaved}}%
     {\phantomsubcaption\label{fig:parallel_noah_overview_kscaled}}%
@@ -43,7 +43,7 @@ This generally has very little impact on the spectra (as was previously shown), 
 Here, instead of acquiring each increment of the HSQC module twice, the time is used to acquire two different modules, an in-phase (IP) and antiphase (AP) HSQC (both run without \carbon{} decoupling).
 Through appropriate linear combination of the data, it is possible to isolate the two peaks of the \proton{}--\carbon{} doublets in these spectra, and from thence measure $\oneJ{CH}$ values: this is known as in-phase/antiphase (IPAP) processing.\autocite{Ottiger1998JMR,Nolis2006JMR,Enthart2008JMR,Gil2010JMR}
 Much like the TOCSY and NOESY combination, it is not possible to acquire IP and AP HSQC spectra in a single, linear supersequence, not even with the partial \magn{C} excitation technique described in \cref{subsec:noah__hsqctocsy}.
-For the IPAP processing to work, the IP and AP spectra have to be acquired with the same intensity for all peaks: even with a careful choice of $f$ in a linear supersequence, it is not possible to ensure this.
+For the IPAP processing to work, the IP and AP spectra have to be acquired with the same intensity for all peaks: even with a careful choice of $f\/$ in a linear supersequence, it is not possible to ensure this.
 
 The reader will no doubt notice at this point that \cref{fig:parallel_noah_overview_parallel} corresponds simply to the interleaved acquisition of two different supersequences (one is IP-HSQC + COSY, and the other AP-HSQC + NOESY), which could just as well be acquired separately.
 Furthermore, both supersequences are acquired with only half the usual $F_1$ resolution (assuming the same experimental time as \cref{fig:parallel_noah_overview_conv}), meaning that there are \textit{no real time savings}.
@@ -64,7 +64,7 @@ There is also another argument for acquiring increments in an interleaved manner
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[draft=false]{noah/tsnoah_example.png}%
+    \includegraphics[]{noah/tsnoah_example.png}%
     {\phantomsubcaption\label{fig:tsnoah_example_overall}}%
     {\phantomsubcaption\label{fig:tsnoah_example_b1}}%
     {\phantomsubcaption\label{fig:tsnoah_example_b2}}%
@@ -98,7 +98,7 @@ The four IPAP-processed spectra from this supersequence are shown in \cref{fig:t
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[draft=false]{noah/tsnoah_ipap_spec.png}%
+    \includegraphics[]{noah/tsnoah_ipap_spec.png}%
     {\phantomsubcaption\label{fig:tsnoah_ipap_spec_sc_direct}}%
     {\phantomsubcaption\label{fig:tsnoah_ipap_spec_sc_indirect}}%
     {\phantomsubcaption\label{fig:tsnoah_ipap_spec_s_alpha}}%
@@ -155,7 +155,7 @@ Generally, it is desirable to assign larger $m_i$ values to less sensitive modul
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[draft=false]{noah/generalised_example.png}%
+    \includegraphics[]{noah/generalised_example.png}%
     \caption[A basic example of a generalised supersequence]{
         A basic example of a `generalised' NOAH supersequence, where an arbitrary number of supersequences (here three) can be vertically `stacked'.
         For each value of $t_1$, the TOCSY is acquired once, the NOESY twice, and the HSQC three times, as indicated by the subscripts in the condensed representation on the right.
@@ -239,7 +239,7 @@ Thus, in order to obtain spectra of the highest possible quality, any common div
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[draft=false]{noah/abbs_pp.png}%
+    \includegraphics[]{noah/abbs_pp.png}%
     {\phantomsubcaption\label{fig:abbs_pp_abbs}}%
     {\phantomsubcaption\label{fig:abbs_pp_abbss}}%
     \caption[Examples of generalised supersequences]{
@@ -257,7 +257,7 @@ It should be reiterated that the time savings to be obtained through this combin
 
 \begin{figure}[!htb]
     \centering
-    \includegraphics[draft=false]{noah/abbs_spec.png}%
+    \includegraphics[]{noah/abbs_spec.png}%
     {\phantomsubcaption\label{fig:abbs_spec_a}}%
     {\phantomsubcaption\label{fig:abbs_spec_bn}}%
     {\phantomsubcaption\label{fig:abbs_spec_b}}%
@@ -275,7 +275,7 @@ It should be reiterated that the time savings to be obtained through this combin
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[draft=false]{noah/abbss_spec.png}%
+    \includegraphics[]{noah/abbss_spec.png}%
     {\phantomsubcaption\label{fig:abbss_spec_a}}%
     {\phantomsubcaption\label{fig:abbss_spec_bn}}%
     {\phantomsubcaption\label{fig:abbss_spec_b}}%
@@ -352,7 +352,7 @@ Since all \ch{C}$\alpha$ and \ch{C}$\beta$ carbons in cyclosporin are protonated
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[draft=false]{noah/covariance.png}%
+    \includegraphics[]{noah/covariance.png}%
     {\phantomsubcaption\label{fig:covariance_spec_bruc_cn}}%
     {\phantomsubcaption\label{fig:covariance_spec_cyclo_caco}}%
     {\phantomsubcaption\label{fig:covariance_spec_cyclo_cacb_nosymm}}%

@@ -30,7 +30,7 @@ During $t_1$, the J-coupling is refocused, but the offset evolves to give:
     \label{eq:hsqc_ph_after_t1}
     \rho = 2I_zS_y\cos(\Omega_S t_1) - 2I_zS_x \sin(\Omega_S t_1),
 \end{equation}
-at point \circled{2}, bearing in mind that the $180^\circ_x(I)$ pulse inverts the $I_z$ component of both terms.
+at point \circled{2}, bearing in mind that the $\angang{180}{x}(I)$ pulse inverts the $I_z$ component of both terms.
 Immediately after this, the reverse INEPT element (the `mixing' segment) transfers the amplitude-modulated $2I_zS_y$ coherence $I_x$ for detection.
 However, the $2I_zS_x$ term is turned into a mixture of unobservable zero- and double-quantum coherence, such that immediately before detection (point \circled{3}) we have:
 \begin{equation}
@@ -42,7 +42,7 @@ Performing the usual quadrature detection in the direct $t_2$ dimension gives us
     \label{eq:hsqc_cos_signal}
     s_\text{cos}(t_1, t_2) = \frac{1}{2}\cos(\Omega_S t_1)\exp(\mi \Omega_I t_2),
 \end{equation}
-In a similar way, it can be shown that setting $\phi_1 = -y$ yields the following after $t_1$ (point \circled{2})
+In a similar way, it can be shown that setting $\phi_1 = -y\/$ yields the following after $t_1$ (point \circled{2})
 \begin{equation}
     \label{eq:hsqc_ph_after_t1_sin}
     \rho = 2I_zS_x\cos(\Omega_S t_1) + 2I_zS_y \sin(\Omega_S t_1),
@@ -56,7 +56,7 @@ These can be combined in the way described in \cref{subsec:theory__2dnmr} to yie
 
 This alone is not sufficient to obtain a high-quality HSQC spectrum, however.
 Not every \proton{} spin in a molecule will share a one-bond coupling to a \carbon{} spin:  for example, in a natural-abundance sample, the HSQC experiment only detects around $1\%$ of \proton{} spins.
-Even small artefacts arising from the remaining $99\%$ proton magnetisation may have comparable intensity to the signals of interest.
+Even small artefacts arising from the remaining $99\%$ of proton magnetisation may have comparable intensity to the signals of interest.
 We therefore need to suppress any unwanted peaks which might arise from this \textit{`bulk'} magnetisation.
 
 The simplest way to do this is to perform (at least) a two-step phase cycle, where the pulse phase $\phi_1$ and receiver phase $\phi_\text{rec}$ are simultaneously inverted.

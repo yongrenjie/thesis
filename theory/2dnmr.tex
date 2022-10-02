@@ -4,7 +4,7 @@
 Much of this thesis is concerned with two-dimensional (2D) NMR experiments.
 Before considering an explicit example of a 2D experiment, we will first describe some general principles.\autocite{Aue1976JCP_2D,Jeener2016PNMRS}
 2D experiments contain one \textit{indirect} and one \textit{direct} time dimension, traditionally labelled $t_1$ and $t_2$ respectively.
-The $t_1$ period is a variable period which starts at $0$\footnote{Or \textit{as close to 0 as possible}, considering that pulse elements during $t_1$---such as the $180^\circ(I)$ pulse in \cref{fig:hsqc_ph}---require finite amounts of time. In some cases, it is possible to arrange spin echoes around $t_1$ such that the $t_1$ evolution on the first increment is refocused.} and is incremented by a constant amount $\delta(t_1)$ on every iteration of the sequence.
+The $t_1$ period is a variable period which starts at $0$\footnote{Or \textit{as close to 0 as possible}, considering that pulse elements during $t_1$---such as the $\ang{180}(I)$ pulse in \cref{fig:hsqc_ph}---require finite amounts of time. In some cases, it is possible to arrange spin echoes around $t_1$ such that the $t_1$ evolution on the first increment is refocused.} and is incremented by a constant amount $\delta(t_1)$ on every iteration of the sequence.
 For each value of $t_1$ (or each $t_1$ \textit{increment}) one complex signal $s'(t_2)$ is obtained.
 Putting this all together, the raw data is thus of the form $s(t_1, t_2)$, which can be viewed as a 2D data matrix.
 Fourier transformation in both dimensions leads to a spectrum $S(\omega_1, \omega_2)$.
@@ -51,7 +51,7 @@ There are multiple different ways of solving these dual issues, which are extens
 Among these are the States method\autocite{States1982JMR}, the \ac{tppi} method\autocite{Marion1983BBRC}, and the \ac{ea} method.
 I will briefly cover the States and EA methods; the TPPI method can be shown to be essentially mathematically equivalent to the States method\autocite{Keeler1985JMR}.%
 \footnote{There is a slight difference in that the TPPI method pushes \textit{axial peaks}---artefacts arising at $\omega_1 = 0$---to the edge of the spectrum, whereas with the States method, these artefacts appear in the middle of the spectrum, potentially obscuring useful peaks. The reader is referred to the references cited in the main text for a discussion of this.
-In practice, both the States and EA methods can be easily adapted to incorporate this shifting of axial peaks by phase shifting the $t_1$ modulation as well as the receiver by $180^\circ$ every time $t_1$ is incremented (in the former case it is creatively known as the \textit{States--TPPI method}).
+In practice, both the States and EA methods can be easily adapted to incorporate this shifting of axial peaks by phase shifting the $t_1$ modulation as well as the receiver by \ang{180} every time $t_1$ is incremented (in the former case it is creatively known as the \textit{States--TPPI method}).
 Thus, I do not consider the TPPI method any further here.}
 
 In the States method, the cosine-modulated signal described above (and denoted $s_\text{cos}(t_1, t_2)$ here) forms only one part of the signal.

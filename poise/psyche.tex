@@ -176,7 +176,7 @@ I ran several different optimisations of increasing complexity:
     \item four-parameter: flip angle, gradient amplitude, bandwidth, and duration
 \end{itemize}
 
-\Cref{tbl:poise_psyche_summary} summarises the results obtained from all optimisations, whereas \cref{tbl:poise_psyche1p,tbl:poise_psyche2p,tbl:poise_psyche3p,tbl:poise_psyche4p} shows more detailed results for each individual set of optimisations, including a breakdown by algorithm.
+\Cref{tbl:poise_psyche_summary} summarises the results obtained from all optimisations, whereas \cref{tbl:poise_psyche1p,tbl:poise_psyche2p,tbl:poise_psyche3p,tbl:poise_psyche4p} show more detailed results for each individual set of optimisations, including a breakdown by algorithm.
 We can see from these results that---perhaps unsurprisingly---optimising more parameters leads to greater improvements in the cost function, albeit at the cost of more FEs and more time.
 
 An important question is whether these reductions in the cost function (measured on a JRSE experiment) do actually translate into improved pure shift spectra.
@@ -188,12 +188,12 @@ Broadly speaking, all the optimised spectra provide better performance than the 
 In particular, the four-parameter optimisation successfully suppresses some of the strong coupling artefacts: this may be explained by the fact that the pulse duration was increased from \qty{30}{\ms} to \qty{36}{\ms}, which generally results in better spatiotemporal averaging, as was noted in \cref{sec:pureshift__nsaltire}.%
 \footnote{This does raise the question of whether a two-parameter optimisation of just the flip angle and duration could yield similar results, but in a shorter time. I think it is possible, but I did not test this, though, as I simply did not have the appetite to try optimising \textit{every} possible combination of parameters.}
 Generally, this optimisation \textit{does} come at a cost in sensitivity, which is particularly noticeable for the four-parameter optimised result.
-However, since the cost function $f_\text{diff}$ also penalises sensitivity losses, it also ensures that any drops in sensitivity are not excessive.
+However, since the cost function $f_\text{diff}$ also penalises sensitivity losses, it ensures that any drops in sensitivity are not excessive.
 
 Given these improvements, one might wonder why it would ever be worth optimising fewer than four parameters.
 The first obvious drawback is the time required: in fact, it is probably more economical to use the TSE-PSYCHE experiment (which also has improved performance in the presence of strong coupling).%
 \footnote{Another thing I did not (thoroughly) investigate was to optimise the TSE-PSYCHE experiment. This could, in principle, be done using a TSE form of the JRSE experiment: \ang{90}--chirp--$\tau$--PSE--$\tau$--chirp--detect. However, this has decreased sensitivity over the original JRSE experiment, which means even longer optimisations.}
-Furthermore, that $f_\text{diff}$ is a rather `flat' cost function and optimisations using it are very susceptible to noise: this factor is specific to pure shift optimisations, and was previously mentioned in \cref{subsec:pureshift__chirpopt}.
+Furthermore, $f_\text{diff}$ is a rather `flat' cost function and optimisations using it are very susceptible to noise: this factor is specific to pure shift optimisations, and was previously mentioned in \cref{subsec:pureshift__chirpopt}.
 A closer inspection of the POISE logs for the three- and four-parameter optimisations (which are not provided here, but can be accessed in the raw data for the POISE paper, available at \url{https://doi.org/10.5281/zenodo.4698423}) reveals that the optimisations are perhaps not as consistent as one would hope.
 Although \textit{generally} the optimisation leads to similar results in that (for example) $\beta$ is often decreased and $\taup$ increased, the extents of these changes are not quite uniform: for example, $\taup$ is optimised to anywhere between \qty{36}{\ms} and \qty{55}{\ms}, which suggests that there are \textit{many} local minima and which of these the optimisation converges to depends on the noise in the cost function.%
 \footnote{I still think, however, that it is misleading to quote these ranges in \cref{tbl:poise_psyche1p,tbl:poise_psyche2p,tbl:poise_psyche3p,tbl:poise_psyche4p}, because this gives the impression that there are no correlations between the optimised parameters.}

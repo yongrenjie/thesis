@@ -43,7 +43,7 @@ However, the multiple-restarts feature in Py-BOBYQA was disabled in POISE as thi
 
 Crucially, Py-BOBYQA differs from the simplex-based methods in that \textit{it cares about the actual value of the cost function}.
 In the NM and MDS methods, only the relative ordering of the points in the simplex matters; it makes no difference to the algorithm whether the worst point has a cost function value of 10 or 1000.
-However, in Py-BOBYQA, the value of $f$ is used in constructing the model, and thus directly influences the optimisation trajectory.
+However, in Py-BOBYQA, the value of $f\/$ is used in constructing the model, and thus directly influences the optimisation trajectory.
 Although this is beneficial in cases where the underlying cost function is relatively well-behaved,%
 \footnote{I \textit{think} this means cases where the cost function is well described by a quadratic model. Of course, because of Taylor's theorem, every non-noisy cost function can be locally described by a quadratic model within a sufficiently small region. However, for meaningful progress to be made with noisy cost functions, the model must be built over a large enough region such that noise becomes less relevant.}
 and is reflected in faster convergence rates for such problems, it can be problematic for some cost functions.

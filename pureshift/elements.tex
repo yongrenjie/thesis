@@ -37,7 +37,7 @@ The ZS element can be easily---and has been---adapted for use in many experiment
 \subsubsection{BIRD}
 
 Next up is the \textit{bilinear rotation decoupling} (BIRD) pulse element (\cref{fig:pureshift_elements_bird}).
-BIRD is not spatially selective like the ZS method; instead, it is \textit{isotope-selective} in that it acts as a $180^\circ_y$ pulse on \carbon{}--bound protons, and does not affect \carbont{}--bound protons.
+BIRD is not spatially selective like the ZS method; instead, it is \textit{isotope-selective} in that it acts as a \angang{180}{y} pulse on \carbon{}--bound protons, and does not affect \carbont{}--bound protons.
 Consequently, all \carbon{}--bound protons become the active spins in the context of pure shift NMR.
 The first report of the BIRD element\autocite{Garbow1982CPL}, in 1982, was clearly ahead of its time: it reported the use of an interferogram-type approach to obtain 1D pure shift spectra.
 However, in the subsequent decades, this seemed to have been forgotten: BIRD found much more use as an isotope-selective rotation element in heteronuclear NMR\autocite{Uhrin1993JMRSA}, until its use as a pure shift element was `rediscovered'\autocite{Sakhaii2009JMR,Aguilar2011ACIE}.
@@ -62,6 +62,6 @@ This will be discussed in more detail in \cref{sec:pureshift__timerev}, so a ful
 
 Finally, we come to the PSYCHE method, which is generally considered the current state of the art for pure shift NMR.\autocite{Foroozandeh2014ACIE}
 The corresponding PSE (\cref{fig:pureshift_elements_psyche}) consists of two swept-frequency pulses applied during a weak gradient: for example, a pair of chirps with opposite sweep directions can be used.
-Using two \textit{saltire pulses}, pulses which simultaneously sweep in both directions, leads to an increased signal-to-artefact ratio\autocite{Foroozandeh2018CEJ}.
+The signal-to-artefact ratio of PSYCHE can be further improved by using two \textit{saltire pulses}: these are superpositions of chirps which simultaneously sweep in both frequency directions\autocite{Foroozandeh2018CEJ}.
 The operation of this PSE is not easy to fully explain\autocite{Foroozandeh2020JMR}. However, we can adopt the (not fully accurate, but still useful) instant-flip approximation\autocite{Zwahlen1997JACS,Kupce2007JMR}---that the swept-frequency pulse acts as an instantaneous \ang{180} rotation on each frequency it passes through.
 Using this, the PSYCHE element (or strictly, the PSYCHE JRE, including a hard \ang{180} pulse) may be viewed as a spatially parallelised version of the anti $z$-COSY experiment\autocite{Oschkinat1986JMR,Pell2007MRC}, which we now describe.

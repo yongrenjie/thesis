@@ -56,7 +56,7 @@ I chose the initial point to be four times the \texttt{prosol} value for \texttt
 The tolerance is set to \qty{0.2}{\us}, which corresponds to an accuracy of \qty{0.05}{\us} for the \ang{90} pulse width itself.
 The lower and upper bounds are set to be \qty{8}{\us} away from the initial point, representing a `sensible' region within which we expect the null to lie (this may need to be adjusted for samples with high ionic strength, but for typical organic samples this is more than enough).
 A standard \texttt{poise\_1d} acquisition AU programme is used, which simply acquires the spectrum and performs Fourier transformation, phase correction, and baseline correction.
-The routine in JSON format is shown in the caption to \cref{tbl:poisecal_48}.
+The routine in JSON format is shown in the caption of \cref{tbl:poisecal_48}.
 Finally, in order to reduce the time taken for the optimisation, several tricks are used: each FE is run using no dummy scans and only one scan, the acquisition time is set to just \qty{1.1}{\s} (high resolution is not required for a reliable cost function value), and the recovery delay \texttt{D1} is set to 0.
 In practice, there is an extra gap of around \qty{5}{\s} between successive FEs due to spectrometer initialisation, so an extra recovery delay is not needed.
 
