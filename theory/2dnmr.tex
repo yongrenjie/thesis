@@ -6,7 +6,7 @@ Before considering an explicit example of a 2D experiment, we will first describ
 2D experiments contain one \textit{indirect} and one \textit{direct} time dimension, traditionally labelled $t_1$ and $t_2$ respectively.
 The $t_1$ period is a variable period which starts at $0$\footnote{Or \textit{as close to 0 as possible}, considering that pulse elements during $t_1$---such as the $\ang{180}(I)$ pulse in \cref{fig:hsqc_ph}---require finite amounts of time. In some cases, it is possible to arrange spin echoes around $t_1$ such that the $t_1$ evolution on the first increment is refocused.} and is incremented by a constant amount $\delta(t_1)$ on every iteration of the sequence.
 For each value of $t_1$ (or each $t_1$ \textit{increment}) one complex signal $s'(t_2)$ is obtained.
-Putting this all together, the raw data is thus of the form $s(t_1, t_2)$, which can be viewed as a 2D data matrix.
+Putting this all together, the raw data thus take the form $s(t_1, t_2)$, which can be viewed as a 2D data matrix.
 Fourier transformation in both dimensions leads to a spectrum $S(\omega_1, \omega_2)$.
 In experimental contexts, the frequency dimensions are often referred to as $F_1$ and $F_2$, but in this chapter I stick to the more mathematically consistent $\omega$.
 

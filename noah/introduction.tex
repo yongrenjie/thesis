@@ -2,12 +2,13 @@
 \label{sec:noah__introduction}
 
 The characterisation of small molecules and biomolecules by NMR spectroscopy relies on a suite of standard 2D NMR experiments, which seek to detect heteronuclear scalar couplings (e.g.\ HSQC and HMBC), homonuclear scalar couplings (e.g.\ COSY and TOCSY), or through-space interactions (e.g.\ NOESY and ROESY).
-Although 2D experiments provide far superior resolution and information content compared to 1D spectra, they also require substantially longer experiment durations, as the indirect dimension must be constructed through the acquisition of many $t_1$ increments.
-This problem is further exacerbated by the fact that structural elucidation or verification often necessitates the acquisition of several different 2D experiments.
+Although such 2D experiments provide far superior resolution and information content compared to 1D spectra, they also require substantially longer experimental durations, as the indirect dimension must be constructed through the acquisition of many $t_1$ increments.
+This problem is further exacerbated by the fact that structural elucidation or verification often requires combined information from multiple different 2D experiments.
 
-The acceleration of 2D NMR has thus proven to be a popular area of research, and we may broadly categorise the existing techniques into two classes.%
+The acceleration of 2D NMR has thus proven to be a popular area of research.
+We may broadly categorise these existing techniques into two classes.%
 \footnote{These are by no means mutually exclusive: many of the techniques here can be combined to provide even greater efficiency.}
-Firstly come the methods which seek to directly speed up the acquisition of \textit{individual} 2D spectra: these include
+Firsty come the methods which seek to directly speed up the acquisition of \textit{individual} 2D spectra: these include
 \acf{nus}\autocite{Barna1987JMR,Kazimierczuk2010PNMRS,Mobli2014PNMRS,Kazimierczuk2015MRC},
 fast pulsing (i.e.\ shortening of recovery delays)\autocite{SchulzeSunninghausen2014JACS,Schanda2006JACS,Kupce2007MRC,Schanda2009PNMRS},
 ultrafast NMR\autocite{Frydman2002PNASUSA,Pelupessy2003JACS,Frydman2003JACS,Tal2010PNMRS,Gouilleux2018ARNMRS,Kupce2021NRMP},
@@ -18,13 +19,20 @@ On the other hand, \textit{multiple-FID experiments} aim to collect two or more 
 The corresponding FIDs may either be detected at the same time (as in
 time-shared NMR\autocite{Nolis2007ACIE,Parella2010CMR,Nolis2019JMR_psHSQC} and
 multiple-receiver NMR\autocite{Kupce2006JACS,Kupce2008JACS,Kovacs2016MRC}),
-or \textit{sequentially}: NOAH supersequences\autocite{Kupce2017ACIE,Kupce2021PNMRS,Kupce2021NRMP} fall under this category.
-Specifically, NOAH supersequences are set aside from other sequential-acquisition experiments\autocite{Haasnoot1984JMR,Gurevich1984JMR,MotiramCorral2018CC,Nolis2019MRC,Nolis2019CPC,Nolis2019JMR} by their `modular' nature: they can be constructed from building blocks which each (usually) contain one FID.
+or \textit{sequentially}: this is the category which NOAH supersequences\autocite{Kupce2017ACIE,Kupce2021PNMRS,Kupce2021NRMP} fall under.
+NOAH supersequences are furthermore set apart from other sequential-acquisition experiments\autocite{Haasnoot1984JMR,Gurevich1984JMR,MotiramCorral2018CC,Nolis2019MRC,Nolis2019CPC,Nolis2019JMR} by their `modular' nature: they can be constructed from building blocks, or `modules', which (usually) contain one FID each.
 Typically, each of these building blocks corresponds to a specific 2D experiment, as will be shown below.
-It should be noted that there are several other multiple-FID experiments which, while not explicitly advertised as such, are built from `modules' and are conceptually identical to NOAH experiments\autocite{Nagy2019CC,Nagy2020JMR,Nagy2021ACIE,Timari2022CC}; I do not discuss these here.
+It should be noted that there are several other multiple-FID experiments which, while not explicitly advertised as `NOAH experiments', are built from `modules' and are conceptually identical\autocite{Nagy2019CC,Nagy2020JMR,Nagy2021ACIE,Timari2022CC}; I do not discuss these here.
 
-The concatenation of different modules in NOAH supersequences relies on the combination of modules which draw on different \textit{magnetisation pools}.
-Before explaining this, I first provide an overview of how the time savings for NOAH experiments may be quantified and analysed.
+The time savings provided by NOAH experiments stems from the elision of \textit{recovery delays}---the time required for spins to relax to their equilibrium state ($\rho_0$ in \cref{eq:thermal_density_operator}), such that the next transient or $t_1$ increment can be recorded.
+These recovery delays is responsible for most of the experimental duration of a typical 2D NMR experiment.
+In NOAH supersequences, each module is designed to draw on a different \textit{magnetisation pool}: this refers to a source of magnetisation belonging to a specific isotopologue.
+For example, \carbon{}--bound protons and \carbont{}--bound protons are two different magnetisation pools.
+This allows modules to be directly concatenated, without the addition of extra recovery delays between them; only one overall recovery delay is required for the entire supersequence, where \textit{all} magnetisation pools simultaneously recover.
+
+In this section, I first provide a formal overview of how the time savings for NOAH experiments may be quantified and analysed.
+This includes an analysis of the conditions under which multiple-FID techniques such as NOAH are most valuable.
+Following this, I turn to the design of NOAH pulse sequences, using specific case studies to illustrate the general principles underlying these experiments.
 
 \input{noah/snr.tex}
 \input{noah/magpools.tex}

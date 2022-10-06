@@ -3,7 +3,7 @@
 
 The first new module is the sensitivity-enhanced HSQC (seHSQC) experiment, which provides up to $2\times$ increased SNR over a standard (echo--antiecho) HSQC.%
 \footnote{Since a States HSQC has $\sqrt{2}$ times the SNR of an EA HSQC (as shown in \cref{fig:hsqc_comparison}), this also means that the seHSQC has a $\sqrt{2}$ SNR improvement over a States HSQC. The literature can be somewhat confusing on this point: sometimes the gain in signal is even conflated with the gain in SNR. The clearest exposition I have found is that provided by Kontaxis et al.\autocite{Kontaxis1994JMRSA}}
-In the original version of the seHSQC (\cref{fig:sehsqc_po_crk}), developed by Cavanagh, Rance, and Kay (`CRK')\autocite{Palmer1991JMR,Kay1992JACS}, this is accomplished through the so-called \textit{preservation of equivalent pathways} (PEP) technique\autocite{Cavanagh1993ARNMRS}.
+In the original version of the seHSQC (\cref{fig:sehsqc_po_crk}), developed by Cavanagh, Rance, and Kay (`CRK')\autocite{Palmer1991JMR,Kay1992JACS}, this is accomplished through the so-called \textit{preservation of equivalent pathways} (PEP) technique\autocite{Cavanagh1993ARNMRS}, which I now provide a product operator analysis of.
 
 \begin{figure}[!htbp]
     \centering
@@ -20,13 +20,14 @@ In the original version of the seHSQC (\cref{fig:sehsqc_po_crk}), developed by C
         \textbf{(\subref*{fig:sehsqc_po_noah2})} NOAH seHSQC2 module.
         Phase cycling is performed with $\phi_1 = (x, -x)$, $\phi_2 = (x, x, -x, -x)$, and $\phi_\text{rec} = (x, -x, -x, x)$.
         The delay $\Delta$ is set to $1 / (4 \cdot \oneJ{CH})$; see the text for a discussion of $\Delta'$.
+        A value of \qty{145}{\Hz} was used for $\oneJ{CH}$.
         The pulses marked with a phase of $\pm y\/$ are applied with a phase of $y\/$ in the echo experiment and $-y\/$ in the antiecho.
         Gradient amplitudes are $(g_1, g_2, g_2', g_3, g_4) = (70\%, \pm 35.2\%, \pm 17.6\%, 11\%, -5\%)$.
     }
     \label{fig:sehsqc_po}
 \end{figure}
 
-Just like in a standard HSQC, the experiment begins with an INEPT block and $t_1$ evolution.
+Just like in a standard HSQC, the seHSQC experiment begins with an INEPT block and $t_1$ evolution.
 At the end of $t_1$, there are two terms which are cosine- and sine-modulated with respect to $\Omega_S$.
 In the standard HSQC, only the $2I_zS_y$ term is returned into observable \proton{} magnetisation by the reverse INEPT block (see \cref{subsec:theory__hsqc_states}).
 In contrast, the PEP block transfers \textit{both} terms back to \proton{} and subsequently detects both.
@@ -41,7 +42,7 @@ is transformed into
     -I_y \cos(\Omega_S t_1) - I_x \sin(\Omega_S t_1)
 \end{equation}
 just prior to acquisition.
-During the FID, only the $-1$-coherence component is detected:
+During the FID, only the $-1$-coherence component of this is detected:
 \begin{equation}
     \label{eq:sehsqc_detection_minusone}
     \frac{1}{2\mi}I_- \cos(\Omega_S t_1) - \frac{1}{2}I_- \sin(\Omega_S t_1) = \frac{1}{2\mi}I_-\exp(-\mi \Omega_S t_1),
@@ -58,7 +59,6 @@ Since the seHSQC has the same noise level as in an EA HSQC, this also correspond
 It should, however, be noted that the PEP transfer is only fully attained for $IS\/$ spin pairs if the delay $\Delta'$ is set to $1 / (4 \cdot \oneJ{CH})$.
 For $I_2S\/$ or $I_3\/S$ spin systems, no gain in sensitivity is accomplished with this setting of $\Delta' = 1 / (4 \cdot \oneJ{CH})$.
 It is more common, therefore, to shorten $\Delta'$ to $1 / (8 \cdot \oneJ{CH})$: this sacrifices some transfer efficiency for $IS\/$ systems, but allows for some sensitivity enhancement for $I_2S\/$ and $I_3S\/$ systems (\cref{tbl:sehsqc_theory}).
-In this work, all experiments were run assuming a value of \qty{145}{\Hz} for $\oneJ{CH}$.
 
 \begin{table}[!ht]
     \begin{tabular}{cccc}
@@ -94,15 +94,15 @@ It retains the same general structure of the CRK seHSQC up until $t_1$, but imme
     I_z \to I_y; \qquad I_y \to I_x,
 \end{equation}
 where the former is required for the \magn{C} pool and the latter for \magnnot{C}.
-This has the effect of storing the sine-modulated term as $2I_zS_z$ magnetisation for one spin echo (as opposed to the CRK seHSQC, which stores cosine-modulated term as $I_z$).
-At the beginning of the final spin echo (containing the rephasing gradient), this is transformed into antiphase magnetisation of the form $2I_xS_z$; thus, this spin echo must be lengthened to a total duration of $2\Delta$ in order to fully refocus $\oneJ{CH}$.
-The final modification involves the addition of an extra gradient immediately before to $t_1$: this ensures that the bulk \magnnot{C} magnetisation is not dephased, just like in the NOAH HSQC module (\cref{fig:noah_sb_po_s}).
+This has the effect of storing the sine-modulated term as $2I_zS_z$ magnetisation for one spin echo (as opposed to the CRK seHSQC, which stores the cosine-modulated term as $I_z$).
+At the beginning of the final spin echo, this is transformed into antiphase magnetisation of the form $2I_xS_z$; thus, this spin echo must be lengthened to a total duration of $2\Delta$ in order to fully refocus $\oneJ{CH}$.
+The final modification involves the addition of an extra gradient immediately before $t_1$: this ensures that the bulk \magnnot{C} magnetisation is not dephased, just like in the NOAH HSQC module (\cref{fig:noah_sb_po_s}).
 
-The seHSQC2 module (\cref{fig:sehsqc_po_noah2}), on the other hand, was initially reported by Hansen et al.\autocite{Hansen2021AC}
-In this pulse sequence, the initial \proton{} \ang{90} excitation pulse is replaced with a $zz$ isotope-selective pulse element (ZIP element), which is very similar to the $zz$-filter but has different pulse phases.
-This acts as a \angang{90}{-x} pulse on the \magn{C} magnetisation pool and thus ultimately leads to the same signals being detected (save for a trivial \ang{180} phase shift).
+The seHSQC2 module (\cref{fig:sehsqc_po_noah2}), on the other hand, was first developed by Hansen et al.\autocite{Hansen2021AC}
+In this pulse sequence, the initial \proton{} \angang{90}{x} excitation pulse is replaced with a $zz$ isotope-selective pulse (ZIP) element, which is very similar to the $zz$-filter but has different pulse phases.
+The effect of this on the \magn{C} magnetisation pool amounts to a \angang{90}{-x} pulse, and thus the same signals are ultimately detected from this magnetisation pool (save for a trivial \ang{180} phase shift).
 However, on \magnnot{C} magnetisation, the ZIP element acts as a \angang{90}{y} pulse; it turns out that this modification alone is sufficient to return the bulk \magnnot{C} magnetisation to $+z$ at the end of the sequence.
-The ZIP element therefore represents an isotope-specific rotation on \proton{} spins, where the rotation axis depends on whether it is coupled to \carbon{} or not.
+The ZIP element therefore represents an \textit{isotope-specific rotation} on protons, where the rotation axis depends on whether the proton is directly coupled to \carbon{} or not.
 
 \begin{figure}[!ht]
     \centering
@@ -139,21 +139,21 @@ The scheme I used leads to similar results, but has one advantage in that it all
     \label{fig:noah_sehsqc_comp}
 \end{figure}
 
-The primary consideration when evaluating the different seHSQC versions in \cref{fig:sehsqc_po} is naturally sensitivity
-\Cref{fig:noah_sehsqc_comp} compares the sensitivities of the various possible \noah{Sp,Cc} supersequence against a \noah{S,Cc} experiment.
+The primary consideration when evaluating the different seHSQC versions in \cref{fig:sehsqc_po} is naturally sensitivity.
+\Cref{fig:noah_sehsqc_comp} compares the sensitivities of the various possible \noah{Sp,Cc} supersequence, against a \noah{S,Cc} experiment.
 As can be seen, all three seHSQC implementations yield improvements in the sensitivities of \ch{CH} peaks: the original CRK seHSQC has the largest effect here, followed by seHSQC2 and seHSQC1.
-For \ch{CH2} and \ch{CH3} peaks, the CRK seHSQC and seHSQC2 perform better than the standard HSQC, but the average sensitivities in seHSQC1 have dipped slightly below.
+For \ch{CH2} and \ch{CH3} peaks, the CRK seHSQC and seHSQC2 perform better than the standard HSQC, but the relative sensitivities in seHSQC1 have dipped slightly below 1.
 This is not entirely surprising in light of the discussion in \cref{subsec:noah__snr}: the modified seHSQC1 and seHSQC2 sequences are expected to have lower sensitivities than the original experiment from which they are derived.
-In this case, it appears that the modifications made to the seHSQC1 sequence have caused sensitivity losses which outweigh the benefits of using a sensitivity-enhanced experiment.
+In this case, it appears that the modifications made to the seHSQC1 sequence cause sensitivity losses which outweigh the benefits of using a sensitivity-enhanced experiment.
 
 In the context of a NOAH supersequence, it is also important to consider how well each module preserves \magnnot{C} magnetisation for subsequent homonuclear module(s).
-In \cref{fig:noah_sehsqc_comp}, the CLIP-COSY module is used as the `reporter' module, but the conclusions drawn here are applicable to \textit{any} homonuclear module (or HMBC).
-The CRK seHSQC naturally does poorly in this respect, as it dephases the bulk magnetisation: this leads to almost an order-of-magnitude sensitivity loss in the CLIP-COSY.
+In \cref{fig:noah_sehsqc_comp}, the CLIP-COSY module is used as the `reporter' module, but the conclusions drawn here are applicable to \textit{any} homonuclear module (or the HMBC).
+The CRK seHSQC does poorly in this respect, as it dephases the bulk magnetisation: this leads to almost an order-of-magnitude sensitivity loss in the CLIP-COSY.
 Both the other NOAH seHSQC modules, however, perform almost identically to the original HSQC module, as expected from the product operator analysis in \cref{fig:sehsqc_po}.
 
 From \cref{fig:noah_sehsqc_comp}, we can draw some very simple conclusions: if the seHSQC is to be used at (or near) the \textit{beginning} of a NOAH supersequence, where it needs to preserve \magnnot{C} magnetisation, then the seHSQC2 module is the best choice.
 On the other hand, if the seHSQC module is placed at the \textit{end} (say in a \noah{B,Sp} supersequence), then the CRK seHSQC is optimal.
-This logic is encoded in GENESIS.
+This logic is used by GENESIS to choose the best seHSQC implementation based on other modules in the requested supersequence.
 
 
 \subsubsection{COSY-type artefacts}
@@ -161,8 +161,8 @@ This logic is encoded in GENESIS.
 One (minor) way in which the seHSQC1 module outperforms seHSQC2 is in the suppression of COSY-type artefacts in the seHSQC spectrum\autocite{Turner1999JMR}.
 These arise due to evolution of $\nJ{HH}$ during the second-last spin echo of the CRK seHSQC.
 Specifically, if we assume the presence of a separate \proton{} spin $K$ which is coupled to spin $I$, the sine-modulated $2I_yS_z$ term can evolve under both $\oneJ{$IS$}$ and $\nJ{$IK$}$ into $2I_yK_z$, and the last \proton{} \ang{90} pulse transfers this coherence to the spin $K$.
-This leads to peaks correlating spin $S$ with $K$.
-This is also true of the seHSQC2 module, as the product operator analysis for the CRK seHSQC is entirely applicable to it.
+This leads to peaks correlating spin $S$ with spin $K$.
+Since the seHSQC2 module shares the same product operator analysis as the CRK seHSQC, these artefacts are also visible in seHSQC2 spectra.
 
 However, for the seHSQC1 module, the corresponding term giving rise to these artefacts would be the cosine-modulated $I_x$ term (at the beginning of the second-last spin echo).
 During this spin echo, this can again evolve under both J-couplings into $4I_yK_zS_z$, and the final \ang{90} pulse would transform this to $-4I_zK_yS_z$.
@@ -188,11 +188,11 @@ Some artefacts still remain, which perhaps arise due to pulse imperfections (or 
 
 \subsubsection{Wing artefacts}
 
-One point worth considering is whether the extra gradient in the seHSQC2 module is truly needed.
+One point worth considering is whether the extra gradient which I placed in the seHSQC2 module (\cref{fig:sehsqc_grad_schemes_jon}) is truly needed.
 In the HSQC and seHSQC1 modules, the bulk magnetisation is placed along the transverse axis during $t_1$; therefore, if a pair of symmetric gradients are not used, this magnetisation will be dephased (as in the CRK seHSQC).
-However, in the seHSQC2 module, the bulk magnetisation is longitudinal, which suggests that this gradient is not necessary.
+However, in the seHSQC2 module, the bulk magnetisation is longitudinal, meaning that this gradient is not actually required for \magnnot{C} preservation.
 
-This gradient can indeed be removed in the seHSQC2 module, and doing so does not lead to any poorer preservation of \magnnot{C} magnetisation.
+This gradient can indeed be removed in the seHSQC2 module without compromising the preservation of \magnnot{C} magnetisation.
 However, the omission of this gradient leads to artefacts in the CLIP-COSY spectrum, which I term \textit{`wing artefacts'} because of the way they flank peaks in the CLIP-COSY (\cref{fig:sehsqc_wing_arts}).
 These artefacts can most clearly be seen in the diagonal peaks of methyl groups, but are present across the entire spectrum.
 
@@ -220,6 +220,7 @@ where $t_{1,\text{X}}$ refers to the value of $t_1$ in experiment X (it does not
 In accordance with this, when the seHSQC indirect-dimension spectral width is reduced, the artefacts are displaced outwards (\cref{fig:sehsqc_wing_arts_proj_offon_sw4}).
 This suggests that these artefacts arise from \magnnot{C} magnetisation which is frequency-labelled in two different $t_1$ periods: specifically, it evolves once during \textit{half} of the seHSQC $t_1$ period, and then again during the CLIP-COSY $t_1$ period.
 In fact, it is necessary to apply CTP gradients on both sides of $t_1$ in order to suppress evolution of this stray magnetisation during both halves: if either or both of the gradients are removed, the artefacts are present (\cref{fig:sehsqc_wing_arts_proj_onon,fig:sehsqc_wing_arts_proj_offon,fig:sehsqc_wing_arts_proj_onoff,fig:sehsqc_wing_arts_proj_offoff}).
+Alternatively, the placement of a purge gradient before the first \carbon{} \ang{90} pulse accomplishes a similar result, as in the original seHSQC2 implementation (\cref{fig:sehsqc_grad_schemes_alex}).
 
 \begin{figure}[!ht]
     \centering
@@ -243,7 +244,7 @@ In fact, it is necessary to apply CTP gradients on both sides of $t_1$ in order 
 \end{figure}
 
 These wing artefacts are unique to fast-pulsing experiments such as NOAH supersequences: in a typical 2D experiment, these are less likely to arise because of the long(er) recovery delays between data acquisition periods.
-In the sections which follow, we will see these surface repeatedly.
+In the sections which follow, we will see these wing artefacts surface repeatedly.
 Fortunately, it proves to be relatively easy to suppress them through the judicious use of gradients.
 
 
@@ -283,7 +284,7 @@ It suffices to add a spin echo of total duration $4\Delta = 1 / \oneJ{CH}$ just 
 \end{figure}
 
 The inclusion of editing does not make a substantial difference in the sensitivity comparisons (\cref{fig:noah_sehsqc_comp_edited}).
-However, it is interesting to note that the edited seHSQC2 in fact performs \textit{better} than the edited HSQC in terms of preserving bulk magnetisation, as evidenced by the larger COSY intensities in \cref{fig:noah_sehsqc_comp_edited_2}.
+However, it is interesting to note that the edited seHSQC2 in fact performs \textit{better} than the edited HSQC in terms of preserving bulk magnetisation, as evidenced by the COSY intensities in \cref{fig:noah_sehsqc_comp_edited_2} which are greater than unity.
 This can be explained by the fact that in the editing period of the HSQC experiment (and seHSQC1), the bulk magnetisation is placed in the transverse plane.
 The evolution of homonuclear couplings will thus lead to a small loss in the amount of \magnnot{C} magnetisation preserved.
 In the seHSQC2 sequence, the bulk magnetisation is longitudinal during the editing period, so does not evolve under $J_{\ch{HH}}$.
@@ -292,8 +293,7 @@ In the seHSQC2 sequence, the bulk magnetisation is longitudinal during the editi
 \subsubsection{Choice of $\symbf{\Delta'}$}
 
 As discussed previously, there are several possible values for the delay $\Delta'$.
-I thus also investigated the possibility of setting $\Delta' = 1 / (4 \cdot \oneJ{CH})$.
-The corresponding sensitivity comparisons are shown in \cref{fig:noah_sehsqc_1over4j}.
+I also specifically investigated the possibility of setting $\Delta' = 1 / (4 \cdot \oneJ{CH})$; the corresponding sensitivity comparisons are shown in \cref{fig:noah_sehsqc_1over4j}.
 
 \begin{figure}[!ht]
     \centering
@@ -312,9 +312,9 @@ The corresponding sensitivity comparisons are shown in \cref{fig:noah_sehsqc_1ov
     \label{fig:noah_sehsqc_1over4j}
 \end{figure}
 
-As can be appreciated, the sensitivity boosts obtained for \ch{CH} groups is higher than in the corresponding spectra with $\Delta' = 1 / (8 \cdot \oneJ{CH}$ (\cref{fig:noah_sehsqc_comp}).
-However, in this case, there is a small sensitivity \textit{loss} for \ch{CH2} and \ch{CH3} groups as compared to the original HSQC (which is consistent with previous studies\autocite{Schleucher1994JBNMR}).
-For \ch{CH3} groups this is unlikely to be of any consequence, but particularly for diastereotopic \ch{CH2} groups this may not be desirable.
+As can be seen, the sensitivity boosts obtained for \ch{CH} groups are higher than in the corresponding spectra with $\Delta' = 1 / (8 \cdot \oneJ{CH})$ (\cref{fig:noah_sehsqc_comp}).
+However, there is also a small sensitivity \textit{loss} for \ch{CH2} and \ch{CH3} groups as compared to the original HSQC: this is consistent with previous studies\autocite{Schleucher1994JBNMR}.
+For \ch{CH3} groups, which typically have large intensities in HSQC-type spectra, this is unlikely to be of any consequence; however, for diastereotopic \ch{CH2} groups this sensitivity loss may not be desirable.
 
 It is interesting to note that the performance of the seHSQC1 module is much closer to that of the seHSQC2 here.
 The fact that seHSQC1 performs worse with the reduced value of $\Delta' = 1 / (8 \cdot \oneJ{CH})$ suggests that there are some inefficiencies in this section of the pulse sequence; however, there is no immediate explanation for this in the product operators (the relevant terms in the seHSQC1 are entirely similar to that in the CRK, save for a minus sign).
@@ -348,13 +348,15 @@ One remaining possibility is the presence of some non-ideality in the pulses the
 \footnote{The concept of a \textit{composite pulse}\autocite{Levitt1986PNMRS} is usually associated with greater efficiency / uniformity, but here I have used the term to loosely refer to a consecutive series of pulses.}
 
 In order to investigate the extent to which this was responsible, I sought to use optimal control theory to develop a \textit{universal rotation pulse} (URP) which could replace this composite pulse.
-Such a pulse must accomplish the transformations in \cref{eq:sehsqc1_dp}, namely $z \to y\/$ and $y \to x$.%
+Such a pulse must accomplish the transformations shown in \cref{eq:sehsqc1_dp}, namely $I_z \to I_y\/$ and $I_y \to I_x$.%
 \footnote{The effect of this pulse on $x$-magnetisation is not important for the seHSQC1, but is in fact fully determined by these two constraints: $UI_x\adj{U} = -\mi U(I_yI_z - I_zI_y)\adj{U} = -\mi(UI_y\adj{U}UI_z\adj{U} - UI_z\adj{U}UI_y\adj{U}) = -\mi(I_xI_y - I_yI_x) = I_z$.
-This reveals a geometric interpretation of this pulse element: it is actually a \ang{120} rotation about the vector $(1, 1, 1)$, which is closely related to the $C_3$ symmetry operation in the octahedral point group.}
+This reveals a geometric interpretation of this pulse element: it is actually a \ang{120} rotation about the vector $(1, 1, 1)$, which interchanges the three Cartesian axes; it is closely related to the $C_3$ symmetry operation in the octahedral point group.}
 This optimisation was performed using an interior-point algorithm (the default in Matlab \texttt{fmincon}) and the ESCALADE method\autocite{Foroozandeh2021A} for the calculation of analytic derivatives.
-Pulse fidelity was calculated as an average over 51 \proton{} spins, evenly distributed across a frequency range of \qty{11}{kHz} (corresponding to \qty{15.7}{\ppm} at \qty{700}{\MHz}); the duration of the pulse was fixed at \qty{200}{\us}, and 200 pulse points were used.
+Pulse fidelity was calculated as an average over 51 \proton{} spins, evenly distributed across a frequency range of \qty{11}{\kHz} (corresponding to \qty{15.7}{\ppm} at \qty{700}{\MHz}); the duration of the pulse was fixed at \qty{200}{\us}, and 200 pulse points were used.
+The maximum $B_1$ allowed was \qty{15}{\kHz}; the optimisation was run with a 10\% variation in $B_1$ to minimise the effects of inhomogeneity.
 
-The \carbon{} \ang{90} pulse which is simultaneously applied during the pulse sequence was not optimised together with this: because of the longer duration of the \proton{} URP, the sequence must be modified slightly (\cref{fig:sehsqc1_urp}).
+The \carbon{} \ang{90} pulse which is simultaneously applied during the pulse sequence was not optimised together with this.
+Since the \proton{} URP has a longer duration than this, the sequence must be modified slightly (\cref{fig:sehsqc1_urp}).
 In particular, the delays $\alpha$ and $\beta$ must be chosen in order to satisfy the relations $2\varepsilon = \alpha + \beta$ (to ensure \magnnot{C} magnetisation is refocused), and $\alpha = \beta + \tau$ (to ensure that for \magn{C} magnetisation, the \carbon{} chemical shift evolves for a total duration of $t_1$).
 
 \begin{figure}[!ht]
@@ -403,8 +405,8 @@ The reason for the poorer sensitivity therefore likely lies elsewhere.
     \caption[Sensitivity comparison of seHSQC1 module with URP]{
         Sensitivity comparisons using the seHSQC1 URP.
         $\Delta'$ was set to $1 / (8 \cdot \oneJ{CH})$; no multiplicity editing was used.
-        Note that a different dataset was used for this figure and \cref{fig:noah_sehsqc_comp}, so the numbers are very slightly different.
         \textbf{(\subref*{fig:sehsqc1_urp_sens_1dp})} Original seHSQC1 module with double \proton{} \ang{90} pulse.
+        (Note that different datasets were used for this figure and \cref{fig:noah_sehsqc_comp}, so the numbers are very slightly different.)
         \textbf{(\subref*{fig:sehsqc1_urp_sens_1urp})} seHSQC1 using the optimised URP shown in \cref{fig:spv1_urp_magn}.
         \textbf{(\subref*{fig:sehsqc1_urp_sens_2})} seHSQC2 module for comparison.
         \datacode{7A-220110}
@@ -417,21 +419,23 @@ The reason for the poorer sensitivity therefore likely lies elsewhere.
 
 The final point in this section pertains to the implementation of the seHSQC2 module.
 As it stands, the isotope-specific rotation element placed at the start of the module is the ZIP element: its role is to effect \ang{90} rotations with different phases on the \magn{C} and \magnnot{C} magnetisation pools.
-However, such pulse elements have been known for a long time: these include TANGO\autocite{Wimperis1984JMR}, BANGO\autocite{Sorensen1994BMR}, BIRD\autocite{Garbow1982CPL,Uhrin1993JMRSA,Kaltschnee2014CC}, BIG-BIRD\autocite{Briand1997JMR}, and TIG-BIRD\autocite{Briand1998JMR}.
-In particular, the BIG-BIRD element can be designed to accomplish the same overall effect as the ZIP element.
-For the seHSQC2 without multiplicity editing, we can therefore replace the ZIP element with
+However, such pulse sequence elements have been known for a long time: these include TANGO\autocite{Wimperis1984JMR}, BANGO\autocite{Sorensen1994BMR}, BIRD\autocite{Garbow1982CPL,Uhrin1993JMRSA,Kaltschnee2014CC}, BIG-BIRD\autocite{Briand1997JMR}, and TIG-BIRD\autocite{Briand1998JMR}.
+In particular, the BIG-BIRD element, which allows for independent excitation of \magn{C} and \magnnot{C} magnetisation with arbitrary flip angles and phases, can be designed to accomplish the same overall effect as the ZIP element.
+For the seHSQC2 without multiplicity editing, the relevant BIG-BIRD sequence is
 \begin{equation}
     \label{eq:big_bird_unedited}
     45\rlap{\unit{\degree}}_{\ang{45}}(\proton{})\text{--}2\Delta\text{--}\ang{180}(\proton{},\carbon{})\text{--}2\Delta\text{--}45\rlap{\unit{\degree}}_{\ang{225}}(\proton{}),
 \end{equation}
 where $\beta_\phi$ represents a hard pulse with flip angle $\beta$ and phase $\phi$.
-For the edited seHSQC, the phases must be altered slightly:
+For the edited seHSQC2, the phases must be altered slightly:
 \begin{equation}
     \label{eq:big_bird_edited}
     45\rlap{\unit{\degree}}_{\ang{315}}(\proton{})\text{--}2\Delta\text{--}\ang{180}(\proton{},\carbon{})\text{--}2\Delta\text{--}45\rlap{\unit{\degree}}_{\ang{135}}(\proton{}).
 \end{equation}
-This BIG-BIRD version of the seHSQC2 was also evaluated.
-However, its performance in all respects was not as good as the ZIP version: both the seHSQC sensitivity itself, as well as the sensitivity of the later CLIP-COSY, were lower when the BIG-BIRD element was used.
+\Cref{fig:noah_sehsqc_bigbird} provides sensitivity comparisons between the BIG-BIRD and ZIP versions of the seHSQC2.
+The fact that similar numbers were achieved with both elements indicates that the BIG-BIRD element is (largely) effecting the desired rotations on the different magnetisation pools.
+However, in all respects, the performance of the BIG-BIRD sequence was not as good as the ZIP version: both the seHSQC sensitivity itself, as well as the sensitivity of the later CLIP-COSY, were slightly decreased when the BIG-BIRD element was used.
+This is true regardless of whether multiplicity editing was used.
 
 \begin{figure}[!ht]
     \centering

@@ -8,7 +8,7 @@ This is acceptable only if the second module has a far greater intrinsic sensiti
 More ideally, we should like to have a way to \textit{partition} the magnetisation pool between the two different modules as needed: this would allow us to balance their sensitivities.
 
 This can be accomplished by modifying the first module to only excite a portion of \magn{C} magnetisation, storing the remainder along $+z$.
-The NOAH HSQC module---which is derived from the ASAP-HSQC experiment\autocite{SchulzeSunninghausen2014JACS,SchulzeSunninghausen2017JMR}, previously described in \cref{subsec:poise__asaphsqc}---does in fact allow for this.
+The NOAH HSQC module---which is derived from the ASAP-HSQC experiment\autocite{SchulzeSunninghausen2014JACS,SchulzeSunninghausen2017JMR}, previously described in \cref{subsec:poise__asaphsqc}---does in fact allow for this, through a modification to the INEPT delay.
 I therefore begin by describing \noah*{S,S,X}-type supersequences, where the first HSQC only partially excites \magn{C} magnetisation, and the second consumes the remainder.
 Here, X represents a homonuclear module, which in this section is the CLIP-COSY; however, the conclusions drawn here are applicable to any homonuclear module.
 
@@ -82,7 +82,7 @@ Note, however, that it is not possible to change the \textit{first} HSQC into a 
     {\phantomsubcaption\label{fig:sscc_improvements_dipsi}}%
     {\phantomsubcaption\label{fig:sscc_improvements_split_sehsqc}}%
     \caption[Sensitivity comparisons for \noah{S,S,Cc} and \noah{S,Sp,Cc} supersequences]{
-        Comparisons of HSQC and CLIP-COSY sensitivities of \noah{S,S,Cc} and \noah*{S,Sp,Cc} supersequences.
+        Comparisons of (se)HSQC and CLIP-COSY sensitivities of \noah{S,S,Cc} and \noah*{S,Sp,Cc} supersequences.
         The three groups of dots in each subplots refer to the three respective modules in the supersequence.
         Peak intensities are normalised against the HSQC and CLIP-COSY experiments in a \noah{S,Cc} supersequence.
         \textbf{(\subref*{fig:sscc_improvements_base})} \noah{S,S,Cc} with $f = 0.8$ (the same spectra as shown in \cref{fig:sscc_example}).
@@ -95,7 +95,7 @@ Note, however, that it is not possible to change the \textit{first} HSQC into a 
 \end{figure}
 
 Alternatively, it is also possible to include a period of isotropic mixing between the two HSQC modules: here, the DIPSI-2 sequence\autocite{Shaka1988JMR} was chosen.
-Since the \magn{C} magnetisation pool has been (partially) depleted, and the \magnnot{C} magnetisation pool is (almost) full, this should in theory lead to transfer of polarisation from the \magnnot{C} pool to \magn{C}.
+Since the \magn{C} magnetisation pool has been (partially) depleted, and the \magnnot{C} magnetisation pool is (almost) full, the application of DIPSI mixing should in theory lead to transfer of polarisation from the \magnnot{C} pool to \magn{C}.
 However, when tested, this was not found to have a beneficial impact: in fact, small \textit{decreases} in sensitivity were observed for both the second HSQC module and the final CLIP-COSY (\cref{fig:sscc_improvements_dipsi}).
 
 \begin{figure}[!ht]
@@ -119,7 +119,7 @@ There is also a slightly larger spread in sensitivity, which can be attributed t
 Furthermore, since this experiment (like the parent CRK seHSQC) dephases \magnnot{C} magnetisation, the CLIP-COSY which follows suffers from a large drop in intensity.
 Prepending the experiment with the ZIP element to make a `split seHSQC2' does not help, because the bulk magnetisation is in the transverse plane during the first FID.
 Finally, the split-seHSQC implementation does not easily allow for features such as multiplicity editing to be independently applied to one of the two signals.%
-\footnote{It should at least be \textit{possible} to apply editing to one signal using a modification similar to that done by Nolis et al.\autocite{Nolis2019JMR} However, that is not as simple as the ASAP implementation, where each module is distinct.}
+\footnote{It should at least be \textit{possible} to apply editing to one signal using a modification similar to that done by Nolis et al.\autocite{Nolis2019JMR} However, that is not as simple as the ASAP implementation, where each module is separate.}
 
 \begin{figure}[!ht]
     \centering
@@ -142,7 +142,7 @@ Finally, the split-seHSQC implementation does not easily allow for features such
 From \cref{fig:sscc_comparisons_sscc,fig:sscc_comparisons_sspcc}, it is clear that the sensitivity of the first HSQC is directly proportional to $f$.
 The sensitivity of the second HSQC module in \cref{fig:sscc_comparisons_sscc} stems from both the unexcited $(1 - f)$ proportion of \magn{C} magnetisation, plus any that has recovered during the first FID: this latter component decreases as $f\/$ increases.
 The CLIP-COSY intensities generally do not vary with $f$.
-In \cref{fig:sscc_comparisons_sspcc}, the second HSQC module is replaced with the seHSQC2: this allows $f\/$ to be increased (from roughly 0.7 to 0.8) in order to obtain spectra with balanced sensitivities.
+In \cref{fig:sscc_comparisons_sspcc}, the second HSQC module is replaced with the seHSQC2: this allows $f\/$ to be increased in order to balance the sensitivities of the two HSQC spectra.
 Finally, for completeness, the split-seHSQC implementation is shown in \cref{fig:sscc_comparisons_split_sehsqc}; the numbers here are the same as in \cref{fig:sscc_improvements_split_sehsqc}.
 It is clear that there are several values of $f\/$ which allow the NOAH/ASAP-type implementation to outperform the split-seHSQC experiment in sensitivity.
 
@@ -171,14 +171,14 @@ Note that the \proton{} \ang{90} pulse immediately after $t_1$ has a different p
 \end{figure}
 
 The HSQC-TOCSY module may optionally be implemented with inversion of `direct', HSQC-type responses, which correlate \carbon{} nuclei with directly bonded protons.
-This is to be contrasted with the `indirect' responses, which correlate \carbon{} nuclei with other remote protons (in the same spin system), and represent magnetisation which has been transferred during the isotropic mixing period.
-This inversion may be accomplished by expanding the final gradient echo to a duration of $4\Delta = 1/J\/$ (\cref{fig:hsqctocsy_invert}); \carbon{}-bound protons will evolve under $\oneJ{CH}$ and acquire an additional minus sign compared to remote protons.%
+This is to be contrasted with the `indirect' responses, which correlate \carbon{} nuclei with other remote protons in the same spin system, and represent magnetisation which has been transferred during the isotropic mixing period.
+This inversion may be accomplished by expanding the final gradient echo to a duration of $4\Delta = 1/J\/$ (\cref{fig:hsqctocsy_invert}); \carbon{}-bound protons will evolve under $\oneJ{CH}$ and acquire an additional \ang{180} phase shift compared to remote protons.%
 \footnote{Of course, the remote protons may also happen to be bonded to \carbon{}, but the chance of this is only roughly $1\%$.}
 
 The use of such editing in the HSQC-TOCSY is perhaps slightly risky, because it may lead to unwanted peak cancellation through accidental overlap.
 Furthermore, if used together with a second HSQC module (as discussed here), this information does not need to be encoded in the HSQC-TOCSY.
 Thus, it is not enabled by default; the user must explicitly turn it on through an acquisition flag.
-The concept of inverting remote peaks is more important in the HSQC-COSY, which will be discussed in \cref{subsec:noah__hsqccosy}.
+The concept of inverting remote peaks is more useful in the HSQC-COSY, which will be discussed in \cref{subsec:noah__hsqccosy}.
 
 \begin{figure}[!ht]
     \centering
@@ -228,5 +228,5 @@ All of these changes are, however, extremely minor: the supersequences shown her
 \Cref{fig:stscc_comparisons_sehsqc_tocsy} shows one final alternative which has not yet been considered: the use of the seHSQC-TOCSY\autocite{Hansen2021AC} as the first module.
 This experiment is similar to the seHSQC2 module, but with the addition of isotropic mixing.
 Although this fully maximises the intensity of the HSQC-TOCSY component (not shown in \cref{fig:stscc_comparisons}), and also preserves \magnnot{C} magnetisation for the CLIP-COSY (as evidenced by the relatively high CLIP-COSY intensity in \cref{fig:stscc_comparisons_sehsqc_tocsy}), it cannot retain any portion of \magn{C} magnetisation.
-Thus, any later module which draws on the same magnetisation pool will only be able to use any signal which has recovered during the FID, just like in an experiment run with $f = 1$.
+Thus, any later \carbon{} module which draws on the same magnetisation pool will only be able to use any signal which has recovered during the FID, just like in an experiment run with $f = 1$.
 In this case, the second module is a plain HSQC (not seHSQC): thus, its sensitivity is similar to the leftmost point in \cref{fig:stscc_comparisons_stscc}.

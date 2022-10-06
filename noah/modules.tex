@@ -1,11 +1,12 @@
 \section{Discussion of individual modules}
 \label{sec:noah__modules}
 
-The GENESIS website makes it possible to easily implement and distribute entirely new modules, as well as updates to old modules: simply changing the underlying \texttt{NOAHModule} objects is sufficient to propagate changes to all supersequences generated using those modules.
+The GENESIS website makes it easy to implement new modules and update old ones: simply changing the underlying \texttt{NOAHModule} objects is sufficient to propagate changes to all supersequences generated using those modules.
 In this section, I discuss a number of new pulse sequence developments made in the course of my DPhil; all of these have been successfully implemented in GENESIS and are available to download.
 
-With regards to sensitivity analyses, since this chapter discusses the design of \textit{individual modules}, I have chosen to focus almost entirely on the SNR factor $A$: this is an intrinsic property of the module.
-In contrast, the quantities $\rho_t$ and $\varepsilon_t$ depend on the supersequence within which the module is used, and can be improved trivially by adding more modules to the supersequence under consideration.
+With regards to sensitivity analyses, since this chapter discusses the design of \textit{individual modules}, I have chosen to focus almost entirely on comparing the SNRs of the modules.
+This is related to the SNR factor $A$ (although my basis for comparison is not always the standalone experiments, so the definition is not totally the same).
+I ignore the quantities $\rho_t$ and $\varepsilon_t$, as these depend on the \textit{supersequence} within which the module is used, and can be trivially improved by adding more modules to the supersequence under consideration.
 These numbers reflect the utility of the NOAH \textit{technique}, but are not relevant to the individual modules from which they are constructed.
 
 \input{noah/sehsqc_c.tex}

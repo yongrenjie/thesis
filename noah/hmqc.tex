@@ -22,33 +22,21 @@ However, before that, I make a slight detour to cover the \nitrogen{} HMQC exper
 
 \subsubsection{CTP gradient scheme}
 
-The HMQC module is based on the ASAP-HMQC reported by Kup{\v{c}}e and Freeman\autocite{Kupce2007MRC}, which used a symmetric gradient scheme similar to that in the seHSQC modules previously described (\cref{fig:noah_hmqc_2grad}).
-However, in the NOAH module\autocite{Kupce2017ACIE}, bipolar gradient pulse pairs were placed before and after $t_1$ (\cref{fig:noah_hmqc_4grad}).
+The HMQC module is based on the ASAP-HMQC reported by Kup{\v{c}}e and Freeman\autocite{Kupce2007MRC}
+In the original report, the ASAP-HMQC used a symmetric gradient scheme similar to that in the seHSQC modules previously described (\cref{fig:noah_hmqc_2grad}).
+However, in the NOAH HMQC module\autocite{Kupce2017ACIE}, this was expanded into a four-gradient scheme where bipolar gradient \textit{pairs} were placed before and after $t_1$ (\cref{fig:noah_hmqc_4grad}).
 This was likely implemented in order to allow the final gradient, $g_2$, to have as large an amplitude as possible.
 In heteronuclear experiments, this final gradient is particularly important for dephasing bulk magnetisation which is transverse just prior to detection (due to pulse imperfections or relaxation).
 If this gradient is too weak, this unwanted magnetisation will be incompletely dephased, leading to artefacts in the resulting spectrum.
 
-Strategies to maximise this gradient amplitude are particularly crucial in \proton{}--\nitrogen{} experiments (as compared to \proton{}--\carbon{} experiments) for two reasons.
-Firstly, the natural abundance of \nitrogen{} (0.36\%) is even smaller than \carbon{} (1.1\%), meaning that better suppression must be achieved in order for the artefacts to not obscure the signal.
-Secondly, the gyromagnetic ratio of \nitrogen{} is also smaller: thus, since $g_2/g_1 \propto \gammaN/\gammaH$, an unmodified pulse sequence will naturally have a smaller $g_2$.
+Strategies to maximise the amplitude of this gradient are particularly crucial in \proton{}--\nitrogen{} experiments (as compared to \proton{}--\carbon{} experiments) for two reasons.
+Firstly, the natural abundance of \nitrogen{} (0.36\%) is even smaller than \carbon{} (1.1\%), which translates into a weaker signal: better artefact suppression must be achieved in order for the signal to not be obscured.
+Secondly, the gyromagnetic ratio of \nitrogen{} is also smaller: since $g_2/g_1 \propto |\gammaN/\gammaH|$, $g_2$ will naturally be smaller if no modifications are made to the pulse sequence.
 
 In this respect, the four-gradient scheme in \cref{fig:noah_hmqc_4grad} is superior to the two-gradient scheme, because the gradient $g_2$ will have an amplitude of $4\gammaN g_1/\gammaH$.
 However, when used in a NOAH supersequence, this leads to wing artefacts in downstream modules, since bulk \magnnot{N} magnetisation effectively does not experience any coherence order selection during $t_1$.
-This motivates a return to the two-gradient scheme of \cref{fig:noah_hmqc_2grad}.
-To compensate for the fact that the decoding gradient $g_2'$ has half of the amplitude of $g_2$, all CTP gradients were instead \textit{lengthened} from their usual duration of \qty{1}{\ms} to \qty{2.5}{\ms}.
-This ensures that any stray transverse bulk magnetisation at the end of the HMQC module is effectively dephased.
-
-The HMQC spectra thus obtained are shown in \cref{fig:hmqc_grad_spec}.
-These, and all other \proton{}--\nitrogen{} spectra in this chapter, were acquired assuming a $\oneJ{NH}$ value of \qty{90}{\Hz}.
-The first column shows the spectra obtained with the original four-gradient scheme: although the artefacts at \qty{2.2}{\ppm} are reasonably well-suppressed in the HMQC module (\cref{fig:hmqc_grad_spec_4grad_1ms_hmqcp}), the CLIP-COSY spectrum clearly has a set of wing artefacts (\cref{fig:hmqc_grad_spec_4grad_1ms_cosy}).
-(Note that the wing artefacts occur at different frequencies compared to the \carbon{} seHSQC case, because the $t_1$ increment in the \nitrogen{} HMQC module is different.)
-
-The second column shows what happens when the two-gradient scheme is adopted without changing the gradient duration.
-Although the CLIP-COSY wing artefacts disappear (\cref{fig:hmqc_grad_spec_2grad_1ms_cosy}), the HMQC artefacts are over twice as intense (\cref{fig:hmqc_grad_spec_2grad_1ms_hmqcp}), and (in this case) have comparable intensity to the desired peaks.
-
-By using the two-gradient scheme and increasing the gradient duration to \qty{2.5}{\ms}, we obtain the best of both worlds: the HMQC artefacts are well-suppressed (\cref{fig:hmqc_grad_spec_2grad_2p5ms_hmqcp}, in fact even better than in the original spectrum), and the CLIP-COSY is free of wing artefacts (\cref{fig:hmqc_grad_spec_2grad_2p5ms_cosy}).
-The only drawback is a slight loss in signal intensity in the HMQC, which arises due to diffusion and relaxation during the longer pulse sequence.
-However, this decrease is only on the order of $5\%$ (for this particular case), which is a totally acceptable price to pay in return for the improved spectral quality.
+This motivates a return to the two-gradient scheme of \cref{fig:noah_hmqc_2grad}, but to compensate for the fact that the decoding gradient $g_2'$ has half of the amplitude of $g_2$, all CTP gradients were instead \textit{lengthened} from their usual duration of \qty{1}{\ms} to \qty{2.5}{\ms}.
+This ensures that any stray transverse bulk magnetisation at the end of the HMQC module is effectively dephased by the final gradient.
 
 \begin{figure}[!htbp]
     \centering
@@ -76,17 +64,17 @@ However, this decrease is only on the order of $5\%$ (for this particular case),
     \label{fig:hmqc_grad_spec}
 \end{figure}
 
-It is of some interest to check whether such a long gradient is truly required.
-I therefore ran the two-gradient HMQC experiment with a series of gradient durations from \qty{1}{\ms} to \qty{2.5}{\ms}; the signal and artefact intensities in each of these experiments are plotted in \cref{fig:hmqc_cnst16}.
-Generally, there is little variation in the intensities of the two desired peaks.
-The artefact intensity is more erratic, which possibly reflects the fact that gradient dephasing varies sinusoidally with the gradient duration $\tau$ due to the spatial integral
-\begin{equation}
-    \label{eq:gradient_dephasing}
-    \frac{1}{L} \int_{-L/2}^{L/2} \exp(\mi \gamma Gz\tau)\,\mathrm{d}z = \frac{\sin(\gamma G L\tau/2)}{\gamma GL\tau/2},
-\end{equation}
-where $L$ is the sample length and $G$ the gradient amplitude (see also \cref{eq:density_operator_integration}).
-Nevertheless, there is a clear decrease in the signal intensity as the gradient duration increases, which (at least in these datasets) is greatest with \qty{2.5}{\ms} gradients.
-Since the signal intensity is not affected much, I deemed this to be a perfectly suitable value.
+The HMQC spectra thus obtained are shown in \cref{fig:hmqc_grad_spec}.
+These, and all other \proton{}--\nitrogen{} spectra in this chapter, were acquired assuming a $\oneJ{NH}$ value of \qty{90}{\Hz}.
+The first column shows the spectra obtained with the original four-gradient scheme: although the artefacts at \qty{2.2}{\ppm} are reasonably well-suppressed in the HMQC module (\cref{fig:hmqc_grad_spec_4grad_1ms_hmqcp}), the CLIP-COSY spectrum clearly has a set of wing artefacts (\cref{fig:hmqc_grad_spec_4grad_1ms_cosy}).
+(Note that the wing artefacts occur at different frequencies compared to the \carbon{} seHSQC case, because the $t_1$ increment in the \nitrogen{} HMQC module is different.)
+
+The second column shows what happens when the two-gradient scheme is adopted without changing the gradient duration.
+Although the CLIP-COSY wing artefacts disappear (\cref{fig:hmqc_grad_spec_2grad_1ms_cosy}), the HMQC artefacts are over twice as intense (\cref{fig:hmqc_grad_spec_2grad_1ms_hmqcp}), and (in this case) have comparable intensity to the desired peaks.
+
+By using the two-gradient scheme and increasing the gradient duration to \qty{2.5}{\ms}, we obtain the best of both worlds: the HMQC artefacts are well-suppressed (\cref{fig:hmqc_grad_spec_2grad_2p5ms_hmqcp}, in fact even better than in the original spectrum), and the CLIP-COSY is free of wing artefacts (\cref{fig:hmqc_grad_spec_2grad_2p5ms_cosy}).
+The only drawback is a slight loss in signal intensity in the HMQC, which arises due to diffusion and relaxation during the longer pulse sequence.
+However, this decrease is only on the order of $5\%$ (for this example), which is a totally acceptable price to pay in return for the improved spectral quality.
 
 \begin{figure}[!ht]
     \centering
@@ -98,15 +86,29 @@ Since the signal intensity is not affected much, I deemed this to be a perfectly
     \label{fig:hmqc_cnst16}
 \end{figure}
 
+The signal loss does suggest that we should check whether such a long gradient is truly needed.
+I therefore ran the two-gradient HMQC experiment with a series of gradient durations from \qty{1}{\ms} to \qty{2.5}{\ms}; the signal and artefact intensities in each of these experiments are plotted in \cref{fig:hmqc_cnst16}.
+Generally, there is little variation in the intensities of the two desired peaks.
+The artefact intensity is more erratic, which possibly reflects the fact that gradient dephasing varies sinusoidally with the gradient duration $\tau$ due to the spatial integral
+\begin{equation}
+    \label{eq:gradient_dephasing}
+    \frac{1}{L} \int_{-L/2}^{L/2} \exp(\mi \gamma Gz\tau)\,\mathrm{d}z = \frac{\sin(\gamma G L\tau/2)}{\gamma GL\tau/2},
+\end{equation}
+where $L$ is the sample length and $G$ the gradient amplitude (see also \cref{eq:density_operator_integration}).
+Nevertheless, increased gradient durations clearly lead to better artefact suppression, which (at least in these datasets) is greatest with \qty{2.5}{\ms} gradients.
+This value of \qty{2.5}{\ms} was therefore fixed on as a suitable choice for \nitrogen{} experiments, including the seHSQC which is discussed in \cref{subsec:noah__sehsqc_n}.
+
 
 
 \subsubsection{$\symbfit{k}$- and SW-scaling}
 
 \proton{}--\nitrogen{} spectra of small molecules are often relatively sparse in the indirect dimension, and do not typically need to be acquired with the same resolution as a \proton{}--\carbon{} experiment.
-However, if these experiments were to be combined together within a supersequence, it is not ordinarily possible to toggle the resolution of each module individually.
-One way of circumventing this issue is to decrease the frequency with which the \nitrogen{} $t_1$ duration is incremented in the pulse programme: this was first proposed by Parella et al.\ in the context of time-shared NMR\autocite{PerezTrujillo2007MRC,Parella2010CMR}, and in this thesis is called `$k$-scaling'.
-This means that each $t_1$ increment is acquired several times before $t_1$ is incremented; effectively leading to $k$ times fewer $t_1$ increments, but with each increment having $k$ times the number of scans (after the data have been combined).
-An alternative is to simply increase the spectral width of the \nitrogen{} module (which is encoded as the \texttt{CNST40} parameter in GENESIS).
+However, if these two different classes experiments were to be combined together within a supersequence, it would not ordinarily be possible to toggle the resolution of each module individually.
+
+One way of changing this would be to decrease the frequency with which the \nitrogen{} $t_1$ duration is incremented in the pulse programme.
+This practice was first proposed by Parella et al.\ in the context of time-shared NMR\autocite{PerezTrujillo2007MRC,Parella2010CMR}, and in this thesis is called `$k$-scaling'.
+This means that each $t_1$ increment in the \nitrogen{} experiment is acquired several times before $t_1$ is incremented, which effectively leads to $k$ times fewer $t_1$ increments, but with each increment having $k$ times the number of scans (after the data have been combined).
+An alternative to this would be to increase the spectral width of the \nitrogen{} module (which is encoded as the \texttt{CNST40} parameter in GENESIS): this leads to very similar results, and is referred to as `SW-scaling' here.
 
 \begin{figure}[!ht]
     \centering
@@ -127,20 +129,20 @@ An alternative is to simply increase the spectral width of the \nitrogen{} modul
     \label{fig:n15_t1}
 \end{figure}
 
-\Cref{fig:n15_t1} illustrates all of these possibilities in detail.
+\Cref{fig:n15_t1} illustrates all of these possibilities in detail, focusing only on the $t_1$ sampling schedule of the scaled \nitrogen{} experiments.
 In a `typical' NOAH supersequence (\cref{fig:n15_t1_normal}), 256 $t_1$ increments would be recorded (corresponding to the eight blue dots);
 for the gramicidin sample used here, the largest value of $t_1$ (denoted as $\AQ$) is around \qty{60}{\ms}.
-The default TopSpin processing routine for 2D NMR applies forward linear prediction (LP)\autocite{Ni1986JMR,Tirendi1989JMR,Led1991CR,Koehl1999PNMRS} in the indirect dimension, such as to double the number of points: the data points obtained through LP are indicated by orange dots.
+The default TopSpin processing routine for 2D NMR applies forward linear prediction (LP)\autocite{Ni1986JMR,Tirendi1989JMR,Led1991CR,Koehl1999PNMRS} in the indirect dimension, such as to double the number of data points: the data obtained through LP are indicated by orange dots.
 This leads to an \textit{effective} $\AQ$ which is twice as large, denoted as $\AQeff$.
 Finally, zero filling (ZF) is applied to increase the digital resolution to a given value, as represented by the green dots.
 
 In the $k$-scaled spectrum, both $\AQ$ (and thus $\AQeff$) are halved, in return for a doubling of the number of scans (\cref{fig:n15_t1_k}).
 The resolution in the indirect dimension is proportional to $\AQeff$; thus, this also corresponds to a $2\times$ decrease in resolution.
 However, this can be counteracted through the use of extra linear prediction (\cref{fig:n15_t1_k_lp}) to extend $\AQeff$ back to its original value.
-The SW-scaled spectra (\cref{fig:n15_t1_sw,fig:n15_t1_sw_lp}) are almost entirely equivalent to the $k$-scaled spectra in terms of their effect on $\AQ$ and $\AQeff$, except that the sampling schedule is very slightly modified.
+The SW-scaled spectra (\cref{fig:n15_t1_sw,fig:n15_t1_sw_lp}) are almost entirely equivalent to the $k$-scaled spectra in terms of their effect on $\AQ$ and $\AQeff$, except that the sampling schedule is \textit{very} slightly different.
 
-\Cref{fig:hmqc_scale} shows the effects of performing $k$- or SW-scaling on the \nitrogen{} HMQC module (without any extra linear prediction beyond the default).
-In this case, these scaling procedures can in fact can lead to significant gains in SNR (as measured by peak heights), with up to $2.6\times$ improvements being observed at the extreme of 8-fold $k$- or SW-scaling.
+\Cref{fig:hmqc_scale} shows the effects of performing $k$- or SW-scaling on the \nitrogen{} HMQC module, without any extra linear prediction beyond the default.
+In this case, these scaling procedures alone can in fact lead to significant gains in SNR (as measured by peak heights), with up to $2.6\times$ improvements being observed at the extreme of 8-fold $k$- or SW-scaling.
 This likely arises because the $J_{\ch{HH}}$ modulation in the indirect dimension (visible in the standard spectrum, \cref{fig:hmqc_scale_std1}) is no longer being resolved: the largest gains are attained for the peak at \qty{123}{\ppm}, where this modulation is especially prominent.
 
 \begin{figure}[!htbp]
@@ -172,14 +174,14 @@ This likely arises because the $J_{\ch{HH}}$ modulation in the indirect dimensio
     \label{fig:hmqc_scale}
 \end{figure}
 
-The effect of adding extra linear prediction is shown in \cref{fig:hmqc_scale_lp}.
-In general, the combination of scaling plus LP leads to improvements in spectral SNR of up to $6\times$.
-However, this is accompanied by distortions in the $F_1$ multiplet structure, especially for the $k$-scaled spectra (\cref{fig:hmqc_scale_lp_k22,fig:hmqc_scale_lp_k21,fig:hmqc_scale_lp_k42,fig:hmqc_scale_lp_k41,fig:hmqc_scale_lp_k82,fig:hmqc_scale_lp_k81}): it is possible that the corresponding SW-scaled spectra are not so heavily distorted because there are more data points to extrapolate from.
+The effect of scaling \textit{and} adding extra linear prediction is shown in \cref{fig:hmqc_scale_lp}.
+In general, this combination of scaling plus LP leads to improvements in spectral SNR of up to $6\times$.
+However, this is accompanied by distortions in the $F_1$ multiplet structure, especially for the $k$-scaled spectra (\cref{fig:hmqc_scale_lp_k22,fig:hmqc_scale_lp_k21,fig:hmqc_scale_lp_k42,fig:hmqc_scale_lp_k41,fig:hmqc_scale_lp_k82,fig:hmqc_scale_lp_k81}).
 
 However, caution should be exercised when interpreting these results.
-Although this improvement in SNR is genuine, it is not necessarily the case that this represents a true improvement in \textit{detection sensitivity}: in other words, processing techniques such as LP (and to some extent, NUS) do not always allow for better discrimination between signal and noise.\autocite{Donoho1990PNASUSA,Stern2002JACS}%
+Although this improvement in SNR is genuine, it is not necessarily the case that this represents a true improvement in \textit{detection sensitivity}: in other words, processing techniques such as LP do not always allow for better discrimination between signal and noise.\autocite{Donoho1990PNASUSA,Stern2002JACS}%
 \footnote{In recent years, this issue has been investigated more thoroughly in the context of NUS.\autocite{Palmer2015JPCB}}
-Further tests would need to be done on more dilute samples\footnote{Or, perhaps, less sensitive instruments---although the \qty{700}{\MHz} cryoprobe used here was the only option for these supersequences.} to ascertain the benefits of the scaling-plus-LP routine on spectra with less intrinsic SNR.
+Further tests would need to be done on more dilute samples\footnote{Or, perhaps, less sensitive instruments---although the \qty{700}{\MHz} cryoprobe used here was the only option for these supersequences.} to ascertain the benefits of the scaling-plus-LP routine on spectra with lower intrinsic SNRs.
 
 \begin{figure}[!htbp]
     \centering

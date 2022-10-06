@@ -1,7 +1,7 @@
 \subsection{HSQC-COSY}
 \label{subsec:noah__hsqccosy}
 
-One downside of the HSQC-TOCSY experiment discussed in the previous section is the (largely) indiscriminate transfer of magnetisation effected by the DIPSI mixing
+One downside of the HSQC-TOCSY experiment discussed in the previous section is the (largely) indiscriminate transfer of magnetisation effected by the DIPSI mixing.
 It is difficult to determine how many transfer steps give rise to each peak, unless several HSQC-TOCSY spectra with different mixing times are recorded, which is a time-consuming process.%
 \footnote{Of course, as per the previous section, this could be done in a NOAH supersequence where each HSQC-TOCSY spectrum is assigned a fraction of the \magn{C} magnetisation. However, one must be wary of stretching the same magnetisation pool too thinly between many different modules: the resulting decrease in sensitivity may lead to peaks being lost.}
 
@@ -54,7 +54,7 @@ On top of that, the experiment also cannot be modified to provide partial excita
 \end{figure}
 
 Before tackling these problems directly, I discuss a simpler version of the HSQC-COSY experiment, which uses a simple spin echo for $\nJ{HH}$ evolution instead of the perfect echo of the CLIP version.
-Together with the final $4\Delta$ spin echo, this forms a `double spin echo' (DSE) version of the HSQC-COSY experiment (\cref{fig:hsqcc_dse_po}): the `double' refers only to the mixing section after $t_1$.
+Together with the final $4\Delta$ spin echo, this forms a `double spin echo' (DSE) version of the HSQC-COSY experiment (\cref{fig:hsqcc_dse_po}); the `double' refers only to the mixing section after $t_1$.
 The removal of the CLIP coherence transfer element leads to mixed lineshapes in this experiment, where the direct responses are (mostly) in-phase absorption, and the indirect responses (mostly) antiphase dispersion.%
 \footnote{The qualifier \textit{mostly} is required because evolution of $\nJ{HH}$ during the final spin echo leads to mixtures of in-phase absorption and antiphase dispersion. This evolution is generally small, though, because $2\Delta$ is smaller than $\tau$.}
 
@@ -63,7 +63,7 @@ However, it does provide more raw sensitivity than the CLIP version: in the CLIP
 All of this available signal is sampled in the DSE version, but this comes with a cost of not having pure absorption lineshapes.
 
 It should be mentioned that prepending this DSE HSQC-COSY with the ZIP element would in fact return the bulk \magnnot{C} magnetisation to $+z$ at the end of the sequence.
-Unfortunately, I did not manage to test this experimentally.
+Unfortunately, I did not manage to test this experimentally, as my focus was on the development of the \textit{triple} spin echo HSQC-COSY below.
 
 
 \subsubsection{Triple spin echo HSQC-COSY}
@@ -201,11 +201,11 @@ The HSQC-COSY and HSQC modules largely follow the same pattern as before, but wi
 The CLIP-COSY module, however, has a substantially lower sensitivity regardless of which HSQC-COSY module is chosen.
 When the CLIP or DSE HSQC-COSY modules are used, the CLIP-COSY retains only roughly 30\% of its original intensity: this is the same as in \cref{fig:hsqccosy_sens}.
 With the TSE HSQC-COSY, this is boosted to around 40\% because there is one extra FID in which the \magnnot{C} polarisation can be recovered.
-However, the use of the HMBC module effectively puts a cap on the amount of signal available to this module.
+However, the use of the HMBC module at the beginning effectively puts a cap on the amount of signal available to this module.
 
 For virtually all homonuclear modules (including the CLIP-COSY), this small difference in sensitivity will not make a real difference in the interpretability of the spectrum.
-This is especially so considering that the HMBC module---which has a far lower sensitivity---is being used:
-if we can tolerate the sensitivity loss in a \noah{B,S,Cc} experiment, then logically, the sensitivity loss in a \noah{B,Sc,S,Cc} experiment should be perfectly acceptable as well, regardless of which HSQC-COSY module is used.
-In this case, the only compelling argument for using the TSE HSQC-COSY would be to preserve a portion of \magn{C} magnetisation for a later \carbon{} module.
-Even this may not be necessary if, for example, the seHSQC module is used to maximise sensitivity.
+This is especially so considering that the HMBC module---which has a far lower sensitivity---is also present in the supersequence:
+a CLIP-COSY with 30\% of its original sensitivity is still more intense than the HMBC experiment.
+This argument was used in justifying the \noah{B,S,Cc} experiment, and logically, should be equally applicable to the \noah{B,Sc,S,Cc} experiment.
+In this case, the only compelling reason to use the TSE HSQC-COSY would be to preserve a portion of \magn{C} magnetisation for a later \carbon{} module.
 Thus, in this context, the decision of which HSQC-COSY module to use is slightly more nuanced: the cleaner lineshapes provided by the CLIP version, or the sensitivity of the DSE version, may be more preferable.

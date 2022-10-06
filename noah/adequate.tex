@@ -4,6 +4,8 @@
 The final `new' module to be described in this section is the 1,1-ADEQUATE experiment\autocite{Reif1996JMRSA}, which provides two-bond \ch{C}--\ch{H} correlations through a combination of $\oneJ{CH}$ and $\oneJ{CC}$.
 Because of the requirement for two adjacent \carbon{} nuclei, the sensitivity of the ADEQUATE experiment is considerably lower than almost all other NOAH modules considered so far.
 As established in \cref{subsec:noah__snr}, sensitivity imbalances between different modules lead to less ideal supersequences with smaller effective time savings $\rho_{t,\text{eff}}$.
+Thus, the ADEQUATE module has to date not been implemented in NOAH supersequences.%
+\footnote{There is, in fact, one exception to my claim\autocite{RaoKakita2020RSCA}. Here, the ADEQUATE and seHSQC modules were not modified to preserve any magnetisation for later modules. Since the ADEQUATE itself has such low sensitivity, it is likely that the sensitivity losses in the later modules were tolerable; however, no sensitivity comparisons against standalone experiments were provided.}
 
 In this section, I only consider the design of the NOAH ADEQUATE module itself, which turns out to be extraordinarily simple.
 The \proton{} pulses in the original ADEQUATE experiment mirror that of the CRK seHSQC almost perfectly, save for one extra \ang{180} pulse.

@@ -5,7 +5,7 @@ The implementation of the \nitrogen{} seHSQC modules is entirely identical to th
 \begin{itemize}
     \item CTP gradient amplitudes were set using $g_1 = 80\%$ and $g_2 = \mp 16.2\%$ (note the sign change because of the negative magnetogyric ratio of \nitrogen);
     \item CTP gradient durations were lengthened to \qty{2.5}{\ms} (as discussed for the \nitrogen{} HMQC) in order to suppress artefacts in the seHSQC itself;
-    \item the delays $\Delta$ and $\Delta'$ were both set to $1/(4 \cdot \oneJ{NH})$ to maximise sensitivity for \ch{NH} groups;
+    \item the delays $\Delta$ and $\Delta'$ were both set to $1/(4 \cdot \oneJ{NH})$ to maximise sensitivity for \ch{NH} groups (as before, the value of $\oneJ{NH}$ was set to \qty{90}{\Hz});
     \item \carbon{} adiabatic pulses were replaced with hard pulses on \nitrogen{}.
 \end{itemize}
 
@@ -15,8 +15,9 @@ Multiplicity editing was not implemented or used in the \nitrogen{} experiments;
 
 The seHSQC is expected to provide sensitivity gains over the HMQC for two reasons: first, the seHSQC peaks are not split by $\nJ{HH}$ in the indirect dimension, and secondly, the PEP transfer element leads to (in theory) a doubling in sensitivity for \ch{NH} groups.
 To quantify these gains, I ran several \noah{X,Sp,Cc} experiments, where the first module was a \nitrogen{} HSQC, seHSQC1, or seHSQC2 module (\cref{fig:n15_sens}).
+These were then compared against the basic \noah{Mn,Sp,Cc} supersequence.
 Including the \nitrogen{} HSQC module in this analysis allows us to determine how much of the sensitivity gain is due to multiplet collapse, and how much is due to the sensitivity enhancement block.
-The peak at \qty{8.0}{\ppm} is folded and is therefore omitted from this analysis.
+Note that the peak at \qty{8.0}{\ppm} is folded and, for simplicity, is omitted from this analysis.
 
 \begin{figure}[!ht]
     \centering
@@ -29,7 +30,7 @@ The peak at \qty{8.0}{\ppm} is folded and is therefore omitted from this analysi
     {\phantomsubcaption\label{fig:n15_sens_sehsqc2p}}%
     \caption[Comparison of sensitivities of NOAH \nitrogen{} modules]{
         Comparison of NOAH \proton{}--\nitrogen{} modules; the 2D spectra and their positive projections onto the $F_1$ axis are shown.
-        Numbers above each peak in the projections indicate sensitivity increases compared to the HMQC module (see, e.g., \cref{fig:hmqc_scale_std2,fig:hmqc_scale_std1}).
+        Numbers above each peak in the projections indicate sensitivity increases compared to the HMQC module (the HMQC spectra themselves can be seen in, e.g., \cref{fig:hmqc_scale_std2,fig:hmqc_scale_std1}).
         \textbf{(\subref*{fig:n15_sens_hsqc})--(\subref*{fig:n15_sens_hsqcp})} HSQC module.
         \textbf{(\subref*{fig:n15_sens_sehsqc1})--(\subref*{fig:n15_sens_sehsqc1p})} seHSQC1 module.
         \textbf{(\subref*{fig:n15_sens_sehsqc2})--(\subref*{fig:n15_sens_sehsqc2p})} seHSQC2 module.
@@ -38,9 +39,9 @@ The peak at \qty{8.0}{\ppm} is folded and is therefore omitted from this analysi
     \label{fig:n15_sens}
 \end{figure}
 
-As can be seen, the HSQC alone allows for substantial sensitivity increases over the HMQC, with over $3\times$ gains being accomplished simply due to multiplet collapse.
-The seHSQC experiments push this even further, with an approximate $1.5\times$ sensitivity improvement for all peaks.
-In contrast to the \carbon{} case, the \nitrogen{} seHSQC1 module outperforms seHSQC2 in terms of raw sensitivity, though (as before) there is no clear explanation for this subtle difference.
+As can be seen, the (non-enhanced) HSQC alone allows for substantial sensitivity increases over the HMQC, with over $3\times$ gains being accomplished simply due to multiplet collapse.
+The seHSQC experiments push this even further: the PEP transfer block provides an approximate $1.5\times$ sensitivity improvement for all peaks, which is on top of the boost already provided by the HSQC.
+In contrast to the \carbon{} case, the \nitrogen{} seHSQC1 module outperforms the seHSQC2 in terms of raw sensitivity, though (as before) there is no clear explanation for this subtle difference.
 
 \begin{figure}[!ht]
     \centering
@@ -66,28 +67,30 @@ In contrast to the \carbon{} case, the \nitrogen{} seHSQC1 module outperforms se
 \end{figure}
 
 However, this apparent advantage of the seHSQC1 vanishes when looking at the \carbon{} seHSQC module which comes later in the supersequence.
-When preceded by the \nitrogen{} HSQC or seHSQC1 modules, this module suffers from severely decreased sensitivity (\cref{fig:n15_later_sens}) as compared to when the seHSQC2 module is used.
+When preceded by the \nitrogen{} HSQC or seHSQC1 modules, this module suffers from severely decreased sensitivity, compared to when the seHSQC2 module is used (\cref{fig:n15_later_sens}).
 As the spectra and their $F_1$ projections show, this reduction in sensitivity actually stems from broadening in the indirect dimension.
-This in turn arises because \magnnot{N} magnetisation (which includes the \magn{C} component sampled in this module) precesses in the transverse plane during the $t_1$ period of the \nitrogen{} HSQC and seHSQC1.
-Evolution of $\nJ{HH}$, as well as $T_2$ relaxation, lead to a $t_1$-dependent signal loss which (after Fourier transformation) is manifested as line broadening and ca.\ 65\% decreased peak heights (\cref{fig:n15_later_sens_hsqcplot,fig:n15_later_sens_sehsqc1plot}).
+This in turn arises because \magnnot{N} magnetisation (which includes the \magn{C} component sampled in this module---by definition, protons coupled to \carbon{} are not coupled to \nitrogen{}) precesses in the transverse plane during the $t_1$ period of the \nitrogen{} HSQC and seHSQC1.
+Evolution of $\nJ{HH}$, as well as $T_2$ relaxation, lead to a $t_1$-dependent signal loss which (after Fourier transformation) is manifested as line broadening and significantly reduced peak heights (\cref{fig:n15_later_sens_hsqcplot,fig:n15_later_sens_sehsqc1plot}).
 
 While the \nitrogen{} seHSQC2 module also does not preserve \magnnot{N} magnetisation as well as the HMQC module (with an approximately 20\% loss, see \cref{fig:n15_later_sens_sehsqc2plot}), this is not anywhere as drastic as with the other modules.
 Furthermore, these losses are constant across all $t_1$ increments, so there is no line broadening observed in the modules which follow.
-This small sensitivity loss in later modules is also a reasonable price to pay for the improvement in the \nitrogen{} module itself: typically, it is the \nitrogen{} module which has the smallest intrinsic sensitivity, so it is desirable to maximise this.
+This small sensitivity loss in later modules is also a reasonable price to pay for the improvement in the \nitrogen{} module itself: typically, it is the \nitrogen{} module which has the smallest intrinsic sensitivity, so it is desirable to maximise this, even at the cost of the more sensitive modules.
 
 It should be noted that the \carbon{} seHSQC1 (and HSQC) modules also do place \magnnot{C} magnetisation in the transverse plane during $t_1$.
 However, they do not cause (appreciable) broadening in downstream modules, as evidenced by the almost complete preservation of CLIP-COSY peak heights in \cref{fig:noah_sehsqc_comp}.
-This is because indirect-dimension spectral windows for \carbon{} experiments are often much wider, and the acquisition times ($\AQ$, following on from \cref{subsec:noah__hmqc}) consequently shorter.
+This is because indirect-dimension spectral widths for \carbon{} experiments are often much wider, and the acquisition times ($\AQ$, as defined in \cref{subsec:noah__hmqc}) consequently shorter.
 For example, in the \noah{X,Sp,Cc} experiments shown here, the values of $\AQ$ for the \nitrogen{} and \carbon{} experiments are respectively \qty{60.1}{\ms} and \qty{5.38}{\ms}.
+Thus, the effect of magnetisation losses during $t_1$ is not so keenly felt.
 
 
 \subsubsection{CTP gradient duration}
 
-To verify that the \qty{2.5}{\ms} CTP gradients were necessarily in the \nitrogen{} seHSQC as well, I repeated the \noah{Spn,Sp,Cc} experiment with increasing gradient durations.
-Only the seHSQC2 module was studied.
+To verify that the \qty{2.5}{\ms} CTP gradients were necessary in the \nitrogen{} seHSQC as well, I repeated the \noah{Spn,Sp,Cc} experiment with increasing gradient durations.
+Only the seHSQC2 module was studied here, as the HSQC and seHSQC1 modules are not viable for use in NOAH supersequences.
 It should be noted that the durations of \textit{only} the CTP gradients $g_1$ and $g_2$ (in \cref{fig:sehsqc_po_noah2}) were modified; $g_3$ and $g_4$ retain their original durations of \qty{1}{\ms}.
 The results, shown in \cref{fig:sehsqc_cnst16}, are qualitatively very similar to that obtained with the HMQC (in \cref{fig:hmqc_cnst16}): increasing the gradient duration does not lead to substantial differences in signal intensity, but does provide much improved artefact suppression.
-In this case, equivalent results can be obtained using gradient durations of \qtyrange{2.2}{2.3}{\ms}; however, \qty{2.5}{\ms} still appears to be a reliable `default' value which can be used without further optimisation.
+In this case, equivalent results can be obtained using gradient durations of \qtyrange{2.2}{2.3}{\ms}; however, \qty{2.5}{\ms} still appears to be a reliable `default' value which can be used without having to perform further optimisations.%
+\footnote{I am aware that this statement somewhat undermines my arguments for the use of POISE optimisations in \cref{chpt:poise}.}
 
 \begin{figure}[!ht]
     \centering
@@ -104,8 +107,9 @@ In this case, equivalent results can be obtained using gradient durations of \qt
 
 Finally, the effects of $k$- and SW-scaling were also investigated for the seHSQC2 module.
 The effects of just performing scaling are very minimal (\cref{fig:sehsqc_scale}): unlike the HMQC module where lowering the resolution avoids losses in peak height due to multiplet structure, there are no such gains for the seHSQC module.
-The use of indirect-dimension linear prediction, however, is rather more successful for the seHSQC module (\cref{fig:sehsqc_scale_lp}): again this likely stems from the lack of multiplet structure in $F_1$.
+The use of indirect-dimension linear prediction, however, is rather more successful for the seHSQC module (\cref{fig:sehsqc_scale_lp}): again, this likely stems from the lack of multiplet structure in $F_1$.
 As before, the application of LP to the SW-scaled spectra yields better peak shapes than the $k$-scaled spectra (compare, e.g., \cref{fig:sehsqc_scale_lp_k82,fig:sehsqc_scale_lp_sw82}).
+The same caveats as to detection sensitivity are also applicable in this instance.
 
 \begin{figure}[!htbp]
     \centering

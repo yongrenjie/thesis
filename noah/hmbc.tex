@@ -12,21 +12,21 @@ I do not claim here that it is impossible to come up with a pulse sequence which
 
 \subsubsection{Suppression of one-bond artefacts}
 
-One of the issues with the NOAH HMBC module was that there were an unusual amount of one-bond artefacts, which arise from \magn{C} magnetisation which is allowed to evolve during the pulse sequence.
+One of the issues with the NOAH HMBC module was that there were an unusual amount of one-bond artefacts, which arise from \magn{C} magnetisation that is allowed to evolve during the pulse sequence.
 Generally, HMBC experiments seek to suppress this through the use of a low-pass J-filter (LPJF, see also \cref{subsec:poise__hmbc}).
 The NOAH HMBC module \textit{additionally} contains a $zz$-filter, which stores \magn{C} magnetisation along $+z$ before the LPJF.
 Thus, in theory, one-bond artefacts should be suppressed in the NOAH HMBC to an even greater extent.
 
-However, this expectation is not borne out: in some cases, the NOAH HMBC in fact has \textit{more intense} one-bond artefacts when compared against a standard HMBC experiment (\cref{fig:noah_hmbc_1jch_no90,fig:noah_hmbc_1jch_std_lp2}).
-Even performing an optimisation of the LPJF delays, as described in \cref{subsec:poise__hmbc}, did not lead to any reduction in artefacts.
-I hypothesised instead that these artefacts arose from imperfect manipulation of \magn{C} magnetisation by the $zz$-filter.%
+However, this expectation is not borne out: in some cases, the NOAH HMBC has \textit{more intense} one-bond artefacts when compared against a standard HMBC experiment (\cref{fig:noah_hmbc_1jch_no90,fig:noah_hmbc_1jch_std_lp2}).
+Even performing a POISE optimisation of the LPJF delays, as described in \cref{subsec:poise__hmbc}, did not lead to any reduction in artefacts.
+I hypothesised instead that these artefacts arose from imperfect manipulation of \magn{C} magnetisation by the $zz$-filter.
+In particular, any \textit{antiphase} magnetisation (of the form $I_xS_z$ or $I_yS_z$) generated after the $zz$-filter would be reconverted into in-phase $I_x$ or $I_y$ terms, which would not be destroyed by the LPJF.%
 \footnote{It would be nice to back this up with simulations, but I did not have the time to run these.}
-In particular, any \textit{antiphase} magnetisation (of the form $I_xS_z$ or $I_yS_z$) generated after the $zz$-filter would be reconverted into in-phase $I_x$ or $I_y$ terms, which would not be destroyed by the LPJF.
-(The LPJF works based on the assumption that there is in-phase magnetisation at the beginning of it, which is true if the excitation element is just a \proton{} \ang{90} pulse.)
+(The LPJF works based on the assumption that it needs to destroy in-phase magnetisation, which is true if the excitation element is just a \proton{} \ang{90} pulse, but is not necessarily applicable in the NOAH HMBC.)
 
-Such antiphase terms can be easily removed by the addition of a \carbon{} \ang{90} pulse, which transforms them into a mixture of double- and zero-quantum terms: these are either unobservable, or can be efficiently dephased by CTP gradients.
+Such antiphase terms can, however, be easily removed by the addition of a \carbon{} \ang{90} pulse, which transforms them into a mixture of double- and zero-quantum terms: these are either unobservable, or can be efficiently dephased by CTP gradients.
 This technique is used in the CLIP-HSQC family of experiments\autocite{Enthart2008JMR,Gyongyosi2021AC}, as well as the LPJF itself.
-In this case, we simply need to add an additional \carbon{} \ang{90} pulse at the end of the $zz$-filter: this pulse is highlighted in \cref{fig:noah_sb_po_b}.
+In this case, we simply need to add an additional \carbon{} \ang{90} pulse between the $zz$-filter and the LPJF: this pulse is highlighted in \cref{fig:noah_sb_po_b}.
 This results in a striking reduction of the one-bond artefacts, as shown in \cref{fig:noah_hmbc_1jch_90}.
 The suppression accomplished with the addition of this \ang{90} pulse is superior to that in the standard HMBC (\cref{fig:noah_hmbc_1jch_std_lp2}), and is comparable to a standard HMBC with a third-order LPJF (\cref{fig:noah_hmbc_1jch_std_lp3}).
 Of course, the NOAH module---which by default uses a second-order LPJF---can also be `upgraded' to use a third-order LPJF.
@@ -55,8 +55,7 @@ In GENESIS pulse programmes, this can be done using the \texttt{-DLP3} acquisiti
 
 Another point which was investigated (but bore less fruit) was the gradient scheme used for CTP selection.
 The NOAH module, as shown in \cref{fig:noah_sb_po_b}, uses a `symmetric' scheme where two gradients of equal amplitude surround the $t_1$ period: this encoding is later decoded by a third gradient just prior to acquisition.
-However, other choices exist: for example, the Bruker standard library HMBC (derived from the work of Cicero et al.\autocite{Cicero2001JMR}) uses only two gradients in total, which have unequal amplitudes.
-
+However, other choices exist: for example, the Bruker standard library HMBC (derived from the work of Cicero et al.\autocite{Cicero2001JMR}) uses only two gradients which have unequal amplitudes.
 This gradient scheme cannot be directly used in a NOAH HMBC module, though.
 This is because the $zz$-filter element places \magn{C} magnetisation along the $+z$ axis just before the HMBC J-evolution delay (see \cref{fig:noah_sb_po_b}).
 This magnetisation later experiences the \proton{} \ang{180} pulse in the middle of $t_1$, which means that an extra \ang{180} pulse must be added at the very end of the sequence to finally return it to $+z$.
@@ -103,7 +102,8 @@ Using this knowledge, it is possible to construct several `asymmetric' gradient 
         Here, the gradient amplitudes are the same as those in the standard library sequence as well as in scheme B.
 \end{enumerate}
 
-It is of interest to note two limiting cases of scheme A: when $\alpha = (\gammaH + \gammaC)/(\gammaH - \gammaC) \approx 1.67$, we have that $g_1 : g_2 : g_3 = 1 : -1 : \pm 2\gammaC/\gammaH$, which mimics the original `symmetric' scheme (\cref{fig:noah_hmbc_grads_b}); and when $\alpha = 1$, we have that $g_3 = 0$, i.e.\ a return to the two-gradient tactic of schemes B and C.
+It is of interest to note two limiting cases of scheme A.
+When $\alpha = (\gammaH + \gammaC)/(\gammaH - \gammaC) \approx 1.67$, we obtain the ratio $g_1 : g_2 : g_3 = 1 : -1 : \pm 2\gammaC/\gammaH$, which mimics the original `symmetric' scheme (\cref{fig:noah_hmbc_grads_b}); and when $\alpha = 1$, we have that $g_3 = 0$, i.e.\ a return to the two-gradient tactic of schemes B and C.
 In the tests which follow, I ran scheme A with $\alpha = 1.67$, $\alpha = 0.6$, and $\alpha = 0.3$.
 
 \begin{figure}[htb]
@@ -118,7 +118,6 @@ In the tests which follow, I ran scheme A with $\alpha = 1.67$, $\alpha = 0.6$, 
 \end{figure}
 
 All of the different HMBC versions above, plus the original `symmetric' scheme in \cref{fig:noah_sb_po_b}, were tested in the context of a \noah{B,S} supersequence using the andrographolide sample (\cref{fig:hmbc_grad_sens}).
-Since the HMBC module is the first module in this supersequence, the values here are an accurate reflection of their intrinsic sensitivities.
 As can be seen, there is not much at all which separates the different versions (outliers with $>2\times$ `sensitivity improvements' can be attributed to different J-modulation in the multiplet).
 The most sensitive of these is asymmetric scheme C, which may be explained by the fact that it has one fewer \ang{180} pulse: however, this comes with an immediate drawback.
 Since scheme C places the \magn{C} magnetisation along $-z$ during the LPJF as well as the J-evolution delay $\Delta_\text{LR}$ (a total of ca.\ \qty{70}{\ms}), relaxation losses during this period lead to poorer retention of \magn{C} magnetisation for later modules, as shown by the decreased HSQC sensitivities in \cref{fig:hmbc_grad_sens_hsqc}.
@@ -245,7 +244,7 @@ Unfortunately, a good explanation for these artefacts has remained elusive.
 
 The entirety of this section has---until now---been devoted to the \carbon{} HMBC module.
 However, the techniques used in constructing this, including the implementation of the $zz$-filter, are equally applicable to a \nitrogen{} HMBC.
-For simplicity, the NOAH \nitrogen{} HMBC module uses a first-order LPJF (since $\oneJ{NH}$ pairs are less common); this may be omitted if desired.
+For simplicity, the NOAH \nitrogen{} HMBC module uses a first-order LPJF (since directly bonded \ch{NH} pairs are less common); this may be omitted if desired.
 To minimise the number of pulses, a simple magnitude-mode version of the HMBC is used (\cref{fig:noah_15n_hmbc}).
 The implementation of this module within supersequences is discussed in greater detail within the context of \textit{generalised supersequences}, in \cref{sec:noah__parallel}.
 

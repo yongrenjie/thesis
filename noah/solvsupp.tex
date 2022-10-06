@@ -9,22 +9,22 @@ All suppression techniques shown here can be enabled via acquisition flags (the 
 \subsection{Presaturation}
 \label{subsec:noah__solvsupp_presat}
 
-A simple first step is to implement simple presaturation of the solvent resonance during the recovery delay of the sequence.
+A simple first step is to implement simple presaturation of the solvent resonance during the recovery delay of the supersequence.
 This often provides excellent suppression in the first module in a supersequence, and to a lesser extent, later modules (as the solvent magnetisation recovers during acquisition periods).
 
 Presaturation is also included during long delays, in particular mixing times in NOESY experiments.
-The use of presaturation during the HMBC J-evolution delay was also tested, but was found to be generally unnecessary, especially since the HMBC module is typically placed first in supersequences.
+The use of presaturation during the HMBC J-evolution delay was also tested, but was found to be unnecessary, especially since the HMBC module is typically placed first in supersequences.
 
 
 \subsection{Intrinsic suppression}
 \label{subsec:noah__solvsupp_intrinsic}
 
 A number of NOAH modules in fact come with an \textit{intrinsic} form of solvent suppression, in that they return \magnnot{X} magnetisation (including that of solvents) to the $+z$ axis at the end of the module.
-This is generally true of many of the HSQC-based NOAH modules, which seek to only sample \magn{X} magnetisation pool.
+This is generally true of many of the HSQC-based NOAH modules, which seek to only sample \magn{X} magnetisation pools (X = C or N).
 Thus, these modules already have far better solvent suppression properties compared to standard library sequences: there is no need for further modification.
 
-For these sequences, it is interesting to go one step further and to see how the solvent suppression varies with transmitter offset.
-This is less relevant if the solvent is just water (in which case it suffices to put the water peak on resonance), but may be important for samples in protonated solvents or mixtures thereof.
+For these sequences, it is possible to go one step further and to see how the solvent suppression varies with transmitter offset.
+This is less relevant if the solvent is just water (where it suffices to put the water peak on resonance), but may be important for samples in protonated solvents or mixtures thereof.
 I tested this by recording the first increment of the NOAH HSQC and seHSQC modules on an aqueous sample of sucrose, and integrating the water peak.
 The results (\cref{fig:s_sp_solvsupp}) indicate that the HSQC module provides the best suppression across a range of offsets; of the two seHSQC modules, seHSQC1 provides more uniform suppression, whereas seHSQC2 has some regions (`spikes') where suppression is poorer than average.
 
@@ -50,7 +50,7 @@ However, it is not entirely clear why seHSQC2 has such large spikes.
 Some further investigation showed that the poorer suppression partly arises from imperfect cancellation of the water signal by phase cycling.
 This is, however, not a full explanation; it merely replaces one mystery with another.
 Nevertheless, it should be reiterated that all of these sequences still provide excellent water suppression.
-The standard library seHSQC sequences, for example, do not even come close to this level of suppression (although these do dephase water magnetisation prior to acquisition, radiation damping still leads to a very large signal being detected).
+The standard library seHSQC sequences, for example, do not even come close to this level of suppression: although these do dephase water magnetisation prior to acquisition, radiation damping during the FID still leads to a very large water signal.
 
 
 \subsection{Excitation sculpting}
@@ -59,7 +59,7 @@ Since solvent suppression in HMBC and HSQC-type modules can be adequately accomp
 These modules invariably occur at the end of supersequences, and thus almost any form of solvent suppression can be used: there is no need to consider how magnetisation needs to be preserved for other modules.
 
 In practice, I chose to implement excitation sculpting\autocite{Hwang1995JMRSA} (ES) just prior to acquisition: the refocusing element chosen was a combination of a selective \ang{180} sinc pulse and a hard \ang{180} pulse.
-This worked perfectly for almost all of the homonuclear modules used in NOAH supersequences, with only a few adjustments needed, e.g.\ for the PSYCHE modules to ensure that chemical shifts and J-couplings evolved for the correct amount of time.
+This worked perfectly for almost all of the homonuclear modules used in NOAH supersequences, with only a few adjustments needed, such as for the PSYCHE modules where it was necessary to ensure that chemical shifts and J-couplings evolved for the correct amount of time.
 
 The case of the `double' COSY + X homonuclear modules, however, proved to be more intricate.
 This is illustrated here using X = TOCSY, but the considerations below are equally applicable to X = NOESY or ROESY.
@@ -104,4 +104,4 @@ It proves better to omit the ES in the COSY module: an adequate degree of water 
 
 Of course, it may well be that \textit{no} peaks fall within this null, and thus the better solvent suppression may be obtained at no cost.
 This was the case when the experiments in \cref{fig:double_es_spec} were reacquired on a \qty{700}{\MHz} spectrometer; or when the sinc pulse was lengthened to \qty{4}{\ms}.
-However, such fortuitousness cannot always be relied on.
+However, such a coincidence cannot always be relied on.

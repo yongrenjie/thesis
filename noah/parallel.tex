@@ -3,7 +3,7 @@
 
 To conclude this chapter, I discuss how \textit{multiple} NOAH supersequences may be run in parallel in order to obtain yet more data from a single experiment.
 As of the time of writing, current software limitations in TopSpin limit the \texttt{NBL} parameter (the number of memory blocks) to 5.
-This makes it presently impossible to extend a supersequence linearly beyond five modules.
+This makes it presently impossible to linearly extend a supersequence beyond five modules.
 However, it is possible to \textit{interleave} different supersequences, such that one $t_1$ increment of supersequence A is acquired, followed by one $t_1$ increment of supersequence B, before the value of $t_1$ is increased for both supersequences.
 In this text, I refer to this as a `vertical' stacking of modules (as opposed to the traditional NOAH concept, which focuses on `horizontal' concatenation of modules).
 
@@ -33,20 +33,20 @@ In this text, I refer to this as a `vertical' stacking of modules (as opposed to
 This concept is more clearly illustrated in \cref{fig:parallel_noah_overview}, which contains a more explicit depiction of how $t_1$ is incremented for each module.
 In \cref{fig:parallel_noah_overview_conv}, a `traditional' \noah{S,T} supersequence is shown: here, $t_1$ is incremented for both the HSQC and TOCSY module at the same time, and on each $t_1$ increment, the sequence of modules being acquired is always the same.
 In \cref{fig:parallel_noah_overview_interleaved}, this is different: the second module is alternated between a TOCSY and a NOESY.
-If the total experimental duration (which is largely proportional to the number of recovery delays, $d_1$) is to be kept the same as before, this means that the TOCSY and NOESY modules will be recorded with half the number of $t_1$ increments each.%
-\footnote{The data must also be separated prior to Fourier transformation in the indirect dimension. This is `just' an implementation detail, but \textit{did} require the \texttt{splitx\_au} script to be substantially reworked.}
-Although this loss of resolution may be considered a drawback, this scheme does allow us greater \textit{flexibility} in the design of NOAH supersequences: it is not ideal to acquire both a TOCSY and a NOESY using a traditional `linear' supersequence, since both of these modules depend on \magnnot{C} magnetisation.
+If the total experimental duration (which is largely proportional to the number of recovery delays, $d_1$) is to be kept the same as before, this means that the TOCSY and NOESY modules will be recorded with half the number of $t_1$ increments each.
+Although this loss of resolution may be considered a drawback, this scheme does allow us greater \textit{flexibility} in the design of NOAH supersequences: it is not ideal to acquire both a TOCSY and a NOESY using a traditional `linear' supersequence, since both of these modules depend on \magnnot{X} magnetisation.
 
-\Cref{fig:parallel_noah_overview_kscaled} shows how the different $F_1$ resolutions can be `fixed' by performing the equivalent of $k$-scaling on the HSQC module (described in \cref{subsec:noah__hmqc}).
+\Cref{fig:parallel_noah_overview_kscaled} shows how the $F_1$ resolutions for all three modules can be equalised, by performing the equivalent of $k$-scaling on the HSQC module (described in \cref{subsec:noah__hmqc}).
 This entails reducing the number of $t_1$ increments by a factor of 2 (in this case), and acquiring each increment twice instead, which corresponds to a doubling of the number of scans after the data have been appropriately combined.
 This generally has very little impact on the spectra (as was previously shown), but provides a convenient lead into the final example of \cref{fig:parallel_noah_overview_parallel}.
 Here, instead of acquiring each increment of the HSQC module twice, the time is used to acquire two different modules, an in-phase (IP) and antiphase (AP) HSQC (both run without \carbon{} decoupling).
-Through appropriate linear combination of the data, it is possible to isolate the two peaks of the \proton{}--\carbon{} doublets in these spectra, and from thence measure $\oneJ{CH}$ values: this is known as in-phase/antiphase (IPAP) processing.\autocite{Ottiger1998JMR,Nolis2006JMR,Enthart2008JMR,Gil2010JMR}
+Through appropriate linear combination of the data, it is possible to isolate the two peaks of the \proton{}--\carbon{} doublets and measure $\oneJ{CH}$ values: this is known as in-phase/antiphase (IPAP) processing.\autocite{Ottiger1998JMR,Nolis2006JMR,Enthart2008JMR,Gil2010JMR}
 Much like the TOCSY and NOESY combination, it is not possible to acquire IP and AP HSQC spectra in a single, linear supersequence, not even with the partial \magn{C} excitation technique described in \cref{subsec:noah__hsqctocsy}.
-For the IPAP processing to work, the IP and AP spectra have to be acquired with the same intensity for all peaks: even with a careful choice of $f\/$ in a linear supersequence, it is not possible to ensure this.
+For the IPAP processing to work, each doublet has to have the same intensity in the IP and AP spectra.
+A careful choice of $f\/$ in a linear supersequence may lead to the same \textit{average} intensity, but the distribution of intensities amongst the peaks will not be the same.
 
-The reader will no doubt notice at this point that \cref{fig:parallel_noah_overview_parallel} corresponds simply to the interleaved acquisition of two different supersequences (one is IP-HSQC + COSY, and the other AP-HSQC + NOESY), which could just as well be acquired separately.
-Furthermore, both supersequences are acquired with only half the usual $F_1$ resolution (assuming the same experimental time as \cref{fig:parallel_noah_overview_conv}), meaning that there are \textit{no real time savings}.
+The reader will no doubt notice at this point that \cref{fig:parallel_noah_overview_parallel} corresponds simply to the interleaved acquisition of two different supersequences (one is IP-HSQC + TOCSY, and the other AP-HSQC + NOESY), which could just as well be acquired separately.
+Furthermore, both supersequences are acquired with only half of the original $F_1$ resolution (assuming the same experimental time as \cref{fig:parallel_noah_overview_conv}), which means that there are \textit{no real time savings}.
 This is indeed correct: fundamentally, `vertical' stacking does not increase the number of FIDs recorded per recovery delay, so does not improve the time efficiency (or $\rho_t$).
 The main benefits of this process are, in my opinion:
 \begin{itemize}
@@ -60,7 +60,7 @@ In principle, all of the above may still be accomplished in a roundabout manner 
 This is most obvious in \cref{fig:parallel_noah_overview_parallel}.
 However, the current implementation of parallel supersequences provides \textit{convenience} for the user, as all experiments may be simultaneously acquired and processed.
 This factor should not be overlooked, especially considering that all the different constructions (\cref{fig:parallel_noah_overview_interleaved,fig:parallel_noah_overview_kscaled,fig:parallel_noah_overview_parallel}) must be processed in a slightly different manner: it is easier to do this from within a single experiment, rather than attempting to combine FIDs from separate datasets after the fact.
-There is also another argument for acquiring increments in an interleaved manner: this helps to minimise drifts in the spectra which arise from temporal instabilities in (for example) temperature.
+There is also another argument for acquiring increments in an interleaved manner: this helps to minimise drifts in the spectra which arise from environmental instabilities such as temperature fluctuations.
 
 \begin{figure}[!ht]
     \centering
@@ -91,10 +91,11 @@ There is also another argument for acquiring increments in an interleaved manner
 \Cref{fig:tsnoah_example_overall} shows one example of a more complex parallel supersequence containing 8 modules.
 In this supersequence, the HMBC module is recorded twice with the delay $\Delta_\text{LR}$ optimised for two different values of $\nJ{CH}$ (\cref{fig:tsnoah_example_b1,fig:tsnoah_example_b2}): these spectra furnish a (slightly) different set of correlations, which allow for more complete structure determination.
 The HSQC-CLIP-COSY is acquired in an IPAP fashion, where direct/indirect editing is used in one experiment (\cref{fig:tsnoah_example_sc2}) and not in the other (\cref{fig:tsnoah_example_sc1}).
-Likewise, the $F2$-coupled seHSQC experiment is also performed in an IPAP manner, where this time the `IPAP' components are the two peaks in each doublet.
+Likewise, the $F2$-coupled seHSQC experiment is also performed in an IPAP manner, where this time the IPAP components are the two peaks in each doublet.
 Multiplicity editing is additionally used here in both IP and AP seHSQC spectra.
 Finally, we have two interleaved homonuclear modules, the CLIP-COSY and TOCSY (\cref{fig:tsnoah_example_cc,fig:tsnoah_example_t}), which provide complementary information about spin networks.
-The four IPAP-processed spectra from this supersequence are shown in \cref{fig:tsnoah_ipap_spec}.
+In \cref{fig:tsnoah_example}, the heteronuclear spectra are shown before IPAP processing (in other words, these are the IP and AP spectra).
+The four IPAP-processed spectra ($\text{IP}-\text{AP}$ and $\text{IP}+\text{AP}$) from this supersequence are shown in \cref{fig:tsnoah_ipap_spec}.
 
 \begin{figure}[!ht]
     \centering
@@ -118,13 +119,14 @@ Often, the design of TS experiments involves the joint evolution of both heteron
 
 It should be noted that TS experiments use \textit{simultaneous} acquisition, as opposed to the \textit{sequential} acquisition of NOAH experiments.
 In other words, the two or more signals recorded in a TS experiment are part of the same FID, meaning that the resulting spectra will contain peaks from both signals.
-If these can be easily disambiguated (e.g.\ by the differing chemical shifts of \carbon{}- or \nitrogen{}-bonded protons), then the TS experiment allows more data to be collected in the same amount of time as a non-TS experiment.
+If these can be easily disambiguated (e.g.\ by the differing chemical shifts of \carbon{}- or \nitrogen{}-bound protons), then the TS experiment allows more data to be collected in the same amount of time as a non-TS experiment.
 However, if these signals must be separated, then the TS experiment must be repeated: once where the two signals have the same phase, and once where they have opposite phases.
-The underlying signals can then be disentangled through linear combination.\autocite{Sorensen1990JMR,Farmer1991JMR}
+The underlying signals can then be disentangled through linear combination\autocite{Sorensen1990JMR,Farmer1991JMR}; this process leads to an improvement in sensitivity, which can be re-converted into time savings by using fewer scans for the TS experiment (if this does not compromise spectral quality too much).
 
 Mathematically, this is exactly the same process as IPAP processing.
 In my view, what separates the two is the fact that the IPAP technique seeks to disentangle components which are \textit{innate} to the pulse sequence under consideration and cannot usually be isolated---such as doublets in a $F_2$-coupled HSQC---whereas TS experiments must be \textit{specially crafted} to record these multiple components.
 Equivalently, the time savings (or sensitivity improvement) from a TS experiment stem from the fact that it is being compared against a pair of experiments which each yield only one of the two signals detected in the TS sequence.
+To justly label an experiment as being TS, appropriate choices must be made for these `base' spectra.
 
 In this case, the IPAP label clearly applies to the pair of $F_2$-coupled seHSQC modules in \cref{fig:tsnoah_example_s1,fig:tsnoah_example_s2}.
 However, for the HSQC-COSY modules in \cref{fig:tsnoah_example_sc1,fig:tsnoah_example_sc2}, the situation is less clear.
@@ -146,7 +148,7 @@ This is already something which can be accomplished in a cleaner manner using (l
 \subsection{Generalised supersequences}
 \label{sec:noah__parallel_generalised}
 
-From the discussion above, it is evident that there is no need to stop at \textit{two} interleaved modules: it is possible to endlessly stack modules in a vertical manner.
+From the discussion above, it is evident that there is no need to stop at \textit{two} interleaved modules: it is possible to stack an arbitrary number of modules in a vertical manner.
 Furthermore, different modules may be acquired a different number of times.
 Thus, in \cref{fig:parallel_noah_overview_interleaved}, two supersequences were interleaved, and the TOCSY and NOESY modules were acquired once each in each $t_1$ increment.
 However, if $M$ different supersequences are being interleaved, then a set of two different modules may be acquired $m_1$ and $m_2$ times, as long as $m_1 + m_2 = M$.
@@ -163,9 +165,9 @@ Generally, it is desirable to assign larger $m_i$ values to less sensitive modul
     \label{fig:generalised_example}
 \end{figure}
 
-\subsubsection{Pulse sequence implementation}
+\subsubsection{Pulse programmes}
 
-Unfortunately, GENESIS is not (at present) advanced enough to create pulse programmes generalised supersequences.
+Unfortunately, GENESIS is not (at present) advanced enough to create pulse programmes for generalised supersequences.
 Thus, the pulse programmes for this section have been written by hand.
 The overall structure of such a pulse programme is shown in \cref{lst:generalised_pp}.
 The parameter \texttt{CNST51} corresponds to the number of supersequences being interleaved, i.e., $M$ in the discussion above.
@@ -295,15 +297,16 @@ It should be reiterated that the time savings to be obtained through this combin
 
 \Cref{fig:abbs_pp} shows some examples of such experiments, where the relative numbers of scans are chosen with the aim of balancing the sensitivities of each module.
 The ADEQUATE module used here is the ZIP-ADEQUATE experiment shown in \cref{fig:adequate_noah}; this consumes \magn{C} magnetisation and preserves the \magnnot{C} magnetisation required by the \nitrogen{} HMBC, \carbon{} HMBC, and \nitrogen{} seHSQC.
-However, the \carbon{} HSQC module draws on the same magnetisation pool; therefore, in order to maximise the intensities in this experiment, a period of isotropic mixing is applied only before the HSQC module in order to effect polarisation transfer from \magnnot{C} spins.
+However, the \carbon{} HSQC module draws on the same magnetisation pool.
+Therefore, in order to maximise the intensities in this experiment, a period of isotropic mixing is applied only before the HSQC module in order to effect polarisation transfer from \magnnot{C} spins.
 The spectra thus obtained are shown in \cref{fig:abbs_spec,fig:abbss_spec}.
 
-Another additional implementation detail, related to the earlier point about phase cycling, is that on each repetition of the ADEQUATE/\nitrogen{} HMBC increments, the \nitrogen{} HMBC signal (specifically, the first \nitrogen{} \ang{90} pulse) and receiver phases are additionally inverted.
+Another additional implementation detail, related to the earlier point about phase cycling, is that between each of the 28 or 29 repetitions of the ADEQUATE/\nitrogen{} HMBC increments, the \nitrogen{} HMBC signal (specifically, the first \nitrogen{} \ang{90} pulse) and receiver phases are additionally inverted.
 This can be accomplished by adding the corresponding extra phase incrementation instructions just underneath the \texttt{1m iu3} line in \cref{lst:generalised_pp}, and can be thought of as a form of `manual' phase cycling, which is independent of (and complementary to) the usual phase cycle specified in the pulse programme.
 The reason for doing this is to suppress artefacts which appear at $F_1 \approx 0$ in the \nitrogen{} HMBC, which stem from the ADEQUATE module (when the \nitrogen{} HMBC is run on its own, these artefacts do not appear).
 The exact origin of these artefacts is still unclear,%
 \footnote{Their frequencies in $F_1$ are not exactly zero, so there is \textit{some} kind of modulation in the $t_1$ period of the ADEQUATE module, but it is not entirely clear where this is happening. My current best guess is that the offending magnetisation evolves during the constant-time period of the ADEQUATE, where the double-quantum frequencies are reconverted into single-quantum frequencies.}
-but their phase is constant; thus, inverting the \nitrogen{} HMBC receiver phase leads to their cancellation.
+but their phases are constant; thus, inverting the \nitrogen{} HMBC receiver phase leads to their cancellation.
 It should be noted that the issue of phase cycling is not unique to generalised supersequences: indeed, such phase cycling would also be necessary in a standard linear \noah{A,Bn} supersequence.
 However, because the degree of built-in phase cycling in a generalised supersequence is lower than the actual number of transients recorded for each module, some of it must be explicitly specified in this way.
 
@@ -312,7 +315,7 @@ However, because the degree of built-in phase cycling in a generalised supersequ
 
 The generalised supersequences shown in \cref{fig:abbs_pp,fig:abbs_spec,fig:abbss_spec} yield very thorough information about heteronuclear connectivity, including one-bond and long-range \proton{}--\carbon{} and \proton{}--\nitrogen{} couplings.
 These spectra can be used as inputs for indirect covariance processing\autocite{Zhang2004JACS,Snyder2009JPCA,Jaeger2014ARNMRS} in order to yield `unnatural' (but very informative) double heteronuclear correlation spectra, in which each peak represents a correlation between two dilute heteronuclei (\carbon{} or \nitrogen{}).
-Directly recording such spectra through an NMR experiment would require substantially more time, because of the extremely low probability of finding two heteronuclei in the same isotopologue.
+Directly recording such spectra through an NMR experiment would require substantially more time, because of the extremely low probability of finding two heteronuclei in the same molecule.
 
 Some possible covariance spectra obtained from the data in \cref{fig:abbs_spec,fig:abbss_spec} are shown in \cref{fig:covariance_spec}.
 All covariance calculations were performed in Python, according to the formulae:
@@ -329,26 +332,29 @@ for unsymmetrical indirect covariance (where $\symbf{S}_1$ and $\symbf{S}_2$ are
 for generalised indirect covariance; the covariance spectrum $\symbf{C}$ can then be obtained as an off-diagonal block of the matrix $\symbf{M}$.
 $\lambda$ is a parameter which is chosen in order to balance peak intensity and artefact intensity\autocite{Snyder2009JPCA}.
 
-In \cref{fig:covariance_spec_bruc_cn}, the brucine \nitrogen{} HMBC and \carbon{} HSQC spectra  (\cref{fig:abbs_spec_bn,fig:abbs_spec_s}) are processed using unsymmetrical indirect covariance to yield a \carbon{}--\nitrogen{} correlation spectrum which contains both one- and long-range correlations.\autocite{Martin2007JHC,Martin2007MRC}
+In \cref{fig:covariance_spec_bruc_cn}, the brucine \nitrogen{} HMBC and \carbon{} HSQC spectra  (\cref{fig:abbs_spec_bn,fig:abbs_spec_s}) are processed using unsymmetrical indirect covariance (\cref{eq:covariance_unsymmetrical}) to yield a \carbon{}--\nitrogen{} correlation spectrum which contains both one- and long-range correlations.\autocite{Martin2007JHC,Martin2007MRC}
 The sign of the peaks indicates the multiplicity of the \carbon{} involved, and stems from the use of multiplicity editing in the \carbon{} HSQC spectrum.
 Unfortunately, one of the weaknesses of covariance spectra is on show here: there are several artefacts in this spectrum (marked by asterisks), caused by overlap in the \proton{} dimension of both input spectra.
 
-The other three spectra (\cref{fig:covariance_spec_cyclo_caco,fig:covariance_spec_cyclo_cacb_nosymm,fig:covariance_spec_cyclo_cacb_symm}) combine the cyclosporin \carbon{} HSQC and ADEQUATE modules (\cref{fig:abbss_spec_a,fig:abbss_spec_s}) to generate a \carbon{}--\carbon{} one-bond correlation spectrum: essentially, an INADEQUATE spectrum (but with single-quantum frequencies in both dimensions)\autocite{Martin2011MRC,Martin2011MRC2}.
-This should in principle be symmetric about the main diagonal.
-However, since the HSQC only detects protonated carbons, and the ADEQUATE input spectrum only detects correlations involving at least one protonated carbon.
-Thus, correlations between two quaternary carbons do not appear, and correlations between protonated and quaternary carbons only appear once in the spectrum (instead of twice).
-This does not a problem in the case of cyclosporin, though, as the only quaternary carbons are those of the carbonyl (\ch{CO}) group, which will still display correlations to the adjacent \ch{C}$\alpha$ carbons.
+The other three spectra (\cref{fig:covariance_spec_cyclo_caco,fig:covariance_spec_cyclo_cacb_nosymm,fig:covariance_spec_cyclo_cacb_symm}) combine the cyclosporin \carbon{} HSQC and ADEQUATE spectra (\cref{fig:abbss_spec_a,fig:abbss_spec_s}) to generate a \carbon{}--\carbon{} one-bond correlation spectrum, using generalised indirect covariance (\cref{eq:covariance_generalised}) with $\lambda = 0.5$.
+This is essentially an INADEQUATE spectrum, but with single-quantum frequencies in both dimensions\autocite{Martin2011MRC,Martin2011MRC2}.
+Such a correlation spectrum should in principle be symmetric about the main diagonal.
+However, since the HSQC only detects protonated carbons, and the ADEQUATE only detects correlations involving at least one protonated carbon,
+correlations between two quaternary carbons do not appear at all, and correlations between protonated and quaternary carbons will appear only once in the spectrum (instead of twice).
+This does not pose a problem in the case of cyclosporin, though, as the only quaternary carbons are those of the carbonyl (\ch{CO}) group, which will still display correlations to the adjacent \ch{C}$\upalpha$ carbons.
 
-These \ch{C}$\alpha$--\ch{CO} correlations are shown in \cref{fig:covariance_spec_cyclo_caco}.
-There are 11 peaks here, one for each amino acid residue in cyclosporin: again, the sign indicates the \ch{C}$\alpha$ multiplicity (all are \ch{CH} except for the \textit{N}-methylglycine \ch{CH2}).
-In \cref{fig:covariance_spec_cyclo_cacb_nosymm,fig:covariance_spec_cyclo_cacb_symm}, the \ch{C}$\alpha$--\ch{C}$\beta$ correlations are shown.
-This part of the spectrum has been further subjected to a sign-preserving symmetrisation procedure, where the intensity at each point $p(\Omega_1, \Omega_2)$ is replaced by
+These \ch{C}$\upalpha$--\ch{CO} correlations are shown in \cref{fig:covariance_spec_cyclo_caco}.
+There are 11 peaks here, one for each amino acid residue in cyclosporin: again, the sign indicates the \ch{C}$\upalpha$ multiplicity (all are \ch{CH}, except for the \ch{CH2} of the sarcosine residue).
+\Cref{fig:covariance_spec_cyclo_cacb_nosymm,fig:covariance_spec_cyclo_cacb_symm} shows the \ch{C}$\upalpha$--\ch{C}$\upbeta$ correlations.
+\Cref{fig:covariance_spec_cyclo_cacb_nosymm} shows the original spectrum, but in \cref{fig:covariance_spec_cyclo_cacb_symm}, the spectrum has been further subjected to a sign-preserving symmetrisation procedure, where the intensity at each point $p(\Omega_1, \Omega_2)$ is replaced by
 \begin{equation}
     \label{eq:covariance_symmetrisation}
-    p(\Omega_1, \Omega_2) = \sgn[p(\Omega_1, \Omega_2)] \cdot \min\left\{|p(\Omega_1, \Omega_2)|, |p(\Omega_2, \Omega_1)|\right\}.
+    p(\Omega_1, \Omega_2) \to \sgn[p(\Omega_1, \Omega_2)] \cdot \min\left\{|p(\Omega_1, \Omega_2)|, |p(\Omega_2, \Omega_1)|\right\}.
 \end{equation}
 Here, $\sgn{x}$ refers to the sign of $x$, or equivalently $x / |x|$ (for $x \neq 0$).
-Since all \ch{C}$\alpha$ and \ch{C}$\beta$ carbons in cyclosporin are protonated, the spectrum is expected to be symmetric; this symmetrisation process therefore helps to remove some of the artefacts which tend to plague the interpretation of covariance spectra.
+Since all \ch{C}$\upalpha$ and \ch{C}$\upbeta$ carbons in cyclosporin are protonated, this region of the spectrum is expected to be symmetric;%
+\footnote{The peak intensities $p(\Omega_1, \Omega_2)$ and $p(\Omega_2, \Omega_1)$ may not be exactly equal, but both peaks should at least be present.}
+the symmetrisation process therefore helps to remove some of the artefacts which tend to plague the interpretation of covariance spectra.
 
 \begin{figure}[!ht]
     \centering
@@ -362,10 +368,11 @@ Since all \ch{C}$\alpha$ and \ch{C}$\beta$ carbons in cyclosporin are protonated
         \textbf{(\subref*{fig:covariance_spec_bruc_cn})} \carbon{}--\nitrogen{} correlation spectrum for brucine.
         Asterisks indicate artefacts arising from peak overlap.
         \textbf{(\subref*{fig:covariance_spec_cyclo_caco})} Inset of the \carbon{}--\carbon{} one-bond correlation spectrum for cyclosporin, obtained by processing the ADEQUATE and \carbon{} HSQC spectra in \cref{fig:abbss_spec_a,fig:abbss_spec_s} using generalised indirect covariance ($\lambda = 0.5$).
-        The region shown here contains correlations between \ch{CO} and \ch{C}$\alpha$ carbons.
-        \textbf{(\subref*{fig:covariance_spec_cyclo_cacb_nosymm})--(\subref*{fig:covariance_spec_cyclo_cacb_symm})} A different inset from the same \carbon{}--\carbon{} correlation spectrum as in (\subref*{fig:covariance_spec_cyclo_caco}), but this time showing correlations in the alkyl region.
-        The spectrum in (\subref*{fig:covariance_spec_cyclo_cacb_symm}) has been further subject to a sign-preserving symmetrisation process.
-        The \ch{CO}--\ch{C}$\alpha$ and \ch{C}$\alpha$--\ch{C}$\beta$ correlations for all residues are labelled in (\subref*{fig:covariance_spec_cyclo_caco}) and (\subref*{fig:covariance_spec_cyclo_cacb_symm}) (following the numbering in \todo{REF}).
+        The region shown here contains correlations between \ch{CO} and \ch{C}$\upalpha$ carbons.
+        \textbf{(\subref*{fig:covariance_spec_cyclo_cacb_nosymm})--(\subref*{fig:covariance_spec_cyclo_cacb_symm})} The same \carbon{}--\carbon{} correlation spectrum as in (\subref*{fig:covariance_spec_cyclo_caco}), but this time showing correlations in the alkyl region.
+        The spectrum in (\subref*{fig:covariance_spec_cyclo_cacb_nosymm}) is untouched, but
+        the spectrum in (\subref*{fig:covariance_spec_cyclo_cacb_symm}) has been further subject to a sign-preserving symmetrisation process.
+        The \ch{CO}--\ch{C}$\upalpha$ and \ch{C}$\upalpha$--\ch{C}$\upbeta$ correlations for all residues are labelled in (\subref*{fig:covariance_spec_cyclo_caco}) and (\subref*{fig:covariance_spec_cyclo_cacb_symm}), following the residue numbering in \cref{fig:samples_cyclosporin}.
     }
     \label{fig:covariance_spec}
 \end{figure}
