@@ -104,7 +104,7 @@ In a hypothetical \noah{C,S} supersequence, the later HSQC module would only be 
 A final point to consider would be whether the NOAH data has comparable spectral quality in terms of (for example) artefacts.
 In this case, the answer is yes: the NOAH HSQC spectrum is virtually identical to the standalone (\cref{fig:sc_noah_vs_conv_noah_s,fig:sc_noah_vs_conv_conv_s}; both spectra have low-level artefacts of different kinds, which do not seriously impede the interpretation and are not shown).
 On the other hand, the NOAH COSY spectrum seems to actually \textit{improve} on the standalone COSY, in that it better suppresses off-diagonal artefacts (\cref{fig:sc_noah_vs_conv_noah_c,fig:sc_noah_vs_conv_conv_c}).
-These artefacts likely arise in the standalone COSY because of accidental refocusing of magnetisation which has not completely relaxed between $t_1$ increments.\autocite{Vitorge2010JMR}
+These artefacts likely arise in the standalone COSY because of accidental refocusing of magnetisation which has not completely relaxed between successive $t_1$ increments.\autocite{Vitorge2010JMR}
 In contrast, the NOAH COSY module has an extra set of HSQC gradients between every repetition of the COSY, so accidental refocusing is less likely.
 (Similar artefacts have previously been noted in the DQF-COSY experiment\autocite{Shaw1996JMRSA,Howe2014MRC}, and have also shown to be attenuated in the corresponding NOAH module\autocite{Claridge2019MRC}.)
 That said, such improvements are not always guaranteed.
@@ -154,7 +154,7 @@ These sensitivity losses, however, are reasonably acceptable considering the tim
 
 Generally, it has been recommended that less sensitive modules are placed earlier in the supersequence so that they can access a larger proportion of the equilibrium magnetisation.
 The \noah{B,S} does not, however, actually obey this principle.
-Since the HMBC is less sensitive of the two modules, this rule of thumb suggests that the BS supersequence should be better than the alternative SB supersequence.
+Since the HMBC is the less sensitive of the two modules, this rule of thumb suggests that the BS supersequence should be better than the alternative SB supersequence.
 In fact, the opposite is true, as entry 4 of \cref{tbl:noah_sensitivities} shows.
 This can be understood as follows: the HSQC module experiences a boost in sensitivity because it is placed first in the supersequence, and no longer needs to rely on the \magn{C} magnetisation preserved by the HMBC; and the HMBC benefits because the $zz$-filter modification is no longer needed.%
 \footnote{In fact, the final \ang{180} pulse in the HMBC module could also be removed: this is likely to give a further boost in SNR, as discussed in \cref{subsec:noah__hmbc}. However, this was not done here.}
@@ -164,21 +164,21 @@ This may just be the exception that proves the rule, but in my view, this provid
 
 We now move on to a longer supersequence containing four modules, with a correspondingly larger $\rho_t$ value of 3.22.
 The sensitivity of the HSQC module is practically the same as in the \noah{B,S} supersequence just described: however, the COSY and TOCSY modules expose one weakness of the HMBC module which has so far been overlooked.
-In principle, the HMBC module should only excite magnetisation of protons which are long-range coupled to \carbon{} (which we could, for example, denote as \magn{C(LR)}).
-This magnetisation pool should be separate from both the directly coupled protons (\magn{C}), as well as protons which are not coupled to any \carbon{} at all (\magnnot{C}).
+In principle, the HMBC module should only excite magnetisation of protons which have long-range couplings to \carbon{} (which we could, for example, denote as \magn{C(LR)}).
+This magnetisation pool is distinct from both the directly coupled protons (\magn{C}), as well as protons which are not coupled to any \carbon{} at all (\magnnot{C}).
 Unfortunately, this is not the case: it is not actually possible to separate the \magn{C(LR)} and \magnnot{C} magnetisation pools.
 The HMBC excites both of these magnetisation sources, dephases the latter using CTP gradients, and detects the signal arising from the former.
 
 This means that the COSY and TOCSY modules, which rely on \magnnot{C} magnetisation, will have substantially lower sensitivities.
 The signal detected in these two modules derives only from polarisation that has recovered during the previous two acquisition periods, as shown in entry 5 of \cref{tbl:noah_sensitivities} (the values of $A$ for the COSY and TOCSY are 0.36 and 0.28 respectively).
 That said, this is in fact not likely to be an issue \textit{even} for sensitivity-limited samples.
-Because the intrinsic sensitivity of the HMBC is orders of magnitude lower than the COSY and TOCSY, the COSY and TOCSY spectra still have greater intensities than the HMBC, even after these large losses in sensitivity.
+Because the intrinsic sensitivity of the HMBC is orders of magnitude lower than that of the COSY and TOCSY, the COSY and TOCSY spectra still have greater intensities than the HMBC, even after these large losses in sensitivity.
 Thus, as long as the entire supersequence is acquired with enough scans such that the HMBC SNR is sufficient, the COSY and TOCSY will \textit{also} have acceptable SNR.
-This is illustrated in the spectra shown in \cref{fig:bsct}.
+This is proven by the spectra shown in \cref{fig:bsct}.
 
 A rather more insidious problem is that different signals relax at different rates: thus, the COSY and TOCSY spectra (or indeed, any homonuclear module) will have uneven intensities and are frequently asymmetric.
 This can be seen in the COSY spectrum, where a pair of asymmetric crosspeaks are highlighted.
-Adding a period of isotropic mixing before the COSY module\autocite{Kupce2018CC} can help to ameliorate this to some extent (although the spectra in \cref{fig:bsct} were not acquired with this).
+Adding a period of isotropic mixing before the COSY module\autocite{Kupce2018CC} can ameliorate this to some extent (although the spectra in \cref{fig:bsct} were not acquired with this).
 
 \begin{figure}[!ht]
     \centering
@@ -191,7 +191,7 @@ Adding a period of isotropic mixing before the COSY module\autocite{Kupce2018CC}
         Spectra obtained from a \noah{B,S,C,T} supersequence. 
         \textbf{(\subref*{fig:bsct_b})} HMBC.
         \textbf{(\subref*{fig:bsct_s})} HSQC.
-        \textbf{(\subref*{fig:bsct_c})} COSY; a pair of asymmetric crosspeaks are highlighted with red arrows.
+        \textbf{(\subref*{fig:bsct_c})} COSY; a pair of crosspeaks with asymmetric intensities is highlighted with black arrows.
         \textbf{(\subref*{fig:bsct_t})} TOCSY (\qty{60}{\ms} DIPSI-2 mixing).
         Despite the COSY and TOCSY having only around 30\% of their sensitivity compared to standalone experiments, the intensity of the spectra obtained is still perfectly acceptable (the contour levels chosen are 1--2 orders of magnitude larger than for the HMBC).
         \datacode{7Z-220224}

@@ -3,7 +3,7 @@
 
 I will now describe a few features of GENESIS pulse programmes, as well as how their generation is implemented in code.
 GENESIS is written in TypeScript; during website deployment, this is compiled to JavaScript, which can then be directly executed in the client's web browser.
-No server-side code is required, meaning that the GENESIS web page is actually a static site (it is currently hosted using GitHub Pages).
+No server-side code is required, meaning that the GENESIS web page is actually a static site; it is currently hosted using GitHub Pages.
 
 \begin{mylisting}[!htbp] % lst:genesis_sc {{{1
 \begin{tcbminted}{bruker}
@@ -61,7 +61,7 @@ ph0=0
 
 The structure of a pulse programme can loosely be separated into three parts, which are shown in \cref{lst:genesis_sc}:
 \begin{enumerate}
-    \item the \textit{preamble}, which consists of everything up until the beginning of the actual pulse sequence (the \texttt{ze} command). This includes header comments as well as definitions of parameters, such as delays and pulse widths;
+    \item the \textit{preamble}, which consists of everything up until the beginning of the actual pulse sequence (signified by the \texttt{ze} command). This includes header comments as well as definitions of parameters, such as delays and pulse widths;
     \item the \textit{main section}, which contains the actual pulse sequence;
     \item the \textit{epilogue}, which contains phase cycle information as well as footer comments describing each parameter. Instructions for generating shaped pulses using Bruker's WaveMaker software are also included here, as well as instructions for automatic processing (\cref{subsec:noah__genesis_processing}), and comments indicating how the pulse programme was generated (for reproducibility purposes).
 \end{enumerate}
@@ -84,8 +84,8 @@ let shortDescription = `; 13C HSQC`
 let preamble = `
 "d4      = 0.25s/cnst2"                ; 13C INEPT
 ; ...
-"D[ID]a  = d4-p14/2"    // [ID] is later replaced with the module code
-`
+"D[ID]a  = d4-p14/2"
+`   // [ID] is later replaced with the module code
 
 let pulprog = `
   ; 13C-1H HSQC
@@ -112,7 +112,7 @@ const mod = new NOAHModule(
 );
 export default mod;
 \end{tcbminted}
-\caption[HSQC \texttt{NOAHModule} object]{An excerpt of the \texttt{NOAHModule} object for the HSQC module (internal code \texttt{C\_HSQC}.}
+\caption[HSQC \texttt{NOAHModule} object]{An excerpt of the \texttt{NOAHModule} object for the HSQC module shown in \cref{fig:noah_sb_po_s} (internal code \texttt{C\_HSQC}).}
     \label{lst:module_c_hsqc}
 \end{mylisting} % }}}1
 
@@ -199,15 +199,15 @@ GENESIS avoids this by maintaining a global table of parameter definitions which
 In general, where possible, these parameters are chosen to be consistent with pulse programmes in the Bruker standard library: thus, for example, \texttt{P1} is the \proton{} \ang{90} pulse width, and \texttt{CNST2} is the $\oneJ{CH}$ value used for calculating INEPT (and other) delays.
 This makes it easy to read in parameters either from the \textit{prosol} relation tables in TopSpin, or from other existing parameter sets.
 Some delays are module-specific and do not need to be reused, and in standard library sequences, are often labelled as \texttt{DELTA1}, \texttt{DELTA2}, and so on.
-To avoid conflicting definitions and also to improve readability, I rename these such that they include the name of the module: thus, in a \carbon{} HSQC these may be labelled \texttt{DC\_HSQC\_1}.
+To avoid conflicting definitions and also to improve readability, I renamed these such that they include the name of the module: thus, in a \carbon{} HSQC these may be labelled \texttt{DC\_HSQC\_1}.
 Here, \texttt{C\_HSQC} is the name associated with the \texttt{NOAHModule} object.
 
-If combined with some caution when adding new modules, these measures ensure that there will be no parameter clashes \textit{within} a given supersequence: we may view this as a \textit{local uniqueness} of parameters.
+If combined with some caution when adding new modules, these measures ensure that there will be no parameter clashes between the modules \textit{within a given supersequence}: we may view this as a \textit{local uniqueness} of parameters.
 However, the impact of this design choice is even more far-reaching:
-since parameters are stored globally, they will always have the same value in \textit{all} possible supersequences (or in other words, the parameters are \textit{globally unique}).
+since parameters are stored globally, they will always have the same value in \textit{all possible supersequences} (or in other words, the parameters are \textit{globally unique}).
 This makes it exceptionally easy to set up multiple different supersequences in TopSpin using GENESIS pulse programmes, as virtually all of the parameter values may simply be copied from a previous NOAH dataset.
 
-One potential issue with this strategy is that TopSpin provides a finite number of named pulse widths (for example).
+One potential issue with this strategy is that TopSpin provides only a finite number of named pulse widths (for example).
 Thus, there are only so many different parameters which can be stored in a global table before running into inevitable conflicts.
 A workaround would be to sacrifice the global uniqueness of each parameter, and only have it be unique within a given supersequence.
 Fortunately, this situation has not (yet) surfaced.%
@@ -218,7 +218,7 @@ Fortunately, this situation has not (yet) surfaced.%
 
 At the epilogue of the pulse programme, extra comments are added for every parameter present in the pulse programme.
 Most of these are purely textual in nature, and appear in the TopSpin \texttt{ased} parameter setup screen; this naturally helps to make the pulse programmes as easy to use as possible.
-However, some of these comments have special meanings: gradient amplitudes and shapes, for example, are specified in a way which allows them to be automatically populated using the \texttt{gppp} Python script in TopSpin.
+However, some of these comments have special meanings: gradient amplitudes and shapes, for example, are specified in a way which allows them to be automatically populated using the \texttt{gppp} Python script packaged with TopSpin.
 Furthermore, WaveMaker directives are also specified for some shaped pulses, allowing them to be created in an on-the-fly manner using the \texttt{wvm} command.
 This means that the user (generally) need not separately download and install a set of shaped pulses.
 
@@ -227,9 +227,9 @@ This means that the user (generally) need not separately download and install a 
 One final issue which must be overcome is the fact that some NOAH modules may be implemented differently depending on the supersequence which it is being used in.
 The HMBC module described in \cref{subsec:noah__case_studies} is one such example: the form of the $zz$-filter depends on whether the HMBC module is required to retain \magn{C} and/or \magn{N} magnetisation for subsequent modules.
 Thus, in the \noah{B,S} supersequence the $zz$-HMBC must be used, but in the \noah{S,B} supersequence the `original' HMBC without a $zz$-filter is preferable.
-Since these have different pulse programmes, each of these `versions' of the HMBC are described by \textit{separate} \texttt{NOAHModule} objects.
+Since these have different pulse programmes, each of these `versions' of the HMBC are described by \textit{separate} \texttt{NOAHModule} objects (\texttt{C\_HMBC\_CF} and \texttt{C\_HMBC\_NOF} respectively).
 
-However, it is unlikely that the majority of users would want to manually configure the supersequence in such detail by manually selecting \texttt{NOAHModule} objects.
+However, it is unlikely that the majority of users would want to manually configure the supersequence in such detail by selecting \texttt{NOAHModule} objects.
 Thus, the GENESIS web interface actually hides these different versions from the user, only showing one button labelled `HMBC'.
 Under the hood, the logic above is used to deduce the correct version of the HMBC based on what other modules the user has chosen (\cref{fig:hmbc_flowchart}).
 
@@ -244,7 +244,7 @@ Under the hood, the logic above is used to deduce the correct version of the HMB
     \label{fig:hmbc_flowchart}
 \end{figure}
 
-Should the user indeed desire to control the exact module used, the website also offers a `developer mode' switch: turning this on allows the user to directly choose the desired module code.
+Should the user indeed want to control the exact module used, the website also offers a `developer mode' switch: turning this on allows the user to directly choose the desired module.
 (Enabling developer mode also reveals a handful of extra modules which were used exclusively for my DPhil and are not generally of interest.)
 
 
@@ -252,8 +252,8 @@ Should the user indeed desire to control the exact module used, the website also
 
 One risk inherent in any NMR experiment is the possibility of causing spectrometer damage when executing malformed pulse programmes.
 To minimise the chances of this, each version of GENESIS is checked against a series of automatic tests before being released.
-The most important tests ensure that each module containing decoupling statements also turn off decoupling immediately after acquisition.
-On top of this, there are also a series of regression tests where (some) supersequences are checked against the same ones produced by previous versions of GENESIS: any differences in these are automatically flagged for review.
+The most important tests ensure that every module containing decoupling statements also turns off decoupling immediately after acquisition.
+On top of this, there are also a series of regression tests where (some representative) supersequences are checked against the same ones produced by previous versions of GENESIS: any differences in these are automatically flagged for review.
 
 None of this can actually \textit{stop} wrong pulse programmes from being written.
 For example, if a module with an incorrect pulse programme is created, then any supersequence containing that module will not be fully functional.

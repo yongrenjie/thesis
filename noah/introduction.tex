@@ -8,7 +8,7 @@ This problem is further exacerbated by the fact that structural elucidation or v
 The acceleration of 2D NMR has thus proven to be a popular area of research.
 We may broadly categorise these existing techniques into two classes.%
 \footnote{These are by no means mutually exclusive: many of the techniques here can be combined to provide even greater efficiency.}
-Firsty come the methods which seek to directly speed up the acquisition of \textit{individual} 2D spectra: these include
+First come the methods which seek to directly speed up the acquisition of \textit{individual} 2D spectra: these include
 \acf{nus}\autocite{Barna1987JMR,Kazimierczuk2010PNMRS,Mobli2014PNMRS,Kazimierczuk2015MRC},
 fast pulsing (i.e.\ shortening of recovery delays)\autocite{SchulzeSunninghausen2014JACS,Schanda2006JACS,Kupce2007MRC,Schanda2009PNMRS},
 ultrafast NMR\autocite{Frydman2002PNASUSA,Pelupessy2003JACS,Frydman2003JACS,Tal2010PNMRS,Gouilleux2018ARNMRS,Kupce2021NRMP},
@@ -25,8 +25,8 @@ Typically, each of these building blocks corresponds to a specific 2D experiment
 It should be noted that there are several other multiple-FID experiments which, while not explicitly advertised as `NOAH experiments', are built from `modules' and are conceptually identical\autocite{Nagy2019CC,Nagy2020JMR,Nagy2021ACIE,Timari2022CC}; I do not discuss these here.
 
 The time savings provided by NOAH experiments stems from the elision of \textit{recovery delays}---the time required for spins to relax to their equilibrium state ($\rho_0$ in \cref{eq:thermal_density_operator}), such that the next transient or $t_1$ increment can be recorded.
-These recovery delays is responsible for most of the experimental duration of a typical 2D NMR experiment.
-In NOAH supersequences, each module is designed to draw on a different \textit{magnetisation pool}: this refers to a source of magnetisation belonging to a specific isotopologue.
+These recovery delays are responsible for most of the experimental duration of a typical 2D NMR experiment.
+In a NOAH supersequence, this is accomplished by designing each module to draw on a different \textit{magnetisation pool}: this refers to a source of magnetisation belonging to a specific isotopologue.
 For example, \carbon{}--bound protons and \carbont{}--bound protons are two different magnetisation pools.
 This allows modules to be directly concatenated, without the addition of extra recovery delays between them; only one overall recovery delay is required for the entire supersequence, where \textit{all} magnetisation pools simultaneously recover.
 

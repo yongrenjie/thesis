@@ -7,7 +7,7 @@ Such experiments would only really be useful if sensitivity was greatly abundant
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[draft=false]{noah/magpools.png}%
+    \includegraphics[]{noah/magpools.png}%
     {\phantomsubcaption\label{fig:magpools_magpools}}%
     {\phantomsubcaption\label{fig:magpools_sequences}}%
     \caption[Different magnetisation pools used in a typical NOAH supersequence]{
@@ -28,11 +28,12 @@ The magnetisation of protons \textit{not} bonded to \carbon{} is denoted as \mag
 Protons not directly bonded to \textit{any} NMR-active heteronucleus are labelled \magnnot{X}, and are often referred to as `bulk' magnetisation, since the majority of protons in natural-abundance samples fall into this category.
 
 Since standard 2D experiments typically seek to \textit{destroy}---instead of \textit{preserve}---unused magnetisation, NOAH modules often require some modifications compared to standard experiments.
-For example, compared to the echo--antiecho HSQC (discussed in \cref{subsec:theory__hsqc_ea}), the NOAH HSQC module\autocite{Kupce2017ACIE} adds an extra CTP gradient so that the bulk magnetisation is refocused and ultimately returned to the $+z$ equilibrium state (\cref{fig:noah_sb_po_s}).
+For example, compared to the echo--antiecho HSQC (discussed in \cref{subsec:theory__hsqc_ea}), the NOAH HSQC module\autocite{Kupce2017ACIE} adds an extra CTP gradient.
+This ensures that the bulk magnetisation is refocused after $t_1$, and ultimately returned to the $+z$ equilibrium state (\cref{fig:noah_sb_po_s}).
 (This is largely identical to the `symmetrised' ASAP-HSQC experiment\autocite{SchulzeSunninghausen2017JMR}.)
 Sometimes, the modifications required are more extensive, such as in the HMBC module.
 In order for this module to preserve \magn{C} magnetisation (e.g.\ for a later HSQC module), the initial \ang{90} excitation pulse must be replaced with a $zz$-filter (\cref{fig:noah_sb_po_b}).
-This performs an \textit{isotope-selective rotation} in that \magn{C} magnetisation is stored along the $z$-axis, but \magnnot{C} magnetisation is excited (and subsequently detected).
+This performs an \textit{isotope-selective rotation} in that \magn{C} magnetisation is stored along the $z$-axis, but \magnnot{C} magnetisation is excited and subsequently detected.
 
 \begin{figure}[htb]
     \centering

@@ -2,7 +2,6 @@
 \usepackage{amsmath}
 \usepackage{mathtools}
 \usepackage[warnings-off={mathtools-colon,mathtools-overbracket}]{unicode-math}
-\defaultfontfeatures{Ligatures=TeX}
 
 % Main fonts used in the document
 \setmainfont[
@@ -24,7 +23,8 @@
 ]{RobotoMono}
 \setmathfont[
   Path={./fonts/},
-  Scale=MatchLowercase
+  Scale=MatchLowercase,
+  Ligatures=TeX
 ]{LibertinusMath-Regular.otf}
 \mathitalicsmode=1
 

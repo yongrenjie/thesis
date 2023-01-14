@@ -46,7 +46,7 @@ we have that $\rho_t \to Nd_1/d_1 = N$, i.e.\ an $N$-fold time saving.
 
 This analysis makes plenty of assumptions, and is not entirely valid in practice.
 For example, \textit{each} $\tau_\text{acq}$ is often around 5\text{--}10\% of $d_1$, so is not entirely negligible, especially when $N$ is larger.
-Furthermore, some modules require longer $\tau_\text{ps}$: most notable is the NOESY module, which contains a mixing time of several hundred milliseconds. (HMBC, TOCSY, and ROESY spectra are also lesser offenders.)
+Furthermore, some modules require longer $\tau_\text{ps}$: most notable is the NOESY module, which contains a mixing time of several hundred milliseconds. (HMBC, TOCSY, and ROESY modules are also lesser offenders.)
 
 These factors serve to reduce $\rho_t$ from its idealised value of $N$; generally, this deviation is larger as $N$ increases, because \cref{eq:d1_limit} becomes less and less valid.
 Despite this, it remains true that the time savings are approximately proportional to $N$, as can be appreciated from \cref{tbl:noah_sensitivities}.
@@ -65,11 +65,12 @@ This can happen, for example, with naturally insensitive experiments (e.g.\ ADEQ
 \footnote{If the SNR factor $A^{(i)}$ as discussed below is \textit{very small}, then it is possible that even concentrated samples may be shifted into the sensitivity-limited regime. This is never really the case in practice, though, as will be shown in \cref{subsec:noah__case_studies}.}
 In such cases, the benefits of NOAH supersequences must be much more carefully considered: in particular, it becomes mandatory to compare the SNRs of the NOAH modules and conventional experiments.
 To do so, we define for each module an \textit{SNR factor} $A$, which is the SNR of the NOAH module divided by the SNR of a conventional experiment, acquired with the same parameters.%
-\footnote{The relative SNR will likely vary from peak to peak in the spectrum, and $A$ should in theory be quoted either as an average over all peaks, or as a range. This is what I have done in this thesis.
+\footnote{The relative SNR will likely vary from peak to peak in the spectrum, and $A$ should in theory be quoted either as an average over all peaks, or as a range.
+This is what I have done in this thesis.
 Furthermore, the exact values calculated for $A$ will depend on the sample used for the comparison.
-These values should therefore be assumed to be valid only for similar samples.
+Any values given here should therefore be assumed to be valid only for similar samples.
 Of course, my hope is that the samples chosen are reasonably representative of `typical' organic molecules.}
-The SNR factor of the $i$-th module in a supersequence may be denoted $A^{(i)}$.
+The SNR factor of the $i$-th module in a supersequence may be denoted as $A^{(i)}$.
 
 In general, we have that $A \leq 1$, because (as will be explained in \cref{subsec:noah__magpools}) NOAH modules frequently contain small modifications with respect to conventional experiments.
 For sensitivity-limited samples, we must balance these losses against the time savings obtained, by defining a \textit{gain in sensitivity per unit time}, $\varepsilon$ as
@@ -100,7 +101,7 @@ We could also analogously define $\varepsilon_\text{eff} = A\sqrt{\rho_{t,\text{
 Typically, $S$ is simply the largest of the $S^{(i)}$, as this ensures sufficient data quality for the most insensitive module in the supersequence.
 This means that generally, $\rho_{t,\text{eff}} < \rho_t$.
 In such a situation, it is probably more appropriate to describe a NOAH supersequence as `measuring the most insensitive module and getting the others for free'.
-Indeed, if $S = S^{(i)} \gg S^{(j\neq i)}$, then `the other' modules require almost no time to measure (relative to the least sensitive module), and $\rho_{t,\text{eff}}$ tends towards 1, meaning that even the time-saving utility of NOAH vanishes.
+Indeed, in the extreme case where $S = S^{(i)} \gg S^{(j\neq i)}$, then `the other' modules require almost no time to measure (relative to the least sensitive module), and $\rho_{t,\text{eff}}$ tends towards 1, meaning that even the time-saving utility of NOAH vanishes.
 A corollary of this is that NOAH supersequences are generally best constructed from modules which have similar intrinsic sensitivities and hence similar $S^{(i)}$'s.
 
 Returning to the sampling-limited regime for a short while, we generally have that $S^{(i)} = S$ for all $i$ (i.e.\ all conventional experiments are acquired with the same number of scans).
