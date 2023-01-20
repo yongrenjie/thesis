@@ -57,12 +57,14 @@ In practice, relaxation causes this signal to decay with time; this is frequentl
 where $T_2$ is the transverse relaxation time constant.\footnote{Transverse (and longitudinal) relaxation are sometimes called spin--spin (and spin--lattice) relaxation, although the continued usage of these terms has been criticised\autocite{Levitt2008,Keeler2010,Gupta2021JPCL}.}
 The NMR signal is thus often called a \textit{free induction decay} (FID).
 Fourier transformation of the FID then yields a spectrum with absorption- and dispersion-mode lineshapes in the real and imaginary parts respectively (\cref{fig:lorentzians}):
-\begin{equation}
+\begin{align}
     \label{eq:lorentzian}
-    S(\omega) = \mathcal{F}[s(t)] =
+    S(\omega) = \mathcal{F}[s(t)]
+    &= \frac{1}{\sqrt{2\pi}}\int_0^\infty s(t) \exp(-\mi \omega t) \,\md t \notag \\
+    &=
     \underbrace{\frac{k}{k^2 + (\omega - \Omega)^2}}_{A(\omega; \Omega)}
     +\, \mathrm{i}\underbrace{\frac{\Omega - \omega}{k^2 + (\omega - \Omega)^2}}_{D(\omega; \Omega)},
-\end{equation}
+\end{align}
 where $k = 1/T_2$.
 The notation $A(\omega; \Omega)$ here means that the spectrum is a function of the frequency $\omega$, but is parametrised by the peak offset $\Omega$.
 Conventionally, only the real part of the spectrum is displayed, so it is desirable for the real part to contain the absorption-mode lineshape.
@@ -76,7 +78,7 @@ This provides better resolution due to the narrower lineshape, and is also less 
     \caption[Absorption- and dispersion-mode Lorentzian lineshapes]{
         \textbf{(\subref*{fig:lorentzians_absorption})} Absorption-mode lineshape $A(\omega; \Omega = 0)$.
         \textbf{(\subref*{fig:lorentzians_dispersion})} Dispersion-mode lineshape $D(\omega; \Omega = 0)$.
-        Both lines have been plotted using $k = \qty{\pi}{\radian\per\second}$.
+            Both lines have been plotted using $k = \qty[parse-numbers=false]{\pi}{\radian\per\second}$.
     }
     \label{fig:lorentzians}
 \end{figure}

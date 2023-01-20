@@ -11,7 +11,7 @@ The density operator, $\rho$, is defined (in the Schr\"odinger picture) as
 \end{equation}
 where $p_j$ is the probability that a spin is in the state $\ket{\psi_j}$ (and the $\ket{\psi_j}$'s are assumed to form a complete set of states).\footnote{This probability is a \textit{classical} probability: that is, it is purely statistical in nature and should not be confused with the probability amplitudes associated with quantum superposition (i.e.\ $|c_j|^2$ in a single-spin wavefunction $\sum_j c_j \ket{j}$).}
 The use of $\rho$ actually represents a loss of information, in that while \cref{eq:density_operator} gives us a straightforward recipe for constructing $\rho$ from a given distribution of states $\{p_j, \ket{\psi_j}\}$, the reverse is not possible: given a known $\rho$, it is generally not possible to determine a unique distribution of states.
-This is not a problem, however, because $\rho$ contains all the necessary information for calculation of expectation values, in that for any operator $A$,
+This is not a problem, however, because $\rho$ contains all the information required for the calculation of expectation values, in that for any operator $A$,
 \begin{equation}
     \label{eq:density_expectation}
     \langle A \rangle = \sum_j \braket{\psi_j | A\rho | \psi_j}.

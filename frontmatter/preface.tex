@@ -17,7 +17,7 @@ NMR pulse sequences in this thesis are depicted in a reasonably conventional man
 To avoid any ambiguity, I describe this notation here.
 Filled black rectangular bars indicate \ang{90} pulses; empty bars indicate \ang{180} pulses.
 Pulses with other flip angles are depicted using filled grey bars, typically with the Greek letter $\beta$ above it representing the flip angle.
-Delays are variously represented by the letters $\Delta$ and $\tau$; exact values of these will be given in the respective captions.
+Delays are variously represented by the letters $\Delta$ and $\tau$; exact values of these are given in the respective captions.
 Pulses without explicit phases are assumed to be applied along the (rotating-frame) $+x$-axis; pulses with phases labelled as $\phi_i$ are typically phase-cycled, details of which are specified in the respective captions.
 Grey boxes labelled `dec.' represent periods of heteronuclear decoupling.
 
@@ -25,7 +25,7 @@ In this thesis, I use the word \textit{gradient} to refer to pulsed field gradie
 Where relevant, $z$-gradient amplitudes are given as percentages of the maximum gradient amplitude, which is probe-dependent (see \cref{tbl:spectrometers}).
 This maximum amplitude is unlikely to substantially affect the performance of any of the pulse sequences; consequently, in the text I quote gradient amplitudes only as percentages.
 Nevertheless, if necessary, absolute gradient amplitudes may still be determined for each individual dataset by referring to \cref{tbl:spectrometers}.
-Gradients which are inverted for echo--antiecho selection are depicted as a pair of positive and negative gradients (e.g.\ $g_2$ above).
+Gradients which are inverted for echo--antiecho selection are depicted as a pair of positive and negative gradients with different shading (e.g.\ $g_2$ above).
 $\varepsilon$ is always used to denote the time required for a gradient, plus the subsequent recovery delay (\qty{200}{\us} throughout this work).
 
 In practice, the implementation of a pulse sequence may differ in tiny ways: for example, delays may be modified to accommodate finite pulse widths and other technicalities.
@@ -45,7 +45,7 @@ Quantum mechanical NMR simulations were done in Matlab R2021a or R2021b.
 This thesis is written using the \LaTeX{} typesetting system: specifically, I used the \LuaLaTeX{} engine.
 
 Pulse sequences and other diagrams are drawn using the vector graphics programme \href{https://inkscape.org/}{Inkscape}.
-Plots are generated using \href{https://www.python.org/}{Python 3}, using a number of packages (namely: \href{https://github.com/numpy/numpy}{\texttt{numpy}}, \href{https://github.com/scipy/scipy}{\texttt{scipy}}, \href{https://github.com/matplotlib/matplotlib}{\texttt{matplotlib}}, \href{https://github.com/mwaskom/seaborn}{\texttt{seaborn}}, and \href{https://github.com/yongrenjie/penguins}{\texttt{penguins}}, the last of which was written by me.
+Plots are generated using \href{https://www.python.org/}{Python 3}, using a number of packages, namely: \href{https://github.com/numpy/numpy}{\texttt{numpy}}, \href{https://github.com/scipy/scipy}{\texttt{scipy}}, \href{https://github.com/matplotlib/matplotlib}{\texttt{matplotlib}}, \href{https://github.com/mwaskom/seaborn}{\texttt{seaborn}}, and \href{https://github.com/yongrenjie/penguins}{\texttt{penguins}}, which was written by me.
 
 The \LaTeX{} sources for this thesis, as well as all figures, can be accessed at GitHub: \url{https://github.com/yongrenjie/thesis}.
 
@@ -55,6 +55,8 @@ The \LaTeX{} sources for this thesis, as well as all figures, can be accessed at
 The caption of every figure containing experimental data includes a `data code' at the end, which specifies the spectrometer and sample used for the data, as well as the date it was acquired (in \texttt{YYMMDD} format).
 The spectrometers and samples used in this thesis are enumerated in \cref{tbl:spectrometers,tbl:samples,fig:samples}.
 Therefore, for example, the code \texttt{7Z-211225} would represent data acquired on the \qty{700}{\MHz} spectrometer, using the zolmitriptan sample, on Christmas Day 2021.
+
+Peak assignments and other physical data for some of the samples are given in \Cref{chpt:assignments}.
 
 \begin{table}[!htbp]
     \begin{tabular}{ccl}
