@@ -17,7 +17,7 @@ To make matters worse, $H_\text{pulse}$ does not commute with $H_\text{grad}$, s
 \end{equation}
 must be calculated for each pulse point, in each slice of the sample, for a total of $mn$ matrix exponentials.
 As a result, the simulation of PSYCHE spectra in the Spinach package\autocite{Hogben2011JMR} typically requires minutes to hours.%
-\footnote{With highly optimised handwritten code, exploiting the symmetry of the PSYCHE element, the fastest simulation I could do took 16 seconds on a 20-core computer, for a simple 2-spin system. This number increases exponentially for larger spin systems. It is possible that GPU acceleration could result in substantial speedups, but I have not looked into this sufficiently. Anyway, acquisition of the JRSE experiment (to be described) takes only around 5 seconds.}
+\footnote{With highly optimised handwritten code, exploiting the symmetry of the PSYCHE element, the fastest simulation I could do took 16 seconds on a 20-core computer, for a simple 2-spin system. This number increases exponentially for larger spin systems. It is possible that GPU acceleration could result in substantial speedups, but I have not looked into this sufficiently. Anyway, experimental acquisition of the JRSE spectrum (to be described) takes only around 5 seconds.}
 
 This in fact makes it faster to experimentally acquire a pure shift spectrum and calculate a cost function based on that.
 Running an actual pure shift experiment, though, is suboptimal: firstly, the pseudo-2D interferogram method is slow, and secondly, there is no easy way to devise a cost function for the resulting spectrum without prior knowledge of where peaks and artefacts lie.
@@ -49,7 +49,7 @@ Two cost functions were designed and used in this section:
     f_\text{diff} &= \Biggl\lVert \frac{\symbf{S}_\text{re}}{\lVert \symbf{S}_\text{re} \rVert} - \frac{\symbf{T}_\text{re}}{\lVert \symbf{T}_\text{re} \rVert} \Biggr\rVert, \label{eq:ps_cf_diff}
 \end{align}
 where the JRSE and pulse--acquire 1D spectra are treated as complex-valued vectors $\symbf{S}$ and $\symbf{T}$ respectively (for \textit{`spectrum'} and \textit{`target'}). $\symbf{S}_\text{re}$ and $\symbf{S}_\text{im}$ are the real and imaginary parts of the spectrum $\symbf{S}$, and $S_{\text{re},i}$ is the $i$-th point of the real part of the spectrum.
-The operator $\Var_i$ represents the variance over all points in the spectrum $i$, and $\lVert \symbf{x} \rVert$ denotes the 2-norm of the vector $\symbf{x}$, i.e.\ $\sqrt{\sum_i x_i^2}$.
+The operator $\Var_i$ represents the variance over all points in the spectrum (indexed by $i$), and $\lVert \symbf{x} \rVert$ denotes the 2-norm of the vector $\symbf{x}$, i.e.\ $\sqrt{\sum_i x_i^2}$.
 Python implementations of these are given in \cref{lst:pureshift_costfunctions}.%
 \footnote{The use of \texttt{np.arctan} (the arctangent), and \textit{not} \texttt{np.arctan2} (the argument of a complex number), is intentional. The behaviour shown in \cref{fig:fa_scan_synthetic} isn't reproduced with \texttt{arctan2}. Of course, this means the name `phase' is a misnomer; it's not really the phase of anything meaningful.}
 

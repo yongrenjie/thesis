@@ -7,7 +7,7 @@
    viewBox="0 0 180 134"
    version="1.1"
    id="svg5"
-   inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)"
+   inkscape:version="1.2.2 (b0a8486, 2022-12-01)"
    sodipodi:docname="ph.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -24,13 +24,13 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="1.8883328"
-     inkscape:cx="357.19339"
-     inkscape:cy="123.65405"
+     inkscape:zoom="2.2119829"
+     inkscape:cx="367.31749"
+     inkscape:cy="139.91971"
      inkscape:window-width="1355"
-     inkscape:window-height="614"
-     inkscape:window-x="1898"
-     inkscape:window-y="231"
+     inkscape:window-height="586"
+     inkscape:window-x="2094"
+     inkscape:window-y="224"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1">
     <inkscape:grid
@@ -393,16 +393,6 @@
            id="tspan35360-7">1</tspan></tspan></text>
     <rect
        inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
-       style="fill:#000000;stroke:#000000;stroke-width:0.32;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect1348-2-65-7-5-3-2-3-8-6"
-       width="1.5999991"
-       height="6.3999987"
-       x="60.799999"
-       y="35.200001"
-       inkscape:export-xdpi="500"
-       inkscape:export-ydpi="500" />
-    <rect
-       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
        style="fill:none;stroke:#000000;stroke-width:0.32;stroke-miterlimit:4;stroke-dasharray:none"
        id="rect1348-2-65-8-8"
        width="1.5999991"
@@ -443,5 +433,31 @@
          style="fill:#000000;stroke-width:0.264583"
          x="94.971649"
          y="28.110386">Δ</tspan></text>
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       style="fill:#000000;stroke:#000000;stroke-width:0.32;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect1348-2-65-7-5"
+       width="1.5999991"
+       height="6.3999987"
+       x="60.800003"
+       y="35.200001"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/nbsphinx/sehsqc/spor.png"
+       id="text2294-2-9-3-3-5-5"
+       y="33.599998"
+       x="60.060219"
+       style="font-size:3.52778px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';stroke-width:0.264583"
+       xml:space="preserve"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans';stroke-width:0.264583"
+         y="33.599998"
+         x="60.060219"
+         id="tspan2292-1-1-7-9-5-5"
+         sodipodi:role="line">ϕ<tspan
+   style="font-style:normal;font-size:65%;baseline-shift:sub"
+   id="tspan35109">1</tspan></tspan></text>
   </g>
 </svg>

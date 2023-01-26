@@ -35,14 +35,14 @@ For some experiments, particularly in the NOAH chapter (\cref{chpt:noah}), a pro
 Typically, these show how a \proton{}--X spin pair and an isolated \proton{} spin evolve under during pulse sequence: these directly correspond to the so-called \magn{X} and \magnnot{X} magnetisation pools (i.e.\ protons directly coupled and not directly coupled to \carbon{}, see \cref{subsec:noah__magpools} for further explanation).
 One-letter terms $m$ ($m \in \{x, y, z\}$) are shorthand for single-spin terms on proton, i.e.\ $I_m$.
 Two-letter terms $mn$ are shorthand for two-spin terms on both the proton and heteronucleus, i.e.\ $2I_mS_n$.
-The effects of gradients are ignored in the product operator analysis: this can be justified because the \acp{ctp} of interest are ultimately rephased, meaning that the gradients have no net effect (\cref{subsec:theory__hsqc_ea} illustrates this in more detail).
+The effects of gradients are ignored in the product operator analysis: this can be justified because the \acp{ctp} of interest are ultimately rephased, meaning that the gradients have no net effect (this is illustrated in greater detail in \cref{subsec:theory__hsqc_ea}).
 For simplicity, any modulation acquired during $t_1$ is also omitted in these analyses; it will be discussed in the text where relevant.
 
 \section*{Software}
 
 All NMR data were processed using TopSpin 3 or 4.
 Quantum mechanical NMR simulations were done in Matlab R2021a or R2021b.
-This thesis is written using the \LaTeX{} typesetting system: specifically, I used the \LuaLaTeX{} engine.
+This thesis was written using the \LaTeX{} typesetting system: specifically, I used the \LuaLaTeX{} engine.
 
 Pulse sequences and other diagrams are drawn using the vector graphics programme \href{https://inkscape.org/}{Inkscape}.
 Plots are generated using \href{https://www.python.org/}{Python 3}, using a number of packages, namely: \href{https://github.com/numpy/numpy}{\texttt{numpy}}, \href{https://github.com/scipy/scipy}{\texttt{scipy}}, \href{https://github.com/matplotlib/matplotlib}{\texttt{matplotlib}}, \href{https://github.com/mwaskom/seaborn}{\texttt{seaborn}}, and \href{https://github.com/yongrenjie/penguins}{\texttt{penguins}}, which was written by me.
@@ -114,7 +114,13 @@ Peak assignments and other physical data for some of the samples are given in \C
         \texttt{Z}  & Zolmitriptan    & \dmso      & \qty{50}{\milli\molar}  \\
         \bottomrule
     \end{tabular}
-    \caption[Samples used in this thesis]{Samples used in this thesis. Note that concentrations are approximate and not necessarily constant, as samples were remade over time due to e.g.\ decomposition. However, it is reasonable to assume that the variation in concentration is below 10\%. See \cref{fig:samples} for chemical structures.}
+    \caption[Samples used in this thesis]{
+        Samples used in this thesis.
+        Note that concentrations are approximate and not necessarily constant, as samples were remade over time due to e.g.\ decomposition.
+        However, it is reasonable to assume that the variation in concentration is below 10\%.
+        None of the results in this thesis depend on the exact concentrations of the samples used.
+        See \cref{fig:samples} for chemical structures.
+    }
     \label{tbl:samples}
 \end{table}
 

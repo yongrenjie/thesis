@@ -7,7 +7,7 @@ As it turns out, handwritten, specialised Matlab code can outperform Spinach by 
 
 The NMR simulations developed here simply use the density operator formalism in Hilbert space, as outlined in \cref{sec:theory__density_operators}.
 The Zeeman basis is used, and non-unitary transformations such as relaxation are neglected.
-Now, propagation under the Liouville--von Neumann equation (\cref{eq:lvn_interaction_integrated}) requires the calculation of matrix exponentials $\exp(-\mi H t)$.
+Propagation under the Liouville--von Neumann equation (\cref{eq:lvn_interaction_integrated}) requires the calculation of matrix exponentials $\exp(-\mi H t)$.
 For an $N \times N$ matrix, the matrix exponential requires $O(N^3)$ time to calculate (and for a system containing $p$ spins, we have $N = 2^p$); it is often this which is the bottleneck in NMR simulations.
 Minimising the number of matrix exponentials, and/or their computational cost, is the key to achieving speedups, as will be shown in the following text.%
 \footnote{Note that in my simulations, I simply used the builtin \texttt{expm} Matlab function, which implements the matrix exponential using a combination of the scaling-and-squaring method and Pad\'e approximation\autocite{Higham2005SIAMJMAA}.
@@ -100,9 +100,9 @@ The exponential of a diagonal matrix is almost trivial to calculate, as we simpl
     \end{pmatrix}.
 \end{equation}
 Instead of using the $O(N^3)$ \texttt{expm(M)} function, this can instead be done in $O(N)$ time using \texttt{diag(exp(diag(M)))} (the \texttt{diag} Matlab function converts a diagonal matrix to a vector of its diagonal entries, and vice versa).
-So, our code now uses only $m + 1$ `true' matrix exponentials (\cref{lst:dpsyche_fast2}).
+So, we now require only $m + 1$ `true' matrix exponentials.
 At this point, our matrix exponentials have almost been eliminated and the largest remaining bottleneck is almost certainly the matrix \textit{multiplications} required for the propagation.
-We can cut this down by a factor of two simply by calculating the overall propagator
+We can cut these down by a factor of two simply by calculating the overall propagator
 \begin{equation}
     \label{eq:overall_propagator}
     U_\text{total} = U_n\cdots U_2U_1
