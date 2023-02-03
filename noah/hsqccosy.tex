@@ -90,7 +90,7 @@ The problem with the TSE version is the spectral quality: consider an even large
 At the end of $t_1$, single-quantum magnetisation on spin $I\/$ is present.
 Any evolution of $J_{IK}$ in the first spin echo (of duration $2\Delta$) leads to terms of the form $2I_yK_z$, and can then be transferred onto spin $K\/$ by the subsequent \angang{90}{x} pulse.
 This magnetisation can then further evolve under $J_{KL}$ during the $2\tau$ spin echo, and then be transferred a \textit{second} time by the \angang{90}{-x} pulse to spin $L$.
-Since the intensity of this transfer pathway is proportional to $\sin(2\pi J_{IK}\Delta)$, these `relay' artefacts are especially prominent for large $J_{IK}$.
+Since the intensity of this transfer pathway is proportional to $\sin(2\cpi J_{IK}\Delta)$, these `relay' artefacts are especially prominent for large $J_{IK}$.
 
 In order to suppress these, the experiment must be run a second time but with an additional \ang{180} \carbon{} pulse inserted during the second spin echo (\cref{fig:hsqcc_tse_po_2}).%
 \footnote{A very similar strategy is used in the Bruker seHSQC pulse sequence \texttt{hsqcedetgpsisp2.4} to suppress the COSY-type artefacts. However, to the best of my knowledge, this sequence has not been published anywhere.}
@@ -102,7 +102,7 @@ The insertion of this \ang{180} pulse also causes any unexcited \magn{C} magneti
 In order to ensure that this is returned to $+z$ at the end of the sequence (and not $-z$), the initial INEPT delay must be \textit{lengthened} instead of shortened, as per:
 \begin{equation}
     \label{eq:delta_e_prime}
-    \DeltaEp = \frac{2\Delta (\pi - \arcsin f)}{\pi},
+    \DeltaE' = \frac{2\Delta (\cpi - \arcsin f)}{\cpi},
 \end{equation}
 where, as before, $f\/$ is the proportion of magnetisation to be excited.
 

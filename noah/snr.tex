@@ -15,38 +15,38 @@
         \textbf{(\subref*{fig:noah_timings_conv_s})} `Conventional' echo--antiecho HSQC (the same as in \cref{fig:hsqc_etgp}).
         \textbf{(\subref*{fig:noah_timings_conv_c})} `Conventional' COSY.
         The timings referred to in the text are highlighted for all three experiments; $d_1$ for each experiment is assumed to be the same.
-        Note that the lengths are not to scale: $d_1$ is typically far longer than $\tau_\text{ps}$ and $\tau_\text{acq}$.
+        Note that the lengths are not to scale: $d_1$ is typically far longer than $\taups$ and $\tauacq$.
     }
     \label{fig:noah_timings}
 \end{figure}
 
 
-The duration of an NMR experiment, $\tau_\text{exp}$, can be expressed as a sum of its parts:
+The duration of an NMR experiment, $\tauexp$, can be expressed as a sum of its parts:
 \begin{equation}
     \label{eq:exp_duration_2d}
-    \tau_\text{exp} = \tau_\text{ps} + \tau_\text{acq} + d_1,
+    \tauexp = \taups + \tauacq + d_1,
 \end{equation}
-where $\tau_\text{ps}$ is the time required for the pulse sequence itself (typically several milliseconds), $\tau_\text{acq}$ is the acquisition time (several hundred milliseconds), and $d_1$ is the recovery delay (one or more seconds).
+where $\taups$ is the time required for the pulse sequence itself (typically several milliseconds), $\tauacq$ is the acquisition time (several hundred milliseconds), and $d_1$ is the recovery delay (one or more seconds).
 These timings are illustrated in \cref{fig:noah_timings} for a NOAH supersequence formed from two modules (HSQC and COSY).
 The \textit{time-saving factor} $\rho_t$ for a NOAH supersequence, as compared to a series of conventional standalone experiments, may be expressed as:
 \begin{equation}
     \label{eq:rho_t}
     \rho_t
-    = \frac{\sum_i \tau_\text{conv}^{(i)}}{\tau_\text{NOAH}}
-    = \frac{{\sum_i (\tau_\text{ps}^{(i)} + \tau_\text{acq}^{(i)} + d_1^{(i)})}}{d_1 + \sum_i (\tau_\text{ps}^{(i)} + \tau_\text{acq}^{(i)})},
+    = \frac{\sum_i \tauconv^{(i)}}{\tauNOAH}
+    = \frac{{\sum_i (\taups^{(i)} + \tauacq^{(i)} + d_1^{(i)})}}{d_1 + \sum_i (\taups^{(i)} + \tauacq^{(i)})},
 \end{equation}
-where $\tau_\text{NOAH}$ is the duration of the NOAH experiment, $\tau_\text{conv}$ is the duration of a conventional experiment, and the superscript $(i)$ represents the $i$-th module or conventional experiment being acquired.
+where $\tauNOAH$ is the duration of the NOAH experiment, $\tauconv$ is the duration of a conventional experiment, and the superscript $(i)$ represents the $i$-th module or conventional experiment being acquired.
 The sum runs from $i = 1$ to $N$, where $N$ is the number of modules.
 If we assume that $d_1^{(i)} = d_1$ is the same for all $N$ conventional experiments and the supersequence, then in the limit where
 \begin{equation}
     \label{eq:d1_limit}
-    d_1 \gg \sum_i \tau_\text{ps}^{(i)} + \tau_\text{acq}^{(i)},
+    d_1 \gg \sum_i \taups^{(i)} + \tauacq^{(i)},
 \end{equation}
 we have that $\rho_t \to Nd_1/d_1 = N$, i.e.\ an $N$-fold time saving.
 
 This analysis makes plenty of assumptions, and is not entirely valid in practice.
-For example, \textit{each} $\tau_\text{acq}$ is often around 5\text{--}10\% of $d_1$, so is not entirely negligible, especially when $N$ is larger.
-Furthermore, some modules require longer $\tau_\text{ps}$: most notable is the NOESY module, which contains a mixing time of several hundred milliseconds. (HMBC, TOCSY, and ROESY modules are also lesser offenders.)
+For example, \textit{each} $\tauacq$ is often around 5--10\% of $d_1$, so is not entirely negligible, especially when $N$ is larger.
+Furthermore, some modules require longer $\taups$: most notable is the NOESY module, which contains a mixing time of several hundred milliseconds. (HMBC, TOCSY, and ROESY modules are also lesser offenders.)
 
 These factors serve to reduce $\rho_t$ from its idealised value of $N$; generally, this deviation is larger as $N$ increases, because \cref{eq:d1_limit} becomes less and less valid.
 Despite this, it remains true that the time savings are approximately proportional to $N$, as can be appreciated from \cref{tbl:noah_sensitivities}.
@@ -91,17 +91,17 @@ In contrast, with conventional experiments, it is common to run more insensitive
 In this case, the \textit{effective} time savings provided by NOAH experiments are smaller:
 \begin{equation}
     \label{eq:rho_t_eff}
-    \rho_{t,\text{eff}}
-    = \frac{\sum_i \tau_\text{conv}^{(i)}}{\tau_\text{NOAH}}
-    = \frac{{\sum_i S^{(i)}(\tau_\text{ps}^{(i)} + \tau_\text{acq}^{(i)} + d_1^{(i)})}}{Sd_1 + S\sum_i (\tau_\text{ps}^{(i)} + \tau_\text{acq}^{(i)})},
+    \rhoteff
+    = \frac{\sum_i \tauconv^{(i)}}{\tauNOAH}
+    = \frac{{\sum_i S^{(i)}(\taups^{(i)} + \tauacq^{(i)} + d_1^{(i)})}}{Sd_1 + S\sum_i (\taups^{(i)} + \tauacq^{(i)})},
 \end{equation}
 where each standalone experiment is acquired with $S^{(i)}$ scans, and the NOAH experiment with $S$ scans.
-We could also analogously define $\varepsilon_\text{eff} = A\sqrt{\rho_{t,\text{eff}}}$.
+We could also analogously define $\vareeff = A\sqrt{\rhoteff}$.
 
 Typically, $S$ is simply the largest of the $S^{(i)}$, as this ensures sufficient data quality for the most insensitive module in the supersequence.
-This means that generally, $\rho_{t,\text{eff}} < \rho_t$.
+This means that generally, $\rhoteff < \rho_t$.
 In such a situation, it is probably more appropriate to describe a NOAH supersequence as `measuring the most insensitive module and getting the others for free'.
-Indeed, in the extreme case where $S = S^{(i)} \gg S^{(j\neq i)}$, then `the other' modules require almost no time to measure (relative to the least sensitive module), and $\rho_{t,\text{eff}}$ tends towards 1, meaning that even the time-saving utility of NOAH vanishes.
+Indeed, in the extreme case where $S = S^{(i)} \gg S^{(j\neq i)}$, then `the other' modules require almost no time to measure (relative to the least sensitive module), and $\rhoteff$ tends towards 1, meaning that even the time-saving utility of NOAH vanishes.
 A corollary of this is that NOAH supersequences are generally best constructed from modules which have similar intrinsic sensitivities and hence similar $S^{(i)}$'s.
 
 Returning to the sampling-limited regime for a short while, we generally have that $S^{(i)} = S$ for all $i$ (i.e.\ all conventional experiments are acquired with the same number of scans).

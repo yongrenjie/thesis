@@ -5,7 +5,7 @@ The first of these applications is the calibration of a \ang{90} \proton{} pulse
 Essentially, we seek to determine $\taup$ for which
 \begin{equation}
     \label{eq:pw90}
-    \taup \omega_1 = \frac{\pi}{2},
+    \taup \omega_1 = \frac{\cpi}{2},
 \end{equation}
 where the RF amplitude $\omega_1$ is not known \textit{a priori} (it is only indirectly controlled via the power level).
 This pulse width is conventionally specified as the \texttt{P1} parameter in TopSpin.
@@ -100,7 +100,7 @@ and an FID of
     s(t_2) = -\sin(\omega_1't_2) = -\frac{1}{2\mi}(\exp(\mi \omega_1' t_2) - \exp(-\mi \omega_1' t_2)),
 \end{equation}
 which when Fourier transformed yields an antiphase doublet where the two peaks are separated by the frequency $2\omega_1'$.
-Measuring the separation between the two peaks directly yields the unknown amplitude $\omega_1'$, from which $\taup' = \pi/(2\omega_1')$ can be calculated.
+Measuring the separation between the two peaks directly yields the unknown amplitude $\omega_1'$, from which $\taup' = \cpi/(2\omega_1')$ can be calculated.
 Typically, the RF amplitude $\omega_1'$ is rather smaller than the amplitude $\omega_1$ which we would like to apply the hard pulse at, and thus $\taup' > \taup$.
 However, this can be adjusted for using the power levels applied (which are known to the user).
 

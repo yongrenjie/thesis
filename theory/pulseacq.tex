@@ -2,7 +2,7 @@
 \label{subsec:theory__pulseacq}
 
 Consider the simplest NMR experiment, a 1D \proton{} pulse--acquire spectrum (\cref{fig:pulse_acquire}).
-This consists of a \ang{90} pulse, immediately followed by detection; for convenience, we will first consider the pulse as being applied along the $+y$-axis, i.e. with a phase of $\phi = \pi/2$.
+This consists of a \ang{90} pulse, immediately followed by detection; for convenience, we will first consider the pulse as being applied along the $+y$-axis, i.e. with a phase of $\phi = \cpi/2$.
 
 \begin{figure}[htbp]
     \centering
@@ -18,12 +18,12 @@ If the duration of the pulse is $\taup$, then the density operator immediately f
     \label{eq:rho_after_pulse}
     \rho = \exp(-\mi\omega_1 I_y\taup) I_z \exp(\mi\omega_1 I_y\taup) = \cos(\omega_1\taup)I_z + \sin(\omega_1\taup)I_x.
 \end{equation}
-In this case, to obtain a \ang{90} pulse, $\taup$ is specifically calibrated to ensure that $\omega_1\taup = \pi/2$, which yields
+In this case, to obtain a \ang{90} pulse, $\taup$ is specifically calibrated to ensure that $\omega_1\taup = \cpi/2$, which yields
 \begin{equation}
     \label{eq:rho_after_pulse_simplified}
     \rho = I_x.
 \end{equation}
-During the detection period, this term evolves under $H_\text{free} = H_\text{cs} = \omega_0 I_z$.
+During the detection period, this term evolves under $\Hfree = \Hcs = \omega_0 I_z$.
 (We use the Schr\"odinger-picture free Hamiltonian here because the measurement of the NMR signal takes place in the laboratory frame.)
 At a time $t$ after detection has begun, the density operator is thus:
 \begin{equation}
@@ -47,7 +47,7 @@ Therefore, instead of \cref{eq:fid}, the signal we really see is:
     \label{eq:fid_reduced}
     s(t) \propto \exp(\mi \Omega t).
 \end{equation}
-This result is the same as if we had pretended that during the detection period, $\rho$ evolved under the \textit{interaction-picture} free Hamiltonian $H_{\text{free},I} = H_\text{offset}$; we will henceforth adopt this simplification, even though it is not physically accurate.
+This result is the same as if we had pretended that during the detection period, $\rho$ evolved under the \textit{interaction-picture} free Hamiltonian $\HfreeI = \Hoffset$; we will henceforth adopt this simplification, even though it is not physically accurate.
 
 In practice, relaxation causes this signal to decay with time; this is frequently modelled as an exponential, in accordance with the Bloch equations\autocite{Bloch1946PR}:
 \begin{equation}
@@ -60,7 +60,7 @@ Fourier transformation of the FID then yields a spectrum with absorption- and di
 \begin{align}
     \label{eq:lorentzian}
     S(\omega) = \mathcal{F}[s(t)]
-    &= \frac{1}{\sqrt{2\pi}}\int_0^\infty s(t) \exp(-\mi \omega t) \,\md t \notag \\
+    &= \frac{1}{\sqrt{2\cpi}}\int_0^\infty s(t) \exp(-\mi \omega t) \,\md t \notag \\
     &=
     \underbrace{\frac{k}{k^2 + (\omega - \Omega)^2}}_{A(\omega; \Omega)}
     +\, \mi\underbrace{\frac{\Omega - \omega}{k^2 + (\omega - \Omega)^2}}_{D(\omega; \Omega)},
@@ -78,7 +78,7 @@ This provides better resolution due to the narrower lineshape, and is also less 
     \caption[Absorption- and dispersion-mode Lorentzian lineshapes]{
         \textbf{(\subref*{fig:lorentzians_absorption})} Absorption-mode lineshape $A(\omega; \Omega = 0)$.
         \textbf{(\subref*{fig:lorentzians_dispersion})} Dispersion-mode lineshape $D(\omega; \Omega = 0)$.
-            Both lines have been plotted using $k = \qty[parse-numbers=false]{\pi}{\radian\per\second}$.
+            Both lines have been plotted using $k = \qty[parse-numbers=false]{\cpi}{\radian\per\second}$.
     }
     \label{fig:lorentzians}
 \end{figure}
@@ -96,13 +96,13 @@ Repeating the above analysis, we find that the resulting signal will have a phas
 \end{align}
 If we were to take the real part of the spectrum here, then we would obtain the undesired dispersion-mode lineshape $D(\omega;\Omega)$.
 There are two ways of removing this phase shift.
-The first is to shift the \textit{receiver phase} by $\phirec$, which introduces an extra factor of $\exp(-\mi\phirec)$ to the detected signal: we can thus choose $\phirec = 3\pi/2$ in order to cancel out the $-\mi$ term in $s'(t)$.
+The first is to shift the \textit{receiver phase} by $\phirec$, which introduces an extra factor of $\exp(-\mi\phirec)$ to the detected signal: we can thus choose $\phirec = 3\cpi/2$ in order to cancel out the $-\mi$ term in $s'(t)$.
 Alternatively, the spectrum can be processed through \textit{phase correction}, in which $S(\omega)$ is directly multiplied by a term $\exp(\mi\phicorr)$, where $\phicorr$ is a linear function of the frequency $\omega$:
 \begin{equation}
     \label{eq:phase_correction}
     \phicorr = \phicorr^{(0)} + \omega\phicorr^{(1)}.
 \end{equation}
-$\phicorr^{(0)}$ and $\phicorr^{(1)}$ are respectively termed the \textit{zeroth-} and \textit{first-order phase corrections}: in this idealised case, we can simply choose $(\phicorr^{(0)}, \phicorr^{(1)}) = (\pi/2, 0)$ to again remove the unwanted phase shift.
+$\phicorr^{(0)}$ and $\phicorr^{(1)}$ are respectively termed the \textit{zeroth-} and \textit{first-order phase corrections}: in this idealised case, we can simply choose $(\phicorr^{(0)}, \phicorr^{(1)}) = (\cpi/2, 0)$ to again remove the unwanted phase shift.
 More realistically, due to instrumental imperfections, both of these values will have to be nonzero in order to ensure that every peak in the spectrum has the correct phase, i.e.\ is displayed in absorption-mode.
 
 An alternative framework for analysing pulse sequences is to use the ladder operators $I_+$ and $I_-$ (\cref{eq:other_single_spin_ops}).

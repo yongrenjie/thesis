@@ -7,17 +7,18 @@ As it turns out, handwritten, specialised Matlab code can outperform Spinach by 
 
 The NMR simulations developed here simply use the density operator formalism in Hilbert space, as outlined in \cref{sec:theory__density_operators}.
 The Zeeman basis is used, and non-unitary transformations such as relaxation are neglected.
-Propagation under the Liouville--von Neumann equation (\cref{eq:lvn_interaction_integrated}) requires the calculation of matrix exponentials $\exp(-\mi H t)$.
+Propagation under the Liouville--von Neumann equation (\cref{eq:lvn_interaction_integrated}) requires the calculation of matrix exponentials $\exp(-\mi H\tau)$.
 For an $N \times N$ matrix, the matrix exponential requires $O(N^3)$ time to calculate (and for a system containing $p$ spins, we have $N = 2^p$); it is often this which is the bottleneck in NMR simulations.
 Minimising the number of matrix exponentials, and/or their computational cost, is the key to achieving speedups, as will be shown in the following text.%
 \footnote{Note that in my simulations, I simply used the builtin \texttt{expm} Matlab function, which implements the matrix exponential using a combination of the scaling-and-squaring method and Pad\'e approximation\autocite{Higham2005SIAMJMAA}.
 This is in contrast to Spinach, which primarily uses a scaled-and-squared Taylor series (according to the \texttt{propagator.m} file, various other methods supposedly did not `live up to their marketing').
 An in-depth discussion of matrix exponential methods is outside the scope of this thesis, but can be found in a classic paper by Moler and Van Loan\autocite{Moler2003SIAMR}.}
 
-Generally, the accurate simulation of pulsed field gradients requires the sample to be divided up into $n$ discrete slices, each simulated with a different $H_\text{grad}$.\footnote{In simple cases this can be avoided by simply removing all terms with the wrong coherence orders as we know they will be dephased (\cref{eq:generalised_rephasing_2}), but this is too naive an approach for pure shift techniques.}
+Generally, the accurate simulation of pulsed field gradients requires the sample to be divided up into $n$ discrete slices, each simulated with a different $\Hgrad$.\footnote{In simple cases this can be avoided by simply removing all terms with the wrong coherence orders as we know they will be dephased (\cref{eq:generalised_rephasing_2}), but this is too naive an approach for pure shift techniques.}
 Thus, a very naive implementation of the dPSYCHE experiment would require $mn$ matrix exponentials, one per pulse per slice.
-The overall structure of the code would resemble \cref{lst:dpsyche_slow}.
-(Strictly speaking, the code is wrong because the final gradient should have strength \texttt{-2G} and not \texttt{G}, but that is a minor detail which I leave out for clarity in the code.)
+The overall structure of the code would resemble \cref{lst:dpsyche_slow}.%
+\footnote{Strictly speaking, there is a slight inaccuracy in this code: the final gradient should have strength \texttt{-2G} and not \texttt{G}, but that is a minor detail which I leave out for clarity in the code.}
+Note that the term \texttt{H\_free}, and the corresponding propagator \texttt{U\_free}, technically refer to the interaction-picture free Hamiltonian, $\HfreeI$.
 
 \begin{mylisting}[htb]
     \centering
@@ -73,15 +74,15 @@ end
 
 Spinach, which is designed to be general, has no idea that these optimisations are possible, so is naturally rather slower.
 However, even this is relatively inefficient.
-It can be shown that the two components of the gradient propagator, $H_\text{free}$ and $H_\text{grad}$, actually commute with one another (even in the strong coupling case).
+It can be shown that the two components of the gradient propagator, $\HfreeI$ and $\Hgrad$, actually commute with one another (even in the strong coupling case).
 Thus, we can write:
 \begin{equation}
     \label{eq:split_propagator}
-    \exp[-\mi(H_\text{free} + H_\text{grad}) t] = \exp(-\mi H_\text{free} t) \exp(-\mi H_\text{grad} t)
+    \exp[-\mi(\HfreeI + \Hgrad) t] = \exp(-\mi\HfreeI t) \exp(-\mi \Hgrad t)
 \end{equation}
 (in general, for matrices $A$ and $B$, $\exp(A + B) = \exp(A)\exp(B)$ if and only if $[A, B] = 0$).
-This on its own does not reduce the number of matrix exponentials required, but notice now that $H_\text{grad}$ is a sum of $I_{iz}$ terms and is therefore \textit{diagonal} in the Zeeman basis.
-The exponential of a diagonal matrix is almost trivial to calculate, as we simply need to exponentiate the diagonal \textit{elements:}
+This on its own does not reduce the number of matrix exponentials required, but notice now that $\Hgrad$ is a sum of $I_{iz}$ terms and is therefore \textit{diagonal} in the Zeeman basis.
+The exponential of a diagonal matrix is almost trivial to calculate, as we only need to exponentiate the diagonal \textit{elements:}
 \begin{equation}
     \label{eq:expm_diagonal}
     \exp

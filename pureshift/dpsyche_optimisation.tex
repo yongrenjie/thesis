@@ -55,7 +55,7 @@ However, for anything requiring more accuracy, the 8-chunk cost function was use
 An optimisation was then carried out with a (rather arbitrarily chosen) setting of $m = 9$, i.e.\ nine hard pulses in the PSE.
 A total of $s = 20$ randomly generated spin systems were used, matching the number of CPU cores on the computer used for the optimisations: these were further subdivided into four two-spin systems, eight three-spin systems, and eight four-spin systems.
 The derivative-based BFGS algorithm was used to carry out the optimisation: this is a popular line search algorithm which uses an approximate Hessian to calculate the search direction at each iteration.\autocite{Kelley1999,Nocedal2006}
-No lower or upper bounds were placed on the flip angles or phases: instead, phases can simply be wrapped to the region $[0, 2\pi)$, and in the simulations, the hard pulses were modelled as being instantaneous rotations, so their flip angles can also just be wrapped to $[0, 2\pi)$.
+No lower or upper bounds were placed on the flip angles or phases: instead, phases can simply be wrapped to the region $[0, 2\cpi)$, and in the simulations, the hard pulses were modelled as being instantaneous rotations, so their flip angles can also just be wrapped to $[0, 2\cpi)$.
 (This would not be completely valid if realistic, finite pulses were used, since changing the flip angle would also change their duration.)
 This first optimisation yielded the following optimised parameters for the nine pulses:
 \begin{align}

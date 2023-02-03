@@ -31,7 +31,7 @@ In order to accomplish partial \magn{C} excitation in the NOAH HSQC module (\cre
 After the \ang{90}($I$)--$\DeltaE$--\ang{180}($I,S$)--$\DeltaE$ INEPT block, the relevant product operators are
 \begin{equation}
     \label{eq:inept_changed}
-    \cos(2\pi J\DeltaE) I_y - \sin(2\pi J\DeltaE) 2I_xS_z.
+    \cos(2\cpi J\DeltaE) I_y - \sin(2\cpi J\DeltaE) 2I_xS_z.
 \end{equation}
 In a `normal' INEPT block, the choice of $\DeltaE = 1/(4J)$ makes the cosine term vanish, leaving us with only the term $-2I_xS_z$.
 Since this term is subsequently transferred to spin $S\/$ and labelled in $t_1$, this choice of $\DeltaE = 1/(4J)$ corresponds to \textit{complete} excitation of \magn{C} magnetisation.
@@ -42,7 +42,7 @@ However, for NOAH supersequences, the magnetisation is stored for other modules,
 To be precise, in order to excite a fraction $f\/$ of \magn{C} magnetisation (and store the remaining $(1 - f)$ for the next module), we require that
 \begin{equation}
     \label{eq:ssc_inept_delay}
-    \DeltaE = \frac{2\Delta \arcsin f}{\pi},
+    \DeltaE = \frac{2\Delta \arcsin f}{\cpi},
 \end{equation}
 where $\Delta$ is the usual value of $1/(4J)$.
 The spectra obtained from a \noah{S,S,Cc} supersequence, using this partial \magn{C} excitation in the first HSQC module (with $f = 0.8$), are shown in \cref{fig:sscc_example}.

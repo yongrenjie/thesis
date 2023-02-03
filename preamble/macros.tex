@@ -7,12 +7,17 @@
 \DeclareMathOperator*{\argmin}{arg\,min}
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\sgn}{sgn}
-\newcommand*{\magn}[1]{\ch{^1H}$^{\,\ch{#1}}$}
-\newcommand*{\magnnot}[1]{\ch{^1H}$^{\,!\ch{#1}}$}
+\newcommand*{\magn}[1]{\ch{^1H}$^{\ch{#1}}$}
+\newcommand*{\magnnot}[1]{\ch{^1H}$^{!\ch{#1}}$}
 
 \newcommand{\todo}[1]{{\color{OrangeRed}#1}}
 
-% Shortcuts
+% Shortcuts.
+% Some of these are kind of a weird mixture of symup and text. The
+% reason for this is because symup gives the right kerning, but
+% text gives the right ligatures. I wish it were simpler, but
+% that's how it is. In any case, defining them here makes life
+% easier in the main text.
 \newcommand{\mi}{\symup{i}}
 \newcommand{\mj}{\symup{j}}
 \newcommand{\mk}{\symup{k}}
@@ -21,12 +26,27 @@
 \newcommand{\taum}{\tau_{\symup{m}}}
 \newcommand{\taup}{\tau_{\symup{p}}}
 \newcommand{\taur}{\tau_{\symup{r}}}
+\newcommand{\tauacq}{\tau_{\symup{acq}}}
+\newcommand{\tauexp}{\tau_{\symup{exp}}}
+\newcommand{\taups}{\tau_{\symup{ps}}}
+\newcommand{\tauconv}{\tau_{\symup{conv}}}
+\newcommand{\tauNOAH}{\tau_{\symup{NOAH}}}
+\newcommand{\vareeff}{\varepsilon_{\symup{e}\text{ff}}}
+\newcommand{\rhoteff}{\rho_{t,\text{eff}}}
 \newcommand{\fphase}{f_{\symup{phase}}}
 \newcommand{\fdiff}{f_{\symup{d}\text{iff}}}
 \newcommand{\fdifftwo}{f_{\symup{d}\text{iff,2}}}
 \newcommand{\fsos}{f_{\symup{sos}}}
 \newcommand{\Gmax}{G_{\symup{max}}}
 \newcommand{\Gmin}{G_{\symup{min}}}
+\newcommand{\Hcs}{H_{\symup{cs}}}
+\newcommand{\Hgrad}{H_{\symup{grad}}}
+\newcommand{\Hfree}{H_{\symup{free}}}
+\newcommand{\HfreeI}{H_{\symup{free},I}}
+\newcommand{\HJ}{H_{\symup{J}}}
+\newcommand{\Hoffset}{H_{\symup{offset}}}
+\newcommand{\Hpulse}{H_{\symup{pulse}}}
+\newcommand{\HpulseI}{H_{\symup{pulse},I}}
 \newcommand{\thetaE}{\theta_{\symup{E}}}
 \newcommand{\thetaeff}{\theta_{\symup{e}\text{ff}}}
 \newcommand{\Jeff}{J_{\symup{e}\text{ff}}}
@@ -47,7 +67,6 @@
 \newcommand{\AQ}{\text{AQ}_1}
 \newcommand{\AQeff}{\text{AQ}_{1,\text{eff}}}
 \newcommand{\DeltaE}{\Delta_{\symup{E}}}
-\newcommand{\DeltaEp}{\Delta_{\symup{E}}'}
 \newcommand{\angang}[2]{#1\rlap{\unit{\degree}}\ensuremath{_{#2}}}
 
 % People

@@ -23,21 +23,21 @@ As we will see, the effect of this is to enforce a relationship between the cohe
 
 \subsubsection{Brute-force analysis}
 
-Recall that the Hamiltonian caused by a gradient of strength $G$ is given by $H_\text{grad} = \sum_i \gamma_i Gz I_{iz}$ (\cref{eq:h_grad}), where $z$ is the $z$-position of the spin.
+Recall that the Hamiltonian caused by a gradient of strength $G$ is given by $\Hgrad = \sum_i \gamma_i Gz I_{iz}$ (\cref{eq:h_grad}), where $z$ is the $z$-position of the spin.
 In the case of our two-spin system, we can more explicitly write this as:
 \begin{equation}
     \label{eq:h_grad_is_system}
-    H_\text{grad} = \gamma_I Gz I_z + \gamma_S Gz S_z.
+    \Hgrad = \gamma_I Gz I_z + \gamma_S Gz S_z.
 \end{equation}
 Points \circled{1} and \circled{2} are the same as in the States HSQC (\cref{fig:hsqc_ph}), so from \cref{eq:hsqc_ph_after_t1} we know that the density operator at point \circled{2} is:
 \begin{equation}
     \label{eq:hsqc_ea_prodop_2}
     \rho = 2I_zS_y\cos(\Omega_S t_1) - 2I_zS_x \sin(\Omega_S t_1).
 \end{equation}
-In the next spin echo with the gradient $g_1$, $H_\text{offset}$ and $H_\text{J}$ are refocused, so we can ignore their effects and focus only on $H_\text{grad}$.
+In the next spin echo with the gradient $g_1$, $\Hoffset$ and $\HJ$ are refocused, so we can ignore their effects and focus only on $\Hgrad$.
 We assume here that the gradients are applied with duration $\tau$.%
 \footnote{In practice, we also need to include a gradient recovery delay immediately after the gradient to allow for the dissipation of eddy currents, which causes the spin echo to be lengthened slightly. This is inconsequential to the analysis and will be ignored here.}
-The $I_z$ terms in $\rho$ are unaffected by the gradient since they commute with $H_\text{grad}$; however, the transverse $S$-magnetisation acquires a phase which depends on the $z$-position of the spin in the sample.
+The $I_z$ terms in $\rho$ are unaffected by the gradient since they commute with $\Hgrad$; however, the transverse $S$-magnetisation acquires a phase which depends on the $z$-position of the spin in the sample.
 Immediately after the gradient, we have:
 \begin{equation}
     \label{eq:hsqc_ea_gradient}
@@ -63,16 +63,16 @@ So, \textit{if} the gradient $g_2$ were absent, we would have the following term
             &= -I_x\cos(\Omega_S t_1 + \gamma_S g_1 z\tau).
 \end{align}
 This is of course not the case.
-In principle, the last $\Delta$ delay should be split up into two parts: one of duration $(\Delta - \tau)$ where only $H_{\text{free},I}$ is active, and one of duration $\tau$ where the Hamiltonian $H_{\text{free},I} + H_\text{grad}$ operates.
-Thankfully, we know that $H_\text{grad}$ commutes with $H_{\text{free},I}$, so we can in fact separate the relevant propagators:
+In principle, the last $\Delta$ delay should be split up into two parts: one of duration $(\Delta - \tau)$ where only $\HfreeI$ is active, and one of duration $\tau$ where the Hamiltonian $\HfreeI + \Hgrad$ operates.
+Thankfully, we know that $\Hgrad$ commutes with $\HfreeI$, so we can in fact separate the relevant propagators:
 \begin{align}
     \label{eq:propagators_gradient_echo}
-    \MoveEqLeft \exp[-\mi(H_{\text{free},I} + H_\text{grad})\tau]\exp[-\mi H_{\text{free},I}(\Delta - \tau)] \notag \\
-    &= \exp(-\mi H_\text{grad}\tau) \exp(-\mi H_{\text{free},I}\tau)\exp[-\mi H_{\text{free},I}(\Delta - \tau)] \notag \\
-    &= \exp(-\mi H_\text{grad}\tau) \exp(-\mi H_{\text{free},I}\Delta),
+    \MoveEqLeft \exp[-\mi(\HfreeI + \Hgrad)\tau]\exp[-\mi \HfreeI(\Delta - \tau)] \notag \\
+    &= \exp(-\mi\Hgrad\tau) \exp(-\mi\HfreeI\tau)\exp[-\mi \HfreeI(\Delta - \tau)] \notag \\
+    &= \exp(-\mi\Hgrad\tau) \exp(-\mi\HfreeI\Delta),
 \end{align}
 where the first term is just the gradient on its own, and the second is just the delay without a gradient.
-So, we can directly apply $\exp(-\mi H_\text{grad}\tau)$ to the density operator in \cref{eq:hsqc_ea_before_g2} to get:%
+So, we can directly apply $\exp(-\mi\Hgrad\tau)$ to the density operator in \cref{eq:hsqc_ea_before_g2} to get:%
 \footnote{We have implicitly assumed here that the $z$-coordinate of the $IS$ spin pair during the first gradient is the same as its $z$-coordinate during $g_2$, or in other words, that there is no \textit{diffusion} or \textit{convection} between the two gradients. In general, this is not true, and these effects will lead to a loss of signal as the rephasing by the second gradient is not perfect.}
 \begin{align}
     \rho(z) &= -I_x\cos(\Omega_S t_1 + \gamma_S g_1 z \tau)\cos(\gamma_I g_2 z\tau) - I_y\cos(\Omega_S t_1 + \gamma_S g_1 z \tau)\sin(\gamma_I g_2 z\tau) \label{eq:hsqc_ea_after_g2_1} \\
@@ -257,4 +257,4 @@ This allows the rephasing condition to be very simply expressed as a scalar prod
     \label{eq:generalised_rephasing_2}
     \sum_i g^{(i)} p^{(i)} = \symbf{g} \cdot \symbf{p} = 0.
 \end{equation}
-$\symbf{g} \cdot \symbf{p}$ can be considered to be an `extent of dephasing': ideally, gradient amplitudes $\symbf{g}$ are chosen such that the desired CTP $\symbf{p}$ is rephased (\cref{eq:generalised_rephasing_2}), and undesired CTPs $\symbf{p'}$ are suppressed as much as possible in that $\symbf{g} \cdot \symbf{p'}$ is maximised.
+$\symbf{g} \cdot \symbf{p}$ can be considered to be an `extent of dephasing': ideally, gradient amplitudes $\symbf{g}$ are chosen such that the desired CTP $\symbf{p}$ is rephased (\cref{eq:generalised_rephasing_2}), and undesired CTPs $\symbf{p}'$ are suppressed as much as possible in that $\symbf{g} \cdot \symbf{p}'$ is maximised.

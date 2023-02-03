@@ -10,10 +10,10 @@ In this section, the implementation of the NM algorithm in the Python \texttt{sc
 The cost function measuring the performance of a pure shift experiment can be measured in one of two ways: either \textit{theoretically}, in that the pure shift experiment is simulated using the density operator formalism, or \textit{experimentally}, in that the experiment is run on a spectrometer.
 Unfortunately, the simulation of PSYCHE-type PSEs, where a shaped pulse is applied together with a gradient, requires a large amount of time.
 The pulse itself already has $m \sim 10000$ points, but on top of that, the application of gradients also requires splitting up the sample into multiple slices ($n \sim 100$ to $1000$) such that the evolution of $\rho$ can be simulated in each slice and the results summed up.
-To make matters worse, $H_\text{pulse}$ does not commute with $H_\text{grad}$, so a propagator
+To make matters worse, $\HpulseI$ does not commute with $\Hgrad$, so a propagator
 \begin{equation}
     \label{eq:pulse_gradient_propagator}
-    U(i, z) = \exp\left[-\mi(H_\text{grad}(z) + H_\text{free} + c_x^{(i)}I_x + c_x^{(i)} I_y)(\delta t)\right]
+    U(i, z) = \exp\left[-\mi(\Hgrad(z) + \HfreeI + c_x^{(i)}I_x + c_x^{(i)} I_y)(\delta t)\right]
 \end{equation}
 must be calculated for each pulse point, in each slice of the sample, for a total of $mn$ matrix exponentials.
 As a result, the simulation of PSYCHE spectra in the Spinach package\autocite{Hogben2011JMR} typically requires minutes to hours.%

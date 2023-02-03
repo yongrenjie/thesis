@@ -18,7 +18,7 @@ Several approaches to this issue have surfaced in the literature, such as the us
 In this instance, we can use the knowledge that the PSYCHE PSE is composed of saltire pulses to our advantage.
 Each saltire pulse is a linear combination of two chirps, defined by:
 \begin{align}
-    \phi(t) &= \phi_0 + 2\pi\! f_0 t + \pi\taup(\Delta F)\left(\frac{t}{\taup} - \frac{1}{2}\right)^2 \label{eq:chirp_pulse_phase} \\
+    \phi(t) &= \phi_0 + 2\cpi f_0 t + \cpi\taup(\Delta F)\left(\frac{t}{\taup} - \frac{1}{2}\right)^2 \label{eq:chirp_pulse_phase} \\
     c_x(t) &= A \cos[\phi(t)] \label{eq:chirp_pulse_cx} \\
     c_y(t) &= A \sin[\phi(t)] \label{eq:chirp_pulse_cy}
 \end{align}
@@ -35,7 +35,7 @@ The latter two parameters are assumed to be given in units of ordinary frequenci
     {\phantomsubcaption\label{fig:chirp_coefficients_cy}}%
     \caption[Phase and Cartesian amplitudes of a typical chirp pulse]{
         Plots of the quantities in \cref{eq:chirp_pulse_phase,eq:chirp_pulse_cx,eq:chirp_pulse_cy} for a typical chirp pulse ($\taup = \qty{30}{\ms}$, $\Delta F = \qty{10}{\kHz}$).
-        \textbf{(\subref*{fig:chirp_coefficients_phase})} $\phi(t)$ wrapped to the range $[0, 2\pi)$.
+        \textbf{(\subref*{fig:chirp_coefficients_phase})} $\phi(t)$ wrapped to the range $[0, 2\cpi)$.
         \textbf{(\subref*{fig:chirp_coefficients_smoothing})} The quarter-sine smoothing profile which is later applied to the entire waveform (\cref{eq:sming_function}); here $s_{\symup{sm}} = 0.2$.
         \textbf{(\subref*{fig:chirp_coefficients_cx})} $c_x(t)/A$ prior to smoothing.
         \textbf{(\subref*{fig:chirp_coefficients_cy})} $c_y(t)/A$ prior to smoothing.
@@ -58,9 +58,9 @@ $f_{\symup{sm}}$ depends on a smoothing parameter $s_{\symup{sm}}$, which is typ
 \begin{equation}
     \label{eq:sming_function}
     f_{\symup{sm}}(t) = \begin{cases}
-        \displaystyle \sin\left(\frac{\pi t'}{2 s_{\symup{sm}}}\right) & 0 \leq t' < s_{\symup{sm}}; \\
+        \displaystyle \sin\left(\frac{\cpi t'}{2 s_{\symup{sm}}}\right) & 0 \leq t' < s_{\symup{sm}}; \\
         \displaystyle 1 & s_{\symup{sm}} \leq t' < 1 - s_{\symup{sm}}; \\
-        \displaystyle \sin\left[\frac{\pi (1 - t')}{2 s_{\symup{sm}}}\right] & s_{\symup{sm}} \leq t' \leq 1, \\
+        \displaystyle \sin\left[\frac{\cpi (1 - t')}{2 s_{\symup{sm}}}\right] & s_{\symup{sm}} \leq t' \leq 1, \\
     \end{cases}
 \end{equation}
 where $t' = t/\taup$ (and here $\taup$ refers to the duration of the \textit{entire} waveform, after reflection).

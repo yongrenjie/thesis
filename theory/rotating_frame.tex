@@ -19,9 +19,9 @@ In this case, the static part $H_0$ simply corresponds to precession of the spin
 This allows us to define $H_1$ as
 \begin{align}
     \label{eq:reduced_ham}
-    H_1 &= H_\text{J} + H_\text{pulse} + H_\text{grad} + \left(H_\text{cs} - H_0\right) \\[7pt] \notag
-        &= H_\text{J} + H_\text{pulse} + H_\text{grad} + \sum_i \Omega_i I_{iz} \\ \notag
-        &= H_\text{J} + H_\text{pulse} + H_\text{grad} + H_\text{offset}
+    H_1 &= \HJ + \Hpulse + \Hgrad + \left(\Hcs - H_0\right) \\[7pt] \notag
+        &= \HJ + \Hpulse + \Hgrad + \sum_i \Omega_i I_{iz} \\ \notag
+        &= \HJ + \Hpulse + \Hgrad + \Hoffset
 \end{align}
 where $\Omega_i = \omega_{0,i} - \omega_{\text{rot},i}$ is the \textit{offset} of spin $i$.
 For reasons which will become clear later, the frequency $\omegarot$ is chosen to be the centre of the spectral window for the given nuclide.
@@ -52,34 +52,34 @@ We now turn our attention to how the various NMR Hamiltonians (\cref{eq:h_cs,eq:
 \begin{equation}
     \label{eq:interaction_nmr_hamiltonians}
     \begin{aligned}
-        H_{1,I} &= \exp(\mi H_0 t) H_\text{J} \exp(-\mi H_0 t) + \exp(\mi H_0 t) H_\text{pulse} \exp(-\mi H_0 t) \\
-                &\quad + \exp(\mi H_0 t) H_\text{grad} \exp(-\mi H_0 t) + \exp(\mi H_0 t) H_\text{offset} \exp(-\mi H_0 t)
+        H_{1,I} &= \exp(\mi H_0 t) \HJ \exp(-\mi H_0 t) + \exp(\mi H_0 t) \Hpulse \exp(-\mi H_0 t) \\
+                &\quad + \exp(\mi H_0 t) \Hgrad \exp(-\mi H_0 t) + \exp(\mi H_0 t) \Hoffset \exp(-\mi H_0 t)
     \end{aligned}
 \end{equation}
 are.
 We first note that $H_0$ (and hence $\exp(\pm \mi H_0t)$) is a function only of the $I_{iz}$ operators; thus, any Hamiltonian which commutes with all $I_{iz}$'s will be untouched by this transformation.
-This is trivially true of $H_\text{offset}$ and $H_\text{grad}$, which are themselves both functions of the $I_{iz}$'s.
-It can also be shown that $H_\text{J}$ (in the homonuclear case) and $H_\text{J,secular}$ (heteronuclear case) fully commute with $H_0$.
+This is trivially true of $\Hoffset$ and $\Hgrad$, which are themselves both functions of the $I_{iz}$'s.
+It can also be shown that $\HJ$ (in the homonuclear case) and $H_{\symup{J}\text{,secular}}$ (heteronuclear case) fully commute with $H_0$.
 So, for three of the four terms in \cref{eq:interaction_nmr_hamiltonians} we simply have the result that $\exp(\mi H_0t)H\exp(-\mi H_0t) = H$.
 This allows us to immediately write down the free precession Hamiltonian in the interaction picture:
 \begin{equation}
     \label{eq:h_free_interaction}
-    H_{\text{free},I} = H_\text{offset} + H_\text{J}.
+    \HfreeI = \Hoffset + \HJ.
 \end{equation}
-The fourth term, which does not commute with $H_0$, is $H_\text{pulse}$.
+The fourth term, which does not commute with $H_0$, is $\Hpulse$.
 In the laboratory frame, \textit{hard pulses} are applied as oscillating RF fields.
 Consider the case of a pulse acting on a single spin:
 \begin{equation}
     \label{eq:hard_pulse}
-    H_\text{pulse,hard} = \omega_1 [\cos(\omegarf t + \phi) I_x + \sin(\omegarf t + \phi) I_y].
+    \Hpulse = \omega_1 [\cos(\omegarf t + \phi) I_x + \sin(\omegarf t + \phi) I_y].
 \end{equation}
 Here, $\omega_1$ represents the \textit{amplitude} of the pulse, and $\phi$ the \textit{phase}. This expression is similar to the expression in \cref{eq:h_pulse}, but here $\omega_1$ and $\phi$ are both constants, with the time dependence explicitly specified using the \textit{frequency} of the pulse, $\omegarf$.
 In the rotating frame, using that $H_0 = \omegarot I_z$, we then have the following interaction Hamiltonian:
 \begin{equation}
     \label{eq:hard_pulse_rotatingframe_intermediate}
     \begin{aligned}
-        H_{\text{pulse,hard,}I} &= \omega_1 \,\big[\! \exp(\mi \omegarot t I_z) I_x \cos(\omegarf t + \phi) \exp(-\mi \omegarot t I_z) \\
-                                &\quad\quad\quad + \exp(\mi \omegarot t I_z) I_y \sin(\omegarf t + \phi) \exp(-\mi \omegarot t I_z) \big],
+        \HpulseI &= \omega_1 \big[\! \exp(\mi \omegarot t I_z) I_x \cos(\omegarf t + \phi) \exp(-\mi \omegarot t I_z) \\
+                 &\quad\quad\quad + \exp(\mi \omegarot t I_z) I_y \sin(\omegarf t + \phi) \exp(-\mi \omegarot t I_z) \big],
     \end{aligned}
 \end{equation}
 and using the formulae
@@ -90,7 +90,7 @@ and using the formulae
 (see Appendix A.2 of Levitt\autocite{Levitt2008} for a derivation), \cref{eq:hard_pulse_rotatingframe_intermediate} simplifies to
 \begin{equation}
     \label{eq:hard_pulse_rotatingframe}
-    H_{\text{pulse,hard,}I} = \omega_1 \left[I_x \cos(\omegarf - \omegarot + \phi) + I_y \sin(\omegarf - \omegarot + \phi) \right].
+    \HpulseI = \omega_1 \left[I_x \cos(\omegarf - \omegarot + \phi) + I_y \sin(\omegarf - \omegarot + \phi) \right].
 \end{equation}
 The frequency at which hard pulses are applied is termed the \textit{transmitter frequency}, $\omegatx$.
 This is a parameter which can be controlled by the user, and is typically placed in the centre of the spectrum of the sample under study, in order to make the most use of its \textit{bandwidth} (the region of frequencies over which the pulse is effective).
@@ -98,7 +98,7 @@ For convenience, it is typical to then choose the rotating-frame frequency to be
 This allows us to simplify the rotating-frame Hamiltonian to
 \begin{equation}
     \label{eq:hard_pulse_onresonance}
-    H_{\text{pulse,hard,}I} = \omega_1 (I_x\cos\phi + I_y\sin\phi),
+    \HpulseI = \omega_1 (I_x\cos\phi + I_y\sin\phi),
 \end{equation}
 which is time-\textit{independent}.
 Occasionally, I will also use the Cartesian components:
@@ -109,7 +109,7 @@ Occasionally, I will also use the Cartesian components:
 instead of the amplitude and phase, to describe the pulse.
 
 Consider now the application of this pulse to an isolated spin for which $\omega_0 = \omegarot$ and thus has an offset $\Omega = 0$.
-We have that $H_\text{offset} = H_\text{J} = H_\text{grad} = 0$, and the only active Hamiltonian is that of the pulse, which causes \textit{nutation} of the spin magnetisation vector around the axis of the pulse; in this case, the pulse (or the spin) is said to be \textit{on-resonance}.%
+We have that $\Hoffset = \HJ = \Hgrad = 0$, and the only active Hamiltonian is that of the pulse, which causes \textit{nutation} of the spin magnetisation vector around the axis of the pulse; in this case, the pulse (or the spin) is said to be \textit{on-resonance}.%
 \footnote{Strictly speaking, the rotating frame is just a mathematical formalism, so the resonance condition does not necessitate $\Omega = 0$ or $\omegarf = \omegarot = \omega_0$. We only need that $\omegarf = \omega_0$, or in other words, that the pulse is applied at the frequency of the spin---which may or may not be the same as the rotating-frame frequency. Practically, such a situation may arise in (for example) the application of selective pulses to a specific spin which is not at the centre of the spectrum.}
 If a duration for the pulse $\taup$ is further specified, this also allows us to define a \textit{flip angle} $\beta = \omega_1 \taup$.
 On the other hand, spins which are \textit{off-resonance} ($\omega_0 - \omegatx \neq 0$) evolve not only under the pulse Hamiltonian but also the offset; this leads to a different effective flip angle and axis of rotation.

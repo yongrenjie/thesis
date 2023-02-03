@@ -56,9 +56,9 @@ Using a very similar proof as in \cref{eq:lvn}, it can be shown that $\rho_I$ ob
 and analogously, for a time-independent $H_{1,I}$ we have that
 \begin{align}
     \label{eq:lvn_interaction_integrated}
-    \rho_I\,(t_2) = \exp(-\mi H_{1,I}\,\tau)\rho_I\,(t_1)\exp(\mi H_{1,I}\,\tau) = U\rho_I\,(t_1) \, U^\dagger,
+    \rho_I(t_2) = \exp(-\mi H_{1,I}\tau)\rho_I(t_1)\exp(\mi H_{1,I}\tau) = U\rho_I(t_1) U^\dagger,
 \end{align}
-where $U = \exp(-\mi H_{1,I}\,\tau)$.
+where $U = \exp(-\mi H_{1,I}\tau)$.
 Multiple propagators may be chained in a similar fashion to \cref{eq:time_evolution_piecewise}.
 This result means that from a practical point of view, the effects of $H_0$ can be completely ignored when analysing or simulating NMR experiments using density operators.
 
@@ -69,19 +69,19 @@ For a canonical ensemble, this is given by:
     \rho_0 = \frac{\exp(-\beta\hbar H)}{\Tr[\exp(-\beta\hbar H)]}
 \end{equation}
 where $\beta = 1/(k_{\symup{B}}T)$ and the Hamiltonian $H\/$ is in units of angular momentum, as has been consistently used here.
-At equilibrium, no pulses or gradients are being applied, so the appropriate Hamiltonian is the free (Schr\"odinger-picture) Hamiltonian $H_\text{free}$ (\cref{eq:h_free}).%
+At equilibrium, no pulses or gradients are being applied, so the appropriate Hamiltonian is the free (Schr\"odinger-picture) Hamiltonian $\Hfree$ (\cref{eq:h_free}).%
 \footnote{The interaction-picture $H_{\text{free},I}$ would not be appropriate here, as its entire existence is merely a mathematical formalism. If that were not the case, it would imply that we can change the equilibrium state $\rho_0$ by simply \textit{choosing} a different $H_0$ to factor out.}
-Consider the case of a single spin: we have that $H_\text{J} = 0$, and hence $H_\text{free} = H_\text{cs} = \omega_0 I_z$. Thus,
+Consider the case of a single spin: we have that $\HJ = 0$, and hence $\Hfree = \Hcs = \omega_0 I_z$. Thus,
 \begin{equation}
     \label{eq:nmr_equilibrium_rho}
     \rho_0 = \frac{\exp(cI_z)}{\Tr[\exp(cI_z)]} \approx \frac{E + cI_z}{\Tr(E + cI_z)} = E + cI_z,
 \end{equation}
 where $c = -\beta\hbar\omega_0 = -\hbar\omega_0/(k_{\symup{B}}T)$ and $E\/$ is the identity matrix; the approximation $\exp(cI_z) \approx E + cI_z$ is justified here as $c\/$ is typically very small (on the order of $10^{-5}$).
 
-Throughout this thesis I consider only linear transformations of the form in \cref{eq:lvn_interaction_integrated}, which use unitary propagators of the form $U = \exp(-\mi Ht)$:
+Throughout this thesis I consider only linear transformations of the form in \cref{eq:lvn_interaction_integrated}, which use unitary propagators of the form $U = \exp(-\mi H\tau)$:
 \begin{equation}
     \label{eq:unitary_rho0}
-    U\rho_0\,U^\dagger = U(E + cI_z)U^\dagger = UE\,U^\dagger + c(UI_zU^\dagger) = E + c(UI_zU^\dagger)
+    U\rho_0 U^\dagger = U(E + cI_z)U^\dagger = UE\,U^\dagger + c(UI_zU^\dagger) = E + c(UI_zU^\dagger)
 \end{equation}
 When describing NMR experiments, it is typical to simply ignore both the $E\/$ term as well as the proportionality factor $c$, and focus only on the transformation of the $I_z$ term.
 Thus, one may define a `simplified' equilibrium density operator:\footnote{This is similar to the `deviation' density operator\autocite{Chuang1998PRSLA,Jones2011PNMRS} which measures how far a density operator deviates from the identity; but I have gone one step further in dropping the factor of $c$. Note that the alternative term `reduced density operator' has a different meaning (it refers to the density operator of a subsystem, obtained by taking a partial trace over all other degrees of freedom).}
