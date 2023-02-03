@@ -37,9 +37,9 @@ The signal amplitude $s$ therefore scales as
 and is maximised when $\md s/\md \theta = 0$, the solution of which is the celebrated \textit{Ernst angle}\autocite{Ernst1966RSI}:
 \begin{equation}
     \label{eq:ernst_angle}
-    \theta_\text{E} = \arccos{c} = \arccos\left[\exp\left(-\frac{\taur}{T_1}\right)\right].
+    \thetaE = \arccos{c} = \arccos\left[\exp\left(-\frac{\taur}{T_1}\right)\right].
 \end{equation}
-In general, $T_1$ and hence $\theta_\text{E}$ varies across the different spins in a given sample, so some degree of compromise is required in order to maximise sensitivity for all peaks.
+In general, $T_1$ and hence $\thetaE$ varies across the different spins in a given sample, so some degree of compromise is required in order to maximise sensitivity for all peaks.
 
 To begin with, we may consider fixing $\taur$ and optimising \texttt{P1} to locate the Ernst angle (or to be precise, the pulse width which corresponds to the Ernst angle).
 This is by no means an illogical proposition.
@@ -123,14 +123,14 @@ The optima found for these two optimisations are different: this is because the 
 To determine the accuracy of the optima found, rather than performing a reference grid search as in \cref{subsec:poise__pulsecal}, I measured $T_1$ of each of these peaks using a typical gradient-enhanced inversion--recovery experiment.
 From this, the theoretical Ernst angles for each peak could be calculated (\cref{tbl:ernst_invrec}): they range from \ang{60} to \ang{73}.
 The first optimisation, which should yield a weighted average of the five Ernst angles, appears at first glance to be biased towards the upper end of this range.
-However, this can be rationalised by the fact that that a flip angle larger than $\theta_\text{E}$ is less detrimental to sensitivity compared to one that is smaller (this can be seen by plotting \cref{eq:z_magn_ernst4}).
+However, this can be rationalised by the fact that that a flip angle larger than $\thetaE$ is less detrimental to sensitivity compared to one that is smaller (this can be seen by plotting \cref{eq:z_magn_ernst4}).
 On the other hand, the second optimisation yields an accurate value for the relevant peak (\ang{61.6}, peak number 4 in \cref{tbl:ernst_invrec}).
 
 \begin{table}[!ht]
     \centering
     \begin{tabular}{ccccc}
         \toprule
-        Peak & \proton{} chemical shift (ppm) & $T_1$ (\unit{\s}) & $\theta_\text{E}$ ($^\circ$) & $T_1\ln 2$ (\unit{\s})\\
+        Peak & \proton{} chemical shift (ppm) & $T_1$ (\unit{\s}) & $\thetaE$ ($^\circ$) & $T_1\ln 2$ (\unit{\s})\\
         \midrule
         1 & 7.49 & 1.750 & 59.8 & 1.213 \\
         2 & 7.27 & 0.977 & 73.0 & 0.677 \\

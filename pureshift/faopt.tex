@@ -8,8 +8,8 @@ The flip angle dependence of PSYCHE spectra is well-understood, which crucially 
 \begin{figure}[htb]
     \centering
     \includegraphics[]{pureshift/fa_scan_cyclo.png}%
-    \caption[Behaviour of $f_\text{phase}$ and $f_\text{diff}$ on experimental J-refocused spin echo spectra.]{
-        Behaviour of the two cost functions, $f_\text{phase}$ and $f_\text{diff}$, on experimental J-refocused spin echo spectra.
+    \caption[Behaviour of $\fphase$ and $\fdiff$ on experimental J-refocused spin echo spectra]{
+        Behaviour of the two cost functions, $\fphase$ and $\fdiff$, on experimental J-refocused spin echo spectra.
         \datacode{5C-190809}
     }
     \label{fig:fa_scan_cyclo}
@@ -18,11 +18,11 @@ The flip angle dependence of PSYCHE spectra is well-understood, which crucially 
 I first sought to measure how the cost functions described above varied with the flip angle.
 To this end, JRSE spectra using a \textit{single} saltire as the PSE and various flip angles (from \ang{10} to \ang{50}) were acquired (\cref{fig:fa_scan_cyclo}).
 Since both cost functions penalise both low sensitivity and low purity, we might expect that there is be an intermediate value where neither sensitivity nor purity were penalised too much: this would be the `optimum' flip angle.
-In the event, it was found that only $f_\text{diff}$ yielded a useful---albeit shallow---minimum at around \ang{25} (recall that the PSE here is a single saltire, so this corresponds roughly to a \ang{15}--\ang{20} double saltire).
-The $f_\text{phase}$ cost function, on the other hand, was strictly decreasing within the range of flip angles tested: it is possible that there is an optimum at an even larger flip angle, but this would have been a scientifically unsound conclusion given that the sample was decently concentrated (\qty{50}{\milli\molar}).
+In the event, it was found that only $\fdiff$ yielded a useful---albeit shallow---minimum at around \ang{25} (recall that the PSE here is a single saltire, so this corresponds roughly to a \ang{15}--\ang{20} double saltire).
+The $\fphase$ cost function, on the other hand, was strictly decreasing within the range of flip angles tested: it is possible that there is an optimum at an even larger flip angle, but this would have been a scientifically unsound conclusion given that the sample was decently concentrated (\qty{50}{\milli\molar}).
 
-This naturally raises the question of why $f_\text{diff}$ yields an optimum which falls within what we would consider a `sensible' region.
-It is tempting to believe that the form of $f_\text{diff}$ (\cref{eq:ps_cf_diff}), which is at first glance quite intuitive, naturally leads to a better result.
+This naturally raises the question of why $\fdiff$ yields an optimum which falls within what we would consider a `sensible' region.
+It is tempting to believe that the form of $\fdiff$ (\cref{eq:ps_cf_diff}), which is at first glance quite intuitive, naturally leads to a better result.
 I argue here, however, that this is mostly down to \textit{coincidence}.
 This is difficult to explain quantitatively, but in a broader sense, we may imagine that the cost function separately penalises low sensitivity and low purity, i.e.\ it can be decomposed into something of the form
 \begin{equation}
@@ -45,7 +45,7 @@ Furthermore, the $\lambda$ provided to us by the cost function $f\/$ may not nec
 The fact that \cref{eq:cost_function_generic} \textit{happens} to provide the same flip angle optimum as the idealised \cref{eq:cost_function_generic_p2d} cannot truly be attributed to design!
 
 Of course, just because a cost function works mostly by serendipity does not mean that it cannot be used.
-    So, I ran several \textit{actual} optimisations of the flip angle using the cost function $f_\text{diff}$, which reliably converged to optima between \ang{20} and $\ang{25}$ regardless of the initial point chosen.
+    So, I ran several \textit{actual} optimisations of the flip angle using the cost function $\fdiff$, which reliably converged to optima between \ang{20} and $\ang{25}$ regardless of the initial point chosen.
 Typically, around 10 spectrum acquisitions were required, corresponding to a time of around 2--4 minutes.
-This is not surprising in light of our knowledge of $f_\text{diff}$; however, it provides us with a proof-of-principle that automated optimisation of NMR parameters is possible.
+This is not surprising in light of our knowledge of $\fdiff$; however, it provides us with a proof-of-principle that automated optimisation of NMR parameters is possible.
 Further optimisations of the PSYCHE flip angle are also discussed in \cref{subsec:poise__psyche}.

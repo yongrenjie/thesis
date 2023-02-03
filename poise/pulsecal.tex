@@ -17,7 +17,7 @@ Generally, the \ang{360} null is preferred as it minimises effects due to radiat
 We can use POISE to search for this by acquiring the spectrum, performing a magnitude-mode calculation, and using the intensity of the resulting spectrum as a cost function:
 \begin{equation}
     \label{eq:minabsint}
-    f_\mathrm{minabsint} = \sum_i |S_i|,
+    f_{\symup{m}\text{inabsint}} = \sum_i |S_i|,
 \end{equation}
 where (reusing notation from \cref{subsec:pureshift__optim_techniques}) $\symbf{S}$ is the spectrum under consideration represented as a complex-valued vector, and the $i$-th point of the spectrum is $S_i = \sqrt{\symbf{S}_{\text{re},i}^2 + \symbf{S}_{\text{im},i}^2}$.
 The label \texttt{minabsint} refers to how this cost function drives the optimisation to \textit{min}imise the \textit{abs}olute \textit{int}ensity of the spectrum.
@@ -46,7 +46,7 @@ def minabsint():
     \label{fig:p1_scan}
 \end{figure}
 
-To check whether this cost function was sensible, I manually acquired a series of spectra with increasing pulse widths and calculated $f_\text{minabsint}$ for all of these (\cref{fig:p1_scan}).
+To check whether this cost function was sensible, I manually acquired a series of spectra with increasing pulse widths and calculated $f_{\symup{m}\text{inabsint}}$ for all of these (\cref{fig:p1_scan}).
 In this chapter, I will refer to this process as a \textit{reference grid search}.
 It should be noted that reference grid searches are a time-consuming procedure, and an end-user of POISE generally does \textit{not} need to do this (it would defeat the purpose of the optimisation).
 I only perform one here to provide some insight into the nature of the optimisation.

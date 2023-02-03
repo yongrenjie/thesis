@@ -28,7 +28,7 @@ Here, $G$ is the amplitude of the encoding and decoding gradients, $\delta$ the 
 In a pseudo-2D DOSY experiment, each increment is recorded with a different gradient amplitude $G$.
 The value of $D$ can then be extracted through various means, most simply an exponential fitting of the measured intensities $I(G)$ for single species (or distinct species which do not overlap).
 In order to minimise the uncertainty in the calculated diffusion coefficients, the parameters $\Delta$ and $\delta$, as well as the range of gradient amplitudes used (and possibly also their distribution), should be chosen in order to yield a diffusion profile of the form in \cref{fig:diffusion_sim_ok}.
-Generally, the last increment (acquired using the maximum gradient strength, $G_\text{max}$) should have an attenuation of 5--35\%\footnote{Recommendations tend to vary.} when compared against the first increment (acquired with the minimum gradient amplitude, $G_\text{min}$, which may be 0).
+Generally, the last increment (acquired using the maximum gradient strength, $\Gmax$) should have an attenuation of 5--35\%\footnote{Recommendations tend to vary.} when compared against the first increment (acquired with the minimum gradient amplitude, $\Gmin$, which may be 0).
 Traditionally, this is done `by hand' by acquiring individual increments of the pseudo-2D diffusion experiment, checking the attenuation, and adjusting the parameters accordingly.\autocite{Johnson1999PNMRS,Claridge2016}
 
 \begin{figure}[htb]
@@ -47,10 +47,10 @@ Traditionally, this is done `by hand' by acquiring individual increments of the 
 \end{figure}
 
 This task could of course be delegated to a computer programme such as POISE.
-We \textit{could} simply tackle it head-on by optimising all of $\Delta$, $\delta$, and $G_\text{max}$ at once (assuming that $G_\text{min}$ is fixed); however, this is actually rather inefficient.
+We \textit{could} simply tackle it head-on by optimising all of $\Delta$, $\delta$, and $\Gmax$ at once (assuming that $\Gmin$ is fixed); however, this is actually rather inefficient.
 Firstly, we previously saw that multiple-parameter optimisations took a longer time than the corresponding single-parameter optimisations.
-However, on top of that, it is often not even necessary to change all three parameters: the Stejskal--Tanner equation shows that the diffusion attenuation is controlled only by the overall \textit{product} $\delta^2 G_\text{max}^2 \Delta'$.
-Thus, at least to a first approximation, the individual values of $\Delta$, $\delta$, and $G_\text{max}$ do not actually matter.
+However, on top of that, it is often not even necessary to change all three parameters: the Stejskal--Tanner equation shows that the diffusion attenuation is controlled only by the overall \textit{product} $\delta^2 \Gmax^2 \Delta'$.
+Thus, at least to a first approximation, the individual values of $\Delta$, $\delta$, and $\Gmax$ do not actually matter.
 It makes sense to fix two of these and optimise one parameter, only changing the other two if necessary.
 
 It should be mentioned here that obtaining \textit{accurate} values of $D$ requires careful consideration of various factors such as the exact DOSY sequence and gradient shapes used\autocite{Sinnaeve2012CMR}, peak overlap\autocite{Antalek1996JACS,Windig1997CILS,Nilsson2006AC,Nilsson2008AC,Colbourne2011JACS}, and convection\autocite{Swan2015JMR,Barbosa2016RSCA}.
@@ -62,7 +62,7 @@ However, these issues are not our concern here: the role of POISE is only to fin
 
 The overall strategy for this `optimisation' can be briefly summarised in a flowchart (\cref{fig:dosy_flowchart}).
 Note that this is \textit{not} a classic optimisation which falls nicely into the POISE workflow (\cref{fig:poise_flowchart}): thus, the entire procedure cannot simply be summarised into one POISE routine.
-However, it does contain two optimisation subproblems: one to adjust $\Delta$ if necessary, and one to find $G_\text{max}$.
+However, it does contain two optimisation subproblems: one to adjust $\Delta$ if necessary, and one to find $\Gmax$.
 We can therefore create a wrapper script for the overall procedure (here called \texttt{dosy\_opt.py}, which invokes POISE to solve the two individual subproblems.
 This approach is made possible by the command-line interface of POISE, which allows for the creation and execution of optimisation routines.
 We also exploit the fact that during the optimisation, POISE stores the value of the cost function as the \texttt{TI} parameter in TopSpin.
@@ -88,30 +88,30 @@ The first optimisation subproblem is the determination of an appropriate diffusi
 Since larger diffusion delays lead to a greater loss of signal through $T_1$ relaxation, as well as more convection\autocite{Swan2015JMR}, $\Delta$ should always be kept as short as possible.%
 \footnote{In hindsight, it would likely have been better to increase $\delta$ instead: this would also have a larger effect as the attenuation depends quadratically on $\delta$ but only linearly on $\Delta$. Care must be taken to not increase $\delta$ beyond what the spectrometer can tolerate, though.}
 Since the procedure in \cref{fig:dosy_flowchart} only \textit{increases} $\Delta$, the wrapper script should always be started with the smallest value of $\Delta$ which is sensible for the sample under study: in the present case, I used an initial value of \qty{50}{\ms}.
-The next step is to determine whether using the full range of available gradient amplitudes leads to sufficient attenuation (which I defined to be 75\%), relative to the first increment of the DOSY acquired using $G_\text{min}$.
-This involves setting $G_\text{max}$ to the largest permissible value (for the Oneshot sequence, this is 80\%), then calculating a cost function $f_\text{dosy,aux}$:
+The next step is to determine whether using the full range of available gradient amplitudes leads to sufficient attenuation (which I defined to be 75\%), relative to the first increment of the DOSY acquired using $\Gmin$.
+This involves setting $\Gmax$ to the largest permissible value (for the Oneshot sequence, this is 80\%), then calculating a cost function $f_{\symup{dosy,aux}}$:
 \begin{equation}
     \label{eq:dosy_aux_cf}
-    f_\text{dosy,aux} = \frac{\sum_i S_i(G_\text{max})}{\sum_i S_i(G_\text{min})} - 0.25.
+    f_{\symup{dosy,aux}} = \frac{\sum_i S_i(\Gmax)}{\sum_i S_i(\Gmin)} - 0.25.
 \end{equation}
-In the fraction, the numerator represents an integral over some region of the spectrum acquired with $G_\text{max}$, and the denominator an integral over the same region for the spectrum acquired with $G_\text{min}$.
-If the attenuation is sufficient, then $f_\text{dosy,aux}$ will be negative.
+In the fraction, the numerator represents an integral over some region of the spectrum acquired with $\Gmax$, and the denominator an integral over the same region for the spectrum acquired with $\Gmin$.
+If the attenuation is sufficient, then $f_{\symup{dosy,aux}}$ will be negative.
 
-In order for the wrapper script to monitor this cost function, POISE is instructed to perform an `optimisation' with only one function evaluation, using the \texttt{-\phantom{}-maxfev 1} flag: essentially, POISE is being used here purely as a way of evaluating the cost function $f_\text{dosy,aux}$.%
+In order for the wrapper script to monitor this cost function, POISE is instructed to perform an `optimisation' with only one function evaluation, using the \texttt{-\phantom{}-maxfev 1} flag: essentially, POISE is being used here purely as a way of evaluating the cost function $f_{\symup{dosy,aux}}$.%
 \footnote{Of course, this cost function evaluation could just be done in the wrapper script itself. In fact, it would likely be simpler to do so. But there is one clear benefit of doing it in this rather circuitous route: POISE allows the user to write cost functions in Python 3.}
-At each point, POISE stores the value of $f_\text{dosy,aux}$ in the \texttt{TI} parameter, and returns control to the wrapper script so that it can check this value.
-If the value of $f_\text{dosy,aux}$ is negative, then the wrapper script moves on to the next subproblem.
+At each point, POISE stores the value of $f_{\symup{dosy,aux}}$ in the \texttt{TI} parameter, and returns control to the wrapper script so that it can check this value.
+If the value of $f_{\symup{dosy,aux}}$ is negative, then the wrapper script moves on to the next subproblem.
 However, if it is still positive, then there is no way the desired attenuation can be accomplished using the gradient strengths available.
 Thus, $\Delta$ is increased by a fixed amount (\qty{50}{\ms} in this case), and the sub-optimisation step repeated.\footnote{If sample spinning is used, then this incrementation of $\Delta$ needs to be chosen carefully, as the diffusion delay should always correspond to an integral number of rotations.}
 
-Once a suitable value of $\Delta$ has been found, the script then searches for the correct value of $G_\text{max}$ in order to provide \textit{exactly} the `correct' amount of attenuation (in this case, 75\%).
+Once a suitable value of $\Delta$ has been found, the script then searches for the correct value of $\Gmax$ in order to provide \textit{exactly} the `correct' amount of attenuation (in this case, 75\%).
 This is done through a conventional POISE optimisation, where the cost function is
 \begin{equation}
     \label{eq:dosy_cf}
-    f_\text{dosy} = |f_\text{dosy,aux}| = \left| \frac{\sum_i S_i(G_\text{max})}{\sum_i S_i(G_\text{min})} - 0.25 \right|.
+    f_{\symup{dosy}} = |f_{\symup{dosy,aux}}| = \left| \frac{\sum_i S_i(\Gmax)}{\sum_i S_i(\Gmin)} - 0.25 \right|.
 \end{equation}
-The absolute value here makes sure that the optimisation converges to the value of $G_\text{max}$ which gives \textit{precisely} a 75\% attenuation, no more, and no less.
-At this point, the wrapper script reports the appropriate values of $\Delta$ and $G_\text{max}$, and then exits; these values can then be used to set up a DOSY experiment (e.g.\ using the \texttt{dosy} TopSpin AU programme).
+The absolute value here makes sure that the optimisation converges to the value of $\Gmax$ which gives \textit{precisely} a 75\% attenuation, no more, and no less.
+At this point, the wrapper script reports the appropriate values of $\Delta$ and $\Gmax$, and then exits; these values can then be used to set up a DOSY experiment (e.g.\ using the \texttt{dosy} TopSpin AU programme).
 
 Before presenting some results, it is worth contemplating what would happen if the sample under study contained a mixture of different molecules, as would often be the case in DOSY experiments.
 Assuming that the integrals $\sum_i S_i$ are taken over the entire spectrum, the parameters thus obtained would then be `compromise values' which are weighted more heavily towards the major component(s) in the sample.
@@ -136,7 +136,7 @@ As described previously, the procedure was initialised with a value of $\Delta =
 The gradient duration $\delta$, which is not modified, was set to \qty{2}{\ms}.
 The first sub-optimisation always increased the value of the diffusion delay by one step to \qty{100}{\ms}.
 Since this part only uses one function evaluation in POISE, the optimisation algorithm used does not actually matter.
-However, the algorithm does matter for the second sub-optimisation (which searches for the best value of $G_\text{max}$).
+However, the algorithm does matter for the second sub-optimisation (which searches for the best value of $\Gmax$).
 This part was therefore performed five times per algorithm, in line with previous optimisations in this chapter (\cref{tbl:poise_dosy_opt2}).
 
 \begin{table}[htb]
@@ -160,7 +160,7 @@ This part was therefore performed five times per algorithm, in line with previou
 \end{table}
 
 In this case, all three algorithms converged to the same result of $75\%$.
-The full Oneshot DOSY spectrum was then acquired using these parameters of $\Delta = \qty{100}{\ms}$, $\delta = \qty{2}{\ms}$, and $G_\text{max} = 75\%$ (nominally \qty{49.3}{\gauss\per\cm} on the spectrometer used here, see \cref{tbl:spectrometers}).
+The full Oneshot DOSY spectrum was then acquired using these parameters of $\Delta = \qty{100}{\ms}$, $\delta = \qty{2}{\ms}$, and $\Gmax = 75\%$ (nominally \qty{49.3}{\gauss\per\cm} on the spectrometer used here, see \cref{tbl:spectrometers}).
 The overall time taken was approximately five minutes: two for the first sub-optimisation to find $\Delta$, and three for the second sub-optimisation (as shown in \cref{tbl:poise_dosy_opt2}).
 This figure may of course be larger depending on the number of scans used (here I used \texttt{DS=2} and \texttt{NS=4}), as well as the number of iterations required in the first sub-optimisation.
 
@@ -189,21 +189,21 @@ yielded \textit{apparent} diffusion coefficients of \qty{7.411(13)e-9}{\m\square
 
 
 
-\subsubsection{Simultaneous optimisation of $\symbf{\Delta}$ and $\symbfit{G}_\text{max}$}
+\subsubsection{Simultaneous optimisation of $\symbf{\Delta}$ and $\symbfit{G}_{\symbf{max}}$}
 
-It is possible---albeit inefficient, as previously mentioned---to dispense with the wrapper script entirely and perform a single optimisation of both $\Delta$ and $G_\text{max}$.
+It is possible---albeit inefficient, as previously mentioned---to dispense with the wrapper script entirely and perform a single optimisation of both $\Delta$ and $\Gmax$.
 In order to ensure that $\Delta$ is not increased too much, we must add a penalty term to the cost function:
 \begin{equation}
     \label{eq:dosy_2p_cf}
-    f_\text{dosy,2p} = f_\text{dosy} + (\Delta / \unit{\s}) = \left| \frac{\sum_i S_i(G_\text{max})}{\sum_i S_i(G_\text{min})} - 0.25 \right| + (\Delta / \unit{\s})
+    f_{\symup{dosy,2p}} = f_{\symup{dosy}} + (\Delta / \unit{\s}) = \left| \frac{\sum_i S_i(\Gmax)}{\sum_i S_i(\Gmin)} - 0.25 \right| + (\Delta / \unit{\s})
 \end{equation}
 (where `2p' stands for two-parameter).
-One significant drawback of this is that the reference spectrum $\symbf{S}(G_\text{min})$ must be reacquired every time $\Delta$ is changed: so, each FE requires twice as long as before.
-For example, using the NM algorithm, the optimisation converged to $\Delta = \qty{91.6}{\ms}$ and $G_\text{max} = 79.3\%$.
+One significant drawback of this is that the reference spectrum $\symbf{S}(\Gmin)$ must be reacquired every time $\Delta$ is changed: so, each FE requires twice as long as before.
+For example, using the NM algorithm, the optimisation converged to $\Delta = \qty{91.6}{\ms}$ and $\Gmax = 79.3\%$.
 Although this result is quite similar to what we had obtained before, the optimisation took over 26 minutes, over five times longer than previously.
 I therefore opted not to perform the full 15 optimisations.
 
-Curiously, BOBYQA did not work as well with this cost function: in the two times I tested it, BOBYQA converged to an `optimum' of $\Delta = \qty{225}{\ms}$ and $G_\text{max} = 50\%$.
+Curiously, BOBYQA did not work as well with this cost function: in the two times I tested it, BOBYQA converged to an `optimum' of $\Delta = \qty{225}{\ms}$ and $\Gmax = 50\%$.
 This did yield the expected 75\% attenuation in the spectrum, but $\Delta$ is clearly rather longer than we would like it to be.
 Furthermore, because of the penalty term, the value of the cost function at this point (0.229) was far larger than the corresponding optimum found using the NM algorithm (0.095).
-It is likely that some of the trust-region optimisation parameters must be tweaked to make this work properly, but I did not spend any further time investigating this.
+t is likely that some of the trust-region optimisation parameters must be tweaked to make this work properly, but I did not spend any further time investigating this.

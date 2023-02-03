@@ -7,7 +7,7 @@
    viewBox="0 0 180 134"
    version="1.1"
    id="svg5"
-   inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)"
+   inkscape:version="1.2.2 (b0a8486, 2022-12-01)"
    sodipodi:docname="epd_pulseq.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -24,11 +24,11 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="1.4034022"
-     inkscape:cx="163.88744"
-     inkscape:cy="209.84718"
+     inkscape:zoom="3.3214321"
+     inkscape:cx="359.63403"
+     inkscape:cy="86.559048"
      inkscape:window-width="1503"
-     inkscape:window-height="708"
+     inkscape:window-height="680"
      inkscape:window-x="1863"
      inkscape:window-y="25"
      inkscape:window-maximized="0"
@@ -419,13 +419,13 @@
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#000000;stroke-width:0.264583"
-       x="115.77165"
+       x="117.37165"
        y="11.729169"
        id="text16419-1-0"><tspan
          sodipodi:role="line"
          id="tspan16417-7-6"
          style="fill:#000000;stroke-width:0.264583"
-         x="115.77165"
+         x="117.37165"
          y="11.729169">Δ</tspan></text>
     <text
        xml:space="preserve"
@@ -771,7 +771,7 @@
    id="tspan34096-4-5-5" /></tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.32;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow1L);marker-end:url(#marker43746-7)"
-       d="M 105.6,12.799998 H 128"
+       d="m 105.6,12.799998 h 25.59999"
        id="path5191" />
     <text
        xml:space="preserve"

@@ -12,7 +12,7 @@ However, before that, I make a slight detour to cover the \nitrogen{} HMQC exper
     \caption[NOAH HMQC pulse sequences]{
         \textbf{(\subref*{fig:noah_hmqc_2grad})} With two encoding gradients around $t_1$.
         \textbf{(\subref*{fig:noah_hmqc_4grad})} With four encoding gradients around $t_1$.
-        Phase cycling is performed with $\phi_1 = (x, -x)$, $\phi_2 = (x, x, -x, -x)$, and $\phi_\text{rec} = (x, -x, -x, x)$.
+        Phase cycling is performed with $\phi_1 = (x, -x)$, $\phi_2 = (x, x, -x, -x)$, and $\phirec = (x, -x, -x, x)$.
         The delay $\Delta$ is set to $1 / (4 \cdot \oneJ{NH})$.
         Gradient amplitudes are: $g_1 = 80\%$; $g_2 = \pm 32.4\%$; $g_2' = g_2/2$.
     }
@@ -92,7 +92,7 @@ Generally, there is little variation in the intensities of the two desired peaks
 The artefact intensity is more erratic, which possibly reflects the fact that gradient dephasing varies sinusoidally with the gradient duration $\tau$ due to the spatial integral
 \begin{equation}
     \label{eq:gradient_dephasing}
-    \frac{1}{L} \int_{-L/2}^{L/2} \exp(\mi \gamma Gz\tau)\,\mathrm{d}z = \frac{\sin(\gamma G L\tau/2)}{\gamma GL\tau/2},
+    \frac{1}{L} \int_{-L/2}^{L/2} \exp(\mi \gamma Gz\tau)\,\md z = \frac{\sin(\gamma G L\tau/2)}{\gamma GL\tau/2},
 \end{equation}
 where $L$ is the sample length and $G$ the gradient amplitude (see also \cref{eq:density_operator_integration}).
 Nevertheless, increased gradient durations clearly lead to better artefact suppression, which (at least in these datasets) is greatest with \qty{2.5}{\ms} gradients.

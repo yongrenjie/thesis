@@ -40,8 +40,8 @@ These are then combined to form a complex signal (this process is known as \text
          &\propto \cos(\omega_0 t) + \mi \sin(\omega_0 t) \notag \\
          &= \exp(\mi \omega_0 t). \label{eq:fid}
 \end{align}
-Before the signal is digitised, the NMR spectrometer mixes this with a \textit{reference} RF field oscillating at the transmitter frequency $\omega_\text{tx}$.
-This results in downconversion of the detected frequencies by $\omega_\text{tx}$, such that the actual digitised signal oscillates at the offset frequency $\Omega$ rather than $\omega_0$ (recall we have chosen $\omega_\text{rot} = \omega_\text{tx}$, so $\omega_0 - \omega_\text{tx} = \omega_0 - \omega_\text{rot} = \Omega$).
+Before the signal is digitised, the NMR spectrometer mixes this with a \textit{reference} RF field oscillating at the transmitter frequency $\omegatx$.
+This results in downconversion of the detected frequencies by $\omegatx$, such that the actual digitised signal oscillates at the offset frequency $\Omega$ rather than $\omega_0$ (recall we have chosen $\omegarot = \omegatx$, so $\omega_0 - \omegatx = \omega_0 - \omegarot = \Omega$).
 Therefore, instead of \cref{eq:fid}, the signal we really see is:
 \begin{equation}
     \label{eq:fid_reduced}
@@ -63,7 +63,7 @@ Fourier transformation of the FID then yields a spectrum with absorption- and di
     &= \frac{1}{\sqrt{2\pi}}\int_0^\infty s(t) \exp(-\mi \omega t) \,\md t \notag \\
     &=
     \underbrace{\frac{k}{k^2 + (\omega - \Omega)^2}}_{A(\omega; \Omega)}
-    +\, \mathrm{i}\underbrace{\frac{\Omega - \omega}{k^2 + (\omega - \Omega)^2}}_{D(\omega; \Omega)},
+    +\, \mi\underbrace{\frac{\Omega - \omega}{k^2 + (\omega - \Omega)^2}}_{D(\omega; \Omega)},
 \end{align}
 where $k = 1/T_2$.
 The notation $A(\omega; \Omega)$ here means that the spectrum is a function of the frequency $\omega$, but is parametrised by the peak offset $\Omega$.
@@ -96,13 +96,13 @@ Repeating the above analysis, we find that the resulting signal will have a phas
 \end{align}
 If we were to take the real part of the spectrum here, then we would obtain the undesired dispersion-mode lineshape $D(\omega;\Omega)$.
 There are two ways of removing this phase shift.
-The first is to shift the \textit{receiver phase} by $\phi_\text{rec}$, which introduces an extra factor of $\exp(-\mi\phi_\text{rec})$ to the detected signal: we can thus choose $\phi_\text{rec} = 3\pi/2$ in order to cancel out the $-\mi$ term in $s'(t)$.
-Alternatively, the spectrum can be processed through \textit{phase correction}, in which $S(\omega)$ is directly multiplied by a term $\exp(\mi\phi_\text{corr})$, where $\phi_\text{corr}$ is a linear function of the frequency $\omega$:
+The first is to shift the \textit{receiver phase} by $\phirec$, which introduces an extra factor of $\exp(-\mi\phirec)$ to the detected signal: we can thus choose $\phirec = 3\pi/2$ in order to cancel out the $-\mi$ term in $s'(t)$.
+Alternatively, the spectrum can be processed through \textit{phase correction}, in which $S(\omega)$ is directly multiplied by a term $\exp(\mi\phicorr)$, where $\phicorr$ is a linear function of the frequency $\omega$:
 \begin{equation}
     \label{eq:phase_correction}
-    \phi_\text{corr} = \phi_{\text{corr}}^{(0)} + \omega\phi_{\text{corr}}^{(1)}.
+    \phicorr = \phicorr^{(0)} + \omega\phicorr^{(1)}.
 \end{equation}
-$\phi_\text{corr}^{(0)}$ and $\phi_\text{corr}^{(1)}$ are respectively termed the \textit{zeroth-} and \textit{first-order phase corrections}: in this idealised case, we can simply choose $(\phi_\text{corr}^{(0)}, \phi_\text{corr}^{(1)}) = (\pi/2, 0)$ to again remove the unwanted phase shift.
+$\phicorr^{(0)}$ and $\phicorr^{(1)}$ are respectively termed the \textit{zeroth-} and \textit{first-order phase corrections}: in this idealised case, we can simply choose $(\phicorr^{(0)}, \phicorr^{(1)}) = (\pi/2, 0)$ to again remove the unwanted phase shift.
 More realistically, due to instrumental imperfections, both of these values will have to be nonzero in order to ensure that every peak in the spectrum has the correct phase, i.e.\ is displayed in absorption-mode.
 
 An alternative framework for analysing pulse sequences is to use the ladder operators $I_+$ and $I_-$ (\cref{eq:other_single_spin_ops}).
@@ -130,14 +130,14 @@ If we had instead chosen to combine them in a different way, such as $s(t) = M_x
 In any case, we will stick to the established convention of detecting $-1$-coherence here.
 
 To end this section, it should be pointed out that the complex signal is not obtained as an infinitely-long, continuous function of time, as the treatment above implies.
-The complex-valued signal is digitised at an interval called the \textit{dwell time}, $\tau_\text{dw}$, and detection must be stopped after a finite period called the \textit{acquisition time}, $\tau_\text{aq}$.
-The transform being used is actually a discrete Fourier transform (DFT), which yields a periodic function $S(\omega)$; its period (in Hz) is given by $1/\tau_\text{dw}$.%
-\footnote{The periodicity property of the DFT is equivalent to the Nyquist theorem, which is usually formulated as follows: the sampling rate required to correctly digitise a signal containing frequencies in the range $[0, f_\text{max}]$ is $1/(2f_\text{max})$. In the main text, it appears as if we have dropped the factor of $2$ in the denominator; but in truth this statement of the Nyquist theorem is applicable to \textit{real-valued} signals, and here we have a \textit{complex-valued} signal $s(t)$, which effectively doubles the range of correctly sampled frequencies.}
-The NMR spectrum displayed to the user corresponds to one single period of $S(\omega)$, and thus the \textit{spectral width} is also equal to $1/\tau_\text{dw}$.%
-\footnote{Frustratingly, the \texttt{DW} parameter in Bruker's TopSpin software is actually equal to $\tau_\text{dw}/2$. The reason is because this parameter corresponds to the interval between which \textit{real} data is sampled, which is effectively twice as fast as complex-valued sampling.}
+The complex-valued signal is digitised at an interval called the \textit{dwell time}, $\tau_{\symup{dw}}$, and detection must be stopped after a finite period called the \textit{acquisition time}, $\tau_{\symup{aq}}$.
+The transform being used is actually a discrete Fourier transform (DFT), which yields a periodic function $S(\omega)$; its period (in Hz) is given by $1/\tau_{\symup{dw}}$.%
+\footnote{The periodicity property of the DFT is equivalent to the Nyquist theorem, which is usually formulated as follows: the sampling rate required to correctly digitise a signal containing frequencies in the range $[0, f_{\symup{max}}]$ is $1/(2f_{\symup{max}})$. In the main text, it appears as if we have dropped the factor of $2$ in the denominator; but in truth this statement of the Nyquist theorem is applicable to \textit{real-valued} signals, and here we have a \textit{complex-valued} signal $s(t)$, which effectively doubles the range of correctly sampled frequencies.}
+The NMR spectrum displayed to the user corresponds to one single period of $S(\omega)$, and thus the \textit{spectral width} is also equal to $1/\tau_{\symup{dw}}$.%
+\footnote{Frustratingly, the \texttt{DW} parameter in Bruker's TopSpin software is actually equal to $\tau_{\symup{dw}}/2$. The reason is because this parameter corresponds to the interval between which \textit{real} data is sampled, which is effectively twice as fast as complex-valued sampling.}
 In principle, the periodicity of the DFT means that signals which would ordinarily fall outside of the spectral width would appear at incorrect frequencies in the spectrum.\autocite{Turner1986JMR}
 On modern instrumentation, this is no longer the case for direct detection; peaks outside of the spectral width are removed using digital filters.
 However, \textit{folding} or \textit{aliasing} of peaks in the indirect dimension(s) of multidimensional NMR spectra still occurs.
 
-The DFT $S(\omega)$ is also a discrete function itself, and its resolution is given by $1/\tau_\text{aq}$.
+The DFT $S(\omega)$ is also a discrete function itself, and its resolution is given by $1/\tau_{\symup{aq}}$.
 It is possible to extend the effective acquisition time (and thus improve spectral resolution) without actually acquiring more data: this can be done either by \textit{forward linear prediction} of the signal, or by simply adding zeros onto the end of the signal (\textit{zero-filling}).

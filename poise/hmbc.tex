@@ -17,7 +17,7 @@ Furthermore, since only local minima are sought, the time required for convergen
         \textbf{(\subref*{fig:poise_hmbc_pulseq_hsqc})} 1D LPJF--HSQC pulse sequence used in the POISE optimisation.
         In practice, only the first increment of this experiment was recorded.
         Delays are set as follows: $\Delta = 1 / (4 \cdot \oneJ{CH}); \Delta_\text{LR} = 1 / (2 \cdot \nJ{CH})$; $\tau$ is as short as possible (several microseconds); and $\tau_1$ and $\tau_2$ are as described in the text.
-        Phase cycling is performed with $\phi_1 = \phi_\text{rec} = (x, -x)$, and $\phi_2 = (x, x, -x, -x)$.
+        Phase cycling is performed with $\phi_1 = \phirec = (x, -x)$, and $\phi_2 = (x, x, -x, -x)$.
         Gradient amplitudes are: $(g_1, g_2, g_3) = (15\%, -10\%, -5\%)$ for the LPJF, $(g_4, g_5) = (80\%, -47.85\%)$ (or vice versa) for EA selection in the HMBC experiment\autocite{Cicero2001JMR}, and $(g_6, g_7) = (70\%, \pm 35.21\%)$ for EA selection in the LPJF--HSQC experiment.
     }
     \label{fig:poise_hmbc_pulseq}
@@ -26,14 +26,14 @@ Furthermore, since only local minima are sought, the time required for convergen
 In the simplest example of a multiple-parameter optimisation, I use POISE to search for the best delays in the low-pass J-filter (LPJF) of a HMBC experiment (\cref{fig:poise_hmbc_pulseq_hmbc}).
 Specifically, a second-order LPJF is used, which has the form $\tau_1$--\ang{90}(\carbon{})--$\tau_2$--\ang{90}(\carbon{}).
 The role of the LPJF is to destroy \magn{C} magnetisation at the start of the HMBC, which would otherwise generate one-bond artefacts in the resulting spectrum.
-Assuming that the $\oneJ{CH}$ values span a range of $J_\text{min}$ to $J_\text{max}$, S{\o}rensen and coworkers have provided `theoretical' best values for the delays:\autocite{Nielsen1986JMR,Meissner2000MRC}
+Assuming that the $\oneJ{CH}$ values span a range of $\Jmin$ to $\Jmax$, S{\o}rensen and coworkers have provided `theoretical' best values for the delays:\autocite{Nielsen1986JMR,Meissner2000MRC}
 \begin{align}
-    \tau_1 &= \frac{1}{2} [J_\text{min} + 0.146(J_\text{max} - J_\text{min})]^{-1}; \label{eq:hmbc_lpjf_theoretical_min} \\
-    \tau_2 &= \frac{1}{2} [J_\text{max} - 0.146(J_\text{max} - J_\text{min})]^{-1}. \label{eq:hmbc_lpjf_theoretical_max}
+    \tau_1 &= \frac{1}{2} [\Jmin + 0.146(\Jmax - \Jmin)]^{-1}; \label{eq:hmbc_lpjf_theoretical_min} \\
+    \tau_2 &= \frac{1}{2} [\Jmax - 0.146(\Jmax - \Jmin)]^{-1}. \label{eq:hmbc_lpjf_theoretical_max}
 \end{align}
 In practice, the TopSpin standard library HMBC sequence (\texttt{hmbcetgpl2nd}) uses delays of
 \begin{equation}
-    \tau_1 = \frac{1}{2J_\text{min}}; \quad \tau_2 = \frac{1}{2J_\text{max}}. \label{eq:hmbc_lpjf_bruker}
+    \tau_1 = \frac{1}{2\Jmin}; \quad \tau_2 = \frac{1}{2\Jmax}. \label{eq:hmbc_lpjf_bruker}
 \end{equation}
 In either case, though, these delays neglect the actual \textit{distribution} of $\oneJ{CH}$: if many of the couplings are clustered around one particular value, then adjusting the delays to better suppress these values will yield better results.
 (Since $\oneJ{CH}$ roughly correlates with the hybridisation of the \carbon{} atom,\autocite{Krivdin2018PNMRS} this can easily happen, for example, if the molecule is predominantly aliphatic or predominantly aromatic.)
@@ -49,15 +49,15 @@ Although the LPJF--HSQC can in principle be recorded as a full 2D experiment, to
 \carbon{} decoupling during acquisition is not mandatory, but the boost in SNR obtained through decoupling shortens the time needed for optimisation, and also reduces noise in the cost function.
 
 We could directly perform an optimisation on the two delays $\tau_1$ and $\tau_2$.
-However, for simplicity, I chose to reuse the definitions of $\tau_1$ and $\tau_2$ in the Bruker library sequence (\cref{eq:hmbc_lpjf_bruker}) and instead optimise the parameters $J'_\text{min} = 1/(2\tau_1)$ and $J'_\text{max}=1/(2\tau_2)$: these are represented in the pulse sequence as \texttt{CNST25} and \texttt{CNST26} respectively.%
-\footnote{Prime symbols are used here because $J_\text{min}$ and $J_\text{max}$ are \textit{physical constants} which depend on the sample being studied, whereas $J'_\text{min}$ and $J'_\text{max}$ are \textit{parameters} which can be chosen to have any value.} 
+However, for simplicity, I chose to reuse the definitions of $\tau_1$ and $\tau_2$ in the Bruker library sequence (\cref{eq:hmbc_lpjf_bruker}) and instead optimise the parameters $\Jmin' = 1/(2\tau_1)$ and $\Jmax' = 1/(2\tau_2)$: these are represented in the pulse sequence as \texttt{CNST25} and \texttt{CNST26} respectively.%
+\footnote{Prime symbols are used here because $\Jmin$ and $\Jmax$ are \textit{physical constants} which depend on the sample being studied, whereas $\Jmin'$ and $\Jmax'$ are \textit{parameters} which can be chosen to have any value.} 
 Both parameters were constrained to lie between 100 and \qty{200}{\Hz}, with a tolerance of \qty{3}{\Hz}.
 To match the magnitude-mode processing typically used for 2D HMBC experiments, the acquisition AU programme was modified to also process the LPJF--HSQC spectrum in magnitude mode.
 The integral of the entire spectrum can therefore be used as the desired cost function for the POISE optimisation.
 More specifically, I chose to use a sum of squares:
 \begin{equation}
     \label{eq:sos_cost_function}
-    f_\text{sos} = \sum_i S_i^2,
+    f_{\symup{sos}} = \sum_i S_i^2,
 \end{equation}
 which has the effect of penalising intense artefacts more strongly.
 
@@ -77,7 +77,7 @@ These optima should therefore not be viewed as a complete summary of the five di
         \toprule
               &           & \multicolumn{3}{c}{Best optimum found} & \multicolumn{2}{c}{Aggregated results} \\
         \cmidrule(lr){3-5} \cmidrule(lr){6-7}
-        Entry & Algorithm & $J'_\text{min}$ & $J'_\text{max}$ & $f_\text{sos} / 10^7$ & FEs & Time taken (\unit{\s}) \\
+        Entry & Algorithm & $\Jmin'$ & $\Jmax'$ & $\fsos / 10^7$ & FEs & Time taken (\unit{\s}) \\
         \midrule
         1     & NM        & 143.07 & 185.71                 & 8.65 & 20--24 & 358--430 \\
         2     & MDS       & 141.73 & 185.82                 & 8.36 & 18     & 321--323 \\
@@ -86,7 +86,7 @@ These optima should therefore not be viewed as a complete summary of the five di
     \end{tabular}
     \caption[HMBC low-pass J-filter optimisations]{
         Results of HMBC POISE optimisations.
-        For each optimisation algorithm, the best optimum found is reported along with the value of the cost function $f_\text{sos}$ (a lower value represents a better optimum).
+        For each optimisation algorithm, the best optimum found is reported along with the value of the cost function $\fsos$ (a lower value represents a better optimum).
         The number of FEs, as well as the time taken, is still reported as a range over the five optimisation runs performed per algorithm.
         The POISE routine used here is: \mintinline[breaklines]{json}{{"name": "lpjf", "pars": ["cnst25", "cnst26"], "lb": [100.0, 100.0], "ub": [200.0, 200.0], "init": [120.0, 180.0], "tol": [3.0, 3.0], "cf": "zerorealint_squared", "au": "poise_1d_mc"}}.
         \datacode{7Z-210814}
@@ -121,7 +121,7 @@ Also, BOBYQA does not always outperform NM and MDS in the other optimisations in
     {\phantomsubcaption\label{fig:poise_hmbc_spec_opt2}}%
     {\phantomsubcaption\label{fig:poise_hmbc_spec_3}}%
     \caption[HMBC spectra before and after optimisation]{
-        \textbf{(\subref*{fig:poise_hmbc_spec_unopt2})} HMBC spectrum with `compromise' values of 120 and \qty{180}{\Hz} for $J'_\text{min}$ and $J'_\text{max}$ respectively in the second-order LPJF.
+        \textbf{(\subref*{fig:poise_hmbc_spec_unopt2})} HMBC spectrum with `compromise' values of 120 and \qty{180}{\Hz} for $\Jmin'$ and $\Jmax'$ respectively in the second-order LPJF.
         The one-bond artefacts are highlighted in red boxes.
         \textbf{(\subref*{fig:poise_hmbc_spec_opt2})} HMBC spectrum with optimised second-order LPJF delays.
         \textbf{(\subref*{fig:poise_hmbc_spec_3})} HMBC spectrum with third-order LPJF.
@@ -162,7 +162,7 @@ I therefore sought to apply the same optimisation routine to the $zz$-HMBC modul
         \toprule
               &           & \multicolumn{3}{c}{Best optimum found} & \multicolumn{2}{c}{Aggregated results} \\
         \cmidrule(lr){3-5} \cmidrule(lr){6-7}
-        Entry & Algorithm & $J'_\text{min}$ & $J'_\text{max}$ & $f_\text{sos} / 10^9$ & FEs & Time taken (\unit{\s}) \\
+        Entry & Algorithm & $\Jmin'$ & $\Jmax'$ & $\fsos / 10^9$ & FEs & Time taken (\unit{\s}) \\
         \midrule
         1     & NM        & 117.05 & 188.59                 & 5.37 & 25--29 & 451--523 \\
         2     & MDS       & 125.21 & 193.16                 & 5.35 & 14--17 & 249--310 \\
@@ -191,7 +191,7 @@ This was indeed verified experimentally: the addition of a \carbon{} \ang{90} pu
     \caption[NOAH HMBC spectra before and after optimisation]{
         \textbf{(\subref*{fig:poise_hmbc_noah_spec_unopt})} NOAH HMBC spectrum before POISE optimisation, using the default settings of 120 and \qty{180}{\Hz}.
         One-bond artefacts are highlighted in red boxes.
-        \textbf{(\subref*{fig:poise_hmbc_noah_spec_opt})} NOAH HMBC spectrum after POISE `optimisation' (using $J'_\text{min} = \qty{125.2}{\Hz}$, $J'_\text{max} = \qty{193.2}{\Hz}$, as per entry 2 of \cref{tbl:poise_hmbc_noah}).
+        \textbf{(\subref*{fig:poise_hmbc_noah_spec_opt})} NOAH HMBC spectrum after POISE `optimisation' (using $\Jmin' = \qty{125.2}{\Hz}$, $\Jmax' = \qty{193.2}{\Hz}$, as per entry 2 of \cref{tbl:poise_hmbc_noah}).
         \textbf{(\subref*{fig:poise_hmbc_noah_spec_with90})} NOAH HMBC spectrum with no POISE optimisation, but instead adding a \ang{90} \carbon{} pulse at the end of the $zz$-filter (see also \cref{subsec:noah__hmbc}).
         \datacode{7Z-210814}
     }

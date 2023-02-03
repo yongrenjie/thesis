@@ -26,7 +26,7 @@ EPSI acquisition allows signals from different slices of the sample to be simult
 During an EPSI acquisition period, alternating gradients of equal magnitude but opposite sign are applied, as shown in \cref{fig:poise_epsi_zgepsi,fig:poise_epsi_tocsyepsi}. Each data point collected therefore depends not only on $t_2$ (the acquisition time domain) but also on $k$, a wavenumber which measures the extent of gradient dephasing caused by the acquisition gradients:
 \begin{equation}
     \label{eq:epsi_k_space}
-    k = \int_0^{t_2} \gamma G(t) \,\mathrm{d}t.
+    k = \int_0^{t_2} \gamma G(t) \,\md t.
 \end{equation}
 This value of $k$ increases during positive gradients and decreases during negative gradients, leading to a zigzag pattern in $k$-space, all while $t_2$ is still increasing (\cref{fig:poise_epsi_epsicorrect}).
 The \textit{prephasing gradient} immediately before acquisition has the same duration as the EPSI gradients, but has half the amplitude, meaning that $k$ begins from a negative value, specifically, $-k_\text{max} / 2$, where $k_\text{max}$ is the change in $k$ caused by one complete positive EPSI gradient.

@@ -26,7 +26,7 @@ Other properties of the density operator are not discussed here, but can be foun
 The time evolution of a Schr\"odinger-picture density operator is governed by the Liouville--von Neumann equation, which can be derived from \cref{eq:tdse}:
 \begin{align}
     \label{eq:lvn}
-    \frac{\mathrm{d}\rho}{\mathrm{d}t} &= \sum_j p_j \left(\frac{\mathrm{d}\ket{\psi_j}}{\mathrm{d}t}\bra{\psi_j} + \ket{\psi_j}\frac{\mathrm{d}\bra{\psi_j}}{\mathrm{d}t} \right) \notag \\
+    \frac{\md\rho}{\md t} &= \sum_j p_j \left(\frac{\md\ket{\psi_j}}{\md t}\bra{\psi_j} + \ket{\psi_j}\frac{\md\bra{\psi_j}}{\md t} \right) \notag \\
                                        &= \sum_j p_j \left(-\mi H\ket{\psi_j}\bra{\psi_j} + \ket{\psi_j}\mi\bra{\psi_j}H \right) \notag \\
                                        &= -\mi H \left(\sum_j p_j\ket{\psi_j}\bra{\psi_j}\right) + \mi \left(\sum_j p_j \ket{\psi_j}\bra{\psi_j}\right) H \notag \\
                                        &= -\mi [H, \rho].
@@ -51,7 +51,7 @@ In the interaction picture, the density operator is instead defined using intera
 Using a very similar proof as in \cref{eq:lvn}, it can be shown that $\rho_I$ obeys a modified Liouville--von Neumann equation:
 \begin{align}
     \label{eq:lvn_interaction}
-    \frac{\mathrm{d}\rho_I}{\mathrm{d}t} &= -\mi[H_{1,I}, \rho_I]
+    \frac{\md\rho_I}{\md t} &= -\mi[H_{1,I}, \rho_I]
 \end{align}
 and analogously, for a time-independent $H_{1,I}$ we have that
 \begin{align}
@@ -68,7 +68,7 @@ For a canonical ensemble, this is given by:
     \label{eq:thermal_density_operator}
     \rho_0 = \frac{\exp(-\beta\hbar H)}{\Tr[\exp(-\beta\hbar H)]}
 \end{equation}
-where $\beta = 1/(k_\mathrm{B}T)$ and the Hamiltonian $H\/$ is in units of angular momentum, as has been consistently used here.
+where $\beta = 1/(k_{\symup{B}}T)$ and the Hamiltonian $H\/$ is in units of angular momentum, as has been consistently used here.
 At equilibrium, no pulses or gradients are being applied, so the appropriate Hamiltonian is the free (Schr\"odinger-picture) Hamiltonian $H_\text{free}$ (\cref{eq:h_free}).%
 \footnote{The interaction-picture $H_{\text{free},I}$ would not be appropriate here, as its entire existence is merely a mathematical formalism. If that were not the case, it would imply that we can change the equilibrium state $\rho_0$ by simply \textit{choosing} a different $H_0$ to factor out.}
 Consider the case of a single spin: we have that $H_\text{J} = 0$, and hence $H_\text{free} = H_\text{cs} = \omega_0 I_z$. Thus,
@@ -76,7 +76,7 @@ Consider the case of a single spin: we have that $H_\text{J} = 0$, and hence $H_
     \label{eq:nmr_equilibrium_rho}
     \rho_0 = \frac{\exp(cI_z)}{\Tr[\exp(cI_z)]} \approx \frac{E + cI_z}{\Tr(E + cI_z)} = E + cI_z,
 \end{equation}
-where $c = -\beta\hbar\omega_0 = -\hbar\omega_0/(k_\mathrm{B}T)$ and $E\/$ is the identity matrix; the approximation $\exp(cI_z) \approx E + cI_z$ is justified here as $c\/$ is typically very small (on the order of $10^{-5}$).
+where $c = -\beta\hbar\omega_0 = -\hbar\omega_0/(k_{\symup{B}}T)$ and $E\/$ is the identity matrix; the approximation $\exp(cI_z) \approx E + cI_z$ is justified here as $c\/$ is typically very small (on the order of $10^{-5}$).
 
 Throughout this thesis I consider only linear transformations of the form in \cref{eq:lvn_interaction_integrated}, which use unitary propagators of the form $U = \exp(-\mi Ht)$:
 \begin{equation}

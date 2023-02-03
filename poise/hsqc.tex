@@ -12,51 +12,51 @@ This separation of different `magnetisation pools' is conceptually very similar 
     \includegraphics[]{pp/poise/asaphsqc.png}%
     \caption[ASAP-HSQC pulse sequence]{
         ASAP-HSQC pulse sequence.
-        Phase cycling is performed using $\phi_1 = (x, -x)$, $\phi_2 = (x, x, -x, -x)$, and $\phi_\text{rec} = (x, -x, x, -x)$.
+        Phase cycling is performed using $\phi_1 = (x, -x)$, $\phi_2 = (x, x, -x, -x)$, and $\phi_{\symup{rec}} = (x, -x, x, -x)$.
         Gradient amplitudes are as follows: $g_1 = 33\%$, $g_2 = 43\%$, and for echo--antiecho selection, $(g_3, g_4) = (59.9\%, 80\%)$ and $(63.9\%, 80\%)$ respectively.
-        The delay $\Delta$ is set to $1/(4 \cdot \oneJ{CH})$; the delay $\Delta_\text{E}$ was optimised as described in the text.
+        The delay $\Delta$ is set to $1/(4 \cdot \oneJ{CH})$; the delay $\DeltaE$ was optimised as described in the text.
         The BIBOP, BEBOP, and BURBOP optimal control pulses\autocite{Kobzar2004JMR,Kobzar2008JMR,Kobzar2012JMR} were used for \proton{} \ang{180} pulses and all \carbon{} pulses; for more details, refer to the original paper by Luy and coworkers\autocite{SchulzeSunninghausen2014JACS}.
     }
     \label{fig:asaphsqc_pulseq}
 \end{figure}
 
-By modifying the length of the delay $\Delta_\text{E}$ in the initial INEPT block, it is possible to adjust the proportion of the \magn{C} magnetisation excited during the sequence: the remainder is stored along $z$.
-The delay $\Delta_\text{E}$ can be related to an \textit{effective flip angle}, $\theta_\text{eff}$, through
+By modifying the length of the delay $\DeltaE$ in the initial INEPT block, it is possible to adjust the proportion of the \magn{C} magnetisation excited during the sequence: the remainder is stored along $z$.
+The delay $\DeltaE$ can be related to an \textit{effective flip angle}, $\thetaeff$, through
 \begin{equation}
     \label{eq:asaphsqc_ernst_angle}
-    \theta_\text{eff} = 2\pi J \Delta_\text{E}.
+    \thetaeff = 2\pi J \DeltaE.
 \end{equation}
 where $J\/$ is here short for $\oneJ{CH}$.
-This partial excitation means that the signal is decreased by a factor of $\sin\theta_\text{eff}$, but means that on the next scan or increment, there is a larger pool of \magn{C} magnetisation to start from.
-The combination of these factors means that there is an optimum $\Delta_\text{E}$ which yields the greatest steady-state signal.
-Equivalently, we can define an `effective J-coupling', $J_\text{eff}$ for which the INEPT delay is optimised:
+This partial excitation means that the signal is decreased by a factor of $\sin\thetaeff$, but means that on the next scan or increment, there is a larger pool of \magn{C} magnetisation to start from.
+The combination of these factors means that there is an optimum $\DeltaE$ which yields the greatest steady-state signal.
+Equivalently, we can define an `effective J-coupling', $\Jeff$, for which the INEPT delay is optimised:
 \begin{equation}
     \label{eq:asaphsqc_j_eff}
-    \Delta_\text{E} = \frac{1}{4 J_\text{eff}} \quad\Longleftrightarrow\quad J_\text{eff} = \frac{\pi J}{2\theta_\text{eff}},
+    \DeltaE = \frac{1}{4 \Jeff} \quad\Longleftrightarrow\quad \Jeff = \frac{\pi J}{2\thetaeff},
 \end{equation}
-and we can search for the ideal $J_\text{eff}$ to maximise the sensitivity of the ASAP-HSQC spectrum.
+and we can search for the ideal $\Jeff$ to maximise the sensitivity of the ASAP-HSQC spectrum.
 
 Notice that this is entirely analogous to the Ernst angle previously discussed in \cref{subsec:poise__ernst}.
 However, here, the magnetisation is being recovered partly through isotropic mixing and partly through relaxation during the FID.
 This makes an analytic description of the ASAP-HSQC experiment rather more complicated (although it has been studied before\autocite{Koos2019JMR}).
-Directly optimising the excitation delay $\Delta_\text{E}$ with POISE, which circumvents the theory entirely, is therefore an attractive option for practical day-to-day use.
+Directly optimising the excitation delay $\DeltaE$ with POISE, which circumvents the theory entirely, is therefore an attractive option for practical day-to-day use.
 
 
 \subsubsection{Optimisation setup}
 
-Given the analysis above, it is extraordinarily easy to set up the optimisation: the parameter being optimised is $J_\text{eff}$, and the initial point chosen is a `compromise' $\oneJ{CH}$ value of \qty{150}{\Hz}.
+Given the analysis above, it is extraordinarily easy to set up the optimisation: the parameter being optimised is $\Jeff$, and the initial point chosen is a `compromise' $\oneJ{CH}$ value of \qty{150}{\Hz}.
 Although generally it is not a good idea to use a 2D experiment as part of the FE, in this specific case it is acceptable because the ASAP-HSQC has such a short running time.
 In this case, we simply take the projection of the 2D ASAP-HSQC onto the $F_2$ axis, integrate it, and take the negative of that to obtain the cost function.
 
 A reference grid search was performed so that I could later verify the optimisation results (\cref{fig:asaphsqc_scan}).
-The exact point where the crosspeak intensities are maximised is not obvious: generally, the signal increases up until $J_\text{eff} \approx \qty{230}{\Hz}$, after which it plateaus off.
+The exact point where the crosspeak intensities are maximised is not obvious: generally, the signal increases up until $\Jeff \approx \qty{230}{\Hz}$, after which it plateaus off.
 In a similar fashion to the NOE optimisations (\cref{subsec:poise__noe}), we may therefore consider any value above this to be `correct'.
 
 \begin{figure}[htb]
     \centering
     \includegraphics[]{poise/asaphsqc_scan.png}%
     \caption[Reference grid search for ASAP-HSQC excitation delay]{
-        Reference grid search showing how the ASAP-HSQC signal intensity for the 3-fluorophenylboronic acid sample varies with $J_\text{eff}$.
+        Reference grid search showing how the ASAP-HSQC signal intensity for the 3-fluorophenylboronic acid sample varies with $\Jeff$.
         \datacode{7B-200722}
     }
     \label{fig:asaphsqc_scan}
@@ -94,7 +94,7 @@ A recovery delay of \qty{0.1}{\s} was used.
     {\phantomsubcaption\label{fig:asaphsqc_spec_proj}}%
     \caption[Projections of ASAP-HSQC spectra before and after optimisation]{
         \textbf{(\subref*{fig:asaphsqc_spec_spec})} ASAP-HSQC spectrum of the 3-fluorophenylboronic acid sample.
-        \textbf{(\subref*{fig:asaphsqc_spec_proj})} Projections of the ASAP-HSQC spectra before (grey dotted line, using $J_\text{eff} = \qty{150}{\Hz}$) and after (green dotted line, using $J_\text{eff} = \qty{245}{\Hz}$) optimisation of the INEPT delay.
+        \textbf{(\subref*{fig:asaphsqc_spec_proj})} Projections of the ASAP-HSQC spectra before (grey dotted line, using $\Jeff = \qty{150}{\Hz}$) and after (green dotted line, using $\Jeff = \qty{245}{\Hz}$) optimisation of the INEPT delay.
         Sensitivity increases for each peak are indicated.
         \datacode{7B-200722}
     }
@@ -102,7 +102,7 @@ A recovery delay of \qty{0.1}{\s} was used.
 \end{figure}
 
 The results from the POISE optimisations are collated in \cref{tbl:poise_asaphsqc}.
-As can be seen, even though the FE involves acquisition of a 2D spectrum, the optimisation itself completes in just 2--3 minutes, correctly converging to $J_\text{eff}$ values in the region of around \qty{240}{\Hz}.
+As can be seen, even though the FE involves acquisition of a 2D spectrum, the optimisation itself completes in just 2--3 minutes, correctly converging to $\Jeff$ values in the region of around \qty{240}{\Hz}.
 When re-evaluated on a `full' ASAP-HSQC experiment with 64 $t_1$ increments (\cref{fig:asaphsqc_spec_spec}),%
 \footnote{The \carbon{} resonances of interest in this compound fall within a very small window, so relatively few $t_1$ increments are needed.}
 the optimisation yielded an 18--27\% improvement in the sensitivity of the ASAP-HSQC spectrum, as shown in \cref{fig:asaphsqc_spec_proj}.

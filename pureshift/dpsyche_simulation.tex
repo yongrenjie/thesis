@@ -42,8 +42,8 @@ end
 \label{lst:dpsyche_slow}
 \end{mylisting}
 
-It is not difficult to come up with a more sensible approach which cuts this down by a factor of $m$: since the pulses are not applied together with the gradients, the pulse propagators $U_\text{pulse}$ can be pre-calculated outside of the loop.
-Furthermore, all of the gradients within the PSE are the same, so $U_\text{grad}$ can be moved out of the inner loop (\cref{lst:dpsyche_fast1}).
+It is not difficult to come up with a more sensible approach which cuts this down by a factor of $m$: since the pulses are not applied together with the gradients, the pulse propagators $U_{\symup{pulse}}$ can be pre-calculated outside of the loop.
+Furthermore, all of the gradients within the PSE are the same, so $U_{\symup{grad}}$ can be moved out of the inner loop (\cref{lst:dpsyche_fast1}).
 
 \begin{mylisting}[htb]
     \centering
@@ -105,12 +105,12 @@ At this point, our matrix exponentials have almost been eliminated and the large
 We can cut these down by a factor of two simply by calculating the overall propagator
 \begin{equation}
     \label{eq:overall_propagator}
-    U_\text{total} = U_n\cdots U_2U_1
+    U_{\symup{total}} = U_n\cdots U_2U_1
 \end{equation}
 and then performing the propagation only at the very end:
 \begin{equation}
     \label{eq:overall_propagation}
-    \rho = U_\text{total} \rho_0 \adj{U_\text{total}}
+    \rho = U_{\symup{total}} \rho_0 \adj{U_{\symup{total}}}
 \end{equation}
 instead of performing every individual step $\rho \to U_1\rho_0\adj{U_1}$.
 The final optimised code therefore resembles that in \cref{lst:dpsyche_fast2}.

@@ -28,12 +28,6 @@ In \cref{fig:esrpoise_comp_nocomp}, the CHORUS broadband excitation experiment w
 Clearly, there are substantial mismatches.
 \Cref{fig:esrpoise_comp_ampcomp} shows the improved performance of CHORUS after a simple optimisation of the shaped pulse amplitudes, using the spectral intensity (or the negative thereof, since we seek to maximise it) as the cost function: the POISE optimisation therefore allows for a much more accurate spectrum to be obtained.
 
-This can be further improved, however, by compensating for distortions in the pulse shape caused by the resonator.
-Typically, this is a time-consuming process, requiring the determination of a transfer function: in this case, however, it can be performed in a fully automated fashion using POISE.
-The coefficients in the transfer function are used as optimisation parameters, and are used within each function evaluation to back-calculate a compensated pulse shape: the cost function used is the difference between the compensated CHORUS spectrum and the field sweep ($f_\text{diff}$, as defined in \cref{eq:ps_cf_diff}).
-At the point where the cost function is minimised, the transfer function parameters will have been accurately determined.
-The final compensated CHORUS spectrum is shown in \cref{fig:esrpoise_comp_resoncomp}.
-
 \begin{figure}[htb]
     \centering
     \includegraphics[]{poise/esrpoise_comp.png}%
@@ -45,9 +39,15 @@ The final compensated CHORUS spectrum is shown in \cref{fig:esrpoise_comp_resonc
         \textbf{(\subref*{fig:esrpoise_comp_nocomp})} without any optimisation of CHORUS,
         \textbf{(\subref*{fig:esrpoise_comp_ampcomp})} after optimisation of the CHORUS amplitudes, and
         \textbf{(\subref*{fig:esrpoise_comp_resoncomp})} using a compensated CHORUS pulse obtained through determination of the resonator transfer function.
-        The value of $f_\text{diff}$ is indicated on each plot.
+        The value of $\fdiff$ is indicated on each plot.
         The sample used was a bisnitroxide; further experimental details are provided in the paper.\autocite{Verstraete2022CC}
         The data used for this figure were acquired by \JBV{}.
     }
     \label{fig:esrpoise_comp}
 \end{figure}
+
+This can be further improved, however, by compensating for distortions in the pulse shape caused by the resonator.
+Typically, this is a time-consuming process, requiring the determination of a transfer function: in this case, however, it can be performed in a fully automated fashion using POISE.
+The coefficients in the transfer function are used as optimisation parameters, and are used within each function evaluation to back-calculate a compensated pulse shape: the cost function used is the difference between the compensated CHORUS spectrum and the field sweep ($\fdiff$, as defined in \cref{eq:ps_cf_diff}).
+At the point where the cost function is minimised, the transfer function parameters will have been accurately determined.
+The final compensated CHORUS spectrum is shown in \cref{fig:esrpoise_comp_resoncomp}.

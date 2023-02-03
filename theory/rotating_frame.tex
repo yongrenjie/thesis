@@ -3,7 +3,7 @@
 
 The Hamiltonians described above refer to the `laboratory frame' or the \textit{Schr\"odinger picture}, where spins precess about the $z$-axis at their intrinsic frequencies and obey the equation of motion \labelcref{eq:tdse}.
 However, this proves to often be unwieldy, in particular when analysing the effects of RF pulses.
-It is standard procedure to transform the frame of reference to a `rotating frame', specifically, one which rotates about the $z$-axis at a defined rotation frequency $\omega_\text{rot}$ which is close to the Larmor frequencies $\omega_0$.
+It is standard procedure to transform the frame of reference to a `rotating frame', specifically, one which rotates about the $z$-axis at a defined rotation frequency $\omegarot$ which is close to the Larmor frequencies $\omega_0$.
 
 The rotating frame can be formalised using the \textit{interaction picture} of quantum mechanics,\autocite{Sakurai2021} which involves the separation of the Hamiltonian into two parts, with the first typically being completely time-independent:
 \begin{equation}
@@ -15,7 +15,7 @@ In this case, the static part $H_0$ simply corresponds to precession of the spin
     \label{eq:interaction_ham0}
     H_0 = \sum_i \omega_{\text{rot},i}I_{iz}.
 \end{equation}
-(Generally, each instance of the same nuclide (e.g.\ \proton{} or \carbon{}) will share the same $\omega_\text{rot}$, so the subscript $i$ in $\omega_{\text{rot},i}$ is useful only for distinguishing different nuclear species.)
+(Generally, each instance of the same nuclide (e.g.\ \proton{} or \carbon{}) will share the same $\omegarot$, so the subscript $i$ in $\omega_{\text{rot},i}$ is useful only for distinguishing different nuclear species.)
 This allows us to define $H_1$ as
 \begin{align}
     \label{eq:reduced_ham}
@@ -24,7 +24,7 @@ This allows us to define $H_1$ as
         &= H_\text{J} + H_\text{pulse} + H_\text{grad} + H_\text{offset}
 \end{align}
 where $\Omega_i = \omega_{0,i} - \omega_{\text{rot},i}$ is the \textit{offset} of spin $i$.
-For reasons which will become clear later, the frequency $\omega_\text{rot}$ is chosen to be the centre of the spectral window for the given nuclide.
+For reasons which will become clear later, the frequency $\omegarot$ is chosen to be the centre of the spectral window for the given nuclide.
 
 Having split up our Hamiltonian, we then define an \textit{interaction-picture ket}:
 \begin{equation}
@@ -71,15 +71,15 @@ In the laboratory frame, \textit{hard pulses} are applied as oscillating RF fiel
 Consider the case of a pulse acting on a single spin:
 \begin{equation}
     \label{eq:hard_pulse}
-    H_\text{pulse,hard} = \omega_1 [\cos(\omega_\text{rf}t + \phi) I_x + \sin(\omega_\text{rf}t + \phi) I_y].
+    H_\text{pulse,hard} = \omega_1 [\cos(\omegarf t + \phi) I_x + \sin(\omegarf t + \phi) I_y].
 \end{equation}
-Here, $\omega_1$ represents the \textit{amplitude} of the pulse, and $\phi$ the \textit{phase}. This expression is similar to the expression in \cref{eq:h_pulse}, but here $\omega_1$ and $\phi$ are both constants, with the time dependence explicitly specified using the \textit{frequency} of the pulse, $\omega_\text{rf}$.
-In the rotating frame, using that $H_0 = \omega_\text{rot}I_z$, we then have the following interaction Hamiltonian:
+Here, $\omega_1$ represents the \textit{amplitude} of the pulse, and $\phi$ the \textit{phase}. This expression is similar to the expression in \cref{eq:h_pulse}, but here $\omega_1$ and $\phi$ are both constants, with the time dependence explicitly specified using the \textit{frequency} of the pulse, $\omegarf$.
+In the rotating frame, using that $H_0 = \omegarot I_z$, we then have the following interaction Hamiltonian:
 \begin{equation}
     \label{eq:hard_pulse_rotatingframe_intermediate}
     \begin{aligned}
-        H_{\text{pulse,hard,}I} &= \omega_1 \,\big[\! \exp(\mi \omega_\text{rot}t I_z) I_x \cos(\omega_\text{rf}t + \phi) \exp(-\mi \omega_\text{rot}t I_z) \\
-                                &\quad\quad\quad + \exp(\mi \omega_\text{rot}t I_z) I_y \sin(\omega_\text{rf}t + \phi) \exp(-\mi \omega_\text{rot}t I_z) \big],
+        H_{\text{pulse,hard,}I} &= \omega_1 \,\big[\! \exp(\mi \omegarot t I_z) I_x \cos(\omegarf t + \phi) \exp(-\mi \omegarot t I_z) \\
+                                &\quad\quad\quad + \exp(\mi \omegarot t I_z) I_y \sin(\omegarf t + \phi) \exp(-\mi \omegarot t I_z) \big],
     \end{aligned}
 \end{equation}
 and using the formulae
@@ -90,11 +90,11 @@ and using the formulae
 (see Appendix A.2 of Levitt\autocite{Levitt2008} for a derivation), \cref{eq:hard_pulse_rotatingframe_intermediate} simplifies to
 \begin{equation}
     \label{eq:hard_pulse_rotatingframe}
-    H_{\text{pulse,hard,}I} = \omega_1 \left[I_x \cos(\omega_\text{rf} - \omega_\text{rot} + \phi) + I_y \sin(\omega_\text{rf} - \omega_\text{rot} + \phi) \right].
+    H_{\text{pulse,hard,}I} = \omega_1 \left[I_x \cos(\omegarf - \omegarot + \phi) + I_y \sin(\omegarf - \omegarot + \phi) \right].
 \end{equation}
-The frequency at which hard pulses are applied is termed the \textit{transmitter frequency}, $\omega_\text{tx}$.
+The frequency at which hard pulses are applied is termed the \textit{transmitter frequency}, $\omegatx$.
 This is a parameter which can be controlled by the user, and is typically placed in the centre of the spectrum of the sample under study, in order to make the most use of its \textit{bandwidth} (the region of frequencies over which the pulse is effective).
-For convenience, it is typical to then choose the rotating-frame frequency to be exactly the same frequency: $\omega_\text{rot} = \omega_\text{tx}$.
+For convenience, it is typical to then choose the rotating-frame frequency to be exactly the same frequency: $\omegarot = \omegatx$.
 This allows us to simplify the rotating-frame Hamiltonian to
 \begin{equation}
     \label{eq:hard_pulse_onresonance}
@@ -108,11 +108,11 @@ Occasionally, I will also use the Cartesian components:
 \end{equation}
 instead of the amplitude and phase, to describe the pulse.
 
-Consider now the application of this pulse to an isolated spin for which $\omega_0 = \omega_\text{rot}$ and thus has an offset $\Omega = 0$.
+Consider now the application of this pulse to an isolated spin for which $\omega_0 = \omegarot$ and thus has an offset $\Omega = 0$.
 We have that $H_\text{offset} = H_\text{J} = H_\text{grad} = 0$, and the only active Hamiltonian is that of the pulse, which causes \textit{nutation} of the spin magnetisation vector around the axis of the pulse; in this case, the pulse (or the spin) is said to be \textit{on-resonance}.%
-\footnote{Strictly speaking, the rotating frame is just a mathematical formalism, so the resonance condition does not necessitate $\Omega = 0$ or $\omega_\text{rf} = \omega_\text{rot} = \omega_0$. We only need that $\omega_\text{rf} = \omega_0$, or in other words, that the pulse is applied at the frequency of the spin---which may or may not be the same as the rotating-frame frequency. Practically, such a situation may arise in (for example) the application of selective pulses to a specific spin which is not at the centre of the spectrum.}
-If a duration for the pulse $\tau_\text{p}$ is further specified, this also allows us to define a \textit{flip angle} $\beta = \omega_1 \tau_\text{p}$.
-On the other hand, spins which are \textit{off-resonance} ($\omega_0 - \omega_\text{tx} \neq 0$) evolve not only under the pulse Hamiltonian but also the offset; this leads to a different effective flip angle and axis of rotation.
+\footnote{Strictly speaking, the rotating frame is just a mathematical formalism, so the resonance condition does not necessitate $\Omega = 0$ or $\omegarf = \omegarot = \omega_0$. We only need that $\omegarf = \omega_0$, or in other words, that the pulse is applied at the frequency of the spin---which may or may not be the same as the rotating-frame frequency. Practically, such a situation may arise in (for example) the application of selective pulses to a specific spin which is not at the centre of the spectrum.}
+If a duration for the pulse $\taup$ is further specified, this also allows us to define a \textit{flip angle} $\beta = \omega_1 \taup$.
+On the other hand, spins which are \textit{off-resonance} ($\omega_0 - \omegatx \neq 0$) evolve not only under the pulse Hamiltonian but also the offset; this leads to a different effective flip angle and axis of rotation.
 Off-resonance effects may be neglected when considering an idealised, infinitely hard pulse.
 However, this is of course not possible on a spectrometer, and in practice off-resonance effects are noticeable even for hard pulses as short as several microseconds.
 

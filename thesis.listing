@@ -1,28 +1,42 @@
-% precalculate propagator due to free evolution during gradient
-% only 1 matrix exponential
-U_free = expm(-1i * H_free * t_grad);
+"l0     = td1/2"             ; TD1/NBL
+"cnst53 = cnst51 - cnst52"   ; automatically calculate m_2 = M - m_1
+; ...
 
-% precalculate pulse propagators; m total matrix exponentials
-for pulse_point=1:m
-    H_pulse = (c_x(pulse_point) * I_x) + (c_y(pulse_point) * I_y)
-    U_pulse(m) = expm(-1j * (H_free + H_pulse) * t_pulse)
-end
+1 ze
+2 30m
+4 50u UNBLKGRAD
+  d1 st0
 
-% loop over slices
-for slce=1:n
-    % initialise propagator for this slice
-    U_slce = eye(2 ^ p);
+  ; HSQC goes here
+  ; ...
+  goscnp ph30 cpd2:f2
+  50u do:f2
 
-    % calculate gradient propagators; no matrix exponentials required
-    H_grad = I_z * G * z(slce);
-    U_grad = U_free * diag(exp(diag(-1j * H_grad * t_grad)));
+  ; check which module to run
+  if "l3 % cnst51 < cnst52"
+{
+  ; TOCSY goes here
+  ; ...
+  go=2 ph31
+}
+  else
+{
+  ; NOESY goes here
+  ; ...
+  go=2 ph31
+}
 
-    % loop over pulse points
-    for point=1:m
-        U_slce = U_pulse(m) * U_slce;
-        U_slce = U_grad * U_slce;
-    end
+  ; move to next 'row' in diagram
+  1m iu3
+  30m wr #0 if #0 zd
 
-    % perform propagation only at the end
-    rho = U_slce * rho * U_slce';
+  ; check if M 'rows' have passed
+  if "l3 % cnst51 == 0"
+{
+  1m iu1
+  1m igrad EA   ; HSQC echo-antiecho gradients
+  ; ...
+}
+
+  lo to 4 times l0
 end

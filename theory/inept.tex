@@ -140,9 +140,9 @@ The two FIDs we record are thus as follows:
     s_2(t) &= -s_I(t) + s_S(t)
 \end{align}
 Simply taking the difference of these two FIDs yields a signal where the desired $s_I$ has been accumulated and $s_S$ has been cancelled out.
-In practice, instead of subtracting the two signals, it is typical to shift the receiver phase $\phi_\text{rec}$ by \ang{180} in the second experiment: this introduces a phase shift of $\exp(-\mi\pi) = -1$ to the signal, and the two signals can now be \textit{added} together instead of subtracted to cancel out $s_S$.
-Since both $\phi_1$ and $\phi_\text{rec}$ are $0$ on the first experiment and $\pi$ on the second experiment, we can express this as $\phi_x = \phi_\text{rec} = (0, \pi)$.
-This is more commonly denoted as $\phi_1 = \phi_\text{rec} = (x, -x)$, because the phases $(0, \pi)$ correspond to the $+x$- and $-x$-axes respectively.
+In practice, instead of subtracting the two signals, it is typical to shift the receiver phase $\phirec$ by \ang{180} in the second experiment: this introduces a phase shift of $\exp(-\mi\pi) = -1$ to the signal, and the two signals can now be \textit{added} together instead of subtracted to cancel out $s_S$.
+Since both $\phi_1$ and $\phirec$ are $0$ on the first experiment and $\pi$ on the second experiment, we can express this as $\phi_x = \phirec = (0, \pi)$.
+This is more commonly denoted as $\phi_1 = \phirec = (x, -x)$, because the phases $(0, \pi)$ correspond to the $+x$- and $-x$-axes respectively.
 
 The `simplified' analysis of pulse sequences shown in \cref{eq:inept_prodop,eq:inept_prodop_s} is often called \textit{`product operator'} analysis\autocite{Sorensen1984PNMRS}, because the underlying two-spin operators are products of single-spin Cartesian operators.
 Although this is often touted as being `simpler' than full density operator calculations, it is really just a shorthand which masks the quantum mechanical theory developed in this chapter:

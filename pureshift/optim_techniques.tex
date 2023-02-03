@@ -45,10 +45,10 @@ These distortions are just about visible in \cref{fig:jrse_jrse}.
 
 Two cost functions were designed and used in this section:
 \begin{align}
-    f_\text{phase} &= \Var_i\left[\arctan\left(\frac{S_{\text{re},i}}{|S_{\text{im},i}|}\right)\right] \label{eq:ps_cf_phase} \\
-    f_\text{diff} &= \Biggl\lVert \frac{\symbf{S}_\text{re}}{\lVert \symbf{S}_\text{re} \rVert} - \frac{\symbf{T}_\text{re}}{\lVert \symbf{T}_\text{re} \rVert} \Biggr\rVert, \label{eq:ps_cf_diff}
+    \fphase &= \Var_i\left[\arctan\left(\frac{S_{\text{re},i}}{|S_{\text{im},i}|}\right)\right] \label{eq:ps_cf_phase} \\
+    \fdiff &= \Biggl\lVert \frac{\symbf{S}_{\symup{re}}}{\lVert \symbf{S}_{\symup{re}} \rVert} - \frac{\symbf{T}_{\symup{re}}}{\lVert \symbf{T}_{\symup{re}} \rVert} \Biggr\rVert, \label{eq:ps_cf_diff}
 \end{align}
-where the JRSE and pulse--acquire 1D spectra are treated as complex-valued vectors $\symbf{S}$ and $\symbf{T}$ respectively (for \textit{`spectrum'} and \textit{`target'}). $\symbf{S}_\text{re}$ and $\symbf{S}_\text{im}$ are the real and imaginary parts of the spectrum $\symbf{S}$, and $S_{\text{re},i}$ is the $i$-th point of the real part of the spectrum.
+where the JRSE and pulse--acquire 1D spectra are treated as complex-valued vectors $\symbf{S}$ and $\symbf{T}$ respectively (for \textit{`spectrum'} and \textit{`target'}). $\symbf{S}_{\symup{re}}$ and $\symbf{S}_{\symup{im}}$ are the real and imaginary parts of the spectrum $\symbf{S}$, and $S_{\symup{re},i}$ is the $i$-th point of the real part of the spectrum.
 The operator $\Var_i$ represents the variance over all points in the spectrum (indexed by $i$), and $\lVert \symbf{x} \rVert$ denotes the 2-norm of the vector $\symbf{x}$, i.e.\ $\sqrt{\sum_i x_i^2}$.
 Python implementations of these are given in \cref{lst:pureshift_costfunctions}.%
 \footnote{The use of \texttt{np.arctan} (the arctangent), and \textit{not} \texttt{np.arctan2} (the argument of a complex number), is intentional. The behaviour shown in \cref{fig:fa_scan_synthetic} isn't reproduced with \texttt{arctan2}. Of course, this means the name `phase' is a misnomer; it's not really the phase of anything meaningful.}
@@ -71,11 +71,11 @@ f_diff = np.linalg.norm((Sr / np.linalg.norm(Sr))
     \includegraphics[]{pureshift/fa_scan_synthetic.png}%
     {\phantomsubcaption\label{fig:fa_scan_synthetic_fphase}}%
     {\phantomsubcaption\label{fig:fa_scan_synthetic_fdiff}}%
-    \caption[Evaluation of $f_\text{phase}$ and $f_\text{diff}$ cost functions on synthetic data]{
-        Behaviour of the two cost functions, $f_\text{phase}$ and $f_\text{diff}$, on synthetic spectra with various SNRs.
+    \caption[Evaluation of $\fphase$ and $\fdiff$ cost functions on synthetic data]{
+        Behaviour of the two cost functions, $\fphase$ and $\fdiff$, on synthetic spectra with various SNRs.
         Zero phase distortion refers to an in-phase absorption-mode doublet, whereas complete phase distortion refers to an antiphase dispersion-mode doublet.
-        \textbf{(\subref*{fig:fa_scan_synthetic_fphase})} The $f_\text{phase}$ cost function.
-        \textbf{(\subref*{fig:fa_scan_synthetic_fdiff})} The $f_\text{diff}$ cost function, measured against a spectrum with no phase distortion and an SNR of 500.
+        \textbf{(\subref*{fig:fa_scan_synthetic_fphase})} The $\fphase$ cost function.
+        \textbf{(\subref*{fig:fa_scan_synthetic_fdiff})} The $\fdiff$ cost function, measured against a spectrum with no phase distortion and an SNR of 500.
     }
     \label{fig:fa_scan_synthetic}
 \end{figure}
@@ -83,15 +83,15 @@ f_diff = np.linalg.norm((Sr / np.linalg.norm(Sr))
 These two cost functions were chosen as they exhibited desirable characteristics on synthetic data (\cref{fig:fa_scan_synthetic}).
 In these simulations, the `target' spectrum was chosen to simply be an in-phase absorption-mode doublet with an SNR of 500.
 Synthetic data with increasing amounts of J-modulation (i.e.\ spectra ranging from in-phase absorption, to antiphase dispersion) were generated, and extra Gaussian noise added to mimic different SNRs.
-It can be seen that, for data which have little J-modulation (left edges of the plots), both $f_\text{phase}$ (\cref{fig:fa_scan_synthetic_fphase}) and $f_\text{diff}$ (\cref{fig:fa_scan_synthetic_fdiff}) penalise lower SNRs.
+It can be seen that, for data which have little J-modulation (left edges of the plots), both $\fphase$ (\cref{fig:fa_scan_synthetic_fphase}) and $\fdiff$ (\cref{fig:fa_scan_synthetic_fdiff}) penalise lower SNRs.
 Furthermore, both of the cost functions penalise J-modulation, since they increase going from left to right.
 This penalty is stricter for high-SNR spectra, which is also desirable, since it is only in high-SNR spectra that the J-modulation becomes noticeable.
 
-The cost function $f_\text{diff}$ is easier to comprehend: it simply scales both the target and JRSE spectra down by their respective intensities, and compares each point to determine whether the peak shapes obtained are similar.
+The cost function $\fdiff$ is easier to comprehend: it simply scales both the target and JRSE spectra down by their respective intensities, and compares each point to determine whether the peak shapes obtained are similar.
 Although this seems like it should be agnostic towards signal intensity, this is only true for noiseless spectra.
-If a (genuine) JRSE spectrum has low SNR, $\lVert \symbf{S}_\text{re} \rVert$ will be small, and the noise will be scaled down less than for the target spectrum; this difference in the \textit{noise} (rather than the signal) then contributes towards the cost function.
-On the other hand, a proper rationalisation of why the cost function $f_\text{phase}$ works is unfortunately not within my capabilities!
-It was mostly developed by trial-and-error (based on the notion that phase distortions would have something to do with $\symbf{S}_\text{re}$ and $\symbf{S}_\text{im}$), and I do not have a good explanation of why it works.
+If a (genuine) JRSE spectrum has low SNR, $\lVert \symbf{S}_{\symup{re}} \rVert$ will be small, and the noise will be scaled down less than for the target spectrum; this difference in the \textit{noise} (rather than the signal) then contributes towards the cost function.
+On the other hand, a proper rationalisation of why the cost function $\fphase$ works is unfortunately not within my capabilities!
+It was mostly developed by trial-and-error (based on the notion that phase distortions would have something to do with $\symbf{S}_{\symup{re}}$ and $\symbf{S}_{\symup{im}}$), and I do not have a good explanation of why it works.
 
 \begin{figure}[htbp]
     \centering

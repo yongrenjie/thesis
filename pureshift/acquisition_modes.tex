@@ -12,9 +12,9 @@
         The red box labelled `PSE' indicates a generic pure shift element, which can be any of those described in the main text.
         In practice, gradients are also used to suppress unwanted coherence transfers; these are not shown here for simplicity.
         \textbf{(\subref*{fig:pureshift_modes_indirectnd})} Insertion of a J-refocusing element (JRE) in the centre of an indirect-dimension evolution period, which leads to a spectrum which is pure shift in $F_1$.
-        The \ang{90}--$\tau_\mathrm{g}$--\ang{90} block shown here corresponds to a NOESY experiment, but in principle any 2D experiment can be adapted in this fashion.
-        \textbf{(\subref*{fig:pureshift_modes_realtime})} Real-time acquisition of a 1D pure shift spectrum in chunks of duration $T_\text{chunk}$.
-        \textbf{(\subref*{fig:pureshift_modes_interferogram})} Interferogram acquisition of a 1D pure shift spectrum, where $t_1$ is lengthened by $T_\text{chunk}$ every increment.
+        The \ang{90}--$\taum$--\ang{90} block shown here corresponds to a NOESY experiment, but in principle any 2D experiment can be adapted in this fashion.
+        \textbf{(\subref*{fig:pureshift_modes_realtime})} Real-time acquisition of a 1D pure shift spectrum in chunks of duration $\Tchunk$.
+        \textbf{(\subref*{fig:pureshift_modes_interferogram})} Interferogram acquisition of a 1D pure shift spectrum, where $t_1$ is lengthened by $\Tchunk$ every increment.
     }
     \label{fig:pureshift_modes}
 \end{figure}
@@ -42,7 +42,7 @@ Here, JREs are inserted at regular intervals throughout an acquisition period, c
 \footnote{Relaxation during the JRE must also be taken into account for the real-time method: this causes each successive chunk to decay in intensity faster than usual, thereby leading to peak broadening, which can be an issue for very long JREs.
 In contrast, the interferogram method only applies one JRE per increment, so the relaxation losses in each chunk are just a constant.}
 This leads to a series of FID `chunks' which must then be concatenated to form the desired FID.
-To prevent the J-coupling from evolving too much during a single chunk, the required spacing of the JREs, or equivalently the duration of each chunk $T_\text{chunk}$, must satisfy $T_\text{chunk} \ll 1/J\/$ (in practice, it is on the order of $1/(2J)$).
+To prevent the J-coupling from evolving too much during a single chunk, the required spacing of the JREs, or equivalently the duration of each chunk $\Tchunk$, must satisfy $\Tchunk \ll 1/J\/$ (in practice, it is on the order of $1/(2J)$).
 Naturally, real-time acquisition still comes with the sensitivity penalty of $c$.
 However, it allows a pure shift spectrum to be acquired in effectively the same time as the original coupled spectrum; its `single-scan' nature also allows, for example, the application of hyperpolarisation techniques which cannot be reproducibly repeated over multiple increments.\autocite{Donovan2014ACIE,Taylor2021MRC}
 
@@ -56,9 +56,9 @@ In other words, \textit{for any given molecule in the sample}, it must enforce t
 As will be described later, the BIRD and Zangger--Sterk methods always select the same active spins in the same molecules, but the PSYCHE method does not.
 Therefore, in order to acquire pure shift PSYCHE spectra, we have to resort to the \textit{interferogram method}, where each chunk is obtained as a separate increment of a 2D experiment (\cref{fig:pureshift_modes_interferogram}).
 The insertion of the JRE in the middle of the $t_1$ period means that when detection is started, it is `as if' only the chemical shift has evolved for a period $t_1$.
-On each increment, one chunk---again of duration $T_\text{chunk} \ll 1/J$---is detected, and then $t_1$ is incremented by $T_\text{chunk}$ so that the next chunk can be recorded.
+On each increment, one chunk---again of duration $\Tchunk \ll 1/J$---is detected, and then $t_1$ is incremented by $\Tchunk$ so that the next chunk can be recorded.
 Finally, the chunks are stitched together to form the requisite FID.%
-\footnote{Not included in \cref{fig:pureshift_modes_realtime,fig:pureshift_modes_interferogram} is the extra detail that scalar couplings are usually allowed to evolve for a period of $T_\text{chunk}/2$ at the start of the sequence by the addition of a spin echo: this amounts to a \textit{prefocusing} of J-evolution, such that J-coupling is refocused in the middle of the chunk rather than the beginning\autocite{Aguilar2010ACIE}.
+\footnote{Not included in \cref{fig:pureshift_modes_realtime,fig:pureshift_modes_interferogram} is the extra detail that scalar couplings are usually allowed to evolve for a period of $\Tchunk/2$ at the start of the sequence by the addition of a spin echo: this amounts to a \textit{prefocusing} of J-evolution, such that J-coupling is refocused in the middle of the chunk rather than the beginning\autocite{Aguilar2010ACIE}.
 This allows chunk sizes twice as large to be used, reducing the total duration of the experiment.
 This J-prefocusing can also be done in a more intelligent manner via the SAPPHIRE method\autocite{Moutzouri2017CC}, which is discussed in more detail in \cref{subsec:noah__2djpsyche}.}
 Since the indirect dimension is not processed by a Fourier transform, this is sometimes called a \textit{pseudo-2D} experiment (or \textit{pseudo-3D} if this is applied to the direct dimension of a 2D experiment, and so on).

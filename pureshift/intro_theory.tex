@@ -142,7 +142,7 @@ If we only consider a single operator and reuse the analysis above, setting the 
 This yields a complex signal of the form
 \begin{equation}
     \label{eq:2dj_signal}
-    s(t_1, t_2) = \exp(-\mathrm{i}\pi J t_1) \exp[\mi(\Omega_1 - \pi J) t_2],
+    s(t_1, t_2) = \exp(-\mi\pi J t_1) \exp[\mi(\Omega_1 - \pi J) t_2],
 \end{equation}
 which when Fourier transformed yields a phase twist lineshape at $(-\pi J, \Omega_1 - \pi J)$.
 The other component on spin 1 (starting from $I_{1+}I_{2\beta}$) likewise yields a phase twist at $(\pi J, \Omega_1 + \pi J)$.
@@ -152,8 +152,8 @@ This is true, but in practice the phase twist lineshapes cause the resulting res
 To circumvent this issue, a number of special processing techniques have been proposed\autocite{Xu1991JMR,Nuzillard1996JMRSA,Simova1997JMR} (see also references therein); but more ideally, we want a phase-sensitive 2DJ spectrum, which can be obtained by recording a pair of `echo' and `antiecho' signals:%
 \footnote{The terms `echo' and `antiecho' refer to the relative senses of the coherences evolving during $t_1$ and $t_2$: in the echo spectrum these have opposite signs, e.g.\ $I_zS_+$ and $I_-$ in the HSQC, and in the antiecho spectrum they have the same sign. As pointed out by Pell and Keeler\autocite{Pell2007JMR}, this is not really appropriate for the 2DJ experiment since each half of $t_1$ has a coherence with a different sense, but we will stick to this nomenclature as the underlying concept is very similar to that of echo--antiecho processing.}
 \begin{align}
-    s_\text{echo}(t_1, t_2) &= \exp(\mathrm{i}\pi J t_1) \exp[\mi(\Omega_1 - \pi J) t_2] \label{eq:2dj_signal_echo} \\
-    s_\text{antiecho}(t_1, t_2) &= \exp(-\mathrm{i}\pi J t_1) \exp[\mi(\Omega_1 - \pi J) t_2] \label{eq:2dj_signal_antiecho}
+    s_\text{echo}(t_1, t_2) &= \exp(\mi\pi J t_1) \exp[\mi(\Omega_1 - \pi J) t_2] \label{eq:2dj_signal_echo} \\
+    s_\text{antiecho}(t_1, t_2) &= \exp(-\mi\pi J t_1) \exp[\mi(\Omega_1 - \pi J) t_2] \label{eq:2dj_signal_antiecho}
 \end{align}
 These can be processed in the same way as described in \cref{subsec:theory__2dnmr} to yield double absorption-mode lineshapes.
 The antiecho signal (\cref{eq:2dj_signal_antiecho}) is of course the same as in \cref{eq:2dj_signal}, but to obtain the echo signal in \cref{eq:2dj_signal_echo}, we require a different pulse sequence with a PSE inserted just prior to detection:

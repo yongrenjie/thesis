@@ -9,7 +9,7 @@
         The delay $\Delta$ is set to $1/(4 \cdot \oneJ{CH})$.
         The gradient amplitudes are chosen such that $|g_1/g_2| = \gamma_{\ch{H}}/\gamma_{\ch{C}} \approx 4$.
         Specifically, the echo dataset is obtained by setting $(g_1, g_2) = (80\%, 20\%)$, and the antiecho dataset by setting $(g_1, g_2) = (80\%, -20\%)$, where gradient amplitudes are quoted as a percentage of the maximum gradient amplitude.
-        Unlike in the States HSQC (\cref{fig:hsqc_ph}), phase cycling of $\phi_1$ and $\phi_\text{rec}$ is no longer mandatory as the gradients $g_1$ and $g_2$ dephase unwanted magnetisation (although it can still be performed to attain \textit{even} better artefact suppression).
+        Unlike in the States HSQC (\cref{fig:hsqc_ph}), phase cycling of $\phi_1$ and $\phirec$ is no longer mandatory as the gradients $g_1$ and $g_2$ dephase unwanted magnetisation (although it can still be performed to attain \textit{even} better artefact suppression).
         $\tau$ represents the duration of both gradients, and is usually on the order of \qty{1}{ms}.
         The lines below the pulse sequence illustrate the coherence orders selected for during the echo experiment, which are collectively referred to as a coherence transfer pathway (CTP): for the antiecho experiment the \carbon{} CTP must be inverted.
     }
@@ -84,13 +84,13 @@ So, we can directly apply $\exp(-\mi H_\text{grad}\tau)$ to the density operator
 The signal which we detect stems from the entire sample length, so we in fact need to perform an integration over $z$:
 \begin{equation}
     \label{eq:density_operator_integration}
-    \rho = \frac{1}{L} \cdot \int_{-L/2}^{L/2} \rho(z) \,\mathrm{d}z,
+    \rho = \frac{1}{L} \cdot \int_{-L/2}^{L/2} \rho(z) \,\md z,
 \end{equation}
 where the sample length is $L$ and $z=0$ is assumed to be the middle of the sample.
 
 For the \textit{echo} experiment, we choose the ratio $g_1/g_2 = \gamma_I/\gamma_S$; this means that $\gamma_S g_1 - \gamma_I g_2 = 0$.
 The second and fourth terms in \cref{eq:hsqc_ea_after_g2_2} thus \textit{lose} their $z$-dependence; when integrated over $z$ these terms are unchanged.
-On the other hand, the first and third terms are attenuated by a factor proportional to $\int_{-L/2}^{L/2} \cos[(\gamma_S g_1 + \gamma_I g_2)z\tau]\,\mathrm{d}z$ (or the equivalent sine-modulated integrand).
+On the other hand, the first and third terms are attenuated by a factor proportional to $\int_{-L/2}^{L/2} \cos[(\gamma_S g_1 + \gamma_I g_2)z\tau]\,\md z$ (or the equivalent sine-modulated integrand).
 The term in square brackets here can be identified as the spatially dependent phase caused by the evolution under the gradient pulse; we say that the gradients \textit{dephase} coherences. (In the case of the second and fourth terms, they also \textit{rephase} coherences.)
 If the gradient strengths $(g_1, g_2)$ and/or their durations $\tau$ are sufficiently large, the integral evaluates to a small number which is effectively zero, corresponding to complete dephasing.
 The result is that, just before detection, we have:
@@ -192,7 +192,7 @@ Since such magnetisation is always on spin $I\/$, this would require that
     p\gamma_I g_1 + q\gamma_I g_2 = 0 \Leftrightarrow p \gamma_I + q\gamma_S = 0,
 \end{equation}
 which cannot be satisfied for any sensible integer values of $p$ and $q$ except for $p = q = 0$, which is not observable during $t_2$ anyway.
-So, the CTP gradients effectively remove all unwanted signals arising from the bulk magnetisation: the cycling of $\phi_1$ and $\phi_\text{rec}$ done in the States experiment is rendered unnecessary.
+So, the CTP gradients effectively remove all unwanted signals arising from the bulk magnetisation: the cycling of $\phi_1$ and $\phirec$ done in the States experiment is rendered unnecessary.
 
 \begin{figure}[htbp]
     \centering
@@ -215,7 +215,7 @@ So, the CTP gradients effectively remove all unwanted signals arising from the b
 \end{figure}
 
 The points developed in this chapter are neatly demonstrated in \cref{fig:hsqc_comparison}.
-The States--TPPI experiment used here is the same as the States experiment in \cref{fig:hsqc_ph}, except that on every $t_1$ increment $\phi_1$ and $\phi_\text{rec}$ are inverted, causing the artefacts to be shifted to the edge of the spectrum.
+The States--TPPI experiment used here is the same as the States experiment in \cref{fig:hsqc_ph}, except that on every $t_1$ increment $\phi_1$ and $\phirec$ are inverted, causing the artefacts to be shifted to the edge of the spectrum.
 \Cref{fig:hsqc_comparison_st_ns1,fig:hsqc_comparison_ea_ns1} show the States--TPPI and EA HSQC spectra obtained with one scan per increment.
 Comparing the projections of these two spectra (\cref{fig:hsqc_comparison_projections}), it can be seen that the SNR of the States--TPPI version is greater by a factor of $\sqrt{2}$.
 However, the spectral quality of the States--TPPI spectrum is far poorer: presentable data can only be obtained when using a two-step phase cycle, as was done in \cref{fig:hsqc_comparison_st_ns2}.

@@ -14,7 +14,7 @@ The content in this section is similar, except that it was performed within the 
         \textbf{(\subref*{fig:poise_psyche_pulseq_jrse})} J-resolved spin echo experiment (see also \cref{subsec:pureshift__optim_techniques}) using the PSYCHE PSE.
         Phase cycling is performed using: $\phi_1 = (x, -x)$, $\phi_2 = (x, x, y, y)$, $\phi_{\text{rec},1} = (x, -x, -x, x)$ for the full PSYCHE experiment, and $\phi_3 = (x, y, -x, -y)$, $\phi_{\text{rec},2} = (x, -x, x, -x)$ for the JRSE experiment.
         CTP gradient amplitudes are $(g_1, g_2, g_4) = (35\%, 77\%, 50\%)$ (though the exact values are likely immaterial); the PSYCHE gradient $g_3$ was subjected to optimisation.
-        The delay $\tau$ is set to $1/(4 \cdot T_\text{chunk})$ for the PSYCHE experiment, and $\tau_\text{e}$ is \qty{16}{\ms}.
+        The delay $\tau$ is set to $1/(4 \cdot \Tchunk)$ for the PSYCHE experiment, and $\tau_{\symup{e}}$ is \qty{16}{\ms}.
     }
     \label{fig:poise_psyche_pulseq}
 \end{figure}
@@ -26,7 +26,7 @@ The content in this section is similar, except that it was performed within the 
 In this section, the standard double-saltire PSYCHE pure shift element was used (\cref{fig:poise_psyche_pulseq_psyche}).\autocite{Foroozandeh2014ACIE,Foroozandeh2018CEJ}
 As described in \cref{subsec:pureshift__optim_techniques}, the PSYCHE PSE can be described using six parameters; in this section, we investigate only three of these, namely the amplitude (i.e.\ flip angle $\beta$), bandwidth $\Delta F$, and duration $\taup$.
 In addition to this, the amplitude of the weak gradient during the PSE $g_3$ was also chosen as a fourth parameter to vary.
-As before, the quality of the PSE is evaluated using a JRSE experiment (\cref{fig:poise_psyche_pulseq_jrse}), which is then compared against a pulse--acquire spectrum: the cost function used is $f_\text{diff}$.
+As before, the quality of the PSE is evaluated using a JRSE experiment (\cref{fig:poise_psyche_pulseq_jrse}), which is then compared against a pulse--acquire spectrum: the cost function used is $\fdiff$.
 
 In the JRSE pulse sequence used for optimisation, the four parameters (flip angle, bandwidth, duration, and gradient amplitude) are respectively \texttt{CNST20}, \texttt{CNST21}, \texttt{P40}, and \texttt{GPZ10}.
 There is, however, a slight complication: whenever the bandwidth or duration is changed, the entire pulse must be re-created, because the $x$- and $y$-coefficients depend on these parameters.
@@ -52,7 +52,7 @@ The spectral region was limited to \qty{1.15}{\ppm} and above to exclude strong 
         \toprule
          & \multicolumn{3}{c}{Aggregated results from all runs} & \multicolumn{4}{c}{Parameters from best optimum} \\
         \cmidrule(lr){2-4} \cmidrule(lr){5-8}
-        Description & $f_\mathrm{diff}$ & FEs              & Time (\unit{\s}) & $\beta$ ($^\circ$) & $g_3$ (\%) & $\Delta F$ (kHz) & $\tau_\mathrm{p}$ (ms) \\
+        Description & $\fdiff$ & FEs              & Time (\unit{\s}) & $\beta$ ($^\circ$) & $g_3$ (\%) & $\Delta F$ (kHz) & $\taup$ (ms) \\
         \midrule
         Initial point & 0.353        & --     & --        & (25.0) & (2.00) & (10.0) & (30.0) \\
         1 parameter   & 0.340--0.343 & 5--10  & 84--168   & 17.5   & (2.00) & (10.0) & (30.0) \\
@@ -109,7 +109,7 @@ The spectral region was limited to \qty{1.15}{\ppm} and above to exclude strong 
         \toprule
               &           & \multicolumn{3}{c}{Best optimum found}            & \multicolumn{2}{c}{Aggregated results} \\
                             \cmidrule(lr){3-5}                                  \cmidrule(lr){6-7}
-        Entry & Algorithm & $\beta$ ($^\circ$) & $g_3$ (\%) & $f_\text{diff}$ & FEs    & Time (\unit{\s}) \\
+        Entry & Algorithm & $\beta$ ($^\circ$) & $g_3$ (\%) & $\fdiff$ & FEs    & Time (\unit{\s}) \\
         \midrule
         1     & NM        & 16.48              & 1.00       & 0.3253          & 18--24 & 307--410             \\
         2     & MDS       & 18.47              & 0.82       & 0.3261          & 25--33 & 424--565             \\
@@ -131,7 +131,7 @@ The spectral region was limited to \qty{1.15}{\ppm} and above to exclude strong 
         \toprule
               &           & \multicolumn{4}{c}{Best optimum found} & \multicolumn{2}{c}{Aggregated results} \\
                             \cmidrule(lr){3-6}                     \cmidrule(lr){7-8}
-        Entry & Algorithm & $\beta$ ($^\circ$) & $g_3$ (\%) & $\Delta F$ (\unit{\kHz}) & $f_\text{diff}$ & FEs    & Time (\unit{\s}) \\
+        Entry & Algorithm & $\beta$ ($^\circ$) & $g_3$ (\%) & $\Delta F$ (\unit{\kHz}) & $\fdiff$ & FEs    & Time (\unit{\s}) \\
         \midrule
         1     & NM        & 17.40              & 1.73       & 15.93                  & 0.3196          & 33--43 & 576--770             \\
         2     & MDS       & 16.75              & 1.71       & 16.33                  & 0.3215          & 46--77 & 804--1344            \\
@@ -153,7 +153,7 @@ The spectral region was limited to \qty{1.15}{\ppm} and above to exclude strong 
         \toprule
               &           & \multicolumn{5}{c}{Best optimum found} & \multicolumn{2}{c}{Aggregated results} \\
                             \cmidrule(lr){3-7}                       \cmidrule(lr){8-9}
-        Entry & Algorithm & $\beta$ ($^\circ$) & $g_3$ (\%) & $\Delta F$ (\unit{\kHz}) & $\taup$ (\unit{\ms}) & $f_\text{diff}$ & FEs    & Time (\unit{\s}) \\
+        Entry & Algorithm & $\beta$ ($^\circ$) & $g_3$ (\%) & $\Delta F$ (\unit{\kHz}) & $\taup$ (\unit{\ms}) & $\fdiff$ & FEs    & Time (\unit{\s}) \\
         \midrule
         1     & NM        & 13.87              & 1.45       & 15.93                  & 36.00              & 0.3163          & 40--47 & 733--845       \\
         2     & MDS       & 19.15              & 1.06       & 11.19                  & 36.52              & 0.3185          & 57--85 & 1006--1504     \\
@@ -188,12 +188,12 @@ Broadly speaking, all the optimised spectra provide better performance than the 
 In particular, the four-parameter optimisation successfully suppresses some of the strong coupling artefacts: this may be explained by the fact that the pulse duration was increased from \qty{30}{\ms} to \qty{36}{\ms}, which generally results in better spatiotemporal averaging, as was noted in \cref{sec:pureshift__nsaltire}.%
 \footnote{This does raise the question of whether a two-parameter optimisation of just the flip angle and duration could yield similar results, but in a shorter time. I think it is possible, but I did not test this, though, as I simply did not have the appetite to try optimising \textit{every} possible combination of parameters.}
 Generally, this optimisation \textit{does} come at a cost in sensitivity, which is particularly noticeable for the four-parameter optimised result.
-However, since the cost function $f_\text{diff}$ also penalises sensitivity losses, it ensures that any drops in sensitivity are not excessive.
+However, since the cost function $\fdiff$ also penalises sensitivity losses, it ensures that any drops in sensitivity are not excessive.
 
 Given these improvements, one might wonder why it would ever be worth optimising fewer than four parameters.
 The first obvious drawback is the time required: in fact, it is probably more economical to use the TSE-PSYCHE experiment (which also has improved performance in the presence of strong coupling).%
 \footnote{Another thing I did not (thoroughly) investigate was to optimise the TSE-PSYCHE experiment. This could, in principle, be done using a TSE form of the JRSE experiment: \ang{90}--chirp--$\tau$--PSE--$\tau$--chirp--detect. However, this has decreased sensitivity over the original JRSE experiment, which means even longer optimisations.}
-Furthermore, $f_\text{diff}$ is a rather `flat' cost function and optimisations using it are very susceptible to noise: this factor is specific to pure shift optimisations, and was previously mentioned in \cref{subsec:pureshift__chirpopt}.
+Furthermore, $\fdiff$ is a rather `flat' cost function and optimisations using it are very susceptible to noise: this factor is specific to pure shift optimisations, and was previously mentioned in \cref{subsec:pureshift__chirpopt}.
 A closer inspection of the POISE logs for the three- and four-parameter optimisations (which are not provided here, but can be accessed in the raw data for the POISE paper, available at \url{https://doi.org/10.5281/zenodo.4698423}) reveals that the optimisations are perhaps not as consistent as one would hope.
 Although \textit{generally} the optimisation leads to similar results in that (for example) $\beta$ is often decreased and $\taup$ increased, the extents of these changes are not quite uniform: for example, $\taup$ is optimised to anywhere between \qty{36}{\ms} and \qty{55}{\ms}, which suggests that there are \textit{many} local minima and which of these the optimisation converges to depends on the noise in the cost function.%
 \footnote{I still think, however, that it is misleading to quote these ranges in \cref{tbl:poise_psyche1p,tbl:poise_psyche2p,tbl:poise_psyche3p,tbl:poise_psyche4p}, because this gives the impression that there are no correlations between the optimised parameters.}

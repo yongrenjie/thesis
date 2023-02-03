@@ -7,17 +7,37 @@
 \DeclareMathOperator*{\argmin}{arg\,min}
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\sgn}{sgn}
-\newcommand*{\magn}[1]{\ch{^1H}$^{\ch{#1}}$}
-\newcommand*{\magnnot}[1]{\ch{^1H}$^{!\ch{#1}}$}
+\newcommand*{\magn}[1]{\ch{^1H}$^{\,\ch{#1}}$}
+\newcommand*{\magnnot}[1]{\ch{^1H}$^{\,!\ch{#1}}$}
 
 \newcommand{\todo}[1]{{\color{OrangeRed}#1}}
 
 % Shortcuts
-\newcommand{\mi}{\mathrm{i}}
-\newcommand{\md}{\mathrm{d}}
-\newcommand{\taum}{\tau_\mathrm{m}}
-\newcommand{\taup}{\tau_\mathrm{p}}
-\newcommand{\taur}{\tau_\mathrm{r}}
+\newcommand{\mi}{\symup{i}}
+\newcommand{\mj}{\symup{j}}
+\newcommand{\mk}{\symup{k}}
+\newcommand{\md}{\symup{d}}
+\newcommand{\cpi}{\symup{\pi}}
+\newcommand{\taum}{\tau_{\symup{m}}}
+\newcommand{\taup}{\tau_{\symup{p}}}
+\newcommand{\taur}{\tau_{\symup{r}}}
+\newcommand{\fphase}{f_{\symup{phase}}}
+\newcommand{\fdiff}{f_{\symup{d}\text{iff}}}
+\newcommand{\fdifftwo}{f_{\symup{d}\text{iff,2}}}
+\newcommand{\fsos}{f_{\symup{sos}}}
+\newcommand{\Gmax}{G_{\symup{max}}}
+\newcommand{\Gmin}{G_{\symup{min}}}
+\newcommand{\thetaE}{\theta_{\symup{E}}}
+\newcommand{\thetaeff}{\theta_{\symup{e}\text{ff}}}
+\newcommand{\Jeff}{J_{\symup{e}\text{ff}}}
+\newcommand{\Jmax}{J_{\symup{max}}}
+\newcommand{\Jmin}{J_{\symup{min}}}
+\newcommand{\Tchunk}{T_{\symup{chunk}}}
+\newcommand{\phicorr}{\phi_{\symup{corr}}}
+\newcommand{\phirec}{\phi_{\symup{rec}}}
+\newcommand{\omegatx}{\omega_{\symup{tx}}}
+\newcommand{\omegarf}{\omega_{\symup{rf}}}
+\newcommand{\omegarot}{\omega_{\symup{rot}}}
 \newcommand{\half}{½}
 \newcommand{\adj}[1]{#1^\dagger}
 \newcommand{\datacode}[1]{\textit{Data code:} \texttt{#1}.}
@@ -26,8 +46,8 @@
 \newcommand{\gammaN}{\gamma_{\ch{N}}}
 \newcommand{\AQ}{\text{AQ}_1}
 \newcommand{\AQeff}{\text{AQ}_{1,\text{eff}}}
-\newcommand{\DeltaE}{\Delta_{\text{E}}}
-\newcommand{\DeltaEp}{\Delta_{\text{E}}'}
+\newcommand{\DeltaE}{\Delta_{\symup{E}}}
+\newcommand{\DeltaEp}{\Delta_{\symup{E}}'}
 \newcommand{\angang}[2]{#1\rlap{\unit{\degree}}\ensuremath{_{#2}}}
 
 % People
@@ -56,8 +76,8 @@
 \newcommand{\phosphorus}{\ch{{}^{31}P}}
 
 % Couplings
-\newcommand{\oneJ}[1]{{}^{1}\!J_{\ch{#1}}}
-\newcommand{\nJ}[1]{{}^{n}\!J_{\ch{#1}}}
+\newcommand{\oneJ}[1]{{}^{1}\!J_{\!\ch{#1}}}
+\newcommand{\nJ}[1]{{}^{n}\!J_{\!\ch{#1}}}
 
 % Solvents
 \newcommand{\dmso}{DMSO-$d_6$}

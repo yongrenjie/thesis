@@ -36,7 +36,7 @@ The latter two parameters are assumed to be given in units of ordinary frequenci
     \caption[Phase and Cartesian amplitudes of a typical chirp pulse]{
         Plots of the quantities in \cref{eq:chirp_pulse_phase,eq:chirp_pulse_cx,eq:chirp_pulse_cy} for a typical chirp pulse ($\taup = \qty{30}{\ms}$, $\Delta F = \qty{10}{\kHz}$).
         \textbf{(\subref*{fig:chirp_coefficients_phase})} $\phi(t)$ wrapped to the range $[0, 2\pi)$.
-        \textbf{(\subref*{fig:chirp_coefficients_smoothing})} The quarter-sine smoothing profile which is later applied to the entire waveform (\cref{eq:sming_function}); here $s_\text{sm} = 0.2$.
+        \textbf{(\subref*{fig:chirp_coefficients_smoothing})} The quarter-sine smoothing profile which is later applied to the entire waveform (\cref{eq:sming_function}); here $s_{\symup{sm}} = 0.2$.
         \textbf{(\subref*{fig:chirp_coefficients_cx})} $c_x(t)/A$ prior to smoothing.
         \textbf{(\subref*{fig:chirp_coefficients_cy})} $c_y(t)/A$ prior to smoothing.
         The amplitude $A$ is simply a constant, which is related to the flip angle of the chirp.\autocite{Foroozandeh2018CEJ}
@@ -53,14 +53,14 @@ In total, this gives us 12 parameters to optimise.\autocite{Foroozandeh2020JMR,V
 
 After constructing the sum of two chirps, `empty' regions of no RF application ($c_x = c_y = 0$) at the beginning and the end were trimmed off.
 Since a sum of two chirps is not necessarily symmetric (with respect to reflection in time), the waveform was then reflected about its end, thus doubling the length of the pulse.
-The entire waveform was then multiplied by a \textit{smoothing function} $f_\text{sm}(t)$ (\cref{fig:chirp_coefficients_smoothing}), which prevents large jumps in RF amplitude at the beginning and end of the pulse.
-$f_\text{sm}$ depends on a smoothing parameter $s_\text{sm}$, which is typically $0.1$--$0.2$:
+The entire waveform was then multiplied by a \textit{smoothing function} $f_{\symup{sm}}(t)$ (\cref{fig:chirp_coefficients_smoothing}), which prevents large jumps in RF amplitude at the beginning and end of the pulse.
+$f_{\symup{sm}}$ depends on a smoothing parameter $s_{\symup{sm}}$, which is typically $0.1$--$0.2$:
 \begin{equation}
     \label{eq:sming_function}
-    f_\text{sm}(t) = \begin{cases}
-        \displaystyle \sin\left(\frac{\pi t'}{2 s_\text{sm}}\right) & 0 \leq t' < s_\text{sm}; \\
-        \displaystyle 1 & s_\text{sm} \leq t' < 1 - s_\text{sm}; \\
-        \displaystyle \sin\left[\frac{\pi (1 - t')}{2 s_\text{sm}}\right] & s_\text{sm} \leq t' \leq 1, \\
+    f_{\symup{sm}}(t) = \begin{cases}
+        \displaystyle \sin\left(\frac{\pi t'}{2 s_{\symup{sm}}}\right) & 0 \leq t' < s_{\symup{sm}}; \\
+        \displaystyle 1 & s_{\symup{sm}} \leq t' < 1 - s_{\symup{sm}}; \\
+        \displaystyle \sin\left[\frac{\pi (1 - t')}{2 s_{\symup{sm}}}\right] & s_{\symup{sm}} \leq t' \leq 1, \\
     \end{cases}
 \end{equation}
 where $t' = t/\taup$ (and here $\taup$ refers to the duration of the \textit{entire} waveform, after reflection).
@@ -81,33 +81,33 @@ After the sum of these two pulses is reflected about its end, we obtain a single
     {\phantomsubcaption\label{fig:chirpopt_spurious_target}}%
     {\phantomsubcaption\label{fig:chirpopt_spurious_saltire}}%
     {\phantomsubcaption\label{fig:chirpopt_spurious_badoptimum}}%
-    \caption[Spurious optimum obtained in waveform optimisation using $f_\text{diff}$]{
+    \caption[Spurious optimum obtained in waveform optimisation using $\fdiff$]{
         \textbf{(\subref*{fig:chirpopt_spurious_target})} Target spectrum (pulse--acquire).
         \textbf{(\subref*{fig:chirpopt_spurious_saltire})} JRSE spectrum obtained using the initial guess (a saltire).
         \textbf{(\subref*{fig:chirpopt_spurious_badoptimum})} JRSE spectrum obtained with a spurious optimum point.
-        The grey dotted box shows the restricted region over which $f_\text{diff}$ was subsequently applied to, yielding a formally different cost function $f'_\text{diff}$; this yielded more sensible results where the cost function for the saltire pulse was smaller.
+        The grey dotted box shows the restricted region over which $\fdiff$ was subsequently applied to, yielding a formally different cost function $\fdiff'$; this yielded more sensible results where the cost function for the saltire pulse was smaller.
         \datacode{6C-190823}
     }
     \label{fig:chirpopt_spurious}
 \end{figure}
 
-Using this setup, several optimisations of the 12 parameters above were conducted using the $f_\text{diff}$ cost function, which had performed well enough in the flip angle optimisations.
+Using this setup, several optimisations of the 12 parameters above were conducted using the $\fdiff$ cost function, which had performed well enough in the flip angle optimisations.
 However, it was quickly noticed that this led to spurious optima being located, such as the one in \cref{fig:chirpopt_spurious_badoptimum}.
-Although the initial point (a saltire) yielded a much larger SNR (\cref{fig:chirpopt_spurious_saltire}), the value of $f_\text{diff}$ was still larger (i.e.\ worse) than for this false optimum.
+Although the initial point (a saltire) yielded a much larger SNR (\cref{fig:chirpopt_spurious_saltire}), the value of $\fdiff$ was still larger (i.e.\ worse) than for this false optimum.
 The reason for this is almost certainly because the saltire pulse distorts the relative intensity of the strong singlets in the spectrum, notably the $\ch{C6D5H}$ peak at \qty{7.15}{ppm}, and the \textit{N}-methyl groups between 2.5 and \qty{3.8}{\ppm}, whereas the false optimum does not (most likely by coincidence).
 
 Of course, singlets are completely unimportant when devising a pure shift experiment.
 Unfortunately, singlets are also typically more intense than the rest of the spectrum, and thus contribute disproportionately to the cost function.
 A simple and effective way to circumvent this is to restrict the region of the spectrum being evaluated.
 In this case, I chose to use the cyclosporin $\ch{H}\upalpha$ region between 4.72 and \qty{5.94}{ppm} (grey dotted box in \cref{fig:chirpopt_spurious}).
-This yields a formally different cost function, which I label as $f'_\text{diff}$.
+This yields a formally different cost function, which I label as $\fdiff'$.
 With this, much more logical behaviour was observed: in particular, the saltire pulse performed better than the spurious optimum previously found.
 
 While this new cost function could be successfully used to run optimisations, most of these unfortunately failed to find anything performing better than the original saltire pulse.
-On the rare occasion where something `better' was found (as judged by the new cost function $f'_\text{diff}$), these `optimised' pulses were fairly close to a saltire, and the corresponding decreases in the cost function extremely small---suggesting that the `better' result may simply just have been due to noise in the cost function.
+On the rare occasion where something `better' was found (as judged by the new cost function $\fdiff'$), these `optimised' pulses were fairly close to a saltire, and the corresponding decreases in the cost function extremely small---suggesting that the `better' result may simply just have been due to noise in the cost function.
 Nevertheless, these new `optima' \textit{did} function as perfectly serviceable PSEs: for example, \cref{fig:newpulse_tsepsyche} compares a \ac{tse} PSYCHE spectrum obtained with an `optimised' pulse to one obtained with the single saltire pulse.
 There is virtually no difference.
-This is a meaningful result, as it demonstrates that $f'_\text{diff}$ is actually an accurate metric to determine the quality of a PSE (it is noisy, but this is to be expected of an experimentally measured cost function).
+This is a meaningful result, as it demonstrates that $\fdiff'$ is actually an accurate metric to determine the quality of a PSE (it is noisy, but this is to be expected of an experimentally measured cost function).
 Unfortunately, although the pulse shape is shown in \cref{fig:newpulse_tsepsyche_newpulse}, the exact parameters which led to this pulse shape have been lost to time.
 
 \begin{figure}[htb]
