@@ -7,7 +7,7 @@ This information is relevant for anybody looking to improve or otherwise modify 
 Firstly, POISE is written in Python 3, and since TopSpin does not have a built-in Python 3 interface,%
 \footnote{Version 4.1.4 of TopSpin now comes with a Python 3 API; however, this was introduced too late for the work in this chapter.}
 this means that POISE is not entirely self-contained within TopSpin: in particular, an external installation of Python 3 is required, which may be a slight inconvenience.
-This choice was necessary because it would have been too time-consuming to implement numerical optimisation algorithms using the existing C or Python 2 APIs in TopSpin (notably, the Python 2 API uses the Jython implementation of the language, which is incompatible with \texttt{numpy}).
+This choice was necessary because it would have been too time-consuming to implement numerical optimisation algorithms using the existing C or Python 2 application programming interfaces (APIs) in TopSpin: notably, the Python 2 API uses the Jython implementation of the language, which is incompatible with \texttt{numpy}.
 However, a benefit of this is that since the `cost' of installing Python 3 is already paid, we can also allow users to define their own cost functions using libraries such as \texttt{numpy} and \texttt{scipy}.
 Without these, performing any kind of non-trivial data processing is significantly more awkward.
 
