@@ -62,8 +62,8 @@ Fourier transformation of the FID then yields a spectrum with absorption- and di
     S(\omega) = \mathcal{F}[s(t)]
     &= \frac{1}{\sqrt{2\cpi}}\int_0^\infty s(t) \exp(-\mi \omega t) \,\md t \notag \\
     &=
-    \underbrace{\frac{k}{k^2 + (\omega - \Omega)^2}}_{A(\omega; \Omega)}
-    +\, \mi\underbrace{\frac{\Omega - \omega}{k^2 + (\omega - \Omega)^2}}_{D(\omega; \Omega)},
+    \underbrace{\frac{k}{k^2 + (\omega - \Omega)^2}}_{\text{absorption: }A(\omega; \Omega)}
+    +\, \mi\underbrace{\frac{\Omega - \omega}{k^2 + (\omega - \Omega)^2}}_{\text{dispersion: }D(\omega; \Omega)},
 \end{align}
 where $k = 1/T_2$.
 The notation $A(\omega; \Omega)$ here means that the spectrum is a function of the frequency $\omega$, but is parametrised by the peak offset $\Omega$.
@@ -84,7 +84,7 @@ This provides better resolution due to the narrower lineshape, and is also less 
 \end{figure}
 
 Strictly speaking, the Lorentzian lineshapes above are only obtained when there is nonzero relaxation during the FID.
-For example, in the opposite limit where $k \to 0$, $A(\omega; \Omega)$ tends to a delta function $\delta(\omega = \Omega)$.
+For example, in the limit where $k \to 0$ (i.e.\ no relaxation at all), $A(\omega; \Omega)$ tends to a delta function $\delta(\omega = \Omega)$.
 However, for simplicity, in this thesis I will drop the relaxation term $\exp(-kt)$ unless absolutely necessary; I will simply pretend that a signal of the form $s(t) = \exp(\mi \Omega t)$ is directly Fourier transformed to give $A(\omega; \Omega) + \mi D(\omega; \Omega)$.
 
 Consider now changing the initial pulse such that it is applied along the $+x$-axis instead ($\phi = 0$).
@@ -94,7 +94,7 @@ Repeating the above analysis, we find that the resulting signal will have a phas
     s'(t) &= -\mi\exp(\mi\Omega t) \\
     \Rightarrow \quad S'(\omega) &= \mathcal{F}[s'(t)] = D(\omega;\Omega) - \mi A(\omega;\Omega).
 \end{align}
-If we were to take the real part of the spectrum here, then we would obtain the undesired dispersion-mode lineshape $D(\omega;\Omega)$.
+If we were to plot the real part of the spectrum here, we would obtain the undesired dispersion-mode lineshape $D(\omega;\Omega)$.
 There are two ways of removing this phase shift.
 The first is to shift the \textit{receiver phase} by $\phirec$, which introduces an extra factor of $\exp(-\mi\phirec)$ to the detected signal: we can thus choose $\phirec = 3\cpi/2$ in order to cancel out the $-\mi$ term in $s'(t)$.
 Alternatively, the spectrum can be processed through \textit{phase correction}, in which $S(\omega)$ is directly multiplied by a term $\exp(\mi\phicorr)$, where $\phicorr$ is a linear function of the frequency $\omega$:
@@ -134,7 +134,7 @@ The complex-valued signal is digitised at an interval called the \textit{dwell t
 The transform being used is actually a discrete Fourier transform (DFT), which yields a periodic function $S(\omega)$; its period (in Hz) is given by $1/\tau_{\symup{dw}}$.%
 \footnote{The periodicity property of the DFT is equivalent to the Nyquist theorem, which is usually formulated as follows: the sampling rate required to correctly digitise a signal containing frequencies in the range $[0, f_{\symup{max}}]$ is $1/(2f_{\symup{max}})$. In the main text, it appears as if we have dropped the factor of $2$ in the denominator; but in truth this statement of the Nyquist theorem is applicable to \textit{real-valued} signals, and here we have a \textit{complex-valued} signal $s(t)$, which effectively doubles the range of correctly sampled frequencies.}
 The NMR spectrum displayed to the user corresponds to one single period of $S(\omega)$, and thus the \textit{spectral width} is also equal to $1/\tau_{\symup{dw}}$.%
-\footnote{Frustratingly, the \texttt{DW} parameter in Bruker's TopSpin software is actually equal to $\tau_{\symup{dw}}/2$. The reason is because this parameter corresponds to the interval between which \textit{real} data is sampled, which is effectively twice as fast as complex-valued sampling.}
+\footnote{Frustratingly, the \texttt{DW} parameter in Bruker's TopSpin software is actually equal to $\tau_{\symup{dw}}/2$. The reason is because this parameter corresponds to the interval between which \textit{real} data points are sampled, which is effectively twice as fast as complex-valued sampling.}
 In principle, the periodicity of the DFT means that signals which would ordinarily fall outside of the spectral width would appear at incorrect frequencies in the spectrum.\autocite{Turner1986JMR}
 On modern instrumentation, this is no longer the case for direct detection; peaks outside of the spectral width are removed using digital filters.
 However, \textit{folding} or \textit{aliasing} of peaks in the indirect dimension(s) of multidimensional NMR spectra still occurs.

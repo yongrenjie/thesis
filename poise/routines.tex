@@ -19,24 +19,24 @@ An \textit{optimisation routine}, as defined in POISE, consists of the following
         Naturally, this should represent the user's best guess as to where the optimum lies.
         It is generally sensible to choose unoptimised, `default' values for these.
         
-    \item \textit{Lower} and \textit{upper bounds} (one each per parameter)
+    \item \textit{Lower} and \textit{upper bounds} (one of each per parameter)
 
-        These may be chosen based on a range of values which are `chemically sensible', or alternatively, instrumental specifications may sometimes restrict the range of parameter values which can be explored.
+        These may be chosen based on a range of values which are `chemically sensible'; alternatively, instrumental specifications may sometimes restrict the range of parameter values which can be explored.
 
     \item \textit{Tolerances} (one per parameter)
 
         The tolerance loosely corresponds to the level of accuracy required for the optimisation.
-        Of course, setting the tolerance to be too large will simply yield an imprecise and meaningless result.
+        Of course, setting too large a tolerance will simply yield an imprecise and meaningless result.
         However, there is no point in setting this to be too small (i.e.\ requesting an overly accurate optimum): this increases the time required for convergence, because the value of the cost function evaluated at two points too close together will differ only by noise.
         Furthermore, parameter values cannot be implemented with arbitrary precision on a spectrometer, and the available resolution sets a lower bound for the tolerance (see \cref{subsec:poise__epsi} for a more concrete discussion of this).
-        These conditions make it sound as if there is little room for error, but in practice the desired accuracy is often reasonably clear from the context, and it generally suffices to get the order of magnitude correct;
+        These conditions make it sound as if there is little room for error in choosing the tolerance, but in practice the desired accuracy is often reasonably clear from the context, and it generally suffices to get the order of magnitude correct.
 
     \item \textit{AU programme}
 
         The AU programme defined in an optimisation routine is used to acquire and process the spectrum.
         The user may leave this empty, in which case POISE automatically detects the dimensionality of the experiment and performs standard processing steps (Fourier transformation, window multiplication, phase correction, and baseline correction).
-        This is often sufficient for many applications.
-        However, this does allow for almost infinite customisation of the actual spectral measurement: for example, the AU programme may call other scripts in TopSpin which create shaped pulses (as shown in \cref{subsec:poise__psyche}).
+        This basic setup is often sufficient for many applications.
+        However, the AU programme does allow for almost infinite customisation of the actual spectral measurement: for example, it may call other scripts in TopSpin which create shaped pulses (as shown in \cref{subsec:poise__psyche}).
 
     \item \textit{Cost function}
 

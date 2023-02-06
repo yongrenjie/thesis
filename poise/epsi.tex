@@ -2,7 +2,7 @@
 \label{subsec:poise__epsi}
 
 The final example of a single-parameter POISE optimisation is also the most complicated: it pertains to the EPSI acquisition technique, which was previously introduced in \cref{sec:pureshift__epsidosy}.
-EPSI acquisition allows signals from different slices of the sample to be simultaneously detected in a single FID, and (in liquid-state NMR) has most famously been used in the context of \textit{ultrafast} 2D experiments\autocite{Frydman2002PNASUSA,Pelupessy2003JACS,Frydman2003JACS,Tal2010PNMRS,Giraudeau2014ARAC,Gouilleux2018ARNMRS,Kupce2021NRMP}, where the $t_1$ evolution is spatially encoded and read out using the EPSI technique.
+EPSI acquisition allows signals from different slices of the sample to be simultaneously detected in a single FID, and (in liquid-state NMR) has most famously been used in the context of \textit{ultrafast} 2D experiments\autocite{Frydman2002PNASUSA,Pelupessy2003JACS,Frydman2003JACS,Tal2010PNMRS,Giraudeau2014ARAC,Gouilleux2018ARNMRS,Kupce2021NRMP}, where $t_1$ evolution is spatially encoded and read out using the EPSI technique.
 
 \begin{figure}[htb]
     \centering
@@ -16,21 +16,21 @@ EPSI acquisition allows signals from different slices of the sample to be simult
         \textbf{(\subref*{fig:poise_epsi_zgepsi})} Pulse--EPSI experiment.
         \textbf{(\subref*{fig:poise_epsi_tocsyepsi})} Ultrafast TOCSY experiment; gradients were set up according to the protocol of Giraudeau et al.\autocite{Gouilleux2018ARNMRS}
         \textbf{(\subref*{fig:poise_epsi_epsicorrect})} Illustration of the $(k, t_2)$ data matrix obtained during an EPSI acquisition period.
-        Blue dots indicate data acquired during a positive gradient, and orange dots data acquired during the negative gradient.
+        Blue dots indicate data acquired during a positive gradient, and orange dots data acquired during a negative gradient.
         \textbf{(\subref*{fig:poise_epsi_epsiwrong})} The $(k, t_2)$ data matrix obtained when the positive and negative EPSI gradients (blue and orange in the pulse sequences) are not balanced.
-        In this case, the negative gradient is slightly weaker, leading to a `drift' towards larger values of $k$.
+        In this case, the negative gradients are slightly weaker, leading to a `drift' towards larger values of $k$.
     }
     \label{fig:poise_epsi}
 \end{figure}
 
-During an EPSI acquisition period, alternating gradients of equal magnitude but opposite sign are applied, as shown in \cref{fig:poise_epsi_zgepsi,fig:poise_epsi_tocsyepsi}. Each data point collected therefore depends not only on $t_2$ (the acquisition time domain) but also on $k$, a wavenumber which measures the extent of gradient dephasing caused by the acquisition gradients:
+During an EPSI acquisition period, alternating gradients of equal magnitude but opposite sign are applied, as shown in \cref{fig:poise_epsi_zgepsi,fig:poise_epsi_tocsyepsi}. Each data point collected therefore depends not only on $t_2$ (the acquisition time domain) but also on $k$, a value which measures the extent of gradient dephasing caused by the acquisition gradients:
 \begin{equation}
     \label{eq:epsi_k_space}
     k = \int_0^{t_2} \gamma G(t) \,\md t.
 \end{equation}
 This value of $k$ increases during positive gradients and decreases during negative gradients, leading to a zigzag pattern in $k$-space, all while $t_2$ is still increasing (\cref{fig:poise_epsi_epsicorrect}).
 The \textit{prephasing gradient} immediately before acquisition has the same duration as the EPSI gradients, but has half the amplitude, meaning that $k$ begins from a negative value, specifically, $-k_\text{max} / 2$, where $k_\text{max}$ is the change in $k$ caused by one complete positive EPSI gradient.
-The indirect-dimension frequencies $F_1$ can be directly read off from the $k$-domain as $F_1$ is directly proportional to $k$: this can also be understood as the EPSI gradients unwinding a phase-modulated `helix' created by chemical shift evolution during the $t_1$ period, as has been beautifully illustrated in previous reviews.\autocite{Frydman2003JACS,Tal2010PNMRS}
+The indirect-dimension frequencies $F_1$ can be immediately read off from the $k$-domain as $F_1$ is directly proportional to $k$: this can also be understood as the EPSI gradients unwinding a phase-modulated `helix' created by chemical shift evolution during the $t_1$ period, as has been beautifully illustrated in previous reviews.\autocite{Frydman2003JACS,Tal2010PNMRS}
 
 This rapid alternating of gradients is very demanding on spectrometers, and it is often the case that the positive and negative EPSI gradients---although \textit{nominally} specified with the same amplitude---are not perfectly balanced.
 This causes a `drift' in the $k$-domain over time, as illustrated in \cref{fig:poise_epsi_epsiwrong}.
@@ -48,8 +48,11 @@ The \texttt{epsi\_gradient\_drift} cost function therefore consists of the follo
 \begin{enumerate}
     \item reading in the 1D FID and reshaping it into a 2D $(k, t_2)$ matrix;
     \item discarding data obtained during negative gradients;
-    \item determining, for each point in $t_2$, the value of $k$ for which the maximum signal is found;
-    \item performing linear regression on these points and obtaining the slope of $k$ against $t_2$, the absolute value of which directly represents the extent of $k$-space drifting.
+    \item determining, for each point in $t_2$, the value of $k$ for which the maximum signal is found.
+        We denote this by $k' = k'(t_2)$, and for perfectly balanced gradients, we expect that $k' = 0$ for all values of $t_2$.
+        However, if the gradients are imbalanced, then we generally have that $k' = mt_2 + c$ for some constants $m$ and $c$;
+    \item performing linear regression to determine the value of $m$, which directly represents the extent of $k$-space drifting.
+        The cost function is then simply given by $|m|$.
 \end{enumerate}
 
 \begin{figure}[htb]
@@ -88,14 +91,14 @@ Furthermore, \texttt{AQ} should be kept under \qty{100}{\ms} (I used \qty{91.8}{
     \end{tabular}
     \caption[EPSI gradient imbalance optimisations]{
         Results of EPSI gradient imbalance optimisations.
-        Note that in practice, all of these optimisations actually converge to $\alpha = 1.0004$; the extra decimal place is not used by the spectrometer (see text for further discussion).
+        Note that in practice, all of these optimisations actually converge to $\alpha = 1.0004$; the extra decimal places are not used by the spectrometer (see text for further discussion).
         The POISE routine used here is: \mintinline[breaklines]{json}{{"name": "epsi", "pars": ["cnst16"], "lb": [0.99], "ub": [1.01], "init": [1.0], "tol": [0.0001], "cf": "epsi_gradient_drift", "au": "poise_1d"}}.
         \datacode{6F-210316}
     }
     \label{tbl:poise_epsi}
 \end{table}
 
-In the event, all three optimisation algorithms successfully find the the optimal value of $\alpha$ in under a minute (\cref{tbl:poise_epsi}).
+In the event, all three optimisation algorithms successfully found the optimal value of $\alpha$ in under a minute (\cref{tbl:poise_epsi}).
 This is \textit{extremely} fast and the resulting value of $\alpha$ can be used for \text{any} subsequent ultrafast experiment, including the ultrafast PSYCHE-iDOSY experiment described in \cref{sec:pureshift__epsidosy}.
 
 However, it is worth clarifying one subtlety of POISE here.
@@ -129,7 +132,7 @@ This in fact further underlines the importance of choosing a sensible optimisati
 Returning to the current optimisation, the $(k, t_2)$ data matrices obtained from the excitation--EPSI pulse sequence are shown in \cref{fig:epsi_spec_kt_noopt,fig:epsi_spec_kt_opt}.
 In the former, where the default value of $\alpha = 1$ is used, there is a noticeable drift in $k$-space.
 This is removed in the optimised experiment with $\alpha = 1.0004$.
-The optimised value of $\alpha$ can then be transferred to other ultrafast experiment, such as the ultrafast TOCSY (\cref{fig:poise_epsi_tocsyepsi}).
+The optimised value of $\alpha$ can then be transferred to other ultrafast experiments, such as the ultrafast TOCSY (\cref{fig:poise_epsi_tocsyepsi}).
 The improvements thus obtained are shown in \cref{fig:epsi_spec_tocsy_noopt,fig:epsi_spec_tocsy_opt}: in the optimised spectrum, substantial improvements in lineshapes are obtained, even allowing some couplings to be properly resolved in the indirect dimension.
 In principle, this $k$-drift could be compensated for by shearing of the $(k, t_2)$ data matrix prior to Fourier transformation.
 However, similar improvements in lineshapes could not be accomplished using any existing processing scripts, including those in the protocol of Giraudeau et al.\autocite{Gouilleux2018ARNMRS}; I did not attempt to manually shear the data myself either.

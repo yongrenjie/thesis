@@ -4,7 +4,7 @@
 
 \subsubsection{Spectrum-comparison cost function}
 
-As previously discussed, the fact that the dPSYCHE experiment can be very quickly simulated opens up the potential for entirely computational optimisation of the pulse sequence.
+As previously discussed, the fact that the dPSYCHE experiment can be very quickly simulated opens up the possibility of entirely computational optimisation of the pulse sequence.
 For any arbitrary spin system, it is trivial to remove all the couplings \textit{in silico} and simulate a pulse--acquire spectrum: this gives us a theoretically perfect pure shift spectrum.
 The simulated dPSYCHE experiment (on a system with couplings) can then be compared against this.
 The entire process is repeated using $s$ different spin systems, and the cost function is defined as:
@@ -269,5 +269,5 @@ However, the sensitivity is only around half that of the dPSYCHE.
 In order to accomplish the same sensitivity as the dPSYCHE, the PSYCHE flip angle must be increased to approximately \ang{34}; in this case, the artefact intensity is greater than that of the dPSYCHE experiment.
 
 Unfortunately, even though all of the code for efficient (parallelised) computation of this cost function was written, I did not have the time to actually perform optimisations using this cost function and to experimentally validate the results.
-This is a slight disappointment to me, as the initial results shown in this section have been quite promising, and it is likely that the state transfer-based optimisations would have improved this even further.
+This comes as somewhat a disappointment to me, as the initial results shown in this section have been quite promising, and it is likely that the state transfer-based optimisations would have improved this even further.
 However, even from just the results obtained so far, it is clear that the interleaved pulses and gradients used in the dPSYCHE PSE form a reasonable \textit{ansatz} which can yield pure shift spectra which are comparable to the PSYCHE method.

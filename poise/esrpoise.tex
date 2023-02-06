@@ -12,7 +12,7 @@ Thus, ESR-POISE is in fact completely written in Python 3, and there is no need 
 The Xepr-facing code was written by \JBV{} (University of Oxford) and David Goodwin (University of Southampton, formerly Oxford).
 
 A number of applications in ESR-POISE were explored.
-All ESR experimental work was done by \JBV{} and William Myers (Oxford); thus, I only provide very brief descriptions here.
+All ESR experimental work was done by \JBV{} and William Myers (University of Oxford); thus, I only provide very brief descriptions here.
 The examples include:
 
 \begin{itemize}
@@ -26,7 +26,8 @@ The examples include:
 An example of the results obtained via the latter two optimisations is shown in \cref{fig:esrpoise_comp}.
 In \cref{fig:esrpoise_comp_nocomp}, the CHORUS broadband excitation experiment was run without any optimisations: the resulting spectrum (blue, solid) is compared against that obtained via a standard field sweep (grey, dashed).
 Clearly, there are substantial mismatches.
-\Cref{fig:esrpoise_comp_ampcomp} shows the improved performance of CHORUS after a simple optimisation of the shaped pulse amplitudes, using the spectral intensity (or the negative thereof, since we seek to maximise it) as the cost function: the POISE optimisation therefore allows for a much more accurate spectrum to be obtained.
+\Cref{fig:esrpoise_comp_ampcomp} shows the improved performance of CHORUS after a simple optimisation of the shaped pulse amplitudes, using the spectral intensity as the cost function (or the negative thereof, since we seek to maximise it).
+It can be seen that the POISE optimisation allows for a much more accurate spectrum to be obtained.
 
 \begin{figure}[htb]
     \centering

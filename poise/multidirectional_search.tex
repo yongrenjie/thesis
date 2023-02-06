@@ -30,7 +30,7 @@ The MDS algorithm was proposed partially for the purpose of avoiding this ill-co
 
 The MDS method is also simplex-based, and uses similar reflection/expansion/contraction steps to the NM algorithm.
 However, instead of (e.g.) reflecting a single worst point $y_{n+1}$ about the other points, it reflects \textit{all} of the $n$ worst points $\{y_2, y_3, \cdots, y_{n+1}\}$ about the best point $y_1$.
-This means that the shape of the simplex $Y$, and thus its condition $\kappa(Y)$, is always preserved: this provides it with much better convergence properties, as was shown by Torczon et al.\autocite{Torczon1989,Torczon1991SIAMJO}.%
+This means that the shape of the simplex $Y$, and thus its condition $\kappa(Y)$, is always preserved: this provides it with much better convergence properties, as was shown by Torczon et al.\autocite{Torczon1989,Torczon1991SIAMJO}%
 \footnote{Specifically, it can be concluded that at least one of the search directions was bounded away from being orthogonal to the gradient; or in simpler (and less precise) terms, at least one of the search directions is close enough to a direction in which the cost function $f\/$ decreases.}
 The increased reliability of the MDS algorithm over the NM algorithm was demonstrated on a variety of example optimisation problems: even in the very simple case where the cost function was simply the norm of a vector,
 \begin{equation}
@@ -41,8 +41,8 @@ it was shown that the NM algorithm stalled when the dimension of the problem, $n
 The value of $n$ needed to precipitate this failure depended on the problem being solved, and generally ranged from 8 to 40.
 On the other hand, the MDS method proved to be robust under the same conditions, eventually converging to the optimum---although in the cases where NM \textit{did} work, the MDS method generally required more FEs.
 
-It was this improved robustness of the MDS algorithm which prompted Goodwin et al.\ to use it in their (experimental) optimisation of ESR pulse shapes\autocite{Goodwin2018JMR}, and for me to later include it in POISE.
+It was this improved robustness of the MDS algorithm which prompted Goodwin et al.\ to use it in their (experimental) optimisation of ESR pulse shapes\autocite{Goodwin2018JMR}, and me to later include it in POISE.
 In the ESR work, the number of pulse points being optimised was 11 or 21, which fell into the regime where the MDS method would likely have better convergence properties than NM.
 However, in NMR, each experiment takes a substantially longer time than in ESR, and even optimisations with $n > 2$ become rather time-consuming due to the number of FEs required (the largest $n$ explored in the present work is 4).
 Thus, it is unlikely that the NMR optimisations explored in POISE will lie in the regime where the NM algorithm is prone to failure.
-As will be shown later, I generally found that the NM and MDS methods were equally reliable in our optimisations, with NM generally being faster.
+As will be shown later, I generally found that the NM and MDS methods were equally reliable in POISE optimisations, with NM generally being faster.

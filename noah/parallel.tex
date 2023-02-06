@@ -135,7 +135,7 @@ The `direct' peaks correspond to a (\carbon{}-decoupled) HSQC experiment.%
 \footnote{It should be noted that the intensities of the direct peaks in an HSQC-COSY spectrum are lower than in the corresponding HSQC spectrum, because the direct peaks in an HSQC-COSY stem only from magnetisation which does \textit{not} evolve under $\nJ{HH}$ during the mixing period. However, TS experiments do generally have lower sensitivity than the non-TS counterparts, so this is not really an issue.}
 However, for the `indirect' peaks, there is no real equivalent spectrum to be compared against: the H2BC experiment\autocite{Nyberg2005JACS,Nyberg2005MRC} yields a similar set of peaks, but in this experiment, the `direct' peaks have in fact been intentionally suppressed through the application of a LPJF.
 When the LPJF is removed (as in the 2BOB/H2OBC experiments\autocite{Kupce2017MRC}), a similar information content to the HSQC-COSY is obtained.
-So, it is not entirely accurate to write that the HSQC-COSY combines a HSQC plus H2BC spectrum.
+So, it is not entirely accurate to write that the HSQC-COSY combines HSQC plus H2BC spectra.
 Consequently, I personally prefer to view it as an IPAP experiment.
 
 Of course, the analysis above is only applicable to the modules shown in \cref{fig:tsnoah_example}.
@@ -349,7 +349,7 @@ There are 11 peaks here, one for each amino acid residue in cyclosporin: again, 
 \Cref{fig:covariance_spec_cyclo_cacb_nosymm} shows the original spectrum, but in \cref{fig:covariance_spec_cyclo_cacb_symm}, the spectrum has been further subjected to a sign-preserving symmetrisation procedure, where the intensity at each point $p(\Omega_1, \Omega_2)$ is replaced by
 \begin{equation}
     \label{eq:covariance_symmetrisation}
-    p(\Omega_1, \Omega_2) \to \sgn[p(\Omega_1, \Omega_2)] \cdot \min\left\{|p(\Omega_1, \Omega_2)|, |p(\Omega_2, \Omega_1)|\right\}.
+    p(\Omega_1, \Omega_2) \to \sgn[p(\Omega_1, \Omega_2)] \cdot \min\left\{\lvert p(\Omega_1, \Omega_2)\rvert, \lvert p(\Omega_2, \Omega_1)\rvert \right\}.
 \end{equation}
 Here, $\sgn{x}$ refers to the sign of $x$, or equivalently $x / |x|$ (for $x \neq 0$).
 Since all \ch{C}$\upalpha$ and \ch{C}$\upbeta$ carbons in cyclosporin are protonated, this region of the spectrum is expected to be symmetric;%

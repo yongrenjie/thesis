@@ -8,7 +8,7 @@ The convex hull of these points, $Y$, is the smallest possible set of points whi
 \end{equation}
 and in this context is called a \textit{simplex}.
 If this convex hull is nonempty---or equivalently, if the $n$ vectors $y_k - y_1$ ($2 \leq k \leq n + 1$) are linearly independent---then the simplex is called \textit{nonsingular}.
-(To provide an analogy for $n = 2$, the convex hull is the shape obtained by stretching a rubber band around three pins placed at the points $y_1, y_2, y_3$.
+(To provide an analogy for $n = 2$, the convex hull is the shape obtained by stretching a rubber band around three pins placed at the points $\{y_1, y_2, y_3\}$.
 The simplex would be singular if the three points were collinear.)
 
 \begin{figure}[htb]
@@ -17,7 +17,7 @@ The simplex would be singular if the three points were collinear.)
     \caption[Trial points in an iteration of the Nelder--Mead algorithm]{
         Diagram showing various points evaluated in one iteration of the Nelder--Mead algorithm (for an optimisation of two parameters).
         The solid black lines indicate the boundaries of the simplex, which is assumed to be ordered such that $y_1$ is the best point (has the lowest cost function value) and $y_3$ the worst.
-        The current points in the simplex are shown as filled black cirles, and the centroid $\bar{y}$ as an empty black circles.
+        The current points in the simplex are shown as filled black circles, and the centroid $\bar{y}$ as an empty black circle.
         The blue circles indicate the trial points which the algorithm attempts to replace $y_3$ with, and are further discussed in the text.
         Blue dashed lines indicate the simplex which would result if the corresponding trial point were accepted.
     }
@@ -41,7 +41,7 @@ The search for the new point is performed in several steps: first, the worst poi
 The value of the cost function is evaluated at this point, and is compared against the existing points in the simplex.
 If this reflected point falls in the middle of the pack, such that $f(y_1) \leq f(y_{\symup{r}}) < f(y_n)$, this represents a `modest' improvement in the cost function: we simply replace the worst point with this and continue to the next iteration.
 
-On the other hand, if the reflected point is better than all the other points (i.e.\ $f(y_{\symup{r}}) < f(y_1)$), then we ambitiously attempt to \textit{expand} the simplex even further in that direction:
+On the other hand, if the reflected point is better than all the other points (i.e.\ $f(y_{\symup{r}}) < f(y_1)$), then we ambitiously attempt to \textit{expand} the simplex even further in that direction by testing the point
 \begin{equation}
     \label{eq:nm_expand}
     y_{\symup{e}} = \bar{y} - 2(y_{n+1} - \bar{y}).
@@ -63,7 +63,7 @@ In practice, these `last-resort' shrink steps occur very rarely.
 
 Finally, convergence is signalled when in every dimension of the optimisation, the width of the simplex is smaller than the chosen optimisation tolerance.%
 \footnote{The implementation of the NM algorithm in the \texttt{scipy} library only accepts a single value for the `tolerance', which is then used in all dimensions.
-This is designed to be used by scaling the parameters beforehand such that the tolerance in each dimension is equal (and in fact, POISE was later updated to do so).
+This is designed to be used by scaling the parameters beforehand such that the tolerance in each dimension is equal (and in fact, POISE was later updated to do exactly this).
 However, during initial development I chose instead to re-implement the NM algorithm with a convergence check which allowed for different tolerances to be specified in each dimension.}
 For a multiple-parameter optimisation, this can potentially mean that extra accuracy is obtained in one of the parameters (because the simplex may have shrunk along that dimension more quickly).
 However, it does guarantee that \textit{at least} the specified level of accuracy in every dimension is achieved.

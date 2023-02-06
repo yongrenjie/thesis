@@ -7,32 +7,34 @@ This information is relevant for anybody looking to improve or otherwise modify 
 Firstly, POISE is written in Python 3, and since TopSpin does not have a built-in Python 3 interface,%
 \footnote{Version 4.1.4 of TopSpin now comes with a Python 3 API; however, this was introduced too late for the work in this chapter.}
 this means that POISE is not entirely self-contained within TopSpin: in particular, an external installation of Python 3 is required, which may be a slight inconvenience.
-This choice was necessary because it would have been too time-consuming to implement numerical optimisation algorithms using the existing C or Python 2 application programming interfaces (APIs) in TopSpin: notably, the Python 2 API uses the Jython implementation of the language, which is incompatible with \texttt{numpy}.
+This choice was necessary because it would have been too time-consuming to implement numerical optimisation algorithms using the existing C or Python 2 application programming interfaces (APIs) in TopSpin: notably, the Python 2 API uses the Jython implementation of the language, which is incompatible with the \texttt{numpy} Python library.
 However, a benefit of this is that since the `cost' of installing Python 3 is already paid, we can also allow users to define their own cost functions using libraries such as \texttt{numpy} and \texttt{scipy}.
-Without these, performing any kind of non-trivial data processing is significantly more awkward.
+Without these, performing any kind of non-trivial data processing or analysis is significantly more awkward.
 
 Like most Python 3 packages, POISE is available on the Python Package Index (PyPI), so can be installed using a single command: \texttt{pip install nmrpoise}.
 As usual, POISE is first installed to the Python \texttt{site-packages} directory.
-If the \texttt{nmrpoise} package is imported from a Python 3 script, then this code is read.
+If the \texttt{nmrpoise} package is imported from a Python 3 script, this code in the \texttt{site-packages} directory is read.
 This may be required on occasion, as the \texttt{nmrpoise} package provides a few functions to analyse optimisation logs created by POISE.
 We might refer to this code as the `library' component of \texttt{nmrpoise}.
 
-This, however, is irrelevant for actually \textit{running} optimisations.
-When POISE is installed, on top of the default installation to \texttt{site-packages}, it automatically searches for TopSpin installations in either \texttt{C:\textbackslash} (Windows), or \texttt{/opt/} (Unix/Linux).
-(If necessary, a non-standard TopSpin installation location can be specified using the \texttt{\$TS} environment variable.)
-The installation then creates:
+This library component, however, is not used at all when running optimisations.
+When POISE is installed, it automatically searches for TopSpin installations in either \texttt{C:\textbackslash} (on Windows), or \texttt{/opt/} (on Unix/Linux).
+The installation then creates the following components:
 \begin{itemize}
     \item a \textit{frontend script} at \texttt{\$TS/exp/stan/nmr/py/user/poise.py}, which allows POISE to be invoked by simply typing \texttt{poise} in the TopSpin command line and is responsible for controlling data acquisition; as well as
     \item a \textit{backend directory} at \texttt{\$TS/exp/stan/nmr/py/user/poise\_backend}, within which all of the POISE data and logic is stored.
         For example, routines can be found in the \texttt{routines} subdirectory, and cost functions in the \texttt{costfunctions.py} and \texttt{costfunctions\_user.py} files.
 \end{itemize}
+Here, \texttt{\$TS} denotes the TopSpin installation directory detected during installation.
+As the name suggests, a non-standard TopSpin installation location can be specified if necessary using the \texttt{\$TS} environment variable.
+
 All optimisations are run using the code \textit{only} in the backend directory, and not anything in Python's \texttt{site-packages} folder.
 This is because the frontend script must know how to launch the backend (i.e.\ where to find the files), and it is simply easiest to predefine this location.%
 \footnote{In fact, it is possible to dynamically determine the \texttt{site-packages} installation location at runtime, meaning that the entire backend does not need to be copied to TopSpin directories.
-However, that would mean the cost functions would be buried inside the \texttt{site-packages} directory, which can be difficult to find.}
+However, that would mean the cost functions would be buried inside the \texttt{site-packages} directory, which is more difficult for the user to find.}
 
 \begin{mylisting}[!ht]
-\begin{tcbminted}{python}
+\begin{tcbminted}{python2}
 try:
     # Launch backend
     backend = subprocess.Popen([p_python3, "-u", p_backend],
@@ -80,16 +82,17 @@ if __name__ == "__main__":
     with pidfile() as _:
         main()
 \end{tcbminted}
-    \caption[Context manager to keep track of backend process IDs]{Simplified excerpt from POISE backend script, showing a context manager used to keep track of backend process IDs. The context manager ensures that when the script is started, a file with the process ID is created; and when the script exits, this file is deleted. The `main()` function carries out the actual optimisation.}
+    \caption[Context manager to keep track of backend process IDs]{Simplified excerpt from POISE backend script, showing a context manager used to keep track of backend process IDs. The context manager ensures that when the script is started, a file with the process ID is created; and when the script exits, this file is deleted. The \texttt{main()} function carries out the actual optimisation.}
     \label{lst:poise_backendpid}
 \end{mylisting}
 
-Finally, there is one other quirk of TopSpin surrounding data acquisition: it is possible to start the acquisition from a Python script (such as the frontend \texttt{poise.py} script), but it is not possible to block execution of the Python script while acquisition is running.
+There is one other quirk of TopSpin surrounding data acquisition: it is possible to start the acquisition from a Python script (such as the frontend \texttt{poise.py} script), but it is not possible to block execution of the Python script while acquisition is running.
 Thus, it is not possible to trigger acquisition and wait until it is done before sending a signal to the backend.%
 \footnote{The TopSpin Python documentation claims that this \textit{can} be accomplished using, for example \texttt{XCMD("zg", wait=WAIT\_TILL\_DONE)}. However, none of the suggestions in the documentation worked as intended.}
 The workaround is to call an AU programme containing acquisition commands, which (somehow) blocks the Python script.
-Of course, this also means that the AU programme can be extended to include other commands, which is yet another way in which optimisations can be customised.
-During optimisations, the frontend must also be careful not to overwrite other experiments: this can easily happen if, for example, a user opens a new dataset in TopSpin just before acquisition is started.
+A nice side effect of this is that the AU programme can be extended by the user to include other commands (e.g.\ to perform special setup or processing routines).
+
+Finally, during optimisations, the frontend must also be careful not to overwrite other experiments: this can easily happen if, for example, a user opens a new dataset in TopSpin just before acquisition is started.
 To ensure that this is the case, the frontend \textit{always} brings the optimisation dataset to the foreground immediately before the acquisition AU programme is executed.
-This has a slight drawback in that it can be difficult to view other spectra in TopSpin while an optimisation is proceeding.
+This creates a slight issue in that it can be difficult to view other spectra in TopSpin while an optimisation is proceeding.
 (Unfortunately, this is out of my control: TopSpin does not provide any documented way of running an acquisition AU programme on a background dataset.)

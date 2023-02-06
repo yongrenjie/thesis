@@ -19,7 +19,7 @@ I particularly want to distinguish POISE from other types of `optimisations' rep
 Examples of such procedures can be found in the contexts of relaxation measurements\autocite{Song2018JMR,Tang2019SR} and undersampling in multidimensional NMR\autocite{Eghbalnia2005JACS,Hansen2016ACIE,BrukerSmartDriveNMR}.
 
 Secondly, \textit{POISE is not a global optimiser}.
-The optimisation algorithms provided within POISE are not designed to go beyond the first local minima found (except for Py-BOBYQA, but as described in \cref{subsec:poise__algorithms}, I disabled the multiple restarts option responsible for this).
+The optimisation algorithms provided within POISE are not designed to go beyond the first local minimum found (Py-BOBYQA technically can, but as described in \cref{subsec:poise__algorithms}, I disabled the multiple restarts option responsible for this).
 In challenging optimisation cases where multiple local minima exist, it is not generally possible to predict which local minimum the algorithm will converge to.
 What \textit{can} be guaranteed is that if the initial point is not already an optimum, then the optimisation will always provide a decrease in the cost function: in other words, it will always lead to an improvement in the spectrum (insofar as the cost function accurately represents the quality of the spectrum).
 

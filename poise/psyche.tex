@@ -12,7 +12,7 @@ The content in this section is similar, except that it was performed within the 
     \caption[Pulse sequences used for PSYCHE optimisations]{
         \textbf{(\subref*{fig:poise_psyche_pulseq_psyche})} Pseudo-2D PSYCHE pure shift experiment.
         \textbf{(\subref*{fig:poise_psyche_pulseq_jrse})} J-resolved spin echo experiment (see also \cref{subsec:pureshift__optim_techniques}) using the PSYCHE PSE.
-        Phase cycling is performed using: $\phi_1 = (x, -x)$, $\phi_2 = (x, x, y, y)$, $\phi_{\text{rec},1} = (x, -x, -x, x)$ for the full PSYCHE experiment, and $\phi_3 = (x, y, -x, -y)$, $\phi_{\text{rec},2} = (x, -x, x, -x)$ for the JRSE experiment.
+        Phase cycling is performed using: $\phi_1 = (x, -x)$, $\phi_2 = (x, x, y, y)$, $\phi_{\symup{rec},1} = (x, -x, -x, x)$ for the full PSYCHE experiment, and $\phi_3 = (x, y, -x, -y)$, $\phi_{\symup{rec},2} = (x, -x)$ for the JRSE experiment.
         CTP gradient amplitudes are $(g_1, g_2, g_4) = (35\%, 77\%, 50\%)$ (though the exact values are likely immaterial); the PSYCHE gradient $g_3$ was subjected to optimisation.
         The delay $\tau$ is set to $1/(4 \cdot \Tchunk)$ for the PSYCHE experiment, and $\tau_{\symup{e}}$ is \qty{16}{\ms}.
     }
@@ -182,11 +182,11 @@ We can see from these results that---perhaps unsurprisingly---optimising more pa
 An important question is whether these reductions in the cost function (measured on a JRSE experiment) do actually translate into improved pure shift spectra.
 The pure shift spectra, obtained with the optimised parameters in \cref{tbl:poise_psyche_summary}, are shown in \cref{fig:poise_psyche_spec}.
 Of particular interest are the two strongly coupled protons at \qty{2.5}{\ppm}: in the pure shift spectrum, the two peaks on either side are genuine, but strong coupling artefacts appear in the middle of these peaks.
-On top of that, the decoupling performance for the peaks at \qty{1.36}{\ppm} and \qty{1.65}{\ppm} are also worth noting.
+On top of that, the decoupling performance for the peaks at \qty{1.36}{\ppm} and \qty{1.65}{\ppm} is also worth noting.
 
 Broadly speaking, all the optimised spectra provide better performance than the initial point in terms of decoupling quality.
 In particular, the four-parameter optimisation successfully suppresses some of the strong coupling artefacts: this may be explained by the fact that the pulse duration was increased from \qty{30}{\ms} to \qty{36}{\ms}, which generally results in better spatiotemporal averaging, as was noted in \cref{sec:pureshift__nsaltire}.%
-\footnote{This does raise the question of whether a two-parameter optimisation of just the flip angle and duration could yield similar results, but in a shorter time. I think it is possible, but I did not test this, though, as I simply did not have the appetite to try optimising \textit{every} possible combination of parameters.}
+\footnote{This does raise the question of whether a two-parameter optimisation of just the flip angle and duration could yield similar results, but in a shorter time. I think it is possible, but I did not test this, as I simply did not have the appetite to try optimising \textit{every} possible combination of parameters.}
 Generally, this optimisation \textit{does} come at a cost in sensitivity, which is particularly noticeable for the four-parameter optimised result.
 However, since the cost function $\fdiff$ also penalises sensitivity losses, it ensures that any drops in sensitivity are not excessive.
 
@@ -196,7 +196,7 @@ The first obvious drawback is the time required: in fact, it is probably more ec
 Furthermore, $\fdiff$ is a rather `flat' cost function and optimisations using it are very susceptible to noise: this factor is specific to pure shift optimisations, and was previously mentioned in \cref{subsec:pureshift__chirpopt}.
 A closer inspection of the POISE logs for the three- and four-parameter optimisations (which are not provided here, but can be accessed in the raw data for the POISE paper, available at \url{https://doi.org/10.5281/zenodo.4698423}) reveals that the optimisations are perhaps not as consistent as one would hope.
 Although \textit{generally} the optimisation leads to similar results in that (for example) $\beta$ is often decreased and $\taup$ increased, the extents of these changes are not quite uniform: for example, $\taup$ is optimised to anywhere between \qty{36}{\ms} and \qty{55}{\ms}, which suggests that there are \textit{many} local minima and which of these the optimisation converges to depends on the noise in the cost function.%
-\footnote{I still think, however, that it is misleading to quote these ranges in \cref{tbl:poise_psyche1p,tbl:poise_psyche2p,tbl:poise_psyche3p,tbl:poise_psyche4p}, because this gives the impression that there are no correlations between the optimised parameters.}
+\footnote{I still think, however, that it is misleading to quote these ranges in \cref{tbl:poise_psyche1p,tbl:poise_psyche2p,tbl:poise_psyche3p,tbl:poise_psyche4p}, because this gives the impression that there are no correlations between the optimised parameters. By providing access to the complete raw data, and explicitly pointing out this issue in the text, I hope that I have done enough to not be accused of cherry-picking data to present.}
 
 Putting all of these factors together, it is (in my opinion) only really worthwhile to optimise two parameters at a time: either the flip angle plus gradient amplitude, or the flip angle plus the duration, appear to be sensible choices.
 That said, this \textit{does} demonstrate that optimising multiple parameters at once---ordinarily a very challenging task for a human---does not actually require prohibitively long times when performed using a suitable algorithm.

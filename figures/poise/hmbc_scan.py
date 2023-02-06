@@ -67,7 +67,7 @@ if 1:
                                  [nm, mds, bobyqa],
                                  '.+*'):
         x, y = zip(*data)
-        ax.scatter(x, y, color='#999999', marker=marker, label=alg)
+        ax.scatter(x, y, color='#aaaaaa', marker=marker, label=alg)
     ax.legend(loc='upper left')
 
 

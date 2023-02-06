@@ -72,8 +72,8 @@ Thankfully, we know that $\Hgrad$ commutes with $\HfreeI$, so we can in fact sep
     &= \exp(-\mi\Hgrad\tau) \exp(-\mi\HfreeI\Delta),
 \end{align}
 where the first term is just the gradient on its own, and the second is just the delay without a gradient.
-So, we can directly apply $\exp(-\mi\Hgrad\tau)$ to the density operator in \cref{eq:hsqc_ea_before_g2} to get:%
-\footnote{We have implicitly assumed here that the $z$-coordinate of the $IS$ spin pair during the first gradient is the same as its $z$-coordinate during $g_2$, or in other words, that there is no \textit{diffusion} or \textit{convection} between the two gradients. In general, this is not true, and these effects will lead to a loss of signal as the rephasing by the second gradient is not perfect.}
+So, we can directly apply the propagator $\exp(-\mi\Hgrad\tau)$ to the density operator in \cref{eq:hsqc_ea_before_g2} to get:%
+\footnote{We have implicitly assumed here that the $z$-coordinate of the $IS$ spin pair during $g_1$ is the same as its $z$-coordinate during $g_2$, or in other words, that there is no \textit{diffusion} or \textit{convection} between the two gradients. In general, this is not true, and these effects will lead to a loss of signal as the rephasing by the second gradient is not perfect.}
 \begin{align}
     \rho(z) &= -I_x\cos(\Omega_S t_1 + \gamma_S g_1 z \tau)\cos(\gamma_I g_2 z\tau) - I_y\cos(\Omega_S t_1 + \gamma_S g_1 z \tau)\sin(\gamma_I g_2 z\tau) \label{eq:hsqc_ea_after_g2_1} \\
             &= -\frac{1}{2}I_x \cos[\Omega_S t_1 + (\gamma_S g_1 + \gamma_I g_2)z\tau] -\frac{1}{2} I_x \cos[\Omega_S t_1 + (\gamma_S g_1 - \gamma_I g_2) z\tau]  \notag \\
@@ -90,7 +90,7 @@ where the sample length is $L$ and $z=0$ is assumed to be the middle of the samp
 
 For the \textit{echo} experiment, we choose the ratio $g_1/g_2 = \gamma_I/\gamma_S$; this means that $\gamma_S g_1 - \gamma_I g_2 = 0$.
 The second and fourth terms in \cref{eq:hsqc_ea_after_g2_2} thus \textit{lose} their $z$-dependence; when integrated over $z$ these terms are unchanged.
-On the other hand, the first and third terms are attenuated by a factor proportional to $\int_{-L/2}^{L/2} \cos[(\gamma_S g_1 + \gamma_I g_2)z\tau]\,\md z$ (or the equivalent sine-modulated integrand).
+On the other hand, the first and third terms are attenuated by a factor proportional to $\int_{-L/2}^{L/2} \cos[(\gamma_S g_1 + \gamma_I g_2)z\tau]\,\md z$ (or one with the equivalent sine-modulated integrand).
 The term in square brackets here can be identified as the spatially dependent phase caused by the evolution under the gradient pulse; we say that the gradients \textit{dephase} coherences. (In the case of the second and fourth terms, they also \textit{rephase} coherences.)
 If the gradient strengths $(g_1, g_2)$ and/or their durations $\tau$ are sufficiently large, the integral evaluates to a small number which is effectively zero, corresponding to complete dephasing.
 The result is that, just before detection, we have:

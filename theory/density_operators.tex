@@ -2,12 +2,12 @@
 \label{sec:theory__density_operators}
 
 NMR experiments are not executed on one single spin at a time; instead, the samples used typically contain on the order of $10^{20}$ spins.
-Furthermore, each of these spins may have its own wavefunction: it is generally impossible to force every spin to possess the same state.
+Furthermore, each of these spins may have its own wavefunction: it is impossible to force every spin to possess the same state.
 Since we are only interested in the \textit{ensemble} behaviour such as expectation values, rather than the dynamics of each individual spin, we can use the \textit{density operator} formalism instead of dealing with a composite wavefunction of many spins.
 The density operator, $\rho$, is defined (in the Schr\"odinger picture) as
 \begin{equation}
     \label{eq:density_operator}
-    \rho = \sum_j p_j \ket{\psi_j}\bra{\psi_j}
+    \rho = \sum_j p_j \ket{\psi_j}\!\bra{\psi_j}
 \end{equation}
 where $p_j$ is the probability that a spin is in the state $\ket{\psi_j}$ (and the $\ket{\psi_j}$'s are assumed to form a complete set of states).\footnote{This probability is a \textit{classical} probability: that is, it is purely statistical in nature and should not be confused with the probability amplitudes associated with quantum superposition (i.e.\ $|c_j|^2$ in a single-spin wavefunction $\sum_j c_j \ket{j}$).}
 The use of $\rho$ actually represents a loss of information, in that while \cref{eq:density_operator} gives us a straightforward recipe for constructing $\rho$ from a given distribution of states $\{p_j, \ket{\psi_j}\}$, the reverse is not possible: given a known $\rho$, it is generally not possible to determine a unique distribution of states.
@@ -26,9 +26,9 @@ Other properties of the density operator are not discussed here, but can be foun
 The time evolution of a Schr\"odinger-picture density operator is governed by the Liouville--von Neumann equation, which can be derived from \cref{eq:tdse}:
 \begin{align}
     \label{eq:lvn}
-    \frac{\md\rho}{\md t} &= \sum_j p_j \left(\frac{\md\ket{\psi_j}}{\md t}\bra{\psi_j} + \ket{\psi_j}\frac{\md\bra{\psi_j}}{\md t} \right) \notag \\
-                                       &= \sum_j p_j \left(-\mi H\ket{\psi_j}\bra{\psi_j} + \ket{\psi_j}\mi\bra{\psi_j}H \right) \notag \\
-                                       &= -\mi H \left(\sum_j p_j\ket{\psi_j}\bra{\psi_j}\right) + \mi \left(\sum_j p_j \ket{\psi_j}\bra{\psi_j}\right) H \notag \\
+    \frac{\md\rho}{\md t} &= \sum_j p_j \left(\frac{\md\!\ket{\psi_j}}{\md t}\bra{\psi_j} + \ket{\psi_j}\frac{\md\!\bra{\psi_j}}{\md t} \right) \notag \\
+                                       &= \sum_j p_j \left(-\mi H\ket{\psi_j}\!\bra{\psi_j} + \ket{\psi_j}\mi\bra{\psi_j}H \right) \notag \\
+                                       &= -\mi H \left(\sum_j p_j\ket{\psi_j}\!\bra{\psi_j}\right) + \mi \left(\sum_j p_j \ket{\psi_j}\!\bra{\psi_j}\right) H \notag \\
                                        &= -\mi [H, \rho].
 \end{align}
 Note here that the weights $p_j$ are time-independent, as the time evolution is contained entirely in the kets and bras.\footnote{Strictly speaking, this only applies to a \textit{closed} quantum system, which implies that effects such as relaxation are ignored (or at least, treated in only an empirical manner). The discussion of open quantum systems is beyond the scope of this work, but can be found elsewhere.\autocite{Breuer2002,Lidar2019arXiv}}
@@ -42,9 +42,9 @@ where $\tau = t_2 - t_1$.
 In the interaction picture, the density operator is instead defined using interaction-picture states $\{\ket{\psi_i}_I\}$:
 \begin{align}
     \label{eq:density_matrix_interaction}
-    \rho_I = \sum_j p_j \ket{\psi_j}_I \bra{\psi_j}_I
-           &= \sum_j p_j \exp(\mi H_0 t)\ket{\psi_j} \bra{\psi_j} \exp(-\mi H_0 t) \notag \\
-           &= \exp(\mi H_0 t) \left(\sum_j p_j \ket{\psi_j} \bra{\psi_j}\right) \exp(-\mi H_0 t) \notag \\
+    \rho_I = \sum_j p_j \ket{\psi_j}_I \!\bra{\psi_j}_I
+           &= \sum_j p_j \exp(\mi H_0 t)\ket{\psi_j}\!\bra{\psi_j} \exp(-\mi H_0 t) \notag \\
+           &= \exp(\mi H_0 t) \left(\sum_j p_j \ket{\psi_j}\!\bra{\psi_j}\right) \exp(-\mi H_0 t) \notag \\
            &= \exp(\mi H_0 t) \rho \exp(-\mi H_0 t)
 \end{align}
 (note the similarity to \cref{eq:interaction_h1i}).

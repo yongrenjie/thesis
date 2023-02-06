@@ -7,8 +7,7 @@ The fundamental idea behind a (derivative-free) trust-region method is to sample
     \forall y \in Y, m(y) = f(y).
 \end{equation}
 The model at iteration $k$ is labelled $m_k$.
-Most trust region methods use a quadratic model, and Py-BOBYQA is no exception.
-This can be expressed as:
+Most trust region methods, including Py-BOBYQA, use a quadratic model, which can be expressed as:
 \begin{equation}
     \label{eq:trust_region_quadratic_model}
     m_k(x_k + p) = c + g^Tp + p^TGp,
@@ -23,7 +22,7 @@ The model $m_k$ is then used to calculate the next step $s_k$, which is obtained
     \label{eq:trust_region_subproblem}
     s_k = \argmin_{\lVert s \rVert \leq \Delta_k} m_k(x_k + s).
 \end{equation}
-Since $m_k$ itself is noiseless, this can be solved using almost any algorithm: Py-BOBYQA uses a conjugate gradient method.
+Since $m_k$ itself is noiseless, this subproblem can be solved using almost any algorithm: Py-BOBYQA uses a conjugate gradient method.
 The cost function is then evaluated at the trial point $x_k + s_k$, and compared against the value predicted by the model.
 If the ratio of `actual improvement' to `predicted improvement' is large enough, i.e.
 \begin{equation}
@@ -35,7 +34,7 @@ Additionally, the trust region radius $\Delta_k$ may be increased so that the ne
 Conversely, if $r_k < \eta$, then there are one of two possibilities: either the model is poorly conditioned (in that the points in $Y$ are very unevenly distributed), in which case one of the points is replaced and the model recalculataed; or the model is sufficiently well-conditioned, in which case the step is rejected, and $\Delta_k$ is decreased.
 
 Py-BOBYQA goes beyond a standard derivative-free trust-region algorithm in further limiting the rate at which the radius $\Delta_k$ can change (amongst others).
-Specifically, Py-BOBYQA also maintains a lower bound on the trust region radius $\rho_k$, and on unsuccessful iterations $\Delta_k$ is not allowed to decrease further than $\rho_k$.
+Specifically, Py-BOBYQA also maintains a lower bound on the trust region radius (denoted $\rho_k$), and on unsuccessful iterations $\Delta_k$ is not allowed to decrease below $\rho_k$.
 This prevents $\Delta_k$ from decreasing too quickly until the algorithm is certain that $Y$ is sufficiently well-conditioned.\autocite{Powell2003MP}
 Another core feature of Py-BOBYQA is the implementation of multiple restarts, which endows it with greater robustness towards noise and also allows it to escape local minima.\autocite{Cartis2019ACMTMS,Cartis2022O}
 However, the multiple-restarts feature in Py-BOBYQA was disabled in POISE as this often led to overly long optimisations.%

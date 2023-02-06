@@ -7,7 +7,7 @@
    viewBox="0 0 180 134"
    version="1.1"
    id="svg5"
-   inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)"
+   inkscape:version="1.2.2 (b0a8486, 2022-12-01)"
    sodipodi:docname="neldermead.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -24,11 +24,11 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="1.1159634"
-     inkscape:cx="251.35232"
-     inkscape:cy="95.433234"
+     inkscape:zoom="1.6591735"
+     inkscape:cx="378.20036"
+     inkscape:cy="146.15711"
      inkscape:window-width="1355"
-     inkscape:window-height="446"
+     inkscape:window-height="418"
      inkscape:window-x="2028"
      inkscape:window-y="25"
      inkscape:window-maximized="0"
@@ -134,7 +134,7 @@
          y="38.953861"><tspan
            style="font-style:italic;font-size:4.23333px"
            id="tspan1589-3-5">y</tspan><tspan
-           style="font-size:65%;baseline-shift:super"
+           style="font-size:65%;baseline-shift:sub"
            id="tspan696">3</tspan></tspan></text>
     <text
        xml:space="preserve"
@@ -240,16 +240,16 @@
        xml:space="preserve"
        style="font-size:4.23333px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;stroke-width:0.264583"
        x="109.62358"
-       y="60.34824"
+       y="59.550911"
        id="text1585-1-8-3"><tspan
          sodipodi:role="line"
          id="tspan1583-5-3-9"
          style="font-size:4.23333px;stroke-width:0.264583"
          x="109.62358"
-         y="60.34824"><tspan
+         y="59.550911"><tspan
            style="font-style:italic;font-size:4.23333px"
            id="tspan1589-3-5-9">y</tspan><tspan
-           style="font-size:65%;baseline-shift:super"
+           style="font-size:65%;baseline-shift:sub"
            id="tspan696-9">1</tspan></tspan></text>
     <text
        xml:space="preserve"
@@ -264,7 +264,7 @@
          y="18.79561"><tspan
            style="font-style:italic;font-size:4.23333px"
            id="tspan1589-3-5-1">y</tspan><tspan
-           style="font-size:65%;baseline-shift:super"
+           style="font-size:65%;baseline-shift:sub"
            id="tspan696-3">2</tspan></tspan></text>
     <text
        xml:space="preserve"

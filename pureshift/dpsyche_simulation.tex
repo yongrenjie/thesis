@@ -78,7 +78,7 @@ It can be shown that the two components of the gradient propagator, $\HfreeI$ an
 Thus, we can write:
 \begin{equation}
     \label{eq:split_propagator}
-    \exp[-\mi(\HfreeI + \Hgrad) t] = \exp(-\mi\HfreeI t) \exp(-\mi \Hgrad t)
+    \exp[-\mi(\HfreeI + \Hgrad)\tau] = \exp(-\mi\HfreeI\tau) \exp(-\mi\Hgrad\tau)
 \end{equation}
 (in general, for matrices $A$ and $B$, $\exp(A + B) = \exp(A)\exp(B)$ if and only if $[A, B] = 0$).
 This on its own does not reduce the number of matrix exponentials required, but notice now that $\Hgrad$ is a sum of $I_{iz}$ terms and is therefore \textit{diagonal} in the Zeeman basis.
@@ -189,7 +189,7 @@ This is a good thing: it means that \texttt{parfor} can be used in an external l
         Comparison of wall-clock times for dPSYCHE simulations.
         The dPSYCHE sequence used contained 15 pulses, each applied with a flip angle of \ang{15} and a phase of \ang{0}.
         Spin systems were generated pseudo-randomly.
-        All timings were measured on a 2019 MacBook Pro with a \qty{2.6}{\GHz} 6-core Intel i7 CPU.
+        All timings were measured on a 2019 MacBook Pro with a \qty{2.6}{\GHz} 6-core Intel i7 CPU (although CPU parallelisation was not used).
     }
     \label{tbl:dpsyche_simulations}
 \end{table}

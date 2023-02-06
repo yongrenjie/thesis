@@ -13,6 +13,18 @@ for ds, ax, char in zip(dss, axs, "ab"):
     pg.mkplot(ax)
     pg.ymove(ax)
 
+# show sensitivity increases
+peaks = [(7.63, 7.38), (7.38, 7.19),
+         (7.38, 7.63), (7.19, 7.38)]
+for f1, f2 in peaks:
+    int_unopt = dss[0].integrate(peak=(f1, f2), margin=(0.02, 0.02),
+                                 mode="min")
+    int_opt = dss[1].integrate(peak=(f1, f2), margin=(0.02, 0.02),
+                               mode="min")
+    sens_enhancement = 100 * (int_opt - int_unopt) / int_unopt
+    axs[1].text(x=f2, y=f1 - 0.05, s=f"+{sens_enhancement:.0f}%",
+                ha='center')
+
 apt.label_axes_def(axs)
 # apt.show()
 apt.save(__file__)

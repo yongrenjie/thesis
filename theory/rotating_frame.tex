@@ -34,12 +34,12 @@ Having split up our Hamiltonian, we then define an \textit{interaction-picture k
 The time evolution of this ket is given by a transformation of the Schr\"odinger equation:
 \begin{align}
     \label{eq:interaction_evolution}
-    \frac{\partial\ket{\Psi}_I}{\partial t} &= \mi H_0 \exp(\mi H_0 t) \ket{\Psi} + \exp(\mi H_0 t)\frac{\partial \ket{\Psi}}{\partial t} \notag \\
-                                            &= \mi H_0 \ket{\Psi}_I + \exp(\mi H_0 t) (-\mi H\ket{\Psi}) \notag \\
-                                            &= \mi H_0 \ket{\Psi}_I - \mi\exp(\mi H_0t)(H_0 + H_1)\exp(-\mi H_0 t)\ket{\Psi}_I \notag \\
-                                            &= \mi H_0 \ket{\Psi}_I - \mi H_0\ket{\Psi}_I - \mi\exp(\mi H_0t)H_1\!\exp(-\mi H_0 t)\ket{\Psi}_I \notag \\
+    \frac{\partial\ket{\Psi}_I}{\partial t} &= \mi H_0\!\exp(\mi H_0 t) \ket{\Psi} + \exp(\mi H_0 t)\frac{\partial\!\ket{\Psi}}{\partial t} \notag \\
+                                            &= \mi H_0 \!\ket{\Psi}_I + \exp(\mi H_0 t) (-\mi H\!\ket{\Psi}) \notag \\
+                                            &= \mi H_0 \!\ket{\Psi}_I - \mi\exp(\mi H_0t)(H_0 + H_1)\exp(-\mi H_0 t)\ket{\Psi}_I \notag \\
+                                            &= \mi H_0 \!\ket{\Psi}_I - \mi H_0\!\ket{\Psi}_I - \mi\exp(\mi H_0t)H_1\!\exp(-\mi H_0 t)\ket{\Psi}_I \notag \\
                                             &= -\mi\exp(\mi H_0 t)H_1\!\exp(-\mi H_0 t)\ket{\Psi}_I \notag \\
-                                            &= -\mi H_{1,I}\ket{\Psi}_I,
+                                            &= -\mi H_{1,I} \!\ket{\Psi}_I,
 \end{align}
 where
 \begin{equation}
@@ -52,34 +52,34 @@ We now turn our attention to how the various NMR Hamiltonians (\cref{eq:h_cs,eq:
 \begin{equation}
     \label{eq:interaction_nmr_hamiltonians}
     \begin{aligned}
-        H_{1,I} &= \exp(\mi H_0 t) \HJ \exp(-\mi H_0 t) + \exp(\mi H_0 t) \Hpulse \exp(-\mi H_0 t) \\
-                &\quad + \exp(\mi H_0 t) \Hgrad \exp(-\mi H_0 t) + \exp(\mi H_0 t) \Hoffset \exp(-\mi H_0 t)
+        H_{1,I} &= \exp(\mi H_0 t) \HJ \!\exp(-\mi H_0 t) + \exp(\mi H_0 t) \Hpulse \!\exp(-\mi H_0 t) \\
+                &\quad + \exp(\mi H_0 t) \Hgrad \!\exp(-\mi H_0 t) + \exp(\mi H_0 t) \Hoffset \!\exp(-\mi H_0 t)
     \end{aligned}
 \end{equation}
 are.
 We first note that $H_0$ (and hence $\exp(\pm \mi H_0t)$) is a function only of the $I_{iz}$ operators; thus, any Hamiltonian which commutes with all $I_{iz}$'s will be untouched by this transformation.
 This is trivially true of $\Hoffset$ and $\Hgrad$, which are themselves both functions of the $I_{iz}$'s.
 It can also be shown that $\HJ$ (in the homonuclear case) and $H_{\symup{J}\text{,secular}}$ (heteronuclear case) fully commute with $H_0$.
-So, for three of the four terms in \cref{eq:interaction_nmr_hamiltonians} we simply have the result that $\exp(\mi H_0t)H\exp(-\mi H_0t) = H$.
+So, for three of the four terms in \cref{eq:interaction_nmr_hamiltonians} we simply have the result that $\exp(\mi H_0t)H\!\exp(-\mi H_0t) = H$.
 This allows us to immediately write down the free precession Hamiltonian in the interaction picture:
 \begin{equation}
     \label{eq:h_free_interaction}
     \HfreeI = \Hoffset + \HJ.
 \end{equation}
 The fourth term, which does not commute with $H_0$, is $\Hpulse$.
-In the laboratory frame, \textit{hard pulses} are applied as oscillating RF fields.
-Consider the case of a pulse acting on a single spin:
+In the laboratory frame, \textit{hard pulses} are applied as oscillating RF fields, which are time-dependent.
+For a pulse acting on a single spin, we have
 \begin{equation}
     \label{eq:hard_pulse}
-    \Hpulse = \omega_1 [\cos(\omegarf t + \phi) I_x + \sin(\omegarf t + \phi) I_y].
+    \Hpulse(t) = \omega_1 [\cos(\omegatx t + \phi) I_x + \sin(\omegatx t + \phi) I_y].
 \end{equation}
-Here, $\omega_1$ represents the \textit{amplitude} of the pulse, and $\phi$ the \textit{phase}. This expression is similar to the expression in \cref{eq:h_pulse}, but here $\omega_1$ and $\phi$ are both constants, with the time dependence explicitly specified using the \textit{frequency} of the pulse, $\omegarf$.
+Here, $\omega_1$ represents the \textit{amplitude} of the pulse, and $\phi$ its \textit{phase}. This expression is similar to the expression in \cref{eq:h_pulse}, but here $\omega_1$ and $\phi$ are both constants, with the sinusoidal time dependence explicitly specified using the \textit{transmitter frequency} (or just \textit{frequency}) of the pulse, $\omegatx$.
 In the rotating frame, using that $H_0 = \omegarot I_z$, we then have the following interaction Hamiltonian:
 \begin{equation}
     \label{eq:hard_pulse_rotatingframe_intermediate}
     \begin{aligned}
-        \HpulseI &= \omega_1 \big[\! \exp(\mi \omegarot t I_z) I_x \cos(\omegarf t + \phi) \exp(-\mi \omegarot t I_z) \\
-                 &\quad\quad\quad + \exp(\mi \omegarot t I_z) I_y \sin(\omegarf t + \phi) \exp(-\mi \omegarot t I_z) \big],
+        \HpulseI(t) &= \omega_1 \big[\! \exp(\mi \omegarot t I_z) I_x \cos(\omegatx t + \phi) \exp(-\mi \omegarot t I_z) \\
+                 &\quad\quad\quad + \exp(\mi \omegarot t I_z) I_y \sin(\omegatx t + \phi) \exp(-\mi \omegarot t I_z) \big],
     \end{aligned}
 \end{equation}
 and using the formulae
@@ -90,10 +90,9 @@ and using the formulae
 (see Appendix A.2 of Levitt\autocite{Levitt2008} for a derivation), \cref{eq:hard_pulse_rotatingframe_intermediate} simplifies to
 \begin{equation}
     \label{eq:hard_pulse_rotatingframe}
-    \HpulseI = \omega_1 \left[I_x \cos(\omegarf - \omegarot + \phi) + I_y \sin(\omegarf - \omegarot + \phi) \right].
+    \HpulseI(t) = \omega_1 \big\{I_x \cos[(\omegatx - \omegarot)t + \phi] + I_y \sin[(\omegatx - \omegarot)t + \phi] \big\}.
 \end{equation}
-The frequency at which hard pulses are applied is termed the \textit{transmitter frequency}, $\omegatx$.
-This is a parameter which can be controlled by the user, and is typically placed in the centre of the spectrum of the sample under study, in order to make the most use of its \textit{bandwidth} (the region of frequencies over which the pulse is effective).
+The transmitter frequency $\omegatx$ is a parameter which can be controlled by the user, and is typically placed in the centre of the spectrum of the sample under study, in order to make the most use of its \textit{bandwidth} (the region of frequencies over which the pulse is effective).
 For convenience, it is typical to then choose the rotating-frame frequency to be exactly the same frequency: $\omegarot = \omegatx$.
 This allows us to simplify the rotating-frame Hamiltonian to
 \begin{equation}
@@ -110,13 +109,13 @@ instead of the amplitude and phase, to describe the pulse.
 
 Consider now the application of this pulse to an isolated spin for which $\omega_0 = \omegarot$ and thus has an offset $\Omega = 0$.
 We have that $\Hoffset = \HJ = \Hgrad = 0$, and the only active Hamiltonian is that of the pulse, which causes \textit{nutation} of the spin magnetisation vector around the axis of the pulse; in this case, the pulse (or the spin) is said to be \textit{on-resonance}.%
-\footnote{Strictly speaking, the rotating frame is just a mathematical formalism, so the resonance condition does not necessitate $\Omega = 0$ or $\omegarf = \omegarot = \omega_0$. We only need that $\omegarf = \omega_0$, or in other words, that the pulse is applied at the frequency of the spin---which may or may not be the same as the rotating-frame frequency. Practically, such a situation may arise in (for example) the application of selective pulses to a specific spin which is not at the centre of the spectrum.}
+\footnote{Strictly speaking, the rotating frame is just a mathematical formalism, so the resonance condition does not necessitate $\Omega = 0$ or $\omegatx = \omegarot = \omega_0$. We only need that $\omegatx = \omega_0$, or in other words, that the pulse is applied at the frequency of the spin---which may or may not be the same as the rotating-frame frequency. Practically, such a situation may arise in (for example) the application of selective pulses to a specific spin which is not at the centre of the spectrum.}
 If a duration for the pulse $\taup$ is further specified, this also allows us to define a \textit{flip angle} $\beta = \omega_1 \taup$.
-On the other hand, spins which are \textit{off-resonance} ($\omega_0 - \omegatx \neq 0$) evolve not only under the pulse Hamiltonian but also the offset; this leads to a different effective flip angle and axis of rotation.
-Off-resonance effects may be neglected when considering an idealised, infinitely hard pulse.
+On the other hand, spins which are \textit{off-resonance} ($\omega_0 - \omegatx \neq 0$) evolve under not only the pulse Hamiltonian but also the offset; this leads to a different effective flip angle and axis of rotation.
+Off-resonance effects may be neglected when considering an idealised, infinitely hard pulse, where $\omega_1 \to \infty$ and $\taup \to 0$.
 However, this is of course not possible on a spectrometer, and in practice off-resonance effects are noticeable even for hard pulses as short as several microseconds.
 
 In general, RF pulses are more complicated than the simple case of the hard pulse shown here.
 For example, they may be constructed such that even in the rotating frame there is still a time dependence in the amplitudes and/or the phases; these are variously referred to as \textit{shaped}, \textit{amplitude-modulated}, or \textit{frequency-modulated} pulses depending on the context.
-In principle, $\omega_1$ and $\phi$ may both be continuous functions of time; however, for ease of construction and implementation, pulses are typically generated in a \textit{piecewise} or discrete method using $n$ points each of time $\delta t$, within which $\omega_1$ and $\phi$  (or equivalently, $c_x$ and $c_y$) are constant.
+In such cases, both $\omega_1$ and $\phi$ can in principle be continuous functions of time; however, for ease of construction and implementation, pulses are typically generated in a \textit{piecewise} or discrete method using $n$ points each of time $\delta t$, within which $\omega_1$ and $\phi$ are constant.
 The total length of the pulse is then simply $n(\delta t)$; $\delta t$ is sometimes called the \textit{timestep} of the pulse.

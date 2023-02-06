@@ -14,7 +14,7 @@ print(f"Corresponding value of p1: {p1s[np.argmin(cfs)]}")   # 48.3
 
 fig, ax = pg.subplots(figsize=(4.5, 3))
 ax.plot(p1s, cfs)
-ax.set(xlabel="p1 (µs)", ylabel="cost function")
+ax.set(xlabel="p1 (µs)", ylabel=r"$f_\mathrm{minabsint}$")
 pg.style_axes(ax, "plot")
 
 # apt.show()

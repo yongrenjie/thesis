@@ -80,14 +80,14 @@ During the detection period, the term $-2\gamma_II_zS_y$ evolves as
 \begin{align}
     \label{eq:inept_fid_prodop}
     -2\gamma_I I_zS_y \xrightarrow{\HfreeI} -2\gamma_I I_zS_y\cos(\Omega_St)\cos(\cpi Jt) + \gamma_I S_x\cos(\Omega_St)\sin(\cpi Jt) \notag{} \\
-    \qquad {} - 2\gamma_I I_zS_x\sin(\Omega_St)\cos(\cpi Jt) + \gamma_I S_y\sin(\Omega_S t)\sin(\cpi Jt),
+    \qquad \qquad {} - 2\gamma_I I_zS_x\sin(\Omega_St)\cos(\cpi Jt) + \gamma_I S_y\sin(\Omega_S t)\sin(\cpi Jt),
 \end{align}
 from which we extract the complex signal
 \begin{equation}
     \label{eq:inept_fid}
     s_I(t) = \langle S_x(t) \rangle + \mi \langle S_y(t) \rangle = \frac{\gamma_I}{2\mi}\bigl\{\exp[\mi(\Omega_S + \cpi J_{IS})t] - \exp[\mi(\Omega_S - \cpi J_{IS})t]\bigr\}.
 \end{equation}
-After Fourier transformation, the resulting spectrum has two peaks with opposite phase and have the frequencies $\Omega_S \pm \cpi J_{IS}$; because of the factor of $1/(2\mi)$, the real part of the spectrum will contain dispersion-mode signals (\cref{fig:doublet_lorentzians_dis_anti}).
+After Fourier transformation, the resulting spectrum has two peaks with frequencies $\Omega_S \pm \cpi J_{IS}$ and opposite phases; because of the factor of $1/(2\mi)$, the real part of the spectrum will contain dispersion-mode signals (\cref{fig:doublet_lorentzians_dis_anti}).
 If desired, zeroth-order phase correction can be performed here, yielding instead a pair of absorption-mode signals still with opposite phases (\cref{fig:doublet_lorentzians_abs_anti}).
 In either case, this is termed an \textit{antiphase} doublet; the product operators which give rise to it ($2I_zS_x$ and $2I_zS_y$) are said to be antiphase with respect to spin $I\/$.
 Importantly, the amplitude of the signal scales as $\gamma_I$ rather than $\gamma_S$; since $\gamma_I > \gamma_S$, this represents a sensitivity enhancement compared to the direct excitation of $S$-magnetisation.
@@ -131,7 +131,7 @@ This leads to potentially unwanted phase distortions in the spectrum, which one 
 This can be accomplished through the technique of \textit{phase cycling}, where pulse and receiver phases are changed in concert and the resulting FIDs summed in order to select for a particular signal.
 In this case, the INEPT experiment is performed twice, once with the phases as given in \cref{fig:inept}, and once where the initial $\angang{90}{x}(I)$ pulse is replaced with a $\angang{90}{-x}(I)$ pulse.
 The first of these gives us the same signals as above.
-However, inverting the initial $I\/$ pulse leads to $s_I$ acquiring a minus sign, because the initial $I_z$ term is rotated to $I_y$ instead of $-I_y$.
+However, in the second, inverting the initial $I\/$ pulse leads to $s_I$ acquiring a minus sign, because the initial $I_z$ term is rotated to $I_y$ instead of $-I_y$.
 On the other hand, the signal component $s_S$ is unaffected by this pulse and thus does not experience a change of sign.
 The two FIDs we record are thus as follows:
 \begin{align}
@@ -140,8 +140,8 @@ The two FIDs we record are thus as follows:
     s_2(t) &= -s_I(t) + s_S(t)
 \end{align}
 Simply taking the difference of these two FIDs yields a signal where the desired $s_I$ has been accumulated and $s_S$ has been cancelled out.
-In practice, instead of subtracting the two signals, it is typical to shift the receiver phase $\phirec$ by \ang{180} in the second experiment: this introduces a phase shift of $\exp(-\mi\cpi) = -1$ to the signal, and the two signals can now be \textit{added} together instead of subtracted to cancel out $s_S$.
-Since both $\phi_1$ and $\phirec$ are $0$ on the first experiment and $\cpi$ on the second experiment, we can express this as $\phi_x = \phirec = (0, \cpi)$.
+In practice, instead of subtracting the two signals, it is typical to shift the receiver phase $\phirec$ by $\cpi$ (i.e.\ \ang{180}) in the second experiment: this introduces a phase shift of $\exp(-\mi\cpi) = -1$ to the signal, and the two signals can now be \textit{added} together instead of subtracted to cancel out $s_S$.
+Since both $\phi_1$ and $\phirec$ are $0$ on the first experiment and $\cpi$ on the second experiment, we can express this as $\phi_1 = \phirec = (0, \cpi)$.
 This is more commonly denoted as $\phi_1 = \phirec = (x, -x)$, because the phases $(0, \cpi)$ correspond to the $+x$- and $-x$-axes respectively.
 
 The `simplified' analysis of pulse sequences shown in \cref{eq:inept_prodop,eq:inept_prodop_s} is often called \textit{`product operator'} analysis\autocite{Sorensen1984PNMRS}, because the underlying two-spin operators are products of single-spin Cartesian operators.

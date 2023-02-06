@@ -28,16 +28,17 @@ Restating \cref{eq:realistic_pse}, suppose we have a PSE which accomplishes the 
 The simplest method of using this is to insert it in the middle of a $t_1$ period of a 2D experiment.
 This is actually not entirely desirable, because the PSE causes \textit{both} chemical shifts and J-couplings to be refocused; consequently, there will be \textit{no} frequency modulation during $t_1$ at all!
 It is more sensible to combine the PSE with a hard \ang{180} pulse, which refocuses only chemical shifts.
-Together, the effect is to refocus J-couplings and allow chemical shifts to evolve; this combination is thus called a \textit{J-refocusing element}, or JRE (\cref{fig:pureshift_modes_indirectnd}).
+Together, the effect is to refocus J-couplings and allow only chemical shifts to evolve; this combination is thus called a \textit{J-refocusing element}, or JRE (\cref{fig:pureshift_modes_indirectnd}).
 We can equivalently say that the JRE flips all passive spins and leaves active spins untouched.
 This distinction between a JRE and a PSE is important and will be referred to several times in this chapter.
 
 Implementing a JRE in the middle of a $t_1$ period is simple, requiring minimal modification of existing 2D experiments.
-Furthermore, the pure shift `character' of the $F_1$ dimension may then be mapped to the $F_2$ dimension through indirect covariance processing\autocite{Bruschweiler2004JCP,Zhang2004JACS,Jaeger2014ARNMRS,Morris2010JACS,Aguilar2012ACIE,Foroozandeh2014JACS}.
-However, the increased resolution in the $F_1$ dimension provided by homodecoupling cannot really be reaped unless many $t_1$ increments are acquired.
+This results in a 2D spectrum which is pure shift in the $\omega_1$, or $F_1$, dimension.
+In homonuclear 2D spectra, this pure shift `character' may further be mapped to the $F_2$ dimension through indirect covariance processing\autocite{Bruschweiler2004JCP,Zhang2004JACS,Jaeger2014ARNMRS,Morris2010JACS,Aguilar2012ACIE,Foroozandeh2014JACS}.
+However, the increased resolution in the $F_1$ dimension provided by homodecoupling cannot really be realised unless many $t_1$ increments are acquired.
 Furthermore, this does not help with acquiring a 1D pure shift spectrum, where there is no indirect dimension.
 
-This brings us to the second acquisition mode for pure shift data, called \textit{real-time acquisition}\autocite{Lupulescu2012JMR,Meyer2013ACIE,Mauhart2015JMR,Kiraly2018MRC}.
+These considerations lead us to the second acquisition mode for pure shift data, called \textit{real-time acquisition}\autocite{Lupulescu2012JMR,Meyer2013ACIE,Mauhart2015JMR,Kiraly2018MRC}.
 Here, JREs are inserted at regular intervals throughout an acquisition period, causing the chemical shift evolution to be effectively `suspended' for the duration of the JRE, and the sense of J-evolution to be reversed (\cref{fig:pureshift_modes_realtime}).%
 \footnote{Relaxation during the JRE must also be taken into account for the real-time method: this causes each successive chunk to decay in intensity faster than usual, thereby leading to peak broadening, which can be an issue for very long JREs.
 In contrast, the interferogram method only applies one JRE per increment, so the relaxation losses in each chunk are just a constant.}

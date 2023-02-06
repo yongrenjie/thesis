@@ -1,7 +1,7 @@
 \subsection{NOE mixing time}
 \label{subsec:poise__noe}
 
-In all of the optimisations done previously, the cost functions used are relatively simple, simply seeking to maximise or minimise some intensity.
+In all of the optimisations so far, the cost functions used are relatively simple, simply seeking to maximise or minimise some intensity.
 In fact, the Bruker \texttt{popt} interface does come with a number of cost functions itself, which can be used for grid search-based optimisations: so, in principle, all the previous examples could have been done with \texttt{popt} (albeit with a much longer time).
 However, POISE goes beyond this in that it allows users to define their own cost functions
 In this section, we exploit this customisability to devise a more complicated cost function for optimising mixing times in NOE experiments.
@@ -9,7 +9,7 @@ In this section, we exploit this customisability to devise a more complicated co
 \subsubsection{Optimisation setup}
 
 The ideal NOE mixing time for a given compound depends on the rates of various relaxation processes: too short a mixing time does not allow for sufficient buildup of the NOE, but too long a mixing time leads to loss of signal through relaxation.
-In this section, I do not deal with this theoretically: the optimisation process is merely used to find the empirically best value (for the sample under study).
+In this section, I do not deal with this theoretically: the optimisation process is merely used to find the empirical best value (for the sample under study).
 
 \begin{figure}[!ht]
     \centering
@@ -25,8 +25,8 @@ In this section, I do not deal with this theoretically: the optimisation process
 
 In the chosen sample, 3-fluorophenylboronic acid, there are four crosspeaks of interest in the 2D NOESY spectrum.
 I first performed a reference grid search to determine where the crosspeak intensities were maximised (\cref{fig:poise_noesy_scan}).
-Generally, a broad minimum between 2.5 and \qty{4}{\s} is observed: any result within this range should be considered as `correct'.%
-The relatively large value for the optimal mixing time reflects the small size of the molecule used in this study (it has a molar mass of \qty{139.92}{\g\per\mol}), which corresponds to rapid tumbling and long $T_1$ values.
+Generally, a broad minimum between 2.5 and \qty{4}{\s} is observed: any result within this range should be considered as `correct'.
+The relatively large value for the optimal mixing time reflects the small size of the molecule used in this study (it has a molar mass of \qty{139.92}{\g\per\mol}), which corresponds to rapid tumbling and long $T_1$ values.%
 \footnote{There is a complicating factor in that the use of such long mixing times also leads to a noticeable increase in the experiment duration.
 As such, it may be more prudent to consider the sensitivity \textit{per unit time}.
 In the optimisations which follow, I have neglected this issue: the $2\times$ increase in sensitivity demonstrated below would only be cancelled out by a $4\times$ increase in time, which is not the case here.
@@ -53,6 +53,7 @@ Note that if a different 1D NOESY pulse programme is used with different paramet
     \includegraphics[]{pp/poise/noe1d.png}%
     \caption[1D NOESY pulse sequence used for optimisations]{
         Selective 1D NOESY pulse sequence used for POISE optimisations.
+        $\taum$ denotes the NOE mixing time.
         Phase cycling was performed using $\phi_1 = \phirec = (x, -x)$.
         Gradient amplitudes were set as follows: $(g_1, g_2, g_3, g_4 = 17\%, 40\%, 25\%, 10\%)$.
     }
@@ -69,7 +70,7 @@ The initial value for the optimisation was set to \qty{0.5}{\s}, which is a reas
 The results of this optimisation are shown in \cref{tbl:poise_noe_3fpba}.
 The peak at \qty{7.38}{\ppm} was used for selective irradiation.
 In all cases, the optimisations converged to the correct region within 2.5 minutes (for BOBYQA) or 5 minutes (for the simplex-based algorithms).
-The resulting 2D NOESY spectra, with the initial and optimised mixing times of \qty{0.5}{\s} and \qty{3.5}{\s} respectively, are shown in \cref{fig:poise_noesy}, where the improvement in crosspeak sensitivity is clearly visible.
+The resulting 2D NOESY spectra, with the initial and optimised mixing times of \qty{0.5}{\s} and \qty{3.5}{\s} respectively, are shown in \cref{fig:poise_noesy}, where the improvement in crosspeak sensitivity is clearly visible: in this case, an approximate $2\times$ enhancement is obtained.
 
 \begin{table}[!ht] \hbadness=10000
     \centering
@@ -99,7 +100,8 @@ The resulting 2D NOESY spectra, with the initial and optimised mixing times of \
         2D NOESY spectra of 3-fluorophenylboronic acid, obtained 
         \textbf{(\subref*{fig:poise_noesy_unoptimised})} before and 
         \textbf{(\subref*{fig:poise_noesy_optimised})} after optimising the mixing time on the 1D NOESY sequence in \cref{fig:noe1d_pulseq}.
-        Both spectra are plotted with the same contour levels.
+        The mixing times used were \qty{0.5}{\s} and \qty{3.5}{\s} respectively.
+        Both spectra are plotted with the same contour levels; sensitivity increases for each peak are indicated as percentages relative to the unoptimised spectrum.
         \datacode{7B-200725}
     }
     \label{fig:poise_noesy}
@@ -114,9 +116,9 @@ However, it can be argued that the \textit{benefit} reaped from the optimisation
 \subsubsection{A different sample}
 
 To more clearly illustrate the \textit{sample-specific} nature of POISE optimisations, I also performed the same optimisation on a different sample: in this case, the decapeptide gramicidin S.
-For this rather larger compound, we would expect the optimisation to converge to a shorter mixing time; this is indeed observed in practice (\cref{tbl:poise_noe_grami}).
+Although I did not perform a reference grid search here, for this rather larger compound, we would expect the optimisation to converge to a shorter mixing time; this is indeed observed in practice (\cref{tbl:poise_noe_grami}).
 The peak at \qty{4.76}{\ppm} was used for selective irradiation: this is the \ch{H}$^{\alpha}$ proton of the ornithine residue.
-In this case, the sample is rather less concentrated, and I used \texttt{DS=2} and \texttt{NS=4}; this is still a relatively small number of scans, but was sufficient to yield accurate results.
+In this case, the sample is rather less concentrated, and I used \texttt{DS=2} and \texttt{NS=4}; this is still a relatively small number of scans, but was sufficient to yield reproducible results.
 
 \begin{table}[htb]
     \centering

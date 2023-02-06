@@ -15,7 +15,7 @@ G = np.array([i * i for i in range(16)])
 c1 = 1e-6
 ax.scatter(G, np.exp(-G * G * c1), marker='x', color='black')
 ax.plot(G, np.exp(-G * G * c1), color=grey, zorder=-1)
-ax.text(s='(a)', x=210, y=0.9, fontweight='semibold', fontsize=10)
+ax.text(s='(a)', x=210, y=0.87, fontweight='semibold', fontsize=10)
 
 c2 = 5e-5
 ax.scatter(G, np.exp(-G * G * c2), marker='x', color='black')

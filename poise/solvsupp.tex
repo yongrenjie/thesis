@@ -22,10 +22,15 @@ In this section, I use the symbols $\nu_{\symup{tx}}$, $k_{\symup{ps}}$, $\taum$
 \subsubsection{Optimisation setup}
 
 In a similar style to the PSYCHE optimisations (\cref{subsec:poise__psyche}), a series of optimisations with increasing numbers of parameters were run.
-However, in this case, the cost function is far easier to construct and far less noisy: we can simply integrate the water peak, which was defined to be the region of the spectrum between 4.65 and \qty{4.75}{\ppm}, and use that (or its absolute value) as the cost function.
-In practice, because the phase of the water peak can vary rather unpredictably, I preferred to reuse the sum-of-squares cost function $\fsos$ (\cref{eq:sos_cost_function}).
-Squaring each point of the spectrum not only accounts for the possible sign changes from out-of-phase peaks, but also more strongly penalises intense absorption-mode water peaks.%
-\footnote{Dispersion-mode peaks are possibly more problematic because of their long `tails'. In hindsight, I could have considered trying the \texttt{minabsint} cost function instead (\cref{eq:minabsint}). However, in practice this did not seem to matter very much: all of these cost functions do ultimately share the same goal, i.e.\ to reduce the intensity of the water peak.}
+However, in this case, the cost function is far easier to construct and far less noisy: we can simply integrate the water peak, which was defined to be the region of the (real) spectrum between 4.65 and \qty{4.75}{\ppm}, and use that (or its absolute value) as the cost function.
+In practice, because the phase of the water peak can vary rather unpredictably, I preferred to use a sum-of-squares cost function $\fsosre$:
+\begin{equation}
+    \label{eq:sosre_cost_function}
+    \fsosre = \sum_i S_{\symup{re},i}^2.
+\end{equation}
+This is very similar to $\fsos$ (\cref{eq:sos_cost_function}), but uses only the real part of the spectrum instead of the magnitude-mode spectrum.
+Here, squaring each point of the spectrum not only accounts for the possible sign changes from out-of-phase peaks, but also more strongly penalises intense absorption-mode water peaks.%
+\footnote{Dispersion-mode peaks are possibly more problematic because of their long `tails'. In hindsight, I could have considered trying the \texttt{minabsint} cost function instead (\cref{eq:minabsint}). However, in practice this did not seem to matter very much: all of these cost functions ultimately share the same goal, i.e.\ to reduce the intensity of the water peak.}
 
 One drawback of the water suppression optimisation is that the phase cycle of the 1D NOESY is integral to its performance: thus, several scans must be used for a reliable cost function to be obtained, making for relatively long optimisations.
 In this case, I used \texttt{DS=2} and \texttt{NS=4}.
@@ -55,7 +60,7 @@ However, for more routine usage, it is probably preferable to limit the number o
     \begin{tabular}{cccccccc}
         \toprule
          & \multicolumn{3}{c}{Aggregated results from all runs} & \multicolumn{4}{c}{Parameters from best optimum} \\
-        Description & $\fsos / 10^{18}$ & FEs & Time (\unit{\s}) & $\nu_{\symup{tx}}$ (\unit{\Hz}) & $k_{\symup{ps}}$ (\unit{\Hz}) & $\taum$ (\unit{\s}) & $\taur$ (\unit{\s}) \\
+        Description & $\fsosre / 10^{18}$ & FEs & Time (\unit{\s}) & $\nu_{\symup{tx}}$ (\unit{\Hz}) & $k_{\symup{ps}}$ (\unit{\Hz}) & $\taum$ (\unit{\s}) & $\taur$ (\unit{\s}) \\
         \hline
         Initial point & 14.7         & --     & --         & (1880.61) & (50.0) & (0.100) & (2.00) \\
         1 parameter   & 1.85--2.49   & 6--12  & 259--520   & 1880.41   & (50.0) & (0.100) & (2.00) \\
@@ -79,7 +84,7 @@ However, for more routine usage, it is probably preferable to limit the number o
     \caption[1D NOESY spectra of rodent urine sample before and after optimisation]{
         Insets of 1D NOESY spectra acquired using optimised parameters from each set of optimisations in \cref{tbl:poise_psyche_summary}; the time required to obtain the optimised parameters is also indicated for each spectrum.
         The sample used was rodent urine in \ch{D2O}.
-        Note that, for the three- and four-parameter optimisations, the best optimum from the 15 runs (i.e.\ the optima listed in \cref{tbl:poise_solvsupp_summary}) was used to acquire the spectra shown here.
+        Note that, for the one-, three-, and four-parameter optimisations, the best optimum from the 15 runs (i.e.\ the optima listed in \cref{tbl:poise_solvsupp_summary}) was used to acquire the spectra shown here.
         However, this was not the case for the two-parameter optimisation: I (inexplicably) used a different optimum.
         This was probably an oversight on my part.
         Nevertheless, it does not affect any of the conclusions drawn here.
@@ -115,7 +120,7 @@ However, for more routine usage, it is probably preferable to limit the number o
         \toprule
               &           & \multicolumn{3}{c}{Best optimum found} & \multicolumn{2}{c}{Aggregated results} \\
                             \cmidrule(lr){3-5}                       \cmidrule(lr){6-7}
-        Entry & Algorithm & $\nu_{\symup{tx}}$ (\unit{\Hz}) & $k_{\symup{ps}}$ (\unit{\Hz}) & $\fsos / 10^{18}$ & FEs    & Time (\unit{\s}) \\
+        Entry & Algorithm & $\nu_{\symup{tx}}$ (\unit{\Hz}) & $k_{\symup{ps}}$ (\unit{\Hz}) & $\fsosre / 10^{18}$ & FEs    & Time (\unit{\s}) \\
         \midrule
         1     & NM        & 1880.20                    & 51.94          & 1.209                    & 17--21 & 737--911       \\
         2     & MDS       & 1880.85                    & 50.81          & 2.600                    & 15     & 649--652       \\
@@ -137,7 +142,7 @@ However, for more routine usage, it is probably preferable to limit the number o
         \toprule
               &           & \multicolumn{4}{c}{Best optimum found} & \multicolumn{2}{c}{Aggregated results} \\
                             \cmidrule(lr){3-6}                       \cmidrule(lr){7-8}
-        Entry & Algorithm & $\nu_{\symup{tx}}$ (\unit{\Hz}) & $k_{\symup{ps}}$ (\unit{\Hz}) & $\taum$ (\unit{\ms}) & $\fsos / 10^{18}$ & FEs    & Time (\unit{\s}) \\
+        Entry & Algorithm & $\nu_{\symup{tx}}$ (\unit{\Hz}) & $k_{\symup{ps}}$ (\unit{\Hz}) & $\taum$ (\unit{\ms}) & $\fsosre / 10^{18}$ & FEs    & Time (\unit{\s}) \\
         \midrule
         1     & NM        & 1879.90                    & 47.79          & 117.7              & 1.238                    & 23--26 & 1002--1128     \\
         2     & MDS       & 1882.79                    & 52.95          & 49.91              & 1.843                    & 24--25 & 1034--1080     \\
@@ -159,7 +164,7 @@ However, for more routine usage, it is probably preferable to limit the number o
         \toprule
               &           & \multicolumn{5}{c}{Best optimum found} & \multicolumn{2}{c}{Aggregated results} \\
                             \cmidrule(lr){3-7}                       \cmidrule(lr){8-9}
-        Entry & Algorithm & $\nu_{\symup{tx}}$ (\unit{\Hz}) & $k_{\symup{ps}}$ (\unit{\Hz}) & $\taum$ (\unit{\ms}) & $\taur$ (\unit{\s}) & $\fsos / 10^{18}$ & FEs    & Time (\unit{\s}) \\
+        Entry & Algorithm & $\nu_{\symup{tx}}$ (\unit{\Hz}) & $k_{\symup{ps}}$ (\unit{\Hz}) & $\taum$ (\unit{\ms}) & $\taur$ (\unit{\s}) & $\fsosre / 10^{18}$ & FEs    & Time (\unit{\s}) \\
         \midrule
         1     & NM        & 1880.72                    & 49.73          & 110.6              & 1.972             & 1.008                    & 29--40 & 1250--1726     \\
         2     & MDS       & 1882.65                    & 53.41          & 69.46              & 2.137             & 1.199                    & 34--53 & 1487--2314     \\
@@ -204,7 +209,7 @@ The parameters used for each of these spectra are listed in \cref{tbl:poise_solv
     \centering
     \begin{tabular}{cccccccc}
         \toprule
-        Description   & $\fsos / 10^{10}$ & FEs & Time (\unit{\s}) & $\nu_{\symup{tx}}$ (\unit{\Hz}) & $k_{\symup{ps}}$ (\unit{\Hz}) & $\taum$ (\unit{\s}) & $\taur$ (\unit{\s}) \\
+        Description   & $\fsosre / 10^{10}$ & FEs & Time (\unit{\s}) & $\nu_{\symup{tx}}$ (\unit{\Hz}) & $k_{\symup{ps}}$ (\unit{\Hz}) & $\taum$ (\unit{\s}) & $\taur$ (\unit{\s}) \\
         \hline
         Initial point & 7.74 & -- & --   & (1880.61) & (50.0) & (0.100) & (2.00) \\
         1 parameter   & 7.25 & 15 & 650  & 1882.11   & (50.0) & (0.100) & (2.00) \\
