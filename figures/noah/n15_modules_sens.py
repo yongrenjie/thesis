@@ -39,13 +39,19 @@ get_integs = lambda ds: np.array([ds.f1projp().integrate(peak=shift,
                                                          mode="max")
                                   for shift in shifts])
 ref_integs = get_integs(hmqc)
-for ds, ax in zip(dss, axs[1]):
+for i_ax, ds, ax in apt.enzip(dss, axs[1]):
     integs = get_integs(ds)
     rel_integs = integs / ref_integs
-    for i, shift, integ, rel_integ in apt.enzip(shifts, integs, rel_integs):
+    for i_peak, shift, integ, rel_integ in apt.enzip(shifts, integs, rel_integs):
         voffset = (ymax*1.1 - ymin) * 0.05
+        if i_peak == 0 and i_ax == 0:
+            ha = 'center'
+        elif i_peak == 0 or i_peak == 2:
+            ha = 'left'
+        else:
+            ha = 'center'
         ax.text(x=shift, y=integ+voffset, s=f"{rel_integ:.1f}×",
-                fontsize=8, ha='left' if i == 0 or i == 2 else 'center')
+                fontsize=8, ha=ha)
 
 apt.label_axes_def(axs.T)
 # apt.show()

@@ -3,10 +3,10 @@
 
 The characterisation of small molecules and biomolecules by NMR spectroscopy relies on a suite of standard 2D NMR experiments, which seek to detect heteronuclear scalar couplings (e.g.\ HSQC and HMBC), homonuclear scalar couplings (e.g.\ COSY and TOCSY), or through-space interactions (e.g.\ NOESY and ROESY).
 Although such 2D experiments provide far superior resolution and information content compared to 1D spectra, they also require substantially longer experimental durations, as the indirect dimension must be constructed through the acquisition of many $t_1$ increments.
-This problem is further exacerbated by the fact that structural elucidation or verification often requires combined information from multiple different 2D experiments.
+This problem is further exacerbated by the fact that structural elucidation or verification often requires a combination of information from multiple different 2D experiments.
 
 The acceleration of 2D NMR has thus proven to be a popular area of research.
-We may broadly categorise these existing techniques into two classes.%
+We may broadly categorise the existing techniques into two classes.%
 \footnote{These are by no means mutually exclusive: many of the techniques here can be combined to provide even greater efficiency.}
 First come the methods which seek to directly speed up the acquisition of \textit{individual} 2D spectra: these include
 \acf{nus}\autocite{Barna1987JMR,Kazimierczuk2010PNMRS,Mobli2014PNMRS,Kazimierczuk2015MRC},
@@ -26,7 +26,7 @@ It should be noted that there are several other multiple-FID experiments which, 
 
 The time savings provided by NOAH experiments stems from the elision of \textit{recovery delays}---the time required for spins to relax to their equilibrium state ($\rho_0$ in \cref{eq:thermal_density_operator}), such that the next transient or $t_1$ increment can be recorded.
 These recovery delays are responsible for most of the experimental duration of a typical 2D NMR experiment.
-In a NOAH supersequence, this is accomplished by designing each module to draw on a different \textit{magnetisation pool}: this refers to a source of magnetisation belonging to a specific isotopologue.
+In a NOAH supersequence, their removal is made possible by designing each module to draw on a different \textit{magnetisation pool}: this refers to a source of magnetisation belonging to a specific isotopologue.
 For example, \carbon{}--bound protons and \carbont{}--bound protons are two different magnetisation pools.
 This allows modules to be directly concatenated, without the addition of extra recovery delays between them; only one overall recovery delay is required for the entire supersequence, where \textit{all} magnetisation pools simultaneously recover.
 

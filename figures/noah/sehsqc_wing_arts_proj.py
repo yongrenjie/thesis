@@ -13,9 +13,20 @@ pg.mkplot(ax, voffset=0.1)
 ymin, ymax = ax.get_ylim()
 ax.set_ylim((ymin, ymax * 0.4))
 
-for i, voffset in enumerate(ax.prop.voffsets, start=1):
+descriptors = [
+    "gradients before and after $t_1$",
+    "gradient after $t_1$ only",
+    "gradient before $t_1$ only",
+    "no gradients",
+    "gradient after $t_1$ only, 0.25× SW",
+]
+
+for i, voffset, s in apt.enzip(ax.prop.voffsets, descriptors, start=1):
     apt.label_axes_def([ax], x=0, y=voffset+800000, start=i, ha='left',
                        transform=ax.get_yaxis_transform())
+    ax.text(x=0.05, y=voffset+(7e5 if i != 5 else 2e6),
+            transform=ax.get_yaxis_transform(),
+            s=s, ha="left", fontsize=9)
 
 # apt.show()
 apt.save(__file__)

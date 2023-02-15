@@ -1,22 +1,20 @@
 \section{Conclusion}
 \label{sec:poise__conclusion}
 
-\begin{itemize}
-    \item Did I succeed in my aims? --- Aims include the six points listed in the introduction so yes (to some degree)
-    \item How useful is POISE really? Which of the applications shown are the most useful?
-    \item What potential improvements are there?
-    \item Comments about automation / high-throughput settings where users don't sit down and manually optimise stuff
-    \item Solid-state NMR
-\end{itemize}
+In this chapter, I described the development of POISE, a Python programme for optimising any set of (numeric) acquisition parameters in Bruker's TopSpin software.
+This allows experiments to be tailored to the sample and instrument being used, and can be run in a completely automated fashion once the requisite information has been defined in a routine.
 
-\todo{
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porta nisl et velit consequat, quis venenatis dolor porttitor. Phasellus libero dolor, rutrum eu scelerisque vel, mattis id justo. Aliquam eget feugiat orci, quis venenatis arcu. Nunc lacinia nisl vitae urna luctus porta. Fusce in aliquet augue, sit amet tristique sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut neque eu tortor sollicitudin efficitur. Fusce sit amet sodales felis, eget pellentesque dolor.
+The examples of POISE optimisations shown in this chapter (\cref{sec:poise__applications}) include a variety of solution-state 1D and 2D NMR experiments.
+However, because POISE was intentionally designed to be \textit{general}, it is easy to adapt it to essentially any NMR experiment, as long as a suitable cost function can be constructed.
+Thus, it is not difficult to envision POISE being used in other fields such as biomolecular and solid-state NMR, and extensions in this direction are worth pursuing: the idea of applying POISE to the cross-polarisation technique\autocite{Pines1972JCP} was briefly floated, but never actually explored.
+More broadly speaking, real-time experimental optimisation can be extended to other forms of spectroscopy: the successful development of ESR-POISE (\cref{sec:poise__esrpoise}) bears witness to this, although this is rather more involved as it entails writing instrument- and manufacturer-specific code.
 
-Praesent dictum tellus vel risus ornare bibendum. Mauris sed nisi quam. Fusce tempor finibus arcu, sed dapibus elit aliquet vitae. Phasellus commodo ornare suscipit. Vestibulum quis pretium nibh. Morbi lacinia nisl nec orci sollicitudin bibendum. Donec congue rhoncus nunc sed commodo. Maecenas vehicula, elit vitae tristique pretium, lacus lacus feugiat ante, ac condimentum urna nisl nec est.
-
-Nullam at augue nec arcu euismod molestie. Nullam sit amet fermentum nulla. Aliquam molestie est diam, vel malesuada elit euismod sed. Etiam nec tempus enim. In nec vulputate erat. Suspendisse potenti. Ut lacinia orci justo, sit amet hendrerit magna pellentesque ac. Nulla laoreet hendrerit velit. Integer posuere dignissim nisl, quis fringilla mauris suscipit ac. Mauris ex leo, ornare ac velit ut, efficitur lobortis turpis. Donec quis mauris aliquet, sagittis odio non, porta lectus. Nulla a quam vel metus laoreet congue nec quis leo. Sed vestibulum tellus tempor aliquet sollicitudin. Nullam convallis consectetur elit, vitae egestas tellus tristique nec. In mattis est eget urna scelerisque, sed condimentum eros facilisis.
-
-Aenean ultricies mauris sit amet lorem aliquam, vel gravida diam feugiat. In maximus faucibus sapien, malesuada eleifend massa molestie sed. Quisque laoreet libero efficitur pharetra mollis. Morbi eget commodo sem. Ut feugiat felis neque, sit amet sollicitudin lacus eleifend ut. Pellentesque eros sem, commodo at rutrum in, maximus a tellus. Pellentesque tristique est neque, vitae euismod metus condimentum a. Phasellus vitae faucibus lectus, et mattis justo. Donec vitae ante vel nibh accumsan commodo. Morbi vitae quam nisl.
-
-In hac habitasse platea dictumst. Nulla lobortis sem quam, id euismod leo accumsan sed. Suspendisse nec nulla neque. Vivamus luctus lacinia diam et vehicula. Fusce in est id ex tempor convallis. Integer risus est, varius a nunc eu, placerat volutpat ante. Pellentesque vel eros eu quam suscipit eleifend id ac dui. 
-}
+Returning to the confines of solution-state NMR, though, it is worth considering the types of situations in which POISE is likely to find most use.
+In this chapter, I have asserted that POISE is \textit{fast}, being able to run optimisations in a matter of seconds to minutes.
+However, perhaps with the exception of the pulse width calibration in \cref{subsec:poise__pulsecal}, I did not perform any comparisons (either in terms of time, or the quality of the optimum found) against a `skilled user' such as an experienced spectroscopist.
+Without such data, I cannot justly claim that POISE should be used to replace an expert.
+Nonetheless, there are many situations in which experts are not available: most notably, when samples are run in a high-throughput `automation' manner.
+In my view, it is these situations in which an optimisation programme can best be used: the POISE routine need only be set up once, and can thereafter be incorporated into data acquisition procedures.
+A simple example would be to determine $T_1$ values for a compound (which, as shown in \cref{subsec:poise__invrec}, takes 2--3 minutes), so that recovery delays in 2D experiments can be appropriately adjusted.
+Other caveats regarding the usage of POISE have already been covered in \cref{sec:poise__notpoise}.
+Even bearing these in mind, though, the results in this chapter form a strong argument for the inclusion of POISE in a spectroscopist's toolbox.

@@ -7,7 +7,7 @@
    viewBox="0 0 179 200"
    version="1.1"
    id="svg5"
-   inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)"
+   inkscape:version="1.2.2 (b0a8486, 2022-12-01)"
    sodipodi:docname="generalised_example.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -24,13 +24,13 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="1.228666"
-     inkscape:cx="438.28023"
-     inkscape:cy="458.22056"
+     inkscape:zoom="1.6676781"
+     inkscape:cx="373.57329"
+     inkscape:cy="512.08923"
      inkscape:window-width="1640"
-     inkscape:window-height="827"
+     inkscape:window-height="799"
      inkscape:window-x="1670"
-     inkscape:window-y="53"
+     inkscape:window-y="25"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1">
     <inkscape:grid
@@ -67,8 +67,8 @@
      id="layer1">
     <path
        style="fill:none;stroke:#000000;stroke-width:0.32;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
-       d="m 110.4,113.6 h 32 l 1.6,4.8 h 19.2 l 1.6,-4.8 h 3.2 -3.2 l -1.6,-4.8 H 144 l -1.6,4.8"
-       id="path1377" />
+       d="M 110.4,113.6 H 144 l 1.6,-4.8 h 19.2 l 1.6,4.8 h 3.2 -3.2 l -1.6,4.8 h -19.2 l -1.6,-4.8"
+       id="path660" />
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;stroke-width:0.264583"
@@ -521,20 +521,20 @@
        id="rect906-0-12-0-6"
        width="9.5999985"
        height="6.3999977"
-       x="113.60001"
-       y="110.39997"
+       x="113.6"
+       y="110.4"
        ry="1.0239956" />
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;stroke-width:0.264583"
-       x="116.88668"
-       y="114.5666"
+       x="116.88666"
+       y="114.56663"
        id="text2498-4-3-8"><tspan
          sodipodi:role="line"
          id="tspan2496-6-9-3"
          style="stroke-width:0.264583"
-         x="116.88668"
-         y="114.5666"><tspan
+         x="116.88666"
+         y="114.56663"><tspan
            style="font-style:italic"
            id="tspan2502-7-5-2">d</tspan><tspan
            style="font-size:65%;baseline-shift:sub"
@@ -544,20 +544,20 @@
        id="rect906-9-1-7"
        width="14.399993"
        height="6.3999977"
-       x="126.40003"
-       y="110.39997"
+       x="126.40002"
+       y="110.4"
        ry="1.0239956" />
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#023eff;stroke-width:0.264583"
-       x="127.2924"
-       y="114.65479"
+       x="127.29238"
+       y="114.65482"
        id="text2506-7-1-3"><tspan
          sodipodi:role="line"
          id="tspan2504-5-2-4"
          style="fill:#023eff;stroke-width:0.264583"
-         x="127.2924"
-         y="114.65479"><tspan
+         x="127.29238"
+         y="114.65482"><tspan
    style="font-style:italic"
    id="tspan11548">k</tspan>–HSQC</tspan></text>
     <rect
@@ -565,39 +565,39 @@
        id="rect906-1-3-6-8"
        width="14.399996"
        height="6.3999977"
-       x="145.60001"
-       y="105.59998"
+       x="147.2"
+       y="105.60001"
        ry="1.0239956" />
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#ff7c00;stroke-width:0.264583"
-       x="147.81879"
-       y="110.01531"
+       x="149.41878"
+       y="110.01534"
        id="text2506-9-9-9-6"><tspan
          sodipodi:role="line"
          id="tspan2504-2-9-1-11"
          style="fill:#ff7c00;stroke-width:0.264583"
-         x="147.81879"
-         y="110.01531">TOCSY</tspan></text>
+         x="149.41878"
+         y="110.01534">TOCSY</tspan></text>
     <rect
        style="fill:#ffefed;fill-opacity:1;stroke:#e8000b;stroke-width:0.32;stroke-linecap:round;stroke-dasharray:none;stop-color:#000000"
        id="rect906-1-3-6-4-5"
        width="14.399996"
        height="6.3999977"
-       x="145.59999"
-       y="115.2"
+       x="147.19998"
+       y="115.20003"
        ry="1.0239956" />
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#e8000b;stroke-width:0.264583"
-       x="147.36723"
-       y="119.6153"
+       x="148.96722"
+       y="119.61533"
        id="text2506-9-9-9-8-6"><tspan
          sodipodi:role="line"
          id="tspan2504-2-9-1-1-9"
          style="fill:#e8000b;stroke-width:0.264583"
-         x="147.36723"
-         y="119.6153">NOESY</tspan></text>
+         x="148.96722"
+         y="119.61533">NOESY</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.319999;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 103.91332,139.2 c 4.16,0 0.0155,-24.23374 3.2,-25.48746 -3.18456,-1.32701 0.93847,-25.48858 -3.2,-25.487617"
@@ -713,24 +713,35 @@
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#ff7c00;stroke-width:0.264583"
-       x="160.64"
-       y="112.64"
+       x="162.23999"
+       y="112.64003"
        id="text1102"><tspan
          sodipodi:role="line"
          id="tspan1100"
          style="fill:#ff7c00;stroke-width:0.264583"
-         x="160.64"
-         y="112.64">1</tspan></text>
+         x="162.23999"
+         y="112.64003">1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#ff7c00;stroke-width:0.264583"
+       x="141.43999"
+       y="117.44002"
+       id="text1102-3"><tspan
+         sodipodi:role="line"
+         id="tspan1100-9"
+         style="fill:#023eff;stroke-width:0.264583"
+         x="141.43999"
+         y="117.44002">3</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.52777px;line-height:1.25;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Normal';word-spacing:0px;fill:#e8000b;stroke-width:0.264583"
-       x="160.64"
-       y="122.24"
+       x="162.23999"
+       y="122.24003"
        id="text1102-5"><tspan
          sodipodi:role="line"
          id="tspan1100-4"
          style="fill:#e8000b;stroke-width:0.264583"
-         x="160.64"
-         y="122.24">2</tspan></text>
+         x="162.23999"
+         y="122.24003">2</tspan></text>
   </g>
 </svg>

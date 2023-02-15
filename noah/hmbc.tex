@@ -14,7 +14,7 @@ I do not claim here that it is impossible to come up with a pulse sequence which
 
 One of the issues with the NOAH HMBC module was that there were an unusual amount of one-bond artefacts, which arise from \magn{C} magnetisation that is allowed to evolve during the pulse sequence.
 Generally, HMBC experiments seek to suppress this through the use of a low-pass J-filter (LPJF, see also \cref{subsec:poise__hmbc}).
-The NOAH HMBC module \textit{additionally} contains a $zz$-filter, which stores \magn{C} magnetisation along $+z$ before the LPJF.
+In addition to a standard second-order LPJF, the NOAH HMBC module \textit{also} contains a $zz$-filter, which stores \magn{C} magnetisation along $+z$ before the LPJF.
 Thus, in theory, one-bond artefacts should be suppressed in the NOAH HMBC to an even greater extent.
 
 However, this expectation is not borne out: in some cases, the NOAH HMBC has \textit{more intense} one-bond artefacts when compared against a standard HMBC experiment (\cref{fig:noah_hmbc_1jch_no90,fig:noah_hmbc_1jch_std_lp2}).
@@ -29,7 +29,7 @@ This technique is used in the CLIP-HSQC family of experiments\autocite{Enthart20
 In this case, we simply need to add an additional \carbon{} \ang{90} pulse between the $zz$-filter and the LPJF: this pulse is highlighted in \cref{fig:noah_sb_po_b}.
 This results in a striking reduction of the one-bond artefacts, as shown in \cref{fig:noah_hmbc_1jch_90}.
 The suppression accomplished with the addition of this \ang{90} pulse is superior to that in the standard HMBC (\cref{fig:noah_hmbc_1jch_std_lp2}), and is comparable to a standard HMBC with a third-order LPJF (\cref{fig:noah_hmbc_1jch_std_lp3}).
-Of course, the NOAH module---which by default uses a second-order LPJF---can also be `upgraded' to use a third-order LPJF.
+Of course, the NOAH module can also be `upgraded' to use a third-order LPJF.
 In GENESIS pulse programmes, this can be done using the \texttt{-DLP3} acquisition flag (although the results were not evaluated here).
 
 \begin{figure}[!ht]
@@ -59,7 +59,7 @@ However, other choices exist: for example, the Bruker standard library HMBC (der
 This gradient scheme cannot be directly used in a NOAH HMBC module, though.
 This is because the $zz$-filter element places \magn{C} magnetisation along the $+z$ axis just before the HMBC J-evolution delay (see \cref{fig:noah_sb_po_b}).
 This magnetisation later experiences the \proton{} \ang{180} pulse in the middle of $t_1$, which means that an extra \ang{180} pulse must be added at the very end of the sequence to finally return it to $+z$.
-It is necessary to ensure that there is at least one gradient placed after this \ang{180} pulse to ensure proper CTP selection (in the `symmetric' scheme of \cref{fig:noah_sb_po_b}, this is fulfilled by the gradient $g_2$).
+It is necessary to place at least one gradient after this \ang{180} pulse to ensure proper CTP selection (in the `symmetric' scheme of \cref{fig:noah_sb_po_b}, this is fulfilled by the gradient $g_2$).
 
 \begin{figure}[!htbp]
     \centering
@@ -111,7 +111,7 @@ In the tests which follow, I ran scheme A with $\alpha = 1.67$, $\alpha = 0.6$, 
     \includegraphics[]{noah/hmbc_grad_sens.png}%
     \caption[Comparison of relative sensitivities of HMBC gradient schemes]{
         Sensitivities of various asymmetric HMBC gradient schemes, as compared to the symmetric scheme in \cref{fig:noah_sb_po_b}.
-        Each dot indicates one crosspeak in the HMBC spectrum; the numbers in parentheses are the average over all peaks.
+        Each dot indicates one crosspeak in the HMBC spectrum; numbers in parentheses represent averages over all peaks.
         \datacode{7A-211226}
     }
     \label{fig:hmbc_grad_sens}
@@ -128,6 +128,7 @@ In contrast, all the other gradient schemes retain \magn{C} magnetisation equall
     \includegraphics[]{noah/hmbc_grad_sens_hsqc.png}%
     \caption[Effect of HMBC gradient scheme on HSQC sensitivity in a \noah{B,S} supersequence]{
         Sensitivities of the HSQC module in a \noah{B,S} supersequence, where the HMBC module is implemented using the gradient schemes of \cref{fig:hmbc_grad_sens}.
+        Each dot indicates one crosspeak in the HSQC spectrum; numbers in parentheses represent averages over all peaks.
         \datacode{7A-211226}
     }
     \label{fig:hmbc_grad_sens_hsqc}
@@ -144,7 +145,7 @@ These artefacts occur at the frequencies
 and are in fact `wing' artefacts similar to that observed in other modules (\cref{subsec:noah__sehsqc_c,subsec:noah__hmqc,subsec:noah__sehsqc_n}).
 In this case, they arise due to imperfect refocusing of the \proton{} chemical shift during $t_1$: specifically, whenever $I_zS_\pm$ terms are present during the second half of $t_1$.
 Extra evidence for the origin of these artefacts comes from the observation that when the \ang{180} pulse in the middle of $t_1$ is phase cycled, the artefacts are removed.
-In a standard HMBC, these terms would not be detected in the final FID; however, in this case, the addition of an extra \ang{180} pulse after $t_1$ provides an opportunity for these to be converted back into observable spin-$I\/$ magnetisation (through off-resonance effects or miscalibration).
+In a standard HMBC, these terms would not be detected in the final FID; however, in this case, the addition of an extra \ang{180} pulse after $t_1$ provides a mechanism by which they may be converted back into observable spin-$I\/$ magnetisation (through off-resonance effects or miscalibration).
 
 The poorer performance may therefore be understood as follows:
 when scheme A is acquired with $\alpha = 1.67$, the gradients $g_1$ and $g_2$ have equal and opposite amplitudes, and so do not enforce any coherence selection on spin $I\/$ during the second half of $t_1$.
@@ -194,8 +195,8 @@ However, there is not much difference between these: it is not clear whether the
 
 \subsubsection{Other artefacts}
 
-It has been established that the HMBC module (and supersequences containing it) are not fully ideal in terms of magnetisation preservation.
-However, there are also some other curious phenomena which have not been fully described in the literature.
+It has been established that the HMBC module is not fully ideal in terms of magnetisation preservation.
+However, there are also some other curious phenomena in supersequences containing the HMBC module which have not been fully described in the literature.
 One of these is the presence of \textit{inverted peaks} in the homonuclear X module(s) in a \noah{B,S,X} supersequence: this is illustrated in \cref{fig:hmbc_invert_1_orig} with the CLIP-COSY module (\noah*{X} = \noah*{Cc}).
 It is not clear why this occurs, because the HMBC module (and the gradients which follow) should dephase all \magnnot{C} magnetisation.
 Although this leads to reduced sensitivity in the homonuclear module, in that the signal derives from polarisation which has recovered during the preceding FIDs, it is not clear why this polarisation should be \textit{negative}.
@@ -246,14 +247,14 @@ The entirety of this section has---until now---been devoted to the \carbon{} HMB
 However, the techniques used in constructing this, including the implementation of the $zz$-filter, are equally applicable to a \nitrogen{} HMBC.
 For simplicity, the NOAH \nitrogen{} HMBC module uses a first-order LPJF (since directly bonded \ch{NH} pairs are less common); this may be omitted if desired.
 To minimise the number of pulses, a simple magnitude-mode version of the HMBC is used (\cref{fig:noah_15n_hmbc}).
-The implementation of this module within supersequences is discussed in greater detail within the context of \textit{generalised supersequences}, in \cref{sec:noah__parallel}.
+The implementation of this module within supersequences is discussed in greater detail in \cref{sec:noah__parallel}, within the context of \textit{generalised supersequences}.
 
 \begin{figure}[htb]
     \centering
     \includegraphics[]{pp/hmbc_15n.png}%
     \caption[NOAH \nitrogen{} HMBC module]{
         NOAH \nitrogen{} HMBC module.
-        The $zz$-filter can be implemented as necessary in the same way as for the \carbon{} HMBC module (a final \proton{} \ang{180} pulse may also be required, but is not shown here).
+        The $zz$-filter can be implemented as necessary in the same way as for the \carbon{} HMBC module (a final \proton{} \ang{180} pulse, not shown here, may also be required if this module is to be used at the beginning of a supersequence).
         Delays are set as follows: $\Delta_{\ch{N}} = 1 / (2 \cdot \oneJ{NH})$; $\Delta_{\text{LR},\ch{N}} = 1 / (2 \cdot \nJ{NH})$.
         Phase cycling is performed using $\phi_1 = \phirec = (x, -x)$ and $\phi_2 = (x, x, -x, -x)$.
         Gradient amplitudes are $(g_1, g_2, g_3, g_4) = (5\%, 70\%, 30\%, 50.1\%)$.

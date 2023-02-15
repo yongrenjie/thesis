@@ -10,6 +10,7 @@ However, before that, I make a slight detour to cover the \nitrogen{} HMQC exper
     {\phantomsubcaption\label{fig:noah_hmqc_2grad}}%
     {\phantomsubcaption\label{fig:noah_hmqc_4grad}}%
     \caption[NOAH HMQC pulse sequences]{
+        NOAH HMQC pulse sequences.
         \textbf{(\subref*{fig:noah_hmqc_2grad})} With two encoding gradients around $t_1$.
         \textbf{(\subref*{fig:noah_hmqc_4grad})} With four encoding gradients around $t_1$.
         Phase cycling is performed with $\phi_1 = (x, -x)$, $\phi_2 = (x, x, -x, -x)$, and $\phirec = (x, -x, -x, x)$.
@@ -22,8 +23,8 @@ However, before that, I make a slight detour to cover the \nitrogen{} HMQC exper
 
 \subsubsection{CTP gradient scheme}
 
-The HMQC module is based on the ASAP-HMQC reported by Kup{\v{c}}e and Freeman\autocite{Kupce2007MRC}
-In the original report, the ASAP-HMQC used a symmetric gradient scheme similar to that in the seHSQC modules previously described (\cref{fig:noah_hmqc_2grad}).
+The HMQC module is based on the ASAP-HMQC reported by Kup{\v{c}}e and Freeman.\autocite{Kupce2007MRC}
+In their original report, the ASAP-HMQC used a symmetric gradient scheme similar to that in the seHSQC modules previously described (\cref{fig:noah_hmqc_2grad}).
 However, in the NOAH HMQC module\autocite{Kupce2017ACIE}, this was expanded into a four-gradient scheme where bipolar gradient \textit{pairs} were placed before and after $t_1$ (\cref{fig:noah_hmqc_4grad}).
 This was likely implemented in order to allow the final gradient, $g_2$, to have as large an amplitude as possible.
 In heteronuclear experiments, this final gradient is particularly important for dephasing bulk magnetisation which is transverse just prior to detection (due to pulse imperfections or relaxation).
@@ -35,7 +36,7 @@ Secondly, the gyromagnetic ratio of \nitrogen{} is also smaller: since $g_2/g_1 
 
 In this respect, the four-gradient scheme in \cref{fig:noah_hmqc_4grad} is superior to the two-gradient scheme, because the gradient $g_2$ will have an amplitude of $4\gammaN g_1/\gammaH$.
 However, when used in a NOAH supersequence, this leads to wing artefacts in downstream modules, since bulk \magnnot{N} magnetisation effectively does not experience any coherence order selection during $t_1$.
-This motivates a return to the two-gradient scheme of \cref{fig:noah_hmqc_2grad}, but to compensate for the fact that the decoding gradient $g_2'$ has half of the amplitude of $g_2$, all CTP gradients were instead \textit{lengthened} from their usual duration of \qty{1}{\ms} to \qty{2.5}{\ms}.
+This motivates a return to the two-gradient scheme of \cref{fig:noah_hmqc_2grad}, but to compensate for the fact that the decoding gradient $g_2'$ has half of the amplitude of $g_2$, I instead \textit{lengthened} all CTP gradients from their usual duration of \qty{1}{\ms} to \qty{2.5}{\ms}.
 This ensures that any stray transverse bulk magnetisation at the end of the HMQC module is effectively dephased by the final gradient.
 
 \begin{figure}[!htbp]
@@ -54,7 +55,7 @@ This ensures that any stray transverse bulk magnetisation at the end of the HMQC
         Comparison of HMQC and CLIP-COSY spectra obtained from \noah{Mn,Sp,Cc} supersequences, acquired using different HMQC gradient schemes.
         In the first row, the HMQC spectrum itself is shown.
         In the second row, the positive projection of the HMQC spectrum onto the $F_2$ axis is shown; the numbers indicate peak intensities with respect to the reference dataset (the left column).
-        The asterisks indicate artefacts arising from bulk magnetisation which is not sufficiently dephased by the final gradient.
+        The asterisks indicate artefacts caused by bulk magnetisation not sufficiently dephased by the final gradient.
         In the third row, (an inset of) the CLIP-COSY spectrum is shown.
         \textbf{(\subref*{fig:hmqc_grad_spec_4grad_1ms_hmqc})--(\subref*{fig:hmqc_grad_spec_4grad_1ms_cosy})} Using the four-gradient scheme of \cref{fig:noah_hmqc_4grad}, with \qty{1}{ms} gradients.
         \textbf{(\subref*{fig:hmqc_grad_spec_2grad_1ms_hmqc})--(\subref*{fig:hmqc_grad_spec_2grad_1ms_cosy})} Using the two-gradient scheme of \cref{fig:noah_hmqc_2grad}, with \qty{1}{ms} gradients.
@@ -79,15 +80,15 @@ However, this decrease is only on the order of $5\%$ (for this example), which i
 \begin{figure}[!ht]
     \centering
     \includegraphics[]{noah/hmqc_cnst16_scan.png}%
-    \caption[Variation of HMQC signal and artefact intensity with CTP gradient duration]{
-        Variation of HMQC signal and artefact intensity with CTP gradient duration, as measured by (absolute) peak heights in the positive $F_2$ projection.
+    \caption[Effect of CTP gradient duration on \nitrogen{} HMQC signal and artefact intensities]{
+        Effect of CTP gradient duration on \nitrogen{} HMQC signal and artefact intensities, as measured by (absolute) peak heights in the positive $F_2$ projection.
         \datacode{7Z-200926}
     }
     \label{fig:hmqc_cnst16}
 \end{figure}
 
 The signal loss does suggest that we should check whether such a long gradient is truly needed.
-I therefore ran the two-gradient HMQC experiment with a series of gradient durations from \qty{1}{\ms} to \qty{2.5}{\ms}; the signal and artefact intensities in each of these experiments are plotted in \cref{fig:hmqc_cnst16}.
+I therefore ran the two-gradient HMQC experiment with gradient durations ranging from \qty{1}{\ms} to \qty{2.5}{\ms}; the signal and artefact intensities in each of these experiments are plotted in \cref{fig:hmqc_cnst16}.
 Generally, there is little variation in the intensities of the two desired peaks.
 The artefact intensity is more erratic, which possibly reflects the fact that gradient dephasing varies sinusoidally with the gradient duration $\tau$ due to the spatial integral
 \begin{equation}
@@ -103,12 +104,12 @@ This value of \qty{2.5}{\ms} was therefore fixed on as a suitable choice for \ni
 \subsubsection{$\symbfit{k}$- and SW-scaling}
 
 \proton{}--\nitrogen{} spectra of small molecules are often relatively sparse in the indirect dimension, and do not typically need to be acquired with the same resolution as a \proton{}--\carbon{} experiment.
-However, if these two different classes experiments were to be combined together within a supersequence, it would not ordinarily be possible to toggle the resolution of each module individually.
+However, if these two different classes experiments were to be combined together within a supersequence, it would not ordinarily be possible to individually toggle the number of $t_1$ increments recorded for each module.
 
 One way of changing this would be to decrease the frequency with which the \nitrogen{} $t_1$ duration is incremented in the pulse programme.
 This practice was first proposed by Parella et al.\ in the context of time-shared NMR\autocite{PerezTrujillo2007MRC,Parella2010CMR}, and in this thesis is called `$k$-scaling'.
 This means that each $t_1$ increment in the \nitrogen{} experiment is acquired several times before $t_1$ is incremented, which effectively leads to $k$ times fewer $t_1$ increments, but with each increment having $k$ times the number of scans (after the data have been combined).
-An alternative to this would be to increase the spectral width of the \nitrogen{} module (which is encoded as the \texttt{CNST40} parameter in GENESIS): this leads to very similar results, and is referred to as `SW-scaling' here.
+An alternative to this, which leads to the same resolution in the indirect dimension, would be to increase the spectral width of the \nitrogen{} module (which is encoded as the \texttt{CNST40} parameter in GENESIS) by the same factor of $k$: this leads to very similar results, and is referred to as `SW-scaling' here.
 
 \begin{figure}[!ht]
     \centering
@@ -131,7 +132,7 @@ An alternative to this would be to increase the spectral width of the \nitrogen{
 
 \Cref{fig:n15_t1} illustrates all of these possibilities in detail, focusing only on the $t_1$ sampling schedule of the scaled \nitrogen{} experiments.
 In a `typical' NOAH supersequence (\cref{fig:n15_t1_normal}), 256 $t_1$ increments would be recorded (corresponding to the eight blue dots);
-for the gramicidin sample used here, the largest value of $t_1$ (denoted as $\AQ$) is around \qty{60}{\ms}.
+for the gramicidin sample used in this section, the largest value of $t_1$ (denoted as $\AQ$) is around \qty{60}{\ms}.
 The default TopSpin processing routine for 2D NMR applies forward linear prediction (LP)\autocite{Ni1986JMR,Tirendi1989JMR,Led1991CR,Koehl1999PNMRS} in the indirect dimension, such as to double the number of data points: the data obtained through LP are indicated by orange dots.
 This leads to an \textit{effective} $\AQ$ which is twice as large, denoted as $\AQeff$.
 Finally, zero filling (ZF) is applied to increase the digital resolution to a given value, as represented by the green dots.

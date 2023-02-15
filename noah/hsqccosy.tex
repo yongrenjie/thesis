@@ -3,10 +3,10 @@
 
 One downside of the HSQC-TOCSY experiment discussed in the previous section is the (largely) indiscriminate transfer of magnetisation effected by the DIPSI mixing.
 It is difficult to determine how many transfer steps give rise to each peak, unless several HSQC-TOCSY spectra with different mixing times are recorded, which is a time-consuming process.%
-\footnote{Of course, as per the previous section, this could be done in a NOAH supersequence where each HSQC-TOCSY spectrum is assigned a fraction of the \magn{C} magnetisation. However, one must be wary of stretching the same magnetisation pool too thinly between many different modules: the resulting decrease in sensitivity may lead to peaks being lost.}
+\footnote{Of course, as per the previous section, this could be done in a NOAH supersequence where each HSQC-TOCSY spectrum is assigned a fraction of the \magn{C} magnetisation. However, one must be wary of stretching the same magnetisation pool too thinly between many different modules: the resulting decrease in signal intensity may lead to a crossing into the sensitivity-limited regime.}
 
-For unambiguous spectral assignment, it may be preferable to have a mixing process which only effects coherence transfer across a single coupling: this can be described as an HSQC-COSY experiment.
-Similar experiments, including the H2BC\autocite{Nyberg2005JACS,Nyberg2005MRC}, 2BOB/H2OBC\autocite{Kupce2017MRC}, and HMQC-COSY\autocite{Hu2011JBNMR} have previously been proposed: the 2BOB experiment in particular has previously been incorporated in NOAH supersequences\autocite{Kupce2019JMR}.
+For unambiguous spectral assignment, it can be preferable to have a mixing process which only effects coherence transfer across a single coupling: this can be described as an HSQC-COSY experiment.
+Similar experiments, including the H2BC\autocite{Nyberg2005JACS,Nyberg2005MRC}, 2BOB/H2OBC\autocite{Kupce2017MRC}, and HMQC-COSY\autocite{Hu2011JBNMR} have previously been reported: the 2BOB experiment in particular has previously been incorporated in NOAH supersequences\autocite{Kupce2019JMR}.
 These often use constant-time techniques in order to remove $\nJ{HH}$ splittings and minimise linewidths in the indirect dimension; however, the drawback of this approach is that peak \textit{amplitudes} are modulated by $\nJ{HH}$.
 Furthermore, it is not generally possible to obtain absorption-mode lineshapes for all peaks in the spectrum: typically the `direct' responses are in-phase absorption, and `indirect' responses antiphase dispersion.
 (Here, the terms in-phase and antiphase are used with respect to $\nJ{HH}$; specifically, for the indirect peaks, this refers to the `active' coupling over which the coherence was transferred).
@@ -32,7 +32,7 @@ Furthermore, it is not generally possible to obtain absorption-mode lineshapes f
 These problems are circumvented by the HSQC-CLIP-COSY experiment\autocite{Gyongyosi2018CPC,Gyongyosi2021AC}, where the basic HSQC experiment is combined with clean in-phase (CLIP) coherence transfer using a perfect echo\autocite{Aguilar2012CC,Parella2019MRC,Koos2016ACIE} and ZQF\autocite{Thrippleton2003ACIE} (\cref{fig:hsqcc_clip_po}).
 The use of an HSQC-type experiment means that $\nJ{HH}$ does not evolve during $t_1$, and the CLIP transfer ensures that all peaks have in-phase absorption lineshapes.
 Much like the HSQC-TOCSY experiment before it, this experiment may be implemented with direct/indirect response editing: it is this version of the experiment which is shown in \cref{fig:hsqcc_clip_po}.%
-\footnote{Note that this editing is orthogonal to \textit{multiplicity editing}, which labels both direct and indirect responses with a sign that depends on the multiplicity of the \carbon{} nucleus detected in $t_1$. The addition of multiplicity editing leads to highly confusing spectra, so is ignored here---although the option to do so \textit{is} provided in the GENESIS pulse programmes if the user so desires.}
+\footnote{Note that this direct/indirect editing is orthogonal to \textit{multiplicity editing}, which labels both direct and indirect responses with a sign that depends on the multiplicity of the \carbon{} nucleus detected in $t_1$. The addition of multiplicity editing leads to highly confusing spectra, so is ignored here---although the option to do so \textit{is} provided in the GENESIS pulse programmes if the user so desires.}
 If this editing is not desired, then the final $2\Delta$--\ang{180}($I,S$)--$2\Delta$ spin echo can simply be reduced to a minimal gradient echo, i.e.\ $\varepsilon$--\ang{180}($I$)--$\varepsilon$.
 
 Unfortunately, the HSQC-CLIP-COSY experiment does not preserve \magnnot{C} magnetisation; thus, it cannot be directly used in a NOAH supersequence without sacrificing the sensitivity of terminal homonuclear modules.
@@ -60,10 +60,10 @@ The removal of the CLIP coherence transfer element leads to mixed lineshapes in 
 
 Like the CLIP version, this DSE experiment does not preserve bulk magnetisation; it is also incompatible with partial \magn{C} excitation.
 However, it does provide more raw sensitivity than the CLIP version: in the CLIP version, any antiphase signal at the end of the perfect echo is destroyed by the ZQF.
-All of this available signal is sampled in the DSE version, but this comes with a cost of not having pure absorption lineshapes.
+All of this available signal is sampled in the DSE version, but this comes at the cost of not having pure absorption lineshapes.
 
 It should be mentioned that prepending this DSE HSQC-COSY with the ZIP element would in fact return the bulk \magnnot{C} magnetisation to $+z$ at the end of the sequence.
-Unfortunately, I did not manage to test this experimentally, as my focus was on the development of the \textit{triple} spin echo HSQC-COSY below.
+However, I did not manage to test this experimentally, as my focus was on the development of the \textit{triple} spin echo HSQC-COSY below.
 
 
 \subsubsection{Triple spin echo HSQC-COSY}
@@ -183,7 +183,8 @@ however, the TSE version successfully preserves around $70\%$ of this magnetisat
     {\phantomsubcaption\label{fig:hsqccosy_sens_with_hmbc_tse_0p8}}%
     \caption[Sensitivity comparisons for \noah{B,Sc,S,Cc} supersequences]{
         Sensitivity comparisons for the three last modules in \noah{B,Sc,S,Cc} supersequences.
-        Peak intensities are relative to the HSQC-CLIP-COSY module from a \noah{Sc,S,Cc} supersequence, and HSQC and CLIP-COSY spectra from a \noah{S,Cc} experiment (i.e.\ the same reference spectra as in \cref{fig:hsqccosy_sens}).
+        Peak intensities are relative to the HSQC-CLIP-COSY module from a \noah{Sc,S,Cc} supersequence, and HSQC and CLIP-COSY spectra from a \noah{S,Cc} experiment (these are the same reference spectra as used in \cref{fig:hsqccosy_sens}).
+        Numbers in parentheses indicate averages over all peaks.
         \textbf{(\subref*{fig:hsqccosy_sens_with_hmbc_clip})} HSQC-CLIP-COSY.
         \textbf{(\subref*{fig:hsqccosy_sens_with_hmbc_dse})} DSE HSQC-COSY.
         \textbf{(\subref*{fig:hsqccosy_sens_with_hmbc_tse_1})} TSE HSQC-COSY, acquired with $f = 1$.
@@ -201,7 +202,7 @@ The HSQC-COSY and HSQC modules largely follow the same pattern as before, but wi
 The CLIP-COSY module, however, has a substantially lower sensitivity regardless of which HSQC-COSY module is chosen.
 When the CLIP or DSE HSQC-COSY modules are used, the CLIP-COSY retains only roughly 30\% of its original intensity: this is the same as in \cref{fig:hsqccosy_sens}.
 With the TSE HSQC-COSY, this is boosted to around 40\% because there is one extra FID in which the \magnnot{C} polarisation can be recovered.
-However, the use of the HMBC module at the beginning effectively puts a cap on the amount of signal available to this module.
+However, the use of the HMBC module at the beginning effectively places an upper limit on the amount of signal available to this module.
 
 For virtually all homonuclear modules (including the CLIP-COSY), this small difference in sensitivity will not make a real difference in the interpretability of the spectrum.
 This is especially so considering that the HMBC module---which has a far lower sensitivity---is also present in the supersequence:

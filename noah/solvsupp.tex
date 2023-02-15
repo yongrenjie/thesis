@@ -10,10 +10,11 @@ All suppression techniques shown here can be enabled via acquisition flags (the 
 \label{subsec:noah__solvsupp_presat}
 
 A simple first step is to implement simple presaturation of the solvent resonance during the recovery delay of the supersequence.
+In GENESIS experiments, this can be enabled using the \texttt{-DPRESAT} acquisition flag.
 This often provides excellent suppression in the first module in a supersequence, and to a lesser extent, later modules (as the solvent magnetisation recovers during acquisition periods).
 
-Presaturation is also included during long delays, in particular mixing times in NOESY experiments.
-The use of presaturation during the HMBC J-evolution delay was also tested, but was found to be unnecessary, especially since the HMBC module is typically placed first in supersequences.
+With the same acquisition flag, presaturation is also applied during long delays, in particular mixing times in NOESY experiments.
+The use of presaturation during the HMBC J-evolution delay was also tested, but was found to be unnecessary, especially since the HMBC module is typically placed first in supersequences and thus comes right after the recovery delay.
 
 
 \subsection{Intrinsic suppression}
@@ -24,7 +25,7 @@ This is generally true of many of the HSQC-based NOAH modules, which seek to onl
 Thus, these modules already have far better solvent suppression properties compared to standard library sequences: there is no need for further modification.
 
 For these sequences, it is possible to go one step further and to see how the solvent suppression varies with transmitter offset.
-This is less relevant if the solvent is just water (where it suffices to put the water peak on resonance), but may be important for samples in protonated solvents or mixtures thereof.
+This is less relevant if the solvent is just water (where it suffices to put the water peak on resonance), but may be important for samples in other protonated solvents or mixtures thereof.
 I tested this by recording the first increment of the NOAH HSQC and seHSQC modules on an aqueous sample of sucrose, and integrating the water peak.
 The results (\cref{fig:s_sp_solvsupp}) indicate that the HSQC module provides the best suppression across a range of offsets; of the two seHSQC modules, seHSQC1 provides more uniform suppression, whereas seHSQC2 has some regions (`spikes') where suppression is poorer than average.
 
@@ -34,9 +35,9 @@ The results (\cref{fig:s_sp_solvsupp}) indicate that the HSQC module provides th
     {\phantomsubcaption\label{fig:s_sp_solvsupp_s}}%
     {\phantomsubcaption\label{fig:s_sp_solvsupp_spv1}}%
     {\phantomsubcaption\label{fig:s_sp_solvsupp_spv2}}%
-    \caption[Comparison of solvent suppression in HSQC and seHSQC modules]{
+    \caption[Comparison of solvent suppression in NOAH HSQC and seHSQC modules]{
         Residual water peaks observed in the first increment of NOAH HSQC and seHSQC modules, as a function of transmitter offset.
-        The $y$-axes of the three subplots are the same.
+        All three subplots have the same vertical scaling.
         \textbf{(\subref*{fig:s_sp_solvsupp_s})} HSQC module.
         \textbf{(\subref*{fig:s_sp_solvsupp_spv1})} seHSQC1 module.
         \textbf{(\subref*{fig:s_sp_solvsupp_spv2})} seHSQC2 module.
@@ -61,7 +62,7 @@ These modules invariably occur at the end of supersequences, and thus almost any
 In practice, I chose to implement excitation sculpting\autocite{Hwang1995JMRSA} (ES) just prior to acquisition: the refocusing element chosen was a combination of a selective \ang{180} sinc pulse and a hard \ang{180} pulse.
 This worked perfectly for almost all of the homonuclear modules used in NOAH supersequences, with only a few adjustments needed, such as for the PSYCHE modules where it was necessary to ensure that chemical shifts and J-couplings evolved for the correct amount of time.
 
-The case of the `double' COSY + X homonuclear modules, however, proved to be more intricate.
+The case of the `double' COSY/X homonuclear modules, however, proved to be more intricate.
 This is illustrated here using X = TOCSY, but the considerations below are equally applicable to X = NOESY or ROESY.
 It is tempting to simply place ES blocks prior to both FIDs: in the COSY module, this dephases transverse solvent magnetisation as desired, and (in principle) should leave longitudinal magnetisation untouched, meaning that the TOCSY module which later consumes this should be unaffected.
 

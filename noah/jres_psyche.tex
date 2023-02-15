@@ -3,15 +3,15 @@
 
 So far, I have exclusively used the CLIP-COSY as the final homonuclear module in NOAH supersequences.
 In general, since homonuclear modules are placed at the end of supersequences, there is rarely any need to adapt them for NOAH supersequences, as they do not need to preserve any magnetisation.
-One exception to this is the family of 2DJ and pseudo-2D pure shift experiments (here typified by PSYCHE), where the spectral width in the indirect dimension is extremely small, on the order of \qty{50}{\Hz}.
+One exception to this is the family of 2DJ and pseudo-2D pure shift experiments, where the spectral width in the indirect dimension is extremely small, on the order of \qty{50}{\Hz}.
 In such cases, the number of $t_1$ increments required is far smaller than for a typical 2D experiment.
 Since---by default---each module in a NOAH supersequence is acquired with the same number of increments, directly concatenating such modules to the end of a supersequence would therefore prove suboptimal.
 
 However, as described previously in \cref{subsec:noah__hmqc,subsec:noah__sehsqc_n}, it is possible to reduce the number of $t_1$ increments for a particular module, and in exchange, increase the number of scans recorded for that module.
 In the context of \nitrogen{} modules, this was a `special' procedure referred to as $k$-scaling; however, for these homonuclear modules, it is natural and necessary.
 One difference in the implementation is that, instead of specifying a value $k$ by which \texttt{TD1} is scaled down and \texttt{NS} scaled up, the user is allowed to directly specify the number of $t_1$ increments as an integer (\texttt{CNST37} in TopSpin).
-This value must be a divisor of the \textit{normal} number of $t_1$ increments for all other modules (or equivalently, in the context of \nitrogen{} modules, $k$ must be an integer).
-The `indirect-dimension spectral width' is specified as \texttt{CNST38}: this quantity is more properly referred to as the reciprocal of the chunk size, i.e.\ $1/\Tchunk$.
+This value must be a divisor of the \textit{normal} number of $t_1$ increments for all other modules (or equivalently, $k$ must be an integer).
+The `indirect-dimension spectral width' is specified as \texttt{CNST38}: for pure shift modules this quantity is more properly referred to as the reciprocal of the chunk size, i.e.\ $1/\Tchunk$.
 
 \begin{figure}[!ht]
     \centering
@@ -21,8 +21,8 @@ The `indirect-dimension spectral width' is specified as \texttt{CNST38}: this qu
     {\phantomsubcaption\label{fig:2dj_example_j}}%
     \caption[Spectra from a \noah{Spn,Sp,J} supersequence]{
         Spectra obtained from a \noah{Spn,Sp,J} supersequence.
-        \textbf{(\subref*{fig:2dj_example_spn})} \nitrogen{} seHSQC (256 $t_1$ increments and 2 scans per increment).
-        \textbf{(\subref*{fig:2dj_example_spc})} \carbon{} seHSQC.
+        \textbf{(\subref*{fig:2dj_example_spn})} \nitrogen{} seHSQC (128 $t_1$ increments and 2 scans per increment).
+        \textbf{(\subref*{fig:2dj_example_spc})} \carbon{} seHSQC (128 $t_1$ increments and 2 scans per increment).
         \textbf{(\subref*{fig:2dj_example_j})} PSYCHE 2DJ (32 $t_1$ increments and 8 scans per increment).
         \datacode{7G-201028}
     }
@@ -47,7 +47,7 @@ This allows the user to choose a relatively small flip angle (ca.\ \ang{10}) for
         A series of 1D PSYCHE spectra obtained from the \noah{Spn,Sp,P} supersequence (saltire flip angle of \ang{15}).
         \textbf{(\subref*{fig:psyche_wrongsw1_bad_nosap})} 1D PSYCHE spectrum acquired without SAPPHIRE averaging, and an incorrect chunk size which is not an integral number of complex data points. The `indirect-dimension spectral width' (more precisely, $1/\Tchunk$) is \qty{50}{\Hz}.
         \textbf{(\subref*{fig:psyche_wrongsw1_bad_sap})} 1D PSYCHE spectrum with  8-step SAPPHIRE averaging and an incorrect chunk size; this manifests as phase errors which cannot be corrected.
-        \textbf{(\subref*{fig:psyche_wrongsw1_good_nosap})--(\subref*{fig:psyche_wrongsw1_good_sap})} The same as (\subref*{fig:psyche_wrongsw1_bad_nosap}) and (\subref*{fig:psyche_wrongsw1_bad_sap}), but with the chunk size automatically corrected in the pulse programme.
+        \textbf{(\subref*{fig:psyche_wrongsw1_good_nosap})--(\subref*{fig:psyche_wrongsw1_good_sap})} The same as (\subref*{fig:psyche_wrongsw1_bad_nosap}) and (\subref*{fig:psyche_wrongsw1_bad_sap}), but with the chunk size automatically rounded in the pulse programme.
         \textbf{(\subref*{fig:psyche_wrongsw1_good_nosap_25})--(\subref*{fig:psyche_wrongsw1_good_sap_25})} The same as (\subref*{fig:psyche_wrongsw1_good_nosap}) and (\subref*{fig:psyche_wrongsw1_good_sap}), but with double the chunk size.
         This leads to a more striking difference between the data acquired without and with SAPPHIRE, as discussed in the original paper\autocite{Moutzouri2017CC}.
         \datacode{7C-211123}
@@ -61,8 +61,8 @@ This is accomplished through the \textit{prefocusing} of J-couplings in a spin e
 In the SAPPHIRE procedure, each chunk of the pure shift interferogram is instead collected several times, all while varying the exact point in time where J-coupling is perfectly refocused.
 Summation of these data leads to the suppression of artefacts which arise due to the periodic J-modulation in the interferogram.
 This averaging is somewhat analogous to a phase cycle, and performing an 8-step SAPPHIRE averaging procedure (for example) would often require the experiment to be lengthened beyond the duration which is truly necessary.
-However, in the context of NOAH, since each chunk is acquired at least $k$ times, a $k$-step SAPPHIRE procedure can be performed `for free'.
-In the GENESIS pulse programmes, this feature is enabled by default, although it can be turned off by selecting the original modules using developer mode.
+However, in the context of NOAH, since each chunk is acquired at least $k$ times, a $k$-step SAPPHIRE procedure can be incorporated `for free'.
+In the GENESIS pulse programmes, this feature is enabled by default, although it can be turned off in developer mode where non-SAPPHIRE pure shift modules are available.
 
 A final and more prosaic implementation detail is that in the 1D pure shift modules, the chunk size $\Tchunk$ is automatically rounded to the nearest even multiple of the dwell time $\tau_{\symup{dw}}$ (\texttt{DW} in TopSpin).
 This ensures that each chunk consists of an integral number of complex data points.

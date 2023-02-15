@@ -1,7 +1,7 @@
 \subsection{Processing improvements}
 \label{subsec:noah__genesis_processing}
 
-Finally, I touch on a few small improvements in processing NOAH data.
+Finally, I touch on a few small improvements in the processing of NOAH data.
 These are not strictly part of the GENESIS website, but having a unified source for pulse programmes and processing scripts does make it substantially easier to propagate these developments to NMR users.
 
 
@@ -11,9 +11,9 @@ In the processing of NOAH experiments, the first step is to split up the FIDs of
 However, after that is done, \texttt{splitx\_au} \textit{also} calls on auxiliary AU programmes to process each of the resulting datasets.
 Each module is associated with a specific auxiliary AU programme: for example, HSQC data are processed with \texttt{noah\_hsqc}, COSY data with \texttt{noah\_cosy}, and so on.
 
-Previously, these auxiliary AU programmes had to be specified manually using the \texttt{USERP1} through \texttt{USERP5} processing parameters, which apply to the first through fifth modules in a supersequence respectively.
+Previously, these auxiliary AU programmes had to be specified manually using the \texttt{USERP1} through \texttt{USERP5} processing parameters, which respectively apply to the first through fifth modules in a supersequence.
 Although this was a perfectly serviceable setup, I realised that it was a source of annoyance when running multiple different supersequences, as modules would often be processed incorrectly if these processing parameters were inadvertently copied from an old dataset.
-Even when just running a single supersequence, this would nonetheless represent an extra cognitive load, especially for users who are not familiar with NOAH experiments.
+Even when just running a single supersequence, this setup step would nonetheless represent an extra cognitive load, especially for users who are not familiar with NOAH experiments.
 
 Since the pulse programme specifies which modules are run, and the `correct' processing parameters also depend on the modules, it stands to reason that the processing parameters can be encoded in the pulse programme itself.
 Specifically, the auxiliary AU programmes are part of the \texttt{NOAHModule} objects (see \cref{lst:module_c_hsqc}), which makes this information accessible to the GENESIS algorithm.
@@ -28,7 +28,7 @@ This maintains backwards compatibility with, for example, parameter sets which h
 
 Another small improvement relates to the implementation of non-uniform sampling (NUS) in NOAH supersequences.
 Because the indirect dimension in NOAH pulse programmes is generated through explicit looping, instead of the \texttt{mc} macro used in most 2D experiments, the standard NUS implementation in TopSpin cannot be used.
-Instead, one must explicitly define a list of $t_1$ increments to sample (stored as the \texttt{VCLIST} parameter).
+Instead, one must explicitly define a list of $t_1$ increments to sample, which is stored as the \texttt{VCLIST} parameter.
 This is true regardless of which looping implementation in \cref{lst:genesis_looping} is used.
 
 On top of this, the original NUS implementation\autocite{Claridge2019MRC} used a Python script (\texttt{noah\_nus.py}) to modify the NOAH pulse programme such that it only sampled $t_1$ values from this list.

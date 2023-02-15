@@ -11,8 +11,8 @@ sehsqc2 = pg.read(p, 42002)
 dss = [hsqc, sehsqc1, sehsqc2]
 titles = ['HSQC', 'seHSQC1', 'seHSQC2']
 
-fig, axs = pg.subplots2d(3, 3, figsize=(6.5, 5.8),
-                         height_ratios=[1, 0.6, 1.4])
+fig, axs = pg.subplots2d(3, 3, figsize=(6.5, 5.6),
+                         height_ratios=[0.9, 0.6, 1.4])
 f1b, f2b = "16..62", "0.6..5.0"
 
 # Plot 2D data
@@ -41,6 +41,8 @@ for ds, ax in zip(dss, axs[2]):
                           palette=[pg.color_palette('dark')[7]],
                           ax=ax, legend=False)
     ax.set(ylim=(0, 1.2))
+axs[2][0].set(ylabel="relative intensity")
+apt.tl()
 
 apt.label_axes_def(axs.T)
 # apt.show()

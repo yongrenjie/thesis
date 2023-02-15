@@ -31,13 +31,16 @@ for i, ds, ax in apt.enzip(dss, axs):
         ax=ax,
     )
     ax.label_outer()
-    ax.set(ylim=(-0.2, 1.35), xlim=(-0.4, 0.4))
+    ax.set(ylim=(-0.19, 1.35), xlim=(-0.4, 0.4))
 
     texts[1] = r'S$^+$' if i == 1 else 'S'
     for j, color, t in apt.enzip(apt.PAL, texts):
         ax.text(x=-0.26+j*0.26, y=0.08, s=t,
                 color=color, ha="center",
                 transform=ax.get_xaxis_transform())
+axs[0].set(ylabel="relative intensity")
+for ax in axs[2:]:
+    ax.text(x=0.18, y=0.978, s="+mixing", transform=ax.transAxes, va='top')
 
 apt.tl()
 apt.label_axes_def(axs)

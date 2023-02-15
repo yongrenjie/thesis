@@ -1,14 +1,23 @@
 \section{Conclusion}
 \label{sec:noah__conclusion}
 
-\todo{
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porta nisl et velit consequat, quis venenatis dolor porttitor. Phasellus libero dolor, rutrum eu scelerisque vel, mattis id justo. Aliquam eget feugiat orci, quis venenatis arcu. Nunc lacinia nisl vitae urna luctus porta. Fusce in aliquet augue, sit amet tristique sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut neque eu tortor sollicitudin efficitur. Fusce sit amet sodales felis, eget pellentesque dolor.
+In this chapter, I covered a variety of improvements to NOAH supersequences, including the development of new or improved modules (\cref{sec:noah__modules}), the implementation of basic solvent suppression (\cref{sec:noah__solvsupp}), and the generalised NOAH sequences obtained through `vertical stacking' of different supersequences (\cref{sec:noah__parallel}).
 
-Praesent dictum tellus vel risus ornare bibendum. Mauris sed nisi quam. Fusce tempor finibus arcu, sed dapibus elit aliquet vitae. Phasellus commodo ornare suscipit. Vestibulum quis pretium nibh. Morbi lacinia nisl nec orci sollicitudin bibendum. Donec congue rhoncus nunc sed commodo. Maecenas vehicula, elit vitae tristique pretium, lacus lacus feugiat ante, ac condimentum urna nisl nec est.
+As a technique in fast 2D NMR, NOAH is in my view fairly mature despite its relative recency (the first paper was published in 2017\autocite{Kupce2017ACIE}).
+The underlying idea of separating magnetisation pools, and the tools used to do so, have been around for quite a while---most recently, and notably, in the form of ASAP 2D NMR.
+Thus, rather than making fundamental conceptual breakthroughs, I would characterise my work here as `polishing the remaining rough edges', whether by removing artefacts or by incorporating slightly more specialised modules.
 
-Nullam at augue nec arcu euismod molestie. Nullam sit amet fermentum nulla. Aliquam molestie est diam, vel malesuada elit euismod sed. Etiam nec tempus enim. In nec vulputate erat. Suspendisse potenti. Ut lacinia orci justo, sit amet hendrerit magna pellentesque ac. Nulla laoreet hendrerit velit. Integer posuere dignissim nisl, quis fringilla mauris suscipit ac. Mauris ex leo, ornare ac velit ut, efficitur lobortis turpis. Donec quis mauris aliquet, sagittis odio non, porta lectus. Nulla a quam vel metus laoreet congue nec quis leo. Sed vestibulum tellus tempor aliquet sollicitudin. Nullam convallis consectetur elit, vitae egestas tellus tristique nec. In mattis est eget urna scelerisque, sed condimentum eros facilisis.
+Naturally, the possibility of using the same concept to accelerate 3D (or higher) experiments is extremely attractive.
+Some of the ground work for this has already been laid, in the form of ASAP-type 3D experiments.\autocite{Schanda2009PNMRS}
+However, my opinion is that this research topic would extend far beyond NOAH itself: in particular, 3D experiments are often applied to isotopically labelled substances, which lead to a different set of magnetisation pools which are not so easily separable.
 
-Aenean ultricies mauris sit amet lorem aliquam, vel gravida diam feugiat. In maximus faucibus sapien, malesuada eleifend massa molestie sed. Quisque laoreet libero efficitur pharetra mollis. Morbi eget commodo sem. Ut feugiat felis neque, sit amet sollicitudin lacus eleifend ut. Pellentesque eros sem, commodo at rutrum in, maximus a tellus. Pellentesque tristique est neque, vitae euismod metus condimentum a. Phasellus vitae faucibus lectus, et mattis justo. Donec vitae ante vel nibh accumsan commodo. Morbi vitae quam nisl.
+At this point, assuming that there are few fundamental breakthroughs to be made in NOAH itself, we must turn to the question of how to increase its uptake.
+The accessibility of new techniques is \textit{always} a significant factor, regardless of the merit of the underlying technique.
+For this reason, I am particularly proud of the GENESIS website (\cref{sec:noah__genesis}) and the associated improvements in the processing pipeline; the feedback from the NMR community has also been greatly encouraging.
+At the same time, there is still some way to go: although one may consider a `standard' NOAH experiment easy enough to set up, after taking into account other desirable features such as automation and NUS, the entire process can become rather non-trivial.
 
-In hac habitasse platea dictumst. Nulla lobortis sem quam, id euismod leo accumsan sed. Suspendisse nec nulla neque. Vivamus luctus lacinia diam et vehicula. Fusce in est id ex tempor convallis. Integer risus est, varius a nunc eu, placerat volutpat ante. Pellentesque vel eros eu quam suscipit eleifend id ac dui. 
-}
+Another important, but under-explored, area is the use of NOAH in the sensitivity-limited regime.
+The results in this chapter are derived from samples which are not particularly dilute, and hence belong in the resolution-limited regime.
+While this may lead to a maximisation of the \textit{relative} (in that $\rho_t > \rhoteff$), the \textit{absolute} time savings are small because the standalone 2D experiments would be completed fairly quickly anyway.
+This is particularly relevant for (e.g.) unstable samples, for which 2D data need to be acquired in as short a time as possible.
+Conclusively demonstrating the benefits of NOAH experiments on such samples would go a long way towards convincing more synthetic chemists to adopt the NOAH technique.

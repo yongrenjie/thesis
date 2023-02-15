@@ -23,7 +23,7 @@ The optimisation algorithms provided within POISE are not designed to go beyond 
 In challenging optimisation cases where multiple local minima exist, it is not generally possible to predict which local minimum the algorithm will converge to.
 What \textit{can} be guaranteed is that if the initial point is not already an optimum, then the optimisation will always provide a decrease in the cost function: in other words, it will always lead to an improvement in the spectrum (insofar as the cost function accurately represents the quality of the spectrum).
 
-Finally, \textit{POISE is not a panacea}.
+Finally, \textit{POISE is not universally applicable}.
 It should be noted that there is always an inherent tradeoff against the time required for the optimisation itself.
 For example, it makes little sense to spend several minutes optimising the sensitivity of a pulse--acquire experiment: the time could simply be used to improve the SNR by collecting more scans.
 There is also the critical---though undeniably subjective---question of whether the optimisation is \textit{necessary}: even if an optimisation can be run in a relatively short time, are the results really significantly better than a `compromise' value in a default parameter set?%

@@ -90,6 +90,9 @@ for i, c, m in zip((stp_s2_int, stp_c_int), apt.PAL[1:], "sx"):
     axs[2].set(xticks=[1], xticklabels=[])
     axs[2].set(ylabel="relative intensity",
                ylim=(-0.05, 1.15))
+    for ax in axs:
+        for i, c in zip((stp_s2_int, stp_c_int), apt.PAL[1:]):
+            ax.axhline(y=i, color=c, linestyle=":", linewidth=1, zorder=-1)
 
 for ax in axs:
     ax.label_outer()

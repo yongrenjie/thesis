@@ -78,13 +78,20 @@ get_integs = lambda ds: np.array([ds.f1projp().integrate(peak=shift,
                                                          mode="max")
                                   for shift in shifts])
 ref_integs = get_integs(dss[0])
-for ds, ax, noise in zip(dss[1:], axes_1d[1:], noise_levs[1:]):
+for i_ax, ds, ax, noise in apt.enzip(dss[1:], axes_1d[1:], noise_levs[1:]):
     integs = get_integs(ds)
     rel_integs = integs / (ref_integs * noise)
-    for i, shift, integ, rel_integ in apt.enzip(shifts, integs, rel_integs):
+    for i_peak, shift, integ, rel_integ in apt.enzip(shifts, integs, rel_integs):
         voffset = (ymax*1.1 - ymin) * 0.05
+        # determine horizontal alignment
+        if i_peak == 0:
+                ha = 'left' if i_ax == 2 else 'center'
+        elif i_peak == 2:
+            ha = 'left'
+        else:
+            ha = 'center'
         ax.text(x=shift, y=(integ/noise)+voffset, s=f"{rel_integ:.1f}×",
-                fontsize=8, ha='left' if i == 0 or i == 2 else 'center')
+                fontsize=8, ha=ha)
 
 apt.tl()
 apt.label_axes_def(list(zip(axes_2d, axes_1d)))

@@ -56,7 +56,7 @@ for (ax, s1_ints, s2_ints,
     for i, c, m in zip((s1_ints, s2_ints, c_ints), apt.PAL, "osx"):
         ax.plot(cnst32s, i, marker=m, color=c)
     for i, c in zip((mfa_s1_int, mfa_s2_int, mfa_c_int), apt.PAL):
-        ax.axhline(y=i, color=c, linestyle="--", linewidth=0.5)
+        ax.axhline(y=i, color=c, linestyle=":", linewidth=1)
     # Twiddle with axes properties.
     ax.set(xlabel="$f$")
     ax.legend([label1, label2, "COSY"], loc="lower right")
@@ -66,7 +66,7 @@ for (ax, s1_ints, s2_ints,
 # Plot MFA intensities and line to guide the eye
 for i, c, m in zip((mfa_s1_int, mfa_s2_int, mfa_c_int), apt.PAL, "osx"):
     axs[2].plot(1, i, marker=m, color=c)
-    axs[2].axhline(y=i, color=c, linestyle="--", linewidth=0.5)
+    axs[2].axhline(y=i, color=c, linestyle=":", linewidth=1)
     axs[2].set(xticks=[1], xticklabels=[])
     axs[2].set(ylabel="relative intensity",
                ylim=(-0.05, 1.15))
@@ -79,6 +79,8 @@ axs[0].text(x=0.10, y=0.977, va='top', ha='left',
             s=r'NOAH-3 $\rm SSC^c$', transform=axs[0].transAxes)
 axs[1].text(x=0.10, y=0.977, va='top', ha='left',
             s=r'NOAH-3 $\rm SS^{+}C^c$', transform=axs[1].transAxes)
+axs[0].set(ylabel="relative intensity")
+apt.tl()
 
 apt.label_axes_def(axs[0:2])
 apt.label_axes_def([axs[2]], start=3, x=0.15)

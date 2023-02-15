@@ -9,9 +9,8 @@ Thus, the ADEQUATE module has to date not been implemented in NOAH supersequence
 
 In this section, I only consider the design of the NOAH ADEQUATE module itself, which turns out to be extraordinarily simple.
 The \proton{} pulses in the original ADEQUATE experiment mirror that of the CRK seHSQC almost perfectly, save for one extra \ang{180} pulse.
-In particular, the INEPT excitation and the PEP transfer element are the same.
 Thus, the ADEQUATE module can be modified to preserve \magnnot{C} magnetisation using exactly the same strategy in seHSQC2: namely, replacing the first \proton{} excitation pulse with the ZIP element (\cref{fig:adequate_noah}).
-In order to compensate for the extra \ang{180} pulse (which arises in the constant-time period), the pulse phases in the ZIP element are modified accordingly: thus, the third \proton{} \ang{90} pulse has a phase of $y\/$ (instead of $-y\/$ in seHSQC2).
+In order to compensate for the extra \ang{180} pulse (which arises in the constant-time period of the ADEQUATE), the pulse phases in the ZIP element are modified accordingly: thus, the third \proton{} \ang{90} pulse has a phase of $y\/$ (instead of $-y\/$ in seHSQC2).
 
 \begin{figure}[htb]
     \centering

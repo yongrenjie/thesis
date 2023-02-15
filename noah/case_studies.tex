@@ -3,7 +3,7 @@
 
 Using all of the concepts described in the previous sections, we now look at a few `typical' supersequences to understand their construction.
 Before beginning, a quick note about the nomenclature of NOAH supersequences is warranted.
-Supersequences are labelled by the number of modules $N$, plus a series of single-letter codes corresponding to the identity and ordering of the modules involved (\cref{tbl:noah_modules}).
+Supersequences are labelled by the number of modules $N$, plus a series of single-letter codes, each corresponding to a specific module (\cref{tbl:noah_modules}).
 Occasionally, superscripts or subscripts are used to qualify the modules involved.%
 \footnote{With the increasing number of modules, and the variety of modern NMR experiments which could be incorporated into NOAH supersequences, keeping these abbreviations short yet meaningful has been a challenge.}
 Thus, a NOAH supersequence containing three modules---say \nitrogen{} HMQC, \carbon{} HSQC, and CLIP-COSY---would be referred to as a \noah{Mn,S,Cc}.
@@ -78,8 +78,8 @@ Furthermore, the COSY module retains \textit{most} of its sensitivity ($A = 0.90
 The small loss here is because the HSQC module does not \textit{perfectly} preserve the \magnnot{C} magnetisation: for example, evolution of homonuclear couplings as well as relaxation occur during the HSQC pulse sequence, both of which were ignored in the product operator analysis of \cref{fig:noah_sb_po_s}.
 
 Furthermore, the value of the time-saving factor, $\rho_t = 1.87$, is very close to the theoretical limit of $N = 2$.
-This reflects the fact that the pulse sequence itself, $\tau_{\symup{ps}}$, is fairly short for both the HSQC and COSY modules; the deviation therefore chiefly arises from the acquisition time, $\tau_{\symup{acq}}$.
-In all respects, this is therefore an example of an `ideal' NOAH supersequence, where the combination of two modules provides almost $2\times$ time savings without compromising on sensitivity.
+This reflects the fact that the pulse sequence itself, $\taups$, is fairly short for both the HSQC and COSY modules; the deviation therefore chiefly arises from the acquisition time, $\tauacq$.
+In all respects, this is therefore an example of an `ideal' NOAH supersequence, where the combination of two modules provides an almost-twofold time saving without compromising on sensitivity.
 
 It is worth pointing out that the order of the modules cannot be reversed: the COSY module cannot be (easily) modified to preserve \magn{C} magnetisation.
 In a hypothetical \noah{C,S} supersequence, the later HSQC module would only be able to use magnetisation recovered during the COSY FID, leading to a substantial decrease in sensitivity.
@@ -108,7 +108,7 @@ These artefacts likely arise in the standalone COSY because of accidental refocu
 In contrast, the NOAH COSY module has an extra set of HSQC gradients between every repetition of the COSY, so accidental refocusing is less likely.
 (Similar artefacts have previously been noted in the DQF-COSY experiment\autocite{Shaw1996JMRSA,Howe2014MRC}, and have also shown to be attenuated in the corresponding NOAH module\autocite{Claridge2019MRC}.)
 That said, such improvements are not always guaranteed.
-It is possible for specific artefacts to arise exclusively in NOAH experiments; some of these will be discussed in the following sections.
+It is possible for specific artefacts to arise exclusively in NOAH experiments; some of these, and methods of suppressing them, will be discussed in the following sections.
 
 
 \subsubsection{\noah{S,C,T}: HSQC + COSY + TOCSY}
@@ -118,13 +118,13 @@ This means that supersequences such as \noah*{S,Cc}, \noah*{S,D}, and \noah*{S,T
 It would be very useful if we could go beyond this and place \textit{multiple} homonuclear modules in a single supersequence.
 
 However, since every homonuclear module tends to consume all remaining bulk magnetisation, creating combinations of homonuclear modules which do not `compete' for this bulk magnetisation is a difficult task.
-The only notable exceptions to this are `COSY+X' combinations, where X can be NOESY, ROESY, or TOCSY: instead of concatenating the COSY and X modules, the COSY pulse sequence can instead be nested \textit{within} the X module, as was first demonstrated with X = NOESY\autocite{Haasnoot1984JMR,Gurevich1984JMR}.
+The only notable exceptions to this are `COSY/X' combinations, where X can be NOESY, ROESY, or TOCSY: instead of concatenating the COSY and X modules, the COSY pulse sequence can instead be nested \textit{within} the X module, as was first demonstrated with X = NOESY\autocite{Haasnoot1984JMR,Gurevich1984JMR}.
 
 Here, we use the COSY/TOCSY combination\autocite{Nolis2019MRC} as an example (\cref{fig:ct_states}).
 The \ang{90}--$t_1$--\ang{90} COSY pulse sequence leads to a mixture of both transverse and longitudinal magnetisation which is frequency-labelled in $t_1$.
 The transverse component is sampled during the COSY acquisition period, whereas the longitudinal component (usually discarded in a COSY experiment) is subjected to isotropic mixing and subsequently sampled as part of the TOCSY.
-Unlike the HSQC and COSY in the previous example, the COSY and TOCSY in \cref{fig:ct_states_ct} cannot be clearly separated into different sections of the pulse sequence: they in fact share a common $t_1$ period.
-Nevertheless, in the context of NOAH, it is common to still refer to these as separate modules.
+Unlike the HSQC and COSY in the previous example, the COSY and TOCSY in \cref{fig:ct_states_ct} cannot be clearly identified as being distinct sections of the pulse sequence: they in fact share a common $t_1$ period.
+Nevertheless, it is common to still refer to these as separate modules in a supersequence.
 
 \begin{figure}[!ht]
     \centering
@@ -153,10 +153,10 @@ Entry 3 of \cref{tbl:noah_sensitivities} shows that the addition of the $zz$-fil
 These sensitivity losses, however, are reasonably acceptable considering the time savings provided by this supersequence ($\rho_t = 1.82$).
 
 Generally, it has been recommended that less sensitive modules are placed earlier in the supersequence so that they can access a larger proportion of the equilibrium magnetisation.
-The \noah{B,S} does not, however, actually obey this principle.
-Since the HMBC is the less sensitive of the two modules, this rule of thumb suggests that the BS supersequence should be better than the alternative SB supersequence.
+This principle does not, however, actually apply to the \noah{B,S} supersequence.
+Since the HMBC is the less sensitive of the two modules, this rule of thumb suggests that the \noah*{B,S} arrangement should be better than the alternative \noah*{S,B}.
 In fact, the opposite is true, as entry 4 of \cref{tbl:noah_sensitivities} shows.
-This can be understood as follows: the HSQC module experiences a boost in sensitivity because it is placed first in the supersequence, and no longer needs to rely on the \magn{C} magnetisation preserved by the HMBC; and the HMBC benefits because the $zz$-filter modification is no longer needed.%
+This can be understood as follows: in the \noah*{S,B} supersequence, the HSQC module experiences a boost in sensitivity because it is placed first in the supersequence, and no longer needs to rely on the \magn{C} magnetisation preserved by the HMBC; and the HMBC benefits because the $zz$-filter modification is no longer needed.%
 \footnote{In fact, the final \ang{180} pulse in the HMBC module could also be removed: this is likely to give a further boost in SNR, as discussed in \cref{subsec:noah__hmbc}. However, this was not done here.}
 This may just be the exception that proves the rule, but in my view, this provides some justification for considering the ordering of modules on a case-by-case basis.
 
@@ -176,7 +176,7 @@ Because the intrinsic sensitivity of the HMBC is orders of magnitude lower than 
 Thus, as long as the entire supersequence is acquired with enough scans such that the HMBC SNR is sufficient, the COSY and TOCSY will \textit{also} have acceptable SNR.
 This is proven by the spectra shown in \cref{fig:bsct}.
 
-A rather more insidious problem is that different signals relax at different rates: thus, the COSY and TOCSY spectra (or indeed, any homonuclear module) will have uneven intensities and are frequently asymmetric.
+A rather more insidious problem is that different signals relax at different rates: thus, the COSY and TOCSY spectra (or indeed, any homonuclear module) will have uneven intensities and are frequently asymmetric about the main diagonal.
 This can be seen in the COSY spectrum, where a pair of asymmetric crosspeaks are highlighted.
 Adding a period of isotropic mixing before the COSY module\autocite{Kupce2018CC} can ameliorate this to some extent (although the spectra in \cref{fig:bsct} were not acquired with this).
 
@@ -211,11 +211,11 @@ If the HMBC module is placed at the beginning of the supersequence, then in orde
 As before, this modification leads to a slight drop in sensitivity for the HMBC ($5\%$).
 
 After this, the \nitrogen{} seHSQC and \carbon{} HSQC modules both suffer drops in sensitivity.
-For the \nitrogen{} seHSQC, this is partly because of imperfect preservation of \magn{N} magnetisation by the HMBC, but also stems from the addition of the $zz$ isotope-selective pulse (ZIP) element to the seHSQC pulse sequence; this is described further in \cref{subsec:noah__sehsqc_n}.
-On the other hand, for the \carbon{} HSQC, the sensitivity loss stems purely from imperfect retention of \magn{C} magnetisation by the HMBC.
+For the \nitrogen{} seHSQC, this is partly because of imperfect preservation of \magn{N} magnetisation by the HMBC, but also stems from the addition of the $zz$ isotope-selective pulse (ZIP) element to the seHSQC pulse sequence, which is described further in \cref{subsec:noah__sehsqc_n}.
+On the other hand, for the \carbon{} HSQC, the sensitivity loss stems purely from imperfect retention of \magn{C} magnetisation by previous modules.
 Finally, because the HMBC dephases \magn{!X} magnetisation, the COSY and TOCSY at the end have lower sensitivities: however, as discussed above, this is not an issue in practice.
 
-It is also possible to move the \nitrogen{} seHSQC module to the front: this gives it a slightly greater sensitivity, at the cost of the HMBC (entry 7, \cref{tbl:noah_sensitivities}).
+It is also possible to move the \nitrogen{} seHSQC module to the front to form a \noah{Spn,B,S,C,T} supersequence: this gives the \nitrogen{} seHSQC a slightly greater sensitivity, at the cost of the HMBC (entry 7, \cref{tbl:noah_sensitivities}).
 In general, these two modules tend to have comparable sensitivity, and which of these two arrangements is better depends on which module the sensitivity needs to be optimised for.
 
 Finally, the value of $\rho_t$ given here of 3.74 represents an effective upper limit on the time-saving factor.
