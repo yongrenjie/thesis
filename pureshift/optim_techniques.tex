@@ -45,7 +45,7 @@ These distortions are just about visible in \cref{fig:jrse_jrse}.
 
 Two cost functions were designed and used in this section:
 \begin{align}
-    \fphase &= \Var_i\left[\arctan\left(\frac{S_{\text{re},i}}{|S_{\text{im},i}|}\right)\right] \label{eq:ps_cf_phase} \\
+    \fphase &= \Var_i\left[\arctan\left(\frac{S_{\text{re},i}}{|S_{\text{im},i}|}\right)\right]; \label{eq:ps_cf_phase} \\
     \fdiff &= \Biggl\lVert \frac{\symbf{S}_{\symup{re}}}{\lVert \symbf{S}_{\symup{re}} \rVert} - \frac{\symbf{T}_{\symup{re}}}{\lVert \symbf{T}_{\symup{re}} \rVert} \Biggr\rVert, \label{eq:ps_cf_diff}
 \end{align}
 where the JRSE and pulse--acquire 1D spectra are treated as complex-valued vectors $\symbf{S}$ and $\symbf{T}$ respectively (for \textit{`spectrum'} and \textit{`target'}). $\symbf{S}_{\symup{re}}$ and $\symbf{S}_{\symup{im}}$ are the real and imaginary parts of the spectrum $\symbf{S}$, and $S_{\symup{re},i}$ is the $i$-th point of the real part of the spectrum.

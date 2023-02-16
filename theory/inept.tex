@@ -74,7 +74,7 @@ These transformations are often denoted with simpler notation:
     \gamma_I I_z
     \xrightarrow{\angang{90}{x}(I)} -\gamma_I I_y
     \xrightarrow{\Delta\text{--}\angang{180}{x}(I,S)\text{--}\Delta} -2\gamma_I I_xS_z
-    \xrightarrow{\angang{90}{y}(I),\angang{90}{x}(S)} -2\gamma_I I_zS_y
+    \xrightarrow{\angang{90}{y}(I),\angang{90}{x}(S)} -2\gamma_I I_zS_y.
 \end{equation}
 During the detection period, the term $-2\gamma_II_zS_y$ evolves as
 \begin{align}
@@ -117,7 +117,7 @@ The $\angang{180}{x}(S)$ pulse inverts it, and the final $\angang{90}{x}(S)$ pul
     \label{eq:inept_prodop_s}
     \gamma_S S_z \xrightarrow{\angang{90}{x}(I)\text{--}\Delta} \gamma_S S_z
     \xrightarrow{\angang{180}{x}(I),\angang{180}{x}(S)\text{--}\Delta} -\gamma_S S_z
-    \xrightarrow{\angang{90}{y}(I),\angang{90}{x}(S)} \gamma_S S_y
+    \xrightarrow{\angang{90}{y}(I),\angang{90}{x}(S)} \gamma_S S_y.
 \end{equation}
 This term produces \textit{in-phase} spin-$S$ magnetisation during the detection period (where the two components of the doublet have the same phase):
 \begin{equation}
@@ -136,8 +136,8 @@ On the other hand, the signal component $s_S$ is unaffected by this pulse and th
 The two FIDs we record are thus as follows:
 \begin{align}
     \label{eq:inept_phase_cycling}
-    s_1(t) &= s_I(t) + s_S(t) \\
-    s_2(t) &= -s_I(t) + s_S(t)
+    s_1(t) &= s_I(t) + s_S(t); \\
+    s_2(t) &= -s_I(t) + s_S(t).
 \end{align}
 Simply taking the difference of these two FIDs yields a signal where the desired $s_I$ has been accumulated and $s_S$ has been cancelled out.
 In practice, instead of subtracting the two signals, it is typical to shift the receiver phase $\phirec$ by $\cpi$ (i.e.\ \ang{180}) in the second experiment: this introduces a phase shift of $\exp(-\mi\cpi) = -1$ to the signal, and the two signals can now be \textit{added} together instead of subtracted to cancel out $s_S$.
@@ -150,7 +150,7 @@ Although this is often touted as being `simpler' than full density operator calc
     \label{eq:product_operator_shorthand}
     \underbrace{I_z \xrightarrow{\angang{90}{x}(I)} -I_y}_{\textit{product operator}}
     \quad\Longleftrightarrow\quad
-    \underbrace{\exp(-\mi I_x\cpi/2)I_z\exp(\mi I_x\cpi/2) = -I_y}_{\textit{density operator}}
+    \underbrace{\exp(-\mi I_x\cpi/2)I_z\exp(\mi I_x\cpi/2) = -I_y}_{\textit{density operator}}.
 \end{equation}
 Since the operators $\{E, I_x, I_y, I_z\}$ form a complete basis for a single-spin system, their products (i.e.\ product operators) likewise form a complete basis for multiple-spin systems, and so \textit{any} density matrix for a multiple-spin system may be expressed as a linear combination of product operators.
 Thus, strictly speaking, the use of product operators therefore does not actually sacrifice any power in and of itself.

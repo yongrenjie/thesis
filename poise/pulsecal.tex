@@ -94,14 +94,14 @@ In this experiment, an RF pulse with a given power level, corresponding to an (u
 Assuming that the pulse is applied along the $x$-axis, this leads to the following product operators during the acquisition period:
 \begin{equation}
     \label{eq:pulsecal_operators}
-    I_z \xrightarrow{\omega_1' t_2} I_z \cos(\omega_1' t_2) - I_y \sin(\omega_1' t_2)
+    I_z \xrightarrow{\omega_1' t_2} I_z \cos(\omega_1' t_2) - I_y \sin(\omega_1' t_2),
 \end{equation}
 and (since we only detect $I_-$) an FID of
 \begin{equation}
     \label{eq:pulsecal_signal}
-    s(t_2) = \frac{1}{2\mi}\sin(\omega_1't_2) = -\frac{1}{4}[\exp(\mi \omega_1' t_2) - \exp(-\mi \omega_1' t_2)],
+    s(t_2) = \frac{1}{2\mi}\sin(\omega_1't_2) = -\frac{1}{4}[\exp(\mi \omega_1' t_2) - \exp(-\mi \omega_1' t_2)].
 \end{equation}
-which when Fourier transformed yields an antiphase doublet where the two peaks are separated by the frequency $2\omega_1'$.
+When Fourier transformed, this yields an antiphase doublet where the two peaks are separated by the frequency $2\omega_1'$.
 Measuring the separation between the two peaks directly yields the unknown amplitude $\omega_1'$, from which $\taup' = \cpi/(2\omega_1')$ can be calculated.
 Typically, the RF amplitude $\omega_1'$ is rather smaller than the amplitude $\omega_1$ which we would like to apply the hard pulse at, and thus $\taup' > \taup$.
 However, this can be adjusted for using the power levels applied (which are known to the user).

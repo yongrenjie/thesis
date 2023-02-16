@@ -87,15 +87,15 @@ Using this knowledge, it is possible to construct several `asymmetric' gradient 
         The presence of an additional gradient means that there is a free parameter, here denoted as $\alpha$, which can be used to control the relative amplitudes of these three CTP gradients.
         The gradient amplitudes are chosen as follows:
         \begin{align}
-            &\text{echo:}     & g_1 &= gc_1 & g_2 &= g    & g_3 &= gc_2 \label{eq:noah_hmbc_grads_bga_echo} \\
-            &\text{antiecho:} & g_1 &= g    & g_2 &= gc_1 & g_3 &= gc_2 \label{eq:noah_hmbc_grads_bga_antiecho}
+            &\text{echo:}     & g_1 &= gc_1; & g_2 &= g;    & g_3 &= gc_2; \label{eq:noah_hmbc_grads_bga_echo} \\
+            &\text{antiecho:} & g_1 &= g;    & g_2 &= gc_1; & g_3 &= gc_2, \label{eq:noah_hmbc_grads_bga_antiecho}
         \end{align}
         where $c_1 = -\alpha(\gammaH - \gammaC)/(\gammaH + \gammaC)$ and $c_2 = (1 - \alpha) (\gammaH - \gammaC)/\gammaH$.
         In principle $g$ is also a free parameter; for maximum suppression of artefacts I chose a relatively large value of 80\%.
     \item In `Scheme B' (\cref{fig:noah_hmbc_grads_bgb}), the \ang{180} pulse is shifted to immediately after $t_1$, before any of the CTP gradients have been applied. This means that there is no need for a third gradient, and the CTP gradient amplitudes can be directly taken from the standard library sequence:
         \begin{align}
-            &\text{echo:}     & g_1 &= g  & g_2 &= gc \label{eq:noah_hmbc_grads_bgb_echo} \\
-            &\text{antiecho:} & g_1 &= gc & g_2 &= g \label{eq:noah_hmbc_grads_bgb_antiecho}
+            &\text{echo:}     & g_1 &= g;  & g_2 &= gc; \label{eq:noah_hmbc_grads_bgb_echo} \\
+            &\text{antiecho:} & g_1 &= gc; & g_2 &= g, \label{eq:noah_hmbc_grads_bgb_antiecho}
         \end{align}
         where $c = -(\gammaH - \gammaC)/(\gammaH + \gammaC)$ and $g = 80\%$.
     \item `Scheme C' (\cref{fig:noah_hmbc_grads_bgc}) simply does not add a \ang{180} pulse, but instead modifies the phases of the $zz$-filter in order to place \magn{C} magnetisation along the $-z$ axis during the HMBC J-evolution delay.

@@ -77,10 +77,10 @@ So, we can directly apply the propagator $\exp(-\mi\Hgrad\tau)$ to the density o
 \begin{align}
     \rho(z) &= -I_x\cos(\Omega_S t_1 + \gamma_S g_1 z \tau)\cos(\gamma_I g_2 z\tau) - I_y\cos(\Omega_S t_1 + \gamma_S g_1 z \tau)\sin(\gamma_I g_2 z\tau) \label{eq:hsqc_ea_after_g2_1} \\
             &= -\frac{1}{2}I_x \cos[\Omega_S t_1 + (\gamma_S g_1 + \gamma_I g_2)z\tau] -\frac{1}{2} I_x \cos[\Omega_S t_1 + (\gamma_S g_1 - \gamma_I g_2) z\tau]  \notag \\
-            &\quad\quad - \frac{1}{2}I_y \sin[\Omega_S t_1 + (\gamma_S g_1 + \gamma_I g_2) z\tau] + \frac{1}{2}I_y \sin[\Omega_S t_1 + (\gamma_S g_1 - \gamma_I g_2) z\tau] 
+            &\quad\quad - \frac{1}{2}I_y \sin[\Omega_S t_1 + (\gamma_S g_1 + \gamma_I g_2) z\tau] + \frac{1}{2}I_y \sin[\Omega_S t_1 + (\gamma_S g_1 - \gamma_I g_2) z\tau].
             \label{eq:hsqc_ea_after_g2_2}
 \end{align}
-(as a sanity check, it can be verified that this reduces to \cref{eq:hsqc_ea_before_g2} if $g_2 = 0$).
+(As a sanity check, it can be verified that this reduces to \cref{eq:hsqc_ea_before_g2} if $g_2 = 0$.)
 The signal which we detect stems from the entire sample length, so we in fact need to perform an integration over $z$:
 \begin{equation}
     \label{eq:density_operator_integration}
@@ -133,7 +133,7 @@ The evolution of these terms under various Hamiltonians is summarised by Keeler\
     \item An operator $I_{ip}$, on a spin $i$ and with coherence order $p$, evolves under the Hamiltonian $\omega I_z$ for a time $t$ to give:
         \begin{equation}
             \label{eq:shift_operator_evolution}
-            I_{ip} \longrightarrow I_{ip} \exp(-\mi p\omega t)
+            I_{ip} \longrightarrow I_{ip} \exp(-\mi p\omega t).
         \end{equation}
 \end{enumerate}
 We have seen examples of the latter before: compare, for example, \cref{eq:rho_coherences,eq:fid_coherences}.
@@ -238,9 +238,9 @@ where $I_j(p_j^{(i)})$ represents $p_j^{(i)}$-order coherence on spin $j$ during
 The spatially dependent phase imparted by the gradient $g^{(i)}$ is the sum of the phases acquired by each individual coherence:
 \begin{equation}
     \label{eq:generalised_phase}
-    \phi^{(i)} = -zg^{(i)} \sum_j p_j^{(i)}\gamma_j
+    \phi^{(i)} = -zg^{(i)} \sum_j p_j^{(i)}\gamma_j.
 \end{equation}
-For rephasing of a CTP, we require that $\sum_i \phi^{(i)} = 0$, or equivalently
+For a CTP to be rephased, we require that $\sum_i \phi^{(i)} = 0$, or equivalently
 \begin{equation}
     \label{eq:generalised_rephasing_1}
     \sum_i \left( g^{(i)}\sum_j p_j^{(i)}\gamma_j\right) = 0.

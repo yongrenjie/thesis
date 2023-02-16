@@ -26,9 +26,9 @@ Given that $I_z\ket{\alpha} = (1/2)\ket{\alpha}$ and $I_z\ket{\beta} = -(1/2)\ke
 \begin{equation}
     \label{eq:state_precessions}
     \begin{aligned}
-        \omega_{\alpha\alpha} &= \frac{1}{2}(\Omega_1 + \Omega_2 + \cpi J), &
-        \omega_{\alpha\beta} &= \frac{1}{2}(\Omega_1 - \Omega_2 - \cpi J), \\
-        \omega_{\beta\alpha} &= \frac{1}{2}(-\Omega_1 + \Omega_2 - \cpi J), &
+        \omega_{\alpha\alpha} &= \frac{1}{2}(\Omega_1 + \Omega_2 + \cpi J); &
+        \omega_{\alpha\beta} &= \frac{1}{2}(\Omega_1 - \Omega_2 - \cpi J); \\
+        \omega_{\beta\alpha} &= \frac{1}{2}(-\Omega_1 + \Omega_2 - \cpi J); &
         \omega_{\beta\beta} &= \frac{1}{2}(-\Omega_1 - \Omega_2 + \cpi J).
     \end{aligned}
 \end{equation}
@@ -66,10 +66,10 @@ Essentially, under $\HfreeI$, all of these operators acquire phase factors which
 I explicitly state the rules for the single-quantum operators on spin 1 here:%
 \footnote{Note that \S{} 10.4.2 of Keeler's text\autocite{Keeler2010} has a sign error in these equations---the sign of the $\cpi J\/$ evolution is flipped---though it proves to be inconsequential as the sign of $J\/$ cannot be observed.}
 \begin{align}
-    I_{1+}I_{2\alpha} &\longrightarrow \exp[-\mi(\Omega_1 + \cpi J)\tau] I_{1+}I_{2\alpha} \label{eq:shift_basis_evolution_pa} \\
-    I_{1+}I_{2\beta} &\longrightarrow \exp[-\mi(\Omega_1 - \cpi J)\tau] I_{1+}I_{2\beta} \label{eq:shift_basis_evolution_pb} \\
-    I_{1-}I_{2\alpha} &\longrightarrow \exp[\mi(\Omega_1 + \cpi J)\tau] I_{1-}I_{2\alpha} \label{eq:shift_basis_evolution_ma} \\
-    I_{1-}I_{2\beta} &\longrightarrow \exp[\mi(\Omega_1 - \cpi J)\tau] I_{1-}I_{2\beta} \label{eq:shift_basis_evolution_mb}
+    I_{1+}I_{2\alpha} &\longrightarrow \exp[-\mi(\Omega_1 + \cpi J)\tau] I_{1+}I_{2\alpha}; \label{eq:shift_basis_evolution_pa} \\
+    I_{1+}I_{2\beta} &\longrightarrow \exp[-\mi(\Omega_1 - \cpi J)\tau] I_{1+}I_{2\beta}; \label{eq:shift_basis_evolution_pb} \\
+    I_{1-}I_{2\alpha} &\longrightarrow \exp[\mi(\Omega_1 + \cpi J)\tau] I_{1-}I_{2\alpha}; \label{eq:shift_basis_evolution_ma} \\
+    I_{1-}I_{2\beta} &\longrightarrow \exp[\mi(\Omega_1 - \cpi J)\tau] I_{1-}I_{2\beta}. \label{eq:shift_basis_evolution_mb}
 \end{align}
 The rules for the corresponding operators on spin 2 can be easily obtained by permutation of labels.
 Notice that the evolution frequencies of the $-1$-quantum operators (\cref{eq:shift_basis_evolution_ma,eq:shift_basis_evolution_mb}) each correspond to one peak of the corresponding multiplet in an NMR spectrum: for example, $\Omega_1 + \cpi J\/$ and $\Omega_1 - \cpi J\/$ correspond to the two peaks of the spin-1 doublet.
@@ -111,11 +111,11 @@ Such an element forms the basis of a pure shift technique, and I refer to it her
 The difficulty in designing a PSE is that \textit{all} spins must be simultaneously decoupled from each other (and not just one spin).
 For example, if we only had to invert spin 1 and not spin 2 (i.e.\ only \cref{eq:pure_shift_requirement_spin1} and not \cref{eq:pure_shift_requirement_spin2}), this could be trivially accomplished by a selective \ang{180} pulse on spin 1.
 However, this would not bring about the correct transitions for spin 2.
-Yet another complicating factor is that the spins will have offsets and couplings which are \textit{a priori} not known; so the design of the PSE cannot use these parameters as inputs.
+Yet another complicating factor is that the spins will have offsets and couplings which are \textit{a priori} not known; the design of the PSE therefore cannot use these parameters as inputs.
 These limitations mean that it is impossible to accomplish the above transitions \textit{in full}; rather, a more realistic scenario involves
 \begin{equation}
     \label{eq:realistic_pse}
-    I_{1+}I_{2\alpha} \longrightarrow c I_{1-}I_{2\alpha} + \sum_i c'_i M_i
+    I_{1+}I_{2\alpha} \longrightarrow c I_{1-}I_{2\alpha} + \sum_i c'_i M_i,
 \end{equation}
 and likewise for the other operators.
 Here, the desired transition probability $c < 1$ directly correlates with the sensitivity of the PSE, and the $M_i$'s are some other undesired operators which (if detectable) lead to artefacts if not suppressed.
@@ -152,8 +152,8 @@ This is true, but in practice the phase twist lineshapes cause the resulting res
 To circumvent this issue, a number of special processing techniques have been proposed\autocite{Xu1991JMR,Nuzillard1996JMRSA,Simova1997JMR} (see also references therein); but more ideally, we want a phase-sensitive 2DJ spectrum, which can be obtained by recording a pair of `echo' and `antiecho' signals:%
 \footnote{The terms `echo' and `antiecho' refer to the relative senses of the coherences evolving during $t_1$ and $t_2$: in the echo spectrum these have opposite signs, e.g.\ $I_zS_+$ and $I_-$ in the HSQC, and in the antiecho spectrum they have the same sign. As pointed out by Pell and Keeler\autocite{Pell2007JMR}, this is not really appropriate for the 2DJ experiment since each half of $t_1$ has a coherence with a different sense, but we will stick to this nomenclature as the underlying concept is very similar to that of echo--antiecho processing.}
 \begin{align}
-    s_\text{echo}(t_1, t_2) &= \exp(\mi\cpi Jt_1) \exp[\mi(\Omega_1 - \cpi J) t_2] \label{eq:2dj_signal_echo} \\
-    s_\text{antiecho}(t_1, t_2) &= \exp(-\mi\cpi Jt_1) \exp[\mi(\Omega_1 - \cpi J)t_2] \label{eq:2dj_signal_antiecho}
+    s_\text{echo}(t_1, t_2) &= \exp(\mi\cpi Jt_1) \exp[\mi(\Omega_1 - \cpi J) t_2]; \label{eq:2dj_signal_echo} \\
+    s_\text{antiecho}(t_1, t_2) &= \exp(-\mi\cpi Jt_1) \exp[\mi(\Omega_1 - \cpi J)t_2]. \label{eq:2dj_signal_antiecho}
 \end{align}
 These can be processed in the same way as described in \cref{subsec:theory__2dnmr} to yield double absorption-mode lineshapes.
 The antiecho signal (\cref{eq:2dj_signal_antiecho}) is of course the same as in \cref{eq:2dj_signal}, but to obtain the echo signal in \cref{eq:2dj_signal_echo}, we require a different pulse sequence with a PSE inserted just prior to detection:

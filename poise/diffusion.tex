@@ -197,9 +197,9 @@ It is possible---albeit inefficient, as previously mentioned---to dispense with 
 In order to ensure that $\Delta$ is not increased too much, we must add a penalty term to the cost function:
 \begin{equation}
     \label{eq:dosy_2p_cf}
-    f_{\symup{dosy,2p}} = f_{\symup{dosy}} + (\Delta / \unit{\s}) = \left| \frac{\sum_i S_{\symup{re},i}(\Gmax)}{\sum_i S_{\symup{re},i}(\Gmin)} - 0.25 \right| + (\Delta / \unit{\s})
+    f_{\symup{dosy,2p}} = f_{\symup{dosy}} + (\Delta / \unit{\s}) = \left| \frac{\sum_i S_{\symup{re},i}(\Gmax)}{\sum_i S_{\symup{re},i}(\Gmin)} - 0.25 \right| + (\Delta / \unit{\s}),
 \end{equation}
-(where `2p' stands for two-parameter).
+where `2p' stands for two-parameter.
 One significant drawback of this is that the reference spectrum $\symbf{S}(\Gmin)$ must be reacquired every time $\Delta$ is changed: so, each FE requires twice as long as before.
 For example, using the NM algorithm, the optimisation converged to $\Delta = \qty{91.6}{\ms}$ and $\Gmax = 79.3\%$.
 Although this result is quite similar to what we had obtained before, the optimisation took over 26 minutes, over five times longer than previously.

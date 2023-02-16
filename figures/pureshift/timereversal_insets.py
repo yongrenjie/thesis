@@ -12,17 +12,17 @@ b = "3.80..4.87"
 
 fig, ax = pg.subplots(figsize=(6, 5))
 for spec in scaled_spec:
-    spec.stage(ax, bounds=b)
+    spec.stage(ax, bounds=b, color='black')
 summed_spec.stage(ax, bounds=b, color='black')
 pg.mkplot(voffset=1.5)
 
-for i, voffset, color in apt.enzip(ax.prop.voffsets, ax.prop.colors):
+for i, voffset in enumerate(ax.prop.voffsets):
     if i < 5:
-        ax.text(s=f'$j = {i + 1}$', x=4.74, y=voffset+1e5, color=color,
+        ax.text(s=f'$j = {i + 1}$', x=4.74, y=voffset+1e5,
                 transform=ax.transData, ha='center')
     else:
-        ax.text(s=f'sum', x=4.74, y=voffset+1e5, color=color,
+        ax.text(s=f'sum', x=4.74, y=voffset+1e5,
                 transform=ax.transData, ha='center')
 
-apt.show()
-# apt.save(__file__)
+# apt.show()
+apt.save(__file__)

@@ -23,8 +23,8 @@ st_proj.stage(axs[1][1], bounds=f2_bounds_signal, label="States–TPPI")
 ea_proj.stage(axs[1][1], bounds=f2_bounds_signal, label="echo–antiecho")
 ax_inset = pg.mkinset(axs[1][1], size=(0.6, 0.2), pos=(0.35, 0.54),
                       show_zoom=False)
-st_proj.stage(ax_inset, bounds=f2_bounds_noise)
-ea_proj.stage(ax_inset, bounds=f2_bounds_noise)
+st_proj.stage(ax_inset, bounds=f2_bounds_noise, color=apt.PAL[0])
+ea_proj.stage(ax_inset, bounds=f2_bounds_noise, color=apt.PAL[1])
 
 pg.mkplot(axs[0][0])
 pg.mkplot(axs[0][1])

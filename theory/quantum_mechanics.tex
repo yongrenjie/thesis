@@ -4,19 +4,19 @@
 The most fundamental equation in (non-relativistic) quantum mechanics, which governs the time evolution of a quantum state $\ket{\Psi(t)}$ under a Hamiltonian $H$, is the time-dependent Schr\"{o}dinger equation:
 \begin{equation}
     \label{eq:tdse}
-    \frac{\partial\!\ket{\Psi(t)}}{\partial t} = -\frac{\mi}{\hbar}H\ket{\Psi(t)} 
+    \frac{\partial\!\ket{\Psi(t)}}{\partial t} = -\frac{\mi}{\hbar}H\ket{\Psi(t)}.
 \end{equation}
 For a Hamiltonian which is constant over a period of time $t_1 \leq t \leq t_2$ (i.e.\ is \textit{time-independent}), this can be integrated to yield an explicit solution:
 \begin{equation}
     \label{eq:time_evolution}
-    \ket{\Psi(t_2)} = \exp\left[-\frac{\mi H (t_2 - t_1)}{\hbar}\right]\ket{\Psi(t_1)}
+    \ket{\Psi(t_2)} = \exp\left[-\frac{\mi H (t_2 - t_1)}{\hbar}\right]\ket{\Psi(t_1)}.
 \end{equation}
 In NMR, it is conventional to use units of angular frequencies instead of energies, for example by replacing $H/\hbar \to H$; this will henceforth be assumed.
 The term $\exp[-\mi H(t_2 - t_1)]$ is called the \textit{propagator} of the system and denoted $U(t_2, t_1)$; this is often further simplified to $U(\tau)$ where $\tau = t_2 - t_1$ is the duration of the evolution.
 For a Hamiltonian which varies with time but is piecewise constant, in that it can be broken up into several finite periods within which $H\/$ is time-independent, the time evolution of the state is simply given by successive application of propagators:
 \begin{equation}
     \label{eq:time_evolution_piecewise}
-    \ket{\Psi(t_n)} = U(t_n,t_{n-1})\cdots U(t_2,t_1)U(t_1,t_0) \ket{\Psi(t_0)}
+    \ket{\Psi(t_n)} = U(t_n,t_{n-1})\cdots U(t_2,t_1)U(t_1,t_0) \ket{\Psi(t_0)},
 \end{equation}
 where $t_n > t_{n-1} > \cdots > t_0$.
 The case where $H\/$ continuously varies with time is more complicated, but we will not need to consider it in this thesis.
@@ -31,7 +31,7 @@ Since the matrix elements of an operator $O$ are given by $O_{mn} = \braket{m|O|
     \label{eq:pauli}
     I_x = \frac{1}{2}\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}; \quad 
     I_y = \frac{1}{2}\begin{pmatrix} 0 & -\mi \\ \mi & 0 \end{pmatrix}; \quad 
-    I_z = \frac{1}{2}\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
+    I_z = \frac{1}{2}\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}.
 \end{equation}
 Their commutators are given by:
 \begin{equation}
@@ -45,9 +45,9 @@ We also define the following linear combinations:
     \label{eq:other_single_spin_ops}
     \begin{aligned}
         I_+ = I_x + \mi I_y &= \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}; &
-        I_\alpha = \frac{1}{2}E + I_z &= \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix} \\
+        I_\alpha = \frac{1}{2}E + I_z &= \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}; \\
         I_- = I_x - \mi I_y &= \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}; &
-        I_\beta = \frac{1}{2}E - I_z &= \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}
+        I_\beta = \frac{1}{2}E - I_z &= \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix},
     \end{aligned}
 \end{equation}
 where $E\/$ is the $2 \times 2$ identity matrix.
@@ -63,15 +63,15 @@ For example, the operator $2I_xS_z$ can be represented as follows:\footnote{This
     2I_xS_z = 2 \cdot \frac{1}{2} \cdot \frac{1}{2} \left[ 
     \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} \otimes
     \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} \right]
-    = \frac{1}{2} \begin{pmatrix} 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & -1 \\ 1 & 0 & 0 & 0 \\ 0 & -1 & 0 & 0 \end{pmatrix}
+    = \frac{1}{2} \begin{pmatrix} 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & -1 \\ 1 & 0 & 0 & 0 \\ 0 & -1 & 0 & 0 \end{pmatrix}.
 \end{equation}
 The Hamiltonians $H\/$ for nuclear spin interactions, which will be encountered frequently in this chapter, are formed from such operators.\autocite{Levitt2008}
 In solution-state NMR, these interactions include:
 \begin{align}
-    \Hcs &= \sum_i \omega_{0,i} I_{iz} & &\text{(chemical shift)} \label{eq:h_cs} \\
-    \HJ &= \sum_{i > j} 2\cpi J_{ij} (\symbf{I}_{i}\cdot \symbf{I}_{j}) & &\text{(scalar coupling)} \label{eq:h_j} \\
-    \Hpulse &= \sum_i \omega_{i,x}I_{ix} + \sum_i \omega_{i,y}I_{iy} & &\text{(radiofrequency pulses)} \label{eq:h_pulse} \\
-    \Hgrad &= \sum_i \gamma_i Gz I_{iz} & &\text{(pulsed field gradients on }z\text{)} \label{eq:h_grad}
+    \Hcs &= \sum_i \omega_{0,i} I_{iz} & &\text{(chemical shift)}; \label{eq:h_cs} \\
+    \HJ &= \sum_{i > j} 2\cpi J_{ij} (\symbf{I}_{i}\cdot \symbf{I}_{j}) & &\text{(scalar coupling)}; \label{eq:h_j} \\
+    \Hpulse &= \sum_i \omega_{i,x}I_{ix} + \sum_i \omega_{i,y}I_{iy} & &\text{(radiofrequency pulses)}; \label{eq:h_pulse} \\
+    \Hgrad &= \sum_i \gamma_i Gz I_{iz} & &\text{(pulsed field gradients on }z\text{)}. \label{eq:h_grad}
 \end{align}
 Pulsed field gradients (henceforth shortened to \textit{gradients}) can in principle be applied along any axis, not just $z$, but this is dependent on hardware: all the work in this thesis was done on $z$-gradient probes.
 In the above expressions:

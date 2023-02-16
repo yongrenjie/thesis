@@ -7,8 +7,8 @@
    viewBox="0 0 180 134"
    version="1.1"
    id="svg5"
-   inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)"
-   sodipodi:docname="master.svg"
+   inkscape:version="1.2.2 (b0a8486, 2022-12-01)"
+   sodipodi:docname="prodop_rules.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -25,12 +25,12 @@
      inkscape:document-units="mm"
      showgrid="true"
      inkscape:zoom="1.5358106"
-     inkscape:cx="143.89795"
-     inkscape:cy="93.435998"
+     inkscape:cx="254.91425"
+     inkscape:cy="94.087122"
      inkscape:window-width="1355"
-     inkscape:window-height="698"
+     inkscape:window-height="642"
      inkscape:window-x="2028"
-     inkscape:window-y="241"
+     inkscape:window-y="185"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1">
     <inkscape:grid
@@ -388,7 +388,7 @@
      inkscape:groupmode="layer"
      id="layer1">
     <ellipse
-       style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:0.4, 0.8;stroke-dashoffset:0;marker-end:url(#Arrow2Send);stop-color:#000000"
+       style="fill:none;stroke:#000000;stroke-width:0.32;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow2Send);stop-color:#000000"
        id="ellipse579"
        sodipodi:type="arc"
        sodipodi:cx="20.721941"
@@ -402,7 +402,7 @@
        transform="matrix(0,1,1,0,0,0)"
        d="M 22.345225,8.9370683 A 9.3481178,9.3482265 0 0 1 29.92804,16.519972" />
     <ellipse
-       style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:0.4, 0.8;stroke-dashoffset:0;marker-end:url(#Arrow2Send-5);stop-color:#000000"
+       style="fill:none;stroke:#000000;stroke-width:0.32;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow2Send-5);stop-color:#000000"
        id="ellipse579-6"
        sodipodi:type="arc"
        sodipodi:cx="24.623768"
@@ -416,7 +416,7 @@
        transform="scale(1,-1)"
        d="m 26.247051,-30.286584 a 9.3481178,9.3482265 0 0 1 7.582816,7.582904" />
     <ellipse
-       style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:0.4, 0.8;stroke-dashoffset:0;marker-end:url(#Arrow2Send-5-4);stop-color:#000000"
+       style="fill:none;stroke:#000000;stroke-width:0.32;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow2Send-5-4);stop-color:#000000"
        id="ellipse579-6-8"
        sodipodi:type="arc"
        sodipodi:cx="-15.650806"
@@ -430,7 +430,7 @@
        transform="matrix(0,-1,-1,0,0,0)"
        d="m -14.027523,-34.18841 a 9.3481178,9.3482265 0 0 1 7.5828155,7.582903" />
     <ellipse
-       style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:0.4, 0.8;stroke-dashoffset:0;marker-end:url(#Arrow2Send-5-4-4);stop-color:#000000"
+       style="fill:none;stroke:#000000;stroke-width:0.32;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow2Send-5-4-4);stop-color:#000000"
        id="ellipse579-6-8-0"
        sodipodi:type="arc"
        sodipodi:cx="-18.501711"
@@ -521,7 +521,7 @@
        y="14.4"
        ry="1.6" />
     <ellipse
-       style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:0.4, 0.8;stroke-dashoffset:0;marker-end:url(#Arrow2Send-6);stop-color:#000000"
+       style="fill:none;stroke:#000000;stroke-width:0.32;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow2Send-6);stop-color:#000000"
        id="ellipse579-8"
        sodipodi:type="arc"
        sodipodi:cx="54.321941"
@@ -535,7 +535,7 @@
        transform="matrix(0,1,1,0,0,0)"
        d="m 55.945225,28.137067 a 9.3481178,9.3482265 0 0 1 7.582815,7.582904" />
     <ellipse
-       style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:0.4, 0.8;stroke-dashoffset:0;marker-end:url(#Arrow2Send-5-7);stop-color:#000000"
+       style="fill:none;stroke:#000000;stroke-width:0.32;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow2Send-5-7);stop-color:#000000"
        id="ellipse579-6-84"
        sodipodi:type="arc"
        sodipodi:cx="43.823769"
@@ -549,7 +549,7 @@
        transform="scale(1,-1)"
        d="m 45.447052,-63.886584 a 9.3481178,9.3482265 0 0 1 7.582816,7.582904" />
     <ellipse
-       style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:0.4, 0.8;stroke-dashoffset:0;marker-end:url(#Arrow2Send-5-4-41);stop-color:#000000"
+       style="fill:none;stroke:#000000;stroke-width:0.32;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow2Send-5-4-41);stop-color:#000000"
        id="ellipse579-6-8-5"
        sodipodi:type="arc"
        sodipodi:cx="-49.250809"
@@ -563,7 +563,7 @@
        transform="matrix(0,-1,-1,0,0,0)"
        d="m -47.627525,-53.388411 a 9.3481178,9.3482265 0 0 1 7.582815,7.582903" />
     <ellipse
-       style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:0.4, 0.8;stroke-dashoffset:0;marker-end:url(#Arrow2Send-5-4-4-1);stop-color:#000000"
+       style="fill:none;stroke:#000000;stroke-width:0.32;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow2Send-5-4-4-1);stop-color:#000000"
        id="ellipse579-6-8-0-7"
        sodipodi:type="arc"
        sodipodi:cx="-37.70171"
@@ -645,7 +645,7 @@
        y="48"
        ry="1.6" />
     <ellipse
-       style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:0.4, 0.8;stroke-dashoffset:0;marker-end:url(#Arrow2Send-8);stop-color:#000000"
+       style="fill:none;stroke:#000000;stroke-width:0.32;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow2Send-8);stop-color:#000000"
        id="ellipse579-3"
        sodipodi:type="arc"
        sodipodi:cx="20.721941"
@@ -659,7 +659,7 @@
        transform="matrix(0,1,1,0,0,0)"
        d="m 22.345225,47.337068 a 9.3481178,9.3482265 0 0 1 7.582815,7.582904" />
     <ellipse
-       style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:0.4, 0.8;stroke-dashoffset:0;marker-end:url(#Arrow2Send-5-8);stop-color:#000000"
+       style="fill:none;stroke:#000000;stroke-width:0.32;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow2Send-5-8);stop-color:#000000"
        id="ellipse579-6-7"
        sodipodi:type="arc"
        sodipodi:cx="63.023769"
@@ -673,7 +673,7 @@
        transform="scale(1,-1)"
        d="m 64.647053,-30.286584 a 9.3481178,9.3482265 0 0 1 7.582815,7.582904" />
     <ellipse
-       style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:0.4, 0.8;stroke-dashoffset:0;marker-end:url(#Arrow2Send-5-4-6);stop-color:#000000"
+       style="fill:none;stroke:#000000;stroke-width:0.32;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow2Send-5-4-6);stop-color:#000000"
        id="ellipse579-6-8-00"
        sodipodi:type="arc"
        sodipodi:cx="-15.650806"
@@ -687,7 +687,7 @@
        transform="matrix(0,-1,-1,0,0,0)"
        d="m -14.027523,-72.588412 a 9.3481178,9.3482265 0 0 1 7.5828155,7.582904" />
     <ellipse
-       style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:0.4, 0.8;stroke-dashoffset:0;marker-end:url(#Arrow2Send-5-4-4-2);stop-color:#000000"
+       style="fill:none;stroke:#000000;stroke-width:0.32;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow2Send-5-4-4-2);stop-color:#000000"
        id="ellipse579-6-8-0-1"
        sodipodi:type="arc"
        sodipodi:cx="-56.901711"
@@ -778,7 +778,7 @@
        y="14.4"
        ry="1.6" />
     <ellipse
-       style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:0.4, 0.8;stroke-dashoffset:0;marker-end:url(#Arrow2Send-8-0);stop-color:#000000"
+       style="fill:none;stroke:#000000;stroke-width:0.32;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow2Send-8-0);stop-color:#000000"
        id="ellipse579-3-6"
        sodipodi:type="arc"
        sodipodi:cx="20.721941"
@@ -792,7 +792,7 @@
        transform="matrix(0,1,1,0,0,0)"
        d="m 22.345225,85.737069 a 9.3481178,9.3482265 0 0 1 7.582815,7.582904" />
     <ellipse
-       style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:0.4, 0.8;stroke-dashoffset:0;marker-end:url(#Arrow2Send-5-8-9);stop-color:#000000"
+       style="fill:none;stroke:#000000;stroke-width:0.32;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow2Send-5-8-9);stop-color:#000000"
        id="ellipse579-6-7-6"
        sodipodi:type="arc"
        sodipodi:cx="101.42377"
@@ -806,7 +806,7 @@
        transform="scale(1,-1)"
        d="m 103.04705,-30.286584 a 9.3481178,9.3482265 0 0 1 7.58282,7.582904" />
     <ellipse
-       style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:0.4, 0.8;stroke-dashoffset:0;marker-end:url(#Arrow2Send-5-4-6-5);stop-color:#000000"
+       style="fill:none;stroke:#000000;stroke-width:0.32;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow2Send-5-4-6-5);stop-color:#000000"
        id="ellipse579-6-8-00-4"
        sodipodi:type="arc"
        sodipodi:cx="-15.650806"
@@ -820,7 +820,7 @@
        transform="matrix(0,-1,-1,0,0,0)"
        d="m -14.027523,-110.98842 a 9.3481178,9.3482265 0 0 1 7.5828155,7.58291" />
     <ellipse
-       style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:0.4, 0.8;stroke-dashoffset:0;marker-end:url(#Arrow2Send-5-4-4-2-3);stop-color:#000000"
+       style="fill:none;stroke:#000000;stroke-width:0.32;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow2Send-5-4-4-2-3);stop-color:#000000"
        id="ellipse579-6-8-0-1-0"
        sodipodi:type="arc"
        sodipodi:cx="-95.301712"
@@ -928,7 +928,7 @@
    style="font-size:65%;baseline-shift:sub"
    id="tspan10479">z</tspan></tspan></text>
     <ellipse
-       style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:0.4, 0.8;stroke-dashoffset:0;marker-end:url(#Arrow2Send-6-8);stop-color:#000000"
+       style="fill:none;stroke:#000000;stroke-width:0.32;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow2Send-6-8);stop-color:#000000"
        id="ellipse579-8-1"
        sodipodi:type="arc"
        sodipodi:cx="54.321941"
@@ -942,7 +942,7 @@
        transform="matrix(0,1,1,0,0,0)"
        d="m 55.945225,67.33706 a 9.3481178,9.3482265 0 0 1 7.582815,7.582904" />
     <ellipse
-       style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:0.4, 0.8;stroke-dashoffset:0;marker-end:url(#Arrow2Send-5-7-4);stop-color:#000000"
+       style="fill:none;stroke:#000000;stroke-width:0.32;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow2Send-5-7-4);stop-color:#000000"
        id="ellipse579-6-84-1"
        sodipodi:type="arc"
        sodipodi:cx="83.023766"
@@ -956,7 +956,7 @@
        transform="scale(1,-1)"
        d="m 84.647049,-63.886584 a 9.3481178,9.3482265 0 0 1 7.582816,7.582904" />
     <ellipse
-       style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:0.4, 0.8;stroke-dashoffset:0;marker-end:url(#Arrow2Send-5-4-41-0);stop-color:#000000"
+       style="fill:none;stroke:#000000;stroke-width:0.32;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow2Send-5-4-41-0);stop-color:#000000"
        id="ellipse579-6-8-5-5"
        sodipodi:type="arc"
        sodipodi:cx="-49.250809"
@@ -970,7 +970,7 @@
        transform="matrix(0,-1,-1,0,0,0)"
        d="m -47.627525,-92.588408 a 9.3481178,9.3482265 0 0 1 7.582815,7.582904" />
     <ellipse
-       style="fill:none;stroke:#000000;stroke-width:0.4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:0.4, 0.8;stroke-dashoffset:0;marker-end:url(#Arrow2Send-5-4-4-1-5);stop-color:#000000"
+       style="fill:none;stroke:#000000;stroke-width:0.32;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#Arrow2Send-5-4-4-1-5);stop-color:#000000"
        id="ellipse579-6-8-0-7-1"
        sodipodi:type="arc"
        sodipodi:cx="-76.901703"

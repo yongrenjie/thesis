@@ -106,12 +106,12 @@ At this point, our matrix exponentials have almost been eliminated and the large
 We can cut these down by a factor of two simply by calculating the overall propagator
 \begin{equation}
     \label{eq:overall_propagator}
-    U_{\symup{total}} = U_n\cdots U_2U_1
+    U_{\symup{total}} = U_n\cdots U_2U_1,
 \end{equation}
 and then performing the propagation only at the very end:
 \begin{equation}
     \label{eq:overall_propagation}
-    \rho = U_{\symup{total}} \rho_0 \adj{U_{\symup{total}}}
+    \rho = U_{\symup{total}} \rho_0 \adj{U_{\symup{total}}},
 \end{equation}
 instead of performing every individual step $\rho \to U_1\rho_0\adj{U_1}$.
 The final optimised code therefore resembles that in \cref{lst:dpsyche_fast2}.

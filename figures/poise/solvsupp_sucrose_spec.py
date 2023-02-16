@@ -12,17 +12,14 @@ titles = ["initial point for optimisation",
           "4 parameters optimised (23 min 16 sec)"]
 
 fig, ax = pg.subplots(figsize=(6.5, 5))
-for ds, color in zip(dss, ['black', *apt.PAL]):
-    ds.stage(bounds="3.3..5.4", color=color)
+for ds in dss:
+    ds.stage(bounds="3.3..5.4", color="black")
 pg.mkplot(voffset=1.1)
 
-for i, (voffset, color, ds, title) in enumerate(zip(ax.prop.voffsets,
-                                                    ax.prop.colors,
-                                                    dss,
-                                                    titles)):
+for i, voffset, ds, title in apt.enzip(ax.prop.voffsets, dss, titles):
     height = voffset + 1e11
     ax.text(x=0.95, y=height, s=title,
-            color=color, transform=ax.get_yaxis_transform(),
+            transform=ax.get_yaxis_transform(),
             horizontalalignment="right")
 pg.style_axes(ax, "1d")
 

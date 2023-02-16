@@ -29,7 +29,7 @@ Note that, since the term $P$ is not directly detected, it can have \textit{any}
 We can equivalently express this signal as a sum of complex exponentials, which is easier to Fourier transform:
 \begin{equation}
     \label{eq:2d_cos_exp_sum}
-    s(t_1, t_2) = \cos(\Omega_P t_1)\exp(\mi \Omega_Q t_2) = \frac{1}{2}\bigl[\exp(\mi\Omega_P t_1)\exp(\mi\Omega_Q t_2) + \exp(-\mi\Omega_P t_1)\exp(\mi\Omega_Q t_2)\bigr]
+    s(t_1, t_2) = \cos(\Omega_P t_1)\exp(\mi \Omega_Q t_2) = \frac{1}{2}\bigl[\exp(\mi\Omega_P t_1)\exp(\mi\Omega_Q t_2) + \exp(-\mi\Omega_P t_1)\exp(\mi\Omega_Q t_2)\bigr].
 \end{equation}
 Fourier transformation of the first term reveals a peak centred at $(\omega_1, \omega_2) = (\Omega_P, \Omega_Q)$:
 \begin{align}
@@ -64,7 +64,7 @@ It is also necessary to acquire a \textit{sine-modulated signal} of the form $s_
 Once we have these two datasets, we can perform a Fourier transform along $\omega_2$ first to get two intermediate signals:
 \begin{align}
     \label{eq:states_1}
-    s'_\text{cos}(t_1, \omega_2) &= \cos(\Omega_P t_1) [A_2(\Omega_Q) + \mi D_2(\Omega_Q)] \\
+    s'_\text{cos}(t_1, \omega_2) &= \cos(\Omega_P t_1) [A_2(\Omega_Q) + \mi D_2(\Omega_Q)]; \\
     s'_\text{sin}(t_1, \omega_2) &= \sin(\Omega_P t_1) [A_2(\Omega_Q) + \mi D_2(\Omega_Q)].
 \end{align}
 These idealised signals have the absorption-mode component $A_2$ as the real part in the $\omega_2$ dimension.
@@ -103,8 +103,8 @@ This can be accomplished by phase shifting one or more pulses \textit{before} th
 
 On the other hand, the EA method seeks instead to measure two signals which are \textit{phase-modulated} in $t_1$ (instead of \textit{amplitude-modulated} as in the States method):
 \begin{align}
-    s_\text{echo}(t_1, t_2) &= \frac{1}{2}\exp(-\mi\Omega_P t_1)\exp(\mi\Omega_Q t_2) \label{eq:echo_antiecho_1a} \\
-    s_\text{antiecho}(t_1, t_2) &= \frac{1}{2}\exp(\mi\Omega_P t_1)\exp(\mi\Omega_Q t_2) \label{eq:echo_antiecho_1b}
+    s_\text{echo}(t_1, t_2) &= \frac{1}{2}\exp(-\mi\Omega_P t_1)\exp(\mi\Omega_Q t_2); \label{eq:echo_antiecho_1a} \\
+    s_\text{antiecho}(t_1, t_2) &= \frac{1}{2}\exp(\mi\Omega_P t_1)\exp(\mi\Omega_Q t_2). \label{eq:echo_antiecho_1b}
 \end{align}
 Once recorded, these signals can be added and subtracted to obtain the cosine- and sine-modulated signals of the States method; the standard States processing can then follow.
 The echo and antiecho signals can be obtained through the use of pulsed field gradients during the $t_1$ period, though a concrete example is deferred until the next section.
