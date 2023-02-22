@@ -1,0 +1,124 @@
+\documentclass[12pt]{article}
+%! TEX root = revisions.tex
+
+\usepackage{fullpage,parskip}
+
+% Fonts {{{1
+\usepackage{fontspec}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage[warnings-off={mathtools-colon,mathtools-overbracket}]{unicode-math}
+
+% Main fonts used in the document
+\setmainfont[
+  Path={./fonts/},
+  Extension=.otf,
+  UprightFont={*-regular},
+  BoldFont={*-semibold},
+  ItalicFont={*-italic},
+  BoldItalicFont={*-semibolditalic},
+  Ligatures=TeX,
+]{minion3}
+\setmonofont[
+  Path={./fonts/},
+  Extension=.ttf,
+  UprightFont={*-Regular},
+  BoldFont={*-SemiBold},
+  ItalicFont={*-Italic},
+  BoldItalicFont={*-SemiBoldItalic},
+  Scale=MatchLowercase
+]{RobotoMono}
+\setmathfont[
+  Path={./fonts/},
+  Scale=MatchLowercase,
+  Ligatures=TeX,
+]{MinionMath-Regular.otf}
+\mathitalicsmode=1
+
+% Other optical sizes for Minion
+\newfontfamily{\fontcaption}{minion3caption}[
+  Path={./fonts/},
+  Extension=.otf,
+  UprightFont={*-regular},
+  BoldFont={*-semibold},
+  ItalicFont={*-italic},
+  BoldItalicFont={*-semibolditalic},
+  Ligatures=TeX,
+]
+\newfontfamily{\fontsubhead}{minion3subhead}[
+  Path={./fonts/},
+  Extension=.otf,
+  UprightFont={*-regular},
+  BoldFont={*-bold},
+  ItalicFont={*-italic},
+  BoldItalicFont={*-bolditalic},
+  Ligatures=TeX,
+]
+
+\usepackage{microtype}
+% }}}1
+
+
+\begin{document}
+
+\title{List of (some) revisions}
+\author{Jonathan Yong}
+\date{21 February 2023}
+
+\maketitle
+
+Various minor textual changes have been made throughout the thesis, which are ignored here.
+The numbering of all equations, figures, pages, etc.\ refer to that in the corrected version.
+
+\section*{Front matter}
+
+\begin{itemize}
+    \item Corrected term of submission on front page
+    \item Reworded parts of acknowledgements
+\end{itemize}
+
+\section{NMR theory}
+
+\begin{itemize}
+    \item Added missing punctuation to equations where necessary
+    \item Corrected explanation of rotating frame and resonance condition (p.~7) ($\omega_{\symup{rf}}$ symbol was unnecessary)
+    \item Corrected caption of fig.~1.2 (p.~13) (the $\symup{\pi}$ symbol was not rendered correctly)
+    \item Reworked explanation of fig.~1.8 to improve clarity (p.~30)
+\end{itemize}
+
+\section{Pure shift NMR}
+
+\begin{itemize}
+    \item Added an example of a pure shift spectrum in the introduction (fig.~2.1; p.~36)
+    \item Corrected pulse sequence in fig.~2.3a (p.~42) (caption described a NOESY experiment but there was no mixing time)
+    \item Removed unnecessary colour from fig.~2.17 (p.~67)
+    \item Additionally labelled the two `special optima' in fig.~2.20 with different shapes (p.~75)
+    \item Added conclusion section (pp.~87--89)
+\end{itemize}
+
+\section{POISE}
+
+\begin{itemize}
+    \item Fixed incorrect labels in fig.~3.3 pp.~105)
+    \item Inserted missing factor of $1/2$ in eq.~3.21 (p.~117)
+    \item Improved explanation of POISE source code locations (p.~110)
+    \item Reworked \S~3.4.2 so as to bring table 3.4 before tables 3.5 and 3.6 (pp.~122--123)
+    \item Added labels quantifying post-optimisation NOESY sensitivity enhancements in fig.~3.11 (p.~128)
+    \item Reworded discussion on gramicidin NOESY optimisation to avoid implying that results were \textit{accurate} (they are merely \textit{reproducible}) (p.~128)
+    \item Removed unnecessary colour in figs.~3.24, 3.26, and 3.27 (pp.~146--152)
+    \item Explicitly disambiguated cost functions in eqs.~3.34 and 3.35 (p.~148) (previously they were implied to be the same)
+    \item Added conclusion section (pp.~162--163)
+\end{itemize}
+
+\section{NOAH}
+
+\begin{itemize}
+    \item Added missing $y$-axis labels in various figures
+    \item Standardised captions where necessary
+    \item Added missing diagram in fig.~4.64a (p.~262)
+    \item Extended explanation of symmetrisation procedure in covariance spectra (pp.~270--271)
+    \item Added conclusion section (p.~272)
+\end{itemize}
+
+
+\end{document}
