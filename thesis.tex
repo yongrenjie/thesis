@@ -1,7 +1,5 @@
 \documentclass[final,a4paper,12pt,twoside,openany]{book}
 
-% \includeonly{frontmatter/acknowledgements}
-
 \input{preamble/fonts}
 \input{preamble/packages}
 \input{preamble/macros}
@@ -13,11 +11,12 @@
 \renewcommand{\thefigure}{0.\arabic{figure}}
 \renewcommand{\thetable}{0.\arabic{table}}
 \input{frontmatter/titlepage}
-{\hypersetup{hidelinks} \tableofcontents{}}
+\include{frontmatter/foreword}
 \include{frontmatter/abstract}
-\include{frontmatter/declaration}
-\include{frontmatter/acknowledgements}
 \include{frontmatter/preface}
+\include{frontmatter/publications}
+\include{frontmatter/acknowledgements}
+{\hypersetup{hidelinks} \tableofcontents{}}
 \include{frontmatter/lists}
 
 \mainmatter
